@@ -5,6 +5,7 @@
     .featured {
         font-family: helvetica;
         display: flex;
+        padding: 16px;
     }
     
     .header {
