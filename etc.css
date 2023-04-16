@@ -1,0 +1,15 @@
+/* Désactiver le zoom dans Chrome */
+body {
+  touch-action: manipulation;
+}
+
+/* Désactiver le zoom dans Safari */
+html, body {
+  -webkit-text-size-adjust: none;
+}
+
+/* Désactiver le zoom dans Firefox */
+html {
+  overflow: scroll;
+  -moz-text-size-adjust: none;
+}
