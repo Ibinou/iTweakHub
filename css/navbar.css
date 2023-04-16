@@ -18,3 +18,8 @@
 .bloc-icon img {
   width: 50px;
 }
+@media only screen and (max-device-width: 812px) {
+  .bottom-tab-bar {
+    padding-bottom: 20px;
+  }
+}
