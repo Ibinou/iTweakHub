@@ -5,7 +5,8 @@
     .featured {
         font-family: helvetica;
         display: flex;
-        padding: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
     
     .header {
@@ -42,7 +43,7 @@
         max-width: 400px;
     }
     
-    .app_cell_left {
+    .appleft {
         display: flex;
         align-items: center;
         gap: 0.7rem;
@@ -56,7 +57,7 @@
         object-fit: cover;
     }
     
-    .app_cell_meta {
+    .appright {
         display: flex;
         flex-direction: column;
         text-align: left;
