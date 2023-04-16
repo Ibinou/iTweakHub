@@ -34,7 +34,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         background-color: rgba(0, 0, 0, .6);
         padding: 8px;
