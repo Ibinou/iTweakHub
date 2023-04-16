@@ -30,7 +30,7 @@
         border-radius: 20px;
     }
     
-    .app_cell {
+    .dock {
         display: flex;
         justify-content: space-between;
         align-items: center;
