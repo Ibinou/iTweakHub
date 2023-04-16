@@ -1,0 +1,20 @@
+.mobile-nav {
+  position: fixed;
+  bottom: 0;
+  height: 57px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  -webkit-backdrop-filter: saturate(140%) blur(15px);
+  backdrop-filter: saturate(140%) blur(15px);
+  background-color: rgba(42, 42, 42, 0.4);
+  border-top: 1px solid rgb(41, 41, 41);
+}
+.bloc-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bloc-icon img {
+  width: 50px;
+}
