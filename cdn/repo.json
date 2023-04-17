@@ -1,0 +1,57 @@
+{
+    "repoName":"iTweakHub Main",
+    "repoAuthors": [
+        {
+            "name":"puffer",
+            "link":"https://github.com/KevinAlavik"
+        },
+        {
+            "name":"Ibinou",
+            "link":"https://github.com/Ibinou"
+        }
+    ],
+    "apps": [
+        {
+            "name":"Unc0ver",
+            "down":"https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+            "ver":"8.0.2",
+            "developers":[
+                {
+                    "name":"pwn20wnd",
+                    "link":"https://twitter.com/pwn20wnd",
+                    "role":"Lead Developer"
+                },
+                {
+                    "name":"Sam Bingner",
+                    "link":"https://twitter.com/sbingner",
+                    "role":"Developer"
+                },
+                {
+                    "name":"Siguza",
+                    "link":"https://twitter.com/s1guza",
+                    "role":"Developer"
+                },
+                {
+                    "name":"Jake James",
+                    "link":"https://twitter.com/Jakeashacks",
+                    "role":"Developer"
+                },
+                {
+                    "name":"Ubik",
+                    "link":"https://twitter.com/himynameisubik",
+                    "role":"Designer"
+                },
+                {
+                    "name":"Dennis D. Bednarz",
+                    "link":"https://twitter.com/DennisBednarz",
+                    "role":"Logo Designer"
+                },
+                {
+                    "name":"exDeveloper",
+                    "link":"https://twitter.com/ios_app_dev",
+                    "role":"UI Dev"
+                }
+            ]
+        }
+    ]
+}

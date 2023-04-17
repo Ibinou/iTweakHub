@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <script src="index.js"></script>
 </head>
 <body>
 <style>
@@ -24,8 +25,8 @@ body {
  
   <form>
   <label for="email">URL of the repository</label>
-  <input type="email" id="email" name="email" placeholder="https://...">
-  <button type="submit">Add</button>
+  <input type="url" id="repoUrl" name="email" placeholder="https://ibinou.github.io/iTweakHub/cdn/repo.json">
+  <button type="submit" onclick="addRepo(repoUrl)">Add</button>
 </form>
 
   
