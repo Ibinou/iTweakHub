@@ -72,8 +72,20 @@ body {
 }
 
 .credits {
-  margin-bottom: 6rem;
   font-family: 'Courier New', Courier, monospace;
   transform: translateY(-60px);
   font-size: 12px;
+}
+
+.rectangle {
+  height: 45px;
+  width: 300px;
+  color:white;
+  background-color: #1c1c1c;
+  border-radius:10px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
 }
