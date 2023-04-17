@@ -29,3 +29,33 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #1c1c1c;
 }
+
+.button {
+  background-color: #1c1c1c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+body {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.apps {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.appsCategory {
+  margin-bottom: 1rem;
+}
+
+.apps > .dock {
+  margin-bottom: .75rem;
+}

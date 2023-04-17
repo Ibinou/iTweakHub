@@ -1,76 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/featured.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/styles.css">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <script src="/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<style>
-body {
-  background-color: #121212;
-  margin: 0;
-  padding: 0;
-}
-</style>
-   
-  <h5 style="font-family:arial;padding-left:16px;font-size:12px;font-weight:550;margin-top: 25px;margin-bottom: 10px;">
-      <script>
-      					                                                 var mydate=new Date()
-      					                                                 var year=mydate.getYear()
-      					                                                 var day=mydate.getDay()
-      					                                                 var month=mydate.getMonth()
-      					                                                 var daym=mydate.getDate()
-      					                                                 if (daym<10)
-      					                                                   daym="0"+daym
-      					                                                 var dayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
-      					                                                 var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
-      					                                                 document.write("<font color='f2f2f2'>"+dayarray[day]+", "+montharray[month]+" "+daym+"<\/font>")
-      </script>
-  <font  color="ffffff" class></font>
-    </h5>
-<h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">iTweakHub</h1>
-</div>    
 
- <div class="featured">
-    <section class="header">
-        <img class="featuredimg" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/clouds-1846760__340.jpg">
-        <div class="dock" onclick="appinfos.html">
-            <div class="app_cell_left">
-                <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG" class="appicon">
-                <div class="app_cell_meta">
-                    <div class="appname">Unc0ver</div>
-                    <div class="appsection">Jailbreak</div>
+<body>
+    <style>
+        body {
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <h5
+        style="margin: 1rem;font-family:arial;padding-left:16px;font-size:12px;font-weight:550;margin-top: 25px;margin-bottom: 10px;">
+        <script>
+            var mydate = new Date()
+            var year = mydate.getYear()
+            var day = mydate.getDay()
+            var month = mydate.getMonth()
+            var daym = mydate.getDate()
+            if (daym < 10)
+                daym = "0" + daym
+            var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+            var montharray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+            document.write("<font color='f2f2f2'>" + dayarray[day] + ", " + montharray[month] + " " + daym + "<\/font>")
+        </script>
+        <font color="ffffff" class></font>
+    </h5>
+    <h1 style="margin: 1rem;font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">iTweakHub</h1>
+    </div>
+    <div class="featured">
+        <section class="header">
+            <img class="featuredimg"
+                src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/clouds-1846760__340.jpg">
+            <div class="dock" style="margin-bottom: .5em;">
+                <div class="app_cell_left">
+                    <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+                        class="appicon">
+                    <div class="app_cell_meta">
+                        <div class="appname">Placeholder</div>
+                        <div class="appsection">Placeholder</div>
+                    </div>
+                </div>
+                <div class="appget">
+                    <button style="background-color: transparent; border: none;"
+                        onclick="openApp('Placeholder', 'Placeholder')">Get</button>
                 </div>
             </div>
-            <div class="appget">
-                <h1 style="margin-bottom: 0px;margin-top: 0px;">Get</h1>
+        </section>
+    </div>
+    <br>
+    <center>
+        <div class="apps">
+            <h1 align="left" class="appsCategory"
+                style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">All Apps
+            </h1>
+            <div class="dock">
+                <div class="app_cell_left">
+                    <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+                        class="appicon">
+                    <div class="app_cell_meta">
+                        <div class="appname">Placeholder</div>
+                        <div class="appsection">Placeholder</div>
+                    </div>
+                </div>
+                <div class="appget">
+                    <button style="background-color: transparent; border: none;"
+                        onclick="openApp('Placeholder', 'Placeholder')">Get</button>
+                </div>
+            </div>
+            <div class="dock">
+                <div class="app_cell_left">
+                    <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+                        class="appicon">
+                    <div class="app_cell_meta">
+                        <div class="appname">Placeholder</div>
+                        <div class="appsection">Placeholder</div>
+                    </div>
+                </div>
+                <div class="appget">
+                    <button style="background-color: transparent; border: none;"
+                        onclick="openApp('Placeholder', 'Placeholder')">Get</button>
+                </div>
+            </div>
+            <div class="dock">
+                <div class="app_cell_left">
+                    <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+                        class="appicon">
+                    <div class="app_cell_meta">
+                        <div class="appname">Placeholder</div>
+                        <div class="appsection">Placeholder</div>
+                    </div>
+                </div>
+                <div class="appget">
+                    <button style="background-color: transparent; border: none;"
+                        onclick="openApp('Placeholder', 'Placeholder')">Get</button>
+                </div>
             </div>
         </div>
-    </section>
-</div>   
- 
-    <a href="repo.html" class="button">Repo</a>
-    
-  
-  <nav class="mobile-nav">
-        <a href="index.html" class="bloc-icon">
-            <img src="ressources/8852D83B-1514-4F42-B447-E0CE5BEEF582.png" alt="">
-        </a>
-        <a href="sections.html" class="bloc-icon">
-            <img src="ressources/3D88B19A-3FBD-4434-AC82-59CE184A4732.png" alt="">
-        </a>
-        <a href="search.html" class="bloc-icon">
-            <img src="ressources/F57A39C3-7C56-42F0-B331-F589459F6F0C-removebg-preview-modified.png" alt="">
-        </a>
-        <a href="framework7.html" class="bloc-icon">
-            <img src="ressources/SignBleu.png" alt="">
-        </a>
-    </nav>    
-    
+
+        <div class="apps">
+            <h1 align="left" class="appsCategory"
+                style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">Jailbreaks
+            </h1>
+            <div class="dock">
+                <div class="app_cell_left">
+                    <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+                        class="appicon">
+                    <div class="app_cell_meta">
+                        <div class="appname">Placeholder</div>
+                        <div class="appsection">Placeholder</div>
+                    </div>
+                </div>
+                <div class="appget">
+                    <button style="background-color: transparent; border: none;"
+                        onclick="openApp('Placeholder', 'Placeholder')">Get</button>
+                </div>
+            </div>
+            <div class="dock">
+                <div class="app_cell_left">
+                    <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+                        class="appicon">
+                    <div class="app_cell_meta">
+                        <div class="appname">Placeholder</div>
+                        <div class="appsection">Placeholder</div>
+                    </div>
+                </div>
+                <div class="appget">
+                    <button style="background-color: transparent; border: none;"
+                        onclick="openApp('Placeholder', 'Placeholder')">Get</button>
+                </div>
+            </div>
+            <div class="dock">
+                <div class="app_cell_left">
+                    <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+                        class="appicon">
+                    <div class="app_cell_meta">
+                        <div class="appname">Placeholder</div>
+                        <div class="appsection">Placeholder</div>
+                    </div>
+                </div>
+                <div class="appget">
+                    <button style="background-color: transparent; border: none;"
+                        onclick="openApp('Placeholder', 'Placeholder')">Get</button>
+                </div>
+            </div>
+        </div>
+    </center>
+        <nav class="mobile-nav">
+            <a href="index.html" class="bloc-icon">
+                <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+            </a>
+            <a href="repo.html" class="bloc-icon">
+                <i class="fa-solid fa-plus fa-lg" style="color: #ffffff;"></i>
+            </a>
+            <a href="search.html" class="bloc-icon">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </a>
+        </nav>
+
 </body>
+
 </html>

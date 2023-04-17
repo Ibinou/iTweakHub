@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,30 +9,33 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <script src="index.js"></script>
+    <script src="/js/index.js"></script>
 </head>
-<body>
-<style>
-body {
-  background-color: #121212;
-  margin: 0;
-  padding: 0;
-}
-</style>
-   
-  
-<h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">Repo</h1>
-</div>  
- 
-  <form>
-  <label for="email">URL of the repository</label>
-  <input type="url" id="repoUrl" name="email" placeholder="https://ibinou.github.io/iTweakHub/cdn/repo.json">
-  <button type="submit" onclick="addRepo(repoUrl)">Add</button>
-</form>
 
-  
-  
-  <nav class="mobile-nav">
+<body>
+    <style>
+        body {
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+
+    <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">Repo</h1>
+    </div>
+
+    <form>
+        <label for="email">URL of the repository</label>
+        <input type="url" id="repoUrl" name="email" placeholder="https://ibinou.github.io/iTweakHub/cdn/repo.json">
+        <button type="submit" onclick="addRepo(repoUrl)">Add</button>
+    </form>
+
+    <div class="allRepos">
+
+    </div>
+
+    <nav class="mobile-nav">
         <a href="index.html" class="bloc-icon">
             <img src="ressources/8852D83B-1514-4F42-B447-E0CE5BEEF582.png" alt="">
         </a>
@@ -44,7 +48,8 @@ body {
         <a href="framework7.html" class="bloc-icon">
             <img src="ressources/SignBleu.png" alt="">
         </a>
-    </nav>    
-    
+    </nav>
+
 </body>
+
 </html>
