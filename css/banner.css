@@ -10,14 +10,3 @@
         height:165px;
       }
 
-      .screenshot{
-        display:flex;
-        overflow-x: auto;
-        -webkit-overflow-scrolling:touch;
-      }
-
-      .screenshot div{
-        flex-shrink:0;
-        width:250px;
-        height:515px;
-      }
