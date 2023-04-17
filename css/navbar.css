@@ -2,19 +2,25 @@
   position: fixed;
   bottom: 0;
   height: 57px;
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-around;
   -webkit-backdrop-filter: saturate(140%) blur(15px);
   backdrop-filter: saturate(140%) blur(15px);
   background-color: rgba(42, 42, 42, 0.4);
   border-top: 1px solid rgb(41, 41, 41);
+  border-radius: 50px;
+  text-align: center;
+  overflow: hidden;
+  margin: 2rem 0 1rem 2rem ;
 }
 .bloc-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  float: center;
+  text-align: center;
 }
 .bloc-icon img {
   width: 50px;
@@ -24,3 +30,4 @@
     padding-bottom: 20px;
   }
 }
+

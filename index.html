@@ -9,14 +9,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <script src="/js/index.js"></script>
+    <title>iTweakHub | Home</title>
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
     <link rel="manifest" href="manifest.json" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <i id="signed" style="color: #00c227; float:right; margin-top: 30px; margin-right: 25px" class="fa-solid fa-file-signature fa-xl"></i>
+    <i id="signed" style=" float:right; margin-top: 30px; margin-right: 25px"
+        class="fa-solid fa-file-signature fa-xl"></i>
     <h5
         style="margin: 1rem;font-family:arial;padding-left:16px;font-size:12px;font-weight:550;margin-top: 25px;margin-bottom: 10px;">
         <script>
@@ -29,15 +30,17 @@
                 daym = "0" + daym
             var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
             var montharray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
-            document.write("<font color='f2f2f2'>" + dayarray[day] + ", " + montharray[month] + " " + daym + "<\/font>")
+            document.write("<font color='f2f2f2'>" + dayarray[day] + ", " + montharray[month] + " " + daym + "<\/font>.<span style='color: red'> Welcome back!<span>")
         </script>
         <font color="ffffff" class></font>
     </h5>
-    <h1 style="margin: 1rem;font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">iTweakHub <span style="color: red;">Internal</span></h1>
+    <h1 style="margin: 1rem;font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">
+        iTweakHub <span style="color: red;">Developer Beta</span></h1>
     </div>
     <div class="featured">
         <section class="header">
-            <img class="featuredimg" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/clouds-1846760__340.jpg">
+            <img class="featuredimg"
+                src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/clouds-1846760__340.jpg">
             <div class="dock" style="margin-bottom: .5em;">
                 <div class="app_cell_left">
                     <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
@@ -164,7 +167,8 @@
 
         <div class="apps">
             <h1 align="left" class="appsCategory"
-                style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">Popular Apps
+                style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">Popular
+                Apps
             </h1>
             <div class="appList">
                 <div class="dock">
@@ -269,13 +273,22 @@
         </div>
 
     </center>
-    
+
     <center>
         <p class="credits"><strong>Made with ❤ by @pufferisadev && @Ibatech1</strong></p>
+        <p>iOS Version: <span id="iosVer">Unknown</span></p>
     </center>
-  
+    <br>
     <center>
-        <a href="devs.html" class="rectangle" id="r1">Setings</a>
+        <a href="devs.html" class="rectangle" id="r1">Developer Settings</a>
+        <br>
+        <a href="settings.html" class="rectangle" id="r1">Settings</a>
+        <br>
+        <a onclick="reloadRepos()" class="rectangle" id="r1">Reload Repos</a>
+        <br>
+        <a href="certs.html" class="rectangle" id="r1">Certificate Manager</a>
+        <br>
+        <br>
         <br>
         <br>
         <br>
@@ -294,7 +307,7 @@
                 <i class="fa-sharp fa-regular fa-compass" style="color: #ffffff;"></i>
             </a>
         </nav>
-
+        <script src="/js/index.js"></script>
 </body>
 
 </html>

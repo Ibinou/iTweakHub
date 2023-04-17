@@ -89,3 +89,7 @@ body {
   text-decoration: none;
   font-family: Helvetica, Arial, sans-serif;
 }
+
+body::-webkit-scrollbar {
+  display: none
+}
