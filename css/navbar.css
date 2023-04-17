@@ -12,9 +12,6 @@
   border-radius: 50px;
   text-align: center;
   overflow: hidden;
-  margin: 2rem 0 1rem 2rem;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .bloc-icon {
   display: flex;
