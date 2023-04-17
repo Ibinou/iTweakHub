@@ -48,9 +48,15 @@ body {
   background-color: #121212;
 }
 
-.apps {
+.appList {
   margin: 1rem;
   padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.appList > * { 
+  margin: .5rem;
 }
 
 .apps:last-child {
