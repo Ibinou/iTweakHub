@@ -122,3 +122,24 @@ body::-webkit-scrollbar + .screenshot::-webkit-scrollbar {
   font-size: 20px;
   margin-left: 10px;
 }
+#myInput {
+    background-position: 10px 12px;
+    background-repeat: no-repeat; 
+    width: 70%; 
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
+    margin:10px;
+    border-radius:13px;
+    background-color: #242628;
+    color: #ffffff;
+  }
+  
+  #myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+	
+}
