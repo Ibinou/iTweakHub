@@ -94,26 +94,31 @@ body::-webkit-scrollbar + .screenshot::-webkit-scrollbar {
   display: none
 }
 
+.section {
+  height: 50px;
+  color:white;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding-left: 30px;
+  position: relative; 
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.section i {
+  position: absolute; 
+  right: 10px; 
+  font-size: 20px; 
+  margin-right: 10px; 
+}
 
-        
-        .section {
-            height: 50px;
-            color:white;
-            background-color: #1c1c1c;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-family: Helvetica, Arial, sans-serif;
-            text-align: center;
-            padding-left: 30px;
-            position: relative; 
-            margin-left: 16px;
-            margin-right: 16px;
-         }
-         .section i {
-            position: absolute; 
-            right: 10px; 
-            font-size: 20px; 
-            margin-right: 10px; 
-         }
+.icn-right {
+	position: absolute;
+  left: 10px;
+  font-size: 20px;
+  margin-left: 10px;
+}
