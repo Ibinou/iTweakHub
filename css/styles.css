@@ -109,7 +109,7 @@ body::-webkit-scrollbar + .screenshot::-webkit-scrollbar {
   margin-left: 16px;
   margin-right: 16px;
 }
-.section i {
+.icn-left {
   position: absolute; 
   right: 10px; 
   font-size: 20px; 
