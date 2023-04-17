@@ -12,6 +12,8 @@
   border-radius: 50px;
   text-align: center;
   overflow: hidden;
+  margin-left: 14pt;
+  margin-bottom: 10pt;
 }
 .bloc-icon {
   display: flex;
