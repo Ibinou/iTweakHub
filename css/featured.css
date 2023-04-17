@@ -24,7 +24,7 @@
     .featuredimg {
         position: absolute;
         height: 95%;
-        width: 95%;
+        width: 92%;
         top: 0;
         object-fit: cover;
         object-position: center;
@@ -40,7 +40,7 @@
         background-color: #1c1c1cb3;
         padding: 8px;
         border-radius: 20px;
-        width: 100%;
+        width: 95%;
         max-width: 400px;
     }
 
