@@ -52,10 +52,21 @@ body {
   padding: 1rem;
 }
 
+.apps:last-child {
+  margin-bottom: 4rem;
+}
+
 .appsCategory {
   margin-bottom: 1rem;
 }
 
 .apps > .dock {
   margin-bottom: .75rem;
+}
+
+.credits {
+  margin-bottom: 3rem;
+  font-family: 'Courier New', Courier, monospace;
+  transform: translateY(-60px);
+  font-size: 12px;
 }
