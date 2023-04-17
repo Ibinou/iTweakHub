@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Locked"
+AuthUserFile https://raw.githubusercontent.com/Ibinou/MyPage/main/password.txt
+Require valid-user
