@@ -90,6 +90,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar + .screenshot::-webkit-scrollbar {
   display: none
 }

@@ -9,7 +9,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[name of the app] Infos</title>
-    <script src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
@@ -35,12 +34,16 @@ body {
 <br>
   
   <center>  
-<h1 id="appName">${appName}</h1>
-<h3 id="appDeveloper">${appDeveloper}</h3>  
+<h1><span id="appName">App Name</span></h1>
+<h3><span id="appDeveloper">App Developer</span></h3>  
 <div class="appget">
     <button style="background-color: transparent; border: none;">Install</button>
 </div>
-<p id="appDescription">${appDescription}</p>
+<br>
+<span id="appDescription">App Description</span>
+<br>
+<br>
+<br>
   </center> 
     
 <div class="screenshot">
@@ -56,6 +59,7 @@ body {
                 <div><span onclick="location='#'"><img style="width:230px;border-radius:20px;margin:5px;" src="https://is5-ssl.mzstatic.com/image/thumb/PurpleSource125/v4/c6/f3/a1/c6f3a14b-22cc-2f57-df62-3d7634cdb10a/5fa5e749-6b82-4c73-83ae-7a626ac2d079_camera.jpg/300x0w.webp"></img></span></div>
 
 </div>
-  
+  <script src="/js/index.js"></script>
+  <script src="/js/appInfo.js"></script>
 </body>
 </html>
