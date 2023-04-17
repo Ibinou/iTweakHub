@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Locked"
-AuthUserFile password.txt
-Require valid-user
