@@ -3,8 +3,9 @@ function addRepo(repo) {
 }
 
 function openApp(name, developer) {
-    window.open("appinfos.html")
+    window.open("appinfos.html", "_parent")
     document.getElementById("appName").innerHTML = name
     document.getElementById("appDeveloper").innerHTML = developer
     document.title = name
 }
+
