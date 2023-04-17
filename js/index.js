@@ -5,7 +5,7 @@ function addRepo(repo) {
 }
 
 function openApp(name, developer, description) {
-    window.open("appinfos.html?name=" + name + "&developer=" + developer + "&description=" + description, "_parent")
+    window.open("appinfos.html?name=" + name + "&developer=" + developer + "&description=" + description)
 }
 
 
