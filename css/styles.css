@@ -193,3 +193,7 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
   margin-top: -18px;
   border-radius: 15px;
 }
+
+a {
+  text-decoration: none;
+}
