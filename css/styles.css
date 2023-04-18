@@ -1,7 +1,8 @@
 :root {
   touch-action: pan-x pan-y;
-  height: 100% 
+  height: 100%
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -47,7 +48,7 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   background-color: #121212;
 }
@@ -59,7 +60,7 @@ body {
   flex-wrap: wrap;
 }
 
-.appList > * { 
+.appList>* {
   margin: .5rem;
 }
 
@@ -71,7 +72,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.apps > .dock {
+.apps>.dock {
   margin-bottom: .75rem;
 }
 
@@ -84,23 +85,23 @@ body {
 .rectangle {
   height: 45px;
   width: 300px;
-  color:white;
+  color: white;
   background-color: #1c1c1c;
-  border-radius:10px;
+  border-radius: 10px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   text-decoration: none;
   font-family: Helvetica, Arial, sans-serif;
 }
 
-body::-webkit-scrollbar + .screenshot::-webkit-scrollbar {
+body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
   display: none
 }
 
 .section {
   height: 50px;
-  color:white;
+  color: white;
   background-color: #1c1c1c;
   border-radius: 15px;
   display: flex;
@@ -109,41 +110,58 @@ body::-webkit-scrollbar + .screenshot::-webkit-scrollbar {
   font-family: Helvetica, Arial, sans-serif;
   text-align: center;
   padding-left: 30px;
-  position: relative; 
+  position: relative;
   margin-left: 16px;
   margin-right: 16px;
 }
+
 .icn-left {
-  position: absolute; 
-  right: 10px; 
-  font-size: 20px; 
-  margin-right: 20px; 
+  position: absolute;
+  right: 10px;
+  font-size: 10x;
+  margin-right: 20px;
 }
 
 .icn-right {
-	position: absolute;
+  position: absolute;
   left: 10px;
-  font-size: 20px;
+  font-size: 10px;
   margin-left: 10px;
 }
+
 #myInput {
-    background-position: 10px 12px;
-    background-repeat: no-repeat; 
-    width: 70%; 
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    margin-bottom: 12px;
-    margin:10px;
-    border-radius:13px;
-    background-color: #242628;
-    color: #ffffff;
-  }
-  
-  #myUL {
-    /* Remove default list styling */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-	
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 70%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  margin-bottom: 12px;
+  margin: 10px;
+  border-radius: 13px;
+  background-color: #242628;
+  color: #ffffff;
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section>a {
+  color: white;
+  text-decoration: none;
+}
+
+.inpt {
+  background-color: transparent;
+  padding: .75em;
+  border-radius: 15px;
+  border: 2px solid #141516;
+}
+
+.section > .inpt {
+  transform: translateX(-22px);
+  color: white
 }
