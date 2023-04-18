@@ -4,8 +4,8 @@ function addRepo(repo) {
     alert("Work in progress, installed repo: ", repo.value)
 }
 
-function openApp(name, developer, description) {
-    window.open("appinfos.html?name=" + name + "&developer=" + developer + "&description=" + description, "_parent")
+function openApp(name, developer, description, banner, icon) {
+    window.open("appinfos.html?name=" + name + "&developer=" + developer + "&description=" + description + "&banner" + banner + "&icon=" + icon, "_parent")
 }
 
 

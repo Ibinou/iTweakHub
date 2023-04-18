@@ -196,3 +196,16 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 a {
   text-decoration: none;
 }
+
+.icon {
+  border: 10px solid #121212;
+  transform: translateY(-40px);
+  z-index: -2;
+}
+.appbanner {
+  z-index: 0;
+}
+
+.appInfo {
+  transform: translateY(-30px)
+}
