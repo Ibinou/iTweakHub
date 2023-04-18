@@ -188,7 +188,8 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 }
 
 .img-banner {
-  width: 100%;
+  width: 93%;
   height: auto;
   margin-top: -18px;
+  border-radius: 15px;
 }
