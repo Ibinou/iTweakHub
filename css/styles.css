@@ -3,16 +3,18 @@
   height: 100%
 }
 
+/* Icon of the appinfos page */
 .icon {
-  width : 70px;
-  height : 70px;
+  width : 90px;
+  height : 90px;
   border-width: 10px;
-  border-width: 10px;
+  border-style: solid;
+  border-color: #121212;
   -moz-border-radius : 23px;
   -webkit-border-radius : 23px;
-  border-radius : 23px;
-  left: 50%;
-  transform: translateX(-50%);
+  border-radius : 25px;
+  display: block;
+  margin: 0 auto; 
 }
 
 form {
