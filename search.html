@@ -2,71 +2,293 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/featured.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <script src="/js/index.js"></script>
-    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/featured.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="/js/index.js"></script>
+  <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <style>
-        body {
-            background-color: #121212;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+  <style>
+    body {
+      background-color: #121212;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 
 
-    <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;">Search</h1>
+  <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;">Search</h1>
+  </div>
+
+
+
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+
+  <center>
+    <div class="apps">
+      <h1 align="left" class="appsCategory"
+        style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 12px;">All Apps
+      </h1>
+      <div class="appList">
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+      <div class="dock">
+        <div class="app_cell_left">
+          <img
+            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+            class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">Placeholder</div>
+            <div class="appsection">Placeholder</div>
+          </div>
+        </div>
+        <div class="appget">
+          <button style="background-color: transparent; border: none;"
+            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+        </div>
+      </div>
+      <div class="dock">
+        <div class="app_cell_left">
+          <img
+            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+            class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">Placeholder</div>
+            <div class="appsection">Placeholder</div>
+          </div>
+        </div>
+        <div class="appget">
+          <button style="background-color: transparent; border: none;"
+            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+        </div>
+      </div>
+      <div class="dock">
+        <div class="app_cell_left">
+          <img
+            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+            class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">Placeholder</div>
+            <div class="appsection">Placeholder</div>
+          </div>
+        </div>
+        <div class="appget">
+          <button style="background-color: transparent; border: none;"
+            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+        </div>
+      </div>
+      <div class="dock">
+        <div class="app_cell_left">
+          <img
+            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+            class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">Placeholder</div>
+            <div class="appsection">Placeholder</div>
+          </div>
+        </div>
+        <div class="appget">
+          <button style="background-color: transparent; border: none;"
+            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+        </div>
+      </div>
+      <div class="dock">
+        <div class="app_cell_left">
+          <img
+            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+            class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">Placeholder</div>
+            <div class="appsection">Placeholder</div>
+          </div>
+        </div>
+        <div class="appget">
+          <button style="background-color: transparent; border: none;"
+            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+        </div>
+      </div>
+      <div class="dock">
+        <div class="app_cell_left">
+          <img
+            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+            class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">Placeholder</div>
+            <div class="appsection">Placeholder</div>
+          </div>
+        </div>
+        <div class="appget">
+          <button style="background-color: transparent; border: none;"
+            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+        </div>
+      </div>
+      <div class="dock">
+        <div class="app_cell_left">
+          <img
+            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+            class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">Placeholder</div>
+            <div class="appsection">Placeholder</div>
+          </div>
+        </div>
+        <div class="appget">
+          <button style="background-color: transparent; border: none;"
+            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+        </div>
+      </div>
     </div>
 
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
-    
-    <nav class="mobile-nav">
-            <a href="index.html" class="bloc-icon">
-                <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-            </a>
-            <a href="repo.html" class="bloc-icon">
-                <i class="fa-solid fa-plus fa-lg" style="color: #ffffff;"></i>
-            </a>
-            <a href="search.html" class="bloc-icon">
-                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-            </a>
-            <a href="discover.html" class="bloc-icon">
-                <i class="fa-sharp fa-regular fa-compass" style="color: #ffffff;"></i>
-            </a>
-        </nav>
-<script>
-function myFunction() {
-  // Declare variables
-  var input, filter, ul, li, div, h1, i, txtValue;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName('li');
+  </center>
 
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    h1 = li[i].getElementsByTagName("h1")[0];
-    txtValue = h1.textContent || h1.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
+  <nav class="mobile-nav">
+    <a href="index.html" class="bloc-icon">
+      <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+    </a>
+    <a href="repo.html" class="bloc-icon">
+      <i class="fa-solid fa-plus fa-lg" style="color: #ffffff;"></i>
+    </a>
+    <a href="search.html" class="bloc-icon">
+      <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+    </a>
+    <a href="discover.html" class="bloc-icon">
+      <i class="fa-sharp fa-regular fa-compass" style="color: #ffffff;"></i>
+    </a>
+  </nav>
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, div, h1, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementsByClassName("dock");
+      li = ul.getElementsByClassName('appname');
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        h1 = li[i].getElementsByTagName("div")[0];
+        txtValue = h1.textContent || h1.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
     }
-  }
-}
-</script>
-    
-    
+  </script>
+
+
 </body>
 
 </html>
