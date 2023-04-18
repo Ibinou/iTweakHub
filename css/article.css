@@ -1,0 +1,66 @@
+.topimage {
+  width: 100%;
+  height: 220px;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.0), rgba(18,18,18,0.999)), url('https://proton-resources-production.imgix.net/91da0717ad7859dec073a5b8caac0db4900c585b1c6eda16c7a1fef2e359091b.png?auto=compress');
+  background-size: cover;
+}
+body {
+  background-color: #121212;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0;
+}
+   .article {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .date {
+      margin-top: 10px;
+      color: white;
+    }
+
+    @media screen and (max-width: 600px) {
+      .article {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 28px;
+        color: white;
+      }
+
+      p {
+        font-size: 14px;
+        color: white;
+      }
+    }
