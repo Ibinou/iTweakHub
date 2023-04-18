@@ -176,4 +176,5 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 .img-banner {
   width: 100%;
   height: auto;
+  margin-top: -18px;
 }
