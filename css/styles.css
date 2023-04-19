@@ -224,4 +224,5 @@ a {
     font-size: 1.2em;
     transform: translateX(-50%);
     left: 50%;
+    font-weight: 700;
 }
