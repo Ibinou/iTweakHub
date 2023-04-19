@@ -221,4 +221,5 @@ a {
     height: 50px;
     border-radius: 20px;
     background-image: linear-gradient(320deg, #144db3, #b64cff);
+    font-size: 1.2em;
 }
