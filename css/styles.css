@@ -216,8 +216,9 @@ a {
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
-    margin-top: 240px;
+    margin-top: 220px;
     width: 200px;
     height: 50px;
     border-radius: 20px;
+    background-color: #008CFF;
 }
