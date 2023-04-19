@@ -220,5 +220,5 @@ a {
     width: 200px;
     height: 50px;
     border-radius: 20px;
-    background-color: #008CFF;
+    background-image: linear-gradient(310deg, #144db3, #b64cff);
 }
