@@ -36,6 +36,8 @@ input {
     height: 35px;
     background-color: #1c1c1c;
     border: 1px solid #404040;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 button[type="submit"] {
