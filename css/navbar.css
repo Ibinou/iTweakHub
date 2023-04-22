@@ -1,30 +1,32 @@
-.mobile-nav {
-  position: fixed;
-  bottom: 0;
-  height: 57px;
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-  -webkit-backdrop-filter: saturate(140%) blur(15px);
-  backdrop-filter: saturate(140%) blur(15px);
-  background-color: rgba(42, 42, 42, 0.4);
-  border-top: 1px solid rgb(41, 41, 41);
-  border-radius: 50px;
-  text-align: center;
-  overflow: hidden;
-  margin-left: 14pt;
-  margin-bottom: 10pt;
+@supports (
+  (-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))
+) {
+  .mobile-nav {
+    justify-content: center;
+    position: fixed;
+    bottom: 0px;
+    z-index: 99;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    margin: 5% auto;
+    border-style: solid;
+    border-color: #404040;
+    border-radius: 1px;
+    border-width: 1px;
+    left: 0;
+    right: 0;
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(42, 42, 42, 0.4);
+    border-radius: 40px;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
 }
 .bloc-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  float: center;
-  text-align: center;
-}
-.bloc-icon img {
-  width: 50px;
+font-size: 20px;
+margin: 10px;
 }
 @media only screen and (max-device-width: 812px) {
   .bottom-tab-bar {
