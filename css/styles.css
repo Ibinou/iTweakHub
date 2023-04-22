@@ -28,12 +28,14 @@ label {
   color: white;
 }
 
-input[type="email"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 300px;
-  margin-bottom: 20px;
+input {
+    width: 92%;
+    margin-left: 16px;
+    margin-right: 16px;
+    border-radius: 10px;
+    height: 35px;
+    background-color: #1c1c1c;
+    border: 1px solid #404040;
 }
 
 button[type="submit"] {
