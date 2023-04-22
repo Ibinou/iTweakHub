@@ -151,6 +151,19 @@
 
 
             document.getElementById('iosVer').innerHTML = _iOSVersion
+                                
+             // Check if the "visited" cookie exists
+if (document.cookie.indexOf("visited=true") === -1) {
+  // If the "visited" cookie does not exist, set it to expire in 30 days
+  var expirationDate = new Date();
+  expirationDate.setDate(expirationDate.getDate() + 30);
+  document.cookie = "visited=true; expires=" + expirationDate.toUTCString();
+
+  // Show the welcome message or redirect to a welcome page
+  // For example, you can use window.location.href to redirect to a welcome page:
+  window.location.href = "setup1.html";
+}
+                   
         </script>
         <script src="/js/index.js"></script>
 </body>
