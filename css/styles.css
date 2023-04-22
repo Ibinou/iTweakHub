@@ -228,6 +228,7 @@ a {
     bottom: 30px;
     backdrop-filter: blur(15px);
     background-color: rgb(72 72 72 / 48%);
+    -webkit-backdrop-filter: blur(15px);
 }
 
 
