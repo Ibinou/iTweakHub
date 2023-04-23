@@ -46,6 +46,7 @@ margin: 17px;
 .side-nav {
   background-color: #f1f1f1;
   padding: 20px;
+  text-align: left;
 }
 
 .side-nav ul {
