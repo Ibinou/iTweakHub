@@ -239,11 +239,14 @@ a {
   padding: 20px;
   border-radius: 15px;
   text-align: center;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
 }
 
 .devcard img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
@@ -252,7 +255,7 @@ a {
   margin-bottom: 5px;
 }
 
-.card h3 {
+.card h4 {
   margin-bottom: 20px;
   color: #f5f5f5;
 }
