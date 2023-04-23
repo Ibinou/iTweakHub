@@ -1,38 +1,46 @@
 /* Mobile nav bar */
 @supports (
-  (-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))
+(-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))
 ) {
-  .mobile-nav {
-    justify-content: center;
-    position: fixed;
-    bottom: 0px;
-    z-index: 99;
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 10px;
-    margin: 5% auto;
-    border-style: solid;
-    border-color: #404040;
-    border-radius: 1px;
-    border-width: 1px;
-    left: 0;
-    right: 0;
-    width: 90%;
-    max-width: 500px;
-    background-color: rgba(42, 42, 42, 0.4);
-    border-radius: 40px;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-  }
+.mobile-nav {
+justify-content: center;
+position: fixed;
+bottom: 0px;
+z-index: 99;
+text-align: center;
+padding: 15px;
+margin-bottom: 10px;
+margin: 5% auto;
+border-style: solid;
+border-color: #404040;
+border-radius: 1px;
+border-width: 1px;
+left: 0;
+right: 0;
+width: 90%;
+max-width: 500px;
+background-color: rgba(42, 42, 42, 0.4);
+border-radius: 40px;
+-webkit-backdrop-filter: blur(15px);
+backdrop-filter: blur(15px);
 }
+}
+
 .bloc-icon {
 font-size: 25px;
 margin: 17px;
 }
+
+@media only screen and (min-width: 768px) {
+.mobile-nav {
+display: none;
+}
+}
+
 @media only screen and (max-device-width: 812px) {
-  .bottom-tab-bar {
-    padding-bottom: 20px;
-  }
+.bottom-tab-bar {
+padding-bottom: 20px;
+}
 }
 
 /* Tablet nav bar */
