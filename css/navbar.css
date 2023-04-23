@@ -79,8 +79,8 @@ div.content {
 
 @media screen and (max-width: 700px) {
   .sidebar {
-    width: 100%;
-    height: auto;
+    width: 0%;
+    height: 0;
     position: relative;
   }
   .sidebar a {float: left;}
@@ -93,4 +93,3 @@ div.content {
     float: none;
   }
 }
-
