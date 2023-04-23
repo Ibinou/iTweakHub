@@ -135,6 +135,16 @@
             </a>
         </nav>
       </center>
+                                                                                 
+     <nav class="side-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="repo.html">Repos</a></li>
+    <li><a href="search.html">Search</a></li>
+    <li><a href="discover.html">Discover</a></li>
+  </ul>
+</nav>
+                                                                                                                                                                                                                                                                                                                         
         <script>
             var signed = true
             if(signed) {
@@ -142,15 +152,6 @@
             } else {
                 document.getElementById("signed").style.color = "red"
             }
-            _iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
-            if(_iOSDevice) {
-            _iOSVersion = (navigator.userAgent.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/)||[''])[0].replace(/_/g,'.');
-            } else {
-                _iOSVersion = ""
-            }
-
-
-            document.getElementById('iosVer').innerHTML = _iOSVersion
                                 
              // Check if the "visited" cookie exists
 if (document.cookie.indexOf("visited=true") === -1) {
