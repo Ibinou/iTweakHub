@@ -43,48 +43,54 @@ padding-bottom: 20px;
 }
 }
 
-/* Tablet nav bar */
-.side-nav {
-  display: none; 
-}
-@media screen and (min-width: 768px) {
-  .side-nav {
-    display: block; 768px 
-  }
-.side-nav {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: left;
-  position: fixed; /* Positionnement fixe */
-  top: 0; /* Positionnement en haut */
-  left: 0; /* Positionnement à gauche */
-  bottom: 0; /* Positionnement en bas */
-  width: 200px; /* Largeur de la barre de navigation */
-}
-
-.side-nav ul {
-  list-style: none;
+/* iPad nav bar */
+.sidebar {
   margin: 0;
   padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 }
 
-.side-nav li {
-  margin-bottom: 10px;
-}
-
-.side-nav a {
+.sidebar a {
   display: block;
-  color: #333;
+  color: black;
+  padding: 16px;
   text-decoration: none;
-  font-weight: bold;
-  padding: 5px 0;
+}
+ 
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
 }
 
-.side-nav a:hover {
-  background-color: #333;
-  color: #fff;
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }
 
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
 
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 }
 
