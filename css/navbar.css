@@ -59,16 +59,21 @@ padding-bottom: 20px;
   color: white;
   padding: 16px;
   text-decoration: none;
+  margin: 12px;
 }
  
 .sidebar a.active {
   background-color: #404040;
   color: white;
+  border-radius: 15px;
+  margin: 12px
 }
 
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
+  margin: 12px;
+  border-radius: 15px;
 }
 
 div.content {
