@@ -72,7 +72,6 @@ body {
 }
 
 .appList {
-  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
 }
