@@ -48,7 +48,7 @@ padding-bottom: 20px;
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #2c2c2c;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -56,13 +56,13 @@ padding-bottom: 20px;
 
 .sidebar a {
   display: block;
-  color: black;
+  color: white;
   padding: 16px;
   text-decoration: none;
 }
  
 .sidebar a.active {
-  background-color: #04AA6D;
+  background-color: #404040;
   color: white;
 }
 
