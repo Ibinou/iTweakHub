@@ -63,7 +63,27 @@
         <a href="setup1.html" class="inv"><p style="transform: translateX(20px)">Reset iTweakHub</p></a>
  	    <i class="fa-solid fa-angle-right icn-left"></i>
     </div>
-   
+    <br>
+	<div class="section">
+        <i class="fa-solid fa-trash-arrow-up icn-right"></i>
+        <a id="clear-cookies-btn" class="inv"><p style="transform: translateX(20px)">Clear Cookies</p></a>
+ 	    <i class="fa-solid fa-angle-right icn-left"></i>
+    </div>
+	
+   <script>
+	   document.getElementById("clear-cookies-btn").addEventListener("click", function() {
+  var cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    var eqPos = cookie.indexOf("=");
+    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; //supprime le cookie
+  }
+  alert("Les cookies ont été effacés."); //affiche un message de confirmation
+});
+	   
+   </script>
+
 
     <nav class="mobile-nav">
             <a href="index.html" class="bloc-icon">
