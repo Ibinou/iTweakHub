@@ -1,3 +1,4 @@
+/* Mobile nav bar */
 @supports (
   (-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))
 ) {
@@ -32,5 +33,43 @@ margin: 17px;
   .bottom-tab-bar {
     padding-bottom: 20px;
   }
+}
+
+/* Tablet nav bar */
+.side-nav {
+  display: none; 
+}
+@media screen and (min-width: 768px) {
+  .side-nav {
+    display: block; 768px 
+  }
+.side-nav {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.side-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-nav li {
+  margin-bottom: 10px;
+}
+
+.side-nav a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.side-nav a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
 }
 
