@@ -232,50 +232,39 @@ a {
     background-color: rgb(19 19 19 / 46%);
     -webkit-backdrop-filter: blur(25px);
 }
-
-.devcard {
-  background-color: #1c1c1c;
-  color: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-bottom: 16px;
-  margin-top: 18px;
+.information {
+    padding: 0.6rem 0 0.5rem 0;
 }
-
-.devcard img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.information .list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0.2rem 0;
+    border-bottom: 0.02rem solid #e5e5ea;
+    position: relative;
 }
-
-.card h2 {
-  margin-top: 10px;
-  margin-bottom: 5px;
+.information .list div {
+    width: 2.4rem;
+    float: left;
+    font-size: .32rem;
+    color: #8a8a8f;
 }
-
-.card h4 {
-  margin-bottom: 20px;
-  color: #f5f5f5;
+.information .list p {
+    width: 100%;
+    font-size: .32rem;
+    color: #353333;
+    text-align: right;
 }
-
-.social {
-  display: inline-block;
-  background-color: #252525;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
+.information .list div {
+    width: 2.4rem;
+    float: left;
+    font-size: .32rem;
+    color: #8a8a8f;
 }
-
-.button i {
-  margin-right: 5px;
+div, p {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
-
-
    
