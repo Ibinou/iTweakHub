@@ -3,4 +3,5 @@
     "short_name":"iTweakHub",
     "background_color":"#121212",
     "description":"The best 3rd party app store out there!"
+    "display": "standalone"
 }
