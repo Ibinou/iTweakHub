@@ -67,10 +67,36 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/ithbg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+/* Pour les écrans de PC/tablette */
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('iPadBG.png');
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+/* Pour les écrans de téléphone */
+@media screen and (max-width: 767px) {
+  body {
+    background-image: url('img/iPhoneBG.png');
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 }
 
 .appList {
