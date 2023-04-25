@@ -268,17 +268,22 @@ div, p {
     padding: 0;
     margin: 0;
 }
-#splash-screen {
-  background-image: url('img/splash.jpg');
-  background-size: cover;
+.splash-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.splash-screen img {
+  width: 50%;
+  max-width: 500px;
+}
    
 
    
