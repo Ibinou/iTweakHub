@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<div id="splash-screen"></div>
     
 </div>                                                                                 
 <div class="sidebar">
@@ -159,6 +160,12 @@ if (document.cookie.indexOf("visited=true") === -1) {
   // For example, you can use window.location.href to redirect to a welcome page:
   window.location.href = "setup1.html";
 }
+                                      
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('splash-screen').style.display = 'none';
+  }, 3000); // Change the number of milliseconds to adjust the time the splash screen is shown
+});
                    
         </script>
         <script src="/js/index.js"></script>
