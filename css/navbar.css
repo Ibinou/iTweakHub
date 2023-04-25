@@ -23,12 +23,12 @@ background-color: rgba(42, 42, 42, 0.4);
 border-radius: 40px;
 -webkit-backdrop-filter: blur(15px);
 backdrop-filter: blur(15px);
-height: 46px;
+height: 48px;
 }
 }
 
 .bloc-icon {
-font-size: 23px;
+font-size: 24px;
 margin: 19px;
 }
 
