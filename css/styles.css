@@ -136,7 +136,7 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 .section {
   height: 50px;
   color: white;
-  background-color: #1c1c1c;
+  background-color: #3939394f;
   border-radius: 15px;
   display: flex;
   align-items: center;
