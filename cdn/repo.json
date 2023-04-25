@@ -13,7 +13,7 @@
     "apps": [
         {
             "name":"Unc0ver",
-            "cat":"Jailbreak"
+            "cat":"Jailbreak",
             "down":"https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
             "ver":"8.0.2",
             "icn":"https://raw.githubusercontent.com/pwn20wndstuff/Undecimus/master/Undecimus/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60%403x.png?token=AlyO4xDujoguob2DCFfUbNI8jO82OyCgks5bx5ZPwA%3D%3D",
