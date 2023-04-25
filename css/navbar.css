@@ -46,13 +46,15 @@ padding-bottom: 20px;
 
 /* iPad nav bar */
 .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #2c2c2c;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    /* background-color: #2c2c2c; */
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    backdrop-filter: blur(10px);
+    background-color: #2525257d;
 }
 
 .sidebar a {
