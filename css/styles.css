@@ -62,15 +62,6 @@ button[type="submit"]:hover {
   cursor: pointer;
 }
 
-body {
-  color: white;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 /* Pour les écrans de PC/tablette */
 @media screen and (min-width: 768px) {
   body {
