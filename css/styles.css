@@ -145,13 +145,13 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 }
 
 #myInput {
-  background-position: 10px 12px;
+  position: center;
   background-repeat: no-repeat;
-  width: 70%;
+  width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   margin-bottom: 12px;
-  margin: 10px;
+  margin: auto;
   border-radius: 13px;
   background-color: #242628;
   color: #ffffff;
