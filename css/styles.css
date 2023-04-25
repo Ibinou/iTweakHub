@@ -74,7 +74,7 @@ body {
 /* Pour les écrans de PC/tablette */
 @media screen and (min-width: 768px) {
   body {
-    background-image: url('iPadBG.png');
+    background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/iPadBG.png');
     color: white;
     margin: 0;
     padding: 0;
