@@ -304,6 +304,40 @@ div, p {
   width: 100%;
   max-width: 500px;
 }
-   
+.titlenavbar {
+    backdrop-filter: blur(10px) brightness(70%)!important;
+    -webkit-backdrop-filter: blur(10px) brightness(70%)!important;
+    padding: 13px;
+    text-align: center;
+    z-index: 999;
+    background-color: rgba(52,52,52,.4);
+    font-weight: 700;
+    color: #fff;
+    font-size: 17px;
+    border-bottom: 1px solid #2d2d2d;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+}
+.nav_left {
+    text-align: left;
+    float: left;
+    display: inline-block;
+    z-index: 999;
+    color: #0080ff;
+}
+.nav_title {
+    text-align: center;
+    display: inline-block;
+    font-weight: 700;
+    z-index: 40;
+}
+.nav_right {
+    text-align: right;
+    float: right;
+    display: inline-block;
+    color: red;
+}   
 
    
