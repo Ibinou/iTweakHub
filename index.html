@@ -26,9 +26,17 @@
 <!-- End PushAlert -->
     
 </head>
-
 <body>
-  
+	<div id="login">
+		<h2>Login</h2>
+		<form>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username"><br><br>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password"><br><br>
+			<input type="button" value="Login" onclick="checkLogin()">
+		</form>
+	</div>  
     
 </div>                                                                                 
 <div class="sidebar">
@@ -38,7 +46,7 @@
   <a href="discover.html">Discover</a>
 </div>
     
-<div class="content">
+<div class="content" style="display:none">
     <i id="signed" style=" float:right; margin-top: 65px"
         class="fa-solid fa-file-signature fa-xl"></i>
     <h5
@@ -172,7 +180,16 @@ if (document.cookie.indexOf("visited=true") === -1) {
   // For example, you can use window.location.href to redirect to a welcome page:
   window.location.href = "setup1.html";
 }
-                                      
+function checkLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if (username === "myusername" && password === "mypassword") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        alert("Invalid login credentials.");
+    }
+}                              
 
                    
 </script>
