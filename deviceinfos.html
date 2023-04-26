@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/featured.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook Tools</title>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+  <div class="titlenavbar">
+<span onclick="settings.html" class="nav_left">
+  <i class="fa-sharp fa-regular fa-chevron-left"><i>
+</span>
+<span class="nav_title" id="appname">Device Infos</span>
+<span class="nav_right"></span>
+</div>
+   
+    </div>
+    
+
+
+    <nav class="mobile-nav">
+        <a href="index.html" class="bloc-icon">
+            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+        </a>
+        <a href="repo.html" class="bloc-icon">
+            <i class="fa-solid fa-plus fa-lg" style="color: #ffffff;"></i>
+        </a>
+        <a href="search.html" class="bloc-icon">
+            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+        </a>
+        <a href="discover.html" class="bloc-icon">
+            <i class="fa-sharp fa-regular fa-compass" style="color: #ffffff;"></i>
+        </a>
+    </nav>
+    <script>
+
+
+
+        function sendMessage(text) {
+            text = document.getElementById(text).innerText
+
+            const request = new XMLHttpRequest();
+            request.open("POST", "https://discord.com/api/webhooks/1097775801572806746/0yf3RWPrM9CzNWirgLOjHmDru7Pey2IuEDCfbG-NA0KzKS22OOkEVr3-hjwT-DY1qNEG");
+            request.setRequestHeader('Content-type', 'application/json');
+            const params = {
+                content: "Sent from app: " + JSON.stringify(text)
+            }
+            request.send(JSON.stringify(params));
+
+        }
+    </script>
+    <script src="/js/index.js">
+    </script>
+</body>
+
+</html>
