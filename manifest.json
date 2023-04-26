@@ -1,7 +1,1 @@
-{
-    "name":"iTweakHub",
-    "short_name":"iTweakHub",
-    "background_color":"#121212",
-    "description":"The best 3rd party app store out there!"
-    "display": "standalone"
-}
+{"name":"iTweakHub","short_name":"iTweakHub","start_url":"https://itweakhub.netlify.app/","id":"https://itweakhub.netlify.app/","display":"standalone","background_color":"#121212","theme_color":"#121212","icons":[{"src":"https://cdn.pushalert.co/icons/app-icon-55715-2.png?1682513398","sizes":"512x512"}]}
