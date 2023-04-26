@@ -180,21 +180,12 @@ if (document.cookie.indexOf("visited=true") === -1) {
   // Show the welcome message or redirect to a welcome page
   // For example, you can use window.location.href to redirect to a welcome page:
   window.location.href = "setup1.html";
-}
-function checkLogin() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if (username === "developer" && password === "access") {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("body").style.display = "block";
-    } else {
-        alert("Invalid login credentials.");
-    }
-}                              
+}                          
 
                    
 </script>
         <script src="/js/index.js"></script>
+	<script src="/js/script.js"></script>
 </body>
 
 </html>
