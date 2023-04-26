@@ -30,23 +30,7 @@
 
 
     
-    <script>
-
-
-
-        function sendMessage(text) {
-            text = document.getElementById(text).innerText
-
-            const request = new XMLHttpRequest();
-            request.open("POST", "https://discord.com/api/webhooks/1097775801572806746/0yf3RWPrM9CzNWirgLOjHmDru7Pey2IuEDCfbG-NA0KzKS22OOkEVr3-hjwT-DY1qNEG");
-            request.setRequestHeader('Content-type', 'application/json');
-            const params = {
-                content: "Sent from app: " + JSON.stringify(text)
-            }
-            request.send(JSON.stringify(params));
-
-        }
-    </script>
+    
     <script src="/js/index.js">
     </script>
 </body>
