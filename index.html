@@ -46,7 +46,8 @@
   <a href="discover.html">Discover</a>
 </div>
     
-<div class="content" style="display:none">
+<div class="content">
+<div class="body" style="display:none">
     <i id="signed" style=" float:right; margin-top: 65px"
         class="fa-solid fa-file-signature fa-xl"></i>
     <h5
@@ -183,9 +184,9 @@ if (document.cookie.indexOf("visited=true") === -1) {
 function checkLogin() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    if (username === "myusername" && password === "mypassword") {
+    if (username === "developer" && password === "access") {
         document.getElementById("login").style.display = "none";
-        document.getElementById("content").style.display = "block";
+        document.getElementById("body").style.display = "block";
     } else {
         alert("Invalid login credentials.");
     }
