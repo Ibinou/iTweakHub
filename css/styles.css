@@ -289,11 +289,11 @@ div, p {
 }
 
 .apps {
-    background: #121212;
+    background: #1c1c1c;
     border-radius: 20px;
-    padding: 20px;
-    margin: 20px;
     position: relative;
+    margin-left: 19px;
+    margin-right: 19px;
 }
 
 .apps::before {
