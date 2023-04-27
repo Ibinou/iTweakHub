@@ -288,3 +288,22 @@ div, p {
     margin: 0;
 }
 
+.apps {
+    background: #121212;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+}
+
+.apps::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background: #121212;
+    border-radius: 30px;
+}
