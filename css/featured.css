@@ -8,6 +8,7 @@
         padding-left: 16px;
         padding-right: 16px;
         transform: translateX(-32px);
+        margin-bottom: 16px;
     }
 
     .header {
