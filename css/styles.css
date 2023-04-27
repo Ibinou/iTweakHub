@@ -304,6 +304,6 @@ div, p {
     left: -20px;
     width: calc(100% + 40px);
     height: calc(100% + 40px);
-    background: #121212;
-    border-radius: 30px;
+    background: #1c1c1c;
+    border-radius: 20px;
 }
