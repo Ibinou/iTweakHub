@@ -52,10 +52,10 @@
     }
 
     .appicon {
-        border-radius: 17px;
+        border-radius: 15px;
         background-color: #000;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         object-fit: cover;
     }
 
