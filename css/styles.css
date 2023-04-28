@@ -79,7 +79,7 @@ button[type="submit"]:hover {
 /* Pour les écrans de téléphone */
 @media screen and (max-width: 767px) {
   body {
-    background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/iPhoneBG.png');
+    background-color: #121212;
     color: white;
     margin: 0;
     padding: 0;
