@@ -318,7 +318,7 @@ div, p {
     list-style-type: none;
     position: relative;
     color: #fff;
-    border: 1px solid #404040;
+    border: 1px solid rgb(37, 37, 39);
 }
 .ioslist li {
     padding: 14px;
