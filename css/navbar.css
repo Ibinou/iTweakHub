@@ -152,11 +152,11 @@ div.content {
 }
 button {
     background-color: #0082FF;
-    padding: 15px;
     border-radius: 16px;
     color: #fffff;
     font-weight: 700;
     border: 0;
     font-size: 14px;
     width: 100%;
+    height: 45px;
 }
