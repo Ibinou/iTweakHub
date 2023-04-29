@@ -307,3 +307,25 @@ div, p {
     background: #1c1c1c;
     border-radius: 20px;
 }
+
+/*ioslist without icon*/
+.ioslist {
+    position: relative;
+    margin: 0;
+    border-radius: 12px;
+    background-color: #1c1c1c;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    color: #fff;
+    border: 1px solid #404040;
+}
+.ioslist li {
+    padding: 14px;
+    border-bottom: 1px solid rgb(37, 37, 39);;
+}
+.ioslist_opposite {
+    text-transform: capitalize;
+    opacity: .7;
+    float: right;
+}
