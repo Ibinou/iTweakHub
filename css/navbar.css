@@ -145,16 +145,16 @@ div.content {
     -webkit-backdrop-filter: blur(15px);
     padding: 15px;
     box-sizing: border-box;
-    background-color: #1c1c1c78;
+    background-color: #1c1c1cbd;
     border-radius: 20px 20px 0 0;
-    z-index: 1009;
+    z-index: 99;
     border: 1px solid #393939;
 }
 button {
     background-color: #0082FF;
     padding: 15px;
-    border-radius: 14px;
-    color: #fff;
+    border-radius: 16px;
+    color: #fffff;
     font-weight: 700;
     border: 0;
     font-size: 14px;
