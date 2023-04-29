@@ -136,3 +136,27 @@ div.content {
   text-align: center;
 }
 
+/*install bar appinfos.html*/
+.getbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #1c1c1c78;
+    border-radius: 20px 20px 0 0;
+    z-index: 1009;
+    border: 1px solid #393939;
+}
+button {
+    background-color: #0082FF;
+    padding: 15px;
+    border-radius: 14px;
+    color: #fff;
+    font-weight: 700;
+    border: 0;
+    font-size: 14px;
+    width: 100%;
+}
