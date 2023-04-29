@@ -321,8 +321,9 @@ div, p {
     border: 1px solid rgb(37, 37, 39);
 }
 .ioslist li {
-    padding: 14px;
-    border-bottom: 1px solid rgb(37, 37, 39);;
+    padding: 16px 16px 16px 0;
+    border-bottom: 1px solid rgb(37, 37, 39);
+    margin-left: 16px;
 }
 .ioslist_opposite {
     text-transform: capitalize;
