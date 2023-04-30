@@ -330,6 +330,10 @@ div, p {
     opacity: .7;
     float: right;
 }
+.ioslist_opposite i {
+color: red;
+font-size: 20px;
+}
 
 select {
     border-radius: 15px;
@@ -346,4 +350,5 @@ select {
 select option {
     background-color: #1c1c1c;
 }
+
 
