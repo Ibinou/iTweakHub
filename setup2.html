@@ -10,33 +10,26 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
-    <title>Choose Language</title>
+    <title>Choose your Language</title>
     <script src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
-
 <body>
-    <style>
-        body {
-            background-color: #121212;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
 <a style="text-decoration: none" href="setup1.html"><h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i>Back</h1></a>
 
-    <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;">Choose your language</h1>
-    </div>
-<label for="language">Language :</label>
-<select id="language">
-  <option value="english">English</option>
-  <option value="french">French</option>
-  <option value="swedish">Swedish</option>
-  <option value="romanian">Romanian</option>
+<h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;">Customize iTweakHub</h1> 
+    
+<select class="language" id="language" required="">
+<option value="" disabled="" selected="">Choose your language</option>
+<option value="english">English (default)</option>
+<option value="french">French</option>
+<option value="swedish">Swedish</option>
+<option value="romanian">Romanian</option>
 </select>
+
   
-<p>Note : to change the language, reset iTweakHub then choose another language.</p>
+<p>To change these settings, reset the app in "settings"</p>
 
     <a href="index.html">
     <button class="continuebtn">Continue</button>
