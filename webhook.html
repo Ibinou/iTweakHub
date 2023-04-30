@@ -16,13 +16,8 @@
 </head>
 
 <body>
-    <style>
-        body {
-            background-color: #121212;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+
+
 
     <a style="text-decoration: none" href="devs.html">
         <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;"><i
@@ -62,15 +57,15 @@ discordForm.addEventListener('submit', event => {
   })
     .then(response => {
       if (response.ok) {
-        alert('Le message a été envoyé avec succès!');
+        alert('The message is sent 🤩 !');
         discordForm.reset();
       } else {
-        alert('Une erreur est survenue lors de l\'envoi du message.');
+        alert('Error 😐');
       }
     })
     .catch(error => {
-      console.error('Une erreur est survenue lors de l\'envoi du message:', error);
-      alert('Une erreur est survenue lors de l\'envoi du message.');
+      console.error('Error 😐:', error);
+      alert('Error 😐');
     });
 });
 
