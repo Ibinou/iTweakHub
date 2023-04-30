@@ -3,6 +3,10 @@
   height: 100%
 }
 
+* {
+  color: white;
+}
+
 /* Icon of the appinfos page */
 .icon {
   width : 90px;
@@ -350,5 +354,3 @@ select {
 select option {
     background-color: #1c1c1c;
 }
-
-

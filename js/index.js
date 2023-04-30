@@ -17,3 +17,7 @@ function loadAppInfo(name, developer) {
 function reloadRepos() {
     alert("Work in progress")
 }
+
+function displayApp() {
+    alert("App info system is work in progress!")
+}
