@@ -330,3 +330,20 @@ div, p {
     opacity: .7;
     float: right;
 }
+
+select {
+    border-radius: 15px;
+    width: 100%;
+    padding: 20px;
+    background-color: #1c1c1c;
+    box-sizing: border-box;
+    color: white;
+    border: 1px solid #252525;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 16px;
+}
+select option {
+    background-color: #1c1c1c;
+}
+
