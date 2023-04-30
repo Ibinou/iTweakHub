@@ -141,8 +141,8 @@ div.content {
     position: fixed;
     bottom: 0;
     width: 100%;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 15px;
     box-sizing: border-box;
     background-color: #1c1c1cbd;
