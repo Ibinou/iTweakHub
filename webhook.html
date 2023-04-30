@@ -30,56 +30,49 @@
     </a>
     <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;">Webhook Tools</h1>
     </div>
+    
     <form id="discord-form">
-        <input class="inpt" id="message" type="text" placeholder="Message">
-        <input type="submit" value="Send">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message"></textarea><br>
+
+      <input type="submit" value="Send">
     </form>
 
 
-    <nav class="mobile-nav">
-        <a href="index.html" class="bloc-icon">
-            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-        </a>
-        <a href="repo.html" class="bloc-icon">
-            <i class="fa-solid fa-plus fa-lg" style="color: #ffffff;"></i>
-        </a>
-        <a href="search.html" class="bloc-icon">
-            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-        </a>
-        <a href="discover.html" class="bloc-icon">
-            <i class="fa-sharp fa-regular fa-compass" style="color: #ffffff;"></i>
-        </a>
-    </nav>
+
     <script>
-      const webhookURL = 'https://discord.com/api/webhooks/1097775801572806746/0yf3RWPrM9CzNWirgLOjHmDru7Pey2IuEDCfbG-NA0KzKS22OOkEVr3-hjwT-DY1qNEG'; 
+const webhookURL = 'https://discord.com/api/webhooks/1097775801572806746/0yf3RWPrM9CzNWirgLOjHmDru7Pey2IuEDCfbG-NA0KzKS22OOkEVr3-hjwT-DY1qNEG'; 
 
-      const discordForm = document.getElementById('discord-form');
-      discordForm.addEventListener('submit', event => {
-        event.preventDefault();
+const discordForm = document.getElementById('discord-form');
+discordForm.addEventListener('submit', event => {
+  event.preventDefault();
 
-        const formData = new FormData(discordForm);
-        const payload = Object.fromEntries(formData.entries());
+  const message = document.getElementById('message').value;
 
-        fetch(webhookURL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        })
-          .then(response => {
-            if (response.ok) {
-              alert('Le message a été envoyé avec succès!');
-              discordForm.reset();
-            } else {
-              alert('Une erreur est survenue lors de l\'envoi du message.');
-            }
-          })
-          .catch(error => {
-            console.error('Une erreur est survenue lors de l\'envoi du message:', error);
-            alert('Une erreur est survenue lors de l\'envoi du message.');
-          });
-      });
+  const payload = {
+    content: message
+  };
+
+  fetch(webhookURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+    .then(response => {
+      if (response.ok) {
+        alert('Le message a été envoyé avec succès!');
+        discordForm.reset();
+      } else {
+        alert('Une erreur est survenue lors de l\'envoi du message.');
+      }
+    })
+    .catch(error => {
+      console.error('Une erreur est survenue lors de l\'envoi du message:', error);
+      alert('Une erreur est survenue lors de l\'envoi du message.');
+    });
+});
 
     </script>
     <script src="/js/index.js">
