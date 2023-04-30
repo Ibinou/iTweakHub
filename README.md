@@ -1,10 +1,11 @@
 # iTweakHub
-The best 3rd party app store out there!
+The best 3rd party app store out there! No ads, clean UI and free !
 
 ## What you get
 - An app with sleek and modern UI
 - An app to sign and install your favourite apps
-- An app to get tutorials and articles about the sideloading
+- An app to get tutorials about the sideloading
+- An app to download all the iPA's of your favorite apps
 
 ## Repos
 We juse repos to handle our apps
@@ -17,5 +18,5 @@ Supported repos
 
 ## Release date
 Soon
-Backend: ~30%
-Frontend: ~55%
+-Backend: ~30%
+-Frontend: ~55%
