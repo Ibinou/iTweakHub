@@ -19,4 +19,4 @@ Supported repos
 ## Release date
 Soon
 -Backend: ~30%
--Frontend: ~55%
+-Frontend: ~60% (some UI bugs, missing some html files and some html files are imcomplete)
