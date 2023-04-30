@@ -16,4 +16,6 @@ Supported repos
 - And our own
 
 ## Release date
-Soon ;)
+Soon
+Backend: ~30%
+Frontend: ~55%
