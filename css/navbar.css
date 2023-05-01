@@ -133,30 +133,3 @@ div.content {
     height: 45px;
 }
 
-.topnav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #1c1c1c91;
-  color: #fff;
-  height: 60px;
-  padding: 0 20px;
-  backdrop-filter: blur(20px);
-}
-
-.nav-back a {
-  font-size: 24px;
-  color: #fff;
-}
-
-.nav-title {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.nav-title h1 {
-  font-size: 20px;
-  margin: 0;
-  font-family:helvetica;
-}
-
