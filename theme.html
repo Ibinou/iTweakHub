@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/featured.css" keep>
+    <link rel="stylesheet" href="css/navbar.css" keep>
+    <link rel="stylesheet" href="css/styles.css" keep>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+    <title>Settings | iTweakHub</title>
+    <script src="/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="repo.html">Repo</a>
+  <a href="search.html">Search</a>
+  <a class="active" href="settings.html">Settings</a>
+</div>
+<div class="content">
+
+    <a href="settings.html"><h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;"><i
+        class="fa-solid fa-angle-left" style="color: #ffffff;"></i> Settings</h1></a>
+<center>
+    <br>    
+<h2>iTweakHub Theme Manager</h2>
+<br>
+</center>
+
+<p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">THEMES</p>	
+<ul class="ioslist">
+<li onclick="resetTheme()">
+<span>Reset Themes</span>
+</li>
+<li onclick="alert('Light mode is currentlly not working')">
+<span>Light</span>
+<i class="fa-solid fa-angle-right ioslist_opposite"></i>
+</li>
+<li onclick="loadTheme('css/dim')" style="border-bottom-width: 0px;">
+<span>Dim</span>
+<i class="fa-solid fa-angle-right ioslist_opposite"></i>
+</li>
+</ul>
+
+    
+    
+
+    <nav class="mobile-nav">
+            <a href="index.html" class="bloc-icon">
+                <i class="fa-solid fa-fire" style="color: #ffffff;"></i>
+            </a>
+            <a href="repo.html" class="bloc-icon">
+                <i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>
+            </a>
+            <a href="search.html" class="bloc-icon">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </a>
+            <a href="#" class="bloc-icon">
+                <i class="fa-solid fa-gear" style="color: #008CFF;"></i>
+            </a>
+        </nav>
+</div>
+</body>
+
+</html>
