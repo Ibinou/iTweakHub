@@ -26,7 +26,12 @@
   </div>
 </nav>
    
-    </div>
+  <div id="userAgent"></div>
+  <script>
+    const userAgent = navigator.userAgent;
+    const userAgentElement = document.getElementById("userAgent");
+    userAgentElement.innerHTML = "<p>User agent : " + userAgent + "</p>";
+  </script>
     
 
 
