@@ -137,7 +137,7 @@ div.content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #1c1c1c91;
   color: #fff;
   height: 60px;
   padding: 0 20px;
