@@ -102,39 +102,11 @@ div.content {
   }
 }
 
-
-.topnav {
-  position: fixed;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-color: rgb(255,255,255,.6);
-  -webkit-backdrop-filter: saturate(130%) blur(35px);
-  backdrop-filter: saturate(130%) blur(35px);
-  border-bottom: 1px solid rgb(238, 238, 238);
-}
-
-.nav-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: #333; 
-}
-
 .bloc-icon i {
   font-size: 24px;
   margin-right: 8px;
 }
 
-.nav-text {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-}
 
 /*install bar appinfos.html*/
 .getbar {
@@ -160,3 +132,30 @@ div.content {
     width: 100%;
     height: 45px;
 }
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  height: 60px;
+  padding: 0 20px;
+}
+
+.nav-back a {
+  font-size: 24px;
+  color: #fff;
+}
+
+.nav-title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav-title h1 {
+  font-size: 20px;
+  margin: 0;
+  font-family:helvetica;
+}
+
