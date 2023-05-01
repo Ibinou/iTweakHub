@@ -141,6 +141,7 @@ div.content {
   color: #fff;
   height: 60px;
   padding: 0 20px;
+  backdrop-filter: blur(20px);
 }
 
 .nav-back a {
