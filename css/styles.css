@@ -354,3 +354,33 @@ select {
 select option {
     background-color: #1c1c1c;
 }
+
+/*theme selector*/
+      .containertheme {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #1c1c1c;
+      }
+      
+      .imagetheme {
+        width: 100px;
+        height: 200px;
+        border-radius: 7px;
+      }
+      
+      .texttheme {
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        font-family: helvetica;
+      }
+      
+      .choosetheme {
+        margin-top: 5px;
+      }
