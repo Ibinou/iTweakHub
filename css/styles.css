@@ -368,9 +368,8 @@ select option {
       }
       
       .imagetheme {
-        width: 100px;
-        height: 200px;
-        border-radius: 7px;
+        width: 95px;
+        border-radius: 10px;
       }
       
       .texttheme {
