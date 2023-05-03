@@ -382,4 +382,5 @@ select option {
       .choosetheme {
         margin-top: 5px;
         margin-left: 5px;
+        margin-bottom: 0px;
       }
