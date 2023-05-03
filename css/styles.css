@@ -361,9 +361,8 @@ select option {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        border: 1px solid #ddd;
+        border: 1px solid rgb(37, 37, 39);
         padding: 10px;
-        margin: 10px;
         border-radius: 15px;
         background-color: #1c1c1c;
       }
