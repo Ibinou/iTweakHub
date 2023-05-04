@@ -396,7 +396,7 @@ select option {
 }
 
 .deviceinfos img {
-  width: 50px;
+  width: 40px;
   height: auto;
   margin-right: 10px;
 }
@@ -407,6 +407,7 @@ select option {
 
 .deviceinfos h2 {
   margin-top: 0;
+  font-size: 16px;
 }
 
 .deviceinfos p {
