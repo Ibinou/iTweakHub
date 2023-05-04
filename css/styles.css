@@ -385,3 +385,31 @@ select option {
         margin-left: 5px;
         margin-bottom: 0px;
       }
+/*css for the infos device rectangle*/
+.deviceinfos {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(37, 37, 39);
+  padding: 10px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+}
+
+.deviceinfos img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.deviceinfos .infos {
+  flex-grow: 1;
+}
+
+.deviceinfos h2 {
+  margin-top: 0;
+}
+
+.deviceinfos p {
+  margin-bottom: 0;
+}
+
