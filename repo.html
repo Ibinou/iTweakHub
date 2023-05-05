@@ -30,7 +30,7 @@
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Repo</h1>
    <i style=" float:right; margin-top: -43px;font-size:20px;color:#fff;"
         class="fa-solid fa-rotate-right"></i>
-   <i style="margin-right:30px;float:right; margin-top: -43px;font-size:20px;color:#fff;"
+   <i onclick="openPopup()" style="margin-right:30px;float:right; margin-top: -43px;font-size:20px;color:#fff;"
         class="fa-solid fa-plus"></i>
 
     <form>
@@ -38,6 +38,17 @@
         <input type="url" id="repoUrl" name="email" placeholder="https://ibinou.github.io/iTweakHub/cdn/repo.json">
         <button type="submit" onclick="addRepo(repoUrl)">Add</button>
     </form>
+        
+     <div id="myPopup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <form>
+      <label for="repoUrl">Repo URL:</label>
+      <input type="url" id="repoUrl" name="repoUrl" placeholder="https://ibinou.github.io/iTweakHub/cdn/repo.json>
+      <button type="submit" onclick="addRepo()">Add</button>
+    </form>
+  </div>
+</div>
 
     <div class="allRepos">
     </div>
