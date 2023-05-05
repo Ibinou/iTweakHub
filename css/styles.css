@@ -467,7 +467,7 @@ select option {
   display: flex;
   align-items: center;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 19px;
   background-color: #1c1c1cbd;
   border: 1px solid rgb(37, 37, 39);
   animation: slideDown 0.5s ease-in-out;
@@ -476,6 +476,7 @@ select option {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
+  z-index: 999;
 }
 
 .notification img {
