@@ -456,3 +456,56 @@ select option {
   text-decoration: none;
   cursor: pointer;
 }
+
+/*notif*/
+.notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #1c1c1cbf;
+  border: 1px solid rgb(37, 37, 39);
+  animation: slideDown 0.5s ease-in-out;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px)
+}
+
+.notification img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.notification-message {
+  font-size: 14px;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
