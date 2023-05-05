@@ -15,14 +15,9 @@
   <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
-
 <body>
 
   <style>
-    body {
-      background-color: #121212;
-    }
-
     .screenshot {
       display: flex;
       overflow-x: auto;
@@ -35,6 +30,14 @@
       height: 447px;
     }
   </style>
+  
+  <div class="notification">
+  <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
+  <div class="notification-content">
+    <p class="notification-title">Please wait</p>
+    <p class="notification-message">The app will be signed soon.</p>
+  </div>
+</div>
 
   <a style="text-decoration: none" href="index.html">
     <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;"><i
@@ -100,12 +103,24 @@
 <br>
 
 <div class="getbar">
- <button class="get">Install</button>
+ <button class="get" onclick="showNotification()">Install</button>
 </div>
 
 
   <script src="/js/index.js"></script>
   <script src="/js/appInfo.js"></script>
+
+<script>
+  function showNotification() {
+  const notification = document.getElementById('notification');
+  notification.classList.remove('hidden');
+  
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 5000);
+}
+</script>
+  
 </body>
 
 </html>
