@@ -429,12 +429,13 @@ select option {
 }
 
 .popup-content {
-  background-color: #1c1c1c;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
-  border-radius: 15px;
+    background-color: #1c1c1c;
+    margin: 30% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 15px;
+    margin-top: 300px;
 }
 
 .close-btn {
