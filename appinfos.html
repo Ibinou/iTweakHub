@@ -111,13 +111,17 @@
   <script src="/js/appInfo.js"></script>
 
 <script>
-  function showNotification() {
+function showNotification() {
   const notification = document.getElementById('notification');
   notification.classList.remove('hidden');
   
   setTimeout(() => {
     notification.classList.add('hidden');
   }, 5000);
+  
+  notification.addEventListener('animationend', () => {
+    notification.classList.add('hidden');
+  });
 }
 </script>
   
