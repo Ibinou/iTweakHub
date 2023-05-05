@@ -427,6 +427,7 @@ select option {
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
+  z-index: 99999;
 }
 
 .popup-content {
