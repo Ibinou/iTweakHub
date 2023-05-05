@@ -426,6 +426,7 @@ select option {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 }
 
 .popup-content {
@@ -433,7 +434,7 @@ select option {
     margin: 30% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 300px;
+    width: 260px;
     border-radius: 15px;
     margin-top: 300px;
 }
