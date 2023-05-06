@@ -520,4 +520,5 @@ select option {
   -webkit-backdrop-filter: blur(15px);
   position: fixed;
   top: 0;
+  z-index: 999;
 }  
