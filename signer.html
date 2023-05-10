@@ -34,17 +34,15 @@
 
  
         
-     <div id="myPopup" class="popup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <form>
-      <label for="repoUrl">Repo URL:</label>
-      <input type="url" id="repoUrl" name="repoUrl" placeholder="https://ibinou.github.io/iTweakHub/cdn/repo.json>
-      <a class="addbtn" type="submit" onclick="addRepo()">Add</a>
-    </form>
+    <div id="notification" class="notification hidden">
+  <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
+  <div class="notification-content">
+    <p class="notification-title">AppName</p>
+    <p class="notification-message">DevName</p>
+    <progress id="signstatus" value="50" max="100"></progress>
   </div>
 </div>
-
+        
     <div class="allRepos">
     </div>
        
