@@ -430,11 +430,28 @@ select option {
   z-index: 99999;
 }
 
+
+  .addbtn {
+    background-color: #252525;
+    border-radius: 8px;
+    border-width: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
 .popup-content {
     background-color: #1c1c1c;
     margin: 30% auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 320px;
     border-radius: 15px;
     position: absolute;
