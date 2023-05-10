@@ -29,7 +29,7 @@
 
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Signer</h1>
-   <i onclick="openPopup()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#fff;"
+   <i onclick="showNotification()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#fff;"
         class="fa-solid fa-cloud-arrow-up"></i>
 
  
@@ -139,6 +139,17 @@ function closePopup() {
         output += "</pre>";
         repojs.repo.document.append(output, out);
       });
+</script>
+    <script>
+function showNotification() {
+  const notification = document.getElementById('notification');
+  notification.classList.remove('hidden');
+  
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 5000);
+}
+
 </script>
 </body>
 
