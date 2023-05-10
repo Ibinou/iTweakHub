@@ -552,18 +552,17 @@ select option {
 progress {
   width: 100%;
   height: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
+  border-radius: 50px;
+  background-color: #252525;
 }
 
 progress::-webkit-progress-bar {
-  background-color: #fff;
+  background-color: #252525;
+  border-radius: 9px;
 }
 
 progress::-webkit-progress-value {
   background-color: #7163FF;
-  border-radius: 5px;
+  border-radius: 9px;
 }
-
 
