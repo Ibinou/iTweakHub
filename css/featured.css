@@ -72,6 +72,10 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         color: white;
+         width: 200px;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
     }
 
     .appsection {
