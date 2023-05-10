@@ -31,16 +31,14 @@
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Signer</h1>
    <i onclick="showNotification()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#fff;"
         class="fa-solid fa-cloud-arrow-up"></i>
-
- 
         
-    <div id="notification" class="notification hidden">
+<div id="notification" class="notification">
   <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
   <div class="notification-content">
     <p class="notification-title">AppName</p>
       <p class="notification-message">DevName</p>
+      <progress id="signstatus" value="50" max="100"></progress> 
   </div>
-   <progress id="signstatus" value="50" max="100"></progress> 
 </div>
         
     <div class="allRepos">
