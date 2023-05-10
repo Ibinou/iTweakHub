@@ -522,3 +522,7 @@ select option {
   top: 0;
   z-index: 999;
 }  
+
+.appsection {
+  white-space: break
+}

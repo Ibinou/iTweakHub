@@ -252,7 +252,7 @@
         </div>
       </div>
     </div>
-
+      
   </center>
 
   <nav class="mobile-nav">
@@ -270,6 +270,37 @@
     </a>
   </nav>
    </div>
+    <script>
+      out = document.getElementById("out");
+      repojs.init();
+      url = "https://usescarlet.com/scarlet.json";
+      var output = "<pre>";
+      repojs.repo.get(url).then((data) => {
+        var data = repojs.repo.parse(data);
+        var all = repojs.repo.getAllCategories(data, "META");
+        output += "--------------------------------------<br>";
+        output += `<span style="font-weight: bold;">Repo Name: <span style="font-weight: normal;">${
+          data.META.repoName || "N/A"
+        }</span></span><br>`;
+        output += `<span style="font-weight: bold;">Repo Icon (url): <span style="font-weight: normal;">${
+          data.META.repoIcon || "N/A"
+        }</span></span><br>`;
+        output += "--------------------------------------<br>";
+        output += `<span style="font-weight: bold;">App Amount: <span style="color: green;">${all.length}</span></span><br><br>`;
+        for (let i = 0; i < all.length; i++) {
+          output += `<span style="font-weight: bold;"> · App ${i}'s Name: <span style="font-weight: normal;">${all[i].name}</span></span><br>`;
+          output += `  - App Version: ${all[i].version}<br>`;
+          output += `  - App Category: ${all[i].category}<br>`;
+          output += `  - App Description: ${all[i].description}<br>`;
+          output += `  - App Bundle Id: ${all[i].bundleID}<br>`;
+          output += `  - App Icon (url): ${all[i].icon}<br>`;
+          output += `  - App Ipa (url): ${all[i].down}<br>`;
+        }
+
+        output += "</pre>";
+        repojs.repo.document.append(output, out);
+      });
+    </script>
   <script>
     function myFunction() {
       // Declare variables
