@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/featured.css" keep>
+    <link rel="stylesheet" href="css/navbar.css" keep>
+    <link rel="stylesheet" href="css/styles.css" keep>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>Apps Manager | iTweakHub</title>
+    <script src="/js/index.js"></script>
+    <script src="/js/repo-handler.js"></script>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    </div>                                                                                 
+<div class="sidebar">
+  <a href="index.html">Home</a>
+  <a class="active" href="repo.html">Repo</a>
+  <a href="search.html">Search</a>
+  <a href="signer.html">Signerr</a>
+</div>
+
+    <div class="content">
+    <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
+   <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-address-card"></i>
+   <i onclick="openPopup()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-cloud-arrow-up"></i>
+
+ 
+        
+
+    <div class="allRepos">
+    </div>
+           <h3 style="font-family:helvetica;font-size:20px;color:#E4E4E4;margin-bottom: 10px;">Recently Installed</h3>
+                  <div class="dock">
+                <div class="app_cell_left">
+                  <img
+                    src="img/favicon.ico"
+                    class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">iTweakHub Base Repo</div>
+                    <div class="appsection">itweakhub.tk/apps.json</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button style="background-color: transparent; border: none;"href="repoview.html?apps.json">Go</button>
+                </div>
+              </div>
+                
+        <br>    
+        <h3 style="font-family:helvetica;font-size:20px;color:#E4E4E4;margin-bottom: 10px;">Repos</h3>
+         <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-plus"></i>
+         <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-rotate-right"></i>
+                  <div class="dock">
+                <div class="app_cell_left">
+                  <img
+                    src="img/favicon.ico"
+                    class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">iTweakHub Base Repo</div>
+                    <div class="appsection">itweakhub.tk/apps.json</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button style="background-color: transparent; border: none;"href="repoview.html?apps.json">Go</button>
+                </div>
+              </div>
+                
+        <br>
+       <h3 style="font-family:helvetica;font-size:20px;color:#E4E4E4;margin-bottom: 10px;">Community Repos</h3>
+              <div class="dock" style="margin-bottom:16px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/Ibinou/reposcarlet/blob/main/2B4F5238-F1AB-4DE6-9823-0AD76CC2A1C8.png?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">DirtyCowRepo</div>
+                    <div class="appsection">ibinou.github.io/dirtycowrepo...</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button style="background-color: transparent; border: none;"href="repoview.html?apps.json">Add</button>
+                </div>
+              </div>
+                                                                                                            
+             <div class="dock" style="margin-bottom:16px;">
+                <div class="app_cell_left">
+                  <img src="https://raw.githubusercontent.com/KevinAlavik/scylla-ios/main/app/app/Assets.xcassets/AppIcon.appiconset/100.png" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Scylla Repo</div>
+                    <div class="appsection">unknown</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button style="background-color: transparent; border: none;"href="repoview.html?apps.json">Add</button>
+                </div>
+              </div>
+            <div id="out">
+              Loading repos...
+            </div>  
+
+     <nav class="mobile-nav">
+            <a href="index.html" class="bloc-icon">
+                <i class="fa-solid fa-fire" style="color: #ffffff;"></i>
+            </a>
+            <a href="repo.html" class="bloc-icon">
+                <i class="fa-solid fa-earth-americas" style="color: #008CFF;"></i>
+            </a>
+            <a href="search.html" class="bloc-icon">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </a>
+            <a href="signer.html" class="bloc-icon">
+                <i class="fa-solid fa-file-signature" style="color: #ffffff;"></i>
+            </a>
+        </nav>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymuos"></script>
+<script>
+function openPopup() {
+  var popup = document.getElementById("myPopup");
+  popup.style.display = "block";
+}
+
+function closePopup() {
+  var popup = document.getElementById("myPopup");
+  popup.style.display = "none";
+}
+
+      out = document.getElementById("out");
+      repojs.init();
+      url = "https://puffer.is-a.dev/repos/main-scarlet.json";
+      var output = "<div class='dock' style='margin-bottom:16px;'>";
+      output += "<div class='app_cell_left'>"
+      repojs.repo.get(url).then((data) => {
+        var data = repojs.repo.parse(data);
+        output += `<img src='${data.META.repoIcon}' class='appicon'>`
+        output += `<div class="app_cell_meta">`
+        output += `<div class="appname">${data.META.repoName}</div>`
+        output += `<div class="appsection">${url}</div>`
+        output += `</div>`
+        output += `<div class="appget" style="margin-left: 3rem">`
+        output += `<button style="background-color: transparent; border: none; "href="repoview.html?apps.json">Go</button>`
+        output += `</div>`
+        output += `</div>`
+        output += "</pre>";
+        repojs.repo.document.append(output, out);
+      });
+</script>
+</body>
+
+</html>
