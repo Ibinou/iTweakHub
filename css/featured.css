@@ -72,7 +72,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         color: white;
-         width: 200px;
+         width: 150px;
          white-space: nowrap;
          overflow: hidden;
          text-overflow: ellipsis;
@@ -81,7 +81,7 @@
     .appsection {
         opacity: .6;
         font-size: .900rem;
-        width: 200px;
+        width: 170px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
