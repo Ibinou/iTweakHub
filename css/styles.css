@@ -396,9 +396,8 @@ select option {
 }
 
 .deviceinfos img {
-  width: 40px;
+  width: 70px;
   height: auto;
-  margin-right: 10px;
 }
 
 .deviceinfos .infos {
