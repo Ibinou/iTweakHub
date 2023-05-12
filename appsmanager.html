@@ -29,10 +29,16 @@
 
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
-   <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-address-card"></i>
-   <i onclick="openPopup()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-cloud-arrow-up"></i>
+   <i style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-address-card"></i>
+   <i onclick="showNotification()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-cloud-arrow-up"></i>
 
- 
+     <div id="notification" class="notification hidden">
+  <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
+  <div class="notification-content">
+    <p class="notification-title">iTweakHub</p>
+      <p class="notification-message">The app will be signed and installed soon.</p>
+  </div>
+</div>
         
 
     <div class="allRepos">
@@ -56,8 +62,8 @@
                 
         <br>    
 <p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-top: 20px;margin-bottom: 10px;">Added Repos</p>	
-         <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-plus"></i>
-         <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;margin-right: 26px;" class="fa-solid fa-rotate-right"></i>
+         <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-plus" onclick="addRepo()"></i>
+         <i style=" float:right; margin-top: -43px;font-size:20px;color:#7163FF;margin-right: 26px;" class="fa-solid fa-rotate-right" onclick="reloadRepo()"></i>
                   <div class="dock">
                 <div class="app_cell_left">
                   <img
@@ -72,34 +78,12 @@
                   <button style="background-color: transparent; border: none;"href="repoview.html?apps.json">Go</button>
                 </div>
               </div>
-                
+                <div id="out">
+              Loading repos...
+            </div>  
+     
         <br>
-<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-top: 20px;margin-bottom: 10px;">Community repos</p>	
-              <div class="dock" style="margin-bottom:16px;">
-                <div class="app_cell_left">
-                  <img src="https://github.com/Ibinou/reposcarlet/blob/main/2B4F5238-F1AB-4DE6-9823-0AD76CC2A1C8.png?raw=true" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">DirtyCowRepo</div>
-                    <div class="appsection">ibinou.github.io/dirtycowrepo...</div>
-                  </div>
-                </div>
-                <div class="appget">
-                  <button style="background-color: transparent; border: none;"href="repoview.html?apps.json">Add</button>
-                </div>
-              </div>
-                                                                                                            
-             <div class="dock" style="margin-bottom:16px;">
-                <div class="app_cell_left">
-                  <img src="https://raw.githubusercontent.com/KevinAlavik/scylla-ios/main/app/app/Assets.xcassets/AppIcon.appiconset/100.png" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">Scylla Repo</div>
-                    <div class="appsection">unknown</div>
-                  </div>
-                </div>
-                <div class="appget">
-                  <button style="background-color: transparent; border: none;"href="repoview.html?apps.json">Add</button>
-                </div>
-              </div>
+
             <div id="out">
               Loading repos...
             </div>  
@@ -148,6 +132,26 @@ function closePopup() {
         repojs.repo.document.append(output, out);
       });
 </script>
+<script>
+function showNotification() {
+  const notification = document.getElementById('notification');
+  notification.classList.remove('hidden');
+  
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 60000);
+}
+function addRepo() {
+  let text;
+  let person = prompt("URL Repo:",);
+  if (person == null || person == "") {
+  <-->
+  } else {
+  <-->
+  }
+}
+    </script>
+</div>
 </body>
 
 </html>
