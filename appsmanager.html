@@ -32,11 +32,12 @@
    <i style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-address-card"></i>
    <i onclick="showNotification()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-cloud-arrow-up"></i>
 
-     <div id="notification" class="notification hidden">
+<div id="notification" class="notification hidden">
   <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
   <div class="notification-content">
-    <p class="notification-title">iTweakHub</p>
-      <p class="notification-message">The app will be signed and installed soon.</p>
+    <p class="notification-title">AppName</p>
+      <p class="notification-message">DevName</p>
+      <progress id="signstatus" value="50" max="100"></progress> 
   </div>
 </div>
         
@@ -140,14 +141,6 @@ function closePopup() {
       });
 </script>
 <script>
-function showNotification() {
-  const notification = document.getElementById('notification');
-  notification.classList.remove('hidden');
-  
-  setTimeout(() => {
-    notification.classList.add('hidden');
-  }, 60000);
-}
 function addRepo() {
   let text;
   let person = prompt("URL Repo:",);
@@ -158,6 +151,16 @@ function addRepo() {
   }
 }
     </script>
+    <script>
+        function showNotification() {
+  const notification = document.getElementById('notification');
+  notification.classList.remove('hidden');
+  
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 40000);
+}
+ </scipt>
 </div>
 </body>
 
