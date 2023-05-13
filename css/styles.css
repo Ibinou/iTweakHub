@@ -644,4 +644,12 @@ progress::-webkit-progress-value {
     transform: translateY(27px);
 }
 
+/*setup rectangle*/
+.setupitem {
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  position: fixed;
+  margin: 9px;
+  padding: 15px;
+}
 
