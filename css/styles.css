@@ -615,7 +615,7 @@ progress::-webkit-progress-value {
   font-size: 16px;
   color: #CACACA;
   margin-left: auto;
-  transform: translateY(22px);
+  transform: translateY(27px);
 }
 
 
