@@ -77,6 +77,10 @@ button[type="submit"]:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
   }
 }
 
@@ -91,6 +95,10 @@ button[type="submit"]:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
   }
 }
 
