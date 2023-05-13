@@ -579,11 +579,12 @@ progress::-webkit-progress-value {
   background-color: #1c1c1c;
   border-radius: 15px;
   padding: 16px;
+  padding-top: 0;
 }
 
 .item img {
   height: auto;
-  width: 30px;
+  width: 37px;
   height: auto;
   object-fit: cover;
   margin-bottom: 10px;
@@ -614,6 +615,7 @@ progress::-webkit-progress-value {
   font-size: 16px;
   color: #CACACA;
   margin-left: auto;
+  transform: translateY(22px);
 }
 
 
