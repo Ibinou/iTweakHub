@@ -593,7 +593,23 @@ progress::-webkit-progress-value {
   border-radius: 8px;
   float: right;
 }
+.item:active {
+  animation: click 0.2s linear;
+  -webkit-animation: click 0.2s linear;
+}
 
+
+@keyframes click {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@-webkit-keyframes click {
+  0% { -webkit-transform: scale(1); }
+  50% { -webkit-transform: scale(0.95); }
+  100% { -webkit-transform: scale(1); }
+}
 .item h2 {
   font-size: 16px;
   font-weight: bold;
