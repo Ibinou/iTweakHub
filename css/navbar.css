@@ -139,13 +139,13 @@ div.content {
 
 @-webkit-keyframes click {
   0% { -webkit-transform: scale(1); }
-  50% { -webkit-transform: scale(0.9); }
+  50% { -webkit-transform: scale(0.95); }
   100% { -webkit-transform: scale(1); }
 }
 
 @keyframes click {
   0% { transform: scale(1); }
-  50% { transform: scale(0.9); }
+  50% { transform: scale(0.95); }
   100% { transform: scale(1); }
 }
 
