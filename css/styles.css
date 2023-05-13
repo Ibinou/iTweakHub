@@ -568,8 +568,8 @@ progress::-webkit-progress-value {
 /*Repos Rectangles*/
 .repos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(163px, 1fr));
+  gap: 16px;
 }
 
 .item {
@@ -577,9 +577,8 @@ progress::-webkit-progress-value {
   flex-direction: column;
   justify-content: flex-start;
   background-color: #1c1c1c;
-  border: 1px solid #ccc;
   border-radius: 15px;
-  padding: 20px;
+  padding: 16px;
 }
 
 .item img {
@@ -588,14 +587,14 @@ progress::-webkit-progress-value {
   height: auto;
   object-fit: cover;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   float: right;
 }
 
 .item h2 {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   margin-top: 0px;
   color: white;
 }
