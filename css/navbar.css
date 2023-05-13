@@ -151,10 +151,12 @@ div.content {
 
 /*top title nav bar*/
 .toptitle {
-    background-color: #121212;
-    position: fixed; 
+    background-color: #1212128a;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    z-index: 999;
+    backdrop-filter: blur(20px);
 }
     
