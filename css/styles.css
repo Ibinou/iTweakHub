@@ -255,6 +255,19 @@ a {
     background-color: rgb(19 19 19 / 46%);
     -webkit-backdrop-filter: blur(25px);
 }
+
+.continuebtn:active {
+  animation: click 0.2s linear;
+}
+
+
+@keyframes click {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+
 /*infos list appinfos.html*/
 .information {
     padding: 0.6rem 16px 0.5rem 16px;
