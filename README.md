@@ -1,5 +1,5 @@
 # iTweakHub
-The best 3rd party app store out there! No ads, clean UI and free ! All you need in one place.
+The best 3rd party app store out there! No ads, clean UI and free ! All you need in one place. Made with huge ❤.
 
 ## What you get
 - An app with sleek and modern UI
@@ -18,5 +18,5 @@ Supported repos
 
 ## Release date
 Soon
-- Backend: ~45%
-- Frontend: ~72% (some UI bugs, missing some html files and some html files are imcomplete)
+- Backend: ~50%
+- Frontend: ~75% (some UI bugs, missing some html files and some html files are imcomplete)
