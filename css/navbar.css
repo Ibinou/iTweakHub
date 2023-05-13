@@ -149,3 +149,12 @@ div.content {
   100% { transform: scale(1); }
 }
 
+/*top title nav bar*/
+.toptile {
+    background-color: #121212;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+}
+    
