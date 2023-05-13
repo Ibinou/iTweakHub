@@ -612,10 +612,10 @@ progress::-webkit-progress-value {
 }
 
 .item i {
-  font-size: 16px;
-  color: #CACACA;
-  margin-left: auto;
-  transform: translateY(27px);
+    font-size: 17px;
+    color: #CACACA;
+    margin-left: auto;
+    transform: translateY(27px);
 }
 
 
