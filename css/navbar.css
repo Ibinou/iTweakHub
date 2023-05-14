@@ -171,6 +171,7 @@ div.content {
   scroll-behavior: smooth;
   margin-bottom: 20px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .sections {
