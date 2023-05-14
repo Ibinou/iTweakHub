@@ -29,6 +29,12 @@
       width: 215px;
       height: 447px;
     }
+    body {
+     margin: 0;
+     padding: 0;
+     height: 2000px; /* Hauteur de la page pour le défilement */
+}
+
   </style>
   
   <div id="notification" class="notification hidden">
@@ -120,6 +126,14 @@ function showNotification() {
     notification.classList.add('hidden');
   }, 5000);
 }
+window.addEventListener("scroll", function() {
+  var navbar = document.getElementById("navbar");
+  if (window.scrollY > 0) {
+    navbar.classList.add("navbar-scrolled");
+  } else {
+    navbar.classList.remove("navbar-scrolled");
+  }
+});
 
 </script>
   
