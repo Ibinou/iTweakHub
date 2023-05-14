@@ -164,7 +164,7 @@ div.content {
 }
 
 /*SECTIONS CHOOSE*/
-.container {
+.sectionscarr {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
@@ -190,7 +190,7 @@ div.content {
 
 
 @media screen and (max-width: 768px) {
-  .container {
+  .sectionscarr {
     flex-wrap: nowrap;
   }
   
