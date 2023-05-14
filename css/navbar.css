@@ -1,3 +1,5 @@
+*/ALL NAVBAR STYLES*/
+
 /* Mobile nav bar */
 @supports (
 (-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))
@@ -159,5 +161,54 @@ div.content {
     z-index: 999;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+}
+
+/*SECTIONS CHOOSE*/
+.container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.sections {
+  background-color: #1c1c1c;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  scroll-snap-align: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-wrap: nowrap;
+  }
+  
+  .sections {
+    min-width: 200px;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-110px);
+  }
+}
+
+.active {
+  transform: translateX(-110px);
 }
     
