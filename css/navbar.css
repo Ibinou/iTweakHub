@@ -1,4 +1,4 @@
-*/ALL NAVBAR STYLES*/
+/*ALL NAVBAR STYLES*/
 
 /* Mobile nav bar */
 @supports (
@@ -208,7 +208,5 @@ div.content {
   }
 }
 
-.active {
-  transform: translateX(-110px);
-}
+
     
