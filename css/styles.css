@@ -541,14 +541,6 @@ select option {
   }
 }
 
-.searchtop {
-  background-color: #121212;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  position: fixed;
-  top: 0;
-  z-index: 999;
-}  
 
 .appsection {
   white-space: break
