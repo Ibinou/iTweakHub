@@ -34,7 +34,37 @@
      padding: 0;
      height: 2000px; /* Hauteur de la page pour le défilement */
 }
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+  z-index: 999;
+}
 
+nav h1 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+nav h1 i a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-scrolled {
+  background-color: #1c1c1cbd;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
+}
+<!--I had to put the css here because the bottom nav bar was in top idk why-->
   </style>
   
   <div id="notification" class="notification hidden">
