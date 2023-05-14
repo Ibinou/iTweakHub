@@ -214,7 +214,6 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 }
 
 .appbanner {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
