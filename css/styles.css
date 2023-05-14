@@ -653,5 +653,6 @@ progress::-webkit-progress-value {
       border-top-right-radius: 41px;
       border-top-left-radius: 41px;
       backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       height: 318px;
     }
