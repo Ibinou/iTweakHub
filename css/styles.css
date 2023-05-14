@@ -499,7 +499,7 @@ select option {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
-    z-index: 999;
+    z-index: 999999;
 }
 
 .notification img {
