@@ -193,8 +193,11 @@
         <a href="settings.html" class="rectangle" id="r1">Settings</a>
         <br>
         <a href="appinfos.html" class="rectangle" id="r1">Go to appinfos.html</a>
+	 <br>
+        <a onclick="openDiv()" class="rectangle" id="r1">Go to appinfos.html</a>
         <br>
            <p class="credits"><strong>Made with ❤ by @pufferisadev && @Ibatech1</strong></p>
+	
         <br>
         <br>
         <br>
@@ -212,7 +215,10 @@
             </a>
         </nav>
       </center>
-</div>                                                                                                                                                                                                                                                                                                                         
+</div>   
+  <div id="myDiv" class="hidden">
+	  <h1>TEST</h1>
+  </div>
 <script>
             var signed = true
             if(signed) {
@@ -237,6 +243,23 @@ if (document.cookie.indexOf("visited=true") === -1) {
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
+<script>
+      function openDiv() {
+      var div = document.getElementById('myDiv');
+      div.classList.remove('hidden');
+    }
+</script>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .myDiv {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      margin-top: 20px;
+    }
+  </style>
 </body>
 
 </html>
