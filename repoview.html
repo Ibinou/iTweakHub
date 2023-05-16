@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/featured.css" keep>
+  <link rel="stylesheet" href="css/navbar.css" keep>
+  <link rel="stylesheet" href="css/styles.css" keep>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121212">
+  <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+  <title>Search | iTweakHub</title>
+  <script src="/js/index.js"></script>
+  <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+
+                                                                                   
+<div class="sidebar">
+  <a href="index.html">Home</a>
+  <a class="active" href="appsmanager.html">Repo</a>
+  <a href="search.html">Search</a>
+</div>
+
+  <div class="content">
+    
+
+    <div class="toptitle">	
+    <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: #7163FF;"><i class="fa-solid fa-angle-left" style="color: #7163FF;margin-right: 5px;"></i>Back</h1></a>
+    <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">{"RepoName"}</h1>
+</div>
+    
+  <center>
+    <div class="none">
+      <div class="appList">
+        <div class="dock">
+          <div class="app_cell_left">
+            <img
+              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
+              class="appicon">
+            <div class="app_cell_meta">
+              <div class="appname">Placeholder</div>
+              <div class="appsection">Placeholder</div>
+            </div>
+          </div>
+          <div class="appget">
+            <button style="background-color: transparent; border: none;"
+              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+          </div>
+        </div>
+    </div>
+      
+  </center>
+
+  <nav class="mobile-nav">
+    <a href="index.html" class="bloc-icon">
+      <i class="fa-solid fa-fire" style="color: #ffffff;"></i>
+    </a>
+    <a href="appsmanager.html" class="bloc-icon">
+      <i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>
+    </a>
+    <a href="search.html" class="bloc-icon">
+      <i class="fa-solid fa-magnifying-glass" style="color: #008CFF;"></i>
+    </a>
+  </nav>
+   </div>
+    <script>
+      out = document.getElementById("out");
+      repojs.init();
+      url = "https://usescarlet.com/scarlet.json";
+      var output = "<pre>";
+      repojs.repo.get(url).then((data) => {
+        var data = repojs.repo.parse(data);
+        var all = repojs.repo.getAllCategories(data, "META");
+        output += "--------------------------------------<br>";
+        output += `<span style="font-weight: bold;">Repo Name: <span style="font-weight: normal;">${
+          data.META.repoName || "N/A"
+        }</span></span><br>`;
+        output += `<span style="font-weight: bold;">Repo Icon (url): <span style="font-weight: normal;">${
+          data.META.repoIcon || "N/A"
+        }</span></span><br>`;
+        output += "--------------------------------------<br>";
+        output += `<span style="font-weight: bold;">App Amount: <span style="color: green;">${all.length}</span></span><br><br>`;
+        for (let i = 0; i < all.length; i++) {
+          output += `<span style="font-weight: bold;"> · App ${i}'s Name: <span style="font-weight: normal;">${all[i].name}</span></span><br>`;
+          output += `  - App Version: ${all[i].version}<br>`;
+          output += `  - App Category: ${all[i].category}<br>`;
+          output += `  - App Description: ${all[i].description}<br>`;
+          output += `  - App Bundle Id: ${all[i].bundleID}<br>`;
+          output += `  - App Icon (url): ${all[i].icon}<br>`;
+          output += `  - App Ipa (url): ${all[i].down}<br>`;
+        }
+
+        output += "</pre>";
+        repojs.repo.document.append(output, out);
+      });
+    </script>
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, div, h1, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementsByClassName("dock");
+      li = ul.getElementsByClassName('appname');
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        h1 = li[i].getElementsByTagName("div")[0];
+        txtValue = h1.textContent || h1.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>
