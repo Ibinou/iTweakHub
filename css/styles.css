@@ -703,13 +703,12 @@ progress::-webkit-progress-value {
 .modal-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 10px;
 }
 
 .modal-image {
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   border-radius: 16px;
   margin-bottom: 20px;
 }
