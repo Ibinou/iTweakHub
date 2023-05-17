@@ -693,6 +693,7 @@ progress::-webkit-progress-value {
   transition: transform 0.3s ease-in-out;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  z-index: 99999;
 }
 
 .modal.open {
