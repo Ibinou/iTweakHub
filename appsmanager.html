@@ -30,16 +30,22 @@
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
    <i style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-address-card"></i>
-   <i onclick="showNotification()" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-cloud-arrow-up"></i>
+   <i id="openModalBtn" style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-cloud-arrow-up"></i>
 
-<div id="notification" class="notification hidden">
-  <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
-  <div class="notification-content">
-    <p class="notification-title">AppName</p>
-      <p class="notification-message">DevName</p>
-      <progress id="signstatus" value="50" max="100"></progress> 
+	 
+
+<div id="bottomModal" class="modal">
+  <div class="modal-handle"></div> <!-- Barre de glissement -->
+  <div class="modal-content" value="50" max="100">
+    <img src="https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg" alt="Icon" class="modal-image">
+    <div class="modal-text">
+      <div class="modal-line">Application</div>
+      <div class="modal-line">Developer</div>
+    </div>
   </div>
+  <div class="modal-progress"></div>
 </div>
+
         
 
     <div class="allRepos">
@@ -149,14 +155,20 @@ function closePopup() {
 		}
     </script>
     <script>
-        function showNotification() {
-  const notification = document.getElementById('notification');
-  notification.classList.remove('hidden');
-  
-  setTimeout(() => {
-    notification.classList.add('hidden');
-  }, 40000);
-}
+const openModalBtn = document.getElementById('openModalBtn');
+const bottomModal = document.getElementById('bottomModal');
+const modalHandle = document.querySelector('.modal-handle');
+
+openModalBtn.addEventListener('click', function() {
+  bottomModal.classList.toggle('open');
+});
+
+modalHandle.addEventListener('scroll', function() {
+  if (modalHandle.scrollTop === modalHandle.scrollHeight - modalHandle.offsetHeight) {
+    bottomModal.classList.remove('open');
+  }
+});
+
  </scipt>
 </div>
 </body>
