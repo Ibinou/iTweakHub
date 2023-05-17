@@ -33,7 +33,8 @@
    <i style="margin-right:40px;float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-cloud-arrow-up"></i>
 
 	 
-<button id="openModalBtn">Open Sign Modal</button>
+<button onclick="openModal()">Open Sign Modal Status</button>
+	    
 <div id="bottomModal" class="modal">
   <div class="modal-handle"></div> 
   <div class="modal-content" value="50" max="100">
@@ -155,18 +156,20 @@ function closePopup() {
 		}
     </script>
     <script>
-const openModalBtn = document.getElementById('openModalBtn');
-const bottomModal = document.getElementById('bottomModal');
-const modalHandle = document.querySelector('.modal-handle');
-
-openModalBtn.addEventListener('click', function() {
+function openModal() {
+  const bottomModal = document.getElementById('bottomModal');
   bottomModal.classList.toggle('open');
-});
+}
 
-modalHandle.addEventListener('scroll', function() {
-  if (modalHandle.scrollTop === modalHandle.scrollHeight - modalHandle.offsetHeight) {
-    bottomModal.classList.remove('open');
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  const modalHandle = document.querySelector('.modal-handle');
+
+  modalHandle.addEventListener('scroll', function() {
+    if (modalHandle.scrollTop === modalHandle.scrollHeight - modalHandle.offsetHeight) {
+      const bottomModal = document.getElementById('bottomModal');
+      bottomModal.classList.remove('open');
+    }
+  });
 });
 
  </scipt>
