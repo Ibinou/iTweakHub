@@ -648,3 +648,85 @@ progress::-webkit-progress-value {
       -webkit-backdrop-filter: blur(25px);
       height: 318px;
     }
+
+
+/*sign modal*/
+.modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  height: 200px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow: auto; 
+}
+
+.modal.open {
+  transform: translateY(0);
+}
+
+.modal-handle {
+  height: 5px;
+  background-color: #303030;
+  cursor: pointer;
+  width: 40px;
+  height: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1c1c1cbd;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgb(37, 37, 39);
+  height: 200px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal.open {
+  transform: translateY(0);
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.modal-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.modal-text {
+  text-align: left;
+  color: white;
+}
+
+.modal-line {
+  margin-bottom: 5px;
+}
+
+.modal-progress {
+  height: 10px;
+  background-color: #ccc;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 50px;
+  background-color: #252525;
+}
