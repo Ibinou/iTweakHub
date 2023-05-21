@@ -749,3 +749,54 @@ progress::-webkit-progress-value {
   border-radius: 50px;
   background-color: #252525;
 }
+
+
+/*credits.html cards*/
+.devcard {
+  display: flex;
+  align-items: center;
+  background-color: #1c1c1c;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgb(37, 37, 39);
+}
+
+.profile-pic {
+  margin-right: 10px;
+}
+
+.profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+h3, p {
+  margin: 0;
+  color: white;
+}
+
+button {
+background-color: #7163FF;
+    border-radius: 14px;
+    border-width: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    height: 40px;
+    margin-top: 10px; 
+}
+
