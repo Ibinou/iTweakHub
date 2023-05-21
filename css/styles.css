@@ -781,7 +781,7 @@ h3, p {
   color: white;
 }
 
-button {
+.socialbtn {
 background-color: #7163FF;
     border-radius: 14px;
     border-width: 0;
