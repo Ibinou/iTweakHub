@@ -58,5 +58,15 @@ nav h1 i a {
     <p class="date">Published on June 1, 2023</p>
   </div>
 <br>
+<script>
+    window.addEventListener("scroll", function() {
+  var navbar = document.getElementById("navbar");
+  if (window.scrollY > 0) {
+    navbar.classList.add("navbar-scrolled");
+  } else {
+    navbar.classList.remove("navbar-scrolled");
+  }
+});
+    </script>
 </body>
 </html>
