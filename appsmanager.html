@@ -130,27 +130,40 @@ function closePopup() {
   var popup = document.getElementById("myPopup");
   popup.style.display = "none";
 }
-
       out = document.getElementById("out");
       repojs.init();
-      url = "https://puffer.is-a.dev/repos/main-scarlet.json";
-      var output = "<div class='dock' style='margin-bottom:16px;'>";
-      output += "<div class='app_cell_left'>"
-      repojs.repo.get(url).then((data) => {
-        var data = repojs.repo.parse(data);
-        output += `<img src='${data.META.repoIcon}' class='appicon'>`
-        output += `<div class="app_cell_meta">`
-        output += `<div class="appname">${data.META.repoName}</div>`
-        output += `<div class="appsection">${url}</div>`
-        output += `</div>`
-        output += `<div class="appget" style="margin-left: 3rem">`
-        output += `<button style="background-color: transparent; border: none; "href="repoview.html?apps.json">Go</button>`
-        output += `</div>`
-        output += `</div>`
-        output += "</pre>";
-        repojs.repo.document.append(output, out);
-      });
-</script>
+      const repoUrl = "https://usescarlet.com/scarlet.json";
+
+      repojs.repo.get(repoUrl)
+        .then((data) => {
+          if (data === null) {
+            console.error("Error: Invalid JSON response");
+            return;
+          }
+
+          const meta = data.META || {};
+          const all = repojs.repo.getAllCategories(data, "META");
+
+          let output = "<pre>";
+          output += "--------------------------------------<br>";
+          output += `<span style="font-weight: bold;">Repo Name: <span style="font-weight: normal;">${(meta.repoName || "N/A")}</span></span><br>`;
+          output += `<span style="font-weight: bold;">Repo Icon (url): <span style="font-weight: normal;">${(meta.repoIcon || "N/A")}</span></span><br>`;
+          output += "--------------------------------------<br>";
+          output += `<span style="font-weight: bold;">App Amount: <span style="color: green;">${all.length}</span></span><br><br>`;
+          for (let i = 0; i < all.length; i++) {
+            const app = all[i] || {};
+            output += `<span style="font-weight: bold;"> · App ${i}'s Name: <span style="font-weight: normal;">${(app.name || "N/A")}</span></span><br>`;
+            output += `  - App Version: ${app.version || "N/A"}<br>`;
+            output += `  - App Category: ${app.category || "N/A"}<br>`;
+            output += `  - App Description: ${app.description || "N/A"}<br>`;
+            output += `  - App Bundle Id: ${app.bundleID || "N/A"}<br>`;
+            output += `  - App Icon (url): ${app.icon || "N/A"}<br>`;
+            output += `  - App Ipa (url): ${app.down || "N/A"}<br>`;
+          }
+          output += "</pre>";
+          repojs.document.append(output, out)
+        });
+    </script>
 <script>
 	function addRepo() {
 			var texte = window.prompt("URL Repo :", "https://");
