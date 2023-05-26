@@ -30,14 +30,15 @@
 
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
-   <i style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-address-card"></i>
+   <i onclick="showModal()" style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-address-card"></i>
  <label for="fileInput" class="upload-button">
     <i style="margin-right: 40px;float: right;margin-top: -43px;font-size: 20px;color: #7163FF;" class="fas fa-cloud-arrow-up"></i>
   </label>
   <input type="file" id="fileInput" style="display: none;">
 	 
-<button onclick="openModal()">open</button>
-
+<button onclick="openModal()">open sign sheet</button>
+<button onclick="showModal()">open cert sheet</button>
+	    
 <div id="bottomModal" class="modal">
   <div class="modal-handle"></div> 
   <div class="modal-content">
@@ -50,7 +51,13 @@
   <div class="modal-progress"></div>
 </div>
 
-
+<div id="my-modal" class="my-modal">
+  <div class="my-modal-content">
+    <div class="my-modal-bar"></div>
+    <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;">Certificate manager</h1>
+    </a>
+  </div>
+</div>
         
 
     <div class="allRepos">
@@ -189,6 +196,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+ </script>
+    <script>
+var startY;
+var modal = document.getElementById("my-modal");
+
+function showModal() {
+  modal.classList.add("open");
+}
+
+function closeModal() {
+  modal.classList.remove("open");
+}
+
+modal.addEventListener("touchstart", function(event) {
+  startY = event.touches[0].clientY;
+});
+
+modal.addEventListener("touchmove", function(event) {
+  var currentY = event.touches[0].clientY;
+  if (currentY > startY) {
+    event.preventDefault();
+    closeModal();
+  }
+});
+
 
  </script>
 </div>
