@@ -812,6 +812,7 @@ background-color: #7163FF;
   transition: height 0.3s ease-in-out;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  z-index: 99999;
 }
 
 .my-modal-content {
@@ -832,5 +833,6 @@ background-color: #7163FF;
 }
 
 .my-modal.open {
-  height: 200px; /* Size of the modal */
+  height: 95%; /* Size of the modal */
 }
+
