@@ -125,24 +125,18 @@ div.content {
     border: 1px solid #393939;
 }
 .get {
-    background-color: #0082FF;
-    border-radius: 16px;
-    color: #ffffff;
-    font-weight: 700;
-    border: 0;
-    font-size: 14px;
-    width: 100%;
-    height: 45px;
-}
-.get:active {
-  -webkit-animation: click 0.2s linear;
-  animation: click 0.2s linear;
+  background-color: #0082FF;
+  border-radius: 16px;
+  color: #ffffff;
+  font-weight: 700;
+  border: 0;
+  font-size: 14px;
+  width: 100%;
+  height: 45px;
 }
 
-@-webkit-keyframes click {
-  0% { -webkit-transform: scale(1); }
-  50% { -webkit-transform: scale(0.95); }
-  100% { -webkit-transform: scale(1); }
+.get.clicked {
+  animation: click 0.2s linear;
 }
 
 @keyframes click {
@@ -150,6 +144,8 @@ div.content {
   50% { transform: scale(0.95); }
   100% { transform: scale(1); }
 }
+
+
 
 /*top title nav bar*/
 .toptitle {
