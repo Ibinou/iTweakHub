@@ -6,6 +6,9 @@
 * {
   color: white;
 }
+img{
+pointer-events: none;
+}
 
 /* Icon of the appinfos page */
 .icon {
@@ -759,8 +762,6 @@ progress::-webkit-progress-value {
   padding: 15px;
   border-radius: 12px;
   border: 1px solid rgb(37, 37, 39);
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .profile-pic {
