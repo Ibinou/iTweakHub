@@ -64,7 +64,7 @@ nav h1 i a {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
 }
-<!--I had to put the css here because the bottom nav bar was in top idk why-->
+/* I had to put the css here because the bottom nav bar was in top idk why */
   </style>
   
   <div id="notification" class="notification hidden">
@@ -165,6 +165,18 @@ window.addEventListener("scroll", function() {
   }
 });
 
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var button = document.querySelector('.get');
+  
+  button.addEventListener('click', function() {
+    button.classList.add('clicked');
+    setTimeout(function() {
+      button.classList.remove('clicked');
+    }, 200);
+  });
+});
 </script>
   
 </body>
