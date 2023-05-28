@@ -59,6 +59,7 @@
     <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;">Certificate manager</h1>
     </a>
 	<button class="importcert">Import Certificate</button>
+	<input type="file" id="file-input">
   </div>
 </div>
         
@@ -227,6 +228,11 @@ modal.addEventListener("touchmove", function(event) {
 
 
  </script>
+   <script>
+        document.querySelector('.importcert').addEventListener('click', function() {
+            document.getElementById('file-input').click();
+        });
+    </script>
 </div>
 </body>
 
