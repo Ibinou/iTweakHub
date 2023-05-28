@@ -2,7 +2,9 @@
   touch-action: pan-x pan-y;
   height: 100%
 }
-
+#file-input {
+  display: none;
+}
 * {
   color: white;
 }
