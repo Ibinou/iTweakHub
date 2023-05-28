@@ -262,6 +262,10 @@ a {
     backdrop-filter: blur(25px);
     background-color: #7163FF;
     -webkit-backdrop-filter: blur(25px);
+    left: 50%;
+    position: fixed;
+    align-items: center;
+    margin-left: -116px;
 }
 
 
