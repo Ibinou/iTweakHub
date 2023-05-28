@@ -267,7 +267,27 @@ a {
     align-items: center;
     margin-left: -116px;
 }
-
+.importcert {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 47px;
+    width: 232px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 1.2em;
+    left: 50%;
+    bottom: 30px;
+    backdrop-filter: blur(25px);
+    background-color: #7163FF;
+    -webkit-backdrop-filter: blur(25px);
+    left: 50%;
+    position: relative;
+    align-items: center;
+    margin-left: -116px;
+}
 
 /*infos list appinfos.html*/
 .information {
