@@ -40,7 +40,7 @@
   <div class="content">
    
       <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Search</h1>
-<i onclick="showGame()" style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-dice"></i>
+<i onclick="showModal()" style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-dice"></i>
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
       <div class="sectionscarr">
           <div class="sections">Games</div>
@@ -326,11 +326,11 @@
 var startY;
 var modal = document.getElementById("my-modal");
 
-function showGame() {
+function showModal() {
   modal.classList.add("open");
 }
 
-function closeGame() {
+function closeModal() {
   modal.classList.remove("open");
 }
 
