@@ -865,3 +865,42 @@ background-color: #7163FF;
   height: 95%; /* Size of the modal */
 }
 
+/*game*/
+.container {
+    text-align: center;
+    margin-top: 200px;
+}
+
+#imageContainer {
+    display: none;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#imageContainer img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    display: none;
+}
+
+.enlarged {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+#imageContainer.enlarged {
+  width: 150px;
+  height: 150px;
+}
+
+#imageContainer.enlarged img {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+/*end game css*/
