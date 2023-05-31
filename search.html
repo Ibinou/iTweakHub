@@ -20,12 +20,8 @@
 </head>
 
 <body>
-<div class="sidebar">
-  <a href="index.html">Home</a>
-  <a href="appsmanager.html">Repo</a>
-  <a class="active" href="search.html">Search</a>
-</div>
-<div class="content">
+
+
   <div id="my-modal" class="my-modal">
   <div class="my-modal-content">
     <div class="my-modal-bar"></div>
@@ -33,18 +29,17 @@
 	  <p>A new way to discover apps.</p>
     </a>
 	<p>An app will be choosed randomly.</p>
-   <div class="container">
-        <div id="imageContainer"></div>
-        <div id="result">  
-		<button id="startButton" class="importcert">Start</button>
-      </div>
-	
+	<button class="importcert">Start</button>
   </div>
 </div>
 	
+<div class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="appsmanager.html">Repo</a>
+  <a class="active" href="search.html">Search</a>
+</div>
 
-
- 
+  <div class="content">
    
       <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Search</h1>
 <i onclick="showModal()" style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-dice"></i>
@@ -359,95 +354,7 @@ modal.addEventListener("touchmove", function(event) {
   <script>
   AOS.init();
   </script>
-  <script>
-// Liste des icônes
-const icons = [
-    "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/Watusi.PNG",
-    "https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg",
-    "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/uYou%2B.PNG",
-    // Ajoutez d'autres icônes si nécessaire
-];
 
-
-// Fonction pour choisir une icône au hasard
-function chooseRandomIcon() {
-  const randomIndex = Math.floor(Math.random() * icons.length);
-  return icons[randomIndex];
-}
-
-// Variables globales
-let interval;
-let resetButtonAdded = false;
-
-// Fonction pour démarrer le jeu
-function startGame() {
-  const startButton = document.getElementById("startButton");
-  startButton.style.display = "none";
-
-  const imageContainer = document.getElementById("imageContainer");
-  imageContainer.style.display = "block";
-
-  const result = document.getElementById("result");
-  result.innerHTML = "";
-
-  interval = setInterval(function () {
-    const image = document.createElement("img");
-    image.src = chooseRandomIcon();
-
-    const currentImage = imageContainer.querySelector("img");
-    if (currentImage) {
-      currentImage.style.display = "none";
-    }
-
-    imageContainer.innerHTML = "";
-    imageContainer.appendChild(image);
-
-    setTimeout(function () {
-      image.style.display = "block";
-    }, 10);
-
-    setTimeout(function () {
-      clearInterval(interval);
-
-      image.classList.add("enlarged");
-      imageContainer.classList.add("enlarged");
-
-      if (!resetButtonAdded) {
-        const resetButton = document.createElement("button");
-        resetButton.innerHTML = "Recommencer";
-        resetButton.addEventListener("click", resetGame);
-        resetButtonAdded = true;
-
-        const container = document.querySelector(".container");
-        container.appendChild(resetButton);
-      }
-    }, 5000);
-  }, 200);
-}
-
-// Fonction pour réinitialiser le jeu
-function resetGame() {
-  const imageContainer = document.getElementById("imageContainer");
-  imageContainer.innerHTML = "";
-  imageContainer.style.display = "none";
-  imageContainer.classList.remove("enlarged");
-
-  const resetButton = document.querySelector("button");
-  resetButton.removeEventListener("click", resetGame);
-  resetButton.parentNode.removeChild(resetButton);
-  resetButtonAdded = false;
-
-  const startButton = document.getElementById("startButton");
-  startButton.style.display = "block";
-
-  clearInterval(interval);
-}
-
-// Attacher l'événement de clic au bouton de démarrage
-const startButton = document.getElementById("startButton");
-startButton.addEventListener("click", startGame);
-
-  </script>
 
 </body>
 
