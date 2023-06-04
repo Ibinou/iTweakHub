@@ -20,9 +20,10 @@
 <body>
 
 <div class="content">
+<div class="toptitle">    
 <a style="text-decoration: none" href="../settings.html"><h1 style="font-family:helvetica;font-size:21px;color: #7163FF;"><i class="fa-solid fa-angle-left" style="color: #7163FF;"></i> Home</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;">General</h1>
-	
+</div>	
 
 	<p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">DEVICE INFOS</p>	
  <div class="deviceinfos">
@@ -53,7 +54,51 @@
 	
 
 
+    <script>
+        // Vérifiez si la couleur est déjà définie dans le cookie
+        const savedColor = getCookie('accentColor');
+        if (savedColor) {
+            applyColor(savedColor);
+        }
 
+        // Écoutez l'événement de modification de la couleur sélectionnée dans le color picker
+        document.getElementById('colorPicker').addEventListener('input', function() {
+            const color = this.value;
+            applyColor(color);
+
+            // Enregistrez la couleur dans le cookie pour une utilisation future
+            setCookie('accentColor', color, 365);
+        });
+
+        // Fonction pour appliquer la couleur aux éléments de la div toptitle
+        function applyColor(color) {
+            const toptitles = document.getElementsByClassName('toptitle');
+            for (let i = 0; i < toptitles.length; i++) {
+                const textElement = toptitles[i].querySelector('h1');
+                const iconElement = toptitles[i].querySelector('i');
+                textElement.style.color = color;
+                iconElement.style.color = color;
+            }
+        }
+
+        // Fonctions utilitaires pour manipuler les cookies
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+            document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + expires.toUTCString() + ';path=/';
+        }
+
+        function getCookie(name) {
+            const cookieArr = document.cookie.split(';');
+            for (let i = 0; i < cookieArr.length; i++) {
+                const cookiePair = cookieArr[i].split('=');
+                if (name === cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+    </script>
     
     
 
