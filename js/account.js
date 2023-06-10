@@ -8,38 +8,14 @@ const usernameDisplay = document.getElementById('username-display');
 const createAccountBtn = document.getElementById('create-account-btn');
 const logoutBtn = document.getElementById('logout-btn');
 
-// Fonction pour créer un cookie
-function setCookie(name, value, days) {
-  const expires = new Date();
-  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-}
+// Vérifier si l'utilisateur est déjà connecté
+if (localStorage.getItem('username') && localStorage.getItem('profilePicture')) {
+  const username = localStorage.getItem('username');
+  const profilePicture = localStorage.getItem('profilePicture');
 
-// Fonction pour récupérer la valeur d'un cookie
-function getCookie(name) {
-  const cookieArr = document.cookie.split(';');
-  for (let i = 0; i < cookieArr.length; i++) {
-    const cookiePair = cookieArr[i].split('=');
-    if (cookiePair[0].trim() === name) {
-      return cookiePair[1];
-    }
-  }
-  return null;
-}
-
-// Fonction pour supprimer un cookie
-function deleteCookie(name) {
-  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
-}
-
-// Vérifier si un cookie d'utilisateur existe
-const usernameCookie = getCookie('username');
-const profilePictureCookie = getCookie('profilePicture');
-
-if (usernameCookie && profilePictureCookie) {
-  // Afficher les informations du cookie
-  profilePicturePreview.src = profilePictureCookie;
-  usernameDisplay.textContent = usernameCookie;
+  // Afficher les informations sur la page d'accueil
+  profilePicturePreview.src = profilePicture;
+  usernameDisplay.textContent = username;
 
   // Masquer la création de compte et afficher la page d'accueil
   loginContainer.style.display = 'none';
@@ -57,33 +33,28 @@ createAccountBtn.addEventListener('click', () => {
     return;
   }
 
-  // Enregistrer les informations dans les cookies
-  setCookie('username', username, 7); // Le cookie expire après 7 jours
-  setCookie('profilePicture', profilePicture.name, 7);
+  // Enregistrer les informations dans le localStorage
+  localStorage.setItem('username', username);
 
-  // Enregistrer le chemin de l'image de profil dans le localStorage
   const reader = new FileReader();
   reader.onload = function () {
     localStorage.setItem('profilePicture', reader.result);
+
+    // Afficher les informations sur la page d'accueil
+    profilePicturePreview.src = reader.result;
+    usernameDisplay.textContent = username;
+
+    // Afficher la page d'accueil et masquer la création de compte
+    loginContainer.style.display = 'none';
+    mainContainer.style.display = 'block';
   };
   reader.readAsDataURL(profilePicture);
-
-  // Afficher les informations sur la page d'accueil
-  profilePicturePreview.src = localStorage.getItem('profilePicture');
-  usernameDisplay.textContent = username;
-
-  // Afficher la page d'accueil et masquer la création de compte
-  loginContainer.style.display = 'none';
-  mainContainer.style.display = 'block';
 });
 
 // Événement lors de la déconnexion
 logoutBtn.addEventListener('click', () => {
-  // Supprimer les cookies
-  deleteCookie('username');
-  deleteCookie('profilePicture');
-
-  // Supprimer le chemin de l'image de profil du localStorage
+  // Supprimer les informations du localStorage
+  localStorage.removeItem('username');
   localStorage.removeItem('profilePicture');
 
   // Réinitialiser les champs de saisie et les informations affichées
