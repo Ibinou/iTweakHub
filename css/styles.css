@@ -26,41 +26,7 @@ pointer-events: none;
   margin: 0 auto; 
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-label {
-  margin-bottom: 10px;
-  color: white;
-}
-
-input {
-    width: 92%;
-    margin-left: 16px;
-    margin-right: 16px;
-    border-radius: 10px;
-    height: 35px;
-    background-color: #1c1c1c;
-    border: 1px solid #404040;
-    margin-bottom: 20px;
-    margin-top: 10px;
-}
-
-button[type="submit"] {
-  background-color: #1c1c1c;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #1c1c1c;
-}
 
 .button {
   background-color: #1c1c1c;
@@ -375,21 +341,7 @@ color: #f5f5f5;
 font-size: 20px;
 }
 
-select {
-    border-radius: 15px;
-    width: 100%;
-    padding: 20px;
-    background-color: #1c1c1c;
-    box-sizing: border-box;
-    color: white;
-    border: 1px solid #252525;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-size: 16px;
-}
-select option {
-    background-color: #1c1c1c;
-}
+
 
 /*theme selector*/
       .containertheme {
@@ -866,42 +818,35 @@ background-color: #7163FF;
   height: 95%; /* Size of the modal */
 }
 
-/*game*/
-.container {
-    text-align: center;
-    margin-top: 200px;
+/*Account CSS*/
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f1f1f1;
 }
 
-#imageContainer {
-    display: none;
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    overflow: hidden;
+#main-container {
+  display: none;
+  padding: 20px;
+  text-align: center;
 }
 
-#imageContainer img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-    display: none;
-}
-
-.enlarged {
-    transform: scale(1.2);
-    transition: transform 0.3s ease-in-out;
-}
-#imageContainer.enlarged {
+#profile-picture-preview {
   width: 150px;
   height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
-#imageContainer.enlarged img {
-  transform: scale(1.2);
-  transition: transform 0.3s ease-in-out;
+#logout-btn {
+  margin-bottom: 20px;
 }
-/*end game css*/
+
+#user-info {
+  margin-top: 20px;
+}
+
