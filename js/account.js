@@ -59,10 +59,17 @@ createAccountBtn.addEventListener('click', () => {
 
   // Enregistrer les informations dans les cookies
   setCookie('username', username, 7); // Le cookie expire après 7 jours
-  setCookie('profilePicture', URL.createObjectURL(profilePicture), 7);
+  setCookie('profilePicture', profilePicture.name, 7);
+
+  // Enregistrer le chemin de l'image de profil dans le localStorage
+  const reader = new FileReader();
+  reader.onload = function () {
+    localStorage.setItem('profilePicture', reader.result);
+  };
+  reader.readAsDataURL(profilePicture);
 
   // Afficher les informations sur la page d'accueil
-  profilePicturePreview.src = URL.createObjectURL(profilePicture);
+  profilePicturePreview.src = localStorage.getItem('profilePicture');
   usernameDisplay.textContent = username;
 
   // Afficher la page d'accueil et masquer la création de compte
@@ -75,6 +82,9 @@ logoutBtn.addEventListener('click', () => {
   // Supprimer les cookies
   deleteCookie('username');
   deleteCookie('profilePicture');
+
+  // Supprimer le chemin de l'image de profil du localStorage
+  localStorage.removeItem('profilePicture');
 
   // Réinitialiser les champs de saisie et les informations affichées
   usernameInput.value = '';
