@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/navbar.css" keep>
     <link rel="stylesheet" href="css/styles.css" keep>
     <link rel="stylesheet" href="css/banner.css" keep>
+    <link rel="stylesheet" href="https://unpkg.com/@ivteplo/utilities.css@1.0.0/build/main.css">
+    <link rel="stylesheet" href="css/sheet.css">
+    <script src="js/sheet.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
   
     <title>iTweakHub</title>
@@ -204,10 +207,39 @@
 	    
 	<div id="main-container">
     <button id="logout-btn">Déconnexion</button>
-    <div id="user-info">
-      <img id="profile-picture-preview" src="" alt="Profile Picture">
-      <h2 id="username-display"></h2>
-    </div>
+
+ <!-- Modal Sheet Account Infos -->		
+    <!-- Button to open a sheet -->
+    <button type="button" id="open-sheet" aria-controls="sheet">Open Sheet</button>
+
+    <!-- The sheet component -->
+    <div id="sheet" class="sheet" aria-hidden="true" role="dialog">
+      <!-- Dark background for the sheet -->
+      <div class="overlay"></div>
+
+      <!-- The sheet itself -->
+      <div class="contents">
+        <!-- Sheet controls -->
+        <header class="controls">
+          <!-- The thing to drag if you want to resize the sheet -->
+          <div class="draggable-area">
+            <div class="draggable-thumb"></div>
+          </div>
+          <!-- Button to close the sheet -->
+          <button class="close-sheet" type="button" title="Close the sheet">&times;</button>
+        </header>
+
+        <!-- Body of the sheet -->
+        <main class="body">
+          <h2>Hello, World!</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit explicabo veros dolorum quaerat reprehenderit laboriosam perspiciatis consequatur odit error dolore recusandae iste id quam magnam ut! Sint nulla minus excepturi libero officiis, deleniti, delectus obcaecati saepe natus rerum nesciunt! Nemo quo id ipsum fugiat voluptas ducimus incidunt nulla sed, voluptates modi exercitationem quod obcaecati corporis perspiciatis dolorum ullam provident sint iusto consequatur totam dolorem. Amet, praesentium accusamus dolore hic ad iusto nostrum exercitationem velit ex optio nihil obcaeco.</p>
+        </main>
+      </div>
+    </div>		
+		
+		
+		
+		
   </div>
         <br>
         <br>
@@ -233,7 +265,7 @@
             if(signed) {
                 document.getElementById("signed").style.color = "#00c227"
             } else {
-                document.getElementById("signed").style.color = "red"
+                document.getElementById("revoked").style.color = "red"
             }
 
                    
@@ -242,6 +274,7 @@
 	<script src="js/script.js"></script>
         <script src="js/account.js"></script>
         <script src="js/transition.js"></script>
+	<script src="js/sheet.js"></script>
 </div>
 </body>
 
