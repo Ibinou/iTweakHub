@@ -90,7 +90,39 @@
       </center>
 </div>   
 
+<style>
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+  z-index: 999;
+}
 
+nav h1 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+nav h1 i a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-scrolled {
+  background-color: #1c1c1cbd;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
+}
+  </style>
+	 
   <script>
 
 window.addEventListener("scroll", function() {
