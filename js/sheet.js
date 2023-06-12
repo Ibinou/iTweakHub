@@ -1,97 +1,106 @@
-const $ = document.querySelector.bind(document)
+const $ = document.querySelector.bind(document);
 
-const openSheetButton = $("#open-sheet")
-const sheet = $("#sheet")
-const sheetContents = sheet.querySelector(".contents")
-const draggableArea = sheet.querySelector(".draggable-area")
+const openSheetButton = $("#open-sheet");
+const sheet = $("#sheet");
+const sheetContents = sheet.querySelector(".contents");
+const draggableArea = sheet.querySelector(".draggable-area");
+const body = document.body;
 
-let sheetHeight // in vh
+let sheetHeight; // in vh
 
 const setSheetHeight = (value) => {
-  sheetHeight = Math.max(0, Math.min(100, value))
-  sheetContents.style.height = `${sheetHeight}vh`
+  sheetHeight = Math.max(0, Math.min(100, value));
 
   if (sheetHeight === 100) {
-    sheetContents.classList.add("fullscreen")
+    sheetContents.classList.add("fullscreen");
   } else {
-    sheetContents.classList.remove("fullscreen")
+    sheetContents.classList.remove("fullscreen");
   }
-}
+
+  sheetContents.style.height = `${sheetHeight}vh`;
+};
 
 const setIsSheetShown = (isShown) => {
-  sheet.setAttribute("aria-hidden", String(!isShown))
-}
+  sheet.setAttribute("aria-hidden", String(!isShown));
+
+  if (isShown) {
+    body.style.overflow = "hidden";
+  } else {
+    body.style.overflow = "";
+  }
+};
 
 // Open the sheet when clicking the 'open sheet' button
 openSheetButton.addEventListener("click", () => {
-  setSheetHeight(Math.min(50, 720 / window.innerHeight * 100))
-  setIsSheetShown(true)
-})
+  setSheetHeight(Math.min(50, 720 / window.innerHeight * 100));
+  setIsSheetShown(true);
+});
 
 // Hide the sheet when clicking the 'close' button
 sheet.querySelector(".close-sheet").addEventListener("click", () => {
-  setIsSheetShown(false)
-})
+  setIsSheetShown(false);
+});
 
 // Hide the sheet when clicking the background
 sheet.querySelector(".overlay").addEventListener("click", () => {
-  setIsSheetShown(false)
-})
+  setIsSheetShown(false);
+});
 
-const isFocused = element => document.activeElement === element
+const isFocused = (element) => document.activeElement === element;
 
 // Hide the sheet when pressing Escape if the target element
 // is not an input field
 window.addEventListener("keyup", (event) => {
   const isSheetElementFocused =
-    sheet.contains(event.target) && isFocused(event.target)
+    sheet.contains(event.target) && isFocused(event.target);
 
   if (event.key === "Escape" && !isSheetElementFocused) {
-    setIsSheetShown(false)
+    setIsSheetShown(false);
   }
-})
+});
 
 const touchPosition = (event) =>
-  event.touches ? event.touches[0] : event
+  event.touches ? event.touches[0] : event;
 
-let dragPosition
+let dragPosition;
 
 const onDragStart = (event) => {
-  dragPosition = touchPosition(event).pageY
-  sheetContents.classList.add("not-selectable")
-  draggableArea.style.cursor = document.body.style.cursor = "grabbing"
-}
+  dragPosition = touchPosition(event).pageY;
+  sheetContents.classList.add("not-selectable");
+  draggableArea.style.cursor = document.body.style.cursor = "grabbing";
+};
 
 const onDragMove = (event) => {
-  if (dragPosition === undefined) return
+  if (dragPosition === undefined) return;
 
-  const y = touchPosition(event).pageY
-  const deltaY = dragPosition - y
-  const deltaHeight = deltaY / window.innerHeight * 100
+  const y = touchPosition(event).pageY;
+  const deltaY = dragPosition - y;
+  const deltaHeight = deltaY / window.innerHeight * 100;
 
-  setSheetHeight(sheetHeight + deltaHeight)
-  dragPosition = y
-}
+  setSheetHeight(sheetHeight + deltaHeight);
+  dragPosition = y;
+};
 
 const onDragEnd = () => {
-  dragPosition = undefined
-  sheetContents.classList.remove("not-selectable")
-  draggableArea.style.cursor = document.body.style.cursor = ""
+  dragPosition = undefined;
+  sheetContents.classList.remove("not-selectable");
+  draggableArea.style.cursor = document.body.style.cursor = "";
 
   if (sheetHeight < 25) {
-    setIsSheetShown(false)
+    setIsSheetShown(false);
   } else if (sheetHeight > 75) {
-    setSheetHeight(100)
+    setSheetHeight(100);
   } else {
-    setSheetHeight(50)
+    setSheetHeight(50);
   }
-}
+};
 
-draggableArea.addEventListener("mousedown", onDragStart)
-draggableArea.addEventListener("touchstart", onDragStart)
+draggableArea.addEventListener("mousedown", onDragStart);
+draggableArea.addEventListener("touchstart", onDragStart);
 
-window.addEventListener("mousemove", onDragMove)
-window.addEventListener("touchmove", onDragMove)
+window.addEventListener("mousemove", onDragMove);
+window.addEventListener("touchmove", onDragMove);
 
-window.addEventListener("mouseup", onDragEnd)
-window.addEventListener("touchend", onDragEnd)
+window.addEventListener("mouseup", onDragEnd);
+window.addEventListener("touchend", onDragEnd);
+
