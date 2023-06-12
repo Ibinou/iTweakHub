@@ -13,6 +13,7 @@
   <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
   <title>Search | iTweakHub</title>
   <script src="/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -31,12 +32,7 @@
 </div>
 
   <div class="content">
-	  
-
-	  
-	  
-	  
-	  
+  
       <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Search</h1>
 <i onclick="showModal()" style="float:right; margin-top: -43px;font-size:20px;color:#7163FF;" class="fa-solid fa-dice"></i>
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
@@ -55,7 +51,8 @@
       <h3 align="left" class="appsCategory"
         style="font-family:helvetica;font-size:20px;color:white;margin-top: 12px;">All Apps
       </h3>
-      <div data-aos="fade-up" class="appList">
+	    
+      <div data-aos="fade-up" class="appList" id="all-apps">
         <div data-aos="fade-up" class="dock">
           <div data-aos="fade-up" class="app_cell_left">
             <img
@@ -71,201 +68,6 @@
               onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
           </div>
         </div>
-        <div data-aos="fade-up" class="dock">
-          <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-              <div data-aos="fade-up" class="appname">test</div>
-              <div data-aos="fade-up" class="appsection">test</div>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="appget">
-            <button style="background-color: transparent; border: none;"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="dock">
-          <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-              <div data-aos="fade-up" class="appname">Placeholder</div>
-              <div data-aos="fade-up" class="appsection">Placeholder</div>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="appget">
-            <button style="background-color: transparent; border: none;"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="dock">
-          <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-              <div data-aos="fade-up" class="appname">Placeholder</div>
-              <div data-aos="fade-up" class="appsection">Placeholder</div>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="appget">
-            <button style="background-color: transparent; border: none;"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="dock">
-          <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-              <div data-aos="fade-up" class="appname">Placeholder</div>
-              <div data-aos="fade-up" class="appsection">Placeholder</div>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="appget">
-            <button style="background-color: transparent; border: none;"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="dock">
-          <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-              <div data-aos="fade-up" class="appname">Placeholder</div>
-              <div data-aos="fade-up" class="appsection">Placeholder</div>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="appget">
-            <button style="background-color: transparent; border: none;"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="dock">
-          <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-              <div data-aos="fade-up" class="appname">Placeholder</div>
-              <div data-aos="fade-up" class="appsection">Placeholder</div>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="appget">
-            <button style="background-color: transparent; border: none;"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-          </div>
-        </div>
-      <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-          <img
-            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-            class="appicon">
-          <div data-aos="fade-up" class="app_cell_meta">
-            <div data-aos="fade-up" class="appname">Placeholder</div>
-            <div data-aos="fade-up" class="appsection">Placeholder</div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-          <button style="background-color: transparent; border: none;"
-            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-        </div>
-      </div>
-      <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-          <img
-            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-            class="appicon">
-          <div data-aos="fade-up" class="app_cell_meta">
-            <div data-aos="fade-up" class="appname">Placeholder</div>
-            <div data-aos="fade-up" class="appsection">Placeholder</div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-          <button style="background-color: transparent; border: none;"
-            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-        </div>
-      </div>
-      <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-          <img
-            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-            class="appicon">
-          <div data-aos="fade-up" class="app_cell_meta">
-            <div data-aos="fade-up" class="appname">Placeholder</div>
-            <div data-aos="fade-up" class="appsection">Placeholder</div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-          <button style="background-color: transparent; border: none;"
-            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-        </div>
-      </div>
-      <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-          <img
-            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-            class="appicon">
-          <div data-aos="fade-up" class="app_cell_meta">
-            <div data-aos="fade-up" class="appname">Placeholder</div>
-            <div data-aos="fade-up" class="appsection">Placeholder</div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-          <button style="background-color: transparent; border: none;"
-            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-        </div>
-      </div>
-      <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-          <img
-            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-            class="appicon">
-          <div data-aos="fade-up" class="app_cell_meta">
-            <div data-aos="fade-up" class="appname">Placeholder</div>
-            <div data-aos="fade-up" class="appsection">Placeholder</div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-          <button style="background-color: transparent; border: none;"
-            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-        </div>
-      </div>
-      <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-          <img
-            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-            class="appicon">
-          <div data-aos="fade-up" class="app_cell_meta">
-            <div data-aos="fade-up" class="appname">Placeholder</div>
-            <div data-aos="fade-up" class="appsection">Placeholder</div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-          <button style="background-color: transparent; border: none;"
-            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-        </div>
-      </div>
-      <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-          <img
-            src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-            class="appicon">
-          <div data-aos="fade-up" class="app_cell_meta">
-            <div data-aos="fade-up" class="appname">Placeholder</div>
-            <div data-aos="fade-up" class="appsection">Placeholder</div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-          <button style="background-color: transparent; border: none;"
-            onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-        </div>
-      </div>
     </div>
          <br>
    <a href="appinfos.html" class="rectangle" id="r1">Load more</a>
@@ -289,36 +91,42 @@
   </nav>
    </div>
     <script>
-      out = document.getElementById("out");
-      repojs.init();
-      url = "https://usescarlet.com/scarlet.json";
-      var output = "<pre>";
-      repojs.repo.get(url).then((data) => {
-        var data = repojs.repo.parse(data);
-        var all = repojs.repo.getAllCategories(data, "META");
-        output += "--------------------------------------<br>";
-        output += `<span style="font-weight: bold;">Repo Name: <span style="font-weight: normal;">${
-          data.META.repoName || "N/A"
-        }</span></span><br>`;
-        output += `<span style="font-weight: bold;">Repo Icon (url): <span style="font-weight: normal;">${
-          data.META.repoIcon || "N/A"
-        }</span></span><br>`;
-        output += "--------------------------------------<br>";
-        output += `<span style="font-weight: bold;">App Amount: <span style="color: green;">${all.length}</span></span><br><br>`;
-        for (let i = 0; i < all.length; i++) {
-          output += `<span style="font-weight: bold;"> · App ${i}'s Name: <span style="font-weight: normal;">${all[i].name}</span></span><br>`;
-          output += `  - App Version: ${all[i].version}<br>`;
-          output += `  - App Category: ${all[i].category}<br>`;
-          output += `  - App Description: ${all[i].description}<br>`;
-          output += `  - App Bundle Id: ${all[i].bundleID}<br>`;
-          output += `  - App Icon (url): ${all[i].icon}<br>`;
-          output += `  - App Ipa (url): ${all[i].down}<br>`;
-        }
+               var allAppsDiv = document.getElementById('all-apps');
+        // Config: Start
+        repos = ['https://azu0609.github.io/repo/scarlet_repo.json', 'https://usescarlet.com/scarlet.json', 'https://puffer.is-a.dev/repos/main-scarlet.json', 'https://puffer.is-a.dev/scylla-ios/cdn/repo.json', 'https://repo.chariz.com/', 'https://ipa.cypwn.xyz/scarlet.json'],            mp = 'https://sign.sideloadstore.me/public-cert/xiamen.mobileprovision'
+        p12 = 'https://sign.sideloadstore.me/public-cert/xiamen.p12'
+        password = 1
+        revoked = false
+        // Config: End
 
-        output += "</pre>";
-        repojs.repo.document.append(output, out);
-      });
- 
+
+        repojs.repo.loadMulti(repos).then((results) => {
+            let output = '<pre>';
+            for (j = 0; j < results.length; j++) {
+                var repo = repojs.repo.parse(results[j]);
+                var allApps = repojs.repo.getAllCategories(results[j], "META");
+                var scylla = repojs.repo.getAllCategories(results[j], "Info");
+                for (i = 0; i < allApps.length; i++) {
+                var appName = allApps[i].name || scylla[i].name || "No Name"
+                var appIcon = allApps[i].icon || scylla[i].icon || "https://aroundsketch.github.io/Apple-App-Icons/App%20Icon/Apple/AppStore/@PNG.png"
+                    output += `<div class="dock">`
+                    output += `<img src="${appicon}" class="appicon">`
+                    output += `<div class="app_cell_meta">`
+                    output += `<p class="appname">${appname}</p>`
+                    output += `</div>`
+                    if(revoked) {
+                        output += `<button onclick="window.alert('Revoked! Come back later')">Install</button>`
+                    } else {
+                        output += `<button onclick="window.open('https://sign.sideloadstore.me/?ipa=${allApps[i].down}&mp=${mp}&p12=${p12}&password=${password}', '_parent')">Install</button>`
+                    }
+                    output += `</div>`
+                }
+
+                output += '</pre>'
+                repojs.repo.document.append(output || 'Error, ${output} is empty', allAppsDiv);
+
+            }
+        })
   </script>	  
   <script>
   AOS.init();
