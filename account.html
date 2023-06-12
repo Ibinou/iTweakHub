@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/featured.css" keep>
+    <link rel="stylesheet" href="css/navbar.css" keep>
+    <link rel="stylesheet" href="css/styles.css" keep>
+    <link rel="stylesheet" href="css/banner.css" keep>
+    <link rel="stylesheet" href="https://unpkg.com/@ivteplo/utilities.css@1.0.0/build/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  
+    <title>iTweakHub</title>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#121212">
+    
+    <!-- PushAlert -->
+<script type="text/javascript">
+        (function(d, t) {
+                var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+                g.src = "https://cdn.pushalert.co/integrate_b015b95231e7957797fa474dd8bd99bd.js";
+                s.parentNode.insertBefore(g, s);
+        }(document, "script"));
+</script>
+<!-- End PushAlert -->
+    
+</head>
+<body>
+	
+ <div id="transitionbody" class="hidden">    
+                                                                                
+<div class="sidebar">
+  <a class="active" href="index.html">Home</a>
+  <a href="appsmanager.html">Apps Manager</a>
+	<a href="search.html">Search</a>
+</div>
+   <div id="login-container">
+    <h1>Welcome on iTweakHub !</h1>
+    <input type="text" id="username" placeholder="Username">
+    <input type="file" id="profile-picture" accept="image/*">
+    <button id="create-account-btn">Lets'go !</button>
+  </div>  
+<div class="content">
+	
+
+	
+<img id="profile-picture-preview" style="border-radius: 36px;float: right;margin-top: 41px;width: 35px;height: 35px;" src="" alt="Profile Picture">	
+
+	<h1>Your Infos
+  
+        <a href="settings.html" class="rectangle" id="r1">Settings</a>
+        <br>
+
+	    
+
+
+
+          <h2>Your Infos</h2>
+	    <div id="user-info">
+              <img id="profile-picture-preview" src="" alt="Profile Picture">
+                <h2 id="username-display"></h2>
+            </div>
+
+		
+    <button id="logout-btn">Déconnexion</button>
+		
+<nav id="navbar" class="">
+<a style="text-decoration: none" href="index.html">
+    <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i> Back</h1>
+  </a>
+  </nav>		
+		
+  </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      <center>
+        <nav class="mobile-nav">
+            <a href="index.html" class="bloc-icon">
+                <i class="fa-solid fa-fire" style="color: #008CFF;"></i>
+            </a>
+            <a href="appsmanager.html" class="bloc-icon">
+                <i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>
+            </a>
+            <a href="search.html" class="bloc-icon">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </a>
+        </nav>
+      </center>
+</div>   
+
+
+  <script>
+
+window.addEventListener("scroll", function() {
+  var navbar = document.getElementById("navbar");
+  if (window.scrollY > 0) {
+    navbar.classList.add("navbar-scrolled");
+  } else {
+    navbar.classList.remove("navbar-scrolled");
+  }
+});
+
+
+</script>
+        <script src="js/index.js"></script>
+	      <script src="js/script.js"></script>
+        <script src="js/account.js"></script>
+        <script src="js/transition.js"></script>
+	      <script src="js/sheet.js"></script>
+</div>
+</body>
+
+</html>
