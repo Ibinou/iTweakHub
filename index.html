@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="css/styles.css" keep>
     <link rel="stylesheet" href="css/banner.css" keep>
     <link rel="stylesheet" href="https://unpkg.com/@ivteplo/utilities.css@1.0.0/build/main.css">
-    <link rel="stylesheet" href="css/sheet.css">
-    <script src="js/sheet.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
   
     <title>iTweakHub</title>
@@ -208,37 +206,13 @@
 	<div id="main-container">
     <button id="logout-btn">Déconnexion</button>
 
- <!-- Modal Sheet Account Infos -->		
-    <!-- Button to open a sheet -->
-    <button type="button" id="open-sheet" aria-controls="sheet">Open Sheet</button>
 
-    <!-- The sheet component -->
-    <div id="sheet" class="sheet" aria-hidden="true" role="dialog">
-      <!-- Dark background for the sheet -->
-      <div class="overlay"></div>
-
-      <!-- The sheet itself -->
-      <div class="contents">
-        <!-- Sheet controls -->
-        <header class="controls">
-          <!-- The thing to drag if you want to resize the sheet -->
-          <div class="draggable-area">
-            <div class="draggable-thumb"></div>
-          </div>
-          <!-- Button to close the sheet -->
-          <button class="close-sheet" type="button" title="Close the sheet">&times;</button>
-        </header>
-
-        <!-- Body of the sheet -->
-        <main class="body">
           <h2>Your Infos</h2>
 	    <div id="user-info">
               <img id="profile-picture-preview" src="" alt="Profile Picture">
                 <h2 id="username-display"></h2>
             </div>
-        </main>
-      </div>
-    </div>		
+
 		
 		
 		
