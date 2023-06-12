@@ -33,7 +33,8 @@
 <body>
 	
  <div id="transitionbody" class="hidden">    
-                                                                                
+ <div class="page-container" id="homePage" page="home" style="display: flex;">
+	 
 <div class="sidebar">
   <a class="active" href="index.html">Home</a>
   <a href="appsmanager.html">Apps Manager</a>
@@ -49,7 +50,7 @@
 	
 
 	
-<img id="profile-picture-preview" style="border-radius: 36px;float: right;margin-top: 41px;width: 35px;height: 35px;" src="" alt="Profile Picture">	
+<img onclick="switchPage('user')" id="profile-picture-preview" style="border-radius: 36px;float: right;margin-top: 41px;width: 35px;height: 35px;" src="" alt="Profile Picture">	
 
 	
     <h5 style="font-family:arial;font-size:12px;font-weight:550;margin-top: 25px;margin-bottom: 10px;color:#D0D0D0;">
@@ -191,7 +192,21 @@
 										  
 <br>
 <br>
-
+	 
+ <!--Account Page + Settings access-->		
+<div class="page-container" id="userPage" page="user" style="display: none;">
+	
+<nav id="navbar" class="">
+<a style="text-decoration: none" onclick="switchPage('home')">
+    <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i> Back</h1>
+  </a>
+  </nav>
+ <h1>Your Infos</h1>
+        <br>
+        <a href="settings.html" class="rectangle" id="r1">Settings</a>
+</div>
+		
+ <!--End Account-->	
     <center>
 	<h1>Signing Status:<i id="signed" style="float: right;margin-top: 56px;color: rgb(0, 194, 39);font-size: 23px;" class="fa-solid fa-circle-check"></i></h1>   
         <a href="devs.html" class="rectangle" id="r1">Developer Settings</a>
@@ -212,9 +227,8 @@
               <img id="profile-picture-preview" src="" alt="Profile Picture">
                 <h2 id="username-display"></h2>
             </div>
-
 		
-		
+	
 		
 		
   </div>
@@ -245,6 +259,16 @@
                 document.getElementById("revoked").style.color = "red"
             }
 
+window.addEventListener("scroll", function() {
+  var navbar = document.getElementById("navbar");
+  if (window.scrollY > 0) {
+    navbar.classList.add("navbar-scrolled");
+  } else {
+    navbar.classList.remove("navbar-scrolled");
+  }
+});
+
+</script>
                    
 </script>
         <script src="js/index.js"></script>
@@ -252,6 +276,8 @@
         <script src="js/account.js"></script>
         <script src="js/transition.js"></script>
 	<script src="js/sheet.js"></script>
+	 
+</div>
 </div>
 </body>
 
