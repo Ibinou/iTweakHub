@@ -147,8 +147,6 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
   text-align: center;
   padding-left: 30px;
   position: relative;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 .icn-left {
