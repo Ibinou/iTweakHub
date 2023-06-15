@@ -7,9 +7,7 @@
 #file-input {
   display: none;
 }
-* {
-  color: white;
-}
+
 img{
 pointer-events: none;
 }
