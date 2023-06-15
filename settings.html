@@ -105,7 +105,9 @@
   <button id="resetButton">Reset1</button>
 
   <input type="color" id="color-picker">
-  <button id="reset-button">Reset2</button>
+  <button id="reset-button">Reset</button>
+  
+
 
     
 
@@ -123,8 +125,7 @@
 
 <script src="js/transition.js"></script>
 <script src="js/index.js"></script>
-	<script>
-	// Code pour l'accent color
+  <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
       localStorage.setItem('accentColor', color);
@@ -135,16 +136,16 @@
       return localStorage.getItem('accentColor');
     }
 
-    // Fonction pour réinitialiser la couleur à la valeur par défaut
-    function resetAccentColor() {
-      setAccentColor(null); // Supprimer la couleur enregistrée
-      applyAccentColor(); // Réappliquer la couleur par défaut
-    }
-
     // Fonction pour appliquer la couleur à l'élément souhaité
     function applyAccentColor() {
-      const accentColor = getAccentColor() || getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color');
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
       document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
     }
 
     // Écouteur d'événement pour le changement de couleur
@@ -164,24 +165,6 @@
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
   </script>
-  <script>
-    document.getElementById("resetButton").addEventListener("click", function() {
-  // Réinitialisation du local storage
-  localStorage.clear();
-  
-  // Réinitialisation des cookies
-  var cookies = document.cookie.split("; ");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i];
-    var eqPos = cookie.indexOf("=");
-    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  }
-  
-  // Rafraîchir la page après la réinitialisation
-  location.reload();
-});
-	</script>    
     
 
 
