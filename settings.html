@@ -102,8 +102,10 @@
 <div class="ioslist_opposite"><i class="fa-solid fa-angle-right"></i></div>
 </li>
 </ul>
+  <button id="resetButton">Reset1</button>
 
   <input type="color" id="color-picker">
+  <button id="reset-button">Reset2</button>
 
     
 <button id="resetButton">Réinitialiser</button>	
@@ -118,28 +120,7 @@
 <br>
 <br>
 
-<script>
-document.getElementById("resetButton").addEventListener("click", function() {
-  // Réinitialisation du local storage
-  localStorage.clear();
-  
-  // Réinitialisation des cookies
-  var cookies = document.cookie.split("; ");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i];
-    var eqPos = cookie.indexOf("=");
-    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  }
-  
-  // Rafraîchir la page après la réinitialisation
-  location.reload();
-  
-  // Rediriger vers index.html
-  window.location.href = "index.html";
-});
 
-</script>
 <script src="js/transition.js"></script>
 <script src="js/index.js"></script>
     
