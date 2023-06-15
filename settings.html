@@ -119,23 +119,22 @@
 <br>
 
 <script>
-
-function reset() {
- 
-  const confirmed = confirm("Are you sure you want to reset iTweakHub?");
-
-  if (confirmed) {
-    var cookies = document.cookie.split(";");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i];
-    var eqPos = cookie.indexOf("=");
-    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    alert("Succesfully reseted!", "Enjoy!", "success");
-    window.location.href = "setup1.html";
-    }
-  }
-}
+    document.getElementById("resetButton").addEventListener("click", function() {
+  // Réinitialisation du local storage
+  localStorage.clear();
+  
+  // Réinitialisation des cookies
+  var cookies = document.cookie.split("; ");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    var eqPos = cookie.indexOf("=");
+    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  }
+  
+  // Rafraîchir la page après la réinitialisation
+  location.reload();
+});
 </script>
 <script src="js/transition.js"></script>
 <script src="js/index.js"></script>
