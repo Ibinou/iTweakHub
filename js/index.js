@@ -113,12 +113,16 @@ loadAll();
       return localStorage.getItem('accentColor');
     }
 
+    // Fonction pour réinitialiser la couleur à la valeur par défaut
+    function resetAccentColor() {
+      setAccentColor(null); // Supprimer la couleur enregistrée
+      applyAccentColor(); // Réappliquer la couleur par défaut
+    }
+
     // Fonction pour appliquer la couleur à l'élément souhaité
     function applyAccentColor() {
-      const accentColor = getAccentColor();
-      if (accentColor) {
-        document.documentElement.style.setProperty('--accent-color', accentColor);
-      }
+      const accentColor = getAccentColor() || getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color');
+      document.documentElement.style.setProperty('--accent-color', accentColor);
     }
 
     // Écouteur d'événement pour le changement de couleur
@@ -129,5 +133,29 @@ loadAll();
       applyAccentColor();
     });
 
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+  </script>
+  <script>
+    document.getElementById("resetButton").addEventListener("click", function() {
+  // Réinitialisation du local storage
+  localStorage.clear();
+  
+  // Réinitialisation des cookies
+  var cookies = document.cookie.split("; ");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    var eqPos = cookie.indexOf("=");
+    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  }
+  
+  // Rafraîchir la page après la réinitialisation
+  location.reload();
+});
