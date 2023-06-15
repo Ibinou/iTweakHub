@@ -101,3 +101,33 @@ function loadAll() {
   }
   
 loadAll();
+
+// Code pour l'accent color
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor();
+      if (accentColor) {
+        document.documentElement.style.setProperty('--accent-color', accentColor);
+      }
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
