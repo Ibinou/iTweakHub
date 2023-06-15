@@ -104,51 +104,8 @@
 </ul>
 
   <input type="color" id="colorPicker">
-    <script>
-        // Vérifiez si la couleur est déjà définie dans le cookie
-        const savedColor = getCookie('accentColor');
-        if (savedColor) {
-            applyColor(savedColor);
-        }
 
-        // Écoutez l'événement de modification de la couleur sélectionnée dans le color picker
-        document.getElementById('colorPicker').addEventListener('input', function() {
-            const color = this.value;
-            applyColor(color);
-
-            // Enregistrez la couleur dans le cookie pour une utilisation future
-            setCookie('accentColor', color, 365);
-        });
-
-        // Fonction pour appliquer la couleur aux éléments de la div toptitle
-        function applyColor(color) {
-            const toptitles = document.getElementsByClassName('toptitle');
-            for (let i = 0; i < toptitles.length; i++) {
-                const textElement = toptitles[i].querySelector('h1');
-                const iconElement = toptitles[i].querySelector('i');
-                textElement.style.color = color;
-                iconElement.style.color = color;
-            }
-        }
-
-        // Fonctions utilitaires pour manipuler les cookies
-        function setCookie(name, value, days) {
-            const expires = new Date();
-            expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-            document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + expires.toUTCString() + ';path=/';
-        }
-
-        function getCookie(name) {
-            const cookieArr = document.cookie.split(';');
-            for (let i = 0; i < cookieArr.length; i++) {
-                const cookiePair = cookieArr[i].split('=');
-                if (name === cookiePair[0].trim()) {
-                    return decodeURIComponent(cookiePair[1]);
-                }
-            }
-            return null;
-        }
-    </script>
+    
 	
 <p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">DANGER ZONE</p>	
 <ul oneclick="reset()" class="ioslist" style="background-color: #ff000070;">
