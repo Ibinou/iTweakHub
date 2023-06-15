@@ -119,7 +119,7 @@
 <br>
 
 <script>
-    document.getElementById("resetButton").addEventListener("click", function() {
+document.getElementById("resetButton").addEventListener("click", function() {
   // Réinitialisation du local storage
   localStorage.clear();
   
@@ -134,7 +134,11 @@
   
   // Rafraîchir la page après la réinitialisation
   location.reload();
+  
+  // Rediriger vers index.html
+  window.location.href = "index.html";
 });
+
 </script>
 <script src="js/transition.js"></script>
 <script src="js/index.js"></script>
