@@ -2,6 +2,7 @@
   touch-action: pan-x pan-y;
   height: 100%
   --accent-color: #7163FF; /* default color value */
+  --accent-color: var(--default-accent-color);
 }
 #file-input {
   display: none;
