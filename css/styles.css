@@ -1,6 +1,7 @@
 :root {
   touch-action: pan-x pan-y;
   height: 100%
+  --accent-color: #7163FF; /* default color value */
 }
 #file-input {
   display: none;
