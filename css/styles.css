@@ -913,3 +913,7 @@ background-color: #7163FF;
   font-size: 20px;
 }
 
+/*hide color picker*/
+.hidecolor {
+  display: none;
+}
