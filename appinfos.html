@@ -146,7 +146,52 @@ nav h1 i a {
 
   <script src="/js/index.js"></script>
   <script src="/js/appInfo.js"></script>
+<div class="hidecolor">	
+  <input type="color" id="color-picker">
+  <button id="reset-button">Reset</button>
+	</div> 
 
+
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+  </script>
 <script>
 function showNotification() {
   const notification = document.getElementById('notification');
