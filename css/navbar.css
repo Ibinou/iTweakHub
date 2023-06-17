@@ -126,7 +126,7 @@ div.content {
     border: 1px solid #393939;
 }
 .get {
-  background-color: #0082FF;
+  background-color: color: var(--accent-color);
   border-radius: 16px;
   color: #ffffff;
   font-weight: 700;
