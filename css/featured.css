@@ -88,7 +88,7 @@
     }
 
     .appget {
-        background-color: #404040;
+        background-color: #303030;
         border-radius: 40px;
         padding: 5px;
         margin-right: 5px;
@@ -97,4 +97,12 @@
         width: 60px;
         height: 35px;
         object-fit: cover;
+    }
+
+.getbtn {
+    background-color: transparent;
+    border: none;
+    color: var(--accent-color);
+    font-weight: 750;
+}
     }
