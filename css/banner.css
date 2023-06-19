@@ -42,3 +42,40 @@
   margin: 0;
   font-size: 14px;
 }
+
+/*news cards*/
+.carousel-container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  scrollbar-width: none; /* Hide scrollbar for supported browsers */
+  -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
+}
+
+.news-card {
+  flex: 0 0 290px;
+  height: 200px;
+  border: 1px solid rgb(37, 37, 39);
+  background-color: #1c1c1c;
+  border-radius: 17px;
+  padding: 15px;
+  scroll-snap-align: start;
+}
+
+.banner {
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 13px;
+  height: 132px;
+  object-fit: cover;
+}
+
+.newstitle {
+  color: white;
+  font-size: 18px;
+}
+
