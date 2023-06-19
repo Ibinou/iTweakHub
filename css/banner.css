@@ -1,11 +1,44 @@
- .banner{
-        display:flex;
-        overflow-x: auto;
-        -webkit-overflow-scrolling:touch;
-      }
+.custom-banner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
-      .banner div{
-        flex-shrink:0;
-        width:280px;
-        height:165px;
-      }
+.custom-image-container {
+  position: relative;
+  width: 239px;
+  height: 165px;
+}
+
+.custom-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 11px;
+}
+
+.custom-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-text-overlay h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.custom-text-overlay p {
+  margin: 0;
+  font-size: 14px;
+}
