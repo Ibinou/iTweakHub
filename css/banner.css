@@ -1,14 +1,14 @@
-      .banner{
+.banner{
         display:flex;
         overflow-x: auto;
         -webkit-overflow-scrolling:touch;
-      }
+}
 
-      .banner div{
-        flex-shrink:0;
-        width:290px;
-        height:165px;
-      }
+.banner div{
+    flex-shrink:0;
+    width: 280px;
+    height: 146px;
+}
 /*news cards*/
 .carousel-container {
   display: flex;
