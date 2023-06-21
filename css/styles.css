@@ -42,7 +42,7 @@ pointer-events: none;
     }
 
     .fade-in {
-      animation: fade-in 1s ease-in-out forwards;
+      animation: fade-in 0.8s ease-in-out forwards;
     }
 
     @keyframes fade-in {
