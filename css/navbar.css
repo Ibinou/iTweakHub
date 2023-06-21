@@ -147,8 +147,22 @@ div.content {
 }
 
 
+/*top nav bar title + back*/
+@media only screen and (min-width: 768px) {
+.toptitle {
+    background-color: #1212128a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-left: 200px;
+}
+}
 
-/*top title nav bar*/
+
 .toptitle {
     background-color: #1212128a;
     position: fixed;
@@ -159,7 +173,6 @@ div.content {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
-
 /*SECTIONS CHOOSE*/
 .sectionscarr {
   display: flex;
