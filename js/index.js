@@ -1,8 +1,7 @@
-// secret
 document.addEventListener('keydown', function(event) {
-  // Vérifier si les touches Ctrl, I et N sont enfoncées
-  if (event.ctrlKey && event.key === 'i' && event.key === 'n') {
-    // Ouvrir la page spécifiée dans une nouvelle fenêtre
+
+  if (event.ctrlKey && event.altKey && event.key === 'o') {
+
     window.open('devs.html', '_blank');
   }
 });
