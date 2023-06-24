@@ -1,14 +1,100 @@
-.banner{
-    display:flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling:touch;
+.slider {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.banner div{
-    flex-shrink:0;
-    width: 214px;
-    height: 137px;
+.slider div {
+  flex-shrink: 0;
+  width: 300px;
+  margin: 5px;
+  height: 150px;
 }
+
+.banner {
+  width: 350px;
+  height: 150px;
+  background-image: url(../img/banner.png);
+  border-radius: 16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 15px;
+  position: relative;
+}
+
+@supports (-webkit-backdrop-filter:none) or (backdrop-filter:none) {
+  .app {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+.app {
+  position: relative;
+  display: block;
+  border-radius: 15px;
+  background-color: #1c1c1cbf;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 15px;
+  left: -20px;
+  top: -20px;
+}
+
+.banner img {
+    width: 50px;
+    height: 50px;
+    border-radius: 23.3%;
+    float: left;
+}
+
+.banner .content {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.banner h2, .banner p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: justify;
+}
+.banner h2 {
+   margin-left: 63px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   color: white;
+}
+.dev {
+  font-size: 17px;
+  text-align: justify;
+  opacity: 0.7;
+  margin-right: 5px;
+  margin-left: 63px;
+  margin-bottom: 0px;
+  margin-top: 3px;
+  color: white;
+}
+.infos  {
+  font-size: 17px;
+  text-align: left;
+  opacity: 0.7;
+  color: white;
+}
+
+.separator {
+  border: none;
+  height: 1px; 
+  background-color: #ffffff47; 
+  margin: 15px 0; 
+}
+
+
 /*news cards*/
 .carousel-container {
   display: flex;
