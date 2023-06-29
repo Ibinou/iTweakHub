@@ -38,7 +38,7 @@
         align-items: center;
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        background-color: #1c1c1cb3;
+        /*background-color: #1c1c1cb3;*/
         padding: 8px;
         border-radius: 20px;
         width: 100%;
