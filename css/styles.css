@@ -830,6 +830,7 @@ background-color: #7163FF;
   justify-content: center;
   background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/divgradient.png');
   z-index: 99999; /* Assure que le formulaire se superpose à d'autres éléments */
+  background-color: #8a8a8a;
 }
 
 #login-container h1 {
