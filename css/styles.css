@@ -828,7 +828,7 @@ background-color: #7163FF;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('img/divgradient.png');
+  background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/divgradient.png');
   z-index: 99999; /* Assure que le formulaire se superpose à d'autres éléments */
 }
 
