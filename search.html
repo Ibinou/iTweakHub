@@ -78,7 +78,7 @@
             </div>
         </div>
         <div data-aos="fade-up" class="appget">
-            <button class="getbtn">Get</button>
+            <button class="getbtn" id="get">Get</button>
         </div>
     </div>
 </div>
@@ -155,49 +155,18 @@
   </script>
    
 <script>
-        var allAppsDiv = document.getElementById('all-apps');
         // Config: Start
         repos = ['https://azu0609.github.io/repo/scarlet_repo.json', 'https://usescarlet.com/scarlet.json', 'https://puffer.is-a.dev/repos/main-scarlet.json', 'https://puffer.is-a.dev/scylla-ios/cdn/repo.json', 'https://repo.chariz.com/', 'https://ipa.cypwn.xyz/scarlet.json'],            
 	mp = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..mobileprovision'
         p12 = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..p12'
         password = AppleP12.com
+	ipa = 'https://github.com/Ibinou/ipanocodehub/raw/main/LittleCow_1.2.ipa'
         revoked = false
         // Config: End
+	
+            var get = document.getElementById("get");
+            get.href = "https://sign.sideloadstore.me/?ipa=${ipa}&mp=${mp}&p12=${p12}&password=${password}'";
 
-
-        repojs.repo.loadMulti(repos).then((results) => {
-            let output = '<pre>';
-            for (j = 0; j < results.length; j++) {
-                var repo = repojs.repo.parse(results[j]);
-                var allApps = repojs.repo.getAllCategories(results[j], "META");
-                var scylla = repojs.repo.getAllCategories(results[j], "Info");
-                for (i = 0; i < allApps.length; i++) {
-                var appName = allApps[i].name || scylla[i].name || "No Name"
-                var appIcon = allApps[i].icon || scylla[i].icon || "https://aroundsketch.github.io/Apple-App-Icons/App%20Icon/Apple/AppStore/@PNG.png"
-                    output += `<div class="dock">`
-		    output += `<div class="app-cell-left">`
-                    output += `<img src="${appIcon}" class="appicon">`
-                    output += `<div class="app_cell_meta">`
-                    output += `<div class="appname">${appName}</div>`
-		    output += `<div class="appsection">${appSection}</div>`
-                    output += `</div>`
-		    output += `</div>`
-		    output += `<div class="appget">`
-                    if(revoked) {
-                        output += `<button onclick="window.alert('Revoked! Come back later')">GET</button>`
-                    } else {
-                        output += `<button onclick="window.open('https://sign.sideloadstore.me/?ipa=${allApps[i].down}&mp=${mp}&p12=${p12}&password=${password}', '_parent')">GET</button>`
-                    }
-                    output += `</div>`
-		    output += `</div>`
-	            output += `</div>`
-                }
-
-                output += '</pre>'
-                repojs.repo.document.append(output || 'Error, ${output} is empty', allAppsDiv);
-
-            }
-        })
 </script>	  
   <script>
   AOS.init();
