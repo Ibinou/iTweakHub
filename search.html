@@ -63,7 +63,7 @@
             </div>
           </div>
           <div data-aos="fade-up" class="appget">
-            <button class="getbtn">Get</button>
+            <button class="getbtn" onclick="window.open('https://sign.sideloadstore.me/?ipa=https://sideloadstore.me/signing-api/ipaup/inds.ipa&mp=${mp}&p12=${p12}&password=${password}', '_parent')">Get test</button>
           </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
             </div>
         </div>
         <div data-aos="fade-up" class="appget">
-            <button class="getbtn" id="get">Get</button>
+            <button class="getbtn" onclick="location='https://sign.sideloadstore.me/?ipa=https://sideloadstore.me/signing-api/ipaup/delta.ipa&mp=https://sign.sideloadstore.me/public-cert/xiamen.mobileprovision&p12=https://sign.sideloadstore.me/public-cert/xiamen.p12&password=esign'">Get</button>
         </div>
     </div>
 </div>
@@ -156,16 +156,11 @@
    
 <script>
         // Config: Start
-        repos = ['https://azu0609.github.io/repo/scarlet_repo.json', 'https://usescarlet.com/scarlet.json', 'https://puffer.is-a.dev/repos/main-scarlet.json', 'https://puffer.is-a.dev/scylla-ios/cdn/repo.json', 'https://repo.chariz.com/', 'https://ipa.cypwn.xyz/scarlet.json'],            
 	mp = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..mobileprovision'
         p12 = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..p12'
-        password = AppleP12.com
-	ipa = 'https://github.com/Ibinou/ipanocodehub/raw/main/LittleCow_1.2.ipa'
-        revoked = false
+        password = 'AppleP12.com'
         // Config: End
-	
-            var get = document.getElementById("get");
-            get.href = "https://sign.sideloadstore.me/?ipa=${ipa}&mp=${mp}&p12=${p12}&password=${password}'";
+
 
 </script>	  
   <script>
