@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+<script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymous"></script>
 
 
 <div id="transitionbody" class="hidden">    	
@@ -53,37 +53,21 @@
       </h3>
 	    
       <div data-aos="fade-up" class="appList" id="all-apps">
+ 
         <div data-aos="fade-up" class="dock">
           <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
+            <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG" class="appicon">
             <div data-aos="fade-up" class="app_cell_meta">
               <div data-aos="fade-up" class="appname">Placeholder</div>
               <div data-aos="fade-up" class="appsection">Placeholder</div>
             </div>
           </div>
           <div data-aos="fade-up" class="appget">
-            <button class="getbtn"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="dock">
-          <div data-aos="fade-up" class="app_cell_left">
-            <img
-              src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG"
-              class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-              <div data-aos="fade-up" class="appname">Placeholder</div>
-              <div data-aos="fade-up" class="appsection">Placeholder</div>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="appget">
-            <button class="getbtn"
-              onclick="openApp('Placeholder', 'Placeholder', 'Placeholder')">Get</button>
+            <button class="getbtn">Get</button>
           </div>
         </div>
     </div>
+	    
          <br>
    <a href="appinfos.html" class="rectangle" id="r1">Load more</a>
 	 <br> 
@@ -153,12 +137,13 @@
     applyAccentColor();
   </script>
    
-    <script>
-               var allAppsDiv = document.getElementById('all-apps');
+<script>
+        var allAppsDiv = document.getElementById('all-apps');
         // Config: Start
-        repos = ['https://azu0609.github.io/repo/scarlet_repo.json', 'https://usescarlet.com/scarlet.json', 'https://puffer.is-a.dev/repos/main-scarlet.json', 'https://puffer.is-a.dev/scylla-ios/cdn/repo.json', 'https://repo.chariz.com/', 'https://ipa.cypwn.xyz/scarlet.json'],            mp = 'https://sign.sideloadstore.me/public-cert/xiamen.mobileprovision'
-        p12 = 'https://sign.sideloadstore.me/public-cert/xiamen.p12'
-        password = 1
+        repos = ['https://azu0609.github.io/repo/scarlet_repo.json', 'https://usescarlet.com/scarlet.json', 'https://puffer.is-a.dev/repos/main-scarlet.json', 'https://puffer.is-a.dev/scylla-ios/cdn/repo.json', 'https://repo.chariz.com/', 'https://ipa.cypwn.xyz/scarlet.json'],            
+	mp = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..mobileprovision'
+        p12 = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..p12'
+        password = AppleP12.com
         revoked = false
         // Config: End
 
@@ -175,7 +160,8 @@
                     output += `<div class="dock">`
                     output += `<img src="${appicon}" class="appicon">`
                     output += `<div class="app_cell_meta">`
-                    output += `<p class="appname">${appname}</p>`
+                    output += `<div class="appname">${appname}</div>`
+		    output += `<div class="appsection">${appsection}</div>`
                     output += `</div>`
                     if(revoked) {
                         output += `<button onclick="window.alert('Revoked! Come back later')">Install</button>`
@@ -190,7 +176,7 @@
 
             }
         })
-  </script>	  
+</script>	  
   <script>
   AOS.init();
   </script>
