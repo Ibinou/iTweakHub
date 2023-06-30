@@ -175,17 +175,22 @@
                 var appName = allApps[i].name || scylla[i].name || "No Name"
                 var appIcon = allApps[i].icon || scylla[i].icon || "https://aroundsketch.github.io/Apple-App-Icons/App%20Icon/Apple/AppStore/@PNG.png"
                     output += `<div class="dock">`
-                    output += `<img src="${appicon}" class="appicon">`
+		    output += `<div class="app-cell-left">`
+                    output += `<img src="${appIcon}" class="appicon">`
                     output += `<div class="app_cell_meta">`
-                    output += `<div class="appname">${appname}</div>`
-		    output += `<div class="appsection">${appsection}</div>`
+                    output += `<div class="appname">${appName}</div>`
+		    output += `<div class="appsection">${appSection}</div>`
                     output += `</div>`
+		    output += `</div>`
+		    output += `<div class="appget">`
                     if(revoked) {
-                        output += `<button onclick="window.alert('Revoked! Come back later')">Install</button>`
+                        output += `<button onclick="window.alert('Revoked! Come back later')">GET</button>`
                     } else {
-                        output += `<button onclick="window.open('https://sign.sideloadstore.me/?ipa=${allApps[i].down}&mp=${mp}&p12=${p12}&password=${password}', '_parent')">Install</button>`
+                        output += `<button onclick="window.open('https://sign.sideloadstore.me/?ipa=${allApps[i].down}&mp=${mp}&p12=${p12}&password=${password}', '_parent')">GET</button>`
                     }
                     output += `</div>`
+		    output += `</div>`
+	            output += `</div>`
                 }
 
                 output += '</pre>'
