@@ -906,3 +906,24 @@ background-color: #7163FF;
 .hidecolor {
   display: none;
 }
+
+/* sections homepage */
+    .circle-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #1c1c1c;
+      margin: 10px;
+    }
+      .circle i {
+      font-size: 16px;
+      color: white;
+    }
