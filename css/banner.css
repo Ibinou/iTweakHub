@@ -1,7 +1,7 @@
-    /* Conteneur du slider */
+       /* Conteneur du slider */
     .slider-container {
-      width: 520px;
-      height: 360px;
+      width: 100%;
+      height: 100vh;
       overflow: auto;
       position: relative;
       scroll-snap-type: x mandatory;
@@ -10,7 +10,7 @@
     /* Liste des images */
     .slider-list {
       display: flex;
-      width: fit-content;
+      width: 100%;
       height: 100%;
       margin: 0;
       padding: 0;
@@ -20,8 +20,8 @@
     
     /* Image dans le slider */
     .slider-item {
-      width: 500px;
-      height: 300px;
+      width: 100%;
+      height: auto;
       flex-shrink: 0;
       scroll-snap-align: center;
       margin: 10px;
@@ -34,14 +34,14 @@
       left: 50%;
       transform: translateX(-50%);
     }
-      .slider-item img {
-      width: 500px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin: 10px;
-    }  
-  
+    
+.slider-item img {
+    width: 100%;
+    height: 182px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
 
 /*news cards*/
 .carousel-container {
