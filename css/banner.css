@@ -1,7 +1,6 @@
        /* Conteneur du slider */
     .slider-container {
       width: 100%;
-      height: 100vh;
       overflow: auto;
       position: relative;
       scroll-snap-type: x mandatory;
@@ -39,7 +38,7 @@
     width: 100%;
     height: 182px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 17px;
 }
 
 
