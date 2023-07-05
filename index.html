@@ -63,39 +63,13 @@
 	
 <!--Featured Header-->	
 	
-<div class="slider">
-  
-    <div style="background-position: center center;background-image:url('https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/BHTwitter.PNG');" class="banner">
-      <div class="app">
-        <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/BHTwitter.PNG">
-          <h2>BHTwitter</h2>
-          <p class="dev">Tweaked App</p>
-        <hr class="separator">
-          <p class="infos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
-        </div>
-      </div>
-    
-      <div style="background-position: center center;background-image:url('https://media.idownloadblog.com/wp-content/uploads/2022/07/Cheyote-Jailbreak-Icon.png');" class="banner">
-      <div class="app">
-        <img src="https://media.idownloadblog.com/wp-content/uploads/2022/07/Cheyote-Jailbreak-Icon.png">
-          <h2>Fake Cheyote</h2>
-          <p class="dev">Jailbreak</p>
-        <hr class="separator">
-          <p class="infos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
-        </div>
-      </div>
-	
-       <div style="background-position: center center;background-image:url('https://github.com/Ibinou/NoCodeHub-icons/blob/main/Taurine.jpg?raw=true');" class="banner">
-      <div class="app">
-        <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/Taurine.jpg?raw=true">
-          <h2>Taurine</h2>
-          <p class="dev">Jailbreak</p>
-        <hr class="separator">
-          <p class="infos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
-        </div>
-      </div>   
-    
-    </div>
+  <div class="slider-container">
+    <div class="slider-list">
+      <div class="slider-item"><img src="https://media.idownloadblog.com/wp-content/uploads/2022/07/Cheyote-Jailbreak-Icon.png"></div>
+      <div class="slider-item"><img src="https://media.idownloadblog.com/wp-content/uploads/2022/07/Cheyote-Jailbreak-Icon.png"></div>
+</div>
+</div>
+</div>
 
 <!-- End Featured Header-->
 	
@@ -344,6 +318,32 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+  </script>
+  
+  <script>
+    // JavaScript pour le fonctionnement du slider
+    const sliderList = document.querySelector('.slider-list');
+    const sliderItems = Array.from(document.querySelectorAll('.slider-item'));
+    const sliderNavButtons = Array.from(document.querySelectorAll('.slider-nav button'));
+    
+    let activeIndex = 0;
+    
+    // Fonction pour mettre à jour l'affichage du slider
+    function updateSlider() {
+      sliderList.style.transform = `translateX(-${activeIndex * 100}%)`;
+      sliderNavButtons.forEach((button, index) => {
+        button.classList.toggle('active', index === activeIndex);
+      });
+    }
+    
+    // Fonction pour changer l'image active
+    function changeSlide(index) {
+      activeIndex = index;
+      updateSlider();
+    }
+    
+
+    });
   </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
