@@ -74,20 +74,20 @@
   <div class="slider-indicators"></div>
 	
 <!-- End Featured Header-->
-	<div class="circle-container" href="settings.html">
-    <div class="circle">
-      <i class="fa-solid fa-gear" style="color: #FF983F;"></i>
-</div>
-    <div class="circle" href="notifs.html">
-      <i class="fa fa-bell fa-2x" style="color: #55cb59;"></i>
-    </div>
-    <div class="circle" href="account.html">
-      <i class="fa-solid fa-user" style="color: #F96269;"></i> 
-    </div>
-    <div class="circle" href="sections.html">
-      <i class="fa-solid fa-list-ul" style="color: #2e95fc;"></i>
-    </div>
+<div class="circle-container">
+  <div class="circle" onclick="openPage('settings.html')">
+    <i class="fa-solid fa-gear" style="color: #FF983F;"></i>
   </div>
+  <div class="circle" onclick="openPage('notifs.html')">
+    <i class="fa fa-bell fa-2x" style="color: #55cb59;"></i>
+  </div>
+  <div class="circle" onclick="openPage('account.html')">
+    <i class="fa-solid fa-user" style="color: #F96269;"></i> 
+  </div>
+  <div class="circle" onclick="openPage('sections.html')">
+    <i class="fa-solid fa-list-ul" style="color: #2e95fc;"></i>
+  </div>
+</div>
 	
 	
 <br>
@@ -367,6 +367,11 @@
       });
     }
   </script>
+<script>
+  function openPage(url) {
+    window.location.href = url;
+  }
+</script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
         <script src="js/account.js"></script>
