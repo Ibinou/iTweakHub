@@ -65,12 +65,14 @@
 
   <div class="slider-container">
     <div class="slider-list">
-      <div class="slider-item"><img src="https://media.idownloadblog.com/wp-content/uploads/2019/01/unc0ver-clouds.jpg"></div>
+      <div class="slider-item active"><img src="https://media.idownloadblog.com/wp-content/uploads/2019/01/unc0ver-clouds.jpg"></div>
       <div class="slider-item"><img src="https://pbs.twimg.com/media/E7wltdwVgAAEVUE?format=jpg&name=4096x4096"></div>
       <div class="slider-item"><img src="https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"></div>
     </div>
-  </div>	
+  </div>
 
+  <div class="slider-indicators"></div>
+	
 <!-- End Featured Header-->
 	<div class="circle-container">
     <div class="circle">
@@ -332,26 +334,46 @@
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
   </script>
+	    
   <script>
-    // JavaScript pour le fonctionnement du slider
-    const sliderList = document.querySelector('.slider-list');
-    const sliderItems = Array.from(document.querySelectorAll('.slider-item'));
-    const sliderNavButtons = Array.from(document.querySelectorAll('.slider-nav button'));
-    
-    let activeIndex = 0;
-    
-    // Fonction pour mettre à jour l'affichage du slider
-    function updateSlider() {
-      sliderList.style.transform = `translateX(-${activeIndex * 100}%)`;
-      sliderNavButtons.forEach((button, index) => {
-        button.classList.toggle('active', index === activeIndex);
+// slider banner js
+    const sliderItems = document.querySelectorAll('.slider-item');
+    const indicatorContainer = document.querySelector('.slider-indicators');
+
+    sliderItems.forEach((item, index) => {
+      const indicator = document.createElement('div');
+      indicator.classList.add('slider-indicator');
+      indicator.addEventListener('click', () => {
+        document.querySelector('.slider-list').style.transform = `translateX(-${index * 100}%)`;
+        updateActiveIndicator(index);
       });
-    }
-    
-    // Fonction pour changer l'image active
-    function changeSlide(index) {
-      activeIndex = index;
-      updateSlider();
+      indicatorContainer.appendChild(indicator);
+      if (index === 0) {
+        indicator.classList.add('active');
+      }
+    });
+
+    const sliderContainer = document.querySelector('.slider-container');
+    let activeIndex = 0;
+
+    sliderContainer.addEventListener('scroll', () => {
+      const sliderWidth = sliderContainer.offsetWidth;
+      const currentIndex = Math.round(sliderContainer.scrollLeft / sliderWidth);
+      if (currentIndex !== activeIndex) {
+        activeIndex = currentIndex;
+        updateActiveIndicator(activeIndex);
+      }
+    });
+
+    function updateActiveIndicator(index) {
+      const indicators = document.querySelectorAll('.slider-indicator');
+      indicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.add('active');
+        } else {
+          indicator.classList.remove('active');
+        }
+      });
     }
   </script>
         <script src="js/index.js"></script>
