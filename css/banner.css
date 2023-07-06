@@ -1,12 +1,10 @@
-       /* Conteneur du slider */
-    .slider-container {
+      .slider-container {
       width: 100%;
       overflow: auto;
       position: relative;
       scroll-snap-type: x mandatory;
     }
     
-    /* Liste des images */
     .slider-list {
       display: flex;
       width: 100%;
@@ -17,7 +15,6 @@
       transition: transform 0.5s;
     }
     
-    /* Image dans le slider */
     .slider-item {
       width: 100%;
       height: auto;
@@ -26,7 +23,6 @@
       margin: 10px;
     }
     
-    /* Boutons de navigation */
     .slider-nav {
       position: absolute;
       bottom: 10px;
@@ -34,14 +30,33 @@
       transform: translateX(-50%);
     }
     
-.slider-item img {
-    width: 100%;
-    height: 182px;
-    object-fit: cover;
-    border-radius: 17px;
-}
+    .slider-item img {
+      width: 100%;
+      height: 182px;
+      object-fit: cover;
+      border-radius: 17px;
+    }
 
-
+    .slider-indicators {
+      text-align: center;
+      margin-top: -6px;
+    }
+    
+    .slider-indicator {
+      width: 8px;
+      height: 8px;
+      background-color: #505050;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    
+    .slider-indicator.active {
+      background-color: white;
+      width: 19px;
+      border-radius: 34px;
+    }
 /*news cards*/
 .carousel-container {
   display: flex;
