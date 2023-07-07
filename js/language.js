@@ -9,6 +9,9 @@ function loadTranslations(language) {
       document.getElementById('ra').innerText = data.ra;
       document.getElementById('username-display').innerText = data.username-display;
       document.getElementById('getbtn').innerText = data.getbtn;
+      document.getElementById('nat').innerText = data.nat;
+      document.getElementById('signed').innerText = data.signed;
+      document.getElementById('revoked').innerText = data.revoked;
     });
 }
 
