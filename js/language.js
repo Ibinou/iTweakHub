@@ -7,6 +7,7 @@ function loadTranslations(language) {
       document.getElementById('wb').innerText = data.wb;
       document.getElementById('featured').innerText = data.featured;
       document.getElementById('ra').innerText = data.ra;
+      document.getElementById('username-display').innerText = data.username-display;
     });
 }
 
