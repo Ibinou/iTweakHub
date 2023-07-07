@@ -338,6 +338,14 @@ div, p {
 color: #f5f5f5;
 font-size: 20px;
 }
+.ioslist_icon {
+    text-transform: capitalize;
+    float: left;
+}
+.ioslist_icon i {
+color: #ffffff;
+font-size: 20px;
+}
 
 
 
