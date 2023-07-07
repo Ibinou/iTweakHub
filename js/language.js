@@ -4,8 +4,9 @@ function loadTranslations(language) {
     .then(response => response.json())
     .then(data => {
       document.getElementById('home').innerText = data.home;
-      document.getElementById('about').innerText = data.about;
-      document.getElementById('contact').innerText = data.contact;
+      document.getElementById('wb').innerText = data.wb;
+      document.getElementById('featured').innerText = data.featured;
+      document.getElementById('ra').innerText = data.ra;
     });
 }
 
