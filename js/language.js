@@ -1,9 +1,11 @@
 // Fonction pour charger les traductions
 function loadTranslations(language) {
-  fetch(`${language}.json`)
+  fetch(`languages/${language}.json`)
     .then(response => response.json())
     .then(data => {
       document.getElementById('home').innerText = data.home;
+      document.getElementById('about').innerText = data.about;
+      document.getElementById('contact').innerText = data.contact;
     });
 }
 
