@@ -7,5 +7,6 @@
   "getbtn": "GET",
   "nat": "News and tutorials",
   "signed": "Signed",
-  "revoked": "Revoked"
+  "revoked": "Revoked",
+  "settings": "Settings"
 }
