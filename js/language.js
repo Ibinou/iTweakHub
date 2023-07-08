@@ -12,6 +12,7 @@ function loadTranslations(language) {
       document.getElementById('nat').innerText = data.nat;
       document.getElementById('signed').innerText = data.signed;
       document.getElementById('revoked').innerText = data.revoked;
+      document.getElementById('settings').innerText = data.settings;
     });
 }
 
