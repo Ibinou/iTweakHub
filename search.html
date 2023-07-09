@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body onload="afficherDonnees()">
 <script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymous"></script>
 
 
@@ -53,24 +53,9 @@
       </h3>
 	    
       <div data-aos="fade-up" class="appList" id="all-apps">
- 
+  <div id="appList"></div>
 
-    <div data-aos="fade-up" class="dock">
-        <div data-aos="fade-up" class="app_cell_left">
-            <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG" class="appicon">
-            <div data-aos="fade-up" class="app_cell_meta">
-                <div data-aos="fade-up" class="appname">Placeholder</div>
-                <div data-aos="fade-up" class="appsection">Placeholder</div>
-            </div>
-        </div>
-        <div data-aos="fade-up" class="appget">
-            <button class="getbtn" onclick="location='https://sign.sideloadstore.me/?ipa=https://sideloadstore.me/signing-api/ipaup/delta.ipa&mp=https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..mobileprovision&p12=https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..p12&password=AppleP12.com'">Get</button>
-        </div>
-    </div>
-</div>
-
-<div class="apps" id="all-apps"></div>
-	    
+   
          <br>
    <a class="rectangle" id="r1">Load more</a>
 	 <br> 
@@ -141,12 +126,73 @@
   </script>
    
 <script>
-        // Config: Start
-	mp = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..mobileprovision'
-        p12 = 'https://github.com/Ibinou/-new-NoCodeHubInstaller/raw/main/ressources/XCMG%20Foundation%20Construction%20Machinery%20Co.%2C%20Ltd..p12'
-        password = 'AppleP12.com'
-        // Config: End
 
+   // Fonction appelée lors du chargement de la page
+    function afficherDonnees() {
+      // Récupérer l'élément <div> parent où afficher les applications
+      var appListDiv = document.getElementById("appList");
+
+      // Charger le fichier JSON
+      fetch('apps.json')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          // Récupérer les données des applications du fichier JSON
+          var appsData = data.Utilities;
+
+          // Parcourir les données des applications
+          appsData.forEach(function(appData) {
+            // Créer les éléments HTML pour chaque application
+            var dockDiv = document.createElement("div");
+            dockDiv.className = "dock";
+
+            var appCellLeftDiv = document.createElement("div");
+            appCellLeftDiv.className = "app_cell_left";
+
+            var appIconImg = document.createElement("img");
+            appIconImg.className = "appicon";
+            appIconImg.src = appData.icon;
+            appCellLeftDiv.appendChild(appIconImg);
+
+            var appCellMetaDiv = document.createElement("div");
+            appCellMetaDiv.className = "app_cell_meta";
+
+            var appNameDiv = document.createElement("div");
+            appNameDiv.className = "appname";
+            appNameDiv.textContent = appData.name;
+            appCellMetaDiv.appendChild(appNameDiv);
+
+            var appDevDiv = document.createElement("div");
+            appDevDiv.className = "appsection";
+            appDevDiv.textContent = appData.developer;
+            appCellMetaDiv.appendChild(appDevDiv);
+
+            appCellLeftDiv.appendChild(appCellMetaDiv);
+            dockDiv.appendChild(appCellLeftDiv);
+
+            var appGetDiv = document.createElement("div");
+            appGetDiv.className = "appget";
+
+            var appGetBtn = document.createElement("a");
+            appGetBtn.href = appData.ipa;
+
+            var getBtn = document.createElement("button");
+            getBtn.className = "getbtn";
+            getBtn.textContent = "GET";
+
+            appGetBtn.appendChild(getBtn);
+            appGetDiv.appendChild(appGetBtn);
+            dockDiv.appendChild(appGetDiv);
+
+            // Ajouter l'application à la liste des applications
+            appListDiv.appendChild(dockDiv);
+          });
+        })
+        .catch(function(error) {
+          console.log('Error', error);
+        });
+    }
 
 </script>	  
   <script>
