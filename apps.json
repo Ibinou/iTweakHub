@@ -1,0 +1,27 @@
+{
+    "Info": {
+    	"repoName":"iTweakHub Apps",
+        "repoAuthor":"iBaDev",
+        "repoVersion":"beta",
+        "repoIcon":"https://github.com/Ibinou/iTweakHub/blob/main/img/logo.png?raw=true"
+    },
+    "Utilities": [
+        {
+            "name":"Unc0ver",
+            "developer":"unc0ver Team",
+            "version":"8.0.2", 
+            "ipa":"https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+            "icon":"https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
+            "compatibility":"iOS 11",
+            "description":"Jailbreak for iOS 11."
+        },{
+            "name":"Cowabunga",
+            "developer":"leminlimez",
+            "version":"8.1.3", 
+            "ipa":"https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
+            "icon":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/SpooferPro.PNG?raw=true",
+            "compatibility":"14.0 - 15.7.1 and 16 - 16.1.2",
+            "description":"A Jailed toolbox application for iOS using the MacDirtyCow exploit"
+        }
+    ]
+}
