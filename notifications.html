@@ -96,8 +96,13 @@
           return response.json();
         })
         .then(function(data) {
-          // Récupérer tous les tableaux du JSON et les fusionner en un seul tableau
-          var allAppsData = [].concat(...Object.values(data));
+          // Récupérer les données du tableau "Utilities"
+          var utilitiesAppsData = data.Utilities;
+          // Récupérer les données du tableau "Jailbreak"
+          var jailbreakAppsData = data.Jailbreak;
+
+          // Concaténer les deux tableaux pour avoir toutes les données des applications
+          var allAppsData = utilitiesAppsData.concat(jailbreakAppsData);
 
           // Parcourir les données de toutes les applications
           allAppsData.forEach(function(appData) {
