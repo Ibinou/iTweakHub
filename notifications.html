@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body onload="afficherDonnees()">
 <div class="sidebar">
   <a class="active" href="index.html">Home</a>
   <a href="appsmanager.html">Apps Manager</a>
@@ -27,16 +27,17 @@
 <div class="toptitle">	
     <a style="text-decoration: none" href="index.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Home</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Notifications</h1>
-</div>
+
 <div class="sectionscarr">
     <div class="sections">All</div>
     <div class="sections">Updates</div>
     <div class="sections">New Apps</div>
     <div class="sections">Others</div>
 </div>
+</div>
     <div class="appList" id="all-apps">
   <div id="appList"></div>
-      </div>
+</div>
 
 
 <div class="hidecolor">	
