@@ -82,7 +82,7 @@
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
   </script>
-  <script>
+<script>
     // Fonction appelée lors du chargement de la page
     function afficherDonnees() {
       // Récupérer l'élément <div> parent où afficher les applications
@@ -96,16 +96,13 @@
           return response.json();
         })
         .then(function(data) {
-          // Tableau pour stocker toutes les données des applications
-          var allAppsData = [];
-
           // Récupérer les données du tableau "Utilities"
           var utilitiesAppsData = data.Utilities;
           // Récupérer les données du tableau "Jailbreak"
           var jailbreakAppsData = data.Jailbreak;
 
           // Concaténer les deux tableaux pour avoir toutes les données des applications
-          allAppsData = utilitiesAppsData.concat(jailbreakAppsData);
+          var allAppsData = utilitiesAppsData.concat(jailbreakAppsData);
 
           // Parcourir les données de toutes les applications
           allAppsData.forEach(function(appData) {
@@ -141,6 +138,7 @@
 
               appCellLeftDiv.appendChild(appCellMetaDiv);
               dockDiv.appendChild(appCellLeftDiv);
+
               var appGetDiv = document.createElement("div");
               appGetDiv.className = "appget";
 
@@ -168,7 +166,6 @@
     // Appeler la fonction lors du chargement de la page
     afficherDonnees();
   </script>
-	  
     
     
 
