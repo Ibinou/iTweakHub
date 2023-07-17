@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#121212">
     <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
     <title>Notifications | iTweakHub</title> 
-    <script src="../js/index.js"></script>
+    <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
@@ -25,11 +25,18 @@
 </div>
 <div class="content">
 <div class="toptitle">	
-    <a style="text-decoration: none" href="../settings.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Home</h1></a>
+    <a style="text-decoration: none" href="index.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Home</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Notifications</h1>
 </div>
-
-
+<div class="sectionscarr">
+    <div class="sections">All</div>
+    <div class="sections">Updates</div>
+    <div class="sections">New Apps</div>
+    <div class="sections">Others</div>
+</div>
+    <div class="appList" id="all-apps">
+  <div id="appList"></div>
+      </div>
 
 
 <div class="hidecolor">	
@@ -76,7 +83,76 @@
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
   </script>
-  
+ <script>
+
+   // Fonction appelée lors du chargement de la page
+    function afficherDonnees() {
+      // Récupérer l'élément <div> parent où afficher les applications
+      var appListDiv = document.getElementById("appList");
+
+      // Charger le fichier JSON
+      fetch('apps.json')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          // Récupérer les données des applications du fichier JSON
+          var appsData = data.Utilities;
+
+          // Parcourir les données des applications
+          appsData.forEach(function(appData) {
+            // Créer les éléments HTML pour chaque application
+            var dockDiv = document.createElement("div");
+            dockDiv.className = "dock";
+
+            var appCellLeftDiv = document.createElement("div");
+            appCellLeftDiv.className = "app_cell_left";
+
+            var appIconImg = document.createElement("img");
+            appIconImg.className = "appicon";
+            appIconImg.src = appData.icon;
+            appCellLeftDiv.appendChild(appIconImg);
+
+            var appCellMetaDiv = document.createElement("div");
+            appCellMetaDiv.className = "app_cell_meta";
+
+            var appNameDiv = document.createElement("div");
+            appNameDiv.className = "appname";
+            appNameDiv.textContent = appData.name;
+            appCellMetaDiv.appendChild(appNameDiv);
+
+            var appDevDiv = document.createElement("div");
+            appDevDiv.className = "appsection";
+            appDevDiv.textContent = appData.developer;
+            appCellMetaDiv.appendChild(appDevDiv);
+
+            appCellLeftDiv.appendChild(appCellMetaDiv);
+            dockDiv.appendChild(appCellLeftDiv);
+
+            var appGetDiv = document.createElement("div");
+            appGetDiv.className = "appget";
+
+            var appGetBtn = document.createElement("a");
+            appGetBtn.href = appData.ipa;
+
+            var getBtn = document.createElement("button");
+            getBtn.className = "getbtn";
+            getBtn.textContent = "GET";
+
+            appGetBtn.appendChild(getBtn);
+            appGetDiv.appendChild(appGetBtn);
+            dockDiv.appendChild(appGetDiv);
+
+            // Ajouter l'application à la liste des applications
+            appListDiv.appendChild(dockDiv);
+          });
+        })
+        .catch(function(error) {
+          console.log('Error', error);
+        });
+    }
+
+</script>	   
     
     
 
