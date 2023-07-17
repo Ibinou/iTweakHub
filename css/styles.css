@@ -343,9 +343,9 @@ font-size: 20px;
     float: left;
 }
 .ioslist_icon i {
-color: #ffffff;
-font-size: 20px;
-margin-right: 16px;
+    color: var(--accent-color);
+    font-size: 20px;
+    margin-right: 16px;
 }
 
 
