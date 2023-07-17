@@ -1,27 +1,48 @@
 {
     "Info": {
-    	"repoName":"iTweakHub Apps",
-        "repoAuthor":"iBaDev",
-        "repoVersion":"beta",
-        "repoIcon":"https://github.com/Ibinou/iTweakHub/blob/main/img/logo.png?raw=true"
+        "repoName": "iTweakHub Apps",
+        "repoAuthor": "iBaDev",
+        "repoVersion": "beta",
+        "repoIcon": "https://github.com/Ibinou/iTweakHub/blob/main/img/logo.png?raw=true"
     },
     "Utilities": [
         {
-            "name":"Unc0ver",
-            "developer":"unc0ver Team",
-            "version":"8.0.2", 
-            "ipa":"https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
-            "icon":"https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
-            "compatibility":"iOS 11",
-            "description":"Jailbreak for iOS 11."
-        },{
-            "name":"Cowabunga",
-            "developer":"leminlimez",
-            "version":"8.1.3", 
-            "ipa":"https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
-            "icon":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/SpooferPro.PNG?raw=true",
-            "compatibility":"14.0 - 15.7.1 and 16 - 16.1.2",
-            "description":"A Jailed toolbox application for iOS using the MacDirtyCow exploit"
+            "name": "Blacklist",
+            "developer": "AppInstalleriOS",
+            "version": "1.0", 
+            "ipa": "https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
+            "icon": "https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
+            "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
+            "description": "Unblacklist your iDevice using MacDirtyCow"
+        },
+        {
+            "name": "Cowabunga",
+            "developer": "leminlimez",
+            "version": "8.1.3", 
+            "ipa": "https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
+            "icon": "https://user-images.githubusercontent.com/52459150/215552092-9dc1e029-da35-43da-867f-17279e3dc180.png",
+            "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
+            "description": "A Jailed toolbox application for iOS using the MacDirtyCow exploit"
         }
+    ],
+    "Jailbreak": [
+        {
+            "name": "Unc0ver",
+            "developer": "unc0ver Team",
+            "version": "8.0.2", 
+            "ipa": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
+            "compatibility": "iOS 11",
+            "description": "Jailbreak for iOS 11."
+        },
+        {
+            "name": "Taurine",
+            "developer": "Odyssey-Team",
+            "version": "1.1.6", 
+            "ipa": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
+            "icon": "https://cdn.discordapp.com/attachments/752890955236901055/829728600446074930/Taurine.png",
+            "compatibility": "14.0-14.3",
+            "description": "Jailbreak for iOS 14."
+        }    
     ]
 }
