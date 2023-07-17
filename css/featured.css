@@ -48,7 +48,7 @@
     .app_cell_left {
         display: flex;
         align-items: center;
-        gap: 0.7rem;
+        gap: 1rem;
     }
 
     .appicon {
@@ -86,25 +86,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-/*
-    .appget {
-        background-color: #303030;
-        border-radius: 40px;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        width: 60px;
-        height: 35px;
-        object-fit: cover;
-    }
 
-.getbtn {
-    background-color: transparent;
-    border: none;
-    color: var(--accent-color);
-    font-weight: 750;
-}
-*/
 .appget {
     background-color: #303030;
     border-radius: 40px;
@@ -112,10 +94,9 @@
     display: flex;
     justify-content: center;
     width: 60px;
-    height: 35px;
+    height: 30px;
     object-fit: cover;
-    background: linear-gradient(180deg, #7163FF 0%, rgba(113, 99, 255, 0.67) 100%);
-    box-shadow: 0px 0px 20px 0px rgb(113 99 255 / 36%);
+    background-color: var(--accent-color);
     align-items: center;
 }
 .getbtn {
