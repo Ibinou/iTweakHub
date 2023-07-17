@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/featured.css" keep>
+    <link rel="stylesheet" href="css/navbar.css" keep>
+    <link rel="stylesheet" href="css/styles.css" keep>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+    <title>Sections | iTweakHub</title> 
+    <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div class="sidebar">
+  <a class="active" href="index.html">Home</a>
+  <a href="appsmanager.html">Apps Manager</a>
+	<a href="search.html">Search</a>
+</div>
+<div class="content">
+<div class="toptitle">	
+    <a style="text-decoration: none" href="index.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Home</h1></a>
+    <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Sections</h1>
+
+<div class="appList">
+ 
+										  
+              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://ibinou.github.io/Lem0nStore/ressources/Jailbreaks.png" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">iJailbreak</div>
+                    <div class="appsection">Tweak your iPhone</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button class="getbtn" id="getbtn" onclick="">EXPLORE</button>
+                </div>
+              </div>
+	      
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://ibinou.github.io/Lem0nStore/ressources/Tweaked.png" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Tweaked Apps</div>
+                    <div class="appsection">New features</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button class="getbtn" id="getbtn" onclick="">EXPLORE</button>
+                </div>
+              </div>
+	
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://img.wonderhowto.com/img/original/83/13/63515300345009/0/635153003450098313.jpg" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Legacy</div>
+                    <div class="appsection">Old apps for old devices</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button class="getbtn" id="getbtn" onclick="">EXPLORE</button>
+                </div>
+              </div>
+
+	              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://ibinou.github.io/Lem0nStore/ressources/Movies.png" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Movies</div>
+                    <div class="appsection">Watch movies for free</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button class="getbtn" id="getbtn" onclick="">EXPLORE</button>
+                </div>
+              </div>
+	      
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://ibinou.github.io/Lem0nStore/ressources/Other.png" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Utilities</div>
+                    <div class="appsection">Tools and onthers</div>
+                  </div>
+                </div>
+                <div class="appget">
+                  <button class="getbtn" id="getbtn" onclick="">EXPLORE</button>
+                </div>
+              </div>
+      </div>
+  
+<div class="hidecolor">	
+  <input type="color" id="color-picker">
+  <button id="reset-button">Reset</button>
+	</div> 
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+  </script>
+<script>
+    // Fonction appelée lors du chargement de la page
+    function afficherDonnees() {
+      // Récupérer l'élément <div> parent où afficher les applications
+      var appListDiv = document.getElementById("appList");
+      // Tableau pour stocker les noms des applications déjà ajoutées
+      var appNamesAdded = [];
+
+      // Charger le fichier JSON
+      fetch('apps.json')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          // Récupérer les données du tableau "Utilities"
+          var utilitiesAppsData = data.Utilities;
+          // Récupérer les données du tableau "Jailbreak"
+          var jailbreakAppsData = data.Jailbreak;
+
+          // Concaténer les deux tableaux pour avoir toutes les données des applications
+          var allAppsData = utilitiesAppsData.concat(jailbreakAppsData);
+
+          // Parcourir les données de toutes les applications
+          allAppsData.forEach(function(appData) {
+            // Vérifier si l'application a déjà été ajoutée
+            if (!appNamesAdded.includes(appData.name)) {
+              // Ajouter le nom de l'application à la liste des applications déjà ajoutées
+              appNamesAdded.push(appData.name);
+
+              // Créer les éléments HTML pour chaque application
+              var dockDiv = document.createElement("div");
+              dockDiv.className = "dock";
+
+              var appCellLeftDiv = document.createElement("div");
+              appCellLeftDiv.className = "app_cell_left";
+
+              var appIconImg = document.createElement("img");
+              appIconImg.className = "appicon";
+              appIconImg.src = appData.icon;
+              appCellLeftDiv.appendChild(appIconImg);
+
+              var appCellMetaDiv = document.createElement("div");
+              appCellMetaDiv.className = "app_cell_meta";
+
+              var appNameDiv = document.createElement("div");
+              appNameDiv.className = "appname";
+              appNameDiv.textContent = appData.name;
+              appCellMetaDiv.appendChild(appNameDiv);
+
+              var appDevDiv = document.createElement("div");
+              appDevDiv.className = "appsection";
+              appDevDiv.textContent = appData.developer;
+              appCellMetaDiv.appendChild(appDevDiv);
+
+              appCellLeftDiv.appendChild(appCellMetaDiv);
+              dockDiv.appendChild(appCellLeftDiv);
+
+              var appGetDiv = document.createElement("div");
+              appGetDiv.className = "appget";
+
+              var appGetBtn = document.createElement("a");
+              appGetBtn.href = appData.ipa;
+
+              var getBtn = document.createElement("button");
+              getBtn.className = "getbtn";
+              getBtn.textContent = "GET";
+
+              appGetBtn.appendChild(getBtn);
+              appGetDiv.appendChild(appGetBtn);
+              dockDiv.appendChild(appGetDiv);
+
+              // Ajouter l'application à la liste des applications
+              appListDiv.appendChild(dockDiv);
+            }
+          });
+        })
+        .catch(function(error) {
+          console.log('Error', error);
+        });
+    }
+
+    // Appeler la fonction lors du chargement de la page
+    afficherDonnees();
+  </script>
+    
+    
+
+</div>
+</body>
+
+</html>
