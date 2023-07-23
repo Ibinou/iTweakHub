@@ -43,7 +43,7 @@ display: none;
 
 @media only screen and (max-device-width: 812px) {
 .bottom-tab-bar {
-padding-bottom: 20px;
+padding-bottom: 25px;
 }
 }
 
