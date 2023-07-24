@@ -3,6 +3,20 @@
   height: 100%
   --accent-color: #7163FF; /* Valeur par défaut de l'accent color */
 }
+
+  .theme-light {
+    --color-body: #f2f3f8;
+    --color-text: #000;
+    --color-secondary: #fff;
+    --nav-color: #ffffff82;
+  }
+  .theme-dark {
+    --color-primary: #121212;
+    --color-text: #fff;
+    --color-secondary: #1c1c1c;
+    --nav-color: #2a2a2a82;
+  }
+
 #file-input {
   display: none;
 }
@@ -58,7 +72,7 @@ pointer-events: none;
 /* Pour les écrans de PC/tablette */
 @media screen and (min-width: 768px) {
   body {
-    background-color: #121212;
+    background-color: var(--color-body);
     color: white;
     margin: 0;
     padding: 0;
@@ -76,7 +90,7 @@ pointer-events: none;
 /* Pour les écrans de téléphone */
 @media screen and (max-width: 767px) {
   body {
-    background-color: #121212;
+    background-color: var(--color-body);
     color: white;
     margin: 0;
     padding: 0;
