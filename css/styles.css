@@ -771,7 +771,7 @@ h3, p {
 }
 
 .socialbtn {
-background-color: #7163FF;
+    background-color: #7163FF;
     border-radius: 14px;
     border-width: 0;
     color: #fff;
@@ -785,8 +785,9 @@ background-color: #7163FF;
     padding: 10px 12px;
     text-align: center;
     text-decoration: none;
-    height: 40px;
-    margin-top: 10px; 
+    height: 37px;
+    margin-top: 10px;
+    width: 106px;
 }
 
 /*cert sheet*/
