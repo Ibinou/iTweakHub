@@ -988,3 +988,12 @@ h3, p {
   font-weight: bold; 
   font-size: 16px;
 }
+.UIContainer h4 {
+  font-size: 20px;
+  color: #ffffffd1;
+  font-weight: 400;
+  margin-top: -14px;
+}
+.UIContainer h1 {
+  font-size: 45px;
+}
