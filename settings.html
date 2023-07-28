@@ -164,28 +164,28 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
-	
-//cookie delete
+
+	  
+//cokie/ LS delete	
 document.getElementById("clear-cookies-btn").addEventListener("click", function() {
-  var cookies = document.cookie.split(";");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i];
-    var eqPos = cookie.indexOf("=");
-    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; //supprime le cookie
-  }
-  alert("The cookies have been erased."); //affiche un message de confirmation
-});
+  // Supprimer tous les cookies
+  var cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    var eqPos = cookie.indexOf("=");
+    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; // Supprime le cookie
+  }
 
-// href div
-// Get the reference to the div element
-const myDiv = document.getElementById("clear-cookies-btn");
+  alert("Cookies have been deleted.");
 
-// Add a click event listener to the div
-clear-cookies-btn.addEventListener("click", function() {
-  // Navigate to the desired URL
+  console.log("Cookies have been deleted.");
+
   window.location.href = "welcome.html";
 });
+
+
+
    </script>
 
   </script>
