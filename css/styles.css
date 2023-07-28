@@ -952,8 +952,13 @@ h3, p {
 }
 .bottom-choices {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
+  bottom: 15px;
+  position: fixed;
+  left: 50%; 
+  transform: translateX(-50%);
+  width: 100%;
 }
 .login {
   margin: 10px; 
