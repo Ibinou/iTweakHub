@@ -20,9 +20,6 @@ if (localStorage.getItem('username') && localStorage.getItem('profilePicture')) 
   // Masquer la création de compte et afficher la page d'accueil
   loginContainer.style.display = 'none';
   mainContainer.style.display = 'block';
-} else {
-  // Si l'utilisateur n'est pas connecté, afficher la page welcome.html
-  window.location.href = 'welcome.html';
 }
 
 // Événement lors de la création du compte
