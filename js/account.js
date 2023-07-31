@@ -21,8 +21,8 @@ if (localStorage.getItem('username') && localStorage.getItem('profilePicture')) 
   loginContainer.style.display = 'none';
   mainContainer.style.display = 'block';
 } else {
-  // Si l'utilisateur n'est pas connecté, afficher la page welcome.html
-  window.location.href = 'welcome.html';
+  // Si l'utilisateur n'est pas connecté, rediriger vers welcome.html sans recharger la page
+  history.replaceState(null, null, 'welcome.html');
 }
 
 // Événement lors de la création du compte
