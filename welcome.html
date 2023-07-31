@@ -31,10 +31,26 @@
 <h4>To iTweakHub</h4>
    
 <div class="bottom-choices">   
+<div id="pageDiv" style="display: none;">
+        <div id="login-container" style="display: flex;">
+    <input type="text" id="username" placeholder="Username">
+    <input type="file" id="profile-picture" accept="image/*">
+    <button id="create-account-btn" onclick="window.location.href='index.html';">Done !</button>
+  </div>
+</div>
 <button class="login" onclick="window.location.href='setup.html';">Set Up Profile</button>
 <a href="index.html">More informations</a>
 </div> 
     
 </div>  
+<script>
+const showDivBtn = document.getElementById('showDivBtn');
+const pageDiv = document.getElementById('pageDiv');
+
+showDivBtn.addEventListener('click', () => {
+  // Afficher la div en changeant son style de "display: none" à "display: block"
+  pageDiv.style.display = 'block';
+});
+</script>
 </body>
 </html>
