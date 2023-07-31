@@ -22,13 +22,7 @@
         background-color: #1c0026;
     }
 </style>
-<div class="UIContainer">
-  
-<div class="welcomeheader">
-<img class="welcomeimg" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/welcomeheader.png">
-</div>
-<h1>Welcome</h1>
-<h4>To iTweakHub</h4>
+
    
         <div id="login-container" style="display: flex;">
     <input type="text" id="username" placeholder="Username">
@@ -36,23 +30,7 @@
     <button id="create-account-btn" onclick="window.location.href='index.html';">Done !</button>
   </div>
 
-<div class="bottom-choices">   
-<button id="showDivBtn">Afficher la div</button>
 
-<button class="login" onclick="window.location.href='setup.html';">Set Up Profile</button>
-<a href="index.html">More informations</a>
-</div> 
-    
-</div>  
-<script>
-const showDivBtn = document.getElementById('showDivBtn');
-const pageDiv = document.getElementById('pageDiv');
-
-showDivBtn.addEventListener('click', () => {
-  // Afficher la div en changeant son style de "display: none" à "display: block"
-  pageDiv.style.display = 'block';
-});
-</script>
 <script src="js/account.js"></script>
 </body>
 </html>
