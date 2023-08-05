@@ -123,23 +123,18 @@
   </script>
    
 <script>
-// Fonction appelée lors du chargement de la page
-function afficherDonnees() {
-  // Récupérer l'élément <div> parent où afficher les applications
+     
+        function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
-  // Charger le fichier JSON
   fetch('apps.json')
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      // Récupérer les données des applications du fichier JSON
-      var appsData = data.Apps; // Remplacez "Utilities" par "Apps" pour prendre les données du tableau "Apps" dans le JSON.
+      var appsData = data.Apps;
 
-      // Parcourir les données des applications
       appsData.forEach(function(appData) {
-        // Créer les éléments HTML pour chaque application
         var dockDiv = document.createElement("div");
         dockDiv.className = "dock";
 
@@ -171,7 +166,7 @@ function afficherDonnees() {
         appGetDiv.className = "appget";
 
         var appGetBtn = document.createElement("a");
-        appGetBtn.href = appData.ipa;
+        appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
 
         var getBtn = document.createElement("button");
         getBtn.className = "getbtn";
@@ -181,7 +176,6 @@ function afficherDonnees() {
         appGetDiv.appendChild(appGetBtn);
         dockDiv.appendChild(appGetDiv);
 
-        // Ajouter l'application à la liste des applications
         appListDiv.appendChild(dockDiv);
       });
     })
@@ -189,7 +183,6 @@ function afficherDonnees() {
       console.log('Error', error);
     });
 }
- 
   </script>
     
 <script src="js/transition.js"></script>
