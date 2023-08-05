@@ -123,88 +123,85 @@
   </script>
    
 <script>
-    // Fonction appelée lors du chargement de la page
-    function afficherDonnees() {
-      // Récupérer l'élément <div> parent où afficher les applications
-      var appListDiv = document.getElementById("appList");
-      // Tableau pour stocker les noms des applications déjà ajoutées
-      var appNamesAdded = [];
+    
+     // Fonction appelée lors du chargement de la page
+function afficherDonnees() {
+  // Récupérer l'élément <div> parent où afficher les applications
+  var appListDiv = document.getElementById("appList");
+  // Tableau pour stocker les noms des applications déjà ajoutées
+  var appNamesAdded = [];
 
-      // Charger le fichier JSON
-      fetch('apps.json')
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(data) {
-          // Récupérer les données du tableau "Utilities"
-          var utilitiesAppsData = data.Utilities;
-          // Récupérer les données du tableau "Jailbreak"
-          var jailbreakAppsData = data.Jailbreak;
+  // Charger le fichier JSON
+  fetch('apps.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      // Récupérer les données du tableau "Apps"
+      var appsData = data.Apps;
 
-          // Concaténer les deux tableaux pour avoir toutes les données des applications
-          var allAppsData = utilitiesAppsData.concat(jailbreakAppsData);
+      // Parcourir les données de toutes les applications
+      appsData.forEach(function(appData) {
+        // Vérifier si l'application a déjà été ajoutée
+        if (!appNamesAdded.includes(appData.name)) {
+          // Ajouter le nom de l'application à la liste des applications déjà ajoutées
+          appNamesAdded.push(appData.name);
 
-          // Parcourir les données de toutes les applications
-          allAppsData.forEach(function(appData) {
-            // Vérifier si l'application a déjà été ajoutée
-            if (!appNamesAdded.includes(appData.name)) {
-              // Ajouter le nom de l'application à la liste des applications déjà ajoutées
-              appNamesAdded.push(appData.name);
+          // Créer les éléments HTML pour chaque application
+          var dockDiv = document.createElement("div");
+          dockDiv.className = "dock";
 
-              // Créer les éléments HTML pour chaque application
-              var dockDiv = document.createElement("div");
-              dockDiv.className = "dock";
+          var appCellLeftDiv = document.createElement("div");
+          appCellLeftDiv.className = "app_cell_left";
 
-              var appCellLeftDiv = document.createElement("div");
-              appCellLeftDiv.className = "app_cell_left";
+          var appIconImg = document.createElement("img");
+          appIconImg.className = "appicon";
+          appIconImg.src = appData.icon;
+          appCellLeftDiv.appendChild(appIconImg);
 
-              var appIconImg = document.createElement("img");
-              appIconImg.className = "appicon";
-              appIconImg.src = appData.icon;
-              appCellLeftDiv.appendChild(appIconImg);
+          var appCellMetaDiv = document.createElement("div");
+          appCellMetaDiv.className = "app_cell_meta";
 
-              var appCellMetaDiv = document.createElement("div");
-              appCellMetaDiv.className = "app_cell_meta";
+          var appNameDiv = document.createElement("div");
+          appNameDiv.className = "appname";
+          appNameDiv.textContent = appData.name;
+          appCellMetaDiv.appendChild(appNameDiv);
 
-              var appNameDiv = document.createElement("div");
-              appNameDiv.className = "appname";
-              appNameDiv.textContent = appData.name;
-              appCellMetaDiv.appendChild(appNameDiv);
+          var appDevDiv = document.createElement("div");
+          appDevDiv.className = "appsection";
+          appDevDiv.textContent = appData.developer;
+          appCellMetaDiv.appendChild(appDevDiv);
 
-              var appDevDiv = document.createElement("div");
-              appDevDiv.className = "appsection";
-              appDevDiv.textContent = appData.developer;
-              appCellMetaDiv.appendChild(appDevDiv);
+          appCellLeftDiv.appendChild(appCellMetaDiv);
+          dockDiv.appendChild(appCellLeftDiv);
 
-              appCellLeftDiv.appendChild(appCellMetaDiv);
-              dockDiv.appendChild(appCellLeftDiv);
+          var appGetDiv = document.createElement("div");
+          appGetDiv.className = "appget";
 
-              var appGetDiv = document.createElement("div");
-              appGetDiv.className = "appget";
+          var appGetBtn = document.createElement("a");
+          appGetBtn.href = appData.ipa;
 
-              var appGetBtn = document.createElement("a");
-              appGetBtn.href = appData.ipa;
+          var getBtn = document.createElement("button");
+          getBtn.className = "getbtn";
+          getBtn.textContent = "GET";
 
-              var getBtn = document.createElement("button");
-              getBtn.className = "getbtn";
-              getBtn.textContent = "GET";
+          appGetBtn.appendChild(getBtn);
+          appGetDiv.appendChild(appGetBtn);
+          dockDiv.appendChild(appGetDiv);
 
-              appGetBtn.appendChild(getBtn);
-              appGetDiv.appendChild(appGetBtn);
-              dockDiv.appendChild(appGetDiv);
+          // Ajouter l'application à la liste des applications
+          appListDiv.appendChild(dockDiv);
+        }
+      });
+    })
+    .catch(function(error) {
+      console.log('Error', error);
+    });
+}
 
-              // Ajouter l'application à la liste des applications
-              appListDiv.appendChild(dockDiv);
-            }
-          });
-        })
-        .catch(function(error) {
-          console.log('Error', error);
-        });
-    }
-
-    // Appeler la fonction lors du chargement de la page
-    afficherDonnees();
+// Appeler la fonction lors du chargement de la page
+afficherDonnees();
+ 
   </script>
     
 <script src="js/transition.js"></script>
