@@ -5,7 +5,7 @@
         "repoVersion": "beta",
         "repoIcon": "https://github.com/Ibinou/iTweakHub/blob/main/img/logo.png?raw=true"
     },
-    "Utilities": [
+    "Apps": [
         {
             "name": "Blacklist",
             "developer": "AppInstalleriOS",
@@ -23,9 +23,7 @@
             "icon": "https://user-images.githubusercontent.com/52459150/215552092-9dc1e029-da35-43da-867f-17279e3dc180.png",
             "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
             "description": "A Jailed toolbox application for iOS using the MacDirtyCow exploit"
-        }
-    ],
-    "Jailbreak": [
+        },
         {
             "name": "Unc0ver",
             "developer": "unc0ver Team",
@@ -43,6 +41,6 @@
             "icon": "https://cdn.discordapp.com/attachments/752890955236901055/829728600446074930/Taurine.png",
             "compatibility": "14.0-14.3",
             "description": "Jailbreak for iOS 14."
-        }    
+        }
     ]
 }
