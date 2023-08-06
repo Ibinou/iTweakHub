@@ -139,7 +139,12 @@ div.content {
 .get.clicked {
   animation: click 0.2s linear;
 }
-
+/* Styles pour les iPhones X ou ultérieurs */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .getbar {
+    padding-bottom: 15px;
+  }
+}
 @keyframes click {
   0% { transform: scale(1); }
   50% { transform: scale(0.95); }
