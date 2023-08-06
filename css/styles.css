@@ -1002,3 +1002,17 @@ h3, p {
 .UIContainer h1 {
   font-size: 45px;
 }
+
+/*icons chooser*/
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container img {
+  width: 60px; /* Ajustez la taille selon vos besoins */
+  height: 60px;
+  margin: 5px; /* Espace entre les icônes */
+  border-radius: 16px;
+}
