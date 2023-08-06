@@ -1008,6 +1008,7 @@ h3, p {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .icon-container img {
