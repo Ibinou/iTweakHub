@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 appCompatibilityElement.textContent = appData.compatibility;
 
 		const installButton = document.querySelector(".get");
-                installButton.setAttribute("src", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
+                installButton.setAttribute("src", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
             } else {
                 appInfoDiv.textContent = "Application not found.";
             }
