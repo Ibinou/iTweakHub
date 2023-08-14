@@ -98,10 +98,6 @@ pointer-events: none;
   flex-wrap: wrap;
 }
 
-.appList>* {
-  margin: .5rem;
-}
-
 .apps:last-child {
   margin-bottom: 4rem;
 }
