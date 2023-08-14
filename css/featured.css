@@ -32,18 +32,22 @@
         border-radius: 20px;
     }
 
-    .dock {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        /*background-color: #1c1c1cb3;*/
-        padding: 8px;
-        border-radius: 20px;
-        width: 100%;
-        max-width: 382px;
-    }
+.dock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    /* background-color: #1c1c1cb3; */
+    padding: 8px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 382px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
 
     .app_cell_left {
         display: flex;
