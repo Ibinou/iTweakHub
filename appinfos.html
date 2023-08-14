@@ -123,9 +123,9 @@ nav h1 i a {
 <br>
 <div id="appInfo"></div>
 <div class="getbar">
-    <button class="get" onclick="showNotification()"src="">Install</button>
+    <button class="get" onclick="showNotification()" href="">Install</button>
 </div>
-<button id="geturl" class="get" src="">Install</button>
+<button id="geturl" class="get" href="">Install</button>
 
 
   <script src="/js/index.js"></script>
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 appCompatibilityElement.textContent = appData.compatibility;
 
 		const installButton = document.getElementById("geturl");
-                installButton.setAttribute("src", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
+                installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
             } else {
                 appInfoDiv.textContent = "Application not found.";
             }
