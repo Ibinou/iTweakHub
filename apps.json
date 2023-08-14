@@ -34,6 +34,15 @@
             "description": "Jailbreak for iOS 11."
         },
         {
+            "name": "Cheyote (Fake)",
+            "developer": "AppInstalleriOS",
+            "version": "1.0", 
+            "ipa": "https://drive.google.com/uc?export=download&id=1E3w6gBnBfLsNDCBPg6CPuhEUgITwqvJc",
+            "icon": "https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
+            "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
+            "description": "Unblacklist your iDevice using MacDirtyCow"
+        },
+        {
             "name": "Taurine",
             "developer": "Odyssey-Team",
             "version": "1.1.6", 
