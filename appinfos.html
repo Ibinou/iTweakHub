@@ -234,10 +234,10 @@ document.addEventListener('DOMContentLoaded', function() {
             appDeveloperElement.textContent = appData.developer;
 
             const appVersionElement = document.getElementById("appVersion");
-            appVersionElement.textContent = `Version: ${appData.version}`;
+            appVersionElement.textContent = appData.version;
 
             const appCompatibilityElement = document.getElementById("appCompatibility");
-            appCompatibilityElement.textContent = `Compatibility: ${appData.compatibility}`;
+            appCompatibilityElement.textContent = appData.compatibility;
         } else {
             appInfoDiv.textContent = "Application not found.";
         }
