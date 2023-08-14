@@ -238,7 +238,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const appCompatibilityElement = document.getElementById("appCompatibility");
                 appCompatibilityElement.textContent = appData.compatibility;
-
+		    
+                const appBannerElement = document.getElementById("appBanner");
+                appBannerElement.src = appData.banner;
+		    
 		const installButton = document.getElementById("geturl");
                 installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
             } else {
