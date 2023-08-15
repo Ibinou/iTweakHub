@@ -32,7 +32,7 @@
 	
 <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Search</h1>
 
-<div class="fixed-div">
+<div id="navbar">
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
       <div class="sectionscarr">
           <div class="sections">Games</div>
@@ -195,7 +195,18 @@
         dock[i].style.display = display;
       }
     }
+window.onscroll = function() {myFunction()};
 
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
   </script>
 <script src="js/transition.js"></script>
 	</div>
