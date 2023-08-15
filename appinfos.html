@@ -75,7 +75,7 @@ nav h1 i a {
   </div>
 </div>
   
-  <nav id="navbar">
+  <nav id="topbar">
 <a style="text-decoration: none" href="javascript:history.back()">
     <h1 style="font-family:helvetica;font-size:23px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #ffffff;margin-right: 5px;"></i>Back</h1>
   </a>
@@ -187,7 +187,7 @@ function showNotification() {
   }, 5000);
 }
 window.addEventListener("scroll", function() {
-  var navbar = document.getElementById("navbar");
+  var navbar = document.getElementById("topbar");
   if (window.scrollY > 0) {
     navbar.classList.add("navbar-scrolled");
   } else {
