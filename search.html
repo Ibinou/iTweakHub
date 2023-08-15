@@ -195,16 +195,7 @@
         dock[i].style.display = display;
       }
     }
-const fixedDiv = document.querySelector('.fixed-div');
-const contentDiv = document.querySelector('.content');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > contentDiv.offsetTop) {
-    fixedDiv.classList.add('fixed');
-  } else {
-    fixedDiv.classList.remove('fixed');
-  }
-});
   </script>
 <script src="js/transition.js"></script>
 	</div>
