@@ -21,9 +21,6 @@
 </head>
 
 <body onload="afficherDonnees()">
-<script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymous"></script>
-
-
 	
 <div class="sidebar">
   <a href="index.html">Home</a>
@@ -31,8 +28,9 @@
   <a class="active" href="search.html">Search</a>
 </div>
 
-  <div class="content">
-  
+<div class="content">
+
+<div class="fixed-div">
       <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Search</h1>
 
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
@@ -42,10 +40,10 @@
           <div class="sections">Utilities</div>
           <div class="sections">Jailbreak</div>
           <div class="sections">Emulators</div>
-	        <div class="sections">Exclusive</div>
-	        <div class="sections">Legacy</div>
+	  <div class="sections">Exclusive</div>
+	  <div class="sections">Legacy</div>
       </div>
-    
+</div> 
   <center>
 
       <h3 align="left" class="appsCategory"
@@ -185,6 +183,7 @@
 }
   </script>
       <script>
+//search bar js
     function myFunction() {
       const input = document.getElementById("myInput");
       const filter = input.value.toUpperCase();
@@ -196,6 +195,16 @@
         dock[i].style.display = display;
       }
     }
+const fixedDiv = document.querySelector('.fixed-div');
+const contentDiv = document.querySelector('.content');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > contentDiv.offsetTop) {
+    fixedDiv.classList.add('fixed');
+  } else {
+    fixedDiv.classList.remove('fixed');
+  }
+});
   </script>
 <script src="js/transition.js"></script>
 	</div>
