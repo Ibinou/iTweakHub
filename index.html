@@ -224,8 +224,10 @@
 
 	    
 <div class="section">
-        <i id="status" class="fa-solid fa-circle-check"></i>
-        <p style="transform: translateX(20px)">Revoked !</p>
+        <i class="fa-solid fa-file-circle-question"></i>
+        <span id="signed-status-free">[Signed Status]</span>
+	<span style="color:white" id="cococloud-ios-cert">[Certificate Name]</span>
+	<span style="color:black" id="cococloud-ios-cert-exp">[Certificate exp]</span>
 </div>
 
         <br>
@@ -260,21 +262,16 @@
                 <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
             </a>
         </nav>
+
+	      
       </center>
+	    
 <div class="hidecolor">  
 <input type="color" id="color-picker">
 <button id="reset-button">Reset</button>
 </div>
-<script>
-            var signed = true
-            if(signed) {
-                document.getElementById("status").style.color = "#00c227";
-            } else {
-                document.getElementById("status").style.color = "red";
-            }
-
-                   
-</script>
+	    
+<script src="https://cococloud-signing.online/cert-status/sign-status.js"></script>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
