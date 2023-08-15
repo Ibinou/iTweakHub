@@ -1017,3 +1017,11 @@ h3, p {
   margin: 5px; /* Espace entre les icônes */
   border-radius: 16px;
 }
+.status-container {
+    max-width: 480px;
+    padding: 16px;
+    margin: 32px auto;
+    background-color: #1c1c1c;
+    border-radius: 13px;
+    border: 1px solid rgb(37, 37, 39);
+}
