@@ -30,7 +30,7 @@
 
 <div class="content">
 	
-<h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Search</h1>
+<h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;margin-bottom: -5px;">Search</h1>
 
 <div id="navbar">
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
@@ -44,18 +44,11 @@
 	  <div class="sections">Legacy</div>
       </div>
 </div> 
-  <center>
-
-      <h3 align="left" class="appsCategory"
-        style="font-family:helvetica;font-size:20px;color:white;margin-top: 12px;">All Apps
-      </h3>
-	    
+  <center>	    
 <div class="appList" id="appList"></div>
          <br>
    <a class="rectangle" id="r1">Load more</a>
 	 <br> 
-	 <br>
-	 <br>
 	 <br>
 	 <br>
   </center>
@@ -195,18 +188,7 @@
         dock[i].style.display = display;
       }
     }
-window.onscroll = function() {myFunction()};
 
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
   </script>
 <script src="js/transition.js"></script>
 	</div>
