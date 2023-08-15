@@ -251,13 +251,9 @@ div.content {
     overflow: hidden;
     background-color: #121212;
     width: 100%;
-    height: 185px;
-}
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-.sticky + .content {
-  padding-top: 60px;
+    z-index: 9999999;
+    position: sticky;
+    top: 0px;
+    padding-top: 17px;
+    height: 129px;
 }
