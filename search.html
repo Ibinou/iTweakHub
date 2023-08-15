@@ -192,7 +192,7 @@
 
       for (let i = 0; i < dock.length; i++) {
         const appname = dock[i].getElementsByClassName("appname")[0];
-        const display = appname.innerText.toUpperCase().includes(filter) ? "block" : "none";
+        const display = appname.innerText.toUpperCase().includes(filter) ? "flex" : "none";
         dock[i].style.display = display;
       }
     }
