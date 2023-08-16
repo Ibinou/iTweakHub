@@ -101,6 +101,9 @@
     background-color: var(--accent-color);
     align-items: center;
 }
+.appget a {
+    margin-bottom: 1px;
+}
 .getbtn {
     background-color: transparent;
     border: none;
