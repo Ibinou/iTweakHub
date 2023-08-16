@@ -67,13 +67,35 @@
             "section": "Tweaked Games"
         },
         {
+            "name":"Scylla",
+            "version":"Beta 0.1.2",
+            "developer": "Kevin Alavik",
+            "icon":"https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg",
+            "ipa":"https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
+            "section":"Utilities",
+            "description":"Scylla is yet another app signer for iOS",
+            "compatibility":"iOS"    
+        },
+        {
+            "name": "Spotilife",
+            "version": "8.6.42",
+            "ipa": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/60BF6600-8900-41C7-8D42-E1F03AC884B2.png?raw=true",
+            "category": "Tweaked Apps",
+            "description": "Enabled -No Forced Shuffle -Unlimited Skips -Extreme Quality stream enabled -Import songs from Music app",
+            "compatibility": "iOS 13+",
+            "banner": "https://photos5.appleinsider.com/gallery/43969-85507-Spotify-xl.jpg",
+            "developer": "Unknown"
+        },
+        {
             "name": "iPogo",
             "version": "0.261.1",
             "developer": "Niantic, Inc.",
             "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png",
-            "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
+            "ipa": "https://ipogo.app/download/ipogo-3.0.4.ipa",
             "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App.",
             "compatibility": "iOS 14+",
+            "banner": "https://digistatement.com/wp-content/uploads/2022/02/iPogo-1.jpg",
             "section": "Tweaked Games"
         },
         {
