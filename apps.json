@@ -9,7 +9,7 @@
         {
             "name": "Blacklist",
             "developer": "AppInstalleriOS",
-            "version": "1.0", 
+            "version": "1.0",
             "ipa": "https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
             "icon": "https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
             "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
@@ -19,7 +19,7 @@
         {
             "name": "Cowabunga",
             "developer": "leminlimez",
-            "version": "8.1.3", 
+            "version": "8.1.3",
             "ipa": "https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
             "icon": "https://user-images.githubusercontent.com/52459150/215552092-9dc1e029-da35-43da-867f-17279e3dc180.png",
             "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
@@ -29,26 +29,26 @@
         {
             "name": "Unc0ver",
             "developer": "unc0ver Team",
-            "version": "8.0.2", 
+            "version": "8.0.2",
             "ipa": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
             "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
             "compatibility": "iOS 11",
             "description": "Jailbreak for iOS 11.",
             "section": "Jailbreak"
         },
-	    {
-		    "name": "Instagram Rhino",
+        {
+            "name": "Instagram Rhino",
             "developer": "Instagram, Inc.",
-		    "version": "187.0",
+            "version": "187.0",
             "compatibility": "iOS 14.+",
-		    "icon": "https://iosninja.io/img/ipas/instagram_rhino.png",
-		    "ipa": "https://resources.usescarlet.com/repo/IPAs/instagramRhino.ipa",
-		    "section": "Tweaked Apps"
-	    }, 
+            "icon": "https://iosninja.io/img/ipas/instagram_rhino.png",
+            "ipa": "https://resources.usescarlet.com/repo/IPAs/instagramRhino.ipa",
+            "section": "Tweaked Apps"
+        },
         {
             "name": "BHTwitter",
             "developer": "X Corp.",
-            "version": "1.0", 
+            "version": "1.0",
             "banner": "https://pbs.twimg.com/profile_banners/3260518932/1690380560/1080x360",
             "ipa": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
             "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/BHTwitter.PNG?raw=true",
@@ -56,30 +56,30 @@
             "section": "Tweaked Apps",
             "description": "Tweaked version of Twitter (X) with many new features."
         },
-	    {
-		    "name": "SpooferX",
-		    "version": "0.261.1",
+        {
+            "name": "SpooferX",
+            "version": "0.261.1",
             "developer": "Unknown",
-            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png"
-		    "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
-		    "description": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also include a lot of others features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png",
+            "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
+            "description": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also includes a lot of other features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
             "compatibility": "iOS 14+",
             "section": "Tweaked Games"
-	    }, 
-	    {
-		    "name": "iPogo",
-		    "version": "0.261.1",
+        },
+        {
+            "name": "iPogo",
+            "version": "0.261.1",
             "developer": "Niantic, Inc.",
-            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png"
-		    "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
-		    "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App.",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png",
+            "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
+            "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App.",
             "compatibility": "iOS 14+",
             "section": "Tweaked Games"
-	    }, 
+        },
         {
             "name": "Taurine",
             "developer": "Odyssey-Team",
-            "version": "1.1.6", 
+            "version": "1.1.6",
             "ipa": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
             "icon": "https://cdn.discordapp.com/attachments/752890955236901055/829728600446074930/Taurine.png",
             "compatibility": "14.0-14.3",
