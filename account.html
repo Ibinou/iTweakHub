@@ -52,9 +52,17 @@
         <br>
 	
 <center>	
-    <span id="displayUsername"></span>
+    <p><span id="displayUsername"></span></p>
     <img id="displayProfilePic" src="" alt="Photo de Profil">
 	
+<div id="clear-cookies-btn">
+<ul class="ioslist" style="background-color: #ff000070;">
+<li style="border-bottom-width: 0px;">
+<span>Log Out</span>
+<div class="ioslist_opposite"><i class="fas fa-times-circle" aria-hidden="true"></i></div>
+</li>
+</ul>
+</div>	
 </center>
 	
 
@@ -166,7 +174,26 @@ window.addEventListener("scroll", function() {
         } else {
             window.location.href = 'setup.html'; // Redirect to setup page if no data
         }
+	  
+//cokie/ LS delete	
+document.getElementById("clear-cookies-btn").addEventListener("click", function() {
+  // Supprimer tous les cookies
+  var cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    var eqPos = cookie.indexOf("=");
+    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; // Supprime le cookie
+  }
 
+  localStorage.clear();
+
+  alert("The cache has been deleted.");
+
+  console.log("The cache has been deleted.");
+
+  window.location.href = "setup.html";
+});
 </script>
         <script src="js/index.js"></script>
 	      <script src="js/script.js"></script>
