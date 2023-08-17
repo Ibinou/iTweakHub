@@ -58,38 +58,6 @@
 	
 </center>
 	
-        <div class="apps" style="margin-bottom: 50px;">
-            <h1 align="left" class="appsCategory" style="font-family:helvetica;font-size:20px;color:white;margin-top: 1px;margin-bottom:0px;">Favorite Apps</h1>
-            <div class="appList">
-<div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/924DDD08-2A10-477A-9334-C9BE1FC86A13.png" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">iPoGo</div>
-                    <div class="appsection">Pokemon Go modded</div>
-                  </div>
-                </div>
-                <div class="appget">
-                  <button class="getbtn" onclick="">GET</button>
-                </div>
-              </div>
-	</div>
-    </center>
-	
- <div id="main-container" style="display: block;">
-    <button id="logout-btn">Log out</button>
-</div>
-
-		
-		
-		
-		
-  </div>   
-		
-		
-</center>		
- </div>
-</div>   
 
 <style>
 nav {
@@ -130,7 +98,53 @@ nav h1 i a {
 }
 
   </style>
-	 
+	
+<div class="hidecolor">  
+<input type="color" id="color-picker">
+<button id="reset-button">Reset</button>
+</div>
+	    
+
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+</script>	 
   <script>
 
 window.addEventListener("scroll", function() {
