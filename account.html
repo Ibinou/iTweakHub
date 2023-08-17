@@ -155,7 +155,18 @@ window.addEventListener("scroll", function() {
     navbar.classList.remove("navbar-scrolled");
   }
 });
+        const displayUsername = document.getElementById('displayUsername');
+        const displayProfilePic = document.getElementById('displayProfilePic');
 
+        // Check if data is already stored in localStorage
+        const storedUsername = localStorage.getItem('username');
+        const storedProfilePicBase64 = localStorage.getItem('profilePic');
+        if (storedUsername && storedProfilePicBase64) {
+            displayUsername.textContent = storedUsername;
+            displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
+        } else {
+            window.location.href = 'setup.html'; // Redirect to setup page if no data
+        }
 
 </script>
         <script src="js/index.js"></script>
