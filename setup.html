@@ -29,7 +29,15 @@
 </div>
 <h1>Welcome</h1>
 <h4>To iTweakHub</h4>
-   
+    <form id="accountForm">
+        <label for="username">Pseudo:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="profilePic">Photo de Profil (Base 64):</label>
+        <input type="text" id="profilePic" name="profilePic" required>
+        <br>
+        <button type="submit">Enregistrer</button>
+    </form>
       
 
 <div class="bottom-choices">   
@@ -39,7 +47,25 @@
 </div> 
     
 </div>  
+  <script>
+        const accountForm = document.getElementById('accountForm');
 
+        accountForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const usernameInput = document.getElementById('username');
+            const profilePicInput = document.getElementById('profilePic');
+            const username = usernameInput.value;
+            const profilePicBase64 = profilePicInput.value;
+
+            localStorage.setItem('username', username);
+            localStorage.setItem('profilePic', profilePicBase64);
+
+            alert('Informations enregistrées avec succès.');
+            
+            window.location.href = 'index.html'; // Redirect to index page after saving
+        });
+    </script>
+   
 <script src="js/account.js"></script>
 </body>
 </html>
