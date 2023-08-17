@@ -33,8 +33,8 @@
         <label for="username">Pseudo:</label>
         <input type="text" id="username" name="username" required>
         <br>
-        <label for="profilePic">Photo de Profil (Base 64):</label>
-        <input type="text" id="profilePic" name="profilePic" required>
+        <label for="profilePic">Photo de Profil:</label>
+        <input type="file" accept="image/*" id="profilePic" name="profilePic" required>
         <br>
         <button type="submit">Enregistrer</button>
     </form>
@@ -47,7 +47,7 @@
 </div> 
     
 </div>  
-  <script>
+    <script>
         const accountForm = document.getElementById('accountForm');
 
         accountForm.addEventListener('submit', function(event) {
@@ -55,14 +55,20 @@
             const usernameInput = document.getElementById('username');
             const profilePicInput = document.getElementById('profilePic');
             const username = usernameInput.value;
-            const profilePicBase64 = profilePicInput.value;
 
-            localStorage.setItem('username', username);
-            localStorage.setItem('profilePic', profilePicBase64);
-
-            alert('Informations enregistrées avec succès.');
-            
-            window.location.href = 'index.html'; // Redirect to index page after saving
+            if (profilePicInput.files && profilePicInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const profilePicBase64 = event.target.result.split(',')[1];
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('profilePic', profilePicBase64);
+                    alert('Informations enregistrées avec succès.');
+                    window.location.href = 'index.html'; // Redirect to index page after saving
+                };
+                reader.readAsDataURL(profilePicInput.files[0]);
+            } else {
+                alert('Veuillez sélectionner une image de profil.');
+            }
         });
     </script>
    
