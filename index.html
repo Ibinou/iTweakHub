@@ -311,9 +311,7 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
-  </script>
-	    
-  <script>
+
 // slider banner js
     const sliderItems = document.querySelectorAll('.slider-item');
     const indicatorContainer = document.querySelector('.slider-indicators');
@@ -353,14 +351,29 @@
         }
       });
     }
+        const displayUsername = document.getElementById('displayUsername');
+        const displayProfilePic = document.getElementById('displayProfilePic');
+
+        // Check if data is already stored in localStorage
+        const storedUsername = localStorage.getItem('username');
+        const storedProfilePicBase64 = localStorage.getItem('profilePic');
+        if (storedUsername && storedProfilePicBase64) {
+            displayUsername.textContent = storedUsername;
+            displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
+        } else {
+            window.location.href = 'setup.html'; // Redirect to setup page if no data
+        }
   </script>
 <script>
   function openPage(url) {
     window.location.href = url;
   }
 </script>
-<style>::-webkit-scrollbar {
-  display: none; </style>
+<style>
+::-webkit-scrollbar {
+     display: none; 
+}
+</style>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
         <script src="js/account.js"></script>
