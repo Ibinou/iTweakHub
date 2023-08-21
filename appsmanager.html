@@ -171,6 +171,49 @@ function closePopup() {
 
 //Repo system
 
+// Fonction pour afficher les informations depuis le localStorage
+function afficherReposDepuisLocalStorage() {
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+
+  repoURLs.forEach(function(url) {
+    fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        var reposDiv = document.getElementById("repos");
+
+        var infoDiv = document.createElement("div");
+        infoDiv.className = "item";
+
+        // Créer l'élément image pour l'icône
+        var iconElement = document.createElement("img");
+        iconElement.src = data.Info.repoIcon;
+        infoDiv.appendChild(iconElement);
+
+        // Créer l'élément h2 pour le nom du repo
+        var repoNameElement = document.createElement("h2");
+        repoNameElement.textContent = data.Info.repoName;
+        infoDiv.appendChild(repoNameElement);
+
+        // Créer l'élément p pour l'auteur du repo
+        var repoAuthorElement = document.createElement("p");
+        repoAuthorElement.textContent = data.Info.repoAuthor;
+        infoDiv.appendChild(repoAuthorElement);
+
+        // Ajouter la div infoDiv à la div reposDiv
+        reposDiv.appendChild(infoDiv);
+      })
+      .catch(function(error) {
+        console.log('Erreur', error);
+      });
+  });
+}
+
+// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
+window.addEventListener("load", afficherReposDepuisLocalStorage);
+
+// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
   var url = prompt("Entrez l'URL du JSON:");
 
@@ -209,6 +252,7 @@ function afficherInfosDepuisJSON() {
     })
     .catch(function(error) {
       console.log('Erreur', error);
+      alert('Erreur', error);
     });
 }
 
