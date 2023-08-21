@@ -215,7 +215,7 @@ window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
-  var url = prompt("Entrez l'URL du JSON:");
+  var url = prompt("Enter URL to repo:");
 
   fetch(url)
     .then(function(response) {
@@ -251,8 +251,8 @@ function afficherInfosDepuisJSON() {
       localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
     })
     .catch(function(error) {
-      console.log('Erreur', error);
-      alert('Erreur', error);
+      console.log('Error', error);
+      alert('Error, invalid repo', error);
     });
 }
 
