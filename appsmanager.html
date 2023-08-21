@@ -89,7 +89,9 @@
   <!--More Repos Here-->
 </div>
               
-     
+       <button id="popupButton">Afficher la Popup</button>
+    <div id="repos">
+    </div>
         <br>
 
 
@@ -161,48 +163,48 @@ function closePopup() {
   var popup = document.getElementById("myPopup");
   popup.style.display = "none";
 }
-      out = document.getElementById("out");
-      repojs.init();
-      const repoUrl = "https://usescarlet.com/scarlet.json";
 
-      repojs.repo.get(repoUrl)
-        .then((data) => {
-          if (data === null) {
-            console.error("Error: Invalid JSON response");
-            return;
-          }
-
-          const meta = data.META || {};
-          const all = repojs.repo.getAllCategories(data, "META");
-
-          let output = "<pre>";
-          output += "--------------------------------------<br>";
-          output += `<span style="font-weight: bold;">Repo Name: <span style="font-weight: normal;">${(meta.repoName || "N/A")}</span></span><br>`;
-          output += `<span style="font-weight: bold;">Repo Icon (url): <span style="font-weight: normal;">${(meta.repoIcon || "N/A")}</span></span><br>`;
-          output += "--------------------------------------<br>";
-          output += `<span style="font-weight: bold;">App Amount: <span style="color: green;">${all.length}</span></span><br><br>`;
-          for (let i = 0; i < all.length; i++) {
-            const app = all[i] || {};
-            output += `<span style="font-weight: bold;"> · App ${i}'s Name: <span style="font-weight: normal;">${(app.name || "N/A")}</span></span><br>`;
-            output += `  - App Version: ${app.version || "N/A"}<br>`;
-            output += `  - App Category: ${app.category || "N/A"}<br>`;
-            output += `  - App Description: ${app.description || "N/A"}<br>`;
-            output += `  - App Bundle Id: ${app.bundleID || "N/A"}<br>`;
-            output += `  - App Icon (url): ${app.icon || "N/A"}<br>`;
-            output += `  - App Ipa (url): ${app.down || "N/A"}<br>`;
-          }
-          output += "</pre>";
-          repojs.document.append(output, out)
-        });
     </script>
 <script>
-	function addRepo() {
-			var texte = window.prompt("URL Repo :", "https://");
-			if (texte != null) {
-				alert("The repo has been added ");
-			}
-		}
-    </script>
+	function afficherInfosDepuisJSON() {
+  var url = prompt("Entrez l'URL du JSON:");
+
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var reposDiv = document.getElementById("repos");
+
+      var infoDiv = document.createElement("div");
+      infoDiv.className = "item";
+
+      // Créer l'élément image pour l'icône
+      var iconElement = document.createElement("img");
+      iconElement.src = data.Info.repoIcon;
+      infoDiv.appendChild(iconElement);
+
+      // Créer l'élément h2 pour le nom du repo
+      var repoNameElement = document.createElement("h2");
+      repoNameElement.textContent = data.Info.repoName;
+      infoDiv.appendChild(repoNameElement);
+
+      // Créer l'élément p pour l'auteur du repo
+      var repoAuthorElement = document.createElement("p");
+      repoAuthorElement.textContent = data.Info.repoAuthor;
+      infoDiv.appendChild(repoAuthorElement);
+
+      // Ajouter la div infoDiv à la div reposDiv
+      reposDiv.appendChild(infoDiv);
+    })
+    .catch(function(error) {
+      console.log('Erreur', error);
+    });
+}
+
+var popupButton = document.getElementById("popupButton");
+popupButton.addEventListener("click", afficherInfosDepuisJSON);
+</script>
 	
     <script>
 function openModal() {
