@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -168,7 +168,10 @@ function closePopup() {
 
     </script>
 <script>
-	function afficherInfosDepuisJSON() {
+
+//Repo system
+
+function afficherInfosDepuisJSON() {
   var url = prompt("Entrez l'URL du JSON:");
 
   fetch(url)
@@ -198,6 +201,11 @@ function closePopup() {
 
       // Ajouter la div infoDiv à la div reposDiv
       reposDiv.appendChild(infoDiv);
+
+      // Enregistrer l'URL du repo dans le localStorage
+      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+      repoURLs.push(url);
+      localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
     })
     .catch(function(error) {
       console.log('Erreur', error);
