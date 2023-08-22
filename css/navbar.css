@@ -35,6 +35,35 @@ margin: 19px;
 color: var(--accent-color);
 }
 
+/* Styles pour les iPhones avec encoche (iPhone X ou ultérieurs) */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone X, XS, 11 Pro, 12 Pro */
+  .mobile-nav {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  /* iPhone XR, 11, 11 Pro Max, 12, 12 Pro Max */
+  .mobile-nav {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 12, 13 */
+  .mobile-nav {
+    margin-bottom: 20px;
+  }
+}
+/* Styles pour l'iPhone 12 Mini */
+@media only screen and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 12 Mini */
+  .mobile-nav {
+    margin-bottom: 20px;
+  }
+}
+
 @media only screen and (min-width: 768px) {
 .mobile-nav {
 display: none;
