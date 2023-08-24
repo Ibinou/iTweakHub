@@ -30,25 +30,61 @@
     
 
     <div class="toptitle">	
-    <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: #7163FF;"><i class="fa-solid fa-angle-left" style="color: #7163FF;margin-right: 5px;"></i>Back</h1></a>
+    <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">{"RepoName"}</h1>
 </div>
 <center>
- <div class="appList" id="appList"></div>
+ <div class="appList" id="appList" style="margin-top: 98px;"></div>
 </center>    
     
-  <nav class="mobile-nav">
-    <a href="index.html" class="bloc-icon">
-      <i class="fa-solid fa-fire" style="color: #ffffff;"></i>
-    </a>
-    <a href="appsmanager.html" class="bloc-icon">
-      <i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>
-    </a>
-    <a href="search.html" class="bloc-icon">
-      <i class="fa-solid fa-magnifying-glass" style="color: #008CFF;"></i>
-    </a>
-  </nav>
+
+
+  
+  <div class="hidecolor">	
+  <input type="color" id="color-picker">
+  <button id="reset-button">Reset</button>
+	</div> 
    </div>
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+  </script>
     <script>
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
