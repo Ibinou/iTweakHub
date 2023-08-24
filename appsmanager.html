@@ -170,8 +170,6 @@ function closePopup() {
     </script>
 <script>
 
-//Repo system
-
 // Fonction pour afficher les informations depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
@@ -183,24 +181,7 @@ function afficherReposDepuisLocalStorage() {
       })
       .then(function(data) {
         var reposDiv = document.getElementById("repos");
-
-        var infoDiv = document.createElement("div");
-        infoDiv.className = "item";
-
-        // Créer l'élément image pour l'icône
-        var iconElement = document.createElement("img");
-        iconElement.src = data.Info.repoIcon;
-        infoDiv.appendChild(iconElement);
-
-        // Créer l'élément h2 pour le nom du repo
-        var repoNameElement = document.createElement("h2");
-        repoNameElement.textContent = data.Info.repoName;
-        infoDiv.appendChild(repoNameElement);
-
-        // Créer l'élément p pour l'auteur du repo
-        var repoAuthorElement = document.createElement("p");
-        repoAuthorElement.textContent = data.Info.repoAuthor;
-        infoDiv.appendChild(repoAuthorElement);
+        var infoDiv = createRepoElement(data);
 
         // Ajouter la div infoDiv à la div reposDiv
         reposDiv.appendChild(infoDiv);
@@ -210,9 +191,6 @@ function afficherReposDepuisLocalStorage() {
       });
   });
 }
-
-// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
-window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
@@ -224,24 +202,7 @@ function afficherInfosDepuisJSON() {
     })
     .then(function(data) {
       var reposDiv = document.getElementById("repos");
-
-      var infoDiv = document.createElement("div");
-      infoDiv.className = "item";
-
-      // Créer l'élément image pour l'icône
-      var iconElement = document.createElement("img");
-      iconElement.src = data.Info.repoIcon;
-      infoDiv.appendChild(iconElement);
-
-      // Créer l'élément h2 pour le nom du repo
-      var repoNameElement = document.createElement("h2");
-      repoNameElement.textContent = data.Info.repoName;
-      infoDiv.appendChild(repoNameElement);
-
-      // Créer l'élément p pour l'auteur du repo
-      var repoAuthorElement = document.createElement("p");
-      repoAuthorElement.textContent = data.Info.repoAuthor;
-      infoDiv.appendChild(repoAuthorElement);
+      var infoDiv = createRepoElement(data);
 
       // Ajouter la div infoDiv à la div reposDiv
       reposDiv.appendChild(infoDiv);
@@ -256,6 +217,36 @@ function afficherInfosDepuisJSON() {
       alert('Error, invalid repo', error);
     });
 }
+
+function createRepoElement(data) {
+  var infoDiv = document.createElement("div");
+  infoDiv.className = "item";
+
+  // Créer l'élément icon pour l'icône Font Awesome
+  var iconFontAwesome = document.createElement("i");
+  iconFontAwesome.className = "fas fa-chevron-right";
+  infoDiv.appendChild(iconFontAwesome);
+
+  // Créer l'élément image pour l'icône du repo
+  var iconElement = document.createElement("img");
+  iconElement.src = data.Info.repoIcon;
+  infoDiv.appendChild(iconElement);
+
+  // Créer l'élément h2 pour le nom du repo
+  var repoNameElement = document.createElement("h2");
+  repoNameElement.textContent = data.Info.repoName;
+  infoDiv.appendChild(repoNameElement);
+
+  // Créer l'élément p pour l'auteur du repo
+  var repoAuthorElement = document.createElement("p");
+  repoAuthorElement.textContent = data.Info.repoAuthor;
+  infoDiv.appendChild(repoAuthorElement);
+
+  return infoDiv;
+}
+
+// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
+window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
