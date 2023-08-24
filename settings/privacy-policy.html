@@ -18,12 +18,18 @@
 </head>
 
 <body>
-    <style>
+<div class="sidebar">
+  <a class="active" href="index.html">Home</a>
+  <a href="appsmanager.html">Apps Manager</a>
+  <a href="search.html">Search</a>
+</div>
+<div class="content">
+<div class="toptitle">	
+    <a style="text-decoration: none" href="../settings.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Settings</h1></a>
+    <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Push Notifications</h1>
+</div>
 
 
-<a style="text-decoration: none" href="../settings.html"><h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i> Settings</h1></a>
-    <h1 style="font-family:helvetica;font-size:28px;color:white;padding-left:16px;margin-top: 20px;">Privacy Policy</h1>
-    </div>
 
     <nav class="mobile-nav">
             <a href="index.html" class="bloc-icon">
@@ -39,7 +45,47 @@
                 <i class="fa-sharp fa-regular fa-compass" style="color: #ffffff;"></i>
             </a>
         </nav>
+</div>
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
 
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+  </script>
 </body>
 
 </html>
