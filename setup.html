@@ -53,7 +53,7 @@
          <div class="bottom-choices">   
              <button type="submit" class="login" onclick="window.location.href='index.html';">Done</button>
     </form>
-<a href="#">More informations</a>
+<a href="#">Terms and Privacy</a>
 </div> 
     
 </div>  
@@ -72,12 +72,12 @@
                     const profilePicBase64 = event.target.result.split(',')[1];
                     localStorage.setItem('username', username);
                     localStorage.setItem('profilePic', profilePicBase64);
-                    alert('Informations enregistrées avec succès.');
+                    alert('Welcome on iTweakHub 🥳');
                     window.location.href = 'index.html'; // Redirect to index page after saving
                 };
                 reader.readAsDataURL(profilePicInput.files[0]);
             } else {
-                alert('Veuillez sélectionner une image de profil.');
+                alert('Please select a profile picture.');
             }
         });
     </script>
