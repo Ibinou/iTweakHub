@@ -1015,11 +1015,12 @@ h3, p {
 }
 
 .icon-container img {
-  width: 60px; /* Ajustez la taille selon vos besoins */
-  height: 60px;
+  width: 55px; /* Ajustez la taille selon vos besoins */
+  height: 55px;
   margin: 5px; /* Espace entre les icônes */
-  border-radius: 16px;
+  border-radius: 14px;
 }
+
 .status-container {
     max-width: 480px;
     padding: 16px;
