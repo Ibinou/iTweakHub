@@ -12,6 +12,10 @@
             "version": "1.0",
             "banner": "(OPTIONAL) Illustrative banner for the app",
             "ipa": "Direct link to the iPA file (example: https://example.com/app.ipa)",
+            "screenshots": [
+				"https://example.com/screen.png",
+				"https://example.com/screen.png"
+			],
             "icon": "Direct link to the icon (example: https://example.com/icon.png)",
             "compatibility": "Example: iOS 12+",
             "description": "Describe the app",
