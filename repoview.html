@@ -31,7 +31,7 @@
 
     <div class="toptitle">	
     <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
-    <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">{"RepoName"}</h1>
+    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">RepoName</h1>
 </div>
 <center>
  <div class="appList" id="appList" style="margin-top: 98px;"></div>
@@ -88,17 +88,21 @@
     <script>
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
+  var h1Element = document.getElementById("repoName"); // Élément h1 pour afficher le nom du repo
 
-  // Récupérer la valeur du paramètre "repo" dans l'URL
   var urlParams = new URLSearchParams(window.location.search);
   var repoUrl = urlParams.get("repo");
 
   if (repoUrl) {
-    fetch(repoUrl)  // Utiliser l'URL fournie comme source du JSON
+    fetch(repoUrl)
       .then(function(response) {
         return response.json();
       })
       .then(function(data) {
+        // Afficher le nom du repo dans l'élément h1
+        var repoName = data.Info.repoName;
+        h1Element.textContent = repoName;
+
         var appsData = data.Apps;
 
         appsData.forEach(function(appData) {
@@ -153,6 +157,10 @@ function afficherDonnees() {
     console.log("Repo URL not provided in the 'repo' parameter.");
   }
 }
+
+// Appeler la fonction une fois que le DOM est chargé
+document.addEventListener("DOMContentLoaded", afficherDonnees);
+
 
     </script>
 
