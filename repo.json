@@ -3,19 +3,19 @@
         "repoName": "Repo Template",
         "repoAuthor": "iBaDev",
         "repoVersion": "1.0",
-        "repoIcon": "https://altstore.io/images/AltStore_AppIcon.png"
+        "repoIcon": "blob:https://github.com/a4cd3965-3fdc-4824-b03f-d780f0091181"
     },
     "Apps": [
         {
             "name": "App Name",
             "developer": "Developer of the app",
             "version": "1.0",
-            "banner: "(FACULTATIVE) Illustrative banner for the app",
-            "ipa": "Direct link to the iPA file (exemple: https://example.com/app.ipa)",
-            "icon": "Direct link to the icon (exemple: https://example.com/icon.png)",
-            "compatibility": "Exemple: iOS 12+ ",
+            "banner": "(OPTIONAL) Illustrative banner for the app",
+            "ipa": "Direct link to the iPA file (example: https://example.com/app.ipa)",
+            "icon": "Direct link to the icon (example: https://example.com/icon.png)",
+            "compatibility": "Example: iOS 12+",
             "description": "Describe the app",
-            "section": "The section of your app (jailbreak, utilities etc)"
+            "section": "The section of your app (jailbreak, utilities, etc.)"
         }
     ]
 }
