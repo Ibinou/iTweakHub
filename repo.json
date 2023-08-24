@@ -7,127 +7,15 @@
     },
     "Apps": [
         {
-            "name": "Blacklist",
-            "developer": "AppInstalleriOS",
+            "name": "App Name",
+            "developer": "Developer of the app",
             "version": "1.0",
-            "ipa": "https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
-            "icon": "https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
-            "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
-            "description": "Unblacklist your iDevice using MacDirtyCow",
-            "section": "MDC"
-        },
-        {
-            "name": "uYou+",
-            "version": "18.14.1-3.0",
-            "ipa": "https://github.com/qnblackcat/uYouPlus/releases/download/v18.14.1-3.0/uYouPlus_18.14.1_3.0.ipa",
-            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/uYou+.PNG?raw=true",
-            "developer": "qnblackcat",
-            "section": "Tweaked Apps",
-            "description": "uYou+ is a modified version of uYou (made by @MiRO92) with additional features and mainly made for non jailbroken users!",
-            "compatibility": "iOS"
-        },
-        {
-            "name": "Scrennshot X",
-            "version": "1.0 2022",
-            "ipa": "https://drive.google.com/uc?export=download&id=19oRvCjtsIwuHool8B807rib8BSYYws4Z",
-            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/5432A85D-214E-4A17-9268-85EA17F5D4E1.png",
-            "developer": "JunesiPhone",
-            "banner": "https://im5.pandahelp.vip/userapp/AppIcon/201812/05/115750142.jpg",
-            "section": "Utilities",
-            "description": "Add very cool mockups to your screenshots. You can also import your own.",
-            "compatibility": "iOS"
-        },
-        {
-            "name": "Cowabunga",
-            "developer": "leminlimez",
-            "version": "8.1.3",
-            "ipa": "https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
-            "icon": "https://user-images.githubusercontent.com/52459150/215552092-9dc1e029-da35-43da-867f-17279e3dc180.png",
-            "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
-            "description": "A Jailed toolbox application for iOS using the MacDirtyCow exploit",
-            "section": "MDC"
-        },
-        {
-            "name": "Unc0ver",
-            "developer": "unc0ver Team",
-            "version": "8.0.2",
-            "ipa": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
-            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
-            "compatibility": "iOS 11",
-            "description": "Jailbreak for iOS 11.",
-            "section": "Jailbreak"
-        },
-        {
-            "name": "Instagram Rhino",
-            "developer": "Instagram, Inc.",
-            "version": "187.0",
-            "compatibility": "iOS 14.+",
-            "icon": "https://iosninja.io/img/ipas/instagram_rhino.png",
-            "ipa": "https://resources.usescarlet.com/repo/IPAs/instagramRhino.ipa",
-            "section": "Tweaked Apps"
-        },
-        {
-            "name": "BHTwitter",
-            "developer": "X Corp.",
-            "version": "1.0",
-            "banner": "https://pbs.twimg.com/profile_banners/3260518932/1690380560/1080x360",
-            "ipa": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
-            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/BHTwitter.PNG?raw=true",
-            "compatibility": "iOS 13.4+",
-            "section": "Tweaked Apps",
-            "description": "Tweaked version of Twitter (X) with many new features."
-        },
-        {
-            "name": "SpooferX",
-            "version": "0.261.1",
-            "developer": "Unknown",
-            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png",
-            "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
-            "description": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also includes a lot of other features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
-            "compatibility": "iOS 14+",
-            "section": "Tweaked Games"
-        },
-        {
-            "name":"Scylla",
-            "version":"Beta 0.1.2",
-            "developer": "Kevin Alavik",
-            "icon":"https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg",
-            "ipa":"https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
-            "section":"Utilities",
-            "description":"Scylla is yet another app signer for iOS",
-            "compatibility":"iOS"    
-        },
-        {
-            "name": "Spotilife",
-            "version": "8.6.42",
-            "ipa": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
-            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/60BF6600-8900-41C7-8D42-E1F03AC884B2.png?raw=true",
-            "category": "Tweaked Apps",
-            "description": "Enabled -No Forced Shuffle -Unlimited Skips -Extreme Quality stream enabled -Import songs from Music app",
-            "compatibility": "iOS 13+",
-            "banner": "https://photos5.appleinsider.com/gallery/43969-85507-Spotify-xl.jpg",
-            "developer": "Unknown"
-        },
-        {
-            "name": "iPogo",
-            "version": "0.261.1",
-            "developer": "Niantic, Inc.",
-            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png",
-            "ipa": "https://ipogo.app/download/ipogo-3.0.4.ipa",
-            "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App.",
-            "compatibility": "iOS 14+",
-            "banner": "https://digistatement.com/wp-content/uploads/2022/02/iPogo-1.jpg",
-            "section": "Tweaked Games"
-        },
-        {
-            "name": "Taurine",
-            "developer": "Odyssey-Team",
-            "version": "1.1.6",
-            "ipa": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
-            "icon": "https://cdn.discordapp.com/attachments/752890955236901055/829728600446074930/Taurine.png",
-            "compatibility": "14.0-14.3",
-            "description": "Jailbreak for iOS 14.",
-            "section": "Jailbreak"
+            "banner: "(FACULTATIVE) Illustrative banner for the app",
+            "ipa": "Direct link to the iPA file (exemple: https://example.com/app.ipa)",
+            "icon": "Direct link to the icon (exemple: https://example.com/icon.png)",
+            "compatibility": "Exemple: iOS 12+ ",
+            "description": "Describe the app",
+            "section": "The section of your app (jailbreak, utilities etc)"
         }
     ]
 }
