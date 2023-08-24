@@ -569,6 +569,7 @@ progress::-webkit-progress-value {
   border-radius: 15px;
   padding: 16px;
   padding-top: 0;
+  border: 1px solid rgb(37, 37, 39);
 }
 
 .item img {
