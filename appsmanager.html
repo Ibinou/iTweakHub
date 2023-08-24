@@ -162,9 +162,13 @@ function afficherReposDepuisLocalStorage() {
       .then(function(data) {
         var reposDiv = document.getElementById("repos");
         var infoDiv = createRepoElement(data);
-
-        // Ajouter la div infoDiv à la div reposDiv
-        reposDiv.appendChild(infoDiv);
+        
+        var repoLink = document.createElement("a");  // Créer l'élément <a>
+        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);  // Ajouter l'URL avec le paramètre
+        repoLink.appendChild(infoDiv);  // Ajouter la div infoDiv à l'élément <a>
+        
+        // Ajouter l'élément <a> à la div reposDiv
+        reposDiv.appendChild(repoLink);
       })
       .catch(function(error) {
         console.log('Erreur', error);
@@ -184,8 +188,12 @@ function afficherInfosDepuisJSON() {
       var reposDiv = document.getElementById("repos");
       var infoDiv = createRepoElement(data);
 
-      // Ajouter la div infoDiv à la div reposDiv
-      reposDiv.appendChild(infoDiv);
+      var repoLink = document.createElement("a");  // Créer l'élément <a>
+      repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);  // Ajouter l'URL avec le paramètre
+      repoLink.appendChild(infoDiv);  // Ajouter la div infoDiv à l'élément <a>
+      
+      // Ajouter l'élément <a> à la div reposDiv
+      reposDiv.appendChild(repoLink);
 
       // Enregistrer l'URL du repo dans le localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
@@ -230,6 +238,7 @@ window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
+
 </script>
 	
     <script>
