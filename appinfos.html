@@ -100,7 +100,9 @@ nav h1 i a {
     <div id="screenshots" class="screenshot">
         <!-- Screenshots will be added here -->
     </div>
-
+    
+ <h3 style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">iPA</h3>   
+<a id="ipa"><button>iPA</button></a>
 <p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">APP INFOS</p>
 <ul class="ioslist" style="margin-left: 16px;margin-right: 16px;">
     <li>
@@ -252,6 +254,10 @@ function displayAppInfo(appData) {
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
+
+        // Ajouter le bouton pour la signature
+        const signingButton = document.getElementById("ipa");
+        signingButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`;
 
         // Afficher les captures d'écran
         const screenshotsDiv = document.getElementById("screenshots");
