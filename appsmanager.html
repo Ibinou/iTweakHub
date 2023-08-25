@@ -31,13 +31,6 @@
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
 	    
-   <i onclick="showModal()" style="float:right; margin-top: -43px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-address-card"></i>
-	    
- <label for="fileInput" class="upload-button">
-    <i style="margin-right: 40px;float: right;margin-top: -43px;font-size: 20px;color: var(--accent-color);" class="fas fa-cloud-arrow-up"></i>
-  </label>
-	    
-<input type="file" id="fileInput" style="display: none;">
 	 
 <button onclick="openModal()">open sign sheet</button>
 	    
@@ -247,56 +240,7 @@ var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
 
 </script>
-	
-    <script>
-function openModal() {
-  const bottomModal = document.getElementById('bottomModal');
-  bottomModal.classList.toggle('open');
-}
 
-document.addEventListener('DOMContentLoaded', function() {
-  const modalHandle = document.querySelector('.modal-handle');
-
-  modalHandle.addEventListener('scroll', function() {
-    if (modalHandle.scrollTop === modalHandle.scrollHeight - modalHandle.offsetHeight) {
-      const bottomModal = document.getElementById('bottomModal');
-      bottomModal.classList.remove('open');
-    }
-  });
-});
-
- </script>
-    <script>
-var startY;
-var modal = document.getElementById("my-modal");
-
-function showModal() {
-  modal.classList.add("open");
-}
-
-function closeModal() {
-  modal.classList.remove("open");
-}
-
-modal.addEventListener("touchstart", function(event) {
-  startY = event.touches[0].clientY;
-});
-
-modal.addEventListener("touchmove", function(event) {
-  var currentY = event.touches[0].clientY;
-  if (currentY > startY) {
-    event.preventDefault();
-    closeModal();
-  }
-});
-
-
- </script>
-   <script>
-        document.querySelector('.importcert').addEventListener('click', function() {
-            document.getElementById('file-input').click();
-        });
-    </script>
 <script src="js/index.js"></script>
     </div>
 </div>
