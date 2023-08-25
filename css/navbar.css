@@ -184,6 +184,7 @@ div.content {
   font-size: 14px;
   width: 10%;
   height: 45px;
+  float: right;
 }
 
 .get.clicked {
