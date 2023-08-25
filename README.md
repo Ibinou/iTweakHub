@@ -8,15 +8,38 @@ The best 3rd party app store out there! No ads, clean UI and free ! All you need
 - An app to download all the iPA's of your favorite apps
 
 ## Repos
-We juse repos to handle our apps
+We use repos to handle our apps
 
-Supported repos
-- Scarlet
-- Scylla
-- AltStore
-- And our own
+```json
+{
+    "Info": {
+        "repoName": "Repo Template",
+        "repoAuthor": "iBaDev",
+        "repoVersion": "1.0",
+        "repoIcon": "https://github.com/Ibinou/iTweakHub/blob/main/img/1692882661.243033-B96EE26F-9FC1-44FF-8A32-934A3D779A1A.png?raw=true"
+    },
+    "Apps": [
+        {
+            "name": "App Name",
+            "developer": "Developer of the app",
+            "version": "1.0",
+            "banner": "(OPTIONAL) Illustrative banner for the app",
+            "ipa": "Direct link to the iPA file (example: https://example.com/app.ipa)",
+            "screenshots": [
+				"https://example.com/screen.png",
+				"https://example.com/screen.png"
+            ],
+            "icon": "Direct link to the icon (example: https://example.com/icon.png)",
+            "compatibility": "Example: iOS 12+",
+            "description": "Describe the app",
+            "section": "The section of your app (jailbreak, utilities, etc.)"
+        }
+    ]
+}
+```
 
 ## Release date
 Soon
-- Backend: ~60%
-- Frontend: ~90% (some UI bugs, missing some html files and some html files are imcomplete)
+
+- Backend: ~95%
+- Frontend: ~95% (some UI bugs, missing some html files and some html files are imcomplete)
