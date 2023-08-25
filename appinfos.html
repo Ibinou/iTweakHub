@@ -253,6 +253,10 @@ function displayAppInfo(appData) {
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
+        // Mettre à jour le lien du bouton existant pour la signature
+        const ipaButton = document.getElementById("ipa");
+        ipaButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
+
         // Afficher les captures d'écran
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
@@ -291,6 +295,7 @@ fetch(jsonFileURL)
         const appInfoDiv = document.getElementById("appInfo");
         appInfoDiv.textContent = "Error loading application data.";
     });
+
 
     </script>
 
