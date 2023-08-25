@@ -97,7 +97,9 @@ nav h1 i a {
 </div>
 
 <h3 style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Screenshots</h3>
-<!-- Vos divs avec les images de captures d'écran -->
+    <div id="screenshots" class="screenshot">
+        <!-- Screenshots will be added here -->
+    </div>
 
 <p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">APP INFOS</p>
 <ul class="ioslist" style="margin-left: 16px;margin-right: 16px;">
@@ -240,7 +242,7 @@ function displayAppInfo(appData) {
         appCompatibilityElement.textContent = appData.compatibility;
 
         const appBannerElement = document.getElementById("appBanner");
-        
+
         if (appData.banner) {
             appBannerElement.src = appData.banner;
         } else {
@@ -250,6 +252,21 @@ function displayAppInfo(appData) {
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
+
+        // Afficher les captures d'écran
+        const screenshotsDiv = document.getElementById("screenshots");
+        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
+
+        if (appData.screenshots) {
+            for (const screenshotUrl of appData.screenshots) {
+                const screenshotElement = document.createElement("img");
+                screenshotElement.style.width = "200px";
+                screenshotElement.style.borderRadius = "20px";
+                screenshotElement.style.margin = "5px";
+                screenshotElement.src = screenshotUrl;
+                screenshotsDiv.appendChild(screenshotElement);
+            }
+        }
     } else {
         appInfoDiv.textContent = "Application not found.";
     }
