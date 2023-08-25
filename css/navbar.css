@@ -153,6 +153,7 @@ div.content {
 /*install bar appinfos.html*/
 .getbar {
     position: fixed;
+    display: flex;
     bottom: 0;
     width: 100%;
     backdrop-filter: blur(20px);
@@ -171,7 +172,17 @@ div.content {
   font-weight: 700;
   border: 0;
   font-size: 14px;
-  width: 100%;
+  width: 90%;
+  height: 45px;
+}
+.getipa {
+  background-color: var(--accent-color);
+  border-radius: 16px;
+  color: #ffffff;
+  font-weight: 700;
+  border: 0;
+  font-size: 14px;
+  width: 10%;
   height: 45px;
 }
 
