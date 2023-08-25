@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/featured.css" keep>
+    <link rel="stylesheet" href="../css/navbar.css" keep>
+    <link rel="stylesheet" href="../css/styles.css" keep>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+    <title>iTweakHub Terms and Conditions</title>
+    <script src="../js/index.js"></script>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+        <!-- PushAlert -->
+<script type="text/javascript">
+        (function(d, t) {
+                var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+                g.src = "https://cdn.pushalert.co/integrate_8d0f3fb974f3c466c91728b39e7f2a4a.js";
+                s.parentNode.insertBefore(g, s);
+        }(document, "script"));
+</script>
+</head>
+
+<body>
+<div class="sidebar">
+  <a class="active" href="index.html">Home</a>
+  <a href="appsmanager.html">Apps Manager</a>
+  <a href="search.html">Search</a>
+</div>
+
+<div class="content">
+<div class="toptitle">	
+    <a style="text-decoration: none" href="../settings.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Settings</h1></a>
+    <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Terms and Conditions</h1>
+</div>
+
+    <h3>iTweakHub Terms and Conditions</h3>
+  <p>Welcome to iTweakHub! Before using our service, please take a moment to carefully read the following Terms and Conditions. Your use of our alternative iPA/AppStore library implies your full acceptance of the conditions outlined below.</p>
+  
+  <h3>1. Acceptance of Terms</h3>
+  <p>By accessing or using iTweakHub in any way, you agree to comply with these Terms and Conditions. If you do not agree with these conditions, please refrain from using iTweakHub.</p>
+  
+  <h3>2. Authorized Use</h3>
+  <p>iTweakHub is intended for personal and non-commercial use only. You agree not to distribute, reproduce, modify, or sell the content available on iTweakHub without prior written permission.</p>
+  
+  <h3>3. Content</h3>
+  <p>iTweakHub offers a variety of content, including third-party applications and tweaks. You acknowledge that the use of this content may pose security and stability risks to your device. We are not responsible for any potential damages resulting from the use of this content.</p>
+  
+  <h3>4. Liability</h3>
+  <p>iTweakHub does not guarantee the accuracy, reliability, or completeness of its content. We are not responsible for any losses or damages that may arise from the use of our service.</p>
+  
+  <h3>5. Security and Privacy</h3>
+  <p>You are responsible for the security of your device. We do not guarantee the security of third-party applications available on iTweakHub. Ensure you take appropriate measures to protect your data and device.</p>
+  
+  <h3>6. Intellectual Property Rights</h3>
+  <p>All intellectual property rights associated with iTweakHub and its content remain our property or that of our licensors. You may not use our brand, logo, or content without our written permission.</p>
+  
+  <h3>7. Termination</h3>
+  <p>We reserve the right to terminate or restrict your access to iTweakHub if we believe you violate these Terms and Conditions.</p>
+  
+  <h3>8. Modification of Terms</h3>
+  <p>We may update or modify these Terms and Conditions at any time. Your continued use of iTweakHub after such changes constitutes your acceptance of the new terms.</p>
+  
+  <p>By using iTweakHub, you acknowledge that you have read, understood, and agreed to these Terms and Conditions. If you do not agree, please do not use our service.</p>
+
+<div class="hidecolor">	
+  <input type="color" id="color-picker">
+  <button id="reset-button">Reset</button>
+	</div> 
+
+
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+  </script>
+
+</body>
+
+</html>
