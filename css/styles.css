@@ -72,6 +72,7 @@ pointer-events: none;
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
+   transition: background-color 0.5s ease;
   }
 }
 
@@ -90,6 +91,7 @@ pointer-events: none;
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
+   transition: background-color 0.5s ease;
   }
 }
 
@@ -1030,3 +1032,9 @@ h3, p {
     border-radius: 13px;
     border: 1px solid rgb(37, 37, 39);
 }
+
+#checkbox:checked  {
+  background-color: #000;
+}
+
+
