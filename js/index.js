@@ -112,4 +112,41 @@ function loadAll() {
   
 loadAll();
 
+//oled theme
+
+document.addEventListener("DOMContentLoaded", function() {
+  const checkbox = document.getElementById("checkbox");
+
+  // Vérifiez si le thème est enregistré dans les cookies et mettez à jour si nécessaire
+  const theme = getCookie("theme");
+  if (theme === "dark") {
+    checkbox.checked = true;
+  }
+
+  // Ajoutez un écouteur pour suivre les changements de la case à cocher
+  checkbox.addEventListener("change", function() {
+    if (checkbox.checked) {
+      document.body.style.backgroundColor = "#000";
+      setCookie("theme", "dark", 365); // Enregistrez le thème dans les cookies pour 1 an
+    } else {
+      document.body.style.backgroundColor = "#121212";
+      setCookie("theme", "", -1); // Supprimez le cookie en lui donnant une date d'expiration passée
+    }
+  });
+});
+
+// Fonction pour obtenir la valeur d'un cookie
+function getCookie(name) {
+  const value = "; " + document.cookie;
+  const parts = value.split("; " + name + "=");
+  if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+// Fonction pour définir un cookie
+function setCookie(name, value, days) {
+  const expires = new Date();
+  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = name + "=" + value + ";expires=" + expires.toUTCString();
+}
+
 
