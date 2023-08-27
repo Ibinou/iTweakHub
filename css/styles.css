@@ -8,6 +8,9 @@
 #file-input {
   display: none;
 }
+::-webkit-scrollbar {
+  display: none;
+  }
 
 img{
 pointer-events: none;
