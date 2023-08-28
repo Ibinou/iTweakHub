@@ -381,6 +381,9 @@
   function openPage(url) {
     window.location.href = url;
   }
+window.addEventListener('offline', function() {
+  alert("You're offline ! Some feature will not be available.");
+});
 </script>
 <style>
 ::-webkit-scrollbar {
