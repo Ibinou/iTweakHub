@@ -1030,17 +1030,18 @@ h3, p {
 .status-container {
     max-width: 480px;
     padding: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
     background-color: #1c1c1c;
     border-radius: 13px;
     border: 1px solid rgb(37, 37, 39);
 }
 
 .item button {
-    font-size: 17px;
+    font-size: 14px;
     background-color: var(--accent-color);
     margin-left: auto;
     border-radius: 13px;
+    border: none;
     text-decoration: none;
     color: white;
     transform: translateY(27px);
