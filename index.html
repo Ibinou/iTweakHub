@@ -381,8 +381,19 @@
   function openPage(url) {
     window.location.href = url;
   }
+	
 window.addEventListener('offline', function() {
-  alert("You're offline ! Some feature will not be available.");
+  var offlineAlert = document.createElement('div');
+  offlineAlert.innerHTML = "<p>Vous êtes actuellement hors ligne. Veuillez vérifier votre connexion Internet.</p>";
+  offlineAlert.style.position = "fixed";
+  offlineAlert.style.top = "50%";
+  offlineAlert.style.left = "50%";
+  offlineAlert.style.transform = "translate(-50%, -50%)";
+  offlineAlert.style.backgroundColor = "#ffffff";
+  offlineAlert.style.padding = "20px";
+  offlineAlert.style.border = "1px solid #ccc";
+  offlineAlert.style.boxShadow = "0px 2px 10px rgba(0, 0, 0, 0.1)";
+  document.body.appendChild(offlineAlert);
 });
 </script>
 <style>
