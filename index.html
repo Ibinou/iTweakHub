@@ -382,17 +382,12 @@
     window.location.href = url;
   }
 	
-// onoffline version
-window.onoffline = (event) => {
-  console.log("The network connection has been lost.");
-  alert("The network connection has been lost.");
-	
-};
-
-// addEventListener version
-window.addEventListener("offline", (event) => {
-  console.log("The network connection has been lost.");
-  alert("The network connection has been lost.");
+navigator.serviceWorker.ready.then(registration => {
+  navigator.serviceWorker.addEventListener('message', event => {
+    if (event.data === 'showOfflineAlert') {
+      alert("Vous êtes actuellement hors ligne. Veuillez vérifier votre connexion Internet.");
+    }
+  });
 });
 </script>
 <style>
