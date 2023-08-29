@@ -116,7 +116,7 @@ nav h1 i a {
         <div class="ioslist_opposite" id="appCompatibility">compatibility</div>
     </li>
 </ul>
-<i id=“favorite” class="fa-solid fa-heart"></i>
+<button id=“favorite”>add :)</button>
 <br>
 <br>
 <br>
@@ -214,32 +214,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     <script>
-// Fonction pour récupérer le paramètre "name" dans l'URL
+function addToFavorites(appName) {
+    if (typeof Storage !== "undefined") {
+        let favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+
+        if (!favapps.includes(appName)) {
+            favapps.push(appName);
+            localStorage.setItem("favapps", JSON.stringify(favapps));
+            alert("Application added to favorites!");
+        } else {
+            alert("Application is already in favorites.");
+        }
+    } else {
+        alert("Local storage is not supported in this browser.");
+    }
+}
+
+const favoriteButton = document.getElementById("favorite");
+favoriteButton.addEventListener("click", function() {
+    addToFavorites(appNameFromURL);
+});
+
 function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
-// Function to check if an app is in favorites
-function isAppInFavorites(appName) {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    return favorites.includes(appName);
-}
-
-// Function to add an app to favorites
-function addToFavorites(appName) {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    
-    if (!favorites.includes(appName)) {
-        favorites.push(appName);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        alert('App added to favorites!');
-    } else {
-        alert('App already added to favorites.');
-    }
-}
-
-// Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
 function displayAppInfo(appData) {
     const appInfoDiv = document.getElementById("appInfo");
 
@@ -264,24 +264,20 @@ function displayAppInfo(appData) {
         appCompatibilityElement.textContent = appData.compatibility;
 
         const appBannerElement = document.getElementById("appBanner");
-
         if (appData.banner) {
             appBannerElement.src = appData.banner;
         } else {
-            // appBannerElement.style.display = "none";  // Pour masquer l'élément
             appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
         }
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
-        // Mettre à jour le lien du bouton existant pour la signature
         const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
 
-        // Afficher les captures d'écran
         const screenshotsDiv = document.getElementById("screenshots");
-        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
+        screenshotsDiv.innerHTML = "";
 
         if (appData.screenshots) {
             for (const screenshotUrl of appData.screenshots) {
@@ -298,10 +294,8 @@ function displayAppInfo(appData) {
     }
 }
 
-// Récupérer le nom de l'application depuis l'URL et afficher ses informations
 const appNameFromURL = getParameterByName("name");
 
-// Charger le fichier JSON en utilisant une requête AJAX
 const jsonFileURL = "apps.json";
 fetch(jsonFileURL)
     .then(response => response.json())
@@ -309,22 +303,7 @@ fetch(jsonFileURL)
         const appData = data.Apps.find(app => app.name === appNameFromURL);
         displayAppInfo(appData);
 
-        // Modifier le titre de la page avec le nom de l'application
         document.title = appData ? appData.name : "Application Details";
-
-        // Inside the displayAppInfo function
-        const addToFavoritesIcon = document.getElementById("favorite");
-
-        addToFavoritesIcon.style.color = isAppInFavorites(appData.name) ? "red" : "black";
-        addToFavoritesIcon.style.cursor = "pointer";
-        addToFavoritesIcon.title = "Add to favorites";
-
-        addToFavoritesIcon.addEventListener("click", () => {
-            if (appData) {
-                addToFavorites(appData.name);
-                addToFavoritesIcon.style.color = "red";
-            }
-        });
     })
     .catch(error => {
         console.error("Error loading JSON file:", error);
