@@ -389,6 +389,18 @@ navigator.serviceWorker.ready.then(registration => {
     }
   });
 });
+// Vérifier si les cookies sont activés
+function areCookiesEnabled() {
+  document.cookie = "test-cookie=true";
+  var cookiesEnabled = document.cookie.indexOf("test-cookie=true") !== -1;
+  document.cookie = "test-cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  return cookiesEnabled;
+}
+
+// Afficher une alerte si les cookies ne sont pas activés (possible navigation privée)
+if (!areCookiesEnabled()) {
+  alert("Nous vous recommandons de désactiver le mode navigation privée pour une meilleure expérience sur notre site.");
+}
 </script>
 <style>
 ::-webkit-scrollbar {
