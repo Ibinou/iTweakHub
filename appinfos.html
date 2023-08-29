@@ -116,7 +116,7 @@ nav h1 i a {
         <div class="ioslist_opposite" id="appCompatibility">compatibility</div>
     </li>
 </ul>
-
+<i id=“favorite” class="fa-solid fa-heart"></i>
 <br>
 <br>
 <br>
@@ -220,6 +220,25 @@ function getParameterByName(name) {
     return urlParams.get(name);
 }
 
+// Function to check if an app is in favorites
+function isAppInFavorites(appName) {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    return favorites.includes(appName);
+}
+
+// Function to add an app to favorites
+function addToFavorites(appName) {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    if (!favorites.includes(appName)) {
+        favorites.push(appName);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        alert('App added to favorites!');
+    } else {
+        alert('App already added to favorites.');
+    }
+}
+
 // Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
 function displayAppInfo(appData) {
     const appInfoDiv = document.getElementById("appInfo");
@@ -292,6 +311,20 @@ fetch(jsonFileURL)
 
         // Modifier le titre de la page avec le nom de l'application
         document.title = appData ? appData.name : "Application Details";
+
+        // Inside the displayAppInfo function
+        const addToFavoritesIcon = document.getElementById("favorite");
+
+        addToFavoritesIcon.style.color = isAppInFavorites(appData.name) ? "red" : "black";
+        addToFavoritesIcon.style.cursor = "pointer";
+        addToFavoritesIcon.title = "Add to favorites";
+
+        addToFavoritesIcon.addEventListener("click", () => {
+            if (appData) {
+                addToFavorites(appData.name);
+                addToFavoritesIcon.style.color = "red";
+            }
+        });
     })
     .catch(error => {
         console.error("Error loading JSON file:", error);
