@@ -116,7 +116,7 @@ nav h1 i a {
         <div class="ioslist_opposite" id="appCompatibility">compatibility</div>
     </li>
 </ul>
-<button id=“favorite”>add :)</button>
+<button id="favorite">add :)</button>
 <br>
 <br>
 <br>
@@ -301,7 +301,26 @@ fetch(jsonFileURL)
 
 
     </script>
+<script>
+// Fonction pour ajouter une application aux favoris
+function addToFavorites(appName) {
+    let favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+    if (!favapps.includes(appName)) {
+        favapps.push(appName);
+        localStorage.setItem("favapps", JSON.stringify(favapps));
+        alert("Application added to favorites!");
+    } else {
+        alert("Application is already in favorites.");
+    }
+}
 
+// Écouter le clic sur le bouton "favorite"
+const favoriteButton = document.getElementById("favorite");
+favoriteButton.addEventListener("click", () => {
+    const appNameFromURL = getParameterByName("name");
+    addToFavorites(appNameFromURL);
+});
+</script>
 <script src="js/appInfos.js"></script> 
 </body>
 
