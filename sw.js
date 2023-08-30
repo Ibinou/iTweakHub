@@ -31,6 +31,7 @@ const filesToCache = [
   'settings.html',
   'setup.html',
   'sw.js',
+  'favorite.html',
   'https://kit.fontawesome.com/a5ae6c00ff.js',
   'img/logo.png'
   // Ajoutez d'autres fichiers et ressources ici
@@ -39,7 +40,7 @@ const filesToCache = [
 // Étape 1 : Installation du service worker
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('v1')
+    caches.open('v2')
       .then(cache => {
         return cache.addAll(filesToCache);
       })
@@ -60,7 +61,7 @@ self.addEventListener('fetch', event => {
               return response;
             }
             const clonedResponse = response.clone();
-            caches.open('v1')
+            caches.open('v2')
               .then(cache => {
                 cache.put(event.request, clonedResponse);
               });
@@ -83,7 +84,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.filter(cacheName => {
-          return cacheName !== 'v1';
+          return cacheName !== 'v2';
         }).map(cacheName => {
           return caches.delete(cacheName);
         })
