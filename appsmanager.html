@@ -30,6 +30,31 @@
 
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
+
+<button id="editButton">Edit</button>
+<button id="cancelButton" class="hidden">Cancel</button>
+
+<style>
+.hidden {
+  display: none;
+}
+#editButton {
+    font-size: 16px;
+    background-color: var(--accent-color);
+    border-radius: 13px;
+    border: none;
+    text-decoration: none;
+    color: white;
+}
+#cancelButton {
+    font-size: 16px;
+    background-color: var(--accent-color);
+    border-radius: 13px;
+    border: none;
+    text-decoration: none;
+    color: white;
+}
+</style>
 	    
 <ul class="ioslist">
 <li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
@@ -166,12 +191,11 @@ function afficherReposDepuisLocalStorage() {
       .then(function(data) {
         var reposDiv = document.getElementById("repos");
         var infoDiv = createRepoElement(data);
+
+        var repoLink = document.createElement("a");  
+        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url); 
+        repoLink.appendChild(infoDiv);  
         
-        var repoLink = document.createElement("a");  // Créer l'élément <a>
-        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);  // Ajouter l'URL avec le paramètre
-        repoLink.appendChild(infoDiv);  // Ajouter la div infoDiv à l'élément <a>
-        
-        // Ajouter l'élément <a> à la div reposDiv
         reposDiv.appendChild(repoLink);
       })
       .catch(function(error) {
@@ -192,14 +216,12 @@ function afficherInfosDepuisJSON() {
       var reposDiv = document.getElementById("repos");
       var infoDiv = createRepoElement(data);
 
-      var repoLink = document.createElement("a");  // Créer l'élément <a>
-      repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);  // Ajouter l'URL avec le paramètre
-      repoLink.appendChild(infoDiv);  // Ajouter la div infoDiv à l'élément <a>
+      var repoLink = document.createElement("a");  
+      repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);  
+      repoLink.appendChild(infoDiv);  
       
-      // Ajouter l'élément <a> à la div reposDiv
       reposDiv.appendChild(repoLink);
 
-      // Enregistrer l'URL du repo dans le localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
       repoURLs.push(url);
       localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
@@ -214,22 +236,18 @@ function createRepoElement(data) {
   var infoDiv = document.createElement("div");
   infoDiv.className = "item";
 
-  // Créer l'élément icon pour l'icône Font Awesome
   var iconFontAwesome = document.createElement("i");
   iconFontAwesome.className = "fas fa-chevron-right";
   infoDiv.appendChild(iconFontAwesome);
 
-  // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
   iconElement.src = data.Info.repoIcon;
   infoDiv.appendChild(iconElement);
 
-  // Créer l'élément h2 pour le nom du repo
   var repoNameElement = document.createElement("h2");
   repoNameElement.textContent = data.Info.repoName;
   infoDiv.appendChild(repoNameElement);
 
-  // Créer l'élément p pour l'auteur du repo
   var repoAuthorElement = document.createElement("p");
   repoAuthorElement.textContent = data.Info.repoAuthor;
   infoDiv.appendChild(repoAuthorElement);
@@ -237,11 +255,34 @@ function createRepoElement(data) {
   return infoDiv;
 }
 
-// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
+
+var editButton = document.getElementById("editButton");
+var cancelButton = document.getElementById("cancelButton");
+
+editButton.addEventListener("click", function() {
+  var icons = document.querySelectorAll(".fas.fa-chevron-right");
+  icons.forEach(function(icon) {
+    icon.className = "fas fa-minus";
+  });
+
+  editButton.classList.add("hidden");
+  cancelButton.classList.remove("hidden");
+});
+
+cancelButton.addEventListener("click", function() {
+  var icons = document.querySelectorAll(".fas.fa-minus");
+  icons.forEach(function(icon) {
+    icon.className = "fas fa-chevron-right";
+  });
+
+  cancelButton.classList.add("hidden");
+  editButton.classList.remove("hidden");
+});
+
 
 </script>
 <script>
