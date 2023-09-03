@@ -277,9 +277,6 @@ function displayAppInfo(appData) {
     }
 }
 
-// Récupérer le nom de l'application depuis l'URL
-const appNameFromURL = getParameterByName("name");
-
 // Récupérer le paramètre "repo" depuis l'URL
 const repoFromURL = getParameterByName("repo");
 
@@ -297,21 +294,11 @@ if (repoFromURL) {
             appInfoDiv.textContent = "Error loading application data.";
         });
 } else {
-    // Si le paramètre "repo" n'est pas présent, chargez à partir de "apps.json"
-    const jsonFileURL = "apps.json";
-    fetch(jsonFileURL)
-        .then(response => response.json())
-        .then(data => {
-            const appData = data.Apps.find(app => app.name === appNameFromURL);
-            displayAppInfo(appData);
-            document.title = appData ? appData.name : "Application Details";
-        })
-        .catch(error => {
-            console.error("Error loading JSON file:", error);
-            const appInfoDiv = document.getElementById("appInfo");
-            appInfoDiv.textContent = "Error loading application data.";
-        });
+    // Si le paramètre "repo" n'est pas présent, affichez un message d'erreur
+    const appInfoDiv = document.getElementById("appInfo");
+    appInfoDiv.textContent = "Error: 'repo' parameter not found in the URL.";
 }
+
 
     </script>
 <script>
