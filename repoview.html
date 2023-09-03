@@ -33,7 +33,8 @@
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">RepoName</h1>
 </div>
 <center>
- <div class="appList" id="appList" style="margin-top: 98px;"><p>Sorry, the app infos system for the repos apps <span style="color: #7163FF;">is currently not working</span> !</p></div>
+  <input style="margin-top: 100px;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
+ <div class="appList" id="appList" style="margin-top: 8px;"><p>Sorry, the app infos system for the repos apps <span style="color: #7163FF;">is currently not working</span> !</p></div>
 </center>    
     
 <div class="gradient-div"></div>
@@ -160,7 +161,21 @@ document.addEventListener("DOMContentLoaded", afficherDonnees);
 
 
     </script>
+      <script>
+//search bar js
+    function myFunction() {
+      const input = document.getElementById("myInput");
+      const filter = input.value.toUpperCase();
+      const dock = document.getElementsByClassName("dock");
 
+      for (let i = 0; i < dock.length; i++) {
+        const appname = dock[i].getElementsByClassName("appname")[0];
+        const display = appname.innerText.toUpperCase().includes(filter) ? "flex" : "none";
+        dock[i].style.display = display;
+      }
+    }
+
+  </script>
 
 
 </body>
