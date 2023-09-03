@@ -34,6 +34,7 @@
 </div>
 <center>
  <div class="appList" id="appList" style="margin-top: 98px;"></div>
+<p>Sorry, the app infos system for the repos apps <span style="color: #7163FF;">is currently not working</span> !</p>
 </center>    
     
 <div class="gradient-div"></div>
@@ -134,7 +135,7 @@ function afficherDonnees() {
           appGetDiv.className = "appget";
 
           var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+          appGetBtn.href = 'https://cococloud-signing.online/free-plist?url=' + encodeURIComponent(appData.ipa);
 
           var getBtn = document.createElement("button");
           getBtn.className = "getbtn";
