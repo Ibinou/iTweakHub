@@ -283,6 +283,14 @@ cancelButton.addEventListener("click", function() {
   editButton.classList.remove("hidden");
 });
 
+// Désactiver le lien href pendant le mode "Edit"
+var reposDiv = document.getElementById("repos");
+reposDiv.addEventListener("click", function(event) {
+  if (editButton.classList.contains("hidden")) {
+    event.preventDefault();
+  }
+});
+
 
 </script>
 <script>
