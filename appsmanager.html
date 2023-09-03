@@ -234,7 +234,7 @@ function createRepoElement(data, url) {
 
   // Ajouter un gestionnaire d'événements pour la suppression du repo
   deleteIcon.addEventListener("click", function () {
-    if (confirm("Voulez-vous vraiment supprimer ce repo du localStorage ?")) {
+    if (confirm("Are you sure to delete this repository ?")) {
       // Supprimer l'URL du repo du localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
       var index = repoURLs.indexOf(url);
