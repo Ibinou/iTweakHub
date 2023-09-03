@@ -351,17 +351,22 @@ function removeFavorite(appName) {
 }
 </script>
     <script>
-        // Fonction pour gérer le clic sur les boutons
-        function addButtonClickHandler(button) {
-            button.addEventListener('click', function () {
-                // Récupérer l'URL à partir de l'ID du bouton
-                var repoURL = button.id;
+        // Récupérer les URLs déjà stockées dans le localStorage
+        var storedURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
-                // Récupérer les URLs déjà stockées dans le localStorage
-                var storedURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+        // Sélectionner tous les boutons
+        var buttons = document.querySelectorAll('.featuredrepos button');
+        buttons.forEach(function (button) {
+            // Récupérer l'URL à partir de l'ID du bouton
+            var repoURL = button.id;
 
-                // Vérifier si l'URL n'est pas déjà dans le tableau
-                if (storedURLs.indexOf(repoURL) === -1) {
+            // Vérifier si l'URL est déjà dans le tableau
+            if (storedURLs.indexOf(repoURL) !== -1) {
+                // Masquer la div parent (item)
+                button.parentElement.style.display = 'none';
+            } else {
+                // Ajouter un gestionnaire de clic au bouton
+                button.addEventListener('click', function () {
                     // Ajouter l'URL au tableau
                     storedURLs.push(repoURL);
 
@@ -370,16 +375,8 @@ function removeFavorite(appName) {
 
                     // Masquer la div parent (item)
                     button.parentElement.style.display = 'none';
-                } else {
-                    alert('Cette URL est déjà dans le localStorage.');
-                }
-            });
-        }
-
-        // Sélectionner tous les boutons et ajouter un gestionnaire de clic à chacun
-        var buttons = document.querySelectorAll('.featuredrepos button');
-        buttons.forEach(function (button) {
-            addButtonClickHandler(button);
+                });
+            }
         });
     </script>
 <script src="js/index.js"></script>
