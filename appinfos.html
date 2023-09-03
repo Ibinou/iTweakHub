@@ -221,7 +221,7 @@ function getParameterByName(name) {
     return urlParams.get(name);
 }
 
-// Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
+// Fonction pour afficher les informations de l'application
 function displayAppInfo(appData) {
     const appInfoDiv = document.getElementById("appInfo");
 
@@ -250,18 +250,15 @@ function displayAppInfo(appData) {
         if (appData.banner) {
             appBannerElement.src = appData.banner;
         } else {
-            // appBannerElement.style.display = "none";  // Pour masquer l'élément
             appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
         }
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
-        // Mettre à jour le lien du bouton existant pour la signature
         const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
 
-        // Afficher les captures d'écran
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
@@ -280,36 +277,41 @@ function displayAppInfo(appData) {
     }
 }
 
-// Récupérer le nom de l'application depuis l'URL et afficher ses informations
+// Récupérer le nom de l'application depuis l'URL
 const appNameFromURL = getParameterByName("name");
 
 // Récupérer le paramètre "repo" depuis l'URL
 const repoFromURL = getParameterByName("repo");
 
-// Charger le fichier JSON en utilisant une requête AJAX
-const jsonFileURL = repoFromURL ? repoFromURL : "apps.json";
-
-fetch(jsonFileURL)
-    .then(response => response.json())
-    .then(data => {
-        if (repoFromURL) {
-            // Si le paramètre "repo" est présent, utilisez le lien du repo pour obtenir les données de l'application
+if (repoFromURL) {
+    // Si le paramètre "repo" est présent, utilisez le lien du repo pour obtenir les données de l'application
+    fetch(repoFromURL)
+        .then(response => response.json())
+        .then(data => {
             displayAppInfo(data);
-        } else {
+            document.title = data ? data.name : "Application Details";
+        })
+        .catch(error => {
+            console.error("Error loading JSON data from repo:", error);
+            const appInfoDiv = document.getElementById("appInfo");
+            appInfoDiv.textContent = "Error loading application data.";
+        });
+} else {
+    // Si le paramètre "repo" n'est pas présent, chargez à partir de "apps.json"
+    const jsonFileURL = "apps.json";
+    fetch(jsonFileURL)
+        .then(response => response.json())
+        .then(data => {
             const appData = data.Apps.find(app => app.name === appNameFromURL);
             displayAppInfo(appData);
-
-            // Modifier le titre de la page avec le nom de l'application
             document.title = appData ? appData.name : "Application Details";
-        }
-    })
-    .catch(error => {
-        console.error("Error loading JSON file:", error);
-        const appInfoDiv = document.getElementById("appInfo");
-        appInfoDiv.textContent = "Error loading application data.";
-    });
-
-
+        })
+        .catch(error => {
+            console.error("Error loading JSON file:", error);
+            const appInfoDiv = document.getElementById("appInfo");
+            appInfoDiv.textContent = "Error loading application data.";
+        });
+}
 
     </script>
 <script>
