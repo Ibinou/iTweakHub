@@ -190,11 +190,19 @@ function afficherReposDepuisLocalStorage() {
         var reposDiv = document.getElementById("repos");
         var infoDiv = createRepoElement(data);
 
-        var repoLink = document.createElement("a");  
-        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url); 
-        repoLink.appendChild(infoDiv);  
-        
-        reposDiv.appendChild(repoLink);
+        var repoContainer = document.createElement("div");
+        repoContainer.className = "item-container";
+        repoContainer.dataset.repoUrl = url;
+
+        var deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", supprimerRepo);
+
+        repoContainer.appendChild(deleteButton);
+        repoContainer.appendChild(infoDiv);
+
+        reposDiv.appendChild(repoContainer);
       })
       .catch(function(error) {
         console.log('Erreur', error);
@@ -214,11 +222,19 @@ function afficherInfosDepuisJSON() {
       var reposDiv = document.getElementById("repos");
       var infoDiv = createRepoElement(data);
 
-      var repoLink = document.createElement("a");  
-      repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);  
-      repoLink.appendChild(infoDiv);  
-      
-      reposDiv.appendChild(repoLink);
+      var repoContainer = document.createElement("div");
+      repoContainer.className = "item-container";
+      repoContainer.dataset.repoUrl = url;
+
+      var deleteButton = document.createElement("button");
+      deleteButton.className = "delete-button";
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", supprimerRepo);
+
+      repoContainer.appendChild(deleteButton);
+      repoContainer.appendChild(infoDiv);
+
+      reposDiv.appendChild(repoContainer);
 
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
       repoURLs.push(url);
@@ -253,6 +269,27 @@ function createRepoElement(data) {
   return infoDiv;
 }
 
+// Gestionnaire d'événement pour le bouton "Delete"
+function supprimerRepo(event) {
+  if (modeEdit) {
+    if (confirm("Are you sure you want to delete this repo?")) {
+      var repoContainer = event.currentTarget.parentElement;
+      var repoUrl = repoContainer.dataset.repoUrl;
+
+      // Supprimer le repo
+      repoContainer.remove();
+
+      // Supprimer le lien du localStorage
+      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+      var index = repoURLs.indexOf(repoUrl);
+      if (index !== -1) {
+        repoURLs.splice(index, 1);
+        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+      }
+    }
+  }
+}
+
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 var popupButton = document.getElementById("popupButton");
@@ -260,6 +297,7 @@ popupButton.addEventListener("click", afficherInfosDepuisJSON);
 
 var editButton = document.getElementById("editButton");
 var cancelButton = document.getElementById("cancelButton");
+var modeEdit = false;
 
 editButton.addEventListener("click", function() {
   var icons = document.querySelectorAll(".fas.fa-chevron-right");
@@ -269,6 +307,8 @@ editButton.addEventListener("click", function() {
 
   editButton.classList.add("hidden");
   cancelButton.classList.remove("hidden");
+
+  modeEdit = true;
 });
 
 cancelButton.addEventListener("click", function() {
@@ -279,48 +319,9 @@ cancelButton.addEventListener("click", function() {
 
   cancelButton.classList.add("hidden");
   editButton.classList.remove("hidden");
+
+  modeEdit = false;
 });
-
-// Ajoutez un gestionnaire d'événements aux div items pour supprimer le repo en mode "Edit"
-function supprimerRepoEnEdit(event) {
-  if (modeEdit) {
-    if (confirm("Are you sure you want to delete this repo?")) {
-      var repoItem = event.currentTarget; // Obtient la div item cliquée
-
-      // Supprimer le repo
-      repoItem.remove();
-
-      // Supprimer le lien du localStorage
-      var repoLink = repoItem.querySelector("a");
-      if (repoLink) {
-        var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-        var urlToDelete = decodeURIComponent(repoLink.href.split("?repo=")[1]);
-        var index = repoURLs.indexOf(urlToDelete);
-        if (index !== -1) {
-          repoURLs.splice(index, 1);
-          localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-        }
-      }
-    }
-  }
-}
-
-// Ajoutez un gestionnaire d'événements à toutes les div items
-var repoItems = document.querySelectorAll(".item");
-repoItems.forEach(function(item) {
-  item.addEventListener("click", supprimerRepoEnEdit);
-});
-
-// Ajoutez un gestionnaire d'événements au lien vers appinfos.html
-var appInfosLink = document.getElementById("appInfosLink");
-appInfosLink.addEventListener("click", function(event) {
-  if (modeEdit) {
-    event.preventDefault(); // Désactiver la redirection en mode "Edit"
-  }
-});
-
-
-
 
 </script>
 
