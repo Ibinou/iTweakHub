@@ -33,7 +33,8 @@
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">RepoName</h1>
 </div>
 <center>
- <div class="appList" id="appList" style="margin-top: 98px;"><p>Sorry, the app infos system for the repos apps <span style="color: #7163FF;">is currently not working</span> !</p></div>
+ <div class="appList" id="appList" style="margin-top: 98px;"></div>
+<p>Sorry, the app infos system for the repos apps <span style="color: #7163FF;">is currently not working</span> !</p>
 </center>    
     
 <div class="gradient-div"></div>
@@ -92,70 +93,62 @@ function afficherDonnees() {
 
   if (repoUrl) {
     fetch(repoUrl)
-      .then(function (response) {
+      .then(function(response) {
         return response.json();
       })
-      .then(function (data) {
+      .then(function(data) {
         // Afficher le nom du repo dans l'élément h1
         var repoName = data.Info.repoName;
         h1Element.textContent = repoName;
 
         var appsData = data.Apps;
 
-        appsData.forEach(function (appData) {
-          // Vérifier si l'élément avec cet ID existe déjà dans le DOM
-          var existingApp = document.getElementById("app_" + appData.id);
+        appsData.forEach(function(appData) {
+          var dockDiv = document.createElement("div");
+          dockDiv.className = "dock";
 
-          if (!existingApp) {
-            var dockDiv = document.createElement("div");
-            dockDiv.className = "dock";
+          var appCellLeftDiv = document.createElement("div");
+          appCellLeftDiv.className = "app_cell_left";
 
-            // Utilisez un ID unique basé sur l'ID de l'application
-            dockDiv.id = "app_" + appData.id;
+          var appIconImg = document.createElement("img");
+          appIconImg.className = "appicon";
+          appIconImg.src = appData.icon;
+          appCellLeftDiv.appendChild(appIconImg);
 
-            var appCellLeftDiv = document.createElement("div");
-            appCellLeftDiv.className = "app_cell_left";
+          var appCellMetaDiv = document.createElement("div");
+          appCellMetaDiv.className = "app_cell_meta";
 
-            var appIconImg = document.createElement("img");
-            appIconImg.className = "appicon";
-            appIconImg.src = appData.icon;
-            appCellLeftDiv.appendChild(appIconImg);
+          var appNameDiv = document.createElement("div");
+          appNameDiv.className = "appname";
+          appNameDiv.textContent = appData.name;
+          appCellMetaDiv.appendChild(appNameDiv);
 
-            var appCellMetaDiv = document.createElement("div");
-            appCellMetaDiv.className = "app_cell_meta";
+          var appDevDiv = document.createElement("div");
+          appDevDiv.className = "appsection";
+          appDevDiv.textContent = appData.developer;
+          appCellMetaDiv.appendChild(appDevDiv);
 
-            var appNameDiv = document.createElement("div");
-            appNameDiv.className = "appname";
-            appNameDiv.textContent = appData.name;
-            appCellMetaDiv.appendChild(appNameDiv);
+          appCellLeftDiv.appendChild(appCellMetaDiv);
+          dockDiv.appendChild(appCellLeftDiv);
 
-            var appDevDiv = document.createElement("div");
-            appDevDiv.className = "appsection";
-            appDevDiv.textContent = appData.developer;
-            appCellMetaDiv.appendChild(appDevDiv);
+          var appGetDiv = document.createElement("div");
+          appGetDiv.className = "appget";
 
-            appCellLeftDiv.appendChild(appCellMetaDiv);
-            dockDiv.appendChild(appCellLeftDiv);
+          var appGetBtn = document.createElement("a");
+          appGetBtn.href = 'https://cococloud-signing.online/free-plist?url=' + encodeURIComponent(appData.ipa);
 
-            var appGetDiv = document.createElement("div");
-            appGetDiv.className = "appget";
+          var getBtn = document.createElement("button");
+          getBtn.className = "getbtn";
+          getBtn.textContent = "GET";
 
-            var appGetBtn = document.createElement("a");
-            appGetBtn.href = 'https://cococloud-signing.online/free-plist?url=' + encodeURIComponent(appData.ipa);
+          appGetBtn.appendChild(getBtn);
+          appGetDiv.appendChild(appGetBtn);
+          dockDiv.appendChild(appGetDiv);
 
-            var getBtn = document.createElement("button");
-            getBtn.className = "getbtn";
-            getBtn.textContent = "GET";
-
-            appGetBtn.appendChild(getBtn);
-            appGetDiv.appendChild(appGetBtn);
-            dockDiv.appendChild(appGetDiv);
-
-            appListDiv.appendChild(dockDiv);
-          }
+          appListDiv.appendChild(dockDiv);
         });
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log('Error', error);
       });
   } else {
@@ -165,7 +158,6 @@ function afficherDonnees() {
 
 // Appeler la fonction une fois que le DOM est chargé
 document.addEventListener("DOMContentLoaded", afficherDonnees);
-
 
 
     </script>
