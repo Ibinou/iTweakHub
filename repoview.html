@@ -92,62 +92,70 @@ function afficherDonnees() {
 
   if (repoUrl) {
     fetch(repoUrl)
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(data) {
+      .then(function (data) {
         // Afficher le nom du repo dans l'élément h1
         var repoName = data.Info.repoName;
         h1Element.textContent = repoName;
 
         var appsData = data.Apps;
 
-        appsData.forEach(function(appData) {
-          var dockDiv = document.createElement("div");
-          dockDiv.className = "dock";
+        appsData.forEach(function (appData) {
+          // Vérifier si l'élément avec cet ID existe déjà dans le DOM
+          var existingApp = document.getElementById("app_" + appData.id);
 
-          var appCellLeftDiv = document.createElement("div");
-          appCellLeftDiv.className = "app_cell_left";
+          if (!existingApp) {
+            var dockDiv = document.createElement("div");
+            dockDiv.className = "dock";
 
-          var appIconImg = document.createElement("img");
-          appIconImg.className = "appicon";
-          appIconImg.src = appData.icon;
-          appCellLeftDiv.appendChild(appIconImg);
+            // Utilisez un ID unique basé sur l'ID de l'application
+            dockDiv.id = "app_" + appData.id;
 
-          var appCellMetaDiv = document.createElement("div");
-          appCellMetaDiv.className = "app_cell_meta";
+            var appCellLeftDiv = document.createElement("div");
+            appCellLeftDiv.className = "app_cell_left";
 
-          var appNameDiv = document.createElement("div");
-          appNameDiv.className = "appname";
-          appNameDiv.textContent = appData.name;
-          appCellMetaDiv.appendChild(appNameDiv);
+            var appIconImg = document.createElement("img");
+            appIconImg.className = "appicon";
+            appIconImg.src = appData.icon;
+            appCellLeftDiv.appendChild(appIconImg);
 
-          var appDevDiv = document.createElement("div");
-          appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developer;
-          appCellMetaDiv.appendChild(appDevDiv);
+            var appCellMetaDiv = document.createElement("div");
+            appCellMetaDiv.className = "app_cell_meta";
 
-          appCellLeftDiv.appendChild(appCellMetaDiv);
-          dockDiv.appendChild(appCellLeftDiv);
+            var appNameDiv = document.createElement("div");
+            appNameDiv.className = "appname";
+            appNameDiv.textContent = appData.name;
+            appCellMetaDiv.appendChild(appNameDiv);
 
-          var appGetDiv = document.createElement("div");
-          appGetDiv.className = "appget";
+            var appDevDiv = document.createElement("div");
+            appDevDiv.className = "appsection";
+            appDevDiv.textContent = appData.developer;
+            appCellMetaDiv.appendChild(appDevDiv);
 
-          var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'https://cococloud-signing.online/free-plist?url=' + encodeURIComponent(appData.ipa);
+            appCellLeftDiv.appendChild(appCellMetaDiv);
+            dockDiv.appendChild(appCellLeftDiv);
 
-          var getBtn = document.createElement("button");
-          getBtn.className = "getbtn";
-          getBtn.textContent = "GET";
+            var appGetDiv = document.createElement("div");
+            appGetDiv.className = "appget";
 
-          appGetBtn.appendChild(getBtn);
-          appGetDiv.appendChild(appGetBtn);
-          dockDiv.appendChild(appGetDiv);
+            var appGetBtn = document.createElement("a");
+            appGetBtn.href = 'https://cococloud-signing.online/free-plist?url=' + encodeURIComponent(appData.ipa);
 
-          appListDiv.appendChild(dockDiv);
+            var getBtn = document.createElement("button");
+            getBtn.className = "getbtn";
+            getBtn.textContent = "GET";
+
+            appGetBtn.appendChild(getBtn);
+            appGetDiv.appendChild(appGetBtn);
+            dockDiv.appendChild(appGetDiv);
+
+            appListDiv.appendChild(dockDiv);
+          }
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log('Error', error);
       });
   } else {
@@ -157,6 +165,7 @@ function afficherDonnees() {
 
 // Appeler la fonction une fois que le DOM est chargé
 document.addEventListener("DOMContentLoaded", afficherDonnees);
+
 
 
     </script>
