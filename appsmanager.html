@@ -43,19 +43,19 @@
 
 <div class="featuredrepos">	    
 <div style="margin-right: 14px;" class="item">
-    <button>Add</button>
+    <button id="https://ibinou.github.io/iTweakHub/apps.json">Add</button>
        <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico">
        <h2>iTH Base Repo</h2>
     <p>iTweakHub Team</p>
 </div>
 <div style="margin-right: 14px;" class="item">
-    <button>Add</button>
+    <button id="https://ibinou.github.io/iTweakHub/repo.json" >Add</button>
        <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico">
        <h2>iTH Base Repo</h2>
     <p>iTweakHub Team</p>
 </div>
 <div style="margin-right: 14px;" class="item">
-    <button>Add</button>
+    <button id="https://ibinou.github.io/iTweakHub/test.json">Add</button>
        <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico">
        <h2>iTH Base Repo</h2>
     <p>iTweakHub Team</p>
@@ -350,7 +350,38 @@ function removeFavorite(appName) {
   localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
 }
 </script>
+    <script>
+        // Fonction pour gérer le clic sur les boutons
+        function addButtonClickHandler(button) {
+            button.addEventListener('click', function () {
+                // Récupérer l'URL à partir de l'ID du bouton
+                var repoURL = button.id;
 
+                // Récupérer les URLs déjà stockées dans le localStorage
+                var storedURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+
+                // Vérifier si l'URL n'est pas déjà dans le tableau
+                if (storedURLs.indexOf(repoURL) === -1) {
+                    // Ajouter l'URL au tableau
+                    storedURLs.push(repoURL);
+
+                    // Mettre à jour le localStorage avec le nouveau tableau
+                    localStorage.setItem('repoURLs', JSON.stringify(storedURLs));
+
+                    // Masquer la div parent (item)
+                    button.parentElement.style.display = 'none';
+                } else {
+                    alert('Cette URL est déjà dans le localStorage.');
+                }
+            });
+        }
+
+        // Sélectionner tous les boutons et ajouter un gestionnaire de clic à chacun
+        var buttons = document.querySelectorAll('.featuredrepos button');
+        buttons.forEach(function (button) {
+            addButtonClickHandler(button);
+        });
+    </script>
 <script src="js/index.js"></script>
     </div>
 </div>
