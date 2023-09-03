@@ -115,43 +115,17 @@
    
 <script>
      
-function afficherDonnees() {
+        function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
-  // Retrieve the JSON URLs from local storage
-  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  fetch('apps.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var appsData = data.Apps;
 
-  // Add the 'apps.json' URL to the repoURLs array
-  repoURLs.push("apps.json");
-
-  // Create an array to store promises from fetch requests
-  var fetchPromises = [];
-
-  // Iterate over each URL and create fetch promises
-  repoURLs.forEach(function(url) {
-    fetchPromises.push(
-      fetch(url)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(data) {
-          return data.Apps || []; // Extract the 'Apps' array if it exists
-        })
-        .catch(function(error) {
-          console.log('Error fetching data from', url, ':', error);
-          return []; // Return an empty array on error
-        })
-    );
-  });
-
-  // Use Promise.all to wait for all fetch requests to complete
-  Promise.all(fetchPromises)
-    .then(function(appsDataArray) {
-      // Combine all app data from different sources into one array
-      var combinedAppsData = appsDataArray.flat();
-
-      combinedAppsData.forEach(function(appData) {
-        // Create elements for displaying app information
+      appsData.forEach(function(appData) {
         var dockDiv = document.createElement("div");
         dockDiv.className = "dock";
 
