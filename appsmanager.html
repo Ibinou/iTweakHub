@@ -350,9 +350,13 @@ function removeFavorite(appName) {
   localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
 }
 </script>
+
     <script>
         // Récupérer les URLs déjà stockées dans le localStorage
         var storedURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+
+        // Sélectionner la div "featuredrepos"
+        var featuredDiv = document.querySelector('.featuredrepos');
 
         // Sélectionner tous les boutons
         var buttons = document.querySelectorAll('.featuredrepos button');
@@ -375,6 +379,12 @@ function removeFavorite(appName) {
 
                     // Masquer la div parent (item)
                     button.parentElement.style.display = 'none';
+
+                    // Afficher une alerte
+                    alert('The repo has been added succesfully !');
+
+                    // Recharger la page après l'alerte
+                    window.location.reload();
                 });
             }
         });
