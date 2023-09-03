@@ -215,90 +215,152 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     <script>
-// Fonction pour récupérer le paramètre "name" dans l'URL
-function getParameterByName(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name);
+// Fonction pour afficher les informations depuis le localStorage
+function afficherReposDepuisLocalStorage() {
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+
+  repoURLs.forEach(function(url) {
+    fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        var reposDiv = document.getElementById("repos");
+        var infoDiv = createRepoElement(data);
+
+        var repoContainer = document.createElement("div");
+        repoContainer.className = "item-container";
+        repoContainer.dataset.repoUrl = url;
+
+        var deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", supprimerRepo);
+
+        repoContainer.appendChild(deleteButton);
+        repoContainer.appendChild(infoDiv);
+
+        reposDiv.appendChild(repoContainer);
+      })
+      .catch(function(error) {
+        console.log('Erreur', error);
+      });
+  });
 }
 
-// Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
-function displayAppInfo(appData) {
-    const appInfoDiv = document.getElementById("appInfo");
+// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
+function afficherInfosDepuisJSON() {
+  var url = prompt("Enter URL to repo:");
 
-    if (appData) {
-        const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData.icon;
-        appIconElement.alt = `${appData.name} Icon`;
-
-        const appNameElement = document.getElementById("appName");
-        appNameElement.textContent = appData.name;
-
-        const appDescriptionElement = document.getElementById("appDescription");
-        appDescriptionElement.textContent = appData.description;
-
-        const appDeveloperElement = document.getElementById("appDeveloper");
-        appDeveloperElement.textContent = appData.developer;
-
-        const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.version;
-
-        const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.compatibility;
-
-        const appBannerElement = document.getElementById("appBanner");
-
-        if (appData.banner) {
-            appBannerElement.src = appData.banner;
-        } else {
-            // appBannerElement.style.display = "none";  // Pour masquer l'élément
-            appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
-        }
-
-        const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
-
-        // Mettre à jour le lien du bouton existant pour la signature
-        const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
-
-        // Afficher les captures d'écran
-        const screenshotsDiv = document.getElementById("screenshots");
-        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
-
-        if (appData.screenshots) {
-            for (const screenshotUrl of appData.screenshots) {
-                const screenshotElement = document.createElement("img");
-                screenshotElement.style.width = "200px";
-                screenshotElement.style.borderRadius = "20px";
-                screenshotElement.style.margin = "5px";
-                screenshotElement.src = screenshotUrl;
-                screenshotsDiv.appendChild(screenshotElement);
-            }
-        }
-    } else {
-        appInfoDiv.textContent = "Application not found.";
-    }
-}
-
-// Récupérer le nom de l'application depuis l'URL et afficher ses informations
-const appNameFromURL = getParameterByName("name");
-
-// Charger le fichier JSON en utilisant une requête AJAX
-const jsonFileURL = "apps.json";
-fetch(jsonFileURL)
-    .then(response => response.json())
-    .then(data => {
-        const appData = data.Apps.find(app => app.name === appNameFromURL);
-        displayAppInfo(appData);
-
-        // Modifier le titre de la page avec le nom de l'application
-        document.title = appData ? appData.name : "Application Details";
+  fetch(url)
+    .then(function(response) {
+      return response.json();
     })
-    .catch(error => {
-        console.error("Error loading JSON file:", error);
-        const appInfoDiv = document.getElementById("appInfo");
-        appInfoDiv.textContent = "Error loading application data.";
+    .then(function(data) {
+      var reposDiv = document.getElementById("repos");
+      var infoDiv = createRepoElement(data);
+
+      var repoContainer = document.createElement("div");
+      repoContainer.className = "item-container";
+      repoContainer.dataset.repoUrl = url;
+
+      var deleteButton = document.createElement("button");
+      deleteButton.className = "delete-button";
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", supprimerRepo);
+
+      repoContainer.appendChild(deleteButton);
+      repoContainer.appendChild(infoDiv);
+
+      reposDiv.appendChild(repoContainer);
+
+      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+      repoURLs.push(url);
+      localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+    })
+    .catch(function(error) {
+      console.log('Error', error);
+      alert('Error, invalid repo', error);
     });
+}
+
+function createRepoElement(data) {
+  var infoDiv = document.createElement("div");
+  infoDiv.className = "item";
+
+  var iconFontAwesome = document.createElement("i");
+  iconFontAwesome.className = "fas fa-chevron-right";
+  infoDiv.appendChild(iconFontAwesome);
+
+  var iconElement = document.createElement("img");
+  iconElement.src = data.Info.repoIcon;
+  infoDiv.appendChild(iconElement);
+
+  var repoNameElement = document.createElement("h2");
+  repoNameElement.textContent = data.Info.repoName;
+  infoDiv.appendChild(repoNameElement);
+
+  var repoAuthorElement = document.createElement("p");
+  repoAuthorElement.textContent = data.Info.repoAuthor;
+  infoDiv.appendChild(repoAuthorElement);
+
+  return infoDiv;
+}
+
+// Gestionnaire d'événement pour le bouton "Delete"
+function supprimerRepo(event) {
+  if (modeEdit) {
+    if (confirm("Are you sure you want to delete this repo?")) {
+      var repoContainer = event.currentTarget.parentElement;
+      var repoUrl = repoContainer.dataset.repoUrl;
+
+      // Supprimer le repo
+      repoContainer.remove();
+
+      // Supprimer le lien du localStorage
+      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+      var index = repoURLs.indexOf(repoUrl);
+      if (index !== -1) {
+        repoURLs.splice(index, 1);
+        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+      }
+    }
+  }
+}
+
+window.addEventListener("load", afficherReposDepuisLocalStorage);
+
+var popupButton = document.getElementById("popupButton");
+popupButton.addEventListener("click", afficherInfosDepuisJSON);
+
+var editButton = document.getElementById("editButton");
+var cancelButton = document.getElementById("cancelButton");
+var modeEdit = false;
+
+editButton.addEventListener("click", function() {
+  var icons = document.querySelectorAll(".fas.fa-chevron-right");
+  icons.forEach(function(icon) {
+    icon.className = "fas fa-minus";
+  });
+
+  editButton.classList.add("hidden");
+  cancelButton.classList.remove("hidden");
+
+  modeEdit = true;
+});
+
+cancelButton.addEventListener("click", function() {
+  var icons = document.querySelectorAll(".fas.fa-minus");
+  icons.forEach(function(icon) {
+    icon.className = "fas fa-chevron-right";
+  });
+
+  cancelButton.classList.add("hidden");
+  editButton.classList.remove("hidden");
+
+  modeEdit = false;
+});
+
 
 
     </script>
