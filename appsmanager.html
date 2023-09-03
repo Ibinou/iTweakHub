@@ -30,31 +30,6 @@
 
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
-
-<button id="editButton">Edit</button>
-<button id="cancelButton" class="hidden">Cancel</button>
-
-<style>
-.hidden {
-  display: none;
-}
-#editButton {
-    font-size: 16px;
-    background-color: var(--accent-color);
-    border-radius: 13px;
-    border: none;
-    text-decoration: none;
-    color: white;
-}
-#cancelButton {
-    font-size: 16px;
-    background-color: var(--accent-color);
-    border-radius: 13px;
-    border: none;
-    text-decoration: none;
-    color: white;
-}
-</style>
 	    
 <ul class="ioslist">
 <li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
@@ -103,7 +78,9 @@
     </div>
     </div>
         <br>
-
+<center>
+<div class="appList" id="appList"></div>
+</center>
 
      <nav class="mobile-nav">
             <a href="index.html" class="bloc-icon">
@@ -176,7 +153,6 @@ function closePopup() {
 
     </script>
 <script>
-
 // Fonction pour afficher les informations depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
@@ -188,21 +164,13 @@ function afficherReposDepuisLocalStorage() {
       })
       .then(function(data) {
         var reposDiv = document.getElementById("repos");
-        var infoDiv = createRepoElement(data);
+        var infoDiv = createRepoElement(data, url);
 
-        var repoContainer = document.createElement("div");
-        repoContainer.className = "item-container";
-        repoContainer.dataset.repoUrl = url;
+        var repoLink = document.createElement("a");
+        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
+        repoLink.appendChild(infoDiv);
 
-        var deleteButton = document.createElement("button");
-        deleteButton.className = "delete-button";
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", supprimerRepo);
-
-        repoContainer.appendChild(deleteButton);
-        repoContainer.appendChild(infoDiv);
-
-        reposDiv.appendChild(repoContainer);
+        reposDiv.appendChild(repoLink);
       })
       .catch(function(error) {
         console.log('Erreur', error);
@@ -212,7 +180,7 @@ function afficherReposDepuisLocalStorage() {
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
-  var url = prompt("Enter URL to repo:");
+  var url = prompt("Entrez l'URL du repo :");
 
   fetch(url)
     .then(function(response) {
@@ -220,109 +188,167 @@ function afficherInfosDepuisJSON() {
     })
     .then(function(data) {
       var reposDiv = document.getElementById("repos");
-      var infoDiv = createRepoElement(data);
+      var infoDiv = createRepoElement(data, url);
 
-      var repoContainer = document.createElement("div");
-      repoContainer.className = "item-container";
-      repoContainer.dataset.repoUrl = url;
+      var repoLink = document.createElement("a");
+      repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
+      repoLink.appendChild(infoDiv);
 
-      var deleteButton = document.createElement("button");
-      deleteButton.className = "delete-button";
-      deleteButton.textContent = "Delete";
-      deleteButton.addEventListener("click", supprimerRepo);
+      reposDiv.appendChild(repoLink);
 
-      repoContainer.appendChild(deleteButton);
-      repoContainer.appendChild(infoDiv);
-
-      reposDiv.appendChild(repoContainer);
-
+      // Enregistrer l'URL du repo dans le localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
       repoURLs.push(url);
       localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
     })
     .catch(function(error) {
-      console.log('Error', error);
-      alert('Error, invalid repo', error);
+      console.log('Erreur', error);
+      alert('Erreur, repo invalide', error);
     });
 }
 
-function createRepoElement(data) {
+function createRepoElement(data, url) {
   var infoDiv = document.createElement("div");
   infoDiv.className = "item";
 
+  // Créer l'élément icon pour l'icône Font Awesome (flèche)
   var iconFontAwesome = document.createElement("i");
   iconFontAwesome.className = "fas fa-chevron-right";
   infoDiv.appendChild(iconFontAwesome);
 
+  // Créer l'élément i pour l'icône de la poubelle (Font Awesome)
+  var deleteIcon = document.createElement("i");
+  deleteIcon.className = "fas fa-trash-alt";
+  deleteIcon.style.marginLeft = "10px";
+  deleteIcon.style.cursor = "pointer";
+  infoDiv.appendChild(deleteIcon);
+
+  // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
   iconElement.src = data.Info.repoIcon;
   infoDiv.appendChild(iconElement);
 
+  // Créer l'élément h2 pour le nom du repo
   var repoNameElement = document.createElement("h2");
   repoNameElement.textContent = data.Info.repoName;
   infoDiv.appendChild(repoNameElement);
 
+  // Créer l'élément p pour l'auteur du repo
   var repoAuthorElement = document.createElement("p");
   repoAuthorElement.textContent = data.Info.repoAuthor;
   infoDiv.appendChild(repoAuthorElement);
 
-  return infoDiv;
-}
-
-// Gestionnaire d'événement pour le bouton "Delete"
-function supprimerRepo(event) {
-  if (modeEdit) {
-    if (confirm("Are you sure you want to delete this repo?")) {
-      var repoContainer = event.currentTarget.parentElement;
-      var repoUrl = repoContainer.dataset.repoUrl;
-
-      // Supprimer le repo
-      repoContainer.remove();
-
-      // Supprimer le lien du localStorage
+  // Ajouter un gestionnaire d'événements pour la suppression du repo
+  deleteIcon.addEventListener("click", function () {
+    if (confirm("Voulez-vous vraiment supprimer ce repo du localStorage ?")) {
+      // Supprimer l'URL du repo du localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-      var index = repoURLs.indexOf(repoUrl);
+      var index = repoURLs.indexOf(url);
       if (index !== -1) {
         repoURLs.splice(index, 1);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
       }
+
+      // Supprimer l'élément du DOM
+      infoDiv.remove();
     }
-  }
+  });
+
+  return infoDiv;
 }
 
+// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
 
-var editButton = document.getElementById("editButton");
-var cancelButton = document.getElementById("cancelButton");
-var modeEdit = false;
 
-editButton.addEventListener("click", function() {
-  var icons = document.querySelectorAll(".fas.fa-chevron-right");
-  icons.forEach(function(icon) {
-    icon.className = "fas fa-minus";
+</script>
+<script>
+function afficherDonnees() {
+  var appListDiv = document.getElementById("appList");
+  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+
+  fetch('apps.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var appsData = data.Apps;
+
+      favapps.forEach(function(favAppName) {
+        var appData = appsData.find(function(app) {
+          return app.name === favAppName;
+        });
+
+        if (appData) {
+          var dockDiv = document.createElement("div");
+          dockDiv.className = "dock";
+
+          var appCellLeftDiv = document.createElement("div");
+          appCellLeftDiv.className = "app_cell_left";
+
+          var appIconImg = document.createElement("img");
+          appIconImg.className = "appicon";
+          appIconImg.src = appData.icon;
+          appCellLeftDiv.appendChild(appIconImg);
+
+          var appCellMetaDiv = document.createElement("div");
+          appCellMetaDiv.className = "app_cell_meta";
+
+          var appNameDiv = document.createElement("div");
+          appNameDiv.className = "appname";
+          appNameDiv.textContent = appData.name;
+          appCellMetaDiv.appendChild(appNameDiv);
+
+          var appDevDiv = document.createElement("div");
+          appDevDiv.className = "appsection";
+          appDevDiv.textContent = appData.developer;
+          appCellMetaDiv.appendChild(appDevDiv);
+
+          appCellLeftDiv.appendChild(appCellMetaDiv);
+          dockDiv.appendChild(appCellLeftDiv);
+
+          var appGetDiv = document.createElement("div");
+          appGetDiv.className = "appget";
+
+          var appGetBtn = document.createElement("a");
+          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+
+          var getBtn = document.createElement("button");
+          getBtn.className = "getbtn";
+          getBtn.textContent = "GET";
+
+          var removeBtn = document.createElement("button");
+          removeBtn.className = "removebtn";
+          removeBtn.textContent = "Remove";
+          removeBtn.addEventListener("click", function() {
+            removeFavorite(appData.name);
+            appListDiv.removeChild(dockDiv);
+          });
+
+          appGetBtn.appendChild(getBtn);
+          appGetBtn.appendChild(removeBtn);
+          appGetDiv.appendChild(appGetBtn);
+          dockDiv.appendChild(appGetDiv);
+
+          appListDiv.appendChild(dockDiv);
+        }
+      });
+    })
+    .catch(function(error) {
+      console.log('Error', error);
+    });
+}
+
+function removeFavorite(appName) {
+  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+  var updatedFavapps = favapps.filter(function(favAppName) {
+    return favAppName !== appName;
   });
-
-  editButton.classList.add("hidden");
-  cancelButton.classList.remove("hidden");
-
-  modeEdit = true;
-});
-
-cancelButton.addEventListener("click", function() {
-  var icons = document.querySelectorAll(".fas.fa-minus");
-  icons.forEach(function(icon) {
-    icon.className = "fas fa-chevron-right";
-  });
-
-  cancelButton.classList.add("hidden");
-  editButton.classList.remove("hidden");
-
-  modeEdit = false;
-});
-
+  localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
+}
 </script>
 
 <script src="js/index.js"></script>
