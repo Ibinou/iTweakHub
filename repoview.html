@@ -102,8 +102,12 @@ function afficherDonnees() {
         h1Element.textContent = repoName;
 
         var appsData = data.Apps;
+        var nombreApplicationsAafficher = appsData.length; // Comptez le nombre d'applications dans le JSON
 
-        appsData.forEach(function(appData) {
+        // Utilisez un for loop pour itérer sur le nombre d'applications à afficher
+        for (var i = 0; i < nombreApplicationsAafficher; i++) {
+          var appData = appsData[i];
+
           var dockDiv = document.createElement("div");
           dockDiv.className = "dock";
 
@@ -146,7 +150,7 @@ function afficherDonnees() {
           dockDiv.appendChild(appGetDiv);
 
           appListDiv.appendChild(dockDiv);
-        });
+        }
       })
       .catch(function(error) {
         console.log('Error', error);
@@ -158,6 +162,7 @@ function afficherDonnees() {
 
 // Appeler la fonction une fois que le DOM est chargé
 document.addEventListener("DOMContentLoaded", afficherDonnees);
+
 
 
     </script>
