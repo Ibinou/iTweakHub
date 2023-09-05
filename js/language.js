@@ -1,3 +1,4 @@
+/*
 var Lang = navigator.language ;
 if (Lang == "fr-FR") {
 //Setup.html
@@ -12,3 +13,4 @@ document.getElementById("featured").innerHTML = "En vedette";
 document.getElementById("topapps").innerHTML = "Les plus utilisées";
 document.getElementById("newstuto").innerHTML = "Articles et tutoriels,";
 } 
+*/
