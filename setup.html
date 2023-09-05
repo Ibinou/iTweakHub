@@ -41,7 +41,7 @@
 <div class="welcomeheader">
 <img class="welcomeimg" src="img/AppBox.png">
 </div>
-<h1>Welcome</h1>
+<h1 id="welcome">Welcome</h1>
 <h4>To iTweakHub</h4>
     <form id="accountForm">
         <label for="username">Username:</label>
@@ -80,6 +80,15 @@
                 alert('Please select a profile picture.');
             }
         });
+
+        
+var Lang = navigator.language ;
+if (Lang == "fr-FR") {
+document.getElementById("welcome").innerHTML = "Bienvenue";
+} else {
+document.getElementById("welcome").innerHTML = "Welcome";
+}
+
     </script>
    
 <script src="js/account.js"></script>
