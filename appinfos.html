@@ -96,7 +96,7 @@ nav h1 i a {
 <span id="appDescription" style="opacity:90%;display: block;width: 90%;margin-left:16px;margin-top: -47px;">App Description</span>
 
 
-<h3 style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Screenshots</h3>
+<h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Screenshots</h3>
     <div id="screenshots" class="screenshot">
         <!-- Screenshots will be added here -->
     </div>
@@ -252,22 +252,19 @@ function displayAppInfo(appData) {
         if (appData.banner) {
             appBannerElement.src = appData.banner;
         } else {
-            // appBannerElement.style.display = "none";  // Pour masquer l'élément
             appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
         }
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
-        // Mettre à jour le lien du bouton existant pour la signature
         const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
 
-        // Afficher les captures d'écran
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-        if (appData.screenshots) {
+        if (appData.screenshots && appData.screenshots.length > 0) {
             for (const screenshotUrl of appData.screenshots) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
@@ -276,6 +273,12 @@ function displayAppInfo(appData) {
                 screenshotElement.src = screenshotUrl;
                 screenshotsDiv.appendChild(screenshotElement);
             }
+
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "block"; // Show the h3 element
+        } else {
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "none"; // Hide the h3 element
         }
     } else {
         appInfoDiv.textContent = "Application not found.";
