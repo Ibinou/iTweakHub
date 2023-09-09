@@ -1062,3 +1062,36 @@ h3, p {
   width: 125px;
   margin-top: 100px;
 }
+.others {
+  display: flex; 
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#share {
+  font-size: 14px;
+  background-color: #1c1c1c;
+  margin-left: auto;
+  border-radius: 13px;
+  border: none;
+  text-decoration: none;
+  color: white;
+  width: 50%;
+  height: 45px;
+  margin-right: 16px;
+  margin-left: 8px;
+  border: 1px solid rgb(37, 37, 39);
+}
+#favorite {
+  font-size: 14px;
+  background-color: #1c1c1c;
+  margin-left: auto;
+  border-radius: 13px;
+  border: none;
+  text-decoration: none;
+  color: white;
+  width: 50%;
+  height: 45px;
+  margin-left: 16px;
+  margin-right: 8px;
+  border: 1px solid rgb(37, 37, 39);
+}
