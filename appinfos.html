@@ -118,7 +118,7 @@ nav h1 i a {
 </ul>
 <div class="others">
 <button id="favorite">Add to favorite</button>
-<button id="share">Share</button>
+<button id="share" onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'">Share</button>
 </div>
 <br>
 <br>
@@ -326,6 +326,29 @@ favoriteButton.addEventListener("click", () => {
     const appNameFromURL = getParameterByName("name");
     addToFavorites(appNameFromURL);
 });
+
+        // Fonction pour extraire les paramètres de l'URL (la même fonction que précédemment)
+
+        // Obtenez la valeur du paramètre "name" de l'URL
+        var appName = getParameterByName('name');
+
+        // Vérifiez si le paramètre "name" a été trouvé dans l'URL
+        if (appName) {
+            // Construisez le message dynamique
+            var tweetMessage = "Get " + appName + " for free on iTweakHub! Link: https://itweakhub.netlify.app/appinfos.html?name=" + appName;
+
+            // Obtenez une référence au bouton de partage
+            var shareButton = document.getElementById('share');
+
+            // Ajoutez un gestionnaire d'événement au bouton pour ouvrir une fenêtre de tweet lorsque le bouton est cliqué
+            shareButton.addEventListener('click', function() {
+                // Créez l'URL d'intention Twitter avec le message
+                var tweetIntentUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetMessage);
+
+                // Ouvrez la fenêtre de tweet
+                window.open(tweetIntentUrl, '_blank');
+            });
+        }
 </script>
 <script src="js/appInfos.js"></script> 
 </body>
