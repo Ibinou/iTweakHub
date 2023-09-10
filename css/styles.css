@@ -1095,3 +1095,9 @@ h3, p {
   margin-right: 8px;
   border: 1px solid rgb(37, 37, 39);
 }
+
+.solobanner {
+  width: 100%;
+  height: 150px;
+  border-radius: 13px;
+}
