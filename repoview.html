@@ -93,10 +93,10 @@ function afficherDonnees() {
 
   if (repoUrl) {
     fetch(repoUrl)
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(data) {
+      .then(function (data) {
         // Afficher le nom du repo dans l'élément h1
         var repoName = data.Info.repoName;
         h1Element.textContent = repoName;
@@ -104,7 +104,7 @@ function afficherDonnees() {
         var appsData = data.Apps;
         var nombreApplicationsAafficher = appsData.length; // Comptez le nombre d'applications dans le JSON
 
-        // Utilisez un for loop pour itérer sur le nombre d'applications à afficher
+        // Utilisez une boucle for pour itérer sur le nombre d'applications à afficher
         for (var i = 0; i < nombreApplicationsAafficher; i++) {
           var appData = appsData[i];
 
@@ -152,7 +152,7 @@ function afficherDonnees() {
           appListDiv.appendChild(dockDiv);
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log('Error', error);
       });
   } else {
@@ -162,7 +162,6 @@ function afficherDonnees() {
 
 // Appeler la fonction une fois que le DOM est chargé
 document.addEventListener("DOMContentLoaded", afficherDonnees);
-
 
 
     </script>
