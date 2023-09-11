@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#121212">
   <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
-  <title>Repo Apps | iTweakHub</title>
+  <title>Favorite Apps | iTweakHub</title>
   <script src="/js/index.js"></script>
   <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -96,77 +96,83 @@ function afficherDonnees() {
     .then(function(data) {
       var appsData = data.Apps;
 
+      // Fonction pour charger une application depuis une URL
+      function chargerAppDepuisURL(url) {
+        fetch(url)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(appData) {
+            var dockDiv = document.createElement("div");
+            dockDiv.className = "dock";
+
+            var appCellLeftDiv = document.createElement("div");
+            appCellLeftDiv.className = "app_cell_left";
+
+            var appIconImg = document.createElement("img");
+            appIconImg.className = "appicon";
+            appIconImg.src = appData.icon;
+            appCellLeftDiv.appendChild(appIconImg);
+
+            var appCellMetaDiv = document.createElement("div");
+            appCellMetaDiv.className = "app_cell_meta";
+
+            var appNameDiv = document.createElement("div");
+            appNameDiv.className = "appname";
+            appNameDiv.textContent = appData.name;
+            appCellMetaDiv.appendChild(appNameDiv);
+
+            var appDevDiv = document.createElement("div");
+            appDevDiv.className = "appsection";
+            appDevDiv.textContent = appData.developer;
+            appCellMetaDiv.appendChild(appDevDiv);
+
+            appCellLeftDiv.appendChild(appCellMetaDiv);
+            dockDiv.appendChild(appCellLeftDiv);
+
+            var appGetDiv = document.createElement("div");
+            appGetDiv.className = "appget";
+
+            var appGetBtn = document.createElement("a");
+            appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+
+            var getBtn = document.createElement("button");
+            getBtn.className = "getbtn";
+            getBtn.textContent = "GET";
+
+            var removeBtn = document.createElement("button");
+            removeBtn.className = "removebtn";
+            removeBtn.textContent = "Remove";
+            removeBtn.addEventListener("click", function() {
+              removeFavorite(appData.name);
+              appListDiv.removeChild(dockDiv);
+            });
+
+            appGetBtn.appendChild(getBtn);
+            appGetBtn.appendChild(removeBtn);
+            appGetDiv.appendChild(appGetBtn);
+            dockDiv.appendChild(appGetDiv);
+
+            appListDiv.appendChild(dockDiv);
+          })
+          .catch(function(error) {
+            console.log('Error', error);
+          });
+      }
+
       favapps.forEach(function(favAppName) {
         var appData = appsData.find(function(app) {
           return app.name === favAppName;
         });
 
         if (appData) {
-          var dockDiv = document.createElement("div");
-          dockDiv.className = "dock";
-
-          var appCellLeftDiv = document.createElement("div");
-          appCellLeftDiv.className = "app_cell_left";
-
-          var appIconImg = document.createElement("img");
-          appIconImg.className = "appicon";
-          appIconImg.src = appData.icon;
-          appCellLeftDiv.appendChild(appIconImg);
-
-          var appCellMetaDiv = document.createElement("div");
-          appCellMetaDiv.className = "app_cell_meta";
-
-          var appNameDiv = document.createElement("div");
-          appNameDiv.className = "appname";
-          appNameDiv.textContent = appData.name;
-          appCellMetaDiv.appendChild(appNameDiv);
-
-          var appDevDiv = document.createElement("div");
-          appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developer;
-          appCellMetaDiv.appendChild(appDevDiv);
-
-          appCellLeftDiv.appendChild(appCellMetaDiv);
-          dockDiv.appendChild(appCellLeftDiv);
-
-          var appGetDiv = document.createElement("div");
-          appGetDiv.className = "appget";
-
-          var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
-
-          var getBtn = document.createElement("button");
-          getBtn.className = "getbtn";
-          getBtn.textContent = "GET";
-
-          var removeBtn = document.createElement("button");
-          removeBtn.className = "removebtn";
-          removeBtn.textContent = "Remove";
-          removeBtn.addEventListener("click", function() {
-            removeFavorite(appData.name);
-            appListDiv.removeChild(dockDiv);
-          });
-
-          appGetBtn.appendChild(getBtn);
-          appGetBtn.appendChild(removeBtn);
-          appGetDiv.appendChild(appGetBtn);
-          dockDiv.appendChild(appGetDiv);
-
-          appListDiv.appendChild(dockDiv);
+          chargerAppDepuisURL(appData.repoURL);
         }
       });
     })
     .catch(function(error) {
       console.log('Error', error);
     });
-}
-
-function removeFavorite(appName) {
-  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-  var updatedFavapps = favapps.filter(function(favAppName) {
-    return favAppName !== appName;
-  });
-  localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
 }
 </script>
 </script>
