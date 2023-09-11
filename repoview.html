@@ -30,11 +30,11 @@
 
     <div class="toptitle">	
     <a style="text-decoration: none" href="appsmanager.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
-    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;width: 250px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">RepoName</h1>
+    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;width: 280px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">RepoName</h1>
 </div>
 <center>
   <input style="margin-top: 100px;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
- <div class="appList" id="appList" style="margin-top: 8px;"><p>Sorry, the app infos system for the repos apps <span style="color: #7163FF;">is currently not working</span> !</p></div>
+ <div class="appList" id="appList" style="margin-top: 8px;"></div>
 </center>    
     
 <div class="gradient-div"></div>
@@ -139,7 +139,7 @@ function afficherDonnees() {
           appGetDiv.className = "appget";
 
           var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'https://cococloud-signing.online/free-plist?url=' + encodeURIComponent(appData.ipa);
+          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
 
           var getBtn = document.createElement("button");
           getBtn.className = "getbtn";
