@@ -116,64 +116,92 @@
 <script>
      
         function afficherDonnees() {
-  var appListDiv = document.getElementById("appList");
+            var appListDiv = document.getElementById("appList");
 
-  fetch('apps.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var appsData = data.Apps;
+            // Fetcher les données de apps.json
+            fetch('apps.json')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    var appsData = data.Apps;
+                    afficherApplications(appsData);
 
-      appsData.forEach(function(appData) {
-        var dockDiv = document.createElement("div");
-        dockDiv.className = "dock";
+                    // Récupérer les URLs des JSON depuis le localStorage
+                    var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
-        var appCellLeftDiv = document.createElement("div");
-        appCellLeftDiv.className = "app_cell_left";
+                    // Fetcher les données des URLs stockées dans repoURLs
+                    var fetchPromises = repoURLs.map(function(url) {
+                        return fetch(url)
+                            .then(function(response) {
+                                return response.json();
+                            })
+                            .then(function(data) {
+                                var appsDataFromURL = data.Apps;
+                                afficherApplications(appsDataFromURL);
+                            })
+                            .catch(function(error) {
+                                console.log('Error fetching data from URL', error);
+                            });
+                    });
 
-        var appIconImg = document.createElement("img");
-        appIconImg.className = "appicon";
-        appIconImg.src = appData.icon;
-        appCellLeftDiv.appendChild(appIconImg);
+                    // Attendre que toutes les requêtes de fetch se terminent
+                    return Promise.all(fetchPromises);
+                })
+                .catch(function(error) {
+                    console.log('Error fetching apps.json', error);
+                });
 
-        var appCellMetaDiv = document.createElement("div");
-        appCellMetaDiv.className = "app_cell_meta";
+            function afficherApplications(appsData) {
+                appsData.forEach(function(appData) {
+                    var dockDiv = document.createElement("div");
+                    dockDiv.className = "dock";
 
-        var appNameDiv = document.createElement("div");
-        appNameDiv.className = "appname";
-        appNameDiv.textContent = appData.name;
-        appCellMetaDiv.appendChild(appNameDiv);
+                    var appCellLeftDiv = document.createElement("div");
+                    appCellLeftDiv.className = "app_cell_left";
 
-        var appDevDiv = document.createElement("div");
-        appDevDiv.className = "appsection";
-        appDevDiv.textContent = appData.developer;
-        appCellMetaDiv.appendChild(appDevDiv);
+                    var appIconImg = document.createElement("img");
+                    appIconImg.className = "appicon";
+                    appIconImg.src = appData.icon;
+                    appCellLeftDiv.appendChild(appIconImg);
 
-        appCellLeftDiv.appendChild(appCellMetaDiv);
-        dockDiv.appendChild(appCellLeftDiv);
+                    var appCellMetaDiv = document.createElement("div");
+                    appCellMetaDiv.className = "app_cell_meta";
 
-        var appGetDiv = document.createElement("div");
-        appGetDiv.className = "appget";
+                    var appNameDiv = document.createElement("div");
+                    appNameDiv.className = "appname";
+                    appNameDiv.textContent = appData.name;
+                    appCellMetaDiv.appendChild(appNameDiv);
 
-        var appGetBtn = document.createElement("a");
-        appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+                    var appDevDiv = document.createElement("div");
+                    appDevDiv.className = "appsection";
+                    appDevDiv.textContent = appData.developer;
+                    appCellMetaDiv.appendChild(appDevDiv);
 
-        var getBtn = document.createElement("button");
-        getBtn.className = "getbtn";
-        getBtn.textContent = "GET";
+                    appCellLeftDiv.appendChild(appCellMetaDiv);
+                    dockDiv.appendChild(appCellLeftDiv);
 
-        appGetBtn.appendChild(getBtn);
-        appGetDiv.appendChild(appGetBtn);
-        dockDiv.appendChild(appGetDiv);
+                    var appGetDiv = document.createElement("div");
+                    appGetDiv.className = "appget";
 
-        appListDiv.appendChild(dockDiv);
-      });
-    })
-    .catch(function(error) {
-      console.log('Error', error);
-    });
-}
+                    var appGetBtn = document.createElement("a");
+                    appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+
+                    var getBtn = document.createElement("button");
+                    getBtn.className = "getbtn";
+                    getBtn.textContent = "GET";
+
+                    appGetBtn.appendChild(getBtn);
+                    appGetDiv.appendChild(appGetBtn);
+                    dockDiv.appendChild(appGetDiv);
+
+                    appListDiv.appendChild(dockDiv);
+                });
+            }
+        }
+
+        // Appeler la fonction pour afficher les données
+        afficherDonnees();
 
   </script>
       <script>
