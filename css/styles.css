@@ -1107,11 +1107,10 @@ h3, p {
 
 #accountForm {
     max-width: 400px;
-    margin: 16px auto;
+    margin-left: 16px;
     padding: 20px;
-    background-color: #1c1c1c;
+    margin-right: 16px;
     border-radius: 13px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 label {
@@ -1126,7 +1125,7 @@ input[type="file"] {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #404040;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 input[type="file"] {
