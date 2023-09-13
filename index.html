@@ -50,15 +50,15 @@
     <h2 style="font-family:helvetica;font-size:12px;color:#9d9d9d;margin-top: 12px;margin-bottom: 12px;">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
 	
 	
-    <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="color: #a1a1a1;">Beta</span></h1>
+    <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="margin-left: 4px;color: #a1a1a1;">Beta</span></h1>
 	
 <!--Featured Header-->	
 
   <div class="slider-container">
     <div class="slider-list">
-      <div class="slider-item active"><img src="https://media.idownloadblog.com/wp-content/uploads/2019/01/unc0ver-clouds.jpg"></div>
-      <div class="slider-item"><img src="https://pbs.twimg.com/media/E7wltdwVgAAEVUE?format=jpg&name=4096x4096"></div>
-      <div class="slider-item"><img src="https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"></div>
+      <div onclick="openPage('appinfos.html?name=unc0ver')" class="slider-item active"><img src="https://media.idownloadblog.com/wp-content/uploads/2019/01/unc0ver-clouds.jpg"></div>
+      <div onclick="openPage('appinfos.html?name=PostBox')" class="slider-item"><img src="https://pbs.twimg.com/media/E7wltdwVgAAEVUE?format=jpg&name=4096x4096"></div>
+      <div onclick="openPage('appinfos.html?name=Enmity')" class="slider-item"><img src="https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"></div>
     </div>
   </div>
 
@@ -72,11 +72,11 @@
   <div class="circle" onclick="openPage('https://sign.cococloud-signing.online/own-cert/')">
     <i class="fa-solid fa-address-card" style="color: #55cb59;"></i>
   </div>
-  <div class="circle" onclick="openPage('account.html')">
-    <i class="fa-solid fa-user" style="color: #F96269;"></i> 
-  </div>
   <div class="circle" onclick="openPage('https://sign.cococloud-signing.online/free/')">
     <i class="fa-solid fa-signature" style="color: #2e95fc;"></i>
+  </div>
+  <div class="circle" onclick="openPage('account.html')">
+    <i class="fa-solid fa-user" style="color: #F96269;"></i> 
   </div>
 </div>	
 	
@@ -167,7 +167,7 @@
 <!-- End Featured Apps-->
     
     <!--Recently Added-->
-   <h3 id="topapps" style="margin-top: 10px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Top Apps</h3>
+   <h3 id="topapps" style="margin-top: 15px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Top Apps</h3>
 	
 <div class="appList">										  
               <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
@@ -200,8 +200,9 @@
                 </div>
               </div>
    </div>
+<img class="solobanner" src="img/minecraft.jpg">
     <!-- End Popular Apps-->
-   <h3 id="topapps" style="margin-top: 10px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Top Games</h3>
+   <h3 id="topapps" style="margin-top: 15px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Top Games</h3>
 	
 <div class="appList">										  
               <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
@@ -236,7 +237,7 @@
    </div>
     <!-- End Popular Apps-->    
     <!--Tutorials-->
-   <h3 id="newstuto" style="margin-top: 10px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">News and tutorials</h3>
+   <h3 id="newstuto" style="margin-top: 15px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">News and tutorials</h3>
 
 
 <div class="carousel-container">
@@ -263,13 +264,10 @@
   </div>
 </div>
     <!--End Tutorials-->
-										  
-<br>
-<br>
 
  
 
-<h3 id="status" style="margin-top: 0px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Status</h3>	   
+<h3 id="status" style="margin-top: 0px;margin-bottom: 15px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Status</h3>	   
 <div class="status-container">
 <p>
         Signing Status: <span id="signed-status-free">[Signed Status]</span> <br> 
