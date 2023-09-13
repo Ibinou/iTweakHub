@@ -83,12 +83,7 @@
         
 if (!window.matchMedia('(display-mode: standalone)').matches) {
   // L'application n'est pas installée sur l'écran d'accueil
-  var confirmation = confirm("Please add iTweakHub to your homescreen to use it.");
-
-  if (confirmation) {
-    // Recharge la page actuelle
-    window.location.reload();
-  }
+  alert("Please add iTweakHub to your homescreen to use it.");
 }
 
     </script>
