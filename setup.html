@@ -80,6 +80,11 @@
                 alert('Please select a profile picture.');
             }
         });
+        
+if (!window.matchMedia('(display-mode: standalone)').matches) {
+  // L'application n'est pas installée sur l'écran d'accueil
+  alert("Please add iTweakHub to your homescreen to use it.");
+}
 
     </script>
    
