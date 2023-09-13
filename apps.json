@@ -31,6 +31,26 @@
             "compatibility": "iOS"
         },
         {
+            "name": "OldOS",
+            "version": "1.0 Build 18",
+            "ipa": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
+            "developer": "zzanehip",
+            "section": "Utilities",
+            "description": "iOS 4 rebuilt in swift UI.",
+            "compatibility": "iOS 14+"
+        },
+        {
+            "name": "Misaka KFD",
+            "version": "2.0.3 beta",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/raw/main/misaka-2.0.3_Beta.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png?raw=true",
+            "developer": "straight-tamago",
+            "section": "MacDirtyCow",
+            "description": "Misaka tweak manager for iOS provides seamless access to repositories housing a vast collection of tweaks, including the comprehensive range of MacDirtyCow packages tailored specifically for iOS 15 and iOS 16. With an extensive library of over 333 packages, Misaka Tweak Manager offers an abundance of options to customize and enhance your device's functionality, all without the requirement of a jailbreak. All iPhones are supported.",
+            "compatibility": "iOS 16.2-16.5 & 16.6b1"
+        },
+        {
             "name": "Scrennshot X",
             "version": "1.0 2022",
             "ipa": "https://drive.google.com/uc?export=download&id=19oRvCjtsIwuHool8B807rib8BSYYws4Z",
@@ -40,6 +60,83 @@
             "section": "Utilities",
             "description": "Add very cool mockups to your screenshots. You can also import your own.",
             "compatibility": "iOS"
+        },
+        {
+            "name": "ClassicPlayer",
+            "version": "1.0.3",
+            "ipa": "https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
+            "icon": "https://github.com/guillermo-moran/ClassicPlayer/blob/master/ClassicPlayer_icon.png?raw=true",
+            "developer": "guillermo-moran",
+            "banner": "https://media.idownloadblog.com/wp-content/uploads/2017/06/ClassicPlayer.jpg",
+            "section": "Music",
+            "description": "An iPod Classic simulator for iOS 9+.",
+            "compatibility": "iOS 9+"
+        },
+        {
+            "name": "Odyssey",
+            "version": "1.4.3",
+            "ipa": "https://github.com/Odyssey-Team/Odyssey/releases/download/v1.4.3/Odyssey-1.4.3.ipa",
+            "icon": "https://bunnyinject.fun/img/odyssey.png",
+            "developer": "Coolstar",
+            "banner": "https://theodyssey.dev/assets/images/meta.png",
+            "section": "Jailbreak",
+            "description": "Jailbreak tool for all A9-A13 devices on iOS 13.0-13.7",
+            "compatibility": "iOS 13.0-13.7"
+        },
+        {
+            "name": "MovieBox Pro",
+            "version": "unknown",
+            "ipa": "https://drive.google.com/uc?export=download&id=1xayx43ZuvO3fjgN9KzdYDnzil6rxBQpl",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true",
+            "developer": "MovieBoxPro",
+            "banner": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true",
+            "section": "Utilities",
+            "description": "Watch movies for free and witout ads.",
+            "compatibility": "iOS 9+"
+        },
+        {
+            "name": "Among US Hack",
+            "version": "unknown",
+            "ipa": "https://drive.google.com/uc?export=download&id=1mSIKvVEK7Z9BA35G14EFFLTZOweUVpQN",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/AmongUS++.JPG?raw=true",
+            "developer": "Laxus",
+            "banner": "https://raw.githubusercontent.com/Ibinou/Lem0nStore/main/ressources/AmongUs.png",
+            "section": "Games",
+            "description": "The hacked game with a lot of new features.",
+            "compatibility": "iOS 10+"
+        },
+        {
+            "name": "Scriptware",
+            "version": "2.591.630",
+            "ipa": "https://github.com/DebianArch64/ScarletDecrypt/releases/download/Latest/Roblox.ipa",
+            "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/29/30/a9/2930a996-9c1e-531b-b650-416c3eae66c5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+            "developer": "unknown",
+            "banner": "https://e1.pxfuel.com/desktop-wallpaper/73/806/desktop-wallpaper-the-best-roblox-games-for-2022-roblox-banner.jpg",
+            "section": "Games",
+            "description": "The hacked game with a lot of new features.",
+            "compatibility": "iOS 15+"
+        },
+        {
+            "name": "Minecraft",
+            "version": "1.20.15",
+            "ipa": "https://cdn.iosvizor.com/minecraft-pe/Minecraft-PE-v1.20.15-iosvizor.com.ipa",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/2B3E554A-FD7B-4013-89EE-3C6F9A2A9916.webp",
+            "developer": "Mojang",
+            "banner": "https://ibinou.github.io/iTweakHub/img/minecraft.jpg",
+            "section": "Games",
+            "description": "Minecraft for iOS is a universal application! You can play on the iPhone and iPad. The game is constantly evolving thanks to our free updates. Minecraft is a game based on placing blocks for building things from them! Minecraft Pocket Edition includes randomly generated worlds, multiplayer over Wi-Fi networks, survival and creative mode. You can work and create your new world with friends. In the latest update, monsters from the game Creepers are added. They are big and green. But this is just one of many updates.",
+            "compatibility": "iOS 15+"
+        },
+        {
+            "name": "Agar.io hack",
+            "version": "1.20.15",
+            "ipa": "https://drive.google.com/uc?export=download&id=1el8X7GcxG4RPPZWGdHHE1NIseqC3dNMu",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/512x512bb.jpg",
+            "developer": "Laxus",
+            "banner": "https://www.imgawards.com/wp-content/uploads/2016/03/agario-720x380.jpg",
+            "section": "Games",
+            "description": "The hacked version of the game with a lot of new features.",
+            "compatibility": "iOS 15+"
         },
         {
             "name": "Cowabunga",
