@@ -578,7 +578,7 @@ progress::-webkit-progress-value {
 }
 
 .item img {
-  height: auto;
+  height: 37px;
   width: 37px;
   height: auto;
   object-fit: cover;
