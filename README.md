@@ -39,7 +39,7 @@ We use repos to handle our apps
 ```
 
 ## Release date
-Soon
+Now
 
 - Backend: ~95%
 - Frontend: ~95% (some UI bugs, missing some html files and some html files are imcomplete)
