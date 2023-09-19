@@ -38,8 +38,8 @@ We use repos to handle our apps
 }
 ```
 
-## Release date
-Now
+## Version
+1.0 Beta
 
-- Backend: ~95%
-- Frontend: ~95% (some UI bugs, missing some html files and some html files are imcomplete)
+- Backend: ~95% 
+- Frontend: ~95% (some UI bugs )
