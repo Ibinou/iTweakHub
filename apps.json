@@ -31,6 +31,16 @@
             "compatibility": "iOS"
         },
         {
+            "name": "PPSSPP",
+            "version": "1.15.4",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/v2/ppsspp-1.15.4-562-org.ppsspp.ppsspp.ipa",
+            "icon": "https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
+            "developer": "unknown",
+            "section": "Emulator",
+            "description": "PPSSPP is the one and only PSP emulator for iOS written in C++. It is capable of running a lot of original games but, depending on the power of your device, not all may run at full speed due to JIT.",
+            "compatibility": "iOS 5+"
+        },
+        {
             "name": "OldOS",
             "version": "1.0 Build 18",
             "ipa": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
