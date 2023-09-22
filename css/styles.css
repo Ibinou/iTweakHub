@@ -1130,3 +1130,12 @@ input[type="file"] {
 input[type="file"] {
     cursor: pointer;
 }
+
+title2 {
+    margin-top: 1px;
+    margin-bottom: 10px;
+    font-family: helvetica;
+    font-size: 22px;
+    color: white;
+    font-weight: 700;
+}
