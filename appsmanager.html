@@ -64,7 +64,7 @@
 	    
 <p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Repos</p>	
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
-         <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" onclick="alert('This is a beta, not all features are available !')"></i>
+         <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" id="reload" ></i>
 
     <div id="repos" class="repos">
 <a href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">     
@@ -178,7 +178,7 @@ function afficherReposDepuisLocalStorage() {
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
-  var url = prompt("Entrez l'URL du repo :");
+  var url = prompt("Enter URL repo :");
 
   fetch(url)
     .then(function(response) {
@@ -201,7 +201,7 @@ function afficherInfosDepuisJSON() {
     })
     .catch(function(error) {
       console.log('Erreur', error);
-      alert('Erreur, repo invalide', error);
+      alert('Error, invalid repo', error);
     });
 }
 
@@ -341,6 +341,15 @@ function removeFavorite(appName) {
   });
   localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
 }
+
+        // Sélectionnez le bouton par son ID
+        var reloadButton = document.getElementById('reload');
+
+        // Ajoutez un écouteur d'événements pour détecter le clic sur le bouton
+        reloadButton.addEventListener('click', function() {
+            // Rechargez la page actuelle
+            location.reload();
+        });
 </script>
 
     <script>
