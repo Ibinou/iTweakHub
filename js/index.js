@@ -28,14 +28,5 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + value + ";expires=" + expires.toUTCString();
 }
 
-    // Transition
-    window.addEventListener('load', function() {
-        // Sélectionnez le corps de la page
-        var body = document.querySelector('body');
-        
-        // Définissez l'opacité sur 0 avec une transition
-        body.style.opacity = 0;
-        body.style.transition = 'opacity 0.5s ease-in-out';
-    });
-
-
+    //
+    
