@@ -14,6 +14,7 @@
       padding: 0;
       scroll-snap-type: x mandatory;
       transition: transform 0.5s;
+    border-radius: 17px;
     }
     
 .slider-item {
