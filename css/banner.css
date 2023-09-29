@@ -3,6 +3,7 @@
       overflow: auto;
       position: relative;
       scroll-snap-type: x mandatory;
+      border-radius: 17px;
     }
     
     .slider-list {
