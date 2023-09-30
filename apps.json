@@ -231,12 +231,15 @@
         },
         {
             "name": "iPogo",
-            "version": "0.261.1",
+            "version": "3.1.2",
             "developer": "Niantic, Inc.",
             "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/unnamed.png",
-            "ipa": "https://ipogo.app/download/ipogo-3.0.4.ipa",
+            "ipa": "https://ipogo.app/download/ipogo-3.1.2.ipa",
             "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App.",
             "compatibility": "iOS 14+",
+            "screenshots": [
+				"https://ipogo.app/assets/img/feature-iphone-1.png"
+            ],     
             "banner": "https://digistatement.com/wp-content/uploads/2022/02/iPogo-1.jpg",
             "section": "Tweaked Games"
         },
