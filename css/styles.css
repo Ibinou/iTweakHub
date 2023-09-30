@@ -1030,15 +1030,6 @@ h3, p {
   border-radius: 14px;
 }
 
-.status-container {
-    max-width: 480px;
-    padding: 16px;
-    margin-bottom: 40px;
-    background-color: #1c1c1c;
-    border-radius: 13px;
-    border: 1px solid rgb(37, 37, 39);
-}
-
 .item button {
     font-size: 14px;
     background-color: var(--accent-color);
@@ -1138,4 +1129,40 @@ title2 {
     font-size: 22px;
     color: white;
     font-weight: 700;
+}
+
+//index.html
+.cert-container {
+  background-color: #1c1c1c;
+  border-radius: 13px;
+  width: 100%;
+  height: 67px;
+  padding: 16px;
+  align-items: center;
+  display: flex;
+  border: 1px solid rgb(37, 37, 39);
+}
+
+.cert-infos span {
+  color: white;
+  font-size: 16px;
+}
+.cert-infos h3 {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.cert-infos {
+  width: 100%;
+}
+#signed-status-free {
+  color: white;
+  font-size: 16px;
+  float: right;
+}
+#cococloud-ios-cert-exp {
+  color: #8d8c91;
+  font-size: 16px;
 }
