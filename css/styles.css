@@ -1131,16 +1131,18 @@ title2 {
     font-weight: 700;
 }
 
-//index.html
+
 .cert-container {
   background-color: #1c1c1c;
   border-radius: 13px;
   width: 100%;
-  height: 67px;
+  height: 80px;
   padding: 16px;
   align-items: center;
   display: flex;
   border: 1px solid rgb(37, 37, 39);
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .cert-infos span {
@@ -1150,8 +1152,9 @@ title2 {
 .cert-infos h3 {
   color: white;
   font-size: 16px;
-  margin-bottom: 0px;
+  margin-bottom: 2px;
   margin-top: 0px;
+  font-weight: 500;
 }
 
 .cert-infos {
@@ -1165,4 +1168,6 @@ title2 {
 #cococloud-ios-cert-exp {
   color: #8d8c91;
   font-size: 16px;
+  margin-top: 2px;
 }
+
