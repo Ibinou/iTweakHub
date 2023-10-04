@@ -348,13 +348,15 @@
   </div>   
 </div>
 
+<a id="cert href="">
   <ul class="ioslist">
-<li style="border-bottom-width: 0px;" onclick="openPage('https://github.com/Ibinou/iTweakHub/raw/main/certs/Mylan%20Inc.zip')">
+<li style="border-bottom-width: 0px;">
 <div class="ioslist_icon"><i class="fa-regular fa-id-card"></i></div>
 <span>Download the certificate</span>
 </li>
 </ul>
-  
+</a>
+
 <div class="others">
 <button style="margin-left: 0px;" onclick="window.location.href='https://getitweakhub.netlify.app'" id="favorite">Website</button>
 <button style="margin-right: 0px;" id="share" onclick="window.location.href = 'mailto:itweakhub@gmail.com';">Support</button>
@@ -494,6 +496,22 @@
         } else {
             window.location.href = 'setup.html'; // Redirect to setup page if no data
         }
+        
+        
+          // Récupérer l'élément <a> par son ID
+        var lien = document.getElementById("cert");
+
+        // Faire une requête HTTP pour récupérer le JSON depuis l'URL
+        fetch('https://cococloud-signing.online/certs/?latest=true')
+        .then(response => response.json())
+        .then(data => {
+            // Mettre à jour l'attribut href avec l'URL du JSON
+            lien.href = data[0].download;
+        })
+        .catch(error => {
+            console.error('Erreur de chargement du JSON :', error);
+        });
+        
   </script>
 <script>
   function openPage(url) {
