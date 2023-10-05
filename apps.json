@@ -41,6 +41,17 @@
             "compatibility": "iOS"
         },
         {
+            "name": "iSpoofer",
+            "version": "unknown",
+            "ipa": "https://ispoofer.app/Signed.ipa",
+            "icon": "https://ispoofer.app/assets/imgs/AppIcon.png",
+            "developer": "Dave",
+            "section": "Tweaked Games",
+            "banner" : "https://miro.medium.com/v2/resize:fit:1400/0*jc9FPbRF6vg26qGO.jpg",
+            "description": "The best spoofer for PokémonGO",
+            "compatibility": "iOS"
+        },
+        {
             "name": "EmuThreeDS",
             "version": "1.0.6.5(6)",
             "ipa": "https://github.com/emuPlace/emuThreeDS/releases/download/1.0.6.5.6/emuThreeDS.v1.0.6.5.6.ipa",
