@@ -357,11 +357,7 @@
 </ul>
 </a>
 
-<div class="others">
-<button style="margin-left: 0px;" onclick="window.location.href='https://getitweakhub.netlify.app'" id="favorite">Website</button>
-<button style="margin-right: 0px;" id="share" onclick="window.location.href = 'mailto:itweakhub@gmail.com';">Support</button>
-</div>
-        
+
         <br>
         <br>
 	<br>
@@ -521,7 +517,7 @@
 navigator.serviceWorker.ready.then(registration => {
   navigator.serviceWorker.addEventListener('message', event => {
     if (event.data === 'showOfflineAlert') {
-      alert("Vous êtes actuellement hors ligne. Veuillez vérifier votre connexion Internet.");
+      alert("You're offline !");
     }
   });
 });
@@ -535,7 +531,7 @@ function areCookiesEnabled() {
 
 // Afficher une alerte si les cookies ne sont pas activés (possible navigation privée)
 if (!areCookiesEnabled()) {
-  alert("Nous vous recommandons de désactiver le mode navigation privée pour une meilleure expérience sur notre site.");
+  alert("Please enable the cookies.");
 }
 
 // var Lang = navigator.language ;
