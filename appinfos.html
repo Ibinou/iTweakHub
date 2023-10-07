@@ -124,6 +124,7 @@ nav h1 i a {
 </div>
 <br>
 <br>
+  <a id="import" href="">Import (test)</a>
 <br>
 <br>
 <br>
@@ -259,6 +260,9 @@ function displayAppInfo(appData) {
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
+
+        const importButton = document.getElementById("import");
+        importButton.setAttribute("href", `scarlet://install=${appData.ipa}`);
 
         const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
