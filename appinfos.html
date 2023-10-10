@@ -272,7 +272,7 @@ function displayAppInfo(appData) {
         importButton.setAttribute("href", `scarlet://install=${appData.ipa}`);
 
         const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `https://cococloud-signing.online/free-signing?url=${appData.ipa}`);
+        ipaButton.setAttribute("href", `${appData.ipa}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
