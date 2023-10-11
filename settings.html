@@ -40,6 +40,21 @@
 </center>
 <br>
 
+    <div class="suggestion-card" id="card">
+        <div class="iconfeedback">
+            <i class="fa fa-thumbs-up"></i>
+        </div>
+        <div class="text">
+            <div class="title">Leave a feedback</div>
+            <div class="subtitle">Your opinion is very important to us</div>
+        </div>
+        <div class="close-iconfeedback">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+
+
+
 <div class="settings-grid">	 
 <ul class="ioslist">
 <li style="border-bottom-width: 0px;" onclick="window.location.href='settings/general.html'">
@@ -196,7 +211,24 @@ document.getElementById("clear-cookies-btn").addEventListener("click", function(
   window.location.href = "setup.html";
 });
 
+        // Ajout de la gestion de fermeture de la carte
+        const card = document.getElementById('card');
+        const closeIcon = document.querySelector('.close-iconfeedback');
 
+        closeIcon.addEventListener('click', () => {
+            // Disparition de la carte avec une animation simple
+            card.style.opacity = 0;
+            card.style.transform = 'scale(0)';
+            
+            // Enregistrement du cookie
+            document.cookie = 'card1=hidden; expires=Sun, 31 Dec 2033 12:00:00 UTC';
+        });
+
+        // Vérification si le cookie existe pour masquer la carte
+        if (document.cookie.indexOf('card1=hidden') !== -1) {
+            card.style.display = 'none';
+        }
+    
 
    </script>
 
