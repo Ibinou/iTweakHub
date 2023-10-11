@@ -1171,3 +1171,38 @@ title2 {
   margin-top: 2px;
 }
 
+        .suggestion-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid rgb(37, 37, 39);
+            border-radius: 12px;
+            background-color: #1c1c1c;
+        }
+
+        .iconfeedback {
+            font-size: 30px;
+            margin-right: 20px;
+            color: var(--accent-color);
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .close-iconfeedback {
+            cursor: pointer;
+            color: #909090;
+        }
+
