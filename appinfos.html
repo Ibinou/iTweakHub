@@ -302,7 +302,7 @@ function displayAppInfo(appData) {
 const appNameFromURL = getParameterByName("name");
 
 // Charger le fichier JSON en utilisant une requête AJAX
-const jsonFileURL = "apps.json";
+const jsonFileURL = "https://ibinou.github.io/iTweakHub/apps.json";
 fetch(jsonFileURL)
     .then(response => response.json())
     .then(data => {
