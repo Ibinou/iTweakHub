@@ -21,6 +21,22 @@
             "section": "MDC"
         },
         {
+            "name": "Delta",
+            "developer": "Riley Testut",
+            "version": "1.4.1",
+            "ipa": "https://cdn.altstore.io/file/altstore/apps/delta/1_4_1.ipa",
+            "icon": "https://user-images.githubusercontent.com/705880/63391976-4d311700-c37a-11e9-91a8-4fb0c454413d.png",
+            "screenshots": [
+				"https://user-images.githubusercontent.com/705880/65600448-f7d9be00-df54-11e9-9e3e-d4c31296da94.PNG",
+                "https://user-images.githubusercontent.com/705880/65813009-f2ae8600-e183-11e9-9eb7-704effc11173.png",
+				"https://user-images.githubusercontent.com/705880/65601117-58b5c600-df56-11e9-9c19-9a5ba5da54cf.PNG",
+                "https://user-images.githubusercontent.com/705880/65601125-5b182000-df56-11e9-9e7e-261480e893c0.PNG"
+            ],     
+            "compatibility": "iOS",
+            "description": "Delta is an all-in-one emulator for iOS. Delta builds upon the strengths of its predecessor, GBA4iOS, while expanding to include support for more game systems such as NES, SNES, and N64.",
+            "section": "Emulators"
+        },
+        {
             "name": "uYou+",
             "version": "18.14.1-3.0",
             "ipa": "https://github.com/qnblackcat/uYouPlus/releases/download/v18.14.1-3.0/uYouPlus_18.14.1_3.0.ipa",
