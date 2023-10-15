@@ -175,8 +175,8 @@
         },
         {
             "name": "Minecraft",
-            "version": "1.20.15",
-            "ipa": "https://cdn.iosvizor.com/minecraft-pe/Minecraft-PE-v1.20.15-iosvizor.com.ipa",
+            "version": "1.20.40.22",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/v33/Minecraft.ipa",
             "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/2B3E554A-FD7B-4013-89EE-3C6F9A2A9916.webp",
             "developer": "Mojang",
             "banner": "https://ibinou.github.io/iTweakHub/img/minecraft.jpg",
