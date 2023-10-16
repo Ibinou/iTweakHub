@@ -240,7 +240,7 @@ function afficherDonnees() {
         })
         .then(function(data) {
             appsData = data.Apps;
-            afficherApplicationsPourSection("Games"); // Affichez les applications "Games" par défaut
+            afficherApplications(appsData); // Affichez toutes les applications par défaut
         })
         .catch(function(error) {
             console.log('Error fetching apps.json', error);
@@ -254,6 +254,54 @@ function afficherDonnees() {
         });
     });
 
+    function afficherApplications(appsData) {
+        appListDiv.innerHTML = ''; // Effacez la liste des applications précédentes
+        appsData.forEach(function(appData) {
+            var dockDiv = document.createElement("div");
+            dockDiv.className = "dock";
+
+            var appCellLeftDiv = document.createElement("div");
+            appCellLeftDiv.className = "app_cell_left";
+
+            var appIconImg = document.createElement("img");
+            appIconImg.className = "appicon";
+            appIconImg.src = appData.icon;
+            appCellLeftDiv.appendChild(appIconImg);
+
+            var appCellMetaDiv = document.createElement("div");
+            appCellMetaDiv.className = "app_cell_meta";
+
+            var appNameDiv = document.createElement("div");
+            appNameDiv.className = "appname";
+            appNameDiv.textContent = appData.name;
+            appCellMetaDiv.appendChild(appNameDiv);
+
+            var appDevDiv = document.createElement("div");
+            appDevDiv.className = "appsection";
+            appDevDiv.textContent = appData.developer;
+            appCellMetaDiv.appendChild(appDevDiv);
+
+            appCellLeftDiv.appendChild(appCellMetaDiv);
+            dockDiv.appendChild(appCellLeftDiv);
+
+            var appGetDiv = document.createElement("div");
+            appGetDiv.className = "appget";
+
+            var appGetBtn = document.createElement("a");
+            appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+
+            var getBtn = document.createElement("button");
+            getBtn.className = "getbtn";
+            getBtn.textContent = "GET";
+
+            appGetBtn.appendChild(getBtn);
+            appGetDiv.appendChild(appGetBtn);
+            dockDiv.appendChild(appGetDiv);
+
+            appListDiv.appendChild(dockDiv);
+        });
+    }
+
     function afficherApplicationsPourSection(sectionName) {
         // Effacer la liste des applications précédentes
         appListDiv.innerHTML = '';
@@ -264,12 +312,7 @@ function afficherDonnees() {
         });
 
         // Afficher les applications filtrées
-        filteredApps.forEach(function(appData) {
-            var appDiv = document.createElement("div");
-            appDiv.className = "app";
-            appDiv.textContent = appData.name;
-            appListDiv.appendChild(appDiv);
-        });
+        afficherApplications(filteredApps);
     }
 }
   </script>
