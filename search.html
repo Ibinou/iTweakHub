@@ -228,6 +228,50 @@ function afficherDonnees() {
       }
     }
 
+
+function afficherDonnees() {
+    var appListDiv = document.getElementById("appList");
+    var sectionscarr = document.querySelector(".sectionscarr");
+    var appsData = []; // Stocker toutes les données des applications
+
+    fetch('apps.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            appsData = data.Apps;
+            afficherApplicationsPourSection("Games"); // Affichez les applications "Games" par défaut
+        })
+        .catch(function(error) {
+            console.log('Error fetching apps.json', error);
+        });
+
+    // Ajouter un gestionnaire d'événements pour chaque div "section"
+    sectionscarr.querySelectorAll(".sections").forEach(function(sectionElement) {
+        sectionElement.addEventListener('click', function() {
+            var sectionName = sectionElement.textContent;
+            afficherApplicationsPourSection(sectionName);
+        });
+    });
+
+    function afficherApplicationsPourSection(sectionName) {
+        // Effacer la liste des applications précédentes
+        appListDiv.innerHTML = '';
+
+        // Filtrer les applications pour la section sélectionnée
+        var filteredApps = appsData.filter(function(appData) {
+            return appData.section === sectionName;
+        });
+
+        // Afficher les applications filtrées
+        filteredApps.forEach(function(appData) {
+            var appDiv = document.createElement("div");
+            appDiv.className = "app";
+            appDiv.textContent = appData.name;
+            appListDiv.appendChild(appDiv);
+        });
+    }
+}
   </script>
 <script src="js/index.js"></script>
 	</div>
