@@ -73,7 +73,7 @@
             "ipa": "https://github.com/emuPlace/emuThreeDS/releases/download/1.0.6.5.6/emuThreeDS.v1.0.6.5.6.ipa",
             "icon": "https://raw.githubusercontent.com/emuPlace/emuThreeDS/main/emuThreeDS/Assets.xcassets/LightAppIcon.appiconset/Icon-App-76x76%402x.png",
             "developer": "emuPlace",
-            "section": "Emulator",
+            "section": "Emulators",
             "description": "EmuThreeDS is a free and open-source Nintendo 3DS emulator for iOS devices. It allows you to play your favorite Nintendo 3DS games on your iPhone, iPad, or Apple TV. EmuThreeDS is still under development, but it is already capable of running many popular Nintendo 3DS games at full speed.",
             "compatibility": "iOS"
         },
@@ -83,7 +83,7 @@
             "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/v2/ppsspp-1.15.4-562-org.ppsspp.ppsspp.ipa",
             "icon": "https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
             "developer": "unknown",
-            "section": "Emulator",
+            "section": "Emulators",
             "description": "PPSSPP is the one and only PSP emulator for iOS written in C++. It is capable of running a lot of original games but, depending on the power of your device, not all may run at full speed due to JIT.",
             "compatibility": "iOS 5+"
         },
