@@ -21,6 +21,16 @@
             "section": "MDC"
         },
         {
+            "name": "FlixHub",
+            "developer": "Dangerous Pixel",
+            "version": "1.0.7",
+            "ipa": "https://github.com/Ibinou/iTweakHub/raw/main/apps/Flixhub.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/4IZcJrc.jpeg?raw=true",
+            "compatibility": "iOS - iPadOS",
+            "description": "[Use a vpn if the app is not working] Watch movies and Tv shows in good quality and WITHOUT ad for FREE",
+            "section": "MDC"
+        },
+        {
             "name": "Delta",
             "developer": "Riley Testut",
             "version": "1.4.1",
