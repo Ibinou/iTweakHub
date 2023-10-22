@@ -303,7 +303,7 @@ function displayAppInfo(appData) {
         const alertText = document.querySelector(".alerttext");
 
         if (appData.alert) {
-            alertBox.style.display = "block";
+            alertBox.style.display = "flex";
             alertText.textContent = appData.alert;
         } else {
             alertBox.style.display = "none";
