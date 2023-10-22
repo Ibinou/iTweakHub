@@ -256,19 +256,6 @@ function displayAppInfo(appData) {
         const appDeveloperElement = document.getElementById("appDeveloper");
         appDeveloperElement.textContent = appData.developer;
        
-        if (appData.alert) {
-            // Mettez à jour l'élément "alerttext" avec la valeur de "alert"
-            const alertTextElement = document.querySelector(".alertbox .alerttext");
-            alertTextElement.textContent = appData.alert;
-
-            // Affichez l'élément "alertbox"
-            const alertBoxElement = document.querySelector(".alertbox");
-            alertBoxElement.style.display = "block";
-        } else {
-            // Cachez l'élément "alertbox" s'il n'y a pas de propriété "alert"
-            const alertBoxElement = document.querySelector(".alertbox");
-            alertBoxElement.style display = "none";
-        }
       
         const appVersionElement = document.getElementById("appVersion");
         appVersionElement.textContent = appData.version;
@@ -313,12 +300,27 @@ function displayAppInfo(appData) {
             const screenHeading = document.getElementById("screen");
             screenHeading.style.display = "none"; // Hide the h3 element
         }
+        
+        
     } else {
         appInfoDiv.textContent = "Application not found.";
     }
+           if (appData && appData.alert) {
+            // Mettez à jour l'élément "alerttext" avec la valeur de "alert"
+            const alertTextElement = document.querySelector(".alertbox .alerttext");
+            alertTextElement.textContent = appData.alert;
+
+            // Affichez l'élément "alertbox"
+            const alertBoxElement = document.querySelector(".alertbox");
+            alertBoxElement.style.display = "block";
+        } else {
+            // Cachez l'élément "alertbox" s'il n'y a pas de propriété "alert"
+            const alertBoxElement = document.querySelector(".alertbox");
+            alertBoxElement.style display = "none";
+        }
 }
 
-// Récupérer le nom de l'application depuis l'URL et afficher ses informations
+//  Récupérer le nom de l'application depuis l'URL et afficher ses informations
 const appNameFromURL = getParameterByName("name");
 
 // Charger le fichier JSON en utilisant une requête AJAX
