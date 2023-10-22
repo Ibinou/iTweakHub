@@ -95,7 +95,7 @@ nav h1 i a {
     <h2 style="text-align:center;"><span id="appName">App Name</span></h2>
 </div>
 
-<div class="alertbox">
+<div id="alertbox" class="alertbox">
     <i id="alerticon" class="fa-solid fa-triangle-exclamation"></i>
     <p class="alerttext">TEST</p>
   </div>
@@ -270,20 +270,6 @@ function displayAppInfo(appData) {
             appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
         }
         
-        // Vérifiez si la propriété "alert" existe dans le JSON
-        if (appData && appData.alert) {
-            // Mettez à jour l'élément "alerttext" avec la valeur de "alert"
-            const alertTextElement = document.querySelector(".alertbox .alerttext");
-            alertTextElement.textContent = appData.alert;
-
-            // Affichez l'élément "alertbox"
-            const alertBoxElement = document.querySelector(".alertbox");
-            alertBoxElement.style.display = "block";
-        } else {
-            // Cachez l'élément "alertbox" s'il n'y a pas de propriété "alert"
-            const alertBoxElement = document.querySelector(".alertbox");
-            alertBoxElement.style display = "none";
-        }
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
@@ -424,6 +410,22 @@ favoriteButton.addEventListener("click", () => {
                 // Ouvrez la fenêtre de tweet
                 window.open(tweetIntentUrl, '_blank');
             });
+        }
+</script>
+<script>
+// Vérifiez si la propriété "alert" existe dans le JSON
+        if (appData && appData.alert) {
+            // Mettez à jour l'élément "alerttext" avec la valeur de "alert"
+            const alertTextElement = document.querySelector(".alertbox .alerttext");
+            alertTextElement.textContent = appData.alert;
+
+            // Affichez l'élément "alertbox"
+            const alertBoxElement = document.querySelector(".alertbox");
+            alertBoxElement.style.display = "block";
+        } else {
+            // Cachez l'élément "alertbox" s'il n'y a pas de propriété "alert"
+            const alertBoxElement = document.querySelector(".alertbox");
+            alertBoxElement.style display = "none";
         }
 </script>
 <script src="js/appInfos.js"></script> 
