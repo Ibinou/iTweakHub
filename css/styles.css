@@ -1206,4 +1206,31 @@ title2 {
             cursor: pointer;
             color: #909090;
         }
+        
 
+    .alertbox {
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      background-color: #1c1c1c;
+      margin: 0 auto;
+      border-radius: 15px;
+      
+    }
+
+    #alerticon {
+      font-size: 24px;
+      margin-right: 10px;
+      margin-left: 10px;
+      color: #FF8448;
+    }
+
+    .alerttext {
+      margin-left: 6px;
+      color: white;
+      
+     
+    }
