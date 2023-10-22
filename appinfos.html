@@ -255,8 +255,7 @@ function displayAppInfo(appData) {
 
         const appDeveloperElement = document.getElementById("appDeveloper");
         appDeveloperElement.textContent = appData.developer;
-       
-      
+
         const appVersionElement = document.getElementById("appVersion");
         appVersionElement.textContent = appData.version;
 
@@ -270,7 +269,6 @@ function displayAppInfo(appData) {
         } else {
             appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
         }
-        
 
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
@@ -300,15 +298,22 @@ function displayAppInfo(appData) {
             const screenHeading = document.getElementById("screen");
             screenHeading.style.display = "none"; // Hide the h3 element
         }
-        
-        
+
+        const alertBox = document.querySelector(".alertbox");
+        const alertText = document.querySelector(".alerttext");
+
+        if (appData.alert) {
+            alertBox.style.display = "block";
+            alertText.textContent = appData.alert;
+        } else {
+            alertBox.style.display = "none";
+        }
     } else {
         appInfoDiv.textContent = "Application not found.";
     }
-           
 }
 
-//  Récupérer le nom de l'application depuis l'URL et afficher ses informations
+// Récupérer le nom de l'application depuis l'URL
 const appNameFromURL = getParameterByName("name");
 
 // Charger le fichier JSON en utilisant une requête AJAX
@@ -370,7 +375,6 @@ fetch(jsonFileURL)
         const appInfoDiv = document.getElementById("appInfo");
         appInfoDiv.textContent = "Error loading application data.";
     });
-
 
     </script>
 <script>
