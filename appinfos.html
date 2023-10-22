@@ -95,6 +95,11 @@ nav h1 i a {
     <h2 style="text-align:center;"><span id="appName">App Name</span></h2>
 </div>
 
+<div class="alertbox">
+    <i id="alerticon" class="fa fa-home icon"></i>
+    <p class="alerttext"></p>
+  </div>
+
 <span id="appDescription" style="opacity:90%;display: block;width: 90%;margin-left:16px;margin-top: -47px;">App Description</span>
 
 
@@ -293,6 +298,17 @@ function displayAppInfo(appData) {
             const screenHeading = document.getElementById("screen");
             screenHeading.style.display = "none"; // Hide the h3 element
         }
+
+        // Vérifiez si la propriété "alert" existe dans le JSON
+        if (appData.alert) {
+            // Mettez à jour l'élément "alerttext" avec la valeur de "alert"
+            const alertTextElement = document.querySelector(".alertbox .alerttext");
+            alertTextElement.textContent = appData.alert;
+
+            // Affichez l'élément "alertbox"
+            const alertBoxElement = document.querySelector(".alertbox");
+            alertBoxElement.style.display = "block";
+        }
     } else {
         appInfoDiv.textContent = "Application not found.";
     }
@@ -322,7 +338,7 @@ fetch(jsonFileURL)
                     console.error("Error loading JSON file from repoURL:", error);
                     return null;
                 }
-            };
+            }
 
             // Utilisez Promise.all pour effectuer des requêtes parallèles aux URL JSON de repoURLs
             const repoURLPromises = repoURLs.map(fetchAppData);
