@@ -34,7 +34,8 @@
             "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/V.4.0/Enmity.ipa",
             "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/IMG_2859.jpeg",
             "compatibility": "iOS - iPadOS",
-            "description": "Enmity for discord is a tweaked app that allows you to use plugins & themes. To get plugins & themes go to the official Enmity <a href='https://discord.gg/enmity'>Discord</a>",
+	    "banner" : "https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg",
+            "description": "Enmity is a tweaked Discord version that allows you to use plugins & themes. To get plugins & themes go to the official Enmity Discord",
             "section": "Tweaked Apps"
         },
         {
