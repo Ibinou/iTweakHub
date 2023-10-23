@@ -365,7 +365,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    appInfoDiv.textContent = "Error loading application data.";
+                    
                 });
         } else {
             // Si l'application a été trouvée dans "apps.json"
@@ -378,7 +378,7 @@ fetch(jsonFileURL)
     .catch(error => {
         console.error("Error loading JSON file:", error);
         const appInfoDiv = document.getElementById("appInfo");
-        appInfoDiv.textContent = "Error loading application data.";
+        
     });
 
     </script>
