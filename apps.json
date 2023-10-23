@@ -28,6 +28,16 @@
             "section": "Movies"
         },
         {
+            "name": "Enmity",
+            "developer": "Enmity Team",
+            "version": "1.0.0",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/V.4.0/Enmity.ipa",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/IMG_2859.jpeg",
+            "compatibility": "iOS - iPadOS",
+            "description": "Enmity for discord is a tweaked app that allows you to use plugins & themes. To get plugins & themes go to the official Enmity <a href='https://discord.gg/enmity'>Discord</a>",
+            "section": "Tweaked Apps"
+        },
+        {
             "name": "Delta",
             "developer": "Riley Testut",
             "version": "1.4.1",
