@@ -55,14 +55,14 @@
             "section": "Emulators"
         },
         {
-            "name": "uYou+",
-            "version": "18.14.1-3.0",
-            "ipa": "https://github.com/qnblackcat/uYouPlus/releases/download/v18.14.1-3.0/uYouPlus_18.14.1_3.0.ipa",
+            "name": "uYouPlusExtra",
+            "version": "18.40.1-3.0.1",
+            "ipa": "https://github.com/arichorn/uYouPlusExtra/releases/download/v18.40.1-3.0.1/uYouPlusExtra_18.40.1_3.0.1.ipa",
             "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/uYou+.PNG?raw=true",
-            "developer": "qnblackcat",
+            "developer": "arichorn",
             "section": "Tweaked Apps",
-            "description": "uYou+ is a modified version of uYou (made by @MiRO92) with additional features and mainly made for non jailbroken users !",
-            "compatibility": "iOS"
+            "description": "uYouPlusExtra is a modified version of uYou (made by @MiRO92) and uYou+ with additional features and mainly made for non jailbroken users and still updated!",
+            "compatibility": "iOS 13 +"
         },
         {
             "name": "iCreate Pro",
