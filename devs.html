@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#121212">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>	
-    <title>Home</title>
+    <title>Debug</title>
     <script src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -22,60 +22,34 @@
 <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #7163FF;"></i> Home</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: #7163FF;padding-left:16px;margin-top: 0px;">Developer Settings</h1>
     </div>
-	<div class="section">
-        <i class="fa-solid fa-bug-slash icn-right"></i>
-        <p style="transform: translateX(20px)">Debug mode</p>
- 	    <i class="fa-solid fa-angle-right icn-left"></i>
-    </div>
-    <br>
-	<div class="section">
-        <i class="fa-solid fa-code-fork icn-right"></i>
-        <p style="transform: translateX(20px)">Update sign server</p>
- 	    <i class="fa-solid fa-angle-right icn-left"></i>
-    </div>
-    <br>
-	<div class="section">
-        <i class="fa-solid fa-code-merge icn-right"></i>
-        <p style="transform: translateX(20px)">Publish version</p>
- 	    <i class="fa-solid fa-angle-right icn-left"></i>
-    </div>
-    <br>
-	<div class="section">
-        <i class="fa-solid fa-terminal icn-right"></i>
-        <a href="webhook.html" class="inv"><p style="transform: translateX(20px)">Webhook Tools</p></a>
- 	    <i class="fa-solid fa-angle-right icn-left"></i>
-    </div>
-    <br>
-	<div class="section">
-        <i class="fa-solid fa-cubes icn-right"></i>
-        <p style="transform: translateX(20px)">Update packages</p>
- 	    <i class="fa-solid fa-angle-right icn-left"></i>
-    </div>
-    <br>
-	<div class="section">
-        <i class="fa-solid fa-trash-arrow-up icn-right"></i>
-        <a href="setup1.html" class="inv"><p style="transform: translateX(20px)">Reset iTweakHub(legacy)</p></a>
- 	    <i class="fa-solid fa-angle-right icn-left"></i>
-    </div>
-    <br>
-	<div class="section">
-        <i class="fa-solid fa-trash-arrow-up icn-right"></i>
-        <a href="welcome.html" id="clear-cookies-btn" class="inv"><p style="transform: translateX(20px)">Clear Cookies</p></a>
- 	    <i class="fa-solid fa-angle-right icn-left"></i>
-    </div>
+  <div class="debug-menu">
+    <h1>Menu de Débogage</h1>
+    <button onclick="setItemToLocalStorage()">Ajouter au localStorage</button>
+    <button onclick="getItemFromLocalStorage()">Obtenir du localStorage</button>
+    <button onclick="removeItemFromLocalStorage()">Supprimer du localStorage</button>
+    <button onclick="setCookie()">Ajouter un cookie</button>
+    <button onclick="getCookie()">Obtenir un cookie</button>
+    <button onclick="deleteCookie()">Supprimer un cookie</button>
+  </div>
+    
 	<br>
 	<br>
 	<br>
     
-	<iframe
-  id="inlineFrameExample"
-  title="Inline Frame Example"
-  width="300"
-  height="200"
-  src="https://sign.cococloud-signing.online/free/"
->
-</iframe>
+	
+<style>
+.debug-menu {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
+button {
+  margin: 10px;
+}
+</style>
    <script>
 	   document.getElementById("clear-cookies-btn").addEventListener("click", function() {
   var cookies = document.cookie.split(";");
@@ -85,9 +59,50 @@
     var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; //supprime le cookie
   }
-  alert("Les cookies ont été effacés."); //affiche un message de confirmation
-});
-	   
+  alert("Les cookies ont été effacés."); //affiche un message de 
+function setItemToLocalStorage() {
+  const key = prompt("Entrez la clé pour le localStorage :");
+  const value = prompt("Entrez la valeur :");
+  localStorage.setItem(key, value);
+}
+
+function getItemFromLocalStorage() {
+  const key = prompt("Entrez la clé à obtenir du localStorage :");
+  const value = localStorage.getItem(key);
+  alert(`La valeur pour la clé "${key}" est : ${value}`);
+}
+
+function removeItemFromLocalStorage() {
+  const key = prompt("Entrez la clé à supprimer du localStorage :");
+  localStorage.removeItem(key);
+  alert(`La clé "${key}" a été supprimée du localStorage.`);
+}
+
+function setCookie() {
+  const key = prompt("Entrez la clé pour le cookie :");
+  const value = prompt("Entrez la valeur :");
+  document.cookie = `${key}=${value}`;
+}
+
+function getCookie() {
+  const key = prompt("Entrez la clé du cookie à obtenir :");
+  const cookies = document.cookie.split('; ');
+  for (const cookie of cookies) {
+    const [cookieKey, cookieValue] = cookie.split('=');
+    if (cookieKey === key) {
+      alert(`La valeur pour le cookie "${key}" est : ${cookieValue}`);
+      return;
+    }
+  }
+  alert(`Aucun cookie trouvé pour la clé "${key}"`);
+}
+
+function deleteCookie() {
+  const key = prompt("Entrez la clé du cookie à supprimer :");
+  document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  alert(`Le cookie "${key}" a été supprimé.`);
+}
+
    </script>
 
 
