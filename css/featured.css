@@ -118,14 +118,15 @@
 
 
 .moviescard {
-    background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/banners/backgroundmovies.png'); /* Remplacez 'votre-image.jpg' par l'URL de votre image de fond */
+    background-image: url(https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/banners/backgroundmovies.png);
     background-size: cover;
     border-radius: 15px;
-    width: 300px;
     padding: 20px;
     color: white;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 13px;
+    margin-bottom: 22px;
 }
 
 .movie-card-header {
