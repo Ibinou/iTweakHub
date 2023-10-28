@@ -22,6 +22,7 @@
 <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #7163FF;"></i> Home</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: #7163FF;padding-left:16px;margin-top: 0px;">Developer Settings</h1>
     </div>
+  
   <div class="debug-menu">
     <h1>Menu de Débogage</h1>
     <button onclick="setItemToLocalStorage()">Ajouter au localStorage</button>
@@ -31,7 +32,6 @@
     <button onclick="getCookie()">Obtenir un cookie</button>
     <button onclick="deleteCookie()">Supprimer un cookie</button>
   </div>
-    
 	<br>
 	<br>
 	<br>
@@ -60,6 +60,12 @@ button {
     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; //supprime le cookie
   }
   alert("Les cookies ont été effacés."); //affiche un message de 
+
+
+
+   </script>
+
+<script>
 function setItemToLocalStorage() {
   const key = prompt("Entrez la clé pour le localStorage :");
   const value = prompt("Entrez la valeur :");
@@ -102,10 +108,7 @@ function deleteCookie() {
   document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   alert(`Le cookie "${key}" a été supprimé.`);
 }
-
-   </script>
-
-
+</script>
 
 
 </body>
