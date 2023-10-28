@@ -211,23 +211,23 @@ document.getElementById("clear-cookies-btn").addEventListener("click", function(
   window.location.href = "setup.html";
 });
 
-        // Ajout de la gestion de fermeture de la carte
-        const card = document.getElementById('card');
-        const closeIcon = document.querySelector('.close-iconfeedback');
+  // Ajout de la gestion de fermeture de la carte
+const card = document.getElementById('card');
+const closeIcon = document.querySelector('.close-iconfeedback');
 
-        closeIcon.addEventListener('click', () => {
-            // Disparition de la carte avec une animation simple
-            card.style.opacity = 0;
-            card.style.transform = 'scale(0)';
-            
-            // Enregistrement du cookie
-            document.cookie = 'card1=hidden; expires=Sun, 31 Dec 2033 12:00:00 UTC';
-        });
+closeIcon.addEventListener('click', () => {
+    // Suppression de la carte
+    card.remove();
+    
+    // Enregistrement du cookie
+    document.cookie = 'card1=hidden; expires=Sun, 31 Dec 2033 12:00:00 UTC';
+});
 
-        // Vérification si le cookie existe pour masquer la carte
-        if (document.cookie.indexOf('card1=hidden') !== -1) {
-            card.style.display = 'none';
-        }
+// Vérification si le cookie existe pour masquer la carte
+if (document.cookie.indexOf('card1=hidden') !== -1) {
+    card.style.display = 'none';
+}
+
     
 
    </script>
