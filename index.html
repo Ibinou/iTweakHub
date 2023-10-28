@@ -371,6 +371,7 @@
         <br>
         <br>
 	<br>
+      <button id="secretButton" class="debugbtn" onclick="countClicks()"></button>
 	<br>
 	<br>
 	<br>
@@ -553,6 +554,21 @@ if (!areCookiesEnabled()) {
 // document.getElementById("topapps").innerHTML = "Les plus utilisées";
 // document.getElementById("newstuto").innerHTML = "Articles et tutoriels,";
 // }
+
+let clickCounter = 0;
+
+function countClicks() {
+  clickCounter++;
+  if (clickCounter === 5) {
+    openDebugPage();
+  }
+}
+
+function openDebugPage() {
+  // Ouvrez la page de débogage, par exemple, en redirigeant vers une autre page.
+  // Vous pouvez utiliser window.location.href pour cela.
+  window.location.href = 'devs.html'; // Assurez-vous d'avoir une page "debug.html" à ouvrir.
+}
 </script>
 <style>
 ::-webkit-scrollbar {
