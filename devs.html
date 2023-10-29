@@ -19,18 +19,29 @@
 <body>
 
 
-<a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #7163FF;"></i> Home</h1></a>
-    <h1 style="font-family:helvetica;font-size:28px;color: #7163FF;padding-left:16px;margin-top: 0px;">Developer Settings</h1>
-    </div>
+<div class="toptitle">	
+    <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Home</h1></a>
+    <h1 id="settings" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Debug Menu</h1>
+</div>
   
   <div class="debug-menu">
-    <h1>Menu de Débogage</h1>
-    <button onclick="setItemToLocalStorage()">Ajouter au localStorage</button>
-    <button onclick="getItemFromLocalStorage()">Obtenir du localStorage</button>
-    <button onclick="removeItemFromLocalStorage()">Supprimer du localStorage</button>
-    <button onclick="setCookie()">Ajouter un cookie</button>
-    <button onclick="getCookie()">Obtenir un cookie</button>
-    <button onclick="deleteCookie()">Supprimer un cookie</button>
+    <button onclick="setItemToLocalStorage()">Add to localStorage</button>
+    <button onclick="getItemFromLocalStorage()">Get from localStorage</button>
+    <button onclick="removeItemFromLocalStorage()">Delete from localStorage</button>
+    <button onclick="setCookie()">Add a cookie</button>
+    <button onclick="getCookie()">Get a cookie</button>
+    <button onclick="deleteCookie()">Delete a cookie</button>
+<br>
+ <br>
+<h3>Available keys :</h3>
+<ul>
+  <li>repoURLs</li>
+  <li>Card1</li>
+  <li>test-cookie</li>
+  <li>favapps</li>
+  <li>profilePic</li>
+  <li>username</li>
+</ul>
   </div>
 	<br>
 	<br>
@@ -75,18 +86,18 @@ function setItemToLocalStorage() {
 function getItemFromLocalStorage() {
   const key = prompt("Entrez la clé à obtenir du localStorage :");
   const value = localStorage.getItem(key);
-  alert(`La valeur pour la clé "${key}" est : ${value}`);
+  alert(`The value of the key "${key}" is : ${value}`);
 }
 
 function removeItemFromLocalStorage() {
   const key = prompt("Entrez la clé à supprimer du localStorage :");
   localStorage.removeItem(key);
-  alert(`La clé "${key}" a été supprimée du localStorage.`);
+  alert(`The key "${key}" has been deleted from localStorage.`);
 }
 
 function setCookie() {
   const key = prompt("Entrez la clé pour le cookie :");
-  const value = prompt("Entrez la valeur :");
+  const value = prompt("Enter the value :");
   document.cookie = `${key}=${value}`;
 }
 
@@ -96,17 +107,17 @@ function getCookie() {
   for (const cookie of cookies) {
     const [cookieKey, cookieValue] = cookie.split('=');
     if (cookieKey === key) {
-      alert(`La valeur pour le cookie "${key}" est : ${cookieValue}`);
+      alert(`The value of the key "${key}" is : ${cookieValue}`);
       return;
     }
   }
-  alert(`Aucun cookie trouvé pour la clé "${key}"`);
+  alert(`No cookies found for key "${key}"`);
 }
 
 function deleteCookie() {
-  const key = prompt("Entrez la clé du cookie à supprimer :");
+  const key = prompt("Enter the cookie key to delete :");
   document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  alert(`Le cookie "${key}" a été supprimé.`);
+  alert(`The cookie "${key}" has been deleted`);
 }
 </script>
 
