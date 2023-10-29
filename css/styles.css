@@ -1236,9 +1236,11 @@ title2 {
       
      
     }
-    .debugbtn {
-      display: none;
-
-  width:100%;
+.debugbtn {
+    width: 100%;
+    background-color: #121212;
+    border: none;
+    height: 18px;
+    margin-top: 10px;
 }
     
