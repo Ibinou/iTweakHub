@@ -32,7 +32,7 @@
 
 	<p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 100px;margin-bottom: 10px;">DEVICE INFOS</p>	
  <div class="deviceinfos">
-  <img src="https://ipsw.me/assets/devices/iPhone15,3.png" alt="idevice">
+  <img id="device" src="" alt="idevice">
   <div class="infos">
     <h2 style="margin-left:9px;">Device</h2>
       	 <p style="display:inline-block;margin-left:9px;"><script type="text/javascript"> var ios = ((navigator.userAgent).match(/OS (\d)?\d_\d(_\d)?/i)[0].replace(/_/g, ".").replace("OS", "iOS"))
@@ -101,9 +101,33 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+
+
   </script>
-  
-    
+     <script type="text/javascript">
+        function getDeviceType() {
+            const ua = navigator.userAgent;
+            const tabletRegex = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i;
+            const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+
+            if (tabletRegex.test(ua)) return "tablet";
+            if (mobRegex.test(ua)) return "mobile";
+            return "desktop";
+        }
+
+        // Obtenir le type de l'appareil
+        var deviceType = getDeviceType();
+
+        // Mettre à jour la source de l'image en fonction du type de l'appareil
+        var image = document.getElementById("device");
+        if (deviceType === "mobile") {
+            image.src = "https://ipsw.me/assets/devices/iPhone16,2.png";
+        } else if (deviceType === "tablet") {
+            image.src = "devices/ipad.png";
+        } else {
+            image.src = "devices/macbook.png";
+        } 
+     </script>  
     
 
 </div>
