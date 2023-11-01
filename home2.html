@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/featured.css" keep>
+    <link rel="stylesheet" href="css/navbar.css" keep>
+    <link rel="stylesheet" href="css/styles.css" keep>
+    <link rel="stylesheet" href="css/banner.css" keep>
+    <link rel="stylesheet" href="https://unpkg.com/@ivteplo/utilities.css@1.0.0/build/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  
+    <title>iTweakHub</title>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#121212">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="iphonex_splash.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="iphonex_splash.png">
+    
+<!-- PushAlert -->
+<script type="text/javascript">
+        (function(d, t) {
+                var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+                g.src = "https://cdn.pushalert.co/integrate_8d0f3fb974f3c466c91728b39e7f2a4a.js";
+                s.parentNode.insertBefore(g, s);
+        }(document, "script"));
+</script>
+<!-- End PushAlert -->
+    
+</head>
+<body style="opacity: 0;">
+	
+ 
+                                                                                
+<div class="sidebar">
+  <a class="active" href="index.html">Home</a>
+  <a href="appsmanager.html">Apps Manager</a>
+  <a href="search.html">Search</a>
+</div>
+   
+<div class="content">
+	
+
+<a href="account.html">	
+  <img id="displayProfilePic" src="" style="margin-bottom: 0px;border-radius: 41px;float: right;margin-top: 36px;width: 35px;height: 35px;">
+</a>
+
+    <h2 style="font-family:helvetica;font-size:12px;color:#9d9d9d;margin-top: 12px;margin-bottom: 12px;">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
+	
+	
+    <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="margin-left: 4px;color: #a1a1a1;">Beta</span></h1>
+	
+<!--Featured Header-->	
+
+  <div class="slider-container">
+    <div class="slider-list">
+      <div onclick="openPage('appinfos.html?name=Unc0ver')" class="slider-item active"><img src="https://media.idownloadblog.com/wp-content/uploads/2019/01/unc0ver-clouds.jpg"></div>
+      <div onclick="openPage('appinfos.html?name=PostBox')" class="slider-item"><img src="https://pbs.twimg.com/media/E7wltdwVgAAEVUE?format=jpg&name=4096x4096"></div>
+      <div onclick="openPage('appinfos.html?name=Enmity')" class="slider-item"><img src="https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"></div>
+    </div>
+  </div>
+
+  <div class="slider-indicators"></div>
+	
+<!-- End Featured Header-->
+<div class="circle-container">
+  <div class="circle" onclick="openPage('settings.html')">
+    <i class="fa-solid fa-gear" style="color: #FF983F;"></i>
+  </div>
+  <div class="circle" onclick="openPage('https://sign.cococloud-signing.online/own-cert/')">
+    <i class="fa-solid fa-address-card" style="color: #55cb59;"></i>
+  </div>
+  <div class="circle" onclick="openPage('https://sign.cococloud-signing.online/free/')">
+    <i class="fa-solid fa-signature" style="color: #2e95fc;"></i>
+  </div>
+  <div class="circle" onclick="openPage('account.html')">
+    <i class="fa-solid fa-user" style="color: #F96269;"></i> 
+  </div>
+</div>	
+	
+<br>
+	
+<!--Featured Apps-->
+ 
+<h3 id="featured" style="margin-top: 1px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Featured</h3>
+<div class="appList">
+ 
+										  
+              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">iPoGo</div>
+                    <div class="appsection">Pokemon Go modded</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=iPogo">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+	      
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/BHTwitter.PNG" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">BHTwitter</div>
+                    <div class="appsection">New features</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=BHTwitter">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+	
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/uYou%2B.PNG" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">uYou+</div>
+                    <div class="appsection">Youtube modded</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=uYouPlusExtra">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+
+	              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/Instagram%20Rhino.PNG?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Instagram Rhino</div>
+                    <div class="appsection">New features</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Instagram Rhino">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+	      
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/Taurine.jpg?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Taurine</div>
+                    <div class="appsection">Jailbreak iOS 14-14.3</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Taurine">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+      </div>
+    <div class="moviescard">
+        <div class="movie-card-header">
+            <h3>The best</h3>
+            <h1>Movies Apps</h1>
+        </div>
+        <div class="movie-card-icons">
+            <a href="appinfos.html?name=MovieFlix"><img src="https://apps.nabzclan.vip/images/1694940783.webp" alt="Icône 1"></a>
+            <a href="appinfos.html?name=MovieBoxPro"><img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/2B331F44-5DFA-404B-9258-58F5342B8281.png" alt="Icône 2"></a>
+            <a href="appinfos.html?name=FlixHub"><img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/4IZcJrc.jpeg" alt="Icône 3"></a>
+            <a href="appinfos.html?name=Zinitevi"><img src="https://zinitevi.app/wp-content/uploads/2020/05/cropped-zinitevifeature.png" alt="Icône 4"></a>
+        </div>
+    </div>
+<!-- End Featured Apps-->
+    
+    <!--Recently Added-->
+   <h3 id="topapps" style="margin-top: 15px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Top Apps</h3>
+	
+<div class="appList">										  
+              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">OldOS</div>
+                    <div class="appsection">iOS 4 simulator</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=OldOS">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+	      
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Misaka</div>
+                    <div class="appsection">MDC Tweak Manager</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Misaka">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/guillermo-moran/ClassicPlayer/blob/master/ClassicPlayer_icon.png?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">ClassicPlayer</div>
+                    <div class="appsection">iPod interface on iOS.</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=ClassicPlayer">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://bunnyinject.fun/img/odyssey.png" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Odyssey</div>
+                    <div class="appsection">Jailbreak tool</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Odyssey">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">MovieBox Pro</div>
+                    <div class="appsection">Watch movies for free</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=MovieBox Pro">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+   </div>
+<a href="appinfos.html?name=Minecraft">
+<img class="solobanner" src="img/minecraft.jpg">
+</a>
+    <!-- End Popular Apps-->
+   <h3 id="topapps" style="margin-top: 15px;margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Top Games</h3>
+	
+<div class="appList">										  
+              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/AmongUS++.JPG?raw=true" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Among US Hack</div>
+                    <div class="appsection">The game modded</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Among US Hack">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/29/30/a9/2930a996-9c1e-531b-b650-416c3eae66c5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Scriptware</div>
+                    <div class="appsection">Roblox modded</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Scriptware">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+	              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/2B3E554A-FD7B-4013-89EE-3C6F9A2A9916.webp" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Minecraft</div>
+                    <div class="appsection">The game for free</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Minecraft">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+	      
+              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
+                <div class="app_cell_left">
+                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/512x512bb.jpg" class="appicon">
+                  <div class="app_cell_meta">
+                    <div class="appname">Agar.io Hack</div>
+                    <div class="appsection">Agar.io modded</div>
+                  </div>
+                </div>
+                <div class="appget">
+		<a href="appinfos.html?name=Agar.io Hack">
+                  <button class="getbtn" id="getbtn">GET</button>
+		</a>
+                </div>
+              </div>
+   </div>
+    <!-- End Popular Apps-->    
+    <!--Tutorials-->
+   <h3 id="newstuto" style="margin-top: 15px;margin-bottom: 15px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">News and tutorials</h3>
+
+
+<div class="carousel-container">
+	
+  <div class="news-card" onclick="openPage('articles/article1.html')">
+    <div class="illu">
+      <img src="https://proton-resources-production.imgix.net/91da0717ad7859dec073a5b8caac0db4900c585b1c6eda16c7a1fef2e359091b.png?auto=compress" alt="Banner Image">
+    </div>
+    <h2 class="newstitle">How to create your own repo ?</h2>
+  </div>
+
+  <div class="news-card" onclick="openPage('articles/article2.html')">
+    <div class="illu">
+      <img src="https://proton-resources-production.imgix.net/e7da97f006fe92e7142f6ddd49da2d6d74b078c039161de977a160b80e11864d.png?auto=compress" alt="Banner Image">
+    </div>
+    <h2 class="newstitle">How to install an app on iOS with an iPA?</h2>
+  </div>
+
+  <div class="news-card" onclick="openPage('articles/article3.html')">
+    <div class="illu">
+      <img src="https://www.addictivetips.com/app/uploads/2020/02/untrusted-dev.jpg" alt="Banner Image">
+    </div>
+    <h2 class="newstitle">How to fix "Untrusted Enterprise Developer" ?</h2>
+  </div>
+</div>
+    <!--End Tutorials-->
+
+<div class="cert-container">
+  <div class="cert-infos">
+    <h3>Apple Distribution <span id="cococloud-ios-cert"></span><br></h3>
+    <h3><span id="cococloud-ios-cert-exp"></span><span id="signed-status-free"></span><br></h3>
+    <h3><span id="signed-status-free"></span></h3>
+  </div>   
+</div>
+
+<a id="cert" href="">
+  <ul class="ioslist">
+<li style="border-bottom-width: 0px;">
+<div class="ioslist_icon"><i class="fa-regular fa-id-card"></i></div>
+<span>Download the certificate</span>
+</li>
+</ul>
+</a>
+<button id="secretButton" class="debugbtn" onclick="countClicks()"></button>
+
+        <br>
+        <br>
+	<br>
+      
+	<br>
+	<br>
+	<br>
+	<br>
+       
+	    
+		
+  </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      <center>
+        <nav class="mobile-nav">
+            <a href="index.html" class="bloc-icon">
+                <i class="fa-solid fa-fire" style="color: var(--accent-color);"></i>
+            </a>
+            <a href="appsmanager.html" class="bloc-icon">
+                <i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>
+            </a>
+            <a href="search.html" class="bloc-icon">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </a>
+        </nav>
+
+	      
+      </center>
+
+
+
+
+<div class="gradient-div"></div>
+
+
+<div class="hidecolor">  
+<input type="color" id="color-picker">
+<button id="reset-button">Reset</button>
+</div>
+	    
+<script src="https://cococloud-signing.online/cert-status/sign-status.js"></script>
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+
+// slider banner js
+    const sliderItems = document.querySelectorAll('.slider-item');
+    const indicatorContainer = document.querySelector('.slider-indicators');
+
+    sliderItems.forEach((item, index) => {
+      const indicator = document.createElement('div');
+      indicator.classList.add('slider-indicator');
+      indicator.addEventListener('click', () => {
+        document.querySelector('.slider-list').style.transform = `translateX(-${index * 100}%)`;
+        updateActiveIndicator(index);
+      });
+      indicatorContainer.appendChild(indicator);
+      if (index === 0) {
+        indicator.classList.add('active');
+      }
+    });
+
+    const sliderContainer = document.querySelector('.slider-container');
+    let activeIndex = 0;
+
+    sliderContainer.addEventListener('scroll', () => {
+      const sliderWidth = sliderContainer.offsetWidth;
+      const currentIndex = Math.round(sliderContainer.scrollLeft / sliderWidth);
+      if (currentIndex !== activeIndex) {
+        activeIndex = currentIndex;
+        updateActiveIndicator(activeIndex);
+      }
+    });
+
+    function updateActiveIndicator(index) {
+      const indicators = document.querySelectorAll('.slider-indicator');
+      indicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.add('active');
+        } else {
+          indicator.classList.remove('active');
+        }
+      });
+    }
+        const displayUsername = document.getElementById('displayUsername');
+        const displayProfilePic = document.getElementById('displayProfilePic');
+
+        // Check if data is already stored in localStorage
+        const storedUsername = localStorage.getItem('username');
+        const storedProfilePicBase64 = localStorage.getItem('profilePic');
+        if (storedUsername && storedProfilePicBase64) {
+            displayUsername.textContent = storedUsername;
+            displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
+        } else {
+            window.location.href = 'setup.html'; // Redirect to setup page if no data
+        }
+        
+        
+          // Récupérer l'élément <a> par son ID
+        var lien = document.getElementById("cert");
+
+        // Faire une requête HTTP pour récupérer le JSON depuis l'URL
+        fetch('https://cococloud-signing.online/certs/?latest=true')
+        .then(response => response.json())
+        .then(data => {
+            // Mettre à jour l'attribut href avec l'URL du JSON
+            lien.href = data[0].download;
+        })
+        .catch(error => {
+            console.error('Erreur de chargement du JSON :', error);
+        });
+        
+  </script>
+<script>
+  function openPage(url) {
+    window.location.href = url;
+  }
+	
+navigator.serviceWorker.ready.then(registration => {
+  navigator.serviceWorker.addEventListener('message', event => {
+    if (event.data === 'showOfflineAlert') {
+      alert("You're offline !");
+    }
+  });
+});
+// Vérifier si les cookies sont activés
+function areCookiesEnabled() {
+  document.cookie = "test-cookie=true";
+  var cookiesEnabled = document.cookie.indexOf("test-cookie=true") !== -1;
+  document.cookie = "test-cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  return cookiesEnabled;
+}
+
+// Afficher une alerte si les cookies ne sont pas activés (possible navigation privée)
+if (!areCookiesEnabled()) {
+  alert("Please enable the cookies.");
+}
+
+// var Lang = navigator.language ;
+// if (Lang == "fr-FR") {
+//index.html
+// document.getElementById("wb").innerHTML = "Bienvenue,";
+// document.getElementById("home").innerHTML = "Accueil";
+// document.getElementById("featured").innerHTML = "En vedette";
+// document.getElementById("topapps").innerHTML = "Les plus utilisées";
+// document.getElementById("newstuto").innerHTML = "Articles et tutoriels,";
+// }
+
+let clickCounter = 0;
+
+function countClicks() {
+  clickCounter++;
+  if (clickCounter === 5) {
+    openDebugPage();
+  }
+}
+
+function openDebugPage() {
+  // Ouvrez la page de débogage, par exemple, en redirigeant vers une autre page.
+  // Vous pouvez utiliser window.location.href pour cela.
+  window.location.href = 'devs.html'; // Assurez-vous d'avoir une page "debug.html" à ouvrir.
+}
+</script>
+<style>
+::-webkit-scrollbar {
+     display: none; 
+}
+</style>
+        <script src="js/index.js"></script>
+	<script src="js/script.js"></script>
+        <script src="js/transition.js"></script>
+        <script src="js/language.js"></script>
+	<script src="sw.js"></script>
+ 
+</div>
+</body>
+
+</html>
