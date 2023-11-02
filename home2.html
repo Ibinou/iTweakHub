@@ -67,6 +67,41 @@ nav h1 i a {
   -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
 }
 /* I had to put the css here because the bottom nav bar was in top idk why */
+
+.ioslist {
+    position: relative;
+    margin: 0;
+    border-radius: 12px;
+    /* background-color: #1c1c1c; */
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    color: #fff;
+    /* border: 1px solid rgb(37, 37, 39); */
+}
+.ioslist li {
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid rgb(37, 37, 39);
+    /* margin-left: 16px; */
+}
+.ioslist_opposite {
+    text-transform: capitalize;
+    opacity: .7;
+    float: right;
+}
+.ioslist_opposite i {
+color: #f5f5f5;
+font-size: 20px;
+}
+.ioslist_icon {
+    text-transform: capitalize;
+    float: left;
+}
+.ioslist_icon i {
+    color: var(--accent-color);
+    font-size: 20px;
+    margin-right: 16px;
+}
   </style>
   
   <div id="notification" class="notification hidden">
@@ -104,7 +139,7 @@ nav h1 i a {
 <div class="appInfo">
 </div>
 
-<p id="appDescription" style="opacity:90%;display: block;width: 90%;margin-left:16px;margin-top: -47px;">App Description</p>
+<p id="appDescription" style="opacity:90%;display: block;margin-right: 16px;margin-left:16px">App Description</p>
 
 <h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Screenshots</h3>
     <div id="screenshots" class="screenshot">
@@ -135,10 +170,11 @@ nav h1 i a {
     </li>
 </ul>
 <div class="others">
-<button id="favorite">Add to favorite</button>
-<button id="share" onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'">Share</button>
+<button id="favorite">Dev website/social</button>
+<button id="share" onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'">Report</button>
 </div>
 <br>
+    <!-- 
 <a id="import" href="">
   <ul style="margin-right: 16px;margin-left: 16px;" class="ioslist">
 <li style="border-bottom-width: 0px;">
@@ -147,6 +183,7 @@ nav h1 i a {
 </li>
 </ul>
 </a>
+  -->
 <br>
 <br>
  
