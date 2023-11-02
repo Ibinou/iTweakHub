@@ -1243,4 +1243,37 @@ title2 {
     height: 18px;
     margin-top: 10px;
 }
-    
+
+.ioslistinfos {
+    position: relative;
+    margin: 0;
+    border-radius: 12px;
+    /* background-color: #1c1c1c; */
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    color: #fff;
+    /* border: 1px solid rgb(37, 37, 39); */
+}
+.ioslistinfos li {
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid rgb(37, 37, 39);
+    /* margin-left: 16px; */
+}
+.ioslist_oppositeinfos {
+    text-transform: capitalize;
+    opacity: .7;
+    float: right;
+}
+.ioslist_oppositeinfos i {
+color: #f5f5f5;
+font-size: 20px;
+}
+.ioslist_iconinfos {
+    text-transform: capitalize;
+    float: left;
+}
+.ioslist_iconinfos i {
+    color: var(--accent-color);
+    font-size: 20px;
+    margin-right: 16px;    
