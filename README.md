@@ -40,7 +40,7 @@ We use repos to handle our apps
 ```
 
 ## Version
-1.0 Beta
+1.1 Beta
 
 - Backend: ~95% 
 - Frontend: ~95% (some UI bugs )
