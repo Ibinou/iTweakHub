@@ -276,7 +276,7 @@ function displayAppInfo(appData) {
         }
 
         const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.ipa}`);
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
         const importButton = document.getElementById("import");
         importButton.setAttribute("href", `scarlet://install=${appData.ipa}`);
