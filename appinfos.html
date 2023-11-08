@@ -89,27 +89,46 @@ nav h1 i a {
     <img id="appBanner" src="" class="img-banner">
 </div>
 
-<img id="appIcon" src="" class="icon"> <!-- L'attribut src sera mis à jour via JavaScript -->
 
-<div class="appInfo">
-    <h2 style="text-align:center;"><span id="appName">App Name</span></h2>
+<div class="nameanddev" >
+  <div class="app_cell_left_info">
+    <img src="" id="appIcon" class="appiconinfo">
+    <div class="app_cell_meta_info">
+      <div id="appName" class="appnameinfo">AppName</div>
+      <div id="appDeveloper" class="appsectioninfo">AppDev</div>
+    </div>
+  </div>
+
+<div class="option_btn_container">
+    <i id="option_btn" class="fa-solid fa-ellipsis"></i>
+    <i id="favorite" class="fa-regular fa-heart option_btn"></i>
 </div>
 
+</div>
 
-<span id="appDescription" style="opacity:90%;display: block;width: 90%;margin-left:16px;margin-top: -47px;">App Description</span>
+<div class="appInfo">
+    
+</div>
 
+  
+ <!--
+   <div id="alertbox" class="alertbox">
+    <i id="alerticon" class="fa-solid fa-triangle-exclamation"></i>
+    <p class="alerttext">TEST</p>
+  </div>
+ --> 
+
+<p id="appDescription" style="opacity:90%;display: block;width: 90%;margin-left:16px;">App Description</p>
+
+<div class="view_more_btn">
+  <div>View more</div>
+  <i id="down" class="fa-solid fa-chevron-down"></i>
+</div>
 
 <h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Screenshots</h3>
     <div id="screenshots" class="screenshot">
         <!-- Screenshots will be added here -->
     </div>
-    
-    <!-- 
-       <div id="alertbox" class="alertbox">
-    <i id="alerticon" class="fa-solid fa-triangle-exclamation"></i>
-    <p class="alerttext">TEST</p>
-  </div>
-  -->
       
 
 <h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Informations</h3>
@@ -128,18 +147,22 @@ nav h1 i a {
     </li>
 </ul>
 <div class="others">
-<button id="favorite">Add to favorite</button>
-<button id="share" onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'">Share</button>
+<button>Website</button>
+<button>Report</button>
 </div>
 <br>
+
+<!-- 
 <a id="import" href="">
-  <ul style="margin-right: 16px;margin-left: 16px;" class="ioslist">
-<li style="border-bottom-width: 0px;">
-<div class="ioslist_icon"><i class="fa-solid fa-file-export"></i></div>
-<span>Open in Scarlet</span>
-</li>
-</ul>
+<p>EXPORT TO SCARLET</p>
 </a>
+
+id favorite pour favoriter
+id share pout partager
+
+share :
+onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'"
+-->
 <br>
 <br>
  
