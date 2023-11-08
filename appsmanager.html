@@ -149,14 +149,28 @@ function afficherReposDepuisLocalStorage() {
         return response.json();
       })
       .then(function(data) {
-        var reposDiv = document.getElementById("repos");
-        var infoDiv = createRepoElement(data.Info, url); // Accédez à "Info" pour les détails du repo
+        // Vérifier si les informations requises sont présentes
+        if (
+          data.name &&
+          data.subtitle &&
+          data.description &&
+          data.iconURL &&
+          data.headerURL &&
+          data.website &&
+          data.tintColor &&
+          Array.isArray(data.featuredApps)
+        ) {
+          var reposDiv = document.getElementById("repos");
+          var infoDiv = createRepoElement(data, url);
 
-        var repoLink = document.createElement("a");
-        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-        repoLink.appendChild(infoDiv);
+          var repoLink = document.createElement("a");
+          repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
+          repoLink.appendChild(infoDiv);
 
-        reposDiv.appendChild(repoLink);
+          reposDiv.appendChild(repoLink);
+        } else {
+          console.log('Erreur', 'Repo invalide');
+        }
       })
       .catch(function(error) {
         console.log('Erreur', error);
@@ -173,23 +187,38 @@ function afficherInfosDepuisJSON() {
       return response.json();
     })
     .then(function(data) {
-      var reposDiv = document.getElementById("repos");
-      var infoDiv = createRepoElement(data.Info, url); // Accédez à "Info" pour les détails du repo
+      // Vérifier si les informations requises sont présentes
+      if (
+        data.name &&
+        data.subtitle &&
+        data.description &&
+        data.iconURL &&
+        data.headerURL &&
+        data.website &&
+        data.tintColor &&
+        Array.isArray(data.featuredApps)
+      ) {
+        var reposDiv = document.getElementById("repos");
+        var infoDiv = createRepoElement(data, url);
 
-      var repoLink = document.createElement("a");
-      repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-      repoLink.appendChild(infoDiv);
+        var repoLink = document.createElement("a");
+        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
+        repoLink.appendChild(infoDiv);
 
-      reposDiv.appendChild(repoLink);
+        reposDiv.appendChild(repoLink);
 
-      // Enregistrer l'URL du repo dans le localStorage
-      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-      repoURLs.push(url);
-      localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+        // Enregistrer l'URL du repo dans le localStorage
+        var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+        repoURLs.push(url);
+        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+      } else {
+        console.log('Erreur', 'Repo invalide');
+        alert('Erreur, repo invalide');
+      }
     })
     .catch(function(error) {
       console.log('Erreur', error);
-      alert('Error, invalid repo', error);
+      alert('Erreur, impossible de charger le repo', error);
     });
 }
 
@@ -205,18 +234,18 @@ function createRepoElement(data, url) {
 
   // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
-  iconElement.src = data.repoIcon;
+  iconElement.src = data.iconURL;
   infoDiv.appendChild(iconElement);
 
   // Créer l'élément h2 pour le nom du repo
   var repoNameElement = document.createElement("h2");
-  repoNameElement.textContent = data.repoName;
+  repoNameElement.textContent = data.name;
   infoDiv.appendChild(repoNameElement);
 
-  // Créer l'élément p pour l'auteur du repo
-  var repoAuthorElement = document.createElement("p");
-  repoAuthorElement.textContent = data.repoAuthor;
-  infoDiv.appendChild(repoAuthorElement);
+  // Créer l'élément p pour le sous-titre du repo
+  var repoSubtitleElement = document.createElement("p");
+  repoSubtitleElement.textContent = data.subtitle;
+  infoDiv.appendChild(repoSubtitleElement);
 
   // Ajouter un gestionnaire d'événements pour la suppression du repo
   deleteIcon.addEventListener("click", function () {
@@ -242,8 +271,8 @@ window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
-
-
+</script>
+<script>
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
   var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
