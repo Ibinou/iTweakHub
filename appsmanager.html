@@ -151,7 +151,6 @@ function closePopup() {
 
     </script>
 <script>
-// Fonction pour afficher les informations depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
 
@@ -176,7 +175,6 @@ function afficherReposDepuisLocalStorage() {
   });
 }
 
-// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
   var url = prompt("Enter URL repo :");
 
@@ -194,7 +192,7 @@ function afficherInfosDepuisJSON() {
 
       reposDiv.appendChild(repoLink);
 
-      // Enregistrer l'URL du repo dans le localStorage
+      // Enregistrer the repo URL in localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
       repoURLs.push(url);
       localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
@@ -209,26 +207,20 @@ function createRepoElement(data, url) {
   var infoDiv = document.createElement("div");
   infoDiv.className = "item";
 
-  // Créer l'élément i pour l'icône de la poubelle (Font Awesome)
-  var deleteIcon = document.createElement("i");
-  deleteIcon.className = "fa-solid fa-circle-minus";
-  deleteIcon.style.cursor = "pointer";
-  infoDiv.appendChild(deleteIcon);
-
-  // Créer l'élément image pour l'icône du repo
+  // Create an image element for the repo icon
   var iconElement = document.createElement("img");
-  iconElement.src = data.Info.repoIcon;
+  iconElement.src = data.iconURL; // Update to the new format
   infoDiv.appendChild(iconElement);
 
-  // Créer l'élément h2 pour le nom du repo
+  // Create an h2 element for the repo name
   var repoNameElement = document.createElement("h2");
-  repoNameElement.textContent = data.Info.repoName;
+  repoNameElement.textContent = data.name; // Update to the new format
   infoDiv.appendChild(repoNameElement);
 
-  // Créer l'élément p pour l'auteur du repo
-  var repoAuthorElement = document.createElement("p");
-  repoAuthorElement.textContent = data.Info.repoAuthor;
-  infoDiv.appendChild(repoAuthorElement);
+  // Create a p element for the repo description
+  var repoDescriptionElement = document.createElement("p");
+  repoDescriptionElement.textContent = data.description; // Update to the new format
+  infoDiv.appendChild(repoDescriptionElement);
 
   // Ajouter un gestionnaire d'événements pour la suppression du repo
   deleteIcon.addEventListener("click", function () {
@@ -257,91 +249,8 @@ popupButton.addEventListener("click", afficherInfosDepuisJSON);
 
 
 </script>
+
 <script>
-function afficherDonnees() {
-  var appListDiv = document.getElementById("appList");
-  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-
-  fetch('apps.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var appsData = data.Apps;
-
-      favapps.forEach(function(favAppName) {
-        var appData = appsData.find(function(app) {
-          return app.name === favAppName;
-        });
-
-        if (appData) {
-          var dockDiv = document.createElement("div");
-          dockDiv.className = "dock";
-
-          var appCellLeftDiv = document.createElement("div");
-          appCellLeftDiv.className = "app_cell_left";
-
-          var appIconImg = document.createElement("img");
-          appIconImg.className = "appicon";
-          appIconImg.src = appData.icon;
-          appCellLeftDiv.appendChild(appIconImg);
-
-          var appCellMetaDiv = document.createElement("div");
-          appCellMetaDiv.className = "app_cell_meta";
-
-          var appNameDiv = document.createElement("div");
-          appNameDiv.className = "appname";
-          appNameDiv.textContent = appData.name;
-          appCellMetaDiv.appendChild(appNameDiv);
-
-          var appDevDiv = document.createElement("div");
-          appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developer;
-          appCellMetaDiv.appendChild(appDevDiv);
-
-          appCellLeftDiv.appendChild(appCellMetaDiv);
-          dockDiv.appendChild(appCellLeftDiv);
-
-          var appGetDiv = document.createElement("div");
-          appGetDiv.className = "appget";
-
-          var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
-
-          var getBtn = document.createElement("button");
-          getBtn.className = "getbtn";
-          getBtn.textContent = "GET";
-
-          var removeBtn = document.createElement("button");
-          removeBtn.className = "removebtn";
-          removeBtn.textContent = "Remove";
-          removeBtn.addEventListener("click", function() {
-            removeFavorite(appData.name);
-            appListDiv.removeChild(dockDiv);
-          });
-
-          appGetBtn.appendChild(getBtn);
-          appGetBtn.appendChild(removeBtn);
-          appGetDiv.appendChild(appGetBtn);
-          dockDiv.appendChild(appGetDiv);
-
-          appListDiv.appendChild(dockDiv);
-        }
-      });
-    })
-    .catch(function(error) {
-      console.log('Error', error);
-    });
-}
-
-function removeFavorite(appName) {
-  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-  var updatedFavapps = favapps.filter(function(favAppName) {
-    return favAppName !== appName;
-  });
-  localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
-}
-
         // Sélectionnez le bouton par son ID
         var reloadButton = document.getElementById('reload');
 
