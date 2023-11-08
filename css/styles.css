@@ -211,7 +211,7 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 
 .img-banner {
   width: 100%;
-  height: 170px;
+  height: 190px;
   margin-top: -18px;
   object-fit: cover;
 }
@@ -1071,7 +1071,7 @@ h3, p {
   margin-left: 8px;
   border: 1px solid rgb(37, 37, 39);
 }
-#favorite {
+.others button {
   font-size: 14px;
   background-color: #1c1c1c;
   margin-left: auto;
@@ -1220,6 +1220,7 @@ title2 {
       border-radius: 15px;
       margin-left: 16px;
       margin-right: 16px;
+      margin-bottom: 20px;
       
     }
 
@@ -1245,35 +1246,123 @@ title2 {
 }
 
 .ioslistinfos {
-    position: relative;
-    margin: 0;
-    border-radius: 12px;
-    /* background-color: #1c1c1c; */
-    padding: 0;
-    list-style-type: none;
-    position: relative;
-    color: #fff;
-    /* border: 1px solid rgb(37, 37, 39); */
+  position: relative;
+  margin: 0;
+  border-radius: 12px;
+  /* background-color: #1c1c1c; */
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  color: #fff;
+  /* border: 1px solid rgb(37, 37, 39); */
 }
 .ioslistinfos li {
-    padding: 12px 16px 12px 0;
-    border-bottom: 1px solid rgb(37, 37, 39);
-    /* margin-left: 16px; */
+  padding: 12px 16px 12px 0;
+  border-bottom: 1px solid rgb(37, 37, 39);
+  /* margin-left: 16px; */
 }
 .ioslist_oppositeinfos {
-    text-transform: capitalize;
-    opacity: .7;
-    float: right;
+  text-transform: capitalize;
+  color: white;
+  
+  float: right;
 }
 .ioslist_oppositeinfos i {
 color: #f5f5f5;
 font-size: 20px;
 }
 .ioslist_iconinfos {
-    text-transform: capitalize;
-    float: left;
+  text-transform: capitalize;
+  float: left;
 }
 .ioslist_iconinfos i {
+  color: var(--accent-color);
+  font-size: 20px;
+  margin-right: 16px;    
+}
+.ioslistinfos span {
+  color: #8D8D92;
+}
+
+.nameanddev {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  width: 92%;
+  margin-right: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 16px;
+}
+
+  .app_cell_left_info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  .appiconinfo {
+      border-radius: 15px;
+      background-color: #000;
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+  }
+
+  .app_cell_meta_info {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 0.2rem;
+  }
+
+  .appnameinfo {
+      width: 170px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: white;
+       width: 150px;
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       font-size: 19px;
+       font-weight: 600;
+  }
+
+  .appsectioninfo {
+    width: 170px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+      opacity: .6;
+      width: 161px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 17px;
+  }
+
+.view_more_btn {
+    display: flex; /* Utiliser l'affichage flex pour aligner les éléments horizontalement */
+    align-items: center; /* Centrer verticalement les éléments */          font-size: 15px;
     color: var(--accent-color);
-    font-size: 20px;
-    margin-right: 16px;    
+    margin-left: 16px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+#down {
+    font-size: 16px; /* Changer la taille de l'icône à votre préférence */
+    margin-left: 7px; /* Espacement entre l'icône et la div */
+}
+
+.option_btn_container {
+  display: flex; /* Utiliser l'affichage flex pour aligner les éléments horizontalement */
+  align-items: center; /* Centrer verticalement les éléments */          font-size: 20px;
+  color: var(--accent-color);
+}
+
+.option_btn {
+  font-size: 20px; /* Changer la taille de l'icône à votre préférence */
+  margin-left: 16px; /* Espacement entre l'icône et la div */
+}
