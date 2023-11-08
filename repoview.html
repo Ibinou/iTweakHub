@@ -99,13 +99,12 @@ function afficherDonnees() {
       })
       .then(function(data) {
         // Afficher le nom du repo dans l'élément h1
-        var repoName = data.Info.repoName;
-        h1Element.textContent = repoName;
+        h1Element.textContent = data.name;
 
-        var appsData = data.Apps;
+        var appsData = data.apps;
         var nombreApplicationsAafficher = appsData.length; // Comptez le nombre d'applications dans le JSON
 
-        // Utilisez un for loop pour itérer sur le nombre d'applications à afficher
+        // Utilisez une boucle for pour itérer sur le nombre d'applications à afficher
         for (var i = 0; i < nombreApplicationsAafficher; i++) {
           var appData = appsData[i];
 
@@ -117,7 +116,7 @@ function afficherDonnees() {
 
           var appIconImg = document.createElement("img");
           appIconImg.className = "appicon";
-          appIconImg.src = appData.icon;
+          appIconImg.src = appData.iconURL;
           appCellLeftDiv.appendChild(appIconImg);
 
           var appCellMetaDiv = document.createElement("div");
@@ -130,7 +129,7 @@ function afficherDonnees() {
 
           var appDevDiv = document.createElement("div");
           appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developer;
+          appDevDiv.textContent = appData.developerName;
           appCellMetaDiv.appendChild(appDevDiv);
 
           appCellLeftDiv.appendChild(appCellMetaDiv);
