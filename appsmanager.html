@@ -149,17 +149,11 @@ function afficherReposDepuisLocalStorage() {
         return response.json();
       })
       .then(function(data) {
-        // Vérifier si les informations requises sont présentes
-        if (
-          data.name &&
-          data.subtitle &&
-          data.description &&
-          data.iconURL &&
-          data.headerURL &&
-          data.website &&
-          data.tintColor &&
-          Array.isArray(data.featuredApps)
-        ) {
+        // Liste des propriétés obligatoires pour un repo
+        var proprietesObligatoires = ["name", "subtitle", "description"];
+
+        // Vérifier si toutes les propriétés obligatoires sont présentes
+        if (proprietesObligatoires.every(propriete => data.hasOwnProperty(propriete))) {
           var reposDiv = document.getElementById("repos");
           var infoDiv = createRepoElement(data, url);
 
@@ -169,7 +163,7 @@ function afficherReposDepuisLocalStorage() {
 
           reposDiv.appendChild(repoLink);
         } else {
-          console.log('Erreur', 'Repo invalide');
+          console.log('Avertissement', 'Repo ajouté malgré des propriétés obligatoires manquantes');
         }
       })
       .catch(function(error) {
@@ -187,17 +181,11 @@ function afficherInfosDepuisJSON() {
       return response.json();
     })
     .then(function(data) {
-      // Vérifier si les informations requises sont présentes
-      if (
-        data.name &&
-        data.subtitle &&
-        data.description &&
-        data.iconURL &&
-        data.headerURL &&
-        data.website &&
-        data.tintColor &&
-        Array.isArray(data.featuredApps)
-      ) {
+      // Liste des propriétés obligatoires pour un repo
+      var proprietesObligatoires = ["name", "subtitle", "description"];
+
+      // Vérifier si toutes les propriétés obligatoires sont présentes
+      if (proprietesObligatoires.every(propriete => data.hasOwnProperty(propriete))) {
         var reposDiv = document.getElementById("repos");
         var infoDiv = createRepoElement(data, url);
 
@@ -212,16 +200,17 @@ function afficherInfosDepuisJSON() {
         repoURLs.push(url);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
       } else {
-        console.log('Erreur', 'Repo invalide');
-        alert('Erreur, repo invalide');
+        console.log('Avertissement', 'Repo ajouté malgré des propriétés obligatoires manquantes');
+        alert('The repo has been successfully added !');
       }
     })
     .catch(function(error) {
       console.log('Erreur', error);
-      alert('Erreur, impossible de charger le repo', error);
+      alert('Error, invalid repo', error);
     });
 }
 
+// Fonction pour créer l'élément du repo
 function createRepoElement(data, url) {
   var infoDiv = document.createElement("div");
   infoDiv.className = "item";
@@ -234,7 +223,7 @@ function createRepoElement(data, url) {
 
   // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
-  iconElement.src = data.iconURL;
+  iconElement.src = data.iconURL; // Assurez-vous que l'objet data contient l'URL de l'icône
   infoDiv.appendChild(iconElement);
 
   // Créer l'élément h2 pour le nom du repo
