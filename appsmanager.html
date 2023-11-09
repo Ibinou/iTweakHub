@@ -149,11 +149,8 @@ function afficherReposDepuisLocalStorage() {
         return response.json();
       })
       .then(function(data) {
-        // Liste des propriétés obligatoires pour un repo
-        var proprietesObligatoires = ["name", "subtitle", "description"];
-
-        // Vérifier si toutes les propriétés obligatoires sont présentes
-        if (proprietesObligatoires.every(propriete => data.hasOwnProperty(propriete))) {
+        // Ajout de la condition : le repo doit avoir l'array apps
+        if (data.apps && Array.isArray(data.apps)) {
           var reposDiv = document.getElementById("repos");
           var infoDiv = createRepoElement(data, url);
 
@@ -163,7 +160,7 @@ function afficherReposDepuisLocalStorage() {
 
           reposDiv.appendChild(repoLink);
         } else {
-          console.log('Avertissement', 'Repo ajouté malgré des propriétés obligatoires manquantes');
+          console.log('Avertissement', 'Repo ajouté malgré l\'absence de l\'array "apps"');
         }
       })
       .catch(function(error) {
@@ -181,11 +178,8 @@ function afficherInfosDepuisJSON() {
       return response.json();
     })
     .then(function(data) {
-      // Liste des propriétés obligatoires pour un repo
-      var proprietesObligatoires = ["name", "subtitle", "description"];
-
-      // Vérifier si toutes les propriétés obligatoires sont présentes
-      if (proprietesObligatoires.every(propriete => data.hasOwnProperty(propriete))) {
+      // Ajout de la condition : le repo doit avoir l'array apps
+      if (data.apps && Array.isArray(data.apps)) {
         var reposDiv = document.getElementById("repos");
         var infoDiv = createRepoElement(data, url);
 
@@ -200,13 +194,13 @@ function afficherInfosDepuisJSON() {
         repoURLs.push(url);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
       } else {
-        console.log('Avertissement', 'Repo ajouté malgré des propriétés obligatoires manquantes');
-        alert('The repo has been successfully added !');
+        console.log('Avertissement', 'Repo ajouté malgré l\'absence de l\'array "apps"');
+        alert('Avertissement, le repo a été ajouté malgré l\'absence de l\'array "apps"');
       }
     })
     .catch(function(error) {
       console.log('Erreur', error);
-      alert('Error, invalid repo', error);
+      alert('Erreur, impossible de charger le repo', error);
     });
 }
 
