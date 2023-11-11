@@ -139,7 +139,7 @@ function afficherDonnees() {
           appGetDiv.className = "appget";
 
           var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+          appGetBtn.href = 'appinfos.html?appName=' + encodeURIComponent(appData.name);
 
           var getBtn = document.createElement("button");
           getBtn.className = "getbtn";
@@ -177,7 +177,6 @@ function afficherDonnees() {
         dock[i].style.display = display;
       }
     }
-
   </script>
 
 
