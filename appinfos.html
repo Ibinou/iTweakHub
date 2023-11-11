@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     <script>
-// Fonction pour récupérer le paramètre "name" dans l'URL
+// Fonction pour récupérer le paramètre "appName" dans l'URL
 function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
@@ -342,7 +342,7 @@ function displayAppInfo(appData) {
 }
 
 // Récupérer le nom de l'application depuis l'URL
-const appNameFromURL = getParameterByName("name");
+const appNameFromURL = getParameterByName("appName");
 
 // Charger le fichier JSON en utilisant une requête AJAX
 const jsonFileURL = "apps.json";
@@ -388,7 +388,6 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    
                 });
         } else {
             // Si l'application a été trouvée dans "apps.json"
@@ -401,7 +400,6 @@ fetch(jsonFileURL)
     .catch(error => {
         console.error("Error loading JSON file:", error);
         const appInfoDiv = document.getElementById("appInfo");
-        
     });
 
     </script>
