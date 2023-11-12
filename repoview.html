@@ -31,6 +31,7 @@
     <div class="toptitle">	
     <a style="text-decoration: none" href="appsmanager.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;width: 280px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">RepoName</h1>
+    <p id="repoDescription">Description</p>
 </div>
 <center>
   <input style="margin-top: 100px;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
@@ -88,6 +89,7 @@
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
   var h1Element = document.getElementById("repoName"); // Élément h1 pour afficher le nom du repo
+  var pElement = document.getElementById("repoDescription");
 
   var urlParams = new URLSearchParams(window.location.search);
   var repoUrl = urlParams.get("repo");
@@ -100,6 +102,7 @@ function afficherDonnees() {
       .then(function(data) {
         // Afficher le nom du repo dans l'élément h1
         h1Element.textContent = data.name;
+        pElement.textContent = data.descripion;
 
         var appsData = data.apps;
         var nombreApplicationsAafficher = appsData.length; // Comptez le nombre d'applications dans le JSON
