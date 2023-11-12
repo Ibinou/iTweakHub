@@ -1,7 +1,8 @@
 {
 	"name": "iTweakHub Apps",
 	"identifier": "com.iTweakHubApps.AltStore",
-	"sourceURL": "https://burritosoftware.github.io/altstore/channels/burritosource.json",
+	"description": "This is the iTweakHub base repository with all essential apps 😊.",
+	"website": "https://x.com/itweakhub",
 	"apps": [{
 			"name": "iNDS",
 			"bundleIdentifier": "net.nerd.iNDS",
