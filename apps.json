@@ -1,6 +1,6 @@
 {
-	"name": "Burrito's AltStore",
-	"identifier": "com.burritosoftware.AltStore",
+	"name": "iTweakHub Apps",
+	"identifier": "com.iTweakHubApps.AltStore",
 	"sourceURL": "https://burritosoftware.github.io/altstore/channels/burritosource.json",
 	"apps": [{
 			"name": "iNDS",
