@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     <script>
-// Fonction pour récupérer le paramètre "appName" dans l'URL
+// Fonction pour récupérer le paramètre "name" dans l'URL
 function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
@@ -272,51 +272,51 @@ function displayAppInfo(appData) {
 
     if (appData) {
         const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData.iconURL;
+        appIconElement.src = appData.icon;
         appIconElement.alt = `${appData.name} Icon`;
 
         const appNameElement = document.getElementById("appName");
         appNameElement.textContent = appData.name;
 
         const appDescriptionElement = document.getElementById("appDescription");
-        appDescriptionElement.textContent = appData.localizedDescription;
+        appDescriptionElement.textContent = appData.description;
 
         const appDeveloperElement = document.getElementById("appDeveloper");
-        appDeveloperElement.textContent = appData.developerName;
+        appDeveloperElement.textContent = appData.developer;
 
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.versions[0].version;
+        appVersionElement.textContent = appData.version;
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.versions[0].minOSVersion;
+        appCompatibilityElement.textContent = appData.compatibility;
 
         const appBannerElement = document.getElementById("appBanner");
 
-        if (appData.headerURL) {
-            appBannerElement.src = appData.headerURL;
+        if (appData.banner) {
+            appBannerElement.src = appData.banner;
         } else {
             appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
         }
 
         const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://cococloud-signing.online/free-plist?url=${appData.versions[0].downloadURL}`);
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
         const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData.versions[0].downloadURL}`);
+        importButton.setAttribute("href", `scarlet://install=${appData.ipa}`);
 
         const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.versions[0].downloadURL}`);
+        ipaButton.setAttribute("href", `${appData.ipa}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
         if (appData.screenshots && appData.screenshots.length > 0) {
-            for (const screenshot of appData.screenshots) {
+            for (const screenshotUrl of appData.screenshots) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
                 screenshotElement.style.borderRadius = "20px";
                 screenshotElement.style.margin = "5px";
-                screenshotElement.src = screenshot.imageURL || screenshot;
+                screenshotElement.src = screenshotUrl;
                 screenshotsDiv.appendChild(screenshotElement);
             }
 
@@ -330,9 +330,9 @@ function displayAppInfo(appData) {
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
-        if (appData.versions[0].localizedDescription) {
+        if (appData.alert) {
             alertBox.style.display = "flex";
-            alertText.textContent = appData.versions[0].localizedDescription;
+            alertText.textContent = appData.alert;
         } else {
             alertBox.style.display = "none";
         }
@@ -342,14 +342,14 @@ function displayAppInfo(appData) {
 }
 
 // Récupérer le nom de l'application depuis l'URL
-const appNameFromURL = getParameterByName("appName");
+const appNameFromURL = getParameterByName("name");
 
 // Charger le fichier JSON en utilisant une requête AJAX
 const jsonFileURL = "apps.json";
 fetch(jsonFileURL)
     .then(response => response.json())
     .then(data => {
-        let appData = data.apps.find(app => app.name === appNameFromURL);
+        let appData = data.Apps.find(app => app.name === appNameFromURL);
 
         if (!appData) {
             // Si l'application n'a pas été trouvée dans "apps.json",
@@ -375,7 +375,7 @@ fetch(jsonFileURL)
                     // Recherchez l'application dans les données de chaque URL JSON de repoURLs
                     appData = repoDataArray.reduce((foundApp, repoData) => {
                         if (!foundApp) {
-                            return repoData.apps.find(app => app.name === appNameFromURL) || null;
+                            return repoData.Apps.find(app => app.name === appNameFromURL) || null;
                         }
                         return foundApp;
                     }, null);
@@ -388,6 +388,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
+                    
                 });
         } else {
             // Si l'application a été trouvée dans "apps.json"
@@ -400,6 +401,7 @@ fetch(jsonFileURL)
     .catch(error => {
         console.error("Error loading JSON file:", error);
         const appInfoDiv = document.getElementById("appInfo");
+        
     });
 
     </script>
