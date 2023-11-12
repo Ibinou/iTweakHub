@@ -342,7 +342,7 @@ function displayAppInfo(appData) {
             alertBox.style.display = "none";
         }
     } else {
-        appInfoDiv.textContent = "Application not found.";
+        appInfoDiv.textContent = "";
     }
 }
 
@@ -405,20 +405,28 @@ fetch(jsonFileURL)
     .catch(error => {
         console.error("Error loading JSON file:", error);
         const appInfoDiv = document.getElementById("appInfo");
-        appInfoDiv.textContent = "Application not found.";
+        appInfoDiv.textContent = "";
     });
 
     </script>
 <script>
-// Fonction pour ajouter une application aux favoris
-function addToFavorites(appName) {
+// Fonction pour ajouter ou supprimer une application des favoris
+function toggleFavorites(appName) {
     let favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+    const favoriteButton = document.getElementById("favorite");
+
     if (!favapps.includes(appName)) {
+        // Ajouter l'application aux favoris
         favapps.push(appName);
         localStorage.setItem("favapps", JSON.stringify(favapps));
         alert("Application added to favorites!");
+        favoriteButton.classList.add("fas");
     } else {
-        alert("Application is already in favorites.");
+        // Supprimer l'application des favoris
+        favapps = favapps.filter(app => app !== appName);
+        localStorage.setItem("favapps", JSON.stringify(favapps));
+        alert("Application removed from favorites.");
+        favoriteButton.classList.remove("fas");
     }
 }
 
@@ -426,9 +434,8 @@ function addToFavorites(appName) {
 const favoriteButton = document.getElementById("favorite");
 favoriteButton.addEventListener("click", () => {
     const appNameFromURL = getParameterByName("name");
-    addToFavorites(appNameFromURL);
+    toggleFavorites(appNameFromURL);
 });
-
         // Fonction pour extraire les paramètres de l'URL (la même fonction que précédemment)
 
         // Obtenez la valeur du paramètre "name" de l'URL
