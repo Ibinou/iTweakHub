@@ -174,7 +174,7 @@ function afficherDonnees() {
 
       var appIconImg = document.createElement("img");
       appIconImg.className = "appicon";
-      appIconImg.src = appData.icon;
+      appIconImg.src = appData.appIcon;
       appCellLeftDiv.appendChild(appIconImg);
 
       var appCellMetaDiv = document.createElement("div");
@@ -187,7 +187,7 @@ function afficherDonnees() {
 
       var appDevDiv = document.createElement("div");
       appDevDiv.className = "appsection";
-      appDevDiv.textContent = appData.developer;
+      appDevDiv.textContent = appData.developerName;
       appCellMetaDiv.appendChild(appDevDiv);
 
       appCellLeftDiv.appendChild(appCellMetaDiv);
