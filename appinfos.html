@@ -268,6 +268,8 @@ function getParameterByName(name) {
 
 // Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
 function displayAppInfo(appData) {
+    console.log("Displaying App Info:", appData);
+
     const appInfoDiv = document.getElementById("appInfo");
 
     if (appData) {
@@ -280,7 +282,7 @@ function displayAppInfo(appData) {
 
         const appDescriptionElement = document.getElementById("appDescription");
         appDescriptionElement.textContent = appData.localizedDescription;
-        
+
         const appBundleElement = document.getElementById("bundle");
         appBundleElement.textContent = appData.bundleIdentifier;
 
@@ -346,23 +348,26 @@ function displayAppInfo(appData) {
 
 // Récupérer le nom de l'application depuis l'URL
 const appNameFromURL = getParameterByName("name");
+console.log("Application Name from URL:", appNameFromURL);
 
 // Charger le fichier JSON en utilisant une requête AJAX
 const jsonFileURL = "apps.json";
 fetch(jsonFileURL)
     .then(response => response.json())
     .then(data => {
+        console.log("Loaded data from apps.json:", data);
+
         let appData = data.apps.find(app => app.name === appNameFromURL);
 
         if (!appData) {
-            // Si l'application n'a pas été trouvée dans "apps.json",
-            // essayez de la chercher dans les URL JSON de "repoURLs" depuis le Local Storage
             const repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+            console.log("Loaded repoURLs from Local Storage:", repoURLs);
 
             const fetchAppData = async (url) => {
                 try {
                     const response = await fetch(url);
                     const data = await response.json();
+                    console.log("Loaded data from repoURL:", data);
                     return data;
                 } catch (error) {
                     console.error("Error loading JSON file from repoURL:", error);
@@ -370,12 +375,12 @@ fetch(jsonFileURL)
                 }
             };
 
-            // Utilisez Promise.all pour effectuer des requêtes parallèles aux URL JSON de repoURLs
             const repoURLPromises = repoURLs.map(fetchAppData);
 
             Promise.all(repoURLPromises)
                 .then(repoDataArray => {
-                    // Recherchez l'application dans les données de chaque URL JSON de repoURLs
+                    console.log("Loaded data from all repoURLs:", repoDataArray);
+
                     appData = repoDataArray.reduce((foundApp, repoData) => {
                         if (!foundApp) {
                             return repoData.apps.find(app => app.name === appNameFromURL) || null;
@@ -385,7 +390,6 @@ fetch(jsonFileURL)
 
                     displayAppInfo(appData);
 
-                    // Modifier le titre de la page avec le nom de l'application
                     document.title = appData ? appData.name : "Application Details";
                 })
                 .catch(error => {
@@ -394,10 +398,7 @@ fetch(jsonFileURL)
                     appInfoDiv.textContent = "Application not found.";
                 });
         } else {
-            // Si l'application a été trouvée dans "apps.json"
             displayAppInfo(appData);
-
-            // Modifier le titre de la page avec le nom de l'application
             document.title = appData.name;
         }
     })
