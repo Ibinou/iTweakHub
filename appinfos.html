@@ -272,46 +272,46 @@ function displayAppInfo(appData) {
 
     if (appData) {
         const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData.icon;
+        appIconElement.src = appData.iconURL;
         appIconElement.alt = `${appData.name} Icon`;
 
         const appNameElement = document.getElementById("appName");
         appNameElement.textContent = appData.name;
 
         const appDescriptionElement = document.getElementById("appDescription");
-        appDescriptionElement.textContent = appData.description;
+        appDescriptionElement.textContent = appData.localizedDescription;
 
         const appDeveloperElement = document.getElementById("appDeveloper");
-        appDeveloperElement.textContent = appData.developer;
+        appDeveloperElement.textContent = appData.developerName;
 
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.version;
+        appVersionElement.textContent = appData.versions[0].version;
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
         appCompatibilityElement.textContent = appData.compatibility;
 
         const appBannerElement = document.getElementById("appBanner");
 
-        if (appData.banner) {
-            appBannerElement.src = appData.banner;
+        if (appData.headerURL) {
+            appBannerElement.src = appData.headerURL;
         } else {
             appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
         }
 
         const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.ipa}`);
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.versions[0].downloadURL}`);
 
         const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData.ipa}`);
+        importButton.setAttribute("href", `scarlet://install=${appData.versions[0].downloadURL}`);
 
         const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.ipa}`);
+        ipaButton.setAttribute("href", `${appData.versions[0].downloadURL}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-        if (appData.screenshots && appData.screenshots.length > 0) {
-            for (const screenshotUrl of appData.screenshots) {
+        if (appData.screenshots && appData.screenshots.iphone && appData.screenshots.iphone.length > 0) {
+            for (const screenshotUrl of appData.screenshots.iphone) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
                 screenshotElement.style.borderRadius = "20px";
@@ -349,7 +349,7 @@ const jsonFileURL = "apps.json";
 fetch(jsonFileURL)
     .then(response => response.json())
     .then(data => {
-        let appData = data.Apps.find(app => app.name === appNameFromURL);
+        let appData = data.apps.find(app => app.name === appNameFromURL);
 
         if (!appData) {
             // Si l'application n'a pas été trouvée dans "apps.json",
@@ -375,7 +375,7 @@ fetch(jsonFileURL)
                     // Recherchez l'application dans les données de chaque URL JSON de repoURLs
                     appData = repoDataArray.reduce((foundApp, repoData) => {
                         if (!foundApp) {
-                            return repoData.Apps.find(app => app.name === appNameFromURL) || null;
+                            return repoData.apps.find(app => app.name === appNameFromURL) || null;
                         }
                         return foundApp;
                     }, null);
@@ -388,7 +388,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    
+                    appInfoDiv.textContent = "Application not found.";
                 });
         } else {
             // Si l'application a été trouvée dans "apps.json"
@@ -401,7 +401,7 @@ fetch(jsonFileURL)
     .catch(error => {
         console.error("Error loading JSON file:", error);
         const appInfoDiv = document.getElementById("appInfo");
-        
+        appInfoDiv.textContent = "Application not found.";
     });
 
     </script>
