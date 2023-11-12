@@ -134,8 +134,8 @@ nav h1 i a {
 <h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Informations</h3>
 <ul class="ioslistinfos" style="margin-left: 16px;margin-right: 16px;">
     <li>
-        <span>Developer</span>
-        <div class="ioslist_oppositeinfos" id="appDeveloper">appdev</div>
+        <span>Bundle Identifier</span>
+        <div class="ioslist_oppositeinfos" id="bundle">bundle</div>
     </li>
     <li>
         <span>Version</span>
@@ -280,6 +280,9 @@ function displayAppInfo(appData) {
 
         const appDescriptionElement = document.getElementById("appDescription");
         appDescriptionElement.textContent = appData.localizedDescription;
+        
+        const appBundleElement = document.getElementById("bundle");
+        appBundleElement.textContent = appData.bundleIdentifier;
 
         const appDeveloperElement = document.getElementById("appDeveloper");
         appDeveloperElement.textContent = appData.developerName;
@@ -288,14 +291,14 @@ function displayAppInfo(appData) {
         appVersionElement.textContent = appData.versions[0].version;
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.compatibility;
+        appCompatibilityElement.textContent = appData.versions[0].minOSVersion;
 
         const appBannerElement = document.getElementById("appBanner");
 
-        if (appData.headerURL) {
-            appBannerElement.src = appData.headerURL;
+        if (appData.iconURL) {
+            appBannerElement.src = appData.iconURL;
         } else {
-            appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
+            appBannerElement.src = "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
         }
 
         const installButton = document.getElementById("geturl");
