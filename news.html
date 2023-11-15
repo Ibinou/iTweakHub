@@ -48,6 +48,10 @@
     <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">News<span style="margin-left: 4px;color: #a1a1a1;"></span></h1>
    
 
+<div id="news">
+</div>
+
+	
 
 <div class="gradient-div"></div>
 
@@ -99,6 +103,65 @@
     applyAccentColor();
         
   </script>
+<script>
+    // Récupérer le tableau repoURLs depuis le local storage
+    var repoURLsString = localStorage.getItem('repoURLs');
+    var repoURLs = JSON.parse(repoURLsString);
+
+    // Vérifier si repoURLs est défini et s'il contient un tableau news
+    if (repoURLs && repoURLs.news) {
+        // Récupérer l'élément HTML où les actualités seront affichées
+        var newsContainer = document.getElementById('news');
+
+        // Parcourir chaque URL dans repoURLs
+        repoURLs.forEach(function (url) {
+            // Effectuer une requête AJAX pour récupérer le JSON à partir de l'URL
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Parcourir le tableau news dans le JSON
+                    data.news.forEach(function (newsItem) {
+                        // Créer des éléments HTML pour chaque actualité
+                        var newsItemWrapper = document.createElement('div');
+                        newsItemWrapper.classList.add('news-item-wrapper');
+
+                        var item = document.createElement('div');
+                        item.classList.add('item');
+                        item.style.backgroundColor = newsItem.tintColor || '#1ed760';
+
+                        var textWrapper = document.createElement('div');
+                        textWrapper.classList.add('text');
+
+                        var title = document.createElement('h3');
+                        title.textContent = newsItem.title || '';
+
+                        var caption = document.createElement('p');
+                        caption.textContent = newsItem.caption || '';
+
+                        var imageWrapper = document.createElement('div');
+                        imageWrapper.classList.add('image-wrapper');
+
+                        var image = document.createElement('img');
+                        image.src = newsItem.imageURL || '';
+
+                        // Ajouter les éléments au DOM
+                        textWrapper.appendChild(title);
+                        textWrapper.appendChild(caption);
+
+                        item.appendChild(textWrapper);
+                        item.appendChild(imageWrapper);
+                        imageWrapper.appendChild(image);
+
+                        newsItemWrapper.appendChild(item);
+                        newsContainer.appendChild(newsItemWrapper);
+                    });
+                })
+                .catch(error => console.error('Erreur lors de la récupération du JSON:', error));
+        });
+    } else {
+        console.error('Le tableau repoURLs ou le tableau news est introuvable dans le local storage.');
+    }
+</script>
 <style>
 ::-webkit-scrollbar {
      display: none; 
