@@ -1366,3 +1366,127 @@ font-size: 20px;
   font-size: 20px; /* Changer la taille de l'icône à votre préférence */
   margin-left: 16px; /* Espacement entre l'icône et la div */
 }
+
+
+/*news css by therealfoxter*/
+.news-item-wrapper {
+    margin-bottom: 3em;
+}
+element.style {
+    background-color: #4153b6;
+}
+#news .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1.5em;
+    overflow: hidden;
+    min-width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.news-item-wrapper .item {
+    margin-bottom: 1rem !important;
+}
+.item {
+    margin: 1rem 0;
+}
+#news .item>.text {
+    margin: 1.5em;
+    color: #fff;
+}
+#news .item>.text>p {
+    opacity: 0.75;
+    font-size: 0.9em;
+}
+@media (prefers-color-scheme: dark)
+p, h1, h2 {
+    color: white !important;
+}
+#news .item .image-wrapper {
+    max-height: 15.15em;
+    overflow: hidden;
+}
+.app-header {
+    position: relative;
+    display: flex;
+}
+.app-header>.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.app-header .background {
+    position: absolute;
+    background-color: var(--accent-color);
+    opacity: 0.2;
+    border-radius: 1.5em;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@media (prefers-color-scheme: dark)
+.app-header .background {
+    opacity: 0.35 !important;
+}
+#news img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.app-header img {
+    display: block;
+    border-radius: 13.5px;
+    max-width: 64px;
+    border: 0.75px solid rgba(0, 0, 0, 0.1);
+}
+@media (prefers-color-scheme: dark)
+#nav-bar #title>img, .app-header img, .screenshot {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.app-header>.content>.right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 0.65em;
+    min-width: 0;
+}
+.app-header>.content .text {
+    margin-right: 0.5em;
+    overflow: hidden;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--accent-color);
+}
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+}
+button.uibutton {
+    min-width: 78px;
+    height: 32px;
+    padding: 0 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--accent-color);
+    cursor: pointer;
+}
+a>button {
+    cursor: pointer;
+}
