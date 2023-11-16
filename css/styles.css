@@ -1369,13 +1369,11 @@ font-size: 20px;
 
 
 /*news css by therealfoxter*/
-.news-item-wrapper {
+.custom-news-item-wrapper {
     margin-bottom: 3em;
 }
-element.style {
-    background-color: #4153b6;
-}
-#news .item {
+
+.custom-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1385,33 +1383,52 @@ element.style {
     height: 100%;
     margin: 0;
 }
-.news-item-wrapper .item {
+
+.custom-news-item-wrapper .custom-item {
     margin-bottom: 1rem !important;
 }
-.item {
+
+.custom-item {
     margin: 1rem 0;
 }
-#news .item>.text {
+
+#news .custom-item > .custom-text {
     margin: 1.5em;
     color: #fff;
 }
-#news .item>.text>p {
+
+#news .custom-item > .custom-text > p {
     opacity: 0.75;
     font-size: 0.9em;
 }
-@media (prefers-color-scheme: dark)
-p, h1, h2 {
-    color: white !important;
+
+@media (prefers-color-scheme: dark) {
+    p, h1, h2 {
+        color: white !important;
+    }
+
+    .app-header .background {
+        opacity: 0.35 !important;
+    }
+
+    #nav-bar #title > img,
+    .app-header img,
+    .screenshot {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+    }
 }
-#news .item .image-wrapper {
+
+#news .custom-item .custom-image-wrapper {
     max-height: 15.15em;
     overflow: hidden;
 }
+
 .app-header {
     position: relative;
     display: flex;
 }
-.app-header>.content {
+
+.app-header > .content {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1422,6 +1439,7 @@ p, h1, h2 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .app-header .background {
     position: absolute;
     background-color: var(--accent-color);
@@ -1432,10 +1450,12 @@ p, h1, h2 {
     z-index: -1;
 }
 
-@media (prefers-color-scheme: dark)
-.app-header .background {
-    opacity: 0.35 !important;
+@media (prefers-color-scheme: dark) {
+    .app-header .background {
+        opacity: 0.35 !important;
+    }
 }
+
 #news img {
     width: 100%;
     height: auto;
@@ -1448,11 +1468,16 @@ p, h1, h2 {
     max-width: 64px;
     border: 0.75px solid rgba(0, 0, 0, 0.1);
 }
-@media (prefers-color-scheme: dark)
-#nav-bar #title>img, .app-header img, .screenshot {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+
+@media (prefers-color-scheme: dark) {
+    #nav-bar #title > img,
+    .app-header img,
+    .screenshot {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+    }
 }
-.app-header>.content>.right {
+
+.app-header > .content > .right {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1461,11 +1486,11 @@ p, h1, h2 {
     margin-left: 0.65em;
     min-width: 0;
 }
-.app-header>.content .text {
+
+.app-header > .content .text {
     margin-right: 0.5em;
     overflow: hidden;
 }
-
 
 button.uibutton {
     min-width: 78px;
@@ -1480,6 +1505,7 @@ button.uibutton {
     background-color: var(--accent-color);
     cursor: pointer;
 }
-a>button {
+
+a > button {
     cursor: pointer;
 }
