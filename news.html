@@ -43,10 +43,11 @@
 </div>
    
 <div class="content">
-	
-	
-    <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">News<span style="margin-left: 4px;color: #a1a1a1;"></span></h1>
    
+      <div class="toptitle">	
+    <a style="text-decoration: none" href="appsmanager.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
+    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">News</h1>
+    </div>
 
 <div id="news">
 </div>
@@ -104,68 +105,68 @@
         
   </script>
 <script>
-    // Récupérer le tableau repoURLs depuis le local storage
-    var repoURLsString = localStorage.getItem('repoURLs');
-    var repoURLs = JSON.parse(repoURLsString);
+   // Récupérer le tableau urls depuis le local storage
+var urlsString = localStorage.getItem('repoURLs');
+var urls = JSON.parse(urlsString);
 
-    // Vérifier si repoURLs est défini
-    if (repoURLs) {
-        // Récupérer l'élément HTML où les actualités seront affichées
-        var newsContainer = document.getElementById('news');
+// Vérifier si urls est défini
+if (urls) {
+    // Récupérer l'élément HTML où les actualités seront affichées
+    var container = document.getElementById('news');
 
-        // Parcourir chaque URL dans repoURLs
-        repoURLs.forEach(function (url) {
-            // Effectuer une requête AJAX pour récupérer le JSON à partir de l'URL
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    // Vérifier si le JSON contient un tableau news
-                    if (data.news) {
-                        // Parcourir le tableau news dans le JSON
-                        data.news.forEach(function (newsItem) {
-                            // Créer des éléments HTML pour chaque actualité
-                            var newsItemWrapper = document.createElement('div');
-                            newsItemWrapper.classList.add('news-item-wrapper');
+    // Parcourir chaque URL dans urls
+    urls.forEach(function (url) {
+        // Effectuer une requête AJAX pour récupérer le JSON à partir de l'URL
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Vérifier si le JSON contient un tableau news
+                if (data.news) {
+                    // Parcourir le tableau news dans le JSON
+                    data.news.forEach(function (newsItem) {
+                        // Créer des éléments HTML pour chaque actualité
+                        var newsWrapper = document.createElement('div');
+                        newsWrapper.classList.add('custom-news-item-wrapper');
 
-                            var item = document.createElement('div');
-                            item.classList.add('item');
-                            item.style.backgroundColor = newsItem.tintColor || '#1ed760';
+                        var item = document.createElement('div');
+                        item.classList.add('custom-item');
+                        item.style.backgroundColor = newsItem.tintColor || '#1ed760';
 
-                            var textWrapper = document.createElement('div');
-                            textWrapper.classList.add('text');
+                        var textContainer = document.createElement('div');
+                        textContainer.classList.add('custom-text');
 
-                            var title = document.createElement('h3');
-                            title.textContent = newsItem.title || '';
+                        var headline = document.createElement('h3');
+                        headline.textContent = newsItem.title || '';
 
-                            var caption = document.createElement('p');
-                            caption.textContent = newsItem.caption || '';
+                        var description = document.createElement('p');
+                        description.textContent = newsItem.caption || '';
 
-                            var imageWrapper = document.createElement('div');
-                            imageWrapper.classList.add('image-wrapper');
+                        var imgContainer = document.createElement('div');
+                        imgContainer.classList.add('custom-image-wrapper');
 
-                            var image = document.createElement('img');
-                            image.src = newsItem.imageURL || '';
+                        var img = document.createElement('img');
+                        img.src = newsItem.imageURL || '';
 
-                            // Ajouter les éléments au DOM
-                            textWrapper.appendChild(title);
-                            textWrapper.appendChild(caption);
+                        // Ajouter les éléments au DOM
+                        textContainer.appendChild(headline);
+                        textContainer.appendChild(description);
 
-                            item.appendChild(textWrapper);
-                            item.appendChild(imageWrapper);
-                            imageWrapper.appendChild(image);
+                        item.appendChild(textContainer);
+                        item.appendChild(imgContainer);
+                        imgContainer.appendChild(img);
 
-                            newsItemWrapper.appendChild(item);
-                            newsContainer.appendChild(newsItemWrapper);
-                        });
-                    } else {
-                        console.error('Le tableau news est introuvable dans le JSON.');
-                    }
-                })
-                .catch(error => console.error('Erreur lors de la récupération du JSON:', error));
-        });
-    } else {
-        console.error('Le tableau repoURLs est introuvable dans le local storage.');
-    }
+                        newsWrapper.appendChild(item);
+                        container.appendChild(newsWrapper);
+                    });
+                } else {
+                    console.error('Le tableau news est introuvable dans le JSON.');
+                }
+            })
+            .catch(error => console.error('Erreur lors de la récupération du JSON:', error));
+    });
+} else {
+    console.error('Le tableau urls est introuvable dans le local storage.');
+}
 </script>
 <style>
 ::-webkit-scrollbar {
