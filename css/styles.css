@@ -1509,3 +1509,7 @@ button.uibutton {
 a > button {
     cursor: pointer;
 }
+.rotate {
+   transform: rotate(180deg);
+}
+
