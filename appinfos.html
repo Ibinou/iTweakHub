@@ -459,9 +459,13 @@ favoriteButton.addEventListener("click", () => {
             });
         }
         
-    let isDescriptionExpanded = false; // Déclaration en dehors de la fonction
+    let isDescriptionExpanded = undefined; // Initialisation de la variable
 
     function toggleDescription() {
+      if (isDescriptionExpanded === undefined) {
+        isDescriptionExpanded = false; // Initialisation au premier clic
+      }
+
       isDescriptionExpanded = !isDescriptionExpanded;
       const appDescription = document.getElementById('appDescription');
       const viewMoreText = document.getElementById('viewMoreText');
