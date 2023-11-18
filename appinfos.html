@@ -388,6 +388,20 @@ fetch(jsonFileURL)
                         return foundApp;
                     }, null);
 
+                    // Check if "versions" property exists
+                    if (!appData.versions || appData.versions.length === 0) {
+                        // If "versions" is not present, use the main object properties
+                        appData = {
+                            downloadURL: appData.downloadURL,
+                            iconURL: appData.iconURL,
+                            name: appData.name,
+                            // Add other properties as needed
+                        };
+                    } else {
+                        // Use the first version's details
+                        appData = appData.versions[0];
+                    }
+
                     displayAppInfo(appData);
 
                     document.title = appData ? appData.name : "Application Details";
@@ -398,6 +412,20 @@ fetch(jsonFileURL)
                     appInfoDiv.textContent = "Application not found.";
                 });
         } else {
+            // Check if "versions" property exists
+            if (!appData.versions || appData.versions.length === 0) {
+                // If "versions" is not present, use the main object properties
+                appData = {
+                    downloadURL: appData.downloadURL,
+                    iconURL: appData.iconURL,
+                    name: appData.name,
+                    // Add other properties as needed
+                };
+            } else {
+                // Use the first version's details
+                appData = appData.versions[0];
+            }
+
             displayAppInfo(appData);
             document.title = appData.name;
         }
