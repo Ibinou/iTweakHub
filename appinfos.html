@@ -458,6 +458,25 @@ favoriteButton.addEventListener("click", () => {
                 window.open(tweetIntentUrl, '_blank');
             });
         }
+        
+    let isDescriptionExpanded = false;
+    const appDescription = document.getElementById('appDescription');
+    const viewMoreText = document.getElementById('viewMoreText');
+    const chevronIcon = document.getElementById('down');
+
+    function toggleDescription() {
+      isDescriptionExpanded = !isDescriptionExpanded;
+
+      if (isDescriptionExpanded) {
+        appDescription.style.height = 'auto';
+        viewMoreText.textContent = 'View less';
+        chevronIcon.classList.add('rotate');
+      } else {
+        appDescription.style.height = '50px'; // Set a specific height or adjust as needed
+        viewMoreText.textContent = 'View more';
+        chevronIcon.classList.remove('rotate');
+      }
+    }
 </script>
 
 <script src="js/appInfos.js"></script> 
