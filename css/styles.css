@@ -1342,19 +1342,34 @@ font-size: 20px;
       font-size: 17px;
   }
 
-.view_more_btn {
-    display: flex; /* Utiliser l'affichage flex pour aligner les éléments horizontalement */
-    align-items: center; /* Centrer verticalement les éléments */          font-size: 15px;
-    color: var(--accent-color);
-    margin-left: 16px;
-    font-size: 16px;
-    margin-top: 12px;
-}
+    #appDescription {
+      opacity: 90%;
+      display: block;
+      width: 90%;
+      margin-left: 16px;
+      overflow: hidden;
+      transition: height 0.3s ease;
+    }
 
-#down {
-    font-size: 16px; /* Changer la taille de l'icône à votre préférence */
-    margin-left: 7px; /* Espacement entre l'icône et la div */
-}
+    .view_more_btn {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: var(--accent-color);
+      margin-left: 16px;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+
+    #down {
+      font-size: 16px;
+      margin-left: 7px;
+      transition: transform 0.3s ease; /* Ajout d'une transition pour l'effet de rotation */
+    }
+
+    .rotate {
+      transform: rotate(180deg);
+    }
 
 .option_btn_container {
   display: flex; /* Utiliser l'affichage flex pour aligner les éléments horizontalement */
