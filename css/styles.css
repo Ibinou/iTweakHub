@@ -1342,12 +1342,13 @@ font-size: 20px;
       font-size: 17px;
   }
 
-    #appDescription {
+   #appDescription {
       opacity: 90%;
       display: block;
       width: 90%;
       margin-left: 16px;
       overflow: hidden;
+      height: 53px;
       transition: height 0.3s ease;
     }
 
@@ -1364,7 +1365,7 @@ font-size: 20px;
     #down {
       font-size: 16px;
       margin-left: 7px;
-      transition: transform 0.3s ease; /* Ajout d'une transition pour l'effet de rotation */
+      transition: transform 0.3s ease;
     }
 
     .rotate {
