@@ -262,10 +262,10 @@ function displayAppInfo(appData) {
         appDeveloperElement.textContent = appData.developer;
 
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.version || "Not Available";
+        appVersionElement.textContent = appData.version;
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.compatibility || "Not Available";
+        appCompatibilityElement.textContent = appData.compatibility;
 
         const appBannerElement = document.getElementById("appBanner");
 
@@ -276,13 +276,13 @@ function displayAppInfo(appData) {
         }
 
         const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.ipa || appData.downloadURL}`);
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
         const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData.ipa || appData.downloadURL}`);
+        importButton.setAttribute("href", `scarlet://install=${appData.ipa}`);
 
         const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.ipa || appData.downloadURL}`);
+        ipaButton.setAttribute("href", `${appData.ipa}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
@@ -357,11 +357,6 @@ fetch(jsonFileURL)
                         return foundApp;
                     }, null);
 
-                    // Check if the appData has a version object, if not, use downloadURL
-                    if (!appData.version && appData.downloadURL) {
-                        appData.ipa = appData.downloadURL;
-                    }
-
                     displayAppInfo(appData);
 
                     // Modifier le titre de la page avec le nom de l'application
@@ -370,15 +365,10 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    // Handle error display if needed
+                    
                 });
         } else {
             // Si l'application a été trouvée dans "apps.json"
-            // Check if the appData has a version object, if not, use downloadURL
-            if (!appData.version && appData.downloadURL) {
-                appData.ipa = appData.downloadURL;
-            }
-
             displayAppInfo(appData);
 
             // Modifier le titre de la page avec le nom de l'application
@@ -388,7 +378,7 @@ fetch(jsonFileURL)
     .catch(error => {
         console.error("Error loading JSON file:", error);
         const appInfoDiv = document.getElementById("appInfo");
-        // Handle error display if needed
+        
     });
 
     </script>
