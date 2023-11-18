@@ -459,13 +459,13 @@ favoriteButton.addEventListener("click", () => {
             });
         }
         
-    let isDescriptionExpanded = false;
-    const appDescription = document.getElementById('appDescription');
-    const viewMoreText = document.getElementById('viewMoreText');
-    const chevronIcon = document.getElementById('down');
+    let isDescriptionExpanded = false; // Déclaration en dehors de la fonction
 
     function toggleDescription() {
       isDescriptionExpanded = !isDescriptionExpanded;
+      const appDescription = document.getElementById('appDescription');
+      const viewMoreText = document.getElementById('viewMoreText');
+      const chevronIcon = document.getElementById('down');
 
       if (isDescriptionExpanded) {
         appDescription.style.height = appDescription.scrollHeight + 'px';
