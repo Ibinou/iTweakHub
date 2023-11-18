@@ -468,7 +468,7 @@ favoriteButton.addEventListener("click", () => {
       isDescriptionExpanded = !isDescriptionExpanded;
 
       if (isDescriptionExpanded) {
-        appDescription.style.height = 'auto';
+        appDescription.style.height = appDescription.scrollHeight + 'px';
         viewMoreText.textContent = 'View less';
         chevronIcon.classList.add('rotate');
       } else {
