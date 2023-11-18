@@ -1402,11 +1402,6 @@ font-size: 20px;
     font-size: 0.9em;
 }
 
-@media (prefers-color-scheme: dark) {
-    p, h1, h2 {
-        color: white !important;
-    }
-
     .app-header .background {
         opacity: 0.35 !important;
     }
