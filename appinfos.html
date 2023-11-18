@@ -459,17 +459,12 @@ favoriteButton.addEventListener("click", () => {
             });
         }
         
-    let isDescriptionExpanded = undefined; // Initialisation de la variable
-
-    function toggleDescription() {
-      if (isDescriptionExpanded === undefined) {
-        isDescriptionExpanded = false; // Initialisation au premier clic
-      }
-
-      isDescriptionExpanded = !isDescriptionExpanded;
+    function toggleDescription(isDescriptionExpanded) {
       const appDescription = document.getElementById('appDescription');
       const viewMoreText = document.getElementById('viewMoreText');
       const chevronIcon = document.getElementById('down');
+
+      isDescriptionExpanded = !isDescriptionExpanded;
 
       if (isDescriptionExpanded) {
         appDescription.style.height = appDescription.scrollHeight + 'px';
