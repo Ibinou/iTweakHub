@@ -118,13 +118,13 @@ nav h1 i a {
   </div>
  --> 
 
-<p id="appDescription" style="opacity:90%;display: block;width: 90%;margin-left:16px;">App Description</p>
+ <p id="appDescription">App Description</p>
 
-<div class="view_more_btn">
-  <div>View more</div>
-  <i id="down" class="fa-solid fa-chevron-down"></i>
-</div>
-
+  <div class="view_more_btn" onclick="toggleDescription()">
+    <div id="viewMoreText">View more</div>
+    <i id="down" class="fa-solid fa-chevron-down"></i>
+  </div>
+	
 <h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Screenshots</h3>
     <div id="screenshots" class="screenshot">
         <!-- Screenshots will be added here -->
