@@ -395,7 +395,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    appInfoDiv.textContent = "Application not found.";
+                    
                 });
         } else {
             displayAppInfo(appData);
