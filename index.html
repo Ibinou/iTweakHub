@@ -596,30 +596,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(data => {
                     if (data.news) {
-                        var newsItem = data.news[0]; // Assuming you want the first news item
+                        data.news.slice(0, 5).forEach(function (newsItem) {
+                            var newsWrapper = document.createElement('div');
+                            newsWrapper.classList.add('custom-carousel-item-wrapper');
 
-                        var newsWrapper = document.createElement('div');
-                        newsWrapper.classList.add('custom-carousel-item-wrapper');
+                            var item = document.createElement('div');
+                            item.classList.add('custom-carousel-item');
+                            item.style.backgroundColor = "#" + newsItem.tintColor || '#1ed760'; // Add "#" before the color code
 
-                        var item = document.createElement('div');
-                        item.classList.add('custom-carousel-item');
-                        item.style.backgroundColor = newsItem.tintColor || '#1ed760';
+                            var textContainer = document.createElement('div');
+                            textContainer.classList.add('custom-carousel-text');
 
-                        var textContainer = document.createElement('div');
-                        textContainer.classList.add('custom-carousel-text');
+                            var headline = document.createElement('h3');
+                            headline.textContent = newsItem.title || '';
 
-                        var headline = document.createElement('h3');
-                        headline.textContent = newsItem.title || '';
+                            var description = document.createElement('p');
+                            description.textContent = newsItem.caption || '';
 
-                        var description = document.createElement('p');
-                        description.textContent = newsItem.caption || '';
+                            textContainer.appendChild(headline);
+                            textContainer.appendChild(description);
 
-                        textContainer.appendChild(headline);
-                        textContainer.appendChild(description);
-
-                        item.appendChild(textContainer);
-                        newsWrapper.appendChild(item);
-                        carouselContainer.appendChild(newsWrapper);
+                            item.appendChild(textContainer);
+                            newsWrapper.appendChild(item);
+                            carouselContainer.appendChild(newsWrapper);
+                        });
                     } else {
                         console.error('Le tableau news est introuvable dans le JSON.');
                     }
