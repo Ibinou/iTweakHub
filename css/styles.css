@@ -1537,6 +1537,11 @@ a > button {
     margin-right: 1rem;
 }
 
+#news {
+  margin-top: 105px;
+  margin-bottom: 25px;
+}
+
 .custom-carousel-item {
     display: flex;
     flex-direction: column;
