@@ -170,11 +170,7 @@ if (urls) {
                         if (newsItem.appID) {
                             // Créer des éléments HTML pour les informations de l'application
                             var appInfoContainer = document.createElement('div');
-                            appInfoContainer.classList.add('item');
-
-                            var appHeader = document.createElement('div');
-                            appHeader.classList.add('app-header');
-                            appHeader.style.backgroundColor = formatColor(newsItem.tintColor) || '';
+                            appInfoContainer.classList.add('item', 'app-header');
 
                             var content = document.createElement('div');
                             content.classList.add('content');
@@ -217,9 +213,7 @@ if (urls) {
                             content.appendChild(appIcon);
                             content.appendChild(rightContainer);
 
-                            appHeader.appendChild(content);
-
-                            appInfoContainer.appendChild(appHeader);
+                            appInfoContainer.appendChild(content);
 
                             container.appendChild(appInfoContainer);
                         }
