@@ -165,6 +165,64 @@ if (urls) {
 
                         newsWrapper.appendChild(item);
                         container.appendChild(newsWrapper);
+
+                        // Vérifier si l'actualité a une propriété appID
+                        if (newsItem.appID) {
+                            // Créer des éléments HTML pour les informations de l'application
+                            var appInfoContainer = document.createElement('div');
+                            appInfoContainer.classList.add('item');
+
+                            var appHeader = document.createElement('div');
+                            appHeader.classList.add('app-header');
+                            appHeader.style.backgroundColor = formatColor(newsItem.tintColor) || '';
+
+                            var content = document.createElement('div');
+                            content.classList.add('content');
+
+                            var appIcon = document.createElement('img');
+                            appIcon.id = 'app-icon';
+                            appIcon.src = ''; // Remplacez avec l'URL de l'icône de l'application
+                            appIcon.alt = '';
+
+                            var rightContainer = document.createElement('div');
+                            rightContainer.classList.add('right');
+
+                            var textContainerApp = document.createElement('div');
+                            textContainerApp.classList.add('text');
+
+                            var title = document.createElement('p');
+                            title.classList.add('title');
+                            title.textContent = ''; // Remplacez avec le nom de l'application
+
+                            var subtitle = document.createElement('p');
+                            subtitle.classList.add('subtitle');
+                            subtitle.textContent = ''; // Remplacez avec le sous-titre de l'application
+
+                            var viewButton = document.createElement('button');
+                            viewButton.classList.add('uibutton');
+                            viewButton.style.backgroundColor = formatColor(newsItem.tintColor) || '';
+                            viewButton.textContent = 'View';
+                            viewButton.addEventListener('click', function () {
+                                // Rediriger vers la page d'informations de l'application
+                                window.location.href = 'appinfos.html?name=' + encodeURIComponent(appName);
+                            });
+
+                            // Ajouter les éléments au DOM
+                            textContainerApp.appendChild(title);
+                            textContainerApp.appendChild(subtitle);
+
+                            rightContainer.appendChild(textContainerApp);
+                            rightContainer.appendChild(viewButton);
+
+                            content.appendChild(appIcon);
+                            content.appendChild(rightContainer);
+
+                            appHeader.appendChild(content);
+
+                            appInfoContainer.appendChild(appHeader);
+
+                            container.appendChild(appInfoContainer);
+                        }
                     });
                 } else {
                     console.error('Le tableau news est introuvable dans le JSON.');
