@@ -1417,6 +1417,9 @@ font-size: 20px;
     opacity: 0.75;
     font-size: 0.9em;
 }
+.news {
+  margin-top: 105px;
+}
 
     .app-header .background {
         opacity: 0.35 !important;
