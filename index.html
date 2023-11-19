@@ -350,6 +350,14 @@
 </div>
     <!--End Tutorials-->
 
+
+<div id="custom-news-carousel" class="custom-carousel-container">
+    <!-- News items will be added dynamically here -->
+</div>
+
+
+
+	
 <div class="cert-container">
   <div class="cert-infos">
     <h3>Apple Distribution <span id="cococloud-ios-cert"></span><br></h3>
@@ -575,6 +583,54 @@ function openDebugPage() {
      display: none; 
 }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var urlsString = localStorage.getItem('repoURLs');
+    var urls = JSON.parse(urlsString);
+
+    if (urls) {
+        var carouselContainer = document.getElementById('custom-news-carousel');
+
+        urls.slice(0, 5).forEach(function (url) {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.news) {
+                        var newsItem = data.news[0]; // Assuming you want the first news item
+
+                        var newsWrapper = document.createElement('div');
+                        newsWrapper.classList.add('custom-carousel-item-wrapper');
+
+                        var item = document.createElement('div');
+                        item.classList.add('custom-carousel-item');
+                        item.style.backgroundColor = newsItem.tintColor || '#1ed760';
+
+                        var textContainer = document.createElement('div');
+                        textContainer.classList.add('custom-carousel-text');
+
+                        var headline = document.createElement('h3');
+                        headline.textContent = newsItem.title || '';
+
+                        var description = document.createElement('p');
+                        description.textContent = newsItem.caption || '';
+
+                        textContainer.appendChild(headline);
+                        textContainer.appendChild(description);
+
+                        item.appendChild(textContainer);
+                        newsWrapper.appendChild(item);
+                        carouselContainer.appendChild(newsWrapper);
+                    } else {
+                        console.error('Le tableau news est introuvable dans le JSON.');
+                    }
+                })
+                .catch(error => console.error('Erreur lors de la récupération du JSON:', error));
+        });
+    } else {
+        console.error('Le tableau urls est introuvable dans le local storage.');
+    }
+});
+</script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
         <script src="js/transition.js"></script>
