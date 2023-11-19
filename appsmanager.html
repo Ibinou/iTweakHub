@@ -402,6 +402,69 @@ if (localStorage.getItem("repoURLs")) {
     linkElement.style.width = "50%";
 }
 
+// Fonction pour vérifier la validité des repos et afficher une popup en cas d'invalidité
+function CheckValidity() {
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+
+  repoURLs.forEach(function (url) {
+    fetch(url)
+      .then(function (response) {
+        if (!response.ok) {
+          // Repo invalide détecté
+          if (confirm("Invalid repository detected. Do you want to remove it?")) {
+            removeInvalidRepo(url);
+          }
+        } else {
+          return response.json();
+        }
+      })
+      .then(function (data) {
+        if (data) {
+          // Vérifier le format du repo
+          if (isValidRepoFormat(data)) {
+            // Le repo est valide, pas d'action supplémentaire nécessaire
+          } else {
+            // Repo invalide détecté (ne respecte pas le format)
+            if (confirm("Invalid repository format detected. Do you want to remove it?")) {
+              removeInvalidRepo(url);
+            }
+          }
+        }
+      })
+      .catch(function (error) {
+        console.log('Error', error);
+      });
+  });
+}
+
+// Fonction pour vérifier si le format du repo est valide
+function isValidRepoFormat(data) {
+  return data.apps && Array.isArray(data.apps) && data.name;
+}
+
+// Fonction pour supprimer un repo invalide du localStorage et de l'affichage sur la page
+function removeInvalidRepo(url) {
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  var index = repoURLs.indexOf(url);
+  if (index !== -1) {
+    repoURLs.splice(index, 1);
+    localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+  }
+
+  // Supprimer l'élément du DOM
+  var reposDiv = document.getElementById("repos");
+  var repoLinks = reposDiv.getElementsByTagName("a");
+  for (var i = 0; i < repoLinks.length; i++) {
+    if (repoLinks[i].href === "repoview.html?repo=" + encodeURIComponent(url)) {
+      repoLinks[i].remove();
+      break;
+    }
+  }
+}
+
+// Appeler la fonction CheckValidity lors du chargement de la page
+window.addEventListener("load", CheckValidity);
+
     </script>
 <script src="js/index.js"></script>
     </div>
