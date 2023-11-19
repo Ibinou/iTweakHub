@@ -1545,7 +1545,9 @@ a > button {
     min-width: 300px; /* Set your preferred width */
     height: 100%;
     margin: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for visual effect */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for visual effect */
+    width: 100px;
+    height: 175px;
 }
 
 .custom-carousel-text {
