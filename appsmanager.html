@@ -29,7 +29,7 @@
 </div>
 
     <div class="content">
-    <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
+    <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Sources</h1>
 	    
 <ul class="ioslist">
 <li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
@@ -39,7 +39,7 @@
 </li>
 </ul>
 	    
-<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Featured Repos</p>
+<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Featured Sources</p>
 
 <div class="featuredrepos">	    
 <div style="margin-right: 14px;" class="item">
@@ -62,7 +62,7 @@
 </div>
 </div>	
 	    
-<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Repos</p>	
+<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Added Sources</p>	
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" id="reload" ></i>
 
@@ -160,7 +160,7 @@ function afficherReposDepuisLocalStorage() {
 
           reposDiv.appendChild(repoLink);
         } else {
-          console.log('Warning', 'Repo added despite missing "apps" array or "name" property');
+          console.log('Warning', 'Source added despite missing "apps" array or "name" property');
         }
       })
       .catch(function(error) {
@@ -171,7 +171,7 @@ function afficherReposDepuisLocalStorage() {
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
-  var url = prompt("Enter URL repo :");
+  var url = prompt("Enter source URL :");
 
   fetch(url)
     .then(function(response) {
@@ -194,13 +194,12 @@ function afficherInfosDepuisJSON() {
         repoURLs.push(url);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
       } else {
-        console.log('Warning', 'Repo added despite missing "apps" array or "name" property');
-        alert('Warning, the repo was added despite missing the "apps" array or "name" property');
+        console.log('Warning', 'Source added despite missing "apps" array or "name" property');
       }
     })
     .catch(function(error) {
       console.log('Error', error);
-      alert('Error, unable to load the repo', error);
+      alert('Error, unable to load the source', error);
     });
 }
 
@@ -232,7 +231,7 @@ function createRepoElement(data, url) {
 
   // Ajouter un gestionnaire d'événements pour la suppression du repo
   deleteIcon.addEventListener("click", function () {
-    if (confirm("Are you sure to delete this repository ?")) {
+    if (confirm("Are you sure to delete this source ?")) {
       // Supprimer l'URL du repo du localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
       var index = repoURLs.indexOf(url);
@@ -378,7 +377,7 @@ function removeFavorite(appName) {
                     button.parentElement.style.display = 'none';
 
                     // Afficher une alerte
-                    alert('The repo has been added succesfully !');
+                    alert('The source has been added succesfully !');
 
                     // Recharger la page après l'alerte
                     window.location.reload();
