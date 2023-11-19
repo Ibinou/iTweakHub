@@ -411,7 +411,7 @@ function CheckValidity() {
       .then(function (response) {
         if (!response.ok) {
           // Repo invalide détecté
-          if (confirm("Invalid repository detected. Do you want to remove it?")) {
+          if (confirm("Invalid source detected. Do you want to remove it?")) {
             removeInvalidRepo(url);
           }
         } else {
