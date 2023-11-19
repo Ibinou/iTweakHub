@@ -1528,7 +1528,6 @@ a > button {
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    white-space: nowrap;
     padding: 1rem; /* Optional: Add padding to the container */
 }
 
@@ -1543,7 +1542,6 @@ a > button {
     flex-direction: column;
     justify-content: center;
     border-radius: 1.5em;
-    overflow: hidden;
     min-width: 300px; /* Set your preferred width */
     height: 100%;
     margin: 0;
