@@ -105,7 +105,7 @@
         
   </script>
 <script>
-   // Récupérer le tableau urls depuis le local storage
+// Récupérer le tableau urls depuis le local storage
 var urlsString = localStorage.getItem('repoURLs');
 var urls = JSON.parse(urlsString);
 
@@ -113,6 +113,14 @@ var urls = JSON.parse(urlsString);
 if (urls) {
     // Récupérer l'élément HTML où les actualités seront affichées
     var container = document.getElementById('news');
+
+    // Fonction pour ajouter "#" devant le nombre hexadécimal de la couleur si nécessaire
+    function formatColor(color) {
+        if (color && color.charAt(0) !== '#') {
+            color = '#' + color;
+        }
+        return color;
+    }
 
     // Parcourir chaque URL dans urls
     urls.forEach(function (url) {
@@ -130,7 +138,7 @@ if (urls) {
 
                         var item = document.createElement('div');
                         item.classList.add('custom-item');
-                        item.style.backgroundColor = newsItem.tintColor || '#1ed760';
+                        item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
 
                         var textContainer = document.createElement('div');
                         textContainer.classList.add('custom-text');
