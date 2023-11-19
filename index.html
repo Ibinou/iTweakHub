@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             var item = document.createElement('div');
                             item.classList.add('custom-carousel-item');
-                            item.style.backgroundColor = "#" + newsItem.tintColor || '#1ed760'; // Add "#" before the color code
+                            item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760'; // Add "#" before the color code
 
                             var textContainer = document.createElement('div');
                             textContainer.classList.add('custom-carousel-text');
@@ -628,6 +628,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     } else {
         console.error('Le tableau urls est introuvable dans le local storage.');
+    }
+
+    // Fonction pour ajouter "#" devant le nombre hexadécimal de la couleur si nécessaire
+    function formatColor(color) {
+        if (color && color.charAt(0) !== '#') {
+            color = '#' + color;
+        }
+        return color;
     }
 });
 </script>
