@@ -67,7 +67,6 @@ nav h1 i a {
   -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
 }
 /* I had to put the css here because the bottom nav bar was in top idk why */
-/*The real foxter code*/
 #whats-new,
 #permissions,
 #source {
@@ -217,17 +216,14 @@ nav h1 i a {
 
 <div id="whats-new" class="section">
       <div class="header">
-        <h2>name</h2>
-        <a id="version-history" style="color: var(--accent-color);" href="versions.html?name=name">Version History</a>
+        <h2>What's New</h2>
+        <a id="version-history" style="color: var(--app-tint-color);" href="version-history.html?name=name">Version History</a>
       </div>
       <div class="header">
-        <p id="version">Version </p>
+        <p id="version"></p>
         <p id="version-date"></p>
       </div>
-      <p id="version-description"></p>
-    <a id="more" onclick="revealTruncatedText(this);">
-        <button style="color: #cb1633;">more</button>
-    </a></p>
+      <p id="version-description"><p>
     </div>
 	
 <!-- 
@@ -339,58 +335,82 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
     <script>
 
+// Fonction pour récupérer le paramètre "name" dans l'URL
 function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
+// Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
 function displayAppInfo(appData) {
     console.log("Displaying App Info:", appData);
 
     const appInfoDiv = document.getElementById("appInfo");
+    const appIconElement = document.getElementById("appIcon");
+    const appNameElement = document.getElementById("appName");
+    const appDescriptionElement = document.getElementById("appDescription");
+    const appBundleElement = document.getElementById("bundle");
+    const appDeveloperElement = document.getElementById("appDeveloper");
+    const appVersionContainer = document.getElementById("version-container");
+    const appVersionElement = document.getElementById("version");
+    const appVersionDateElement = document.getElementById("version-date");
+    const appVersionDescriptionElement = document.getElementById("version-description");
+    const appCompatibilityElement = document.getElementById("appCompatibility");
+    const appBannerElement = document.getElementById("appBanner");
+    const installButton = document.getElementById("geturl");
+    const importButton = document.getElementById("import");
+    const ipaButton = document.getElementById("ipa");
+    const screenshotsDiv = document.getElementById("screenshots");
+    const alertBox = document.querySelector(".alertbox");
+    const alertText = document.querySelector(".alerttext");
 
     if (appData) {
         console.log("AppData is not null");
 
-        const appVersionElement = document.getElementById("appVersion");
-        const appVersionDateElement = document.getElementById("version-date");
-        const appVersionDescriptionElement = document.getElementById("version-description");
+        appIconElement.src = appData.iconURL;
+        appIconElement.alt = `${appData.name} Icon`;
 
-        const latestVersion = getLatestVersion(appData);
+        appNameElement.textContent = appData.name;
+        appDescriptionElement.textContent = appData.localizedDescription;
+        appBundleElement.textContent = appData.bundleIdentifier;
+        appDeveloperElement.textContent = appData.developerName;
 
-        if (latestVersion) {
-            appVersionElement.textContent = `Version ${latestVersion.version}`;
-            appVersionDateElement.textContent = latestVersion.date;
-            appVersionDescriptionElement.textContent = latestVersion.localizedDescription;
+        if (appData.versions && appData.versions.length > 0) {
+            const latestVersion = getLatestVersion(appData);
 
-            console.log("Latest Version:", latestVersion.version);
-            console.log("Version Date:", latestVersion.date);
-            console.log("Version Description:", latestVersion.localizedDescription);
+            if (latestVersion) {
+                appVersionElement.textContent = `Version ${latestVersion.version}`;
+                appVersionDateElement.textContent = latestVersion.date;
+                appVersionDescriptionElement.textContent = latestVersion.localizedDescription;
+            } else {
+                appVersionElement.textContent = "Version N/A";
+                appVersionDateElement.textContent = "";
+                appVersionDescriptionElement.textContent = "No versions available";
+            }
+        } else if (appData.version) {
+            appVersionElement.textContent = `Version ${appData.version}`;
+            appVersionDateElement.textContent = appData.versionDate || "";
+            appVersionDescriptionElement.textContent = appData.versionDescription || "";
         } else {
             appVersionElement.textContent = "Version N/A";
             appVersionDateElement.textContent = "";
             appVersionDescriptionElement.textContent = "No versions available";
-
-            console.log("No versions available");
         }
 
-        const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || latestVersion.downloadURL}`);
+        appCompatibilityElement.textContent = appData.minOSVersion || (appData.versions && appData.versions.length > 0 ? appData.versions[0].minOSVersion : "");
+        appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
 
-        console.log("Setting install button href:", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || latestVersion.downloadURL}`);
+        if (appData.versions && appData.versions.length > 0) {
+            installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.versions[0].downloadURL}`);
+            importButton.setAttribute("href", `scarlet://install=${appData.versions[0].downloadURL}`);
+            ipaButton.setAttribute("href", `${appData.versions[0].downloadURL}`);
+        } else {
+            installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL}`);
+            importButton.setAttribute("href", `scarlet://install=${appData.downloadURL}`);
+            ipaButton.setAttribute("href", `${appData.downloadURL}`);
+        }
 
-        const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || latestVersion.downloadURL}`);
-
-        console.log("Setting import button href:", `scarlet://install=${appData.downloadURL || latestVersion.downloadURL}`);
-
-        const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.downloadURL || latestVersion.downloadURL}`);
-
-        console.log("Setting ipa button href:", `${appData.downloadURL || latestVersion.downloadURL}`);
-
-        const screenshotsDiv = document.getElementById("screenshots");
-        screenshotsDiv.innerHTML = "";
+        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
         if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
             for (const screenshotUrl of appData.screenshotURLs) {
@@ -402,16 +422,13 @@ function displayAppInfo(appData) {
             }
 
             const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "block";
+            screenHeading.style.display = "block"; // Show the h3 element
             console.log("Displaying screenshot heading");
         } else {
             const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "none";
+            screenHeading.style.display = "none"; // Hide the h3 element
             console.log("Hiding screenshot heading");
         }
-
-        const alertBox = document.querySelector(".alertbox");
-        const alertText = document.querySelector(".alerttext");
 
         if (appData.alert) {
             alertBox.style.display = "flex";
@@ -421,14 +438,12 @@ function displayAppInfo(appData) {
             alertBox.style.display = "none";
             console.log("Hiding alert");
         }
-
     } else {
         appInfoDiv.textContent = "";
         console.log("AppData is null");
     }
 }
 
-	    
 function getLatestVersion(appData) {
     if (appData.versions && appData.versions.length > 0) {
         const sortedVersions = appData.versions.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -437,9 +452,11 @@ function getLatestVersion(appData) {
     return null;
 }
 
+// Récupérer le nom de l'application depuis l'URL
 const appNameFromURL = getParameterByName("name");
 console.log("Application Name from URL:", appNameFromURL);
 
+// Charger le fichier JSON en utilisant une requête AJAX
 const jsonFileURL = "apps.json";
 fetch(jsonFileURL)
     .then(response => response.json())
@@ -496,6 +513,7 @@ fetch(jsonFileURL)
         const appInfoDiv = document.getElementById("appInfo");
         appInfoDiv.textContent = "";
     });
+
 
     </script>
 <script>
