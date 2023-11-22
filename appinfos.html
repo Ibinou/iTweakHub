@@ -349,6 +349,7 @@ function displayAppInfo(appData) {
                 screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
                 screenshotsDiv.appendChild(screenshotElement);
                 console.log("Adding screenshot:", screenshotUrl);
+		console.log("Screenshot URLs:", appData.screenshotURLs);
             }
 
             const screenHeading = document.getElementById("screen");
@@ -516,7 +517,6 @@ favoriteButton.addEventListener("click", () => {
     }
 </script>
 
-<script src="js/appInfos.js"></script> 
 </body>
 
 </html>
