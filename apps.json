@@ -78,10 +78,7 @@
 			"localizedDescription": "Because I'm tired of wondering if my animations are slow or if my device is just really hot.\n\nThe states:\n🥒 Your phone is cooler than you are. Burn.\n🔥 Your device is warm but performance is probably not being throttled.\n🔥🔥 Your device is hot and performance is probably throttled.\n🔥🔥🔥 Your device hurts to hold in places and performance is definitely being throttled.\n\nThis version of Thermometer was compiled by Burrito, and based off Ryan's thermometer at https://github.com/warpling/Thermometer",
 			"iconURL": "https://raw.githubusercontent.com/warpling/Thermometer/master/iOS/AppIcon.appiconset/Thermometer-83.5%402x.png",
 			"tintColor": "2F2F2F",
-			"size": 377245,
-			"screenshotURLs": [
-				"https://cdn.discordapp.com/attachments/375175618079227914/681270931758383177/image0.png"
-			]
+			"size": 377245
 		},
 		{
 			"name": "appdb",
