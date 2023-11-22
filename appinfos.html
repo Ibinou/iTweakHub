@@ -340,6 +340,7 @@ function displayAppInfo(appData) {
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
         if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
+	console.log("Generating screenshot images...");
             for (const screenshotUrl of appData.screenshotURLs) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
