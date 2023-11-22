@@ -105,124 +105,124 @@
         
   </script>
 <script>
-// Récupérer le tableau urls depuis le local storage
-var urlsString = localStorage.getItem('repoURLs');
-var urls = JSON.parse(urlsString);
+// Récupérer l'élément HTML où les actualités seront affichées
+var container = document.getElementById('news');
 
-// Vérifier si urls est défini
-if (urls) {
-    // Récupérer l'élément HTML où les actualités seront affichées
-    var container = document.getElementById('news');
-
-    // Fonction pour ajouter "#" devant le nombre hexadécimal de la couleur si nécessaire
-    function formatColor(color) {
-        if (color && color.charAt(0) !== '#') {
-            color = '#' + color;
-        }
-        return color;
+// Fonction pour ajouter "#" devant le nombre hexadécimal de la couleur si nécessaire
+function formatColor(color) {
+    if (color && color.charAt(0) !== '#') {
+        color = '#' + color;
     }
-
-    // Parcourir chaque URL dans urls
-    urls.forEach(function (url) {
-        // Effectuer une requête AJAX pour récupérer le JSON à partir de l'URL
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                // Vérifier si le JSON contient un tableau news
-                if (data.news) {
-                    // Parcourir le tableau news dans le JSON
-                    data.news.forEach(function (newsItem) {
-                        // Créer des éléments HTML pour chaque actualité
-                        var newsWrapper = document.createElement('div');
-                        newsWrapper.classList.add('custom-news-item-wrapper');
-
-                        var item = document.createElement('div');
-                        item.classList.add('custom-item');
-                        item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
-
-                        var textContainer = document.createElement('div');
-                        textContainer.classList.add('custom-text');
-
-                        var headline = document.createElement('h3');
-                        headline.textContent = newsItem.title || '';
-
-                        var description = document.createElement('p');
-                        description.textContent = newsItem.caption || '';
-
-                        var imgContainer = document.createElement('div');
-                        imgContainer.classList.add('custom-image-wrapper');
-
-                        var img = document.createElement('img');
-                        img.src = newsItem.imageURL || '';
-
-                        // Ajouter les éléments au DOM
-                        textContainer.appendChild(headline);
-                        textContainer.appendChild(description);
-
-                        item.appendChild(textContainer);
-                        item.appendChild(imgContainer);
-                        imgContainer.appendChild(img);
-
-                        newsWrapper.appendChild(item);
-                        container.appendChild(newsWrapper);
-                    });
-                } else {
-                    console.error('Le tableau news est introuvable dans le JSON.');
-                }
-            })
-            .catch(error => console.error('Erreur lors de la récupération du JSON:', error));
-
-        // Effectuer une deuxième requête AJAX pour récupérer le JSON à partir de apps.json
-        fetch('https://ibinou.github.io/iTweakHub/apps.json')  // Remplacez 'chemin/vers/apps.json' par le chemin correct
-            .then(response => response.json())
-            .then(data => {
-                // Vérifier si le JSON contient un tableau news
-                if (data.news) {
-                              // Parcourir le tableau news dans le JSON
-                    data.news.forEach(function (newsItem) {
-                        // Créer des éléments HTML pour chaque actualité
-                        var newsWrapper = document.createElement('div');
-                        newsWrapper.classList.add('custom-news-item-wrapper');
-
-                        var item = document.createElement('div');
-                        item.classList.add('custom-item');
-                        item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
-
-                        var textContainer = document.createElement('div');
-                        textContainer.classList.add('custom-text');
-
-                        var headline = document.createElement('h3');
-                        headline.textContent = newsItem.title || '';
-
-                        var description = document.createElement('p');
-                        description.textContent = newsItem.caption || '';
-
-                        var imgContainer = document.createElement('div');
-                        imgContainer.classList.add('custom-image-wrapper');
-
-                        var img = document.createElement('img');
-                        img.src = newsItem.imageURL || '';
-
-                        // Ajouter les éléments au DOM
-                        textContainer.appendChild(headline);
-                        textContainer.appendChild(description);
-
-                        item.appendChild(textContainer);
-                        item.appendChild(imgContainer);
-                        imgContainer.appendChild(img);
-
-                        newsWrapper.appendChild(item);
-                        container.appendChild(newsWrapper);
-                    });
-                } else {
-                    console.error('Le tableau news est introuvable dans le fichier apps.json.');
-                }
-            })
-            .catch(error => console.error('Erreur lors de la récupération du JSON depuis apps.json:', error));
-    });
-} else {
-    console.error('Le tableau urls est introuvable dans le local storage.');
+    return color;
 }
+
+// Effectuer une première requête AJAX pour récupérer le JSON à partir de apps.json
+fetch('https://ibinou.github.io/iTweakHub/apps.json')  
+    .then(response => response.json())
+    .then(data => {
+        // Vérifier si le JSON contient un tableau news
+        if (data.news) {
+            // Parcourir le tableau news dans le JSON
+            data.news.forEach(function (newsItem) {
+                // Créer des éléments HTML pour chaque actualité
+                var newsWrapper = document.createElement('div');
+                newsWrapper.classList.add('custom-news-item-wrapper');
+
+                var item = document.createElement('div');
+                item.classList.add('custom-item');
+                item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
+
+                var textContainer = document.createElement('div');
+                textContainer.classList.add('custom-text');
+
+                var headline = document.createElement('h3');
+                headline.textContent = newsItem.title || '';
+
+                var description = document.createElement('p');
+                description.textContent = newsItem.caption || '';
+
+                var imgContainer = document.createElement('div');
+                imgContainer.classList.add('custom-image-wrapper');
+
+                var img = document.createElement('img');
+                img.src = newsItem.imageURL || '';
+
+                // Ajouter les éléments au DOM
+                textContainer.appendChild(headline);
+                textContainer.appendChild(description);
+
+                item.appendChild(textContainer);
+                item.appendChild(imgContainer);
+                imgContainer.appendChild(img);
+
+                newsWrapper.appendChild(item);
+                container.appendChild(newsWrapper);
+            });
+
+            // Récupérer le tableau urls depuis le local storage
+            var urlsString = localStorage.getItem('repoURLs');
+            var urls = JSON.parse(urlsString);
+
+            // Vérifier si urls est défini
+            if (urls) {
+                // Parcourir chaque URL dans urls
+                urls.forEach(function (url) {
+                    // Effectuer une deuxième requête AJAX pour récupérer le JSON à partir de l'URL
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Vérifier si le JSON contient un tableau news
+                            if (data.news) {
+                                // Parcourir le tableau news dans le JSON
+                                data.news.forEach(function (newsItem) {
+                                    // Créer des éléments HTML pour chaque actualité
+                                    var newsWrapper = document.createElement('div');
+                                    newsWrapper.classList.add('custom-news-item-wrapper');
+
+                                    var item = document.createElement('div');
+                                    item.classList.add('custom-item');
+                                    item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
+
+                                    var textContainer = document.createElement('div');
+                                    textContainer.classList.add('custom-text');
+
+                                    var headline = document.createElement('h3');
+                                    headline.textContent = newsItem.title || '';
+
+                                    var description = document.createElement('p');
+                                    description.textContent = newsItem.caption || '';
+
+                                    var imgContainer = document.createElement('div');
+                                    imgContainer.classList.add('custom-image-wrapper');
+
+                                    var img = document.createElement('img');
+                                    img.src = newsItem.imageURL || '';
+
+                                    // Ajouter les éléments au DOM
+                                    textContainer.appendChild(headline);
+                                    textContainer.appendChild(description);
+
+                                    item.appendChild(textContainer);
+                                    item.appendChild(imgContainer);
+                                    imgContainer.appendChild(img);
+
+                                    newsWrapper.appendChild(item);
+                                    container.appendChild(newsWrapper);
+                                });
+                            } else {
+                                console.error('Le tableau news est introuvable dans le JSON.');
+                            }
+                        })
+                        .catch(error => console.error('Erreur lors de la récupération du JSON depuis le local storage:', error));
+                });
+            } else {
+                console.error('Le tableau urls est introuvable dans le local storage.');
+            }
+        } else {
+            console.error('Le tableau news est introuvable dans le fichier apps.json.');
+        }
+    })
+    .catch(error => console.error('Erreur lors de la récupération du JSON depuis apps.json:', error));
 </script>
 <style>
 ::-webkit-scrollbar {
