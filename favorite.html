@@ -91,7 +91,7 @@ function afficherDonnees() {
     var appListDiv = document.getElementById("appList");
     var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
 
-    fetch('nouveau_format.json') // Assurez-vous de remplacer "nouveau_format.json" par le nom correct de votre fichier JSON
+    fetch('apps.json') // Assurez-vous de remplacer "nouveau_format.json" par le nom correct de votre fichier JSON
         .then(function (response) {
             return response.json();
         })
