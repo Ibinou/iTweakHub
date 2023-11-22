@@ -315,8 +315,8 @@ function displayAppInfo(appData) {
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-        if (appData.screenshotURLs && appData.screenshots.length > 0) {
-            for (const screenshotUrl of appData.screenshots) {
+        if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
+            for (const screenshotUrl of appData.screenshotURLs) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
                 screenshotElement.style.borderRadius = "20px";
