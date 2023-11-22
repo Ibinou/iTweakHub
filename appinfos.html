@@ -357,7 +357,14 @@ if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
     console.log("Hiding screenshot heading");
 }
 	    
-        const alertBox = document.querySelector(".alertbox");
+       app.screenshotURLs.forEach(screenshotURL => {
+            var img = document.createElement("img");
+	    screenshotElement.classList.add("screenshotimg");
+            img.src = screenshotURL;
+            appDiv.appendChild(img);
+        }
+	    
+	const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
         if (appData.alert) {
