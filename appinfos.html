@@ -313,27 +313,24 @@ function displayAppInfo(appData) {
         ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
+        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-    const screenshotsFragment = document.createDocumentFragment();
+        if (appData.screenshotURLs && appData.screenshots.length > 0) {
+            for (const screenshotUrl of appData.screenshots) {
+                const screenshotElement = document.createElement("img");
+                screenshotElement.style.width = "200px";
+                screenshotElement.style.borderRadius = "20px";
+                screenshotElement.style.margin = "5px";
+                screenshotElement.src = screenshotUrl;
+                screenshotsDiv.appendChild(screenshotElement);
+            }
 
-    appData.screenshotURLs.forEach(screenshotUrl => {
-        const screenshotElement = document.createElement("img");
-        screenshotElement.style.width = "200px";
-        screenshotElement.style.borderRadius = "20px";
-        screenshotElement.style.margin = "5px";
-        screenshotElement.src = screenshotUrl;
-        screenshotsFragment.appendChild(screenshotElement);
-    });
-
-    screenshotsDiv.appendChild(screenshotsFragment);
-
-    const screenHeading = document.getElementById("screen");
-    screenHeading.style.display = "block"; // Show the h3 element
-} else {
-    const screenHeading = document.getElementById("screen");
-    screenHeading.style.display = "none"; // Hide the h3 element
-}
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "block"; // Show the h3 element
+        } else {
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "none"; // Hide the h3 element
+        }
 
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
