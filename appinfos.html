@@ -315,6 +315,7 @@ function displayAppInfo(appData) {
         console.log("Setting app compatibility:", appData.minOSVersion || appData.versions[0].minOSVersion);
 
         const appBannerElement = document.getElementById("appBanner");
+        appBannerElement.src = appData.iconURL;
 
         if (appData.iconURL) {
             appBannerElement.src = appData.iconURL;
