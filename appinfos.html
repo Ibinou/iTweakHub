@@ -321,7 +321,7 @@ function displayAppInfo(appData) {
                 screenshotElement.style.width = "200px";
                 screenshotElement.style.borderRadius = "20px";
                 screenshotElement.style.margin = "5px";
-                screenshotElement.src = screenshotUrl;
+                screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
                 screenshotsDiv.appendChild(screenshotElement);
             }
 
