@@ -90,8 +90,9 @@
 function afficherDonnees() {
     var appListDiv = document.getElementById("appList");
     var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+    var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
 
-    fetch('apps.json') // Assurez-vous de remplacer "nouveau_format.json" par le nom correct de votre fichier JSON
+    fetch('apps.json') 
         .then(function (response) {
             return response.json();
         })
@@ -103,7 +104,76 @@ function afficherDonnees() {
                     return app.name === favAppName;
                 });
 
-                if (appData) {
+                if (!appData) {
+                    for (var i = 0; i < repoURLs.length; i++) {
+                        fetch(repoURLs[i])
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (repoData) {
+                                var repoAppData = repoData.apps.find(function (app) {
+                                    return app.name === favAppName;
+                                });
+
+                                if (repoAppData) {
+                                    var dockDiv = document.createElement("div");
+                                    dockDiv.className = "dock";
+
+                                    var appCellLeftDiv = document.createElement("div");
+                                    appCellLeftDiv.className = "app_cell_left";
+
+                                    var appIconImg = document.createElement("img");
+                                    appIconImg.className = "appicon";
+                                    appIconImg.src = repoAppData.iconURL;
+                                    appCellLeftDiv.appendChild(appIconImg);
+
+                                    var appCellMetaDiv = document.createElement("div");
+                                    appCellMetaDiv.className = "app_cell_meta";
+
+                                    var appNameDiv = document.createElement("div");
+                                    appNameDiv.className = "appname";
+                                    appNameDiv.textContent = repoAppData.name;
+
+                                    var appDevDiv = document.createElement("div");
+                                    appDevDiv.className = "appsection";
+                                    appDevDiv.textContent = repoAppData.developerName;
+
+                                    appCellMetaDiv.appendChild(appNameDiv);
+                                    appCellMetaDiv.appendChild(appDevDiv);
+                                    appCellLeftDiv.appendChild(appCellMetaDiv);
+                                    dockDiv.appendChild(appCellLeftDiv);
+
+                                    var appGetDiv = document.createElement("div");
+                                    appGetDiv.className = "appget";
+
+                                    var appGetBtn = document.createElement("a");
+                                    appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(repoAppData.name);
+
+                                    var getBtn = document.createElement("button");
+                                    getBtn.className = "getbtn";
+                                    getBtn.textContent = "GET";
+
+                                    var removeBtn = document.createElement("button");
+                                    removeBtn.className = "removebtn";
+                                    removeBtn.textContent = "Remove";
+                                    removeBtn.addEventListener("click", function () {
+                                        removeFavorite(repoAppData.name);
+                                        appListDiv.removeChild(dockDiv);
+                                    });
+
+                                    appGetBtn.appendChild(getBtn);
+                                    appGetBtn.appendChild(removeBtn);
+                                    appGetDiv.appendChild(appGetBtn);
+                                    dockDiv.appendChild(appGetDiv);
+
+                                    appListDiv.appendChild(dockDiv);
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log('Error', error);
+                            });
+                    }
+                } else {
                     var dockDiv = document.createElement("div");
                     dockDiv.className = "dock";
 
