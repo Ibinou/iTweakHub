@@ -62,32 +62,43 @@
     
 </div>  
     <script>
-        const accountForm = document.getElementById('accountForm');
+const accountForm = document.getElementById('accountForm');
 
-        accountForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const usernameInput = document.getElementById('username');
-            const profilePicInput = document.getElementById('profilePic');
-            const username = usernameInput.value;
+accountForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const usernameInput = document.getElementById('username');
+    const profilePicInput = document.getElementById('profilePic');
+    const username = usernameInput.value;
 
-            if (profilePicInput.files && profilePicInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const profilePicBase64 = event.target.result.split(',')[1];
-                    localStorage.setItem('username', username);
-                    localStorage.setItem('profilePic', profilePicBase64);
-                    alert('Welcome on iTweakHub 🥳');
-                    window.location.href = 'index.html'; // Redirect to index page after saving
-                };
-                reader.readAsDataURL(profilePicInput.files[0]);
-            } else {
-                alert('Please select a profile picture.');
-            }
-        });
-        
+    // Génération d'un UDID aléatoire de 6 chiffres
+    const randomUdid = Math.floor(100000 + Math.random() * 900000);
+
+    if (profilePicInput.files && profilePicInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const profilePicBase64 = event.target.result.split(',')[1];
+
+            // Ajout des informations au local storage
+            localStorage.setItem('id', randomUdid);
+            localStorage.setItem('username', username);
+            localStorage.setItem('profilePic', profilePicBase64);
+
+            // Ajout de la date de création du compte
+            const setupDate = new Date().toISOString();
+            localStorage.setItem('setupDate', setupDate);
+
+            alert('Welcome on iTweakHub 🥳');
+            window.location.href = 'index.html'; // Redirection vers la page d'accueil après l'enregistrement
+        };
+        reader.readAsDataURL(profilePicInput.files[0]);
+    } else {
+        alert('Please select a profile picture.');
+    }
+});
+
 if (!window.matchMedia('(display-mode: standalone)').matches) {
-  // L'application n'est pas installée sur l'écran d'accueil
-  alert("Please add iTweakHub to your homescreen to use it.");
+    // L'application n'est pas installée sur l'écran d'accueil
+    alert("Please add iTweakHub to your homescreen to use it.");
 }
 
     </script>
