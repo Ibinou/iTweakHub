@@ -173,7 +173,7 @@ if (urls) {
             .catch(error => console.error('Erreur lors de la récupération du JSON:', error));
 
         // Effectuer une deuxième requête AJAX pour récupérer le JSON à partir de apps.json
-        fetch('apps.json')  // Remplacez 'chemin/vers/apps.json' par le chemin correct
+        fetch('https://ibinou.github.io/iTweakHub/apps.json')  // Remplacez 'chemin/vers/apps.json' par le chemin correct
             .then(response => response.json())
             .then(data => {
                 // Vérifier si le JSON contient un tableau news
