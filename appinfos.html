@@ -357,7 +357,7 @@ if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
     console.log("Hiding screenshot heading");
 }
 	    
-       app.screenshotURLs.forEach(screenshotURL => {
+       appData.screenshotURLs.forEach(screenshotURL => {
             var img = document.createElement("img");
 	    screenshotElement.classList.add("screenshotimg");
             img.src = screenshotURL;
