@@ -272,51 +272,55 @@ function displayAppInfo(appData) {
 
     const appInfoDiv = document.getElementById("appInfo");
 
-    if (appData) {
+    if (appData && appData.length > 0) {
         const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData.iconURL;
-        appIconElement.alt = `${appData.name} Icon`;
+        appIconElement.src = appData[0].iconURL;
+        appIconElement.alt = `${appData[0].name} Icon`;
+        console.log("App Icon URL:", appData[0].iconURL);
 
         const appNameElement = document.getElementById("appName");
-        appNameElement.textContent = appData.name;
+        appNameElement.textContent = appData[0].name;
+        console.log("App Name:", appData[0].name);
 
         const appDescriptionElement = document.getElementById("appDescription");
-        appDescriptionElement.textContent = appData.localizedDescription;
+        appDescriptionElement.textContent = appData[0].localizedDescription;
 
         const appBundleElement = document.getElementById("bundle");
-        appBundleElement.textContent = appData.bundleIdentifier;
+        appBundleElement.textContent = appData[0].bundleIdentifier;
 
         const appDeveloperElement = document.getElementById("appDeveloper");
-        appDeveloperElement.textContent = appData.developerName;
+        appDeveloperElement.textContent = appData[0].developerName;
 
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.version || appData.versions[0].version;
+        appVersionElement.textContent = appData[0].version || appData[0].versions[0].version;
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.minOSVersion || appData.versions[0].minOSVersion;
+        appCompatibilityElement.textContent = appData[0].minOSVersion || appData[0].versions[0].minOSVersion;
 
         const appBannerElement = document.getElementById("appBanner");
 
-        if (appData.iconURL) {
-            appBannerElement.src = appData.iconURL;
+        if (appData[0].iconURL) {
+            appBannerElement.src = appData[0].iconURL;
         } else {
             appBannerElement.src = "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
         }
 
         const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData[0].downloadURL || appData[0].versions[0].downloadURL}`);
 
         const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
+        importButton.setAttribute("href", `scarlet://install=${appData[0].downloadURL || appData[0].versions[0].downloadURL}`);
 
         const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+        ipaButton.setAttribute("href", `${appData[0].downloadURL || appData[0].versions[0].downloadURL}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-        if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-            for (const screenshotUrl of appData.screenshotURLs) {
+        if (appData[0].screenshotURLs && appData[0].screenshotURLs.length > 0) {
+            console.log("Screenshot URLs:", appData[0].screenshotURLs);
+
+            for (const screenshotUrl of appData[0].screenshotURLs) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
                 screenshotElement.style.borderRadius = "20px";
@@ -335,9 +339,9 @@ function displayAppInfo(appData) {
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
-        if (appData.alert) {
+        if (appData[0].alert) {
             alertBox.style.display = "flex";
-            alertText.textContent = appData.alert;
+            alertText.textContent = appData[0].alert;
         } else {
             alertBox.style.display = "none";
         }
