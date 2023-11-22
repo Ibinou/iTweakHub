@@ -313,7 +313,6 @@ function displayAppInfo(appData) {
         ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
-screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
 if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
     const screenshotsFragment = document.createDocumentFragment();
