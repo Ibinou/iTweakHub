@@ -67,6 +67,69 @@ nav h1 i a {
   -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
 }
 /* I had to put the css here because the bottom nav bar was in top idk why */
+/*The real foxter code*/
+#whats-new,
+#permissions,
+#source {
+  padding: 1em;
+}
+
+#whats-new .header,
+#permissions .header,
+#source .header {
+  margin: 0.35em 0;
+  padding: 0;
+}
+
+#whats-new .header>p {
+  opacity: 0.5;
+}
+
+#whats-new #version-date {
+  text-align: right;
+}
+
+#whats-new #version-description {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  word-wrap: break-word
+}
+.header a, #nav-bar #back {
+    display: flex;
+    align-items: center;
+    font-size: 1.05em;
+    font-weight: 450;
+    border: none;
+    background: unset;
+    padding: 0;
+    color: #121212;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+#whats-new .header>p {
+    opacity: 0.5;
+}
+#whats-new #version-date {
+    text-align: right;
+}
+#whats-new #version-description {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+    word-wrap: break-word;
+}
   </style>
   
   <div id="notification" class="notification hidden">
@@ -152,7 +215,20 @@ nav h1 i a {
 </div>
 <br>
 
-
+<div id="whats-new" class="section">
+      <div class="header">
+        <h2>name</h2>
+        <a id="version-history" style="color: var(--accent-color);" href="versions.html?name=name">Version History</a>
+      </div>
+      <div class="header">
+        <p id="version">Version </p>
+        <p id="version-date"></p>
+      </div>
+      <p id="version-description"></p>
+    <a id="more" onclick="revealTruncatedText(this);">
+        <button style="color: #cb1633;">more</button>
+    </a></p>
+    </div>
 	
 <!-- 
 <a id="import" href="">
@@ -263,13 +339,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
     <script>
 
-// Fonction pour récupérer le paramètre "name" dans l'URL
 function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
-// Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
 function displayAppInfo(appData) {
     console.log("Displaying App Info:", appData);
 
@@ -278,89 +352,65 @@ function displayAppInfo(appData) {
     if (appData) {
         console.log("AppData is not null");
 
-        const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData.iconURL;
-        appIconElement.alt = `${appData.name} Icon`;
-
-        console.log("Setting app icon:", appData.iconURL);
-
-        const appNameElement = document.getElementById("appName");
-        appNameElement.textContent = appData.name;
-
-        console.log("Setting app name:", appData.name);
-
-        const appDescriptionElement = document.getElementById("appDescription");
-        appDescriptionElement.textContent = appData.localizedDescription;
-
-        console.log("Setting app description:", appData.localizedDescription);
-
-        const appBundleElement = document.getElementById("bundle");
-        appBundleElement.textContent = appData.bundleIdentifier;
-
-        console.log("Setting app bundle:", appData.bundleIdentifier);
-
-        const appDeveloperElement = document.getElementById("appDeveloper");
-        appDeveloperElement.textContent = appData.developerName;
-
-        console.log("Setting app developer:", appData.developerName);
-
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.version || appData.versions[0].version;
+        const appVersionDateElement = document.getElementById("version-date");
+        const appVersionDescriptionElement = document.getElementById("version-description");
 
-        console.log("Setting app version:", appData.version || appData.versions[0].version);
+        const latestVersion = getLatestVersion(appData);
 
-        const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.minOSVersion || appData.versions[0].minOSVersion;
+        if (latestVersion) {
+            appVersionElement.textContent = `Version ${latestVersion.version}`;
+            appVersionDateElement.textContent = latestVersion.date;
+            appVersionDescriptionElement.textContent = latestVersion.localizedDescription;
 
-        console.log("Setting app compatibility:", appData.minOSVersion || appData.versions[0].minOSVersion);
-
-        const appBannerElement = document.getElementById("appBanner");
-
-        if (appData.iconURL) {
-            appBannerElement.src = appData.iconURL;
+            console.log("Latest Version:", latestVersion.version);
+            console.log("Version Date:", latestVersion.date);
+            console.log("Version Description:", latestVersion.localizedDescription);
         } else {
-            appBannerElement.src = "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
+            appVersionElement.textContent = "Version N/A";
+            appVersionDateElement.textContent = "";
+            appVersionDescriptionElement.textContent = "No versions available";
+
+            console.log("No versions available");
         }
 
-        console.log("Setting app banner:", appData.iconURL);
-
         const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || latestVersion.downloadURL}`);
 
-        console.log("Setting install button href:", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
+        console.log("Setting install button href:", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || latestVersion.downloadURL}`);
 
         const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
+        importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || latestVersion.downloadURL}`);
 
-        console.log("Setting import button href:", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
+        console.log("Setting import button href:", `scarlet://install=${appData.downloadURL || latestVersion.downloadURL}`);
 
         const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+        ipaButton.setAttribute("href", `${appData.downloadURL || latestVersion.downloadURL}`);
 
-        console.log("Setting ipa button href:", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+        console.log("Setting ipa button href:", `${appData.downloadURL || latestVersion.downloadURL}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
-        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
+        screenshotsDiv.innerHTML = "";
 
-if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-    for (const screenshotUrl of appData.screenshotURLs) {
-        const screenshotElement = document.createElement("img");
-        screenshotElement.classList.add("screenshotimg");
-        screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
-        screenshotsDiv.appendChild(screenshotElement);
-        console.log("Adding screenshot:", screenshotUrl);
-    }
+        if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
+            for (const screenshotUrl of appData.screenshotURLs) {
+                const screenshotElement = document.createElement("img");
+                screenshotElement.classList.add("screenshotimg");
+                screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
+                screenshotsDiv.appendChild(screenshotElement);
+                console.log("Adding screenshot:", screenshotUrl);
+            }
 
-    const screenHeading = document.getElementById("screen");
-    screenHeading.style.display = "block"; // Show the h3 element
-    console.log("Displaying screenshot heading");
-} else {
-    const screenHeading = document.getElementById("screen");
-    screenHeading.style.display = "none"; // Hide the h3 element
-    console.log("Hiding screenshot heading");
-}
-	    
-	const alertBox = document.querySelector(".alertbox");
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "block";
+            console.log("Displaying screenshot heading");
+        } else {
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "none";
+            console.log("Hiding screenshot heading");
+        }
+
+        const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
         if (appData.alert) {
@@ -371,6 +421,7 @@ if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
             alertBox.style.display = "none";
             console.log("Hiding alert");
         }
+
     } else {
         appInfoDiv.textContent = "";
         console.log("AppData is null");
@@ -378,11 +429,17 @@ if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
 }
 
 	    
-// Récupérer le nom de l'application depuis l'URL
+function getLatestVersion(appData) {
+    if (appData.versions && appData.versions.length > 0) {
+        const sortedVersions = appData.versions.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return sortedVersions[0];
+    }
+    return null;
+}
+
 const appNameFromURL = getParameterByName("name");
 console.log("Application Name from URL:", appNameFromURL);
 
-// Charger le fichier JSON en utilisant une requête AJAX
 const jsonFileURL = "apps.json";
 fetch(jsonFileURL)
     .then(response => response.json())
@@ -427,7 +484,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    
+                    appInfoDiv.textContent = "";
                 });
         } else {
             displayAppInfo(appData);
