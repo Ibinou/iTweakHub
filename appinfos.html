@@ -272,81 +272,107 @@ function displayAppInfo(appData) {
 
     const appInfoDiv = document.getElementById("appInfo");
 
-    if (appData && appData.length > 0) {
+    if (appData) {
+        console.log("AppData is not null");
+
         const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData[0].iconURL;
-        appIconElement.alt = `${appData[0].name} Icon`;
-        console.log("App Icon URL:", appData[0].iconURL);
+        appIconElement.src = appData.iconURL;
+        appIconElement.alt = `${appData.name} Icon`;
+
+        console.log("Setting app icon:", appData.iconURL);
 
         const appNameElement = document.getElementById("appName");
-        appNameElement.textContent = appData[0].name;
-        console.log("App Name:", appData[0].name);
+        appNameElement.textContent = appData.name;
+
+        console.log("Setting app name:", appData.name);
 
         const appDescriptionElement = document.getElementById("appDescription");
-        appDescriptionElement.textContent = appData[0].localizedDescription;
+        appDescriptionElement.textContent = appData.localizedDescription;
+
+        console.log("Setting app description:", appData.localizedDescription);
 
         const appBundleElement = document.getElementById("bundle");
-        appBundleElement.textContent = appData[0].bundleIdentifier;
+        appBundleElement.textContent = appData.bundleIdentifier;
+
+        console.log("Setting app bundle:", appData.bundleIdentifier);
 
         const appDeveloperElement = document.getElementById("appDeveloper");
-        appDeveloperElement.textContent = appData[0].developerName;
+        appDeveloperElement.textContent = appData.developerName;
+
+        console.log("Setting app developer:", appData.developerName);
 
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData[0].version || appData[0].versions[0].version;
+        appVersionElement.textContent = appData.version || appData.versions[0].version;
+
+        console.log("Setting app version:", appData.version || appData.versions[0].version);
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData[0].minOSVersion || appData[0].versions[0].minOSVersion;
+        appCompatibilityElement.textContent = appData.minOSVersion || appData.versions[0].minOSVersion;
+
+        console.log("Setting app compatibility:", appData.minOSVersion || appData.versions[0].minOSVersion);
 
         const appBannerElement = document.getElementById("appBanner");
 
-        if (appData[0].iconURL) {
-            appBannerElement.src = appData[0].iconURL;
+        if (appData.iconURL) {
+            appBannerElement.src = appData.iconURL;
         } else {
             appBannerElement.src = "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
         }
 
+        console.log("Setting app banner:", appData.iconURL);
+
         const installButton = document.getElementById("geturl");
-        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData[0].downloadURL || appData[0].versions[0].downloadURL}`);
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        console.log("Setting install button href:", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData[0].downloadURL || appData[0].versions[0].downloadURL}`);
+        importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        console.log("Setting import button href:", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData[0].downloadURL || appData[0].versions[0].downloadURL}`);
+        ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        console.log("Setting ipa button href:", `${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-        if (appData[0].screenshotURLs && appData[0].screenshotURLs.length > 0) {
-            console.log("Screenshot URLs:", appData[0].screenshotURLs);
-
-            for (const screenshotUrl of appData[0].screenshotURLs) {
+        if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
+            for (const screenshotUrl of appData.screenshotURLs) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
                 screenshotElement.style.borderRadius = "20px";
                 screenshotElement.style.margin = "5px";
                 screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
                 screenshotsDiv.appendChild(screenshotElement);
+                console.log("Adding screenshot:", screenshotUrl);
             }
 
             const screenHeading = document.getElementById("screen");
             screenHeading.style.display = "block"; // Show the h3 element
+            console.log("Displaying screenshot heading");
         } else {
             const screenHeading = document.getElementById("screen");
             screenHeading.style.display = "none"; // Hide the h3 element
+            console.log("Hiding screenshot heading");
         }
 
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
-        if (appData[0].alert) {
+        if (appData.alert) {
             alertBox.style.display = "flex";
-            alertText.textContent = appData[0].alert;
+            alertText.textContent = appData.alert;
+            console.log("Displaying alert:", appData.alert);
         } else {
             alertBox.style.display = "none";
+            console.log("Hiding alert");
         }
     } else {
         appInfoDiv.textContent = "";
+        console.log("AppData is null");
     }
 }
 
