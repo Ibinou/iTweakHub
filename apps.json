@@ -141,30 +141,12 @@
 	],
 	"news": [
 		{
-			"title": "unc0ver is now out!",
-			"identifier": "undecimus",
-			"caption": "The most advanced jailbreak tool. Tap to download.",
-			"tintColor": "101216",
-			"imageURL": "https://cdn.discordapp.com/attachments/482068798095228928/678393363590021130/unknown.png",
-			"appID": "science.xnu.undecimus",
-			"date": "2020-02-09",
-			"notify": false
-		},
-		{
-			"title": "What's New",
-			"identifier": "whatsnew",
-			"caption": "- Added Thermometer, by Ryan McLeod. Perfect for checking device throttle.\n- Added UTM, note that the screenshot is intended to be a placeholder image for now.\n\nThanks for using Burrito's AltStore.",
-			"tintColor": "018084",
-			"date": "2020-02-13",
-			"notify": false
-		},
-		{
-			"title": "Welcome to Burrito's AltStore",
-			"identifier": "connection",
-			"caption": "Release Channel: source | Version: 1.0b | Tap to visit our website.",
-			"tintColor": "FF9500",
-			"url": "https://burritosoftware.github.io/altstore",
-			"date": "2020-02-14",
+			"title": "Welcome to iTweakHub !",
+			"identifier": "welcome",
+			"caption": "The most advanced web-based 3rd party AppStore ✌️.",
+			"tintColor": "17011F",
+			"imageURL": "https://itweakhub.netlify.app/img/icon.png",
+			"date": "2023-11-22",
 			"notify": false
 		}
 	],
