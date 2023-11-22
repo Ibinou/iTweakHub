@@ -67,68 +67,6 @@ nav h1 i a {
   -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
 }
 /* I had to put the css here because the bottom nav bar was in top idk why */
-#whats-new,
-#permissions,
-#source {
-  padding: 1em;
-}
-
-#whats-new .header,
-#permissions .header,
-#source .header {
-  margin: 0.35em 0;
-  padding: 0;
-}
-
-#whats-new .header>p {
-  opacity: 0.5;
-}
-
-#whats-new #version-date {
-  text-align: right;
-}
-
-#whats-new #version-description {
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  position: relative;
-  word-wrap: break-word
-}
-.header a, #nav-bar #back {
-    display: flex;
-    align-items: center;
-    font-size: 1.05em;
-    font-weight: 450;
-    border: none;
-    background: unset;
-    padding: 0;
-    color: #121212;
-}
-.header {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 0 1rem;
-}
-#whats-new .header>p {
-    opacity: 0.5;
-}
-#whats-new #version-date {
-    text-align: right;
-}
-#whats-new #version-description {
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    position: relative;
-    word-wrap: break-word;
-}
   </style>
   
   <div id="notification" class="notification hidden">
@@ -214,17 +152,7 @@ nav h1 i a {
 </div>
 <br>
 
-<div id="whats-new" class="section">
-      <div class="header">
-        <h2>What's New</h2>
-        <a id="version-history" style="color: var(--app-tint-color);" href="version-history.html?name=name">Version History</a>
-      </div>
-      <div class="header">
-        <p id="version"></p>
-        <p id="version-date"></p>
-      </div>
-      <p id="version-description"><p>
-    </div>
+
 	
 <!-- 
 <a id="import" href="">
@@ -346,89 +274,94 @@ function displayAppInfo(appData) {
     console.log("Displaying App Info:", appData);
 
     const appInfoDiv = document.getElementById("appInfo");
-    const appIconElement = document.getElementById("appIcon");
-    const appNameElement = document.getElementById("appName");
-    const appDescriptionElement = document.getElementById("appDescription");
-    const appBundleElement = document.getElementById("bundle");
-    const appDeveloperElement = document.getElementById("appDeveloper");
-    const appVersionContainer = document.getElementById("version-container");
-    const appVersionElement = document.getElementById("version");
-    const appVersionDateElement = document.getElementById("version-date");
-    const appVersionDescriptionElement = document.getElementById("version-description");
-    const appCompatibilityElement = document.getElementById("appCompatibility");
-    const appBannerElement = document.getElementById("appBanner");
-    const installButton = document.getElementById("geturl");
-    const importButton = document.getElementById("import");
-    const ipaButton = document.getElementById("ipa");
-    const screenshotsDiv = document.getElementById("screenshots");
-    const alertBox = document.querySelector(".alertbox");
-    const alertText = document.querySelector(".alerttext");
 
     if (appData) {
         console.log("AppData is not null");
 
+        const appIconElement = document.getElementById("appIcon");
         appIconElement.src = appData.iconURL;
         appIconElement.alt = `${appData.name} Icon`;
 
+        console.log("Setting app icon:", appData.iconURL);
+
+        const appNameElement = document.getElementById("appName");
         appNameElement.textContent = appData.name;
+
+        console.log("Setting app name:", appData.name);
+
+        const appDescriptionElement = document.getElementById("appDescription");
         appDescriptionElement.textContent = appData.localizedDescription;
+
+        console.log("Setting app description:", appData.localizedDescription);
+
+        const appBundleElement = document.getElementById("bundle");
         appBundleElement.textContent = appData.bundleIdentifier;
+
+        console.log("Setting app bundle:", appData.bundleIdentifier);
+
+        const appDeveloperElement = document.getElementById("appDeveloper");
         appDeveloperElement.textContent = appData.developerName;
 
-        if (appData.versions && appData.versions.length > 0) {
-            const latestVersion = getLatestVersion(appData);
+        console.log("Setting app developer:", appData.developerName);
 
-            if (latestVersion) {
-                appVersionElement.textContent = `Version ${latestVersion.version}`;
-                appVersionDateElement.textContent = latestVersion.date;
-                appVersionDescriptionElement.textContent = latestVersion.localizedDescription;
-            } else {
-                appVersionElement.textContent = "Version N/A";
-                appVersionDateElement.textContent = "";
-                appVersionDescriptionElement.textContent = "No versions available";
-            }
-        } else if (appData.version) {
-            appVersionElement.textContent = `Version ${appData.version}`;
-            appVersionDateElement.textContent = appData.versionDate || "";
-            appVersionDescriptionElement.textContent = appData.versionDescription || "";
+        const appVersionElement = document.getElementById("appVersion");
+        appVersionElement.textContent = appData.version || appData.versions[0].version;
+
+        console.log("Setting app version:", appData.version || appData.versions[0].version);
+
+        const appCompatibilityElement = document.getElementById("appCompatibility");
+        appCompatibilityElement.textContent = appData.minOSVersion || appData.versions[0].minOSVersion;
+
+        console.log("Setting app compatibility:", appData.minOSVersion || appData.versions[0].minOSVersion);
+
+        const appBannerElement = document.getElementById("appBanner");
+
+        if (appData.iconURL) {
+            appBannerElement.src = appData.iconURL;
         } else {
-            appVersionElement.textContent = "Version N/A";
-            appVersionDateElement.textContent = "";
-            appVersionDescriptionElement.textContent = "No versions available";
+            appBannerElement.src = "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
         }
 
-        appCompatibilityElement.textContent = appData.minOSVersion || (appData.versions && appData.versions.length > 0 ? appData.versions[0].minOSVersion : "");
-        appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
+        console.log("Setting app banner:", appData.iconURL);
 
-        if (appData.versions && appData.versions.length > 0) {
-            installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.versions[0].downloadURL}`);
-            importButton.setAttribute("href", `scarlet://install=${appData.versions[0].downloadURL}`);
-            ipaButton.setAttribute("href", `${appData.versions[0].downloadURL}`);
-        } else {
-            installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL}`);
-            importButton.setAttribute("href", `scarlet://install=${appData.downloadURL}`);
-            ipaButton.setAttribute("href", `${appData.downloadURL}`);
-        }
+        const installButton = document.getElementById("geturl");
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
 
+        console.log("Setting install button href:", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        const importButton = document.getElementById("import");
+        importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        console.log("Setting import button href:", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        const ipaButton = document.getElementById("ipa");
+        ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        console.log("Setting ipa button href:", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+
+        const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-        if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-            for (const screenshotUrl of appData.screenshotURLs) {
-                const screenshotElement = document.createElement("img");
-                screenshotElement.classList.add("screenshotimg");
-                screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
-                screenshotsDiv.appendChild(screenshotElement);
-                console.log("Adding screenshot:", screenshotUrl);
-            }
+if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
+    for (const screenshotUrl of appData.screenshotURLs) {
+        const screenshotElement = document.createElement("img");
+        screenshotElement.classList.add("screenshotimg");
+        screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
+        screenshotsDiv.appendChild(screenshotElement);
+        console.log("Adding screenshot:", screenshotUrl);
+    }
 
-            const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "block"; // Show the h3 element
-            console.log("Displaying screenshot heading");
-        } else {
-            const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "none"; // Hide the h3 element
-            console.log("Hiding screenshot heading");
-        }
+    const screenHeading = document.getElementById("screen");
+    screenHeading.style.display = "block"; // Show the h3 element
+    console.log("Displaying screenshot heading");
+} else {
+    const screenHeading = document.getElementById("screen");
+    screenHeading.style.display = "none"; // Hide the h3 element
+    console.log("Hiding screenshot heading");
+}
+	    
+	const alertBox = document.querySelector(".alertbox");
+        const alertText = document.querySelector(".alerttext");
 
         if (appData.alert) {
             alertBox.style.display = "flex";
@@ -444,14 +377,7 @@ function displayAppInfo(appData) {
     }
 }
 
-function getLatestVersion(appData) {
-    if (appData.versions && appData.versions.length > 0) {
-        const sortedVersions = appData.versions.sort((a, b) => new Date(b.date) - new Date(a.date));
-        return sortedVersions[0];
-    }
-    return null;
-}
-
+	    
 // Récupérer le nom de l'application depuis l'URL
 const appNameFromURL = getParameterByName("name");
 console.log("Application Name from URL:", appNameFromURL);
@@ -501,7 +427,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    appInfoDiv.textContent = "";
+                    
                 });
         } else {
             displayAppInfo(appData);
@@ -513,7 +439,6 @@ fetch(jsonFileURL)
         const appInfoDiv = document.getElementById("appInfo");
         appInfoDiv.textContent = "";
     });
-
 
     </script>
 <script>
