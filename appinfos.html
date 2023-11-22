@@ -152,7 +152,6 @@ nav h1 i a {
 </div>
 <br>
 
-    <div id="appData"></div>
 
 	
 <!-- 
@@ -360,16 +359,6 @@ if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
     screenHeading.style.display = "none"; // Hide the h3 element
     console.log("Hiding screenshot heading");
 }
-
-	   var appDataDiv = document.getElementById("appData");
-    appDataDiv.innerHTML = ""; // Efface le contenu précédent
-	    
-       appData.screenshotURLs.forEach(screenshotURL => {
-            var img = document.createElement("img");
-	    screenshotElement.classList.add("screenshotimg");
-            img.src = screenshotURL;
-            appDiv.appendChild(img);
-        })
 	    
 	const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
