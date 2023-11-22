@@ -152,6 +152,9 @@ nav h1 i a {
 </div>
 <br>
 
+    <div id="appData"></div>
+
+	
 <!-- 
 <a id="import" href="">
 <p>EXPORT TO SCARLET</p>
@@ -260,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     <script>
+
 // Fonction pour récupérer le paramètre "name" dans l'URL
 function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -356,6 +360,9 @@ if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
     screenHeading.style.display = "none"; // Hide the h3 element
     console.log("Hiding screenshot heading");
 }
+
+	   var appDataDiv = document.getElementById("appData");
+    appDataDiv.innerHTML = ""; // Efface le contenu précédent
 	    
        appData.screenshotURLs.forEach(screenshotURL => {
             var img = document.createElement("img");
