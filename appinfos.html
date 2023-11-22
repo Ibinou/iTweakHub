@@ -340,7 +340,7 @@ function displayAppInfo(appData) {
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
         if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-	console.log("Generating screenshot images...");
+	console.log("Creating screenshot element for:", screenshotUrl);
             for (const screenshotUrl of appData.screenshotURLs) {
                 const screenshotElement = document.createElement("img");
                 screenshotElement.style.width = "200px";
@@ -360,6 +360,12 @@ function displayAppInfo(appData) {
             console.log("Hiding screenshot heading");
         }
 
+	fetch(screenshotUrl)
+    .then(response => {
+        console.log("Screenshot URL:", screenshotUrl, "Status:", response.status);
+        return response;
+    })
+	    
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
@@ -377,6 +383,7 @@ function displayAppInfo(appData) {
     }
 }
 
+	    
 // Récupérer le nom de l'application depuis l'URL
 const appNameFromURL = getParameterByName("name");
 console.log("Application Name from URL:", appNameFromURL);
