@@ -336,15 +336,13 @@ function displayAppInfo(appData) {
 
         console.log("Setting ipa button href:", `${appData.downloadURL || appData.versions[0].downloadURL}`);
 
-const screenshotsDiv = document.getElementById("screenshots");
-screenshotsDiv.innerHTML = ""; // Clear existing screenshots
+        const screenshotsDiv = document.getElementById("screenshots");
+        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
 if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
     for (const screenshotUrl of appData.screenshotURLs) {
         const screenshotElement = document.createElement("img");
-        screenshotElement.style.width = "200px";
-        screenshotElement.style.borderRadius = "20px";
-        screenshotElement.style.margin = "5px";
+        screenshotElement.classList.add("screenshotimg");
         screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
         screenshotsDiv.appendChild(screenshotElement);
         console.log("Adding screenshot:", screenshotUrl);
