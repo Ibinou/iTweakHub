@@ -145,7 +145,7 @@
 			"identifier": "discord",
 			"caption": "Tap here to join our comunity !",
 			"tintColor": "5761EC",
-			"imageURL": "https://itweakhub.netlify.app/img/banners/ithdiscord.png",
+			"imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/banners/ithdiscord.png",
 			"date": "2023-11-23",
 			"notify": false
 		},
@@ -154,7 +154,7 @@
 			"identifier": "welcome",
 			"caption": "The most advanced web-based 3rd party AppStore ✌️.",
 			"tintColor": "17011F",
-			"imageURL": "https://itweakhub.netlify.app/img/banners/ithbanner.png",
+			"imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/banners/ithbanner.PNG",
 			"date": "2023-11-22",
 			"notify": false
 		}
