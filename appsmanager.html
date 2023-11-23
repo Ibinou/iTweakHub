@@ -448,7 +448,7 @@ function CheckValidity() {
             // Le repo est valide, pas d'action supplémentaire nécessaire
           } else {
             // Repo invalide détecté (ne respecte pas le format)
-            if (confirm("Invalid repository format detected. Do you want to remove it?")) {
+            if (confirm("Invalid source detected. Do you want to remove it?")) {
               removeInvalidRepo(url);
             }
           }
