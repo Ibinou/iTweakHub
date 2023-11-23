@@ -155,7 +155,7 @@ function afficherReposDepuisLocalStorage() {
           var infoDiv = createRepoElement(data, url);
 
           // Animation au chargement initial
-          infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s;";
+          infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s";
           infoDiv.style.transform = "scale(0.2)";
 
           // Ajout de l'élément au DOM
@@ -238,8 +238,8 @@ function createRepoElement(data, url) {
   infoDiv.appendChild(repoSubtitleElement);
 
   // Animation à la création
-  infoDiv.style.transition = "transform 0.5s ease-in-out";
-  infoDiv.style.transform = "scale(0)";
+  infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s";
+  infoDiv.style.transform = "scale(0.2)";
 
   // Forcer une nouvelle étape de rendu pour activer l'effet de transition
   infoDiv.offsetHeight;
@@ -259,8 +259,8 @@ function createRepoElement(data, url) {
       }
 
       // Animation de suppression
-      infoDiv.style.transition = "transform 0.5s ease-in-out";
-      infoDiv.style.transform = "scale(0)";
+      infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s";
+      infoDiv.style.transform = "scale(0.2)";
 
       // Supprimer l'élément du DOM après la fin de l'animation
       setTimeout(function() {
