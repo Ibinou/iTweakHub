@@ -203,7 +203,7 @@ function afficherInfosDepuisJSON() {
     });
 }
 
-// Fonction pour créer l'élément du repo
+// Fonction pour créer l'élément du repo avec animation à la création
 function createRepoElement(data, url) {
   var infoDiv = document.createElement("div");
   infoDiv.className = "item";
@@ -229,6 +229,16 @@ function createRepoElement(data, url) {
   repoSubtitleElement.textContent = data.subtitle;
   infoDiv.appendChild(repoSubtitleElement);
 
+  // Animation à la création
+  infoDiv.style.transition = "transform 0.5s ease-in-out";
+  infoDiv.style.transform = "scale(0)";
+
+  // Forcer une nouvelle étape de rendu pour activer l'effet de transition
+  infoDiv.offsetHeight;
+
+  // Retirer l'animation après une courte période
+  infoDiv.style.transform = "scale(1)";
+
   // Ajouter un gestionnaire d'événements pour la suppression du repo
   deleteIcon.addEventListener("click", function () {
     if (confirm("Are you sure to delete this source ?")) {
@@ -240,11 +250,14 @@ function createRepoElement(data, url) {
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
       }
 
-      // Supprimer l'élément du DOM
-      infoDiv.remove();
+      // Animation de suppression
+      infoDiv.style.transition = "transform 0.5s ease-in-out";
+      infoDiv.style.transform = "scale(0)";
 
-      // Redirection vers appsmanager.html
-      window.location.href = "appsmanager.html";
+      // Supprimer l'élément du DOM après la fin de l'animation
+      setTimeout(function() {
+        infoDiv.remove();
+      }, 500); // 500 millisecondes, correspondant à la durée de l'animation
     }
   });
 
