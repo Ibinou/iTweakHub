@@ -1472,8 +1472,10 @@ font-size: 20px;
 
 #news img {
     width: 100%;
-    height: auto;
+    height: 215px;
     display: block;
+    border-radius: 23px;
+    object-fit: cover;
 }
 
 .app-header img {
