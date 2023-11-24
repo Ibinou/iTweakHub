@@ -46,7 +46,7 @@
 	</div> 
    </div>
   
-  <script src="js/index.js"></script>
+
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
@@ -108,97 +108,84 @@ function afficherDonneesParCategorie(categoryName, categoryId) {
                     return recentApps.includes(appName);
                 });
 
-                if (categoryApps.length > 0) {
-                    var categoryDiv = document.createElement("div");
-                    categoryDiv.className = "category";
+                categoryApps.forEach(function (favAppName) {
+                    var appData = null;
 
-                    var categoryNameDiv = document.createElement("div");
-                    categoryNameDiv.className = "categoryName";
-                    categoryNameDiv.textContent = categoryName;
+                    for (var i = 0; i < repoURLs.length; i++) {
+                        var repoAppData = null;
 
-                    categoryDiv.appendChild(categoryNameDiv);
-
-                    categoryApps.forEach(function (favAppName) {
-                        var appData = null;
-
-                        for (var i = 0; i < repoURLs.length; i++) {
-                            var repoAppData = null;
-
-                            fetch(repoURLs[i])
-                                .then(function (response) {
-                                    return response.json();
-                                })
-                                .then(function (repoData) {
-                                    repoAppData = repoData.apps.find(function (app) {
-                                        return app.name === favAppName;
-                                    });
-
-                                    if (repoAppData) {
-                                        var dockDiv = document.createElement("div");
-                                        dockDiv.className = "dock";
-
-                                        var appCellLeftDiv = document.createElement("div");
-                                        appCellLeftDiv.className = "app_cell_left";
-
-                                        var appIconImg = document.createElement("img");
-                                        appIconImg.className = "appicon";
-                                        appIconImg.src = repoAppData.iconURL;
-                                        appCellLeftDiv.appendChild(appIconImg);
-
-                                        var appCellMetaDiv = document.createElement("div");
-                                        appCellMetaDiv.className = "app_cell_meta";
-
-                                        var appNameDiv = document.createElement("div");
-                                        appNameDiv.className = "appname";
-                                        appNameDiv.textContent = repoAppData.name;
-
-                                        var appDevDiv = document.createElement("div");
-                                        appDevDiv.className = "appsection";
-                                        appDevDiv.textContent = repoAppData.developerName;
-
-                                        appCellMetaDiv.appendChild(appNameDiv);
-                                        appCellMetaDiv.appendChild(appDevDiv);
-                                        appCellLeftDiv.appendChild(appCellMetaDiv);
-                                        dockDiv.appendChild(appCellLeftDiv);
-
-                                        var appGetDiv = document.createElement("div");
-                                        appGetDiv.className = "appget";
-
-                                        var appGetBtn = document.createElement("a");
-                                        appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(repoAppData.name);
-
-                                        var getBtn = document.createElement("button");
-                                        getBtn.className = "getbtn";
-                                        getBtn.textContent = "GET";
-
-                                        var removeBtn = document.createElement("button");
-                                        removeBtn.className = "removebtn";
-                                        removeBtn.textContent = "Remove";
-                                        removeBtn.addEventListener("click", function () {
-                                            removeFavorite(repoAppData.name);
-                                            categoryListDiv.removeChild(dockDiv);
-                                        });
-
-                                        appGetBtn.appendChild(getBtn);
-                                        appGetBtn.appendChild(removeBtn);
-                                        appGetDiv.appendChild(appGetBtn);
-                                        dockDiv.appendChild(appGetDiv);
-
-                                        categoryDiv.appendChild(dockDiv);
-                                    }
-                                })
-                                .catch(function (error) {
-                                    console.log('Error', error);
+                        fetch(repoURLs[i])
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (repoData) {
+                                repoAppData = repoData.apps.find(function (app) {
+                                    return app.name === favAppName;
                                 });
 
-                            if (repoAppData) {
-                                break;
-                            }
-                        }
-                    });
+                                if (repoAppData) {
+                                    var dockDiv = document.createElement("div");
+                                    dockDiv.className = "dock";
 
-                    categoryListDiv.appendChild(categoryDiv);
-                }
+                                    var appCellLeftDiv = document.createElement("div");
+                                    appCellLeftDiv.className = "app_cell_left";
+
+                                    var appIconImg = document.createElement("img");
+                                    appIconImg.className = "appicon";
+                                    appIconImg.src = repoAppData.iconURL;
+                                    appCellLeftDiv.appendChild(appIconImg);
+
+                                    var appCellMetaDiv = document.createElement("div");
+                                    appCellMetaDiv.className = "app_cell_meta";
+
+                                    var appNameDiv = document.createElement("div");
+                                    appNameDiv.className = "appname";
+                                    appNameDiv.textContent = repoAppData.name;
+
+                                    var appDevDiv = document.createElement("div");
+                                    appDevDiv.className = "appsection";
+                                    appDevDiv.textContent = repoAppData.developerName;
+
+                                    appCellMetaDiv.appendChild(appNameDiv);
+                                    appCellMetaDiv.appendChild(appDevDiv);
+                                    appCellLeftDiv.appendChild(appCellMetaDiv);
+                                    dockDiv.appendChild(appCellLeftDiv);
+
+                                    var appGetDiv = document.createElement("div");
+                                    appGetDiv.className = "appget";
+
+                                    var appGetBtn = document.createElement("a");
+                                    appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(repoAppData.name);
+
+                                    var getBtn = document.createElement("button");
+                                    getBtn.className = "getbtn";
+                                    getBtn.textContent = "GET";
+
+                                    var removeBtn = document.createElement("button");
+                                    removeBtn.className = "removebtn";
+                                    removeBtn.textContent = "Remove";
+                                    removeBtn.addEventListener("click", function () {
+                                        removeFavorite(repoAppData.name);
+                                        categoryListDiv.removeChild(dockDiv);
+                                    });
+
+                                    appGetBtn.appendChild(getBtn);
+                                    appGetBtn.appendChild(removeBtn);
+                                    appGetDiv.appendChild(appGetBtn);
+                                    dockDiv.appendChild(appGetDiv);
+
+                                    categoryListDiv.appendChild(dockDiv);
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log('Error', error);
+                            });
+
+                        if (repoAppData) {
+                            break;
+                        }
+                    }
+                });
             }
         })
         .catch(function (error) {
