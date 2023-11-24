@@ -343,25 +343,25 @@ function displayAppInfo(appData) {
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-    for (const screenshotUrl of appData.screenshotURLs) {
-        const screenshotElement = document.createElement("img");
-        screenshotElement.classList.add("screenshotimg");
-        screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
-        screenshotsDiv.appendChild(screenshotElement);
-        console.log("Adding screenshot:", screenshotUrl);
-    }
+        if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
+            for (const screenshotUrl of appData.screenshotURLs) {
+                const screenshotElement = document.createElement("img");
+                screenshotElement.classList.add("screenshotimg");
+                screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
+                screenshotsDiv.appendChild(screenshotElement);
+                console.log("Adding screenshot:", screenshotUrl);
+            }
 
-    const screenHeading = document.getElementById("screen");
-    screenHeading.style.display = "block"; // Show the h3 element
-    console.log("Displaying screenshot heading");
-} else {
-    const screenHeading = document.getElementById("screen");
-    screenHeading.style.display = "none"; // Hide the h3 element
-    console.log("Hiding screenshot heading");
-}
-	    
-	const alertBox = document.querySelector(".alertbox");
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "block"; // Show the h3 element
+            console.log("Displaying screenshot heading");
+        } else {
+            const screenHeading = document.getElementById("screen");
+            screenHeading.style.display = "none"; // Hide the h3 element
+            console.log("Hiding screenshot heading");
+        }
+
+        const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
         if (appData.alert) {
@@ -372,13 +372,27 @@ if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
             alertBox.style.display = "none";
             console.log("Hiding alert");
         }
+
+        // Ajouter le nom de l'application à la liste "recent" dans le Local Storage
+        addToRecentApps(appData.name);
     } else {
         appInfoDiv.textContent = "";
         console.log("AppData is null");
     }
 }
 
-	    
+// Fonction pour ajouter le nom de l'application à la liste "recent" dans le Local Storage
+function addToRecentApps(appName) {
+    const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
+    recentApps.unshift(appName); // Ajouter le nom de l'application au début de la liste
+
+    // Limiter la liste à, par exemple, 5 éléments
+    const maxLength = 5;
+    const trimmedRecentApps = recentApps.slice(0, maxLength);
+
+    localStorage.setItem("recent", JSON.stringify(trimmedRecentApps));
+}
+
 // Récupérer le nom de l'application depuis l'URL
 const appNameFromURL = getParameterByName("name");
 console.log("Application Name from URL:", appNameFromURL);
@@ -428,7 +442,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-                    
+
                 });
         } else {
             displayAppInfo(appData);
