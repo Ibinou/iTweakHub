@@ -188,15 +188,10 @@ function afficherInfosDepuisJSON() {
     .then(function(data) {
       // Ajout de la condition : le repo doit avoir l'array apps et la propriété name
       if (data.apps && Array.isArray(data.apps) && data.name) {
-        var reposDiv = document.getElementById("repos");
-        var infoDiv = createRepoElement(data, url);
+      var reposDiv = document.getElementById("repos");
+      var infoDiv = createRepoElement(data, url);
 
-        var repoLink = document.createElement("a");
-        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-        repoLink.appendChild(infoDiv);
-
-        reposDiv.appendChild(repoLink);
-
+        reposDiv.appendChild(infoDiv);
         // Enregistrer l'URL du repo dans le localStorage
         var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
         repoURLs.push(url);
