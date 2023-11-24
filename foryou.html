@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/featured.css" keep>
+  <link rel="stylesheet" href="css/navbar.css" keep>
+  <link rel="stylesheet" href="css/styles.css" keep>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121212">
+  <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+  <title>For You | iTweakHub</title>
+  <script src="/js/index.js"></script>
+  <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body style="opacity: 0;">
+
+                                                                              
+<div class="sidebar">
+  <a href="index.html">Home</a>
+  <a class="active" href="appsmanager.html">Apps Manager</a>
+  <a href="search.html">Search</a>
+</div>
+
+  <div class="content">
+
+    <div class="toptitle">	
+    <a style="text-decoration: none" href="appsmanager.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
+    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">For You</h1>
+    </div>
+    
+    <div id="entertainmentList" class="category-list"></div>
+    <div id="musicList" class="category-list"></div>
+    <div id="gamesList" class="category-list"></div>
+    <div id="jailbreakList" class="category-list"></div>
+    <div id="socialMediaList" class="category-list"></div> 
+    
+<div class="gradient-div"></div>
+  <div class="hidecolor">	
+  <input type="color" id="color-picker">
+  <button id="reset-button">Reset</button>
+	</div> 
+   </div>
+  
+  <script src="js/index.js"></script>
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+  </script>
+
+<script>
+function afficherDonneesParCategorie(categoryName, categoryId) {
+    var categoryListDiv = document.getElementById(categoryId);
+    var recentApps = JSON.parse(localStorage.getItem("recent")) || [];
+    var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+
+    fetch('foryou.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var category = data.categories.find(function (cat) {
+                return cat.name === categoryName;
+            });
+
+            if (category) {
+                var categoryApps = category.apps.filter(function (appName) {
+                    return recentApps.includes(appName);
+                });
+
+                if (categoryApps.length > 0) {
+                    var categoryDiv = document.createElement("div");
+                    categoryDiv.className = "category";
+
+                    var categoryNameDiv = document.createElement("div");
+                    categoryNameDiv.className = "categoryName";
+                    categoryNameDiv.textContent = categoryName;
+
+                    categoryDiv.appendChild(categoryNameDiv);
+
+                    categoryApps.forEach(function (favAppName) {
+                        var appData = null;
+
+                        for (var i = 0; i < repoURLs.length; i++) {
+                            var repoAppData = null;
+
+                            fetch(repoURLs[i])
+                                .then(function (response) {
+                                    return response.json();
+                                })
+                                .then(function (repoData) {
+                                    repoAppData = repoData.apps.find(function (app) {
+                                        return app.name === favAppName;
+                                    });
+
+                                    if (repoAppData) {
+                                        var dockDiv = document.createElement("div");
+                                        dockDiv.className = "dock";
+
+                                        var appCellLeftDiv = document.createElement("div");
+                                        appCellLeftDiv.className = "app_cell_left";
+
+                                        var appIconImg = document.createElement("img");
+                                        appIconImg.className = "appicon";
+                                        appIconImg.src = repoAppData.iconURL;
+                                        appCellLeftDiv.appendChild(appIconImg);
+
+                                        var appCellMetaDiv = document.createElement("div");
+                                        appCellMetaDiv.className = "app_cell_meta";
+
+                                        var appNameDiv = document.createElement("div");
+                                        appNameDiv.className = "appname";
+                                        appNameDiv.textContent = repoAppData.name;
+
+                                        var appDevDiv = document.createElement("div");
+                                        appDevDiv.className = "appsection";
+                                        appDevDiv.textContent = repoAppData.developerName;
+
+                                        appCellMetaDiv.appendChild(appNameDiv);
+                                        appCellMetaDiv.appendChild(appDevDiv);
+                                        appCellLeftDiv.appendChild(appCellMetaDiv);
+                                        dockDiv.appendChild(appCellLeftDiv);
+
+                                        var appGetDiv = document.createElement("div");
+                                        appGetDiv.className = "appget";
+
+                                        var appGetBtn = document.createElement("a");
+                                        appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(repoAppData.name);
+
+                                        var getBtn = document.createElement("button");
+                                        getBtn.className = "getbtn";
+                                        getBtn.textContent = "GET";
+
+                                        var removeBtn = document.createElement("button");
+                                        removeBtn.className = "removebtn";
+                                        removeBtn.textContent = "Remove";
+                                        removeBtn.addEventListener("click", function () {
+                                            removeFavorite(repoAppData.name);
+                                            categoryListDiv.removeChild(dockDiv);
+                                        });
+
+                                        appGetBtn.appendChild(getBtn);
+                                        appGetBtn.appendChild(removeBtn);
+                                        appGetDiv.appendChild(appGetBtn);
+                                        dockDiv.appendChild(appGetDiv);
+
+                                        categoryDiv.appendChild(dockDiv);
+                                    }
+                                })
+                                .catch(function (error) {
+                                    console.log('Error', error);
+                                });
+
+                            if (repoAppData) {
+                                break;
+                            }
+                        }
+                    });
+
+                    categoryListDiv.appendChild(categoryDiv);
+                }
+            }
+        })
+        .catch(function (error) {
+            console.log('Error', error);
+        });
+}
+
+function removeFavorite(appName) {
+    var recentApps = JSON.parse(localStorage.getItem("recent")) || [];
+    var updatedRecentApps = recentApps.filter(function (recentAppName) {
+        return recentAppName !== appName;
+    });
+    localStorage.setItem("recent", JSON.stringify(updatedRecentApps));
+}
+
+// Call the function for each category
+afficherDonneesParCategorie("Entertainment", "entertainmentList");
+afficherDonneesParCategorie("Music", "musicList");
+afficherDonneesParCategorie("Games", "gamesList");
+afficherDonneesParCategorie("Jailbreak", "jailbreakList");
+afficherDonneesParCategorie("Social media", "socialMediaList");
+
+</script>
+
+
+
+
+</body>
+
+</html>
