@@ -373,8 +373,17 @@ function displayAppInfo(appData) {
             console.log("Hiding alert");
         }
 
-        // Ajouter le nom de l'application à la liste "recent" dans le Local Storage
-        addToRecentApps(appData.name);
+        // Ajouter le nom de l'application à la liste "recent" dans le Local Storage lorsque l'utilisateur appuie sur le bouton Installer
+        const installButton = document.getElementById("geturl");
+        installButton.addEventListener("click", function() {
+            addToRecentApps(appData.name);
+        });
+
+        // Ajouter le nom de l'application à la liste "recent" dans le Local Storage lorsque l'utilisateur appuie sur le bouton Télécharger
+        const ipaButton = document.getElementById("ipa");
+        ipaButton.addEventListener("click", function() {
+            addToRecentApps(appData.name);
+        });
     } else {
         appInfoDiv.textContent = "";
         console.log("AppData is null");
@@ -442,7 +451,7 @@ fetch(jsonFileURL)
                 .catch(error => {
                     console.error("Error loading JSON data from repoURLs:", error);
                     const appInfoDiv = document.getElementById("appInfo");
-
+                    
                 });
         } else {
             displayAppInfo(appData);
