@@ -269,6 +269,79 @@ function getParameterByName(name) {
     return urlParams.get(name);
 }
 
+// Fonction pour ajouter le nom de l'application à la liste "recent" dans le Local Storage
+function addToRecentApps(appName) {
+    const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
+    recentApps.unshift(appName); // Ajouter le nom de l'application au début de la liste
+
+    // Limiter la liste à, par exemple, 5 éléments
+    const maxLength = 5;
+    const trimmedRecentApps = recentApps.slice(0, maxLength);
+
+    localStorage.setItem("recent", JSON.stringify(trimmedRecentApps));
+}
+
+// Récupérer le nom de l'application depuis l'URL
+const appNameFromURL = getParameterByName("name");
+console.log("Application Name from URL:", appNameFromURL);
+
+// Charger le fichier JSON en utilisant une requête AJAX
+const jsonFileURL = "apps.json";
+fetch(jsonFileURL)
+    .then(response => response.json())
+    .then(data => {
+        console.log("Loaded data from apps.json:", data);
+
+        let appData = data.apps.find(app => app.name === appNameFromURL);
+
+        if (!appData) {
+            const repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+            console.log("Loaded repoURLs from Local Storage:", repoURLs);
+
+            const fetchAppData = async (url) => {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    console.log("Loaded data from repoURL:", data);
+                    return data;
+                } catch (error) {
+                    console.error("Error loading JSON file from repoURL:", error);
+                    return null;
+                }
+            };
+
+            const repoURLPromises = repoURLs.map(fetchAppData);
+
+            Promise.all(repoURLPromises)
+                .then(repoDataArray => {
+                    console.log("Loaded data from all repoURLs:", repoDataArray);
+
+                    appData = repoDataArray.reduce((foundApp, repoData) => {
+                        if (!foundApp) {
+                            return repoData.apps.find(app => app.name === appNameFromURL) || null;
+                        }
+                        return foundApp;
+                    }, null);
+
+                    displayAppInfo(appData);
+
+                    document.title = appData ? appData.name : "Application Details";
+                })
+                .catch(error => {
+                    console.error("Error loading JSON data from repoURLs:", error);
+                    const appInfoDiv = document.getElementById("appInfo");
+                });
+        } else {
+            displayAppInfo(appData);
+            document.title = appData.name;
+        }
+    })
+    .catch(error => {
+        console.error("Error loading JSON file:", error);
+        const appInfoDiv = document.getElementById("appInfo");
+        appInfoDiv.textContent = "";
+    });
+
 // Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
 function displayAppInfo(appData) {
     console.log("Displaying App Info:", appData);
@@ -390,79 +463,6 @@ function displayAppInfo(appData) {
     }
 }
 
-// Fonction pour ajouter le nom de l'application à la liste "recent" dans le Local Storage
-function addToRecentApps(appName) {
-    const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
-    recentApps.unshift(appName); // Ajouter le nom de l'application au début de la liste
-
-    // Limiter la liste à, par exemple, 5 éléments
-    const maxLength = 5;
-    const trimmedRecentApps = recentApps.slice(0, maxLength);
-
-    localStorage.setItem("recent", JSON.stringify(trimmedRecentApps));
-}
-
-// Récupérer le nom de l'application depuis l'URL
-const appNameFromURL = getParameterByName("name");
-console.log("Application Name from URL:", appNameFromURL);
-
-// Charger le fichier JSON en utilisant une requête AJAX
-const jsonFileURL = "apps.json";
-fetch(jsonFileURL)
-    .then(response => response.json())
-    .then(data => {
-        console.log("Loaded data from apps.json:", data);
-
-        let appData = data.apps.find(app => app.name === appNameFromURL);
-
-        if (!appData) {
-            const repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-            console.log("Loaded repoURLs from Local Storage:", repoURLs);
-
-            const fetchAppData = async (url) => {
-                try {
-                    const response = await fetch(url);
-                    const data = await response.json();
-                    console.log("Loaded data from repoURL:", data);
-                    return data;
-                } catch (error) {
-                    console.error("Error loading JSON file from repoURL:", error);
-                    return null;
-                }
-            };
-
-            const repoURLPromises = repoURLs.map(fetchAppData);
-
-            Promise.all(repoURLPromises)
-                .then(repoDataArray => {
-                    console.log("Loaded data from all repoURLs:", repoDataArray);
-
-                    appData = repoDataArray.reduce((foundApp, repoData) => {
-                        if (!foundApp) {
-                            return repoData.apps.find(app => app.name === appNameFromURL) || null;
-                        }
-                        return foundApp;
-                    }, null);
-
-                    displayAppInfo(appData);
-
-                    document.title = appData ? appData.name : "Application Details";
-                })
-                .catch(error => {
-                    console.error("Error loading JSON data from repoURLs:", error);
-                    const appInfoDiv = document.getElementById("appInfo");
-                    
-                });
-        } else {
-            displayAppInfo(appData);
-            document.title = appData.name;
-        }
-    })
-    .catch(error => {
-        console.error("Error loading JSON file:", error);
-        const appInfoDiv = document.getElementById("appInfo");
-        appInfoDiv.textContent = "";
-    });
 
     </script>
 <script>
