@@ -1,0 +1,13 @@
+{
+  "categories": [
+    {
+      "name": "Divertissement",
+      "apps": ["uYou+", "Movieboxpro", "FlixHub", "AutreApp1"]
+    },
+    {
+      "name": "Productivité",
+      "apps": ["AppProductive1", "AppProductive2", "uYou+", "AutreApp2"]
+    },
+    // Ajoutez d'autres catégories au besoin
+  ]
+}
