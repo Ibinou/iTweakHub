@@ -1,13 +1,24 @@
 {
   "categories": [
     {
-      "name": "Divertissement",
-      "apps": ["uYou+", "Movieboxpro", "FlixHub", "AutreApp1"]
+      "name": "Entertainment",
+      "apps": ["uYou+", "MovieBoxPro", "FlixHub", "MovieFlix", "Zinitevi", "iMovie", "MerlMovie", "PopMovie", "Axcolly Movies", "Movietools", "CotoMovies", "MovieHD", "MoviePro", "123Movies", "GoMovies", "Popcorn Time", "Infuse Pro 6"]
     },
     {
-      "name": "Productivité",
-      "apps": ["AppProductive1", "AppProductive2", "uYou+", "AutreApp2"]
+      "name": "Music",
+      "apps": ["Spotilife", "YTMusicUltimate", "Spotify++", "Spotify Deluxe", "SoundClound++", "YouTube Music Ultimate", "hiMusic", "Boom"]
     },
-    // Ajoutez d'autres catégories au besoin
+    {
+      "name": "Games",
+      "apps": ["Minecraft", "Agar.io Hack", "iPogo", "SpooferPro", "iPoGo", "SpooferX", "Subways Surfers Hack", "Nulls Braws", "iSpoofer", "Flappy Bird", "Among Us!", "LIMBO", "Roblox Hack", "Rider Hack", "Clash Royale Hack", "Scriptware", "Geometry Dash", "iCreate Pro"]
+    },
+    {
+      "name": "Jailbreak",
+      "apps": ["unc0ver", "PlankFilza", "Taurine", "TrollStore", "Chimera", "Misaka", "Electra", "Odyssey", "Cowabunga", "Blacklist", "posi0nKFD", "Chicken Butt", "Pangu", "ResSet", "h3lix", "DopeCow", "CCEnabler", "Phoenix"]
+    },
+    {
+      "name": "Social media",
+      "apps": ["Watusi", "Cercube", "Instagram++", "Instagram Rocket", "Instagram Rhino", "Facebook Wolf", "BHTwitter", "BH Twitter", "TikTok Dark", "VK+", "iChan", "TweetDeck", "Nicegram", "Enmity", "Reddit++", "WhatsApp++", "Twitch++", "Yattee","RedditFilter"]
+    },
   ]
 }
