@@ -155,7 +155,7 @@ function afficherReposDepuisLocalStorage() {
           var infoDiv = createRepoElement(data, url);
 
           // Animation au chargement initial
-          infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s";
+          infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s;";
           infoDiv.style.transform = "scale(0.2)";
 
           // Ajout de l'élément au DOM
@@ -188,10 +188,15 @@ function afficherInfosDepuisJSON() {
     .then(function(data) {
       // Ajout de la condition : le repo doit avoir l'array apps et la propriété name
       if (data.apps && Array.isArray(data.apps) && data.name) {
-      var reposDiv = document.getElementById("repos");
-      var infoDiv = createRepoElement(data, url);
+        var reposDiv = document.getElementById("repos");
+        var infoDiv = createRepoElement(data, url);
 
-        reposDiv.appendChild(infoDiv);
+        var repoLink = document.createElement("a");
+        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
+        repoLink.appendChild(infoDiv);
+
+        reposDiv.appendChild(repoLink);
+
         // Enregistrer l'URL du repo dans le localStorage
         var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
         repoURLs.push(url);
@@ -233,8 +238,8 @@ function createRepoElement(data, url) {
   infoDiv.appendChild(repoSubtitleElement);
 
   // Animation à la création
-  infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s";
-  infoDiv.style.transform = "scale(0.2)";
+  infoDiv.style.transition = "transform 0.5s ease-in-out";
+  infoDiv.style.transform = "scale(0)";
 
   // Forcer une nouvelle étape de rendu pour activer l'effet de transition
   infoDiv.offsetHeight;
@@ -254,8 +259,8 @@ function createRepoElement(data, url) {
       }
 
       // Animation de suppression
-      infoDiv.style.transition = "transform 0.5s cubic-bezier(0, 0, 0.2, 1.01) 0s";
-      infoDiv.style.transform = "scale(0.2)";
+      infoDiv.style.transition = "transform 0.5s ease-in-out";
+      infoDiv.style.transform = "scale(0)";
 
       // Supprimer l'élément du DOM après la fin de l'animation
       setTimeout(function() {
