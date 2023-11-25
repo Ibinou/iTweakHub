@@ -90,33 +90,43 @@
 document.addEventListener("DOMContentLoaded", function() {
   // Charger le contenu de foryou.json de manière asynchrone
   fetch("foryou.json")
-    .then(response => response.json())
-    .then(categories => {
-      // Maintenant que nous avons les catégories, nous pouvons utiliser le reste du script
-      const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
-
-      recentApps.forEach(appName => {
-        const category = getCategoryForApp(appName);
-
-        if (category) {
-          const appsInCategory = category.apps.filter(app => app !== appName);
-          const selectedApps = getRandomApps(appsInCategory, 4);
-
-          selectedApps.forEach(selectedAppName => {
-            // Utilisez une requête asynchrone pour récupérer les informations de l'application
-            getAppInfo(selectedAppName).then(appInfo => {
-              if (appInfo) {
-                const appDock = createAppDock(appInfo);
-                document.getElementById("appDockContainer").appendChild(appDock);
-              }
-            });
-          });
-        }
-      });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch foryou.json: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("foryou.json loaded successfully:", data);
+      categories = data.categories; // Assurez-vous que le contenu est attribué à la variable globale
+      processRecentApps();
     })
     .catch(error => {
       console.error(`Error fetching foryou.json: ${error.message}`);
     });
+
+  function processRecentApps() {
+    const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
+
+    recentApps.forEach(appName => {
+      const category = getCategoryForApp(appName);
+
+      if (category) {
+        const appsInCategory = category.apps.filter(app => app !== appName);
+        const selectedApps = getRandomApps(appsInCategory, 4);
+
+        selectedApps.forEach(selectedAppName => {
+          // Utilisez une requête asynchrone pour récupérer les informations de l'application
+          getAppInfo(selectedAppName).then(appInfo => {
+            if (appInfo) {
+              const appDock = createAppDock(appInfo);
+              document.getElementById("appDockContainer").appendChild(appDock);
+            }
+          });
+        });
+      }
+    });
+  }
 
   function getCategoryForApp(appName) {
     return categories.find(category => category.apps.includes(appName));
@@ -183,8 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-let categories; // Déclaration de la variable à l'échelle globale pour stocker les catégories
-
+let categories;
 </script>
 
 
