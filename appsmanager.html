@@ -415,7 +415,7 @@ function isValidUrl(url) {
   }
 }
 
-function showErrorPopup(message) {
+function showErrorPopup(message, url) {
   // Créer la div d'erreur
   var errorDiv = document.createElement("div");
   errorDiv.id = "error";
@@ -423,6 +423,19 @@ function showErrorPopup(message) {
   var messageDiv = document.createElement("div");
   messageDiv.textContent = message;
   errorDiv.appendChild(messageDiv);
+
+  var deleteDiv = document.createElement("div");
+  deleteDiv.id = "delete";
+  deleteDiv.textContent = "Delete";
+  deleteDiv.addEventListener("click", function() {
+    // Supprimer le repo invalide
+    removeInvalidRepo(url);
+
+    // Ensuite, supprimer la div d'erreur du DOM
+    errorDiv.remove();
+  });
+
+  errorDiv.appendChild(deleteDiv);
 
   // Ajouter la div d'erreur à l'élément avec l'ID "errormsg"
   var errorMsgDiv = document.getElementById("errormsg");
@@ -436,7 +449,7 @@ function CheckValidity() {
     // Vérifier si l'URL est valide
     if (!isValidUrl(url)) {
       // URL invalide détectée
-      showErrorPopup("Invalid URL: " + url);
+      showErrorPopup("Invalid URL: " + url, url);
       return; // Ignorer les URLs invalides
     }
 
@@ -446,7 +459,7 @@ function CheckValidity() {
           return response.json();
         } else {
           // Repo invalide détecté
-          showErrorPopup("Invalid source detected for URL: " + url);
+          showErrorPopup("Invalid source detected for URL: " + url, url);
           throw new Error('Invalid source detected.');
         }
       })
@@ -457,7 +470,7 @@ function CheckValidity() {
             // Le repo est valide, pas d'action supplémentaire nécessaire
           } else {
             // Repo invalide détecté (ne respecte pas le format)
-            showErrorPopup("Invalid source format for URL: " + url);
+            showErrorPopup("Invalid source format for URL: " + url, url);
           }
         }
       })
