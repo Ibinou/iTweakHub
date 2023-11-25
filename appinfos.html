@@ -329,10 +329,8 @@ function displayAppInfo(appData) {
         const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
 
-        const screenshotsDiv = document.getElementById("screenshots");
-        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
-
-        loadScreenshots();
+        // Afficher les captures d'écran
+        displayScreenshots(appData.screenshotURLs);
 
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
@@ -351,35 +349,14 @@ function displayAppInfo(appData) {
     }
 }
 
-// Fonction pour charger une image de manière asynchrone
-function loadImage(url) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = url;
-    });
-}
-
-// Fonction pour charger et afficher les captures d'écran
-async function loadScreenshots() {
+// Fonction pour afficher et créer les images de captures d'écran
+function displayScreenshots(screenshotURLs) {
     const screenshotsDiv = document.getElementById("screenshots");
+    screenshotsDiv.innerHTML = ""; // Effacer les captures d'écran existantes
 
-    if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-        for (const screenshotUrl of appData.screenshotURLs) {
-            try {
-                const screenshotElement = document.createElement("img");
-                screenshotElement.classList.add("screenshotimg");
-                screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
-
-                // Attendre le chargement de l'image avant de l'ajouter au DOM
-                await loadImage(screenshotElement.src);
-
-                screenshotsDiv.appendChild(screenshotElement);
-                console.log("Adding screenshot:", screenshotUrl);
-            } catch (error) {
-                console.error("Error loading screenshot:", screenshotUrl, error);
-            }
+    if (screenshotURLs && screenshotURLs.length > 0) {
+        for (const screenshotUrl of screenshotURLs) {
+            createAndAppendScreenshot(screenshotUrl, screenshotsDiv);
         }
 
         const screenHeading = document.getElementById("screen");
@@ -390,6 +367,33 @@ async function loadScreenshots() {
         screenHeading.style.display = "none"; // Masquer l'élément h3
         console.log("Hiding screenshot heading");
     }
+}
+
+// Fonction pour créer une image de capture d'écran
+async function createAndAppendScreenshot(screenshotUrl, parentElement) {
+    try {
+        const screenshotElement = document.createElement("img");
+        screenshotElement.classList.add("screenshotimg");
+        screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
+
+        // Attendre le chargement de l'image avant de l'ajouter au DOM
+        await loadImage(screenshotElement.src);
+
+        parentElement.appendChild(screenshotElement);
+        console.log("Adding screenshot:", screenshotUrl);
+    } catch (error) {
+        console.error("Error loading screenshot:", screenshotUrl, error);
+    }
+}
+
+// Fonction pour charger une image de manière asynchrone
+function loadImage(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = url;
+    });
 }
 
 // Récupérer le nom de l'application depuis l'URL
@@ -452,7 +456,6 @@ fetch(jsonFileURL)
         const appInfoDiv = document.getElementById("appInfo");
         appInfoDiv.textContent = "";
     });
-
     </script>
 <script>
 // Fonction pour ajouter ou supprimer une application des favoris
