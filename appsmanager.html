@@ -405,27 +405,24 @@ if (localStorage.getItem("repoURLs")) {
     linkElement.style.width = "50%";
 }
 
-function showErrorPopup(url) {
+
+function isValidUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function showErrorPopup(message) {
   // Créer la div d'erreur
   var errorDiv = document.createElement("div");
   errorDiv.id = "error";
 
   var messageDiv = document.createElement("div");
-  messageDiv.textContent = "An invalid source has been detected. To avoid any issues, please delete the invalid source.";
+  messageDiv.textContent = message;
   errorDiv.appendChild(messageDiv);
-
-  var deleteDiv = document.createElement("div");
-  deleteDiv.id = "delete";
-  deleteDiv.textContent = "Delete";
-  deleteDiv.addEventListener("click", function() {
-    // Supprimer le repo invalide
-    removeInvalidRepo(url);
-
-    // Ensuite, supprimer la div d'erreur du DOM
-    errorDiv.remove();
-  });
-
-  errorDiv.appendChild(deleteDiv);
 
   // Ajouter la div d'erreur à l'élément avec l'ID "errormsg"
   var errorMsgDiv = document.getElementById("errormsg");
@@ -436,13 +433,21 @@ function CheckValidity() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
 
   repoURLs.forEach(function (url) {
+    // Vérifier si l'URL est valide
+    if (!isValidUrl(url)) {
+      // URL invalide détectée
+      showErrorPopup("Invalid URL: " + url);
+      return; // Ignorer les URLs invalides
+    }
+
     fetch(url)
       .then(function (response) {
-        if (!response.ok) {
-          // Repo invalide détecté
-          showErrorPopup(url);
-        } else {
+        if (response.ok) {
           return response.json();
+        } else {
+          // Repo invalide détecté
+          showErrorPopup("Invalid source detected for URL: " + url);
+          throw new Error('Invalid source detected.');
         }
       })
       .then(function (data) {
@@ -452,7 +457,7 @@ function CheckValidity() {
             // Le repo est valide, pas d'action supplémentaire nécessaire
           } else {
             // Repo invalide détecté (ne respecte pas le format)
-            showErrorPopup(url);
+            showErrorPopup("Invalid source format for URL: " + url);
           }
         }
       })
@@ -461,6 +466,9 @@ function CheckValidity() {
       });
   });
 }
+
+// Appeler la fonction CheckValidity lors du chargement de la page
+window.addEventListener("load", CheckValidity);
 
 function isValidRepoFormat(data) {
   return data.apps && Array.isArray(data.apps) && data.name;
