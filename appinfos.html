@@ -294,54 +294,30 @@ function displayAppInfo(appData) {
         appIconElement.src = appData.iconURL;
         appIconElement.alt = `${appData.name} Icon`;
 
-        console.log("Setting app icon:", appData.iconURL);
-
         const appNameElement = document.getElementById("appName");
         appNameElement.textContent = appData.name;
-
-        console.log("Setting app name:", appData.name);
 
         const appDescriptionElement = document.getElementById("appDescription");
         appDescriptionElement.textContent = appData.localizedDescription;
 
-        console.log("Setting app description:", appData.localizedDescription);
-
         const appBundleElement = document.getElementById("bundle");
         appBundleElement.textContent = appData.bundleIdentifier;
-
-        console.log("Setting app bundle:", appData.bundleIdentifier);
 
         const appDeveloperElement = document.getElementById("appDeveloper");
         appDeveloperElement.textContent = appData.developerName;
 
-        console.log("Setting app developer:", appData.developerName);
-
         const appVersionElement = document.getElementById("appVersion");
         appVersionElement.textContent = appData.version || appData.versions[0].version;
-
-        console.log("Setting app version:", appData.version || appData.versions[0].version);
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
         appCompatibilityElement.textContent = appData.minOSVersion || appData.versions[0].minOSVersion;
 
-        console.log("Setting app compatibility:", appData.minOSVersion || appData.versions[0].minOSVersion);
-
         const appBannerElement = document.getElementById("appBanner");
-        appBannerElement.src = appData.iconURL;
-
-        if (appData.iconURL) {
-            appBannerElement.src = appData.iconURL;
-        } else {
-            appBannerElement.src = "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
-        }
-
-        console.log("Setting app banner:", appData.iconURL);
+        appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
 
         // Ajouter le nom de l'application à la liste "recent" dans le Local Storage lorsque l'utilisateur appuie sur le bouton Installer
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
-
-        console.log("Setting install button href:", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         installButton.addEventListener("click", function() {
             addToRecentApps(appData.name);
@@ -350,33 +326,13 @@ function displayAppInfo(appData) {
         const importButton = document.getElementById("import");
         importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
 
-        console.log("Setting import button href:", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
-
         const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
-
-        console.log("Setting ipa button href:", `${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         const screenshotsDiv = document.getElementById("screenshots");
         screenshotsDiv.innerHTML = ""; // Clear existing screenshots
 
-        if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
-            for (const screenshotUrl of appData.screenshotURLs) {
-                const screenshotElement = document.createElement("img");
-                screenshotElement.classList.add("screenshotimg");
-                screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
-                screenshotsDiv.appendChild(screenshotElement);
-                console.log("Adding screenshot:", screenshotUrl);
-            }
-
-            const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "block"; // Show the h3 element
-            console.log("Displaying screenshot heading");
-        } else {
-            const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "none"; // Hide the h3 element
-            console.log("Hiding screenshot heading");
-        }
+        loadScreenshots();
 
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
@@ -392,6 +348,47 @@ function displayAppInfo(appData) {
     } else {
         appInfoDiv.textContent = "";
         console.log("AppData is null");
+    }
+}
+
+// Fonction pour charger une image de manière asynchrone
+function loadImage(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = url;
+    });
+}
+
+// Fonction pour charger et afficher les captures d'écran
+async function loadScreenshots() {
+    const screenshotsDiv = document.getElementById("screenshots");
+
+    if (appData.screenshotURLs && appData.screenshotURLs.length > 0) {
+        for (const screenshotUrl of appData.screenshotURLs) {
+            try {
+                const screenshotElement = document.createElement("img");
+                screenshotElement.classList.add("screenshotimg");
+                screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
+
+                // Attendre le chargement de l'image avant de l'ajouter au DOM
+                await loadImage(screenshotElement.src);
+
+                screenshotsDiv.appendChild(screenshotElement);
+                console.log("Adding screenshot:", screenshotUrl);
+            } catch (error) {
+                console.error("Error loading screenshot:", screenshotUrl, error);
+            }
+        }
+
+        const screenHeading = document.getElementById("screen");
+        screenHeading.style.display = "block"; // Afficher l'élément h3
+        console.log("Displaying screenshot heading");
+    } else {
+        const screenHeading = document.getElementById("screen");
+        screenHeading.style.display = "none"; // Masquer l'élément h3
+        console.log("Hiding screenshot heading");
     }
 }
 
@@ -455,7 +452,6 @@ fetch(jsonFileURL)
         const appInfoDiv = document.getElementById("appInfo");
         appInfoDiv.textContent = "";
     });
-
 
     </script>
 <script>
