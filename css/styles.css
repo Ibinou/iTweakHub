@@ -1590,15 +1590,14 @@ a > button {
   margin-bottom: 20px;
 }
 #delete {
-  align-text: center;
-  color: white;
-  background-color: #a12020;
-  width: 50px;
-  height: auto;
-  border-radius: 13px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  padding-right: 8px;
-  padding-left: 10px;
-  margin-top: 10px;
+    color: white;
+    background-color: #a12020a6;
+    width: 68px;
+    height: auto;
+    border-radius: 25px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 8px;
+    padding-left: 10px;
+    margin-top: 10px;
 }
