@@ -30,6 +30,8 @@
 
     <div class="content">
     <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Sources</h1>
+
+<div id="errormsg"></div>
 	    
 <ul class="ioslist">
 <li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
@@ -425,8 +427,9 @@ function showErrorPopup(url) {
 
   errorDiv.appendChild(deleteDiv);
 
-  // Ajouter la div d'erreur au DOM
-  document.body.appendChild(errorDiv);
+  // Ajouter la div d'erreur à l'élément avec l'ID "errormsg"
+  var errorMsgDiv = document.getElementById("errormsg");
+  errorMsgDiv.appendChild(errorDiv);
 }
 
 function CheckValidity() {
