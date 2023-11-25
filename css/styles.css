@@ -1580,3 +1580,24 @@ a > button {
         border-radius: "20px";
         margin: "5px";
 }
+#error {
+  background-color: #EB5545;
+  width: auto;
+  height: auto;
+  border-radius: 13px;
+  padding: 15px;
+  color: white;
+}
+#delete {
+  align-text: center;
+  color: white;
+  background-color: #a12020;
+  width: 50px;
+  height: auto;
+  border-radius: 13px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 8px;
+  padding-left: 10px;
+  margin-top: 10px;
+}
