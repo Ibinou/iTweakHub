@@ -87,113 +87,115 @@
   </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Charger le contenu de foryou.json de manière asynchrone
-  fetch("foryou.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Failed to fetch foryou.json: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("foryou.json loaded successfully:", data);
-      categories = data.categories; // Assurez-vous que le contenu est attribué à la variable globale
-      processRecentApps();
-    })
-    .catch(error => {
-      console.error(`Error fetching foryou.json: ${error.message}`);
-    });
+async function getAppInfo(appName) {
+  const repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
 
-  function processRecentApps() {
-    const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
-
-    recentApps.forEach(appName => {
-      const category = getCategoryForApp(appName);
-
-      if (category) {
-        const appsInCategory = category.apps.filter(app => app !== appName);
-        const selectedApps = getRandomApps(appsInCategory, 4);
-
-        selectedApps.forEach(selectedAppName => {
-          // Utilisez une requête asynchrone pour récupérer les informations de l'application
-          getAppInfo(selectedAppName).then(appInfo => {
-            if (appInfo) {
-              const appDock = createAppDock(appInfo);
-              document.getElementById("appDockContainer").appendChild(appDock);
-            }
-          });
-        });
-      }
-    });
-  }
-
-  function getCategoryForApp(appName) {
-    return categories.find(category => category.apps.includes(appName));
-  }
-
-  function getRandomApps(apps, count) {
-    const shuffledApps = apps.sort(() => 0.5 - Math.random());
-    return shuffledApps.slice(0, count);
-  }
-
-  async function getAppInfo(appName) {
-    // Placeholder - à remplacer par la logique réelle de requête JSON
-    const repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-
-    // Essayer de récupérer les infos de l'app depuis les repoURLs
-    for (const repoURL of repoURLs) {
-      try {
-        const response = await fetch(`${repoURL}/${appName}.json`);
-        if (response.ok) {
-          const appInfo = await response.json();
-          return appInfo;
-        }
-      } catch (error) {
-        console.error(`Error fetching app info from ${repoURL}: ${error.message}`);
-      }
-    }
-
-    // Si les infos n'ont pas été trouvées dans les repoURLs, recherchez dans le fichier apps.json
+  async function searchRepoInfo(repoURL) {
     try {
-      const response = await fetch("apps.json");
+      const response = await fetch(`${repoURL}.json`);
       if (response.ok) {
-        const allApps = await response.json();
-        const appInfo = allApps.apps.find(app => app.name === appName);
-        return appInfo;
+        const repoInfo = await response.json();
+        const category = repoInfo.categories.find(cat => cat.apps.includes(appName));
+        if (category) {
+          return { name: appName, category: category.name, iconURL: repoInfo.iconURL };
+        }
       }
     } catch (error) {
-      console.error(`Error fetching app info from apps.json: ${error.message}`);
+      console.error(`Error fetching app info from ${repoURL}: ${error.message}`);
     }
-
     return null;
   }
 
-  function createAppDock(appInfo) {
-    const appDock = document.createElement("div");
-    appDock.className = "dock";
-    appDock.style.margin = "5px";
-
-    appDock.innerHTML = `
-      <div class="app_cell_left">
-        <img src="${appInfo.iconURL}" class="appicon">
-        <div class="app_cell_meta">
-          <div class="appname">${appInfo.name}</div>
-          <div class="appsection">${appInfo.developerName}</div>
-        </div>
-      </div>
-      <div class="appget">
-        <a href="appinfos.html?name=${appInfo.name}">
-          <button class="getbtn" id="getbtn">GET</button>
-        </a>
-      </div>
-    `;
-
-    return appDock;
+  // Recherchez dans chaque repoURL
+  for (const repoURL of repoURLs) {
+    const appInfo = await searchRepoInfo(repoURL);
+    if (appInfo) {
+      return appInfo;
+    }
   }
-});
 
-let categories;
+  // Si les infos n'ont pas été trouvées dans les repoURLs, recherchez dans le fichier foryou.json
+  try {
+    const response = await fetch("foryou.json");
+    if (response.ok) {
+      const forYouData = await response.json();
+      const category = forYouData.categories.find(cat => cat.apps.includes(appName));
+      if (category) {
+        return { name: appName, category: category.name, iconURL: "path/to/default/icon.png" }; // Remplacez "path/to/default/icon.png" par l'URL par défaut de l'icône
+      }
+    }
+  } catch (error) {
+    console.error(`Error fetching app info from foryou.json: ${error.message}`);
+  }
+
+  return null;
+}
+
+async function processRecentApps() {
+  const recentApps = JSON.parse(localStorage.getItem("recentApps")) || [];
+  const dockContainer = document.getElementById("dockContainer"); // Ajoutez un ID à votre conteneur de docks dans le HTML
+
+  const appInfoPromises = recentApps.map(appName => getAppInfo(appName));
+
+  try {
+    const appInfos = await Promise.all(appInfoPromises);
+
+    // Créer des divs dock pour chaque application
+    appInfos.forEach(appInfo => {
+      const dockDiv = document.createElement("div");
+      dockDiv.className = "dock";
+      dockDiv.style.margin = "5px";
+
+      const appCellLeftDiv = document.createElement("div");
+      appCellLeftDiv.className = "app_cell_left";
+
+      const appIconImg = document.createElement("img");
+      appIconImg.src = appInfo.iconURL; // Utilisez l'URL de l'icône récupérée
+      appIconImg.className = "appicon";
+
+      const appCellMetaDiv = document.createElement("div");
+      appCellMetaDiv.className = "app_cell_meta";
+
+      const appNameDiv = document.createElement("div");
+      appNameDiv.className = "appname";
+      appNameDiv.textContent = appInfo.name;
+
+      const appSectionDiv = document.createElement("div");
+      appSectionDiv.className = "appsection";
+      appSectionDiv.textContent = appInfo.category;
+
+      const appGetDiv = document.createElement("div");
+      appGetDiv.className = "appget";
+
+      const appLink = document.createElement("a");
+      appLink.href = `appinfos.html?name=${appInfo.name}`;
+
+      const getButton = document.createElement("button");
+      getButton.className = "getbtn";
+      getButton.textContent = "GET";
+
+      // Ajoutez les éléments au DOM
+      appCellMetaDiv.appendChild(appNameDiv);
+      appCellMetaDiv.appendChild(appSectionDiv);
+
+      appCellLeftDiv.appendChild(appIconImg);
+      appCellLeftDiv.appendChild(appCellMetaDiv);
+
+      appLink.appendChild(getButton);
+      appGetDiv.appendChild(appLink);
+
+      dockDiv.appendChild(appCellLeftDiv);
+      dockDiv.appendChild(appGetDiv);
+
+      dockContainer.appendChild(dockDiv);
+    });
+  } catch (error) {
+    console.error("Error fetching app information:", error.message);
+  }
+}
+
+// Appel de la fonction pour traiter les applications récentes
+processRecentApps();
 </script>
 
 
