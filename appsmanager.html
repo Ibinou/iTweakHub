@@ -403,7 +403,32 @@ if (localStorage.getItem("repoURLs")) {
     linkElement.style.width = "50%";
 }
 
-// Fonction pour vérifier la validité des repos et afficher une popup en cas d'invalidité
+function showErrorPopup(url) {
+  // Créer la div d'erreur
+  var errorDiv = document.createElement("div");
+  errorDiv.id = "error";
+
+  var messageDiv = document.createElement("div");
+  messageDiv.textContent = "An invalid source has been detected. To avoid any issues, please delete the invalid source.";
+  errorDiv.appendChild(messageDiv);
+
+  var deleteDiv = document.createElement("div");
+  deleteDiv.id = "delete";
+  deleteDiv.textContent = "Delete";
+  deleteDiv.addEventListener("click", function() {
+    // Supprimer le repo invalide
+    removeInvalidRepo(url);
+
+    // Ensuite, supprimer la div d'erreur du DOM
+    errorDiv.remove();
+  });
+
+  errorDiv.appendChild(deleteDiv);
+
+  // Ajouter la div d'erreur au DOM
+  document.body.appendChild(errorDiv);
+}
+
 function CheckValidity() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
 
@@ -412,9 +437,7 @@ function CheckValidity() {
       .then(function (response) {
         if (!response.ok) {
           // Repo invalide détecté
-          if (confirm("Invalid source detected. Do you want to remove it?")) {
-            removeInvalidRepo(url);
-          }
+          showErrorPopup(url);
         } else {
           return response.json();
         }
@@ -426,9 +449,7 @@ function CheckValidity() {
             // Le repo est valide, pas d'action supplémentaire nécessaire
           } else {
             // Repo invalide détecté (ne respecte pas le format)
-            if (confirm("Invalid source detected. Do you want to remove it?")) {
-              removeInvalidRepo(url);
-            }
+            showErrorPopup(url);
           }
         }
       })
@@ -438,12 +459,10 @@ function CheckValidity() {
   });
 }
 
-// Fonction pour vérifier si le format du repo est valide
 function isValidRepoFormat(data) {
   return data.apps && Array.isArray(data.apps) && data.name;
 }
 
-// Fonction pour supprimer un repo invalide du localStorage et de l'affichage sur la page
 function removeInvalidRepo(url) {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
   var index = repoURLs.indexOf(url);
@@ -465,6 +484,7 @@ function removeInvalidRepo(url) {
 
 // Appeler la fonction CheckValidity lors du chargement de la page
 window.addEventListener("load", CheckValidity);
+
 
     </script>
 <script src="js/index.js"></script>
