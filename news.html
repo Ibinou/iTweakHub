@@ -116,15 +116,72 @@ function formatColor(color) {
     return color;
 }
 
+// Fonction pour afficher les informations sur l'application
+function displayAppInfo(appData) {
+    var appHeader = document.createElement('div');
+    appHeader.classList.add('app-header');
+
+    var content = document.createElement('div');
+    content.classList.add('content');
+
+    var img = document.createElement('img');
+    img.id = 'app-icon';
+    img.src = appData.iconURL || '';
+    img.alt = '';
+
+    var right = document.createElement('div');
+    right.classList.add('right');
+
+    var text = document.createElement('div');
+    text.classList.add('text');
+
+    var title = document.createElement('p');
+    title.classList.add('title');
+    title.textContent = appData.name || '';
+
+    var subtitle = document.createElement('p');
+    subtitle.classList.add('subtitle');
+    subtitle.textContent = appData.subtitle || '';
+
+    var buttonContainer = document.createElement('div');
+
+    var button = document.createElement('button');
+    button.classList.add('uibutton');
+    button.style.backgroundColor = formatColor(appData.tintColor) || '#';
+    button.textContent = 'View';
+
+    var link = document.createElement('a');
+    link.href = 'appinfos.html?name=' + encodeURIComponent(appData.name || '');
+
+    text.appendChild(title);
+    text.appendChild(subtitle);
+
+    buttonContainer.appendChild(button);
+    link.appendChild(buttonContainer);
+
+    right.appendChild(text);
+    right.appendChild(link);
+
+    content.appendChild(img);
+    content.appendChild(right);
+
+    appHeader.appendChild(content);
+
+    var background = document.createElement('div');
+    background.classList.add('background');
+    background.style.backgroundColor = formatColor(appData.tintColor) || '#';
+
+    appHeader.appendChild(background);
+
+    container.appendChild(appHeader);
+}
+
 // Effectuer une première requête AJAX pour récupérer le JSON à partir de apps.json
-fetch('https://ibinou.github.io/iTweakHub/apps.json')  
+fetch('https://ibinou.github.io/iTweakHub/apps.json')
     .then(response => response.json())
     .then(data => {
-        // Vérifier si le JSON contient un tableau news
         if (data.news) {
-            // Parcourir le tableau news dans le JSON
             data.news.forEach(function (newsItem) {
-                // Créer des éléments HTML pour chaque actualité
                 var newsWrapper = document.createElement('div');
                 newsWrapper.classList.add('custom-news-item-wrapper');
 
@@ -147,7 +204,6 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                 var img = document.createElement('img');
                 img.src = newsItem.imageURL || '';
 
-                // Ajouter les éléments au DOM
                 textContainer.appendChild(headline);
                 textContainer.appendChild(description);
 
@@ -157,25 +213,27 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
 
                 newsWrapper.appendChild(item);
                 container.appendChild(newsWrapper);
+
+                if (newsItem.appID) {
+                    var appData = data.apps.find(app => app.id === newsItem.appID);
+                    if (appData) {
+                        displayAppInfo(appData);
+                    } else {
+                        console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
+                    }
+                }
             });
 
-            // Récupérer le tableau urls depuis le local storage
             var urlsString = localStorage.getItem('repoURLs');
             var urls = JSON.parse(urlsString);
 
-            // Vérifier si urls est défini
             if (urls) {
-                // Parcourir chaque URL dans urls
                 urls.forEach(function (url) {
-                    // Effectuer une deuxième requête AJAX pour récupérer le JSON à partir de l'URL
                     fetch(url)
                         .then(response => response.json())
                         .then(data => {
-                            // Vérifier si le JSON contient un tableau news
                             if (data.news) {
-                                // Parcourir le tableau news dans le JSON
                                 data.news.forEach(function (newsItem) {
-                                    // Créer des éléments HTML pour chaque actualité
                                     var newsWrapper = document.createElement('div');
                                     newsWrapper.classList.add('custom-news-item-wrapper');
 
@@ -198,7 +256,6 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                                     var img = document.createElement('img');
                                     img.src = newsItem.imageURL || '';
 
-                                    // Ajouter les éléments au DOM
                                     textContainer.appendChild(headline);
                                     textContainer.appendChild(description);
 
@@ -208,12 +265,21 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
 
                                     newsWrapper.appendChild(item);
                                     container.appendChild(newsWrapper);
+
+                                    if (newsItem.appID) {
+                                        var appData = data.apps.find(app => app.id === newsItem.appID);
+                                        if (appData) {
+                                            displayAppInfo(appData);
+                                        } else {
+                                            console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
+                                        }
+                                    }
                                 });
                             } else {
                                 console.error('Le tableau news est introuvable dans le JSON.');
                             }
                         })
-                        .catch(error => console.error('Erreur lors de la récupération du JSON depuis le local storage:', error));
+                        .catch(error => console.error('Erreur lors de la récupération du JSON depuis le local storage :', error));
                 });
             } else {
                 console.error('Le tableau urls est introuvable dans le local storage.');
@@ -222,7 +288,7 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
             console.error('Le tableau news est introuvable dans le fichier apps.json.');
         }
     })
-    .catch(error => console.error('Erreur lors de la récupération du JSON depuis apps.json:', error));
+    .catch(error => console.error('Erreur lors de la récupération du JSON depuis apps.json :', error));
 </script>
 <style>
 ::-webkit-scrollbar {
