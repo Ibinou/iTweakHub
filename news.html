@@ -201,29 +201,31 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                 var imgContainer = document.createElement('div');
                 imgContainer.classList.add('custom-image-wrapper');
 
-                var img = document.createElement('img');
-                img.src = newsItem.imageURL || '';
+                // Ajout de la vérification de l'existence de l'image
+                if (newsItem.imageURL) {
+                    var img = document.createElement('img');
+                    img.src = newsItem.imageURL;
+                    imgContainer.appendChild(img);
+                }
 
                 textContainer.appendChild(headline);
                 textContainer.appendChild(description);
 
                 item.appendChild(textContainer);
                 item.appendChild(imgContainer);
-                imgContainer.appendChild(img);
 
                 newsWrapper.appendChild(item);
                 container.appendChild(newsWrapper);
 
                 if (newsItem.appID) {
-                    var appData = data.apps.find(app => app.id === newsItem.appID);
+                    var appData = data.apps.find(app => app.bundleIdentifier === newsItem.appID);
                     if (appData) {
                         displayAppInfo(appData);
                     } else {
-                        console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
+                        console.error('Données de l\'application non trouvées pour bundleIdentifier :', newsItem.appID);
                     }
                 }
             });
-
             var urlsString = localStorage.getItem('repoURLs');
             var urls = JSON.parse(urlsString);
 
