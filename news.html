@@ -116,18 +116,27 @@ function formatColor(color) {
     return color;
 }
 
-// Fonction pour afficher les informations sur l'application
+// Fonction pour trouver une application par appID ou bundleIdentifier
+function findAppByIdentifier(identifier, apps) {
+    return apps.find(app => app.appID === identifier || app.bundleIdentifier === identifier);
+}
+
+// Fonction pour afficher les informations de l'application
 function displayAppInfo(appData) {
+    // Créer des éléments HTML pour afficher les infos de l'application
+    var appInfoWrapper = document.createElement('div');
+    appInfoWrapper.classList.add('app-info-wrapper');
+
     var appHeader = document.createElement('div');
     appHeader.classList.add('app-header');
 
     var content = document.createElement('div');
     content.classList.add('content');
 
-    var img = document.createElement('img');
-    img.id = 'app-icon';
-    img.src = appData.iconURL || '';
-    img.alt = '';
+    var appIcon = document.createElement('img');
+    appIcon.id = 'app-icon';
+    appIcon.src = appData.iconURL || '';
+    appIcon.alt = '';
 
     var right = document.createElement('div');
     right.classList.add('right');
@@ -141,39 +150,38 @@ function displayAppInfo(appData) {
 
     var subtitle = document.createElement('p');
     subtitle.classList.add('subtitle');
-    subtitle.textContent = appData.subtitle || '';
+    subtitle.textContent = appData.developerName || '';
 
-    var buttonContainer = document.createElement('div');
+    var link = document.createElement('a');
+    link.href = 'appinfos.html?name=' + appData.name;
 
     var button = document.createElement('button');
     button.classList.add('uibutton');
     button.style.backgroundColor = formatColor(appData.tintColor) || '#';
     button.textContent = 'View';
 
-    var link = document.createElement('a');
-    link.href = 'appinfos.html?name=' + encodeURIComponent(appData.name || '');
-
+    // Ajouter les éléments au DOM
     text.appendChild(title);
     text.appendChild(subtitle);
 
-    buttonContainer.appendChild(button);
-    link.appendChild(buttonContainer);
+    link.appendChild(button);
 
     right.appendChild(text);
     right.appendChild(link);
 
-    content.appendChild(img);
+    content.appendChild(appIcon);
     content.appendChild(right);
 
     appHeader.appendChild(content);
 
     var background = document.createElement('div');
     background.classList.add('background');
-    background.style.backgroundColor = formatColor(appData.tintColor) || '#';
+    background.style.backgroundColor = formatColor(appData.tintColor) || '';
 
     appHeader.appendChild(background);
 
-    container.appendChild(appHeader);
+    appInfoWrapper.appendChild(appHeader);
+    container.appendChild(appInfoWrapper);
 }
 
 // Effectuer une première requête AJAX pour récupérer le JSON à partir de apps.json
@@ -182,6 +190,7 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
     .then(data => {
         if (data.news) {
             data.news.forEach(function (newsItem) {
+                // Créer des éléments HTML pour chaque actualité
                 var newsWrapper = document.createElement('div');
                 newsWrapper.classList.add('custom-news-item-wrapper');
 
@@ -201,31 +210,34 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                 var imgContainer = document.createElement('div');
                 imgContainer.classList.add('custom-image-wrapper');
 
-                // Ajout de la vérification de l'existence de l'image
-                if (newsItem.imageURL) {
-                    var img = document.createElement('img');
-                    img.src = newsItem.imageURL;
-                    imgContainer.appendChild(img);
-                }
+                var img = document.createElement('img');
+                img.src = newsItem.imageURL || '';
 
+                // Ajouter les éléments au DOM
                 textContainer.appendChild(headline);
                 textContainer.appendChild(description);
 
                 item.appendChild(textContainer);
                 item.appendChild(imgContainer);
+                imgContainer.appendChild(img);
 
                 newsWrapper.appendChild(item);
                 container.appendChild(newsWrapper);
 
+                // Vérifier si la news a un appID
                 if (newsItem.appID) {
-                    var appData = data.apps.find(app => app.bundleIdentifier === newsItem.appID);
+                    // Rechercher l'application correspondante
+                    var appData = findAppByIdentifier(newsItem.appID, data.apps);
+
                     if (appData) {
+                        // Afficher les informations de l'application
                         displayAppInfo(appData);
                     } else {
-                        console.error('Données de l\'application non trouvées pour bundleIdentifier :', newsItem.appID);
+                        console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
                     }
                 }
             });
+		
             var urlsString = localStorage.getItem('repoURLs');
             var urls = JSON.parse(urlsString);
 
