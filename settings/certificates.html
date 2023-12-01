@@ -40,22 +40,20 @@
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
     </div>
 
- <form id="myForm" class="cert_form">
-        <label for="p12Url" class="cert_label">URL vers le fichier P12:</label>
+    <form id="myForm" class="cert_form">
+        <label for="p12Url" class="cert_label">P12 URL file:</label>
         <input type="url" id="p12Url" class="cert_input" required>
 
-        <label for="mobileprovisionUrl" class="cert_label">URL vers le fichier mobileprovision:</label>
+        <label for="mobileprovisionUrl" class="cert_label">Mobileprovision URL file:</label>
         <input type="url" id="mobileprovisionUrl" class="cert_input" required>
 
-        <label for="password" class="cert_label">Mot de passe:</label>
+        <label for="password" class="cert_label">Password:</label>
         <input type="password" id="password" class="cert_input" required>
 
-        <button type="button" onclick="saveData()" class="add_cert">Enregistrer</button>
+        <button type="button" onclick="saveData()" class="add_cert">Add this certificate</button>
 
-        <div class="certificate-list">
-            <h3>Certificats enregistrés :</h3>
-            <div id="certificateList"></div>
-        </div>
+        <div class="certificate-list" id="certificateList"></div>
+        <div class="custom-cert-message" id="customCertMessage">Custom cert added !</div>
     </form>
 	
 <div class="gradient-div"></div>
@@ -65,7 +63,7 @@
 <input type="color" id="color-picker">
 <button id="reset-button">Reset</button>
 </div>
-     <script>
+  <script>
         function saveData() {
             var p12Url = document.getElementById('p12Url').value;
             var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
@@ -78,25 +76,23 @@
 
             // Enregistrement du type de certificat
             localStorage.setItem('custom_cert', true);
-            localStorage.setItem('standard_cert', false);
 
-            alert('Données enregistrées avec succès!');
+            alert('Your custom certificate has been added !');
             displayCertificates();
         }
 
         function displayCertificates() {
             var certificateListDiv = document.getElementById('certificateList');
+            var customCertMessageDiv = document.getElementById('customCertMessage');
             certificateListDiv.innerHTML = '';
 
             var customCert = localStorage.getItem('custom_cert') === 'true';
-            var standardCert = localStorage.getItem('standard_cert') === 'true';
 
             if (customCert) {
-                addCertificateItem('Certificat personnalisé');
-            }
-
-            if (standardCert) {
-                addCertificateItem('Certificat standard');
+                customCertMessageDiv.style.display = 'block';
+                addCertificateItem('Cutom certificate');
+            } else {
+                customCertMessageDiv.style.display = 'none';
             }
         }
 
@@ -105,15 +101,9 @@
             var certificateItemDiv = document.createElement('div');
             certificateItemDiv.classList.add('certificate-item');
 
-            var checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.disabled = true;
-            checkbox.checked = true;
-
             var label = document.createElement('label');
             label.textContent = certificateType;
 
-            certificateItemDiv.appendChild(checkbox);
             certificateItemDiv.appendChild(label);
             certificateListDiv.appendChild(certificateItemDiv);
         }
