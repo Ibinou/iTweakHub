@@ -40,17 +40,28 @@
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
     </div>
 
-    <form class="cert_form" id="myForm">
-        <label class="cert_label" for="p12Url">URL vers le fichier P12:</label>
-        <input class="cert_input" type="url" id="p12Url" required>
+    <form id="myForm" class="cert_form">
+        <label for="p12Url" class="cert_label">URL vers le fichier P12:</label>
+        <input type="url" id="p12Url" class="cert_input" required>
 
-        <label class="cert_label" for="mobileprovisionUrl">URL vers le fichier mobileprovision:</label>
-        <input class="cert_input" type="url" id="mobileprovisionUrl" required>
+        <label for="mobileprovisionUrl" class="cert_label">URL vers le fichier mobileprovision:</label>
+        <input type="url" id="mobileprovisionUrl" class="cert_input" required>
 
-        <label class="cert_label" for="password">Mot de passe:</label>
-        <input class="cert_input" type="password" id="password" required>
+        <label for="password" class="cert_label">Mot de passe:</label>
+        <input type="password" id="password" class="cert_input" required>
 
-        <button class="add_cert" type="button" onclick="saveData()">Enregistrer</button>
+        <label for="certificateType" class="cert_label">Type de certificat:</label>
+        <select id="certificateType" class="cert_input" required>
+            <option value="custom">Certificat personnalisé</option>
+            <option value="standard">Certificat standard</option>
+        </select>
+
+        <button type="button" onclick="saveData()" class="add_cert">Enregistrer</button>
+
+        <div class="certificate-list">
+            <h3>Certificats enregistrés :</h3>
+            <div id="certificateList"></div>
+        </div>
     </form>
 	
 <div class="gradient-div"></div>
@@ -60,20 +71,69 @@
 <input type="color" id="color-picker">
 <button id="reset-button">Reset</button>
 </div>
-    <script>
+   <script>
         function saveData() {
             var p12Url = document.getElementById('p12Url').value;
             var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
             var password = document.getElementById('password').value;
+            var certificateType = document.getElementById('certificateType').value;
 
             // Enregistrement dans le local storage
             localStorage.setItem('p12Url', p12Url);
             localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
             localStorage.setItem('password', password);
 
+            // Enregistrement du type de certificat
+            if (certificateType === 'custom') {
+                localStorage.setItem('custom_cert', true);
+                localStorage.setItem('standard_cert', false);
+            } else {
+                localStorage.setItem('custom_cert', false);
+                localStorage.setItem('standard_cert', true);
+            }
+
             alert('Données enregistrées avec succès!');
+            displayCertificates();
         }
+
+        function displayCertificates() {
+            var certificateListDiv = document.getElementById('certificateList');
+            certificateListDiv.innerHTML = '';
+
+            var customCert = localStorage.getItem('custom_cert') === 'true';
+            var standardCert = localStorage.getItem('standard_cert') === 'true';
+
+            if (customCert) {
+                addCertificateItem('Certificat personnalisé');
+            }
+
+            if (standardCert) {
+                addCertificateItem('Certificat standard');
+            }
+        }
+
+        function addCertificateItem(certificateType) {
+            var certificateListDiv = document.getElementById('certificateList');
+            var certificateItemDiv = document.createElement('div');
+            certificateItemDiv.classList.add('certificate-item');
+
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.disabled = true;
+            checkbox.checked = true;
+
+            var label = document.createElement('label');
+            label.textContent = certificateType;
+
+            certificateItemDiv.appendChild(checkbox);
+            certificateItemDiv.appendChild(label);
+            certificateListDiv.appendChild(certificateItemDiv);
+        }
+
+        // Afficher les certificats lors du chargement de la page
+        displayCertificates();
     </script>
+
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
