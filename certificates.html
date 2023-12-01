@@ -31,7 +31,20 @@
 </script>
 <!-- End PushAlert -->
 </head>
-<body>
+<body style="opacity: 0;">
+    
+<div class="sidebar">
+  <a class="active" href=".../index.html">Home</a>
+  <a href=".../appsmanager.html">Apps Manager</a>
+  <a href=".../search.html">Search</a>
+</div>
+   
+<div class="content">
+   
+      <div class="toptitle">	
+    <a style="text-decoration: none" href="settings.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
+    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
+    </div>
 
     <form class="cert_form" id="myForm">
         <label class="cert_label" for="p12Url">URL vers le fichier P12:</label>
@@ -60,6 +73,11 @@
             alert('Données enregistrées avec succès!');
         }
     </script>
-
+</div>
+        <script src="js/index.js"></script>
+	<script src="js/script.js"></script>
+        <script src="js/transition.js"></script>
+        <script src="js/language.js"></script>
+	<script src="sw.js"></script>
 </body>
 </html>
