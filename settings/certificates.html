@@ -40,7 +40,7 @@
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
     </div>
 
-    <form id="myForm" class="cert_form">
+ <form id="myForm" class="cert_form">
         <label for="p12Url" class="cert_label">URL vers le fichier P12:</label>
         <input type="url" id="p12Url" class="cert_input" required>
 
@@ -49,12 +49,6 @@
 
         <label for="password" class="cert_label">Mot de passe:</label>
         <input type="password" id="password" class="cert_input" required>
-
-        <label for="certificateType" class="cert_label">Type de certificat:</label>
-        <select id="certificateType" class="cert_input" required>
-            <option value="custom">Certificat personnalisé</option>
-            <option value="standard">Certificat standard</option>
-        </select>
 
         <button type="button" onclick="saveData()" class="add_cert">Enregistrer</button>
 
