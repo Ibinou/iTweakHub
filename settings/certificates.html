@@ -65,12 +65,11 @@
 <input type="color" id="color-picker">
 <button id="reset-button">Reset</button>
 </div>
-   <script>
+     <script>
         function saveData() {
             var p12Url = document.getElementById('p12Url').value;
             var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
             var password = document.getElementById('password').value;
-            var certificateType = document.getElementById('certificateType').value;
 
             // Enregistrement dans le local storage
             localStorage.setItem('p12Url', p12Url);
@@ -78,13 +77,8 @@
             localStorage.setItem('password', password);
 
             // Enregistrement du type de certificat
-            if (certificateType === 'custom') {
-                localStorage.setItem('custom_cert', true);
-                localStorage.setItem('standard_cert', false);
-            } else {
-                localStorage.setItem('custom_cert', false);
-                localStorage.setItem('standard_cert', true);
-            }
+            localStorage.setItem('custom_cert', true);
+            localStorage.setItem('standard_cert', false);
 
             alert('Données enregistrées avec succès!');
             displayCertificates();
@@ -127,7 +121,6 @@
         // Afficher les certificats lors du chargement de la page
         displayCertificates();
     </script>
-
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
