@@ -97,8 +97,8 @@
         },
         {
             "name": "PPSSPP",
-            "version": "1.15.4",
-            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/v2/ppsspp-1.15.4-562-org.ppsspp.ppsspp.ipa",
+            "version": "1.16.6",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/V6/PPSSPP_v1.16.6-368-g737ec3e90.ipa",
             "icon": "https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
             "developer": "unknown",
             "section": "Emulators",
