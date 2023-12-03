@@ -307,25 +307,28 @@ function displayAppInfo(appData) {
         appDeveloperElement.textContent = appData.developerName;
 
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.version || appData.versions[0].version;
+        appVersionElement.textContent = appData.version || (appData.versions && appData.versions[0].version);
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.minOSVersion || appData.versions[0].minOSVersion;
+        appCompatibilityElement.textContent = appData.minOSVersion || (appData.versions && appData.versions[0].min0SVersion);
 
         const appBannerElement = document.getElementById("appBanner");
         appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
 
         // Ajouter le nom de l'application à la liste "recent" dans le Local Storage lorsque l'utilisateur appuie sur le bouton Installer
         const installButton = document.getElementById("geturl");
+        if(installButton) {
         installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         installButton.addEventListener("click", function() {
             addToRecentApps(appData.name);
         });
+        }
 
         const importButton = document.getElementById("import");
+        if(importButton) {
         importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
-
+        }
         const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
 
@@ -335,11 +338,11 @@ function displayAppInfo(appData) {
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
-        if (appData.alert) {
+        if (appData.alert && alertBox && alertText) {
             alertBox.style.display = "flex";
             alertText.textContent = appData.alert;
             console.log("Displaying alert:", appData.alert);
-        } else {
+        } else if(alertBox) {
             alertBox.style.display = "none";
             console.log("Hiding alert");
         }
