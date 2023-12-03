@@ -176,9 +176,17 @@ function afficherDonnees() {
       appIconImg.className = "appicon";
           // Vérifier si appData.iconURL existe
     if (appData.iconURL) {
+      // Vérifier si le lien d'image est valide
+      appIconImg.onload = function() {
+        // L'image a été chargée avec succès
+      };
+      appIconImg.onerror = function() {
+        // Le lien d'image n'est pas valide, utiliser un placeholder
+        appIconImg.src = "img/blank.JPG";
+      };
       appIconImg.src = appData.iconURL;
     } else {
-      // Utiliser une icône de remplacement
+      // Utiliser un placeholder si aucun lien d'image n'est fourni
       appIconImg.src = "img/blank.JPG";
     }
       
