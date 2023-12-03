@@ -291,7 +291,21 @@ function displayAppInfo(appData) {
         console.log("AppData is not null");
 
         const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData.iconURL;
+        // Vérifier si appData.iconURL existe
+    if (appData.iconURL) {
+      // Vérifier si le lien d'image est valide
+      appIconElement.onload = function() {
+        // L'image a été chargée avec succès
+      };
+      appIconElement.onerror = function() {
+        // Le lien d'image n'est pas valide, utiliser un placeholder
+        appIconElement.src = "img/blank.JPG";
+      };
+      appIconElement.src = appData.iconURL;
+    } else {
+      // Utiliser un placeholder si aucun lien d'image n'est fourni
+      appIconElement.src = "img/blank.JPG";
+    }
         appIconElement.alt = `${appData.name} Icon`;
 
         const appNameElement = document.getElementById("appName");
