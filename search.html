@@ -164,52 +164,59 @@ function afficherDonnees() {
       console.log('Error fetching apps.json', error);
     });
 
-  function afficherApplications(appsData) {
-    appsData.forEach(function(appData) {
-      var dockDiv = document.createElement("div");
-      dockDiv.className = "dock";
+function afficherApplications(appsData) {
+  appsData.forEach(function(appData) {
+    var dockDiv = document.createElement("div");
+    dockDiv.className = "dock";
 
-      var appCellLeftDiv = document.createElement("div");
-      appCellLeftDiv.className = "app_cell_left";
+    var appCellLeftDiv = document.createElement("div");
+    appCellLeftDiv.className = "app_cell_left";
 
-      var appIconImg = document.createElement("img");
-      appIconImg.className = "appicon";
+    var appIconImg = document.createElement("img");
+    appIconImg.className = "appicon";
+
+    // Vérifier si appData.iconURL existe
+    if (appData.iconURL) {
       appIconImg.src = appData.iconURL;
-      appCellLeftDiv.appendChild(appIconImg);
+    } else {
+      // Utiliser une icône de remplacement
+      appIconImg.src = "img/blank.jpeg";
+    }
 
-      var appCellMetaDiv = document.createElement("div");
-      appCellMetaDiv.className = "app_cell_meta";
+    appCellLeftDiv.appendChild(appIconImg);
 
-      var appNameDiv = document.createElement("div");
-      appNameDiv.className = "appname";
-      appNameDiv.textContent = appData.name;
-      appCellMetaDiv.appendChild(appNameDiv);
+    var appCellMetaDiv = document.createElement("div");
+    appCellMetaDiv.className = "app_cell_meta";
 
-      var appDevDiv = document.createElement("div");
-      appDevDiv.className = "appsection";
-      appDevDiv.textContent = appData.developerName;
-      appCellMetaDiv.appendChild(appDevDiv);
+    var appNameDiv = document.createElement("div");
+    appNameDiv.className = "appname";
+    appNameDiv.textContent = appData.name;
+    appCellMetaDiv.appendChild(appNameDiv);
 
-      appCellLeftDiv.appendChild(appCellMetaDiv);
-      dockDiv.appendChild(appCellLeftDiv);
+    var appDevDiv = document.createElement("div");
+    appDevDiv.className = "appsection";
+    appDevDiv.textContent = appData.developerName;
+    appCellMetaDiv.appendChild(appDevDiv);
 
-      var appGetDiv = document.createElement("div");
-      appGetDiv.className = "appget";
+    appCellLeftDiv.appendChild(appCellMetaDiv);
+    dockDiv.appendChild(appCellLeftDiv);
 
-      var appGetBtn = document.createElement("a");
-      appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+    var appGetDiv = document.createElement("div");
+    appGetDiv.className = "appget";
 
-      var getBtn = document.createElement("button");
-      getBtn.className = "getbtn";
-      getBtn.textContent = "GET";
+    var appGetBtn = document.createElement("a");
+    appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
 
-      appGetBtn.appendChild(getBtn);
-      appGetDiv.appendChild(appGetBtn);
-      dockDiv.appendChild(appGetDiv);
+    var getBtn = document.createElement("button");
+    getBtn.className = "getbtn";
+    getBtn.textContent = "GET";
 
-      appListDiv.appendChild(dockDiv);
-    });
-  }
+    appGetBtn.appendChild(getBtn);
+    appGetDiv.appendChild(appGetBtn);
+    dockDiv.appendChild(appGetDiv);
+
+    appListDiv.appendChild(dockDiv);
+  });
 }
 
 // Appeler la fonction pour afficher les données
