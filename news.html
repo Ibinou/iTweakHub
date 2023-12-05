@@ -187,6 +187,7 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                     fetch(newsItem.imageURL)
                         .then(response => {
                             if (response.ok) {
+                                // Créer des éléments HTML seulement si l'image est disponible
                                 var newsWrapper = document.createElement('div');
                                 newsWrapper.classList.add('custom-news-item-wrapper');
 
@@ -234,6 +235,7 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                         .catch(error => console.error('Erreur lors de la vérification de l\'image:', error));
                 }
             });
+
 		
             var urlsString = localStorage.getItem('repoURLs');
             var urls = JSON.parse(urlsString);
