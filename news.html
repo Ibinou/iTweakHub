@@ -105,10 +105,8 @@
         
   </script>
 <script>
-// Récupérer l'élément HTML où les actualités seront affichées
 var container = document.getElementById('news');
 
-// Fonction pour ajouter "#" devant le nombre hexadécimal de la couleur si nécessaire
 function formatColor(color) {
     if (color && color.charAt(0) !== '#') {
         color = '#' + color;
@@ -116,14 +114,11 @@ function formatColor(color) {
     return color;
 }
 
-// Fonction pour trouver une application par appID ou bundleIdentifier
 function findAppByIdentifier(identifier, apps) {
     return apps.find(app => app.appID === identifier || app.bundleIdentifier === identifier);
 }
 
-// Fonction pour afficher les informations de l'application
 function displayAppInfo(appData) {
-    // Créer des éléments HTML pour afficher les infos de l'application
     var appInfoWrapper = document.createElement('div');
     appInfoWrapper.classList.add('app-info-wrapper');
 
@@ -160,7 +155,6 @@ function displayAppInfo(appData) {
     button.style.backgroundColor = formatColor(appData.tintColor) || '#';
     button.textContent = 'View';
 
-    // Ajouter les éléments au DOM
     text.appendChild(title);
     text.appendChild(subtitle);
 
@@ -184,57 +178,60 @@ function displayAppInfo(appData) {
     container.appendChild(appInfoWrapper);
 }
 
-// Effectuer une première requête AJAX pour récupérer le JSON à partir de apps.json
 fetch('https://ibinou.github.io/iTweakHub/apps.json')
     .then(response => response.json())
     .then(data => {
         if (data.news) {
             data.news.forEach(function (newsItem) {
-                // Créer des éléments HTML pour chaque actualité
-                var newsWrapper = document.createElement('div');
-                newsWrapper.classList.add('custom-news-item-wrapper');
+                if (newsItem.imageURL) {
+                    fetch(newsItem.imageURL)
+                        .then(response => {
+                            if (response.ok) {
+                                var newsWrapper = document.createElement('div');
+                                newsWrapper.classList.add('custom-news-item-wrapper');
 
-                var item = document.createElement('div');
-                item.classList.add('custom-item');
-                item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
+                                var item = document.createElement('div');
+                                item.classList.add('custom-item');
+                                item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
 
-                var textContainer = document.createElement('div');
-                textContainer.classList.add('custom-text');
+                                var textContainer = document.createElement('div');
+                                textContainer.classList.add('custom-text');
 
-                var headline = document.createElement('h3');
-                headline.textContent = newsItem.title || '';
+                                var headline = document.createElement('h3');
+                                headline.textContent = newsItem.title || '';
 
-                var description = document.createElement('p');
-                description.textContent = newsItem.caption || '';
+                                var description = document.createElement('p');
+                                description.textContent = newsItem.caption || '';
 
-                var imgContainer = document.createElement('div');
-                imgContainer.classList.add('custom-image-wrapper');
+                                var img = document.createElement('img');
+                                img.src = newsItem.imageURL;
 
-                var img = document.createElement('img');
-                img.src = newsItem.imageURL || '';
+                                var imgContainer = document.createElement('div');
+                                imgContainer.classList.add('custom-image-wrapper');
+                                imgContainer.appendChild(img);
 
-                // Ajouter les éléments au DOM
-                textContainer.appendChild(headline);
-                textContainer.appendChild(description);
+                                textContainer.appendChild(headline);
+                                textContainer.appendChild(description);
 
-                item.appendChild(textContainer);
-                item.appendChild(imgContainer);
-                imgContainer.appendChild(img);
+                                item.appendChild(textContainer);
+                                item.appendChild(imgContainer);
 
-                newsWrapper.appendChild(item);
-                container.appendChild(newsWrapper);
+                                newsWrapper.appendChild(item);
+                                container.appendChild(newsWrapper);
 
-                // Vérifier si la news a un appID
-                if (newsItem.appID) {
-                    // Rechercher l'application correspondante
-                    var appData = findAppByIdentifier(newsItem.appID, data.apps);
-
-                    if (appData) {
-                        // Afficher les informations de l'application
-                        displayAppInfo(appData);
-                    } else {
-                        console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
-                    }
+                                if (newsItem.appID) {
+                                    var appData = findAppByIdentifier(newsItem.appID, data.apps);
+                                    if (appData) {
+                                        displayAppInfo(appData);
+                                    } else {
+                                        console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
+                                    }
+                                }
+                            } else {
+                                console.error('L\'image n\'est pas disponible:', newsItem.imageURL);
+                            }
+                        })
+                        .catch(error => console.error('Erreur lors de la vérification de l\'image:', error));
                 }
             });
 		
