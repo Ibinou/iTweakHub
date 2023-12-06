@@ -55,7 +55,7 @@
         </center>
         <br>
          <div class="bottom-choices">   
-             <button id="done" type="submit" class="login" onclick="window.location.href='index.html';">Done</button>
+             <button id="done" type="submit" class="login" onclick="window.location.href='setup/color.html';">Done</button>
     </form>
 
 </div> 
@@ -87,8 +87,7 @@ accountForm.addEventListener('submit', function(event) {
             const setupDate = new Date().toISOString();
             localStorage.setItem('setupDate', setupDate);
 
-            alert('Welcome on iTweakHub 🥳');
-            window.location.href = 'index.html'; // Redirection vers la page d'accueil après l'enregistrement
+            window.location.href = 'setup/color.html'; // Redirection vers la page d'accueil après l'enregistrement
         };
         reader.readAsDataURL(profilePicInput.files[0]);
     } else {
