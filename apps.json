@@ -149,16 +149,6 @@
 			"imageURL": "https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/banners/ithdiscord.PNG?raw=true",
 			"date": "2023-11-23",
 			"notify": false
-		},
-		{
-			"title": "Welcome to iTweakHub !",
-			"identifier": "welcome",
-			"url": "https://x.com/itweakhub/",
-			"caption": "The most advanced web-based 3rd party AppStore ✌️.",
-			"tintColor": "17011F",
-			"imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/banners/ithbanner.PNG",
-			"date": "2023-11-22",
-			"notify": false
 		}
 	]
 }
