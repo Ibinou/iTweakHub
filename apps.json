@@ -61,7 +61,10 @@
 			"localizedDescription": "UTM is a full featured virtual machine host for iOS. In short, it allows you to run Windows, Android, and more on your iPhone and iPad.\n\nFeatures:\n30+ processors supported including x86_64, ARM64, and RISC-V thanks to qemu as a backend\nFast native graphics through para-virtualization thanks to SPICE\nJIT based acceleration using qemu TCG\nFrontend designed from scratch for iOS11+ using the latest and greatest APIs\nCreate, manage, run VMs directly from your device\nNo jailbreak required!",
 			"iconURL": "https://getutm.app/assets/appicon.png",
 			"tintColor": "1E47D0",
-			"size": 124967347
+			"size": 124967347,
+			"screenshotURLs": [
+				"http://placehold.it/750x1334"
+			]
 		},
 		{
 			"name": "Thermometer",
@@ -136,20 +139,26 @@
 			]
 		}
 	],
-    "news": [
-        {
-            "title": "Welcome to iTweakHub !",
-            "identifier": "welcome",
-            "caption": "The best web-based 3rd Party AppStore.",
-            "tintColor": "17011F",
-            "date": "2023-05-23",
-        },
-        {
-            "title": "Join our Discord server.",
-            "identifier": "discord",
-            "caption": "Join our community on Discord. Tap here to join.",
-            "tintColor": "5761EC",
-            "date": "2023-04-06"
-        }
-    ]
+	"news": [
+		{
+			"title": "Join our Discord server",
+			"identifier": "discord",
+			"caption": "Tap here to join our comunity !",
+			"tintColor": "5761EC",
+			"url": "discord.uwu",
+			"imageURL": "https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/banners/ithdiscord.PNG?raw=true",
+			"date": "2023-11-23",
+			"notify": false
+		},
+		{
+			"title": "Welcome to iTweakHub !",
+			"identifier": "welcome",
+			"url": "https://x.com/itweakhub/",
+			"caption": "The most advanced web-based 3rd party AppStore ✌️.",
+			"tintColor": "17011F",
+			"imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/banners/ithbanner.PNG",
+			"date": "2023-11-22",
+			"notify": false
+		}
+	]
 }
