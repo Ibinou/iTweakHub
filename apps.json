@@ -136,28 +136,24 @@
 			]
 		}
 	],
-	"news": [
-		{
-			"title": "Join our Discord server",
-			"identifier": "discord",
-			"caption": "Tap here to join our comunity !",
-			"tintColor": "5761EC",
-			"url": "discord.uwu",
-			"imageURL": "https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/banners/ithdiscord.PNG?raw=true",
-			"date": "2023-11-23",
-			"notify": false
-		},
-		{
-			"title": "Welcome to iTweakHub !",
-			"identifier": "welcome",
-			"url": "https://x.com/itweakhub/",
-			"caption": "The most advanced web-based 3rd party AppStore ✌️.",
-			"tintColor": "17011F",
-			"date": "2023-11-22",
-			"notify": false
-		}
-	],
-	"userInfo": {
-		"patreonAccessToken": "JLh5bpOQsPg-HIRe6FHnRAktoeeU4JT5-Xk-y7njQrM"
-	}
+    "news": [
+        {
+            "title": "Join our Discord server",
+            "identifier": "discord",
+            "caption": "Tap here to join our comunity !",
+            "tintColor": "5761EC",
+            "date": "2023-05-23",
+            "imageURL": "https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/banners/ithdiscord.PNG?raw=true",
+            "notify": true
+        },
+        {
+            "title": "Welcome to iTweakHub !",
+            "identifier": "welcome",
+            "caption": "The most advanced web-based 3rd party AppStore ✌️.",
+            "tintColor": "17011F",
+            "url": "https://x.com/itweakhub/",
+            "date": "2023-04-06",
+            "notify": false
+        }
+    ]
 }
