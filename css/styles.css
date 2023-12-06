@@ -1635,3 +1635,27 @@ a > button {
     cursor: pointer;
     font-weight: 600;
 }
+.bottom-choices-color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 15px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 9999999999999999999999;
+}
+.login-color {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 55px;
+  width: 80%;
+  max-width: 400px;
+  font-size: 19px;
+}
