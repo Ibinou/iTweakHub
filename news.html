@@ -187,7 +187,6 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                     fetch(newsItem.imageURL)
                         .then(response => {
                             if (response.ok) {
-                                // Créer des éléments HTML seulement si l'image est disponible
                                 var newsWrapper = document.createElement('div');
                                 newsWrapper.classList.add('custom-news-item-wrapper');
 
@@ -204,12 +203,15 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                                 var description = document.createElement('p');
                                 description.textContent = newsItem.caption || '';
 
-                                var img = document.createElement('img');
-                                img.src = newsItem.imageURL;
-
                                 var imgContainer = document.createElement('div');
                                 imgContainer.classList.add('custom-image-wrapper');
-                                imgContainer.appendChild(img);
+
+                                var img = document.createElement('img');
+                                img.src = newsItem.imageURL;
+                                
+                                if (newsItem.imageURL) {
+                                    imgContainer.appendChild(img);
+                                }
 
                                 textContainer.appendChild(headline);
                                 textContainer.appendChild(description);
@@ -233,10 +235,30 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                             }
                         })
                         .catch(error => console.error('Erreur lors de la vérification de l\'image:', error));
+                } else {
+                    var newsWrapper = document.createElement('div');
+                    newsWrapper.classList.add('custom-news-item-wrapper');
+
+                    var item = document.createElement('div');
+                    item.classList.add('custom-item');
+                    item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
+
+                    var textContainer = document.createElement('div');
+                    textContainer.classList.add('custom-text');
+
+                    var headline = document.createElement('h3');
+                    headline.textContent = newsItem.title || '';
+
+                    var description = document.createElement('p');
+                    description.textContent = newsItem.caption || '';
+
+                    item.appendChild(textContainer);
+
+                    newsWrapper.appendChild(item);
+                    container.appendChild(newsWrapper);
                 }
             });
 
-		
             var urlsString = localStorage.getItem('repoURLs');
             var urls = JSON.parse(urlsString);
 
@@ -268,13 +290,16 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
 
                                     var img = document.createElement('img');
                                     img.src = newsItem.imageURL || '';
+                                    
+                                    if (newsItem.imageURL) {
+                                        imgContainer.appendChild(img);
+                                    }
 
                                     textContainer.appendChild(headline);
                                     textContainer.appendChild(description);
 
                                     item.appendChild(textContainer);
                                     item.appendChild(imgContainer);
-                                    imgContainer.appendChild(img);
 
                                     newsWrapper.appendChild(item);
                                     container.appendChild(newsWrapper);
