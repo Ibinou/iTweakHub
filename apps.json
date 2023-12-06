@@ -138,22 +138,18 @@
 	],
     "news": [
         {
-            "title": "Join our Discord server",
-            "identifier": "discord",
-            "caption": "Tap here to join our comunity !",
-            "tintColor": "5761EC",
-            "date": "2023-05-23",
-            "imageURL": "img/banners/ithdiscord.PNG",
-            "notify": true
-        },
-        {
             "title": "Welcome to iTweakHub !",
             "identifier": "welcome",
-            "caption": "The most advanced web-based 3rd party AppStore ✌️.",
+            "caption": "The best web-based 3rd Party AppStore.",
             "tintColor": "17011F",
-            "url": "https://x.com/itweakhub/",
-            "date": "2023-04-06",
-            "notify": false
+            "date": "2023-05-23",
+        },
+        {
+            "title": "Join our Discord server.",
+            "identifier": "discord",
+            "caption": "Join our community on Discord. Tap here to join.",
+            "tintColor": "5761EC",
+            "date": "2023-04-06"
         }
     ]
 }
