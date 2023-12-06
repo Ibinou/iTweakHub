@@ -143,7 +143,7 @@
             "caption": "Tap here to join our comunity !",
             "tintColor": "5761EC",
             "date": "2023-05-23",
-            "imageURL": "https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/banners/ithdiscord.PNG?raw=true",
+            "imageURL": "img/banners/ithdiscord.PNG",
             "notify": true
         },
         {
