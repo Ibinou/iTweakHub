@@ -39,7 +39,7 @@
         background-color: #1c0026;
     }
 </style>
-<div class="UIContainer">
+<div id="UIContainer" class="UIContainer">
   
 <div class="welcomeheader">
 <img class="welcomeimg" src="img/AppBox.png">
@@ -137,6 +137,7 @@ accountForm.addEventListener('submit', function(event) {
 
 if (!window.matchMedia('(display-mode: standalone)').matches) {
     document.getElementById('addPage').style.display = 'block';
+    document.getElementById('UIContainer').style.display = 'none';
 }
 
     </script>
