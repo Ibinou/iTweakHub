@@ -1659,3 +1659,28 @@ a > button {
   max-width: 400px;
   font-size: 19px;
 }
+   .page {
+      min-height: 100%;
+      background-color: #f7f7f8;
+    }
+
+    .page-content {
+      padding: 20px;
+    }
+
+    .instruction-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .icon-col {
+      flex: 0 0 20px;
+      margin-right: 10px;
+      font-size: 24px;
+    }
+
+    .instruction-col {
+      flex: 1;
+      font-size: 16px;
+    }
