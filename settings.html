@@ -227,7 +227,24 @@ closeIcon.addEventListener('click', () => {
 if (document.cookie.indexOf('card1=hidden') !== -1) {
     card.style.display = 'none';
 }
+        // Fonction pour détecter si l'iPhone a une encoche
+        function isIphoneWithNotch() {
+            // Utilisez des propriétés spécifiques de l'iPhone et du navigateur pour détecter l'encoche
+            return /iPhone/.test(navigator.userAgent) && window.visualViewport && window.visualViewport.height > 800;
+        }
 
+        // Fonction pour ajouter le padding top si c'est un iPhone avec encoche
+        function addPaddingIfIphoneWithNotch() {
+            var toptitleElement = document.querySelector('.toptitle');
+
+            if (isIphoneWithNotch()) {
+                // Ajoutez le padding top nécessaire
+                toptitleElement.style.paddingTop = 'env(safe-area-inset-top)';
+            }
+        }
+
+        // Appelez la fonction lors du chargement de la page
+        window.onload = addPaddingIfIphoneWithNotch;
     
 
    </script>
