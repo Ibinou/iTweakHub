@@ -1662,6 +1662,8 @@ a > button {
    .page {
       min-height: 100%;
       background-color: #f7f7f8;
+      z-index: 99999999999999999;
+      display: none;
     }
 
     .page-content {
