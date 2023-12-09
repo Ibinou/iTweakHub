@@ -227,25 +227,41 @@ closeIcon.addEventListener('click', () => {
 if (document.cookie.indexOf('card1=hidden') !== -1) {
     card.style.display = 'none';
 }
+    <script>
         // Fonction pour détecter si l'iPhone a une encoche
         function isIphoneWithNotch() {
-            // Utilisez des propriétés spécifiques de l'iPhone et du navigateur pour détecter l'encoche
-            return /iPhone/.test(navigator.userAgent) && window.visualViewport && window.visualViewport.height > 800;
+            // Really basic check for the iOS platform
+            var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+            // Get the device pixel ratio
+            var ratio = window.devicePixelRatio || 1;
+
+            // Define the user's device screen dimensions
+            var screen = {
+                width: window.screen.width * ratio,
+                height: window.screen.height * ratio
+            };
+
+            // iPhone X Detection (Adjust values as needed)
+            return iOS && screen.width === 1125 && screen.height === 2436;
         }
 
-        // Fonction pour ajouter le padding top si c'est un iPhone avec encoche
+        // Fonction pour ajouter le padding top en prenant en compte la "safe area"
         function addPaddingIfIphoneWithNotch() {
             var toptitleElement = document.querySelector('.toptitle');
 
             if (isIphoneWithNotch()) {
+                // Obtenez la taille de la "safe area"
+                var safeAreaHeight = window.innerHeight - document.documentElement.clientHeight;
+
                 // Ajoutez le padding top nécessaire
-                toptitleElement.style.paddingTop = '40px';
+                toptitleElement.style.paddingTop = '50px';
             }
         }
 
         // Appelez la fonction lors du chargement de la page
         window.onload = addPaddingIfIphoneWithNotch;
-    
+    </script>
 
    </script>
 
