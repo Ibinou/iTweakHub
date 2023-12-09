@@ -1659,15 +1659,26 @@ a > button {
   max-width: 400px;
   font-size: 19px;
 }
-   .page {
+.page {
       min-height: 100%;
-      background-color: #f7f7f8;
+      background-color: #121212;
       z-index: 99999999999999999;
       display: none;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
 
     .page-content {
       padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 20px;
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-top: 16px;
+      margin-bottom: 50%;
     }
 
     .instruction-row {
