@@ -61,6 +61,45 @@
 </div> 
     
 </div>  
+  <div class="page" style="background-color: #f7f7f8;display: none;">
+    <div class="page-content">
+      <div class="block">
+        <div class="instruction-row">
+          <div class="icon-col">
+            <i class="f7-icons">compass</i>
+          </div>
+          <div class="instruction-col">
+            <p>Open this page in Safari</p>
+          </div>
+        </div>
+        <div class="instruction-row">
+          <div class="icon-col">
+            <i class="f7-icons">square_arrow_up</i>
+          </div>
+          <div class="instruction-col">
+            <p>Click the "Share" button</p>
+          </div>
+        </div>
+        <div class="instruction-row">
+          <div class="icon-col">
+            <i class="f7-icons">plus_square</i>
+          </div>
+          <div class="instruction-col">
+            <p>
+Choose “On Home Screen” from the options.</p>
+          </div>
+        </div>
+        <div class="instruction-row">
+          <div class="icon-col">
+            <i class="f7-icons">checkmark_alt_circle</i>
+          </div>
+          <div class="instruction-col">
+            <p>Tap "Add to Home Screen"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <script>
 const accountForm = document.getElementById('accountForm');
 
@@ -96,8 +135,7 @@ accountForm.addEventListener('submit', function(event) {
 });
 
 if (!window.matchMedia('(display-mode: standalone)').matches) {
-    // L'application n'est pas installée sur l'écran d'accueil
-    alert("Please add iTweakHub to your homescreen to use it.");
+    document.getElementById('mainPage').style.display = 'block';
 }
 
     </script>
