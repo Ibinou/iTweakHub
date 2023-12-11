@@ -509,7 +509,6 @@ function removeInvalidRepo(url) {
 // Appeler la fonction CheckValidity lors du chargement de la page
 window.addEventListener("load", CheckValidity);
 
-
 // Fonction pour comparer les numéros de version
 function compareVersions(version1, version2) {
     const parts1 = version1.split('.');
@@ -545,74 +544,57 @@ async function checkForUpdates() {
     // Récupérer le tableau "repoURLs" du local storage
     const repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
-    // Récupérer les données depuis "apps.json"
-    const appsJson = await fetchData('https://therealfoxster.github.io/altsource/apps.json');
+    try {
+        // Récupérer les données depuis "apps.json" en parallèle avec les fetch sur repoURLs
+        const [appsJson, ...repoJsons] = await Promise.all([
+            fetchData('apps.json'),
+            ...repoURLs.map(url => fetchData(url))
+        ]);
 
-    if (!appsJson) {
-        console.error('Impossible de récupérer les données depuis apps.json');
-        return;
-    }
+        if (!appsJson) {
+            console.error('Impossible de récupérer les données depuis apps.json');
+            return;
+        }
 
-   // Parcourir chaque URL du tableau "repoURLs"
-for (const repoURL of repoURLs) {
-    // Récupérer les données JSON depuis l'URL
-    const json = await fetchData(repoURL);
+        // Parcourir chaque JSON récupéré (y compris apps.json)
+        for (const json of [appsJson, ...repoJsons]) {
+            // Récupérer le tableau "recent" du local storage
+            const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
 
-    if (!json) {
-        continue; // Passer à l'itération suivante si la récupération échoue
-    }
+            // Parcourir chaque application récente
+            recentApps.forEach((recentApp) => {
+                // Récupérer les informations de l'application à partir du JSON
+                const appInfo = json.apps.find(app => app.name === recentApp.name);
 
-        // Récupérer le tableau "recent" du local storage
-        const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
+                if (appInfo) {
+                    // Récupérer la version la plus récente
+                    const latestVersion = appInfo.version;
 
-        // Parcourir chaque application récente
-        recentApps.forEach((recentApp) => {
-            // Récupérer les informations de l'application à partir du JSON
-            const appInfo = json.apps.find(app => app.name === recentApp.name);
+                    // Comparer avec la version actuelle dans le tableau "recent"
+                    const currentVersion = recentApp.version;
+                    const versionComparison = compareVersions(currentVersion, latestVersion);
 
-            if (appInfo) {
-                // Récupérer la version la plus récente
-                const latestVersion = appInfo.version;
+                    // Afficher le résultat
+                    console.log(`Répo: ${json === appsJson ? 'apps.json' : 'repoURL'}`);
+                    console.log(`Application: ${appInfo.name}`);
+                    console.log(`Version actuelle: ${currentVersion}`);
+                    console.log(`Dernière version: ${latestVersion}`);
 
-                // Comparer avec la version actuelle dans le tableau "recent"
-                const currentVersion = recentApp.version;
-                const versionComparison = compareVersions(currentVersion, latestVersion);
-
-                // Afficher le résultat
-                console.log(`Repo: ${repoURL}`);
-                console.log(`Application: ${appInfo.name}`);
-                console.log(`Version actuelle: ${currentVersion}`);
-                console.log(`Dernière version: ${latestVersion}`);
-
-                if (versionComparison < 0) {
-                    console.log('Une mise à jour est disponible!\n');
-                } else {
-                    console.log('Vous utilisez la dernière version.\n');
+                    if (versionComparison < 0) {
+                        console.log('Une mise à jour est disponible!\n');
+                    } else {
+                        console.log('Vous utilisez la dernière version.\n');
+                    }
                 }
-            }
-        });
+            });
+        }
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données:', error);
     }
 }
 
 // Exécuter la vérification des mises à jour
 checkForUpdates();
-// Fonction pour récupérer les données depuis une URL
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-
-        // Vérifier si la réponse est de type JSON
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-            throw new Error('La réponse n\'est pas de type JSON.');
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error(`Erreur lors de la récupération des données depuis ${url}: ${error}`);
-        return null;
-    }
-}
     </script>
 <script src="js/index.js"></script>
     </div>
