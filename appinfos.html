@@ -269,12 +269,16 @@ function getParameterByName(name) {
     return urlParams.get(name);
 }
 
-// Fonction pour ajouter le nom de l'application à la liste "recent" dans le Local Storage
-function addToRecentApps(appName) {
+// Mettez à jour la fonction addToRecentApps
+function addToRecentApps(appName, appVersion) {
     const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
-    recentApps.unshift(appName); // Ajouter le nom de l'application au début de la liste
+    
+    // Stockez le nom de l'application et sa version comme un objet
+    const appInfo = { name: appName, version: appVersion };
+    
+    recentApps.unshift(appInfo); // Ajouter au début de la liste
 
-    // Limiter la liste à, par exemple, 5 éléments
+    // Limitez la liste 
     const maxLength = 5;
     const trimmedRecentApps = recentApps.slice(0, maxLength);
 
@@ -335,7 +339,7 @@ function displayAppInfo(appData) {
         installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
 
         installButton.addEventListener("click", function() {
-            addToRecentApps(appData.name);
+            addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
         });
         }
 
