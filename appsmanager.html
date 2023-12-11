@@ -575,15 +575,15 @@ async function checkForUpdates() {
                     const versionComparison = compareVersions(currentVersion, latestVersion);
 
                     // Afficher le résultat
-                    console.log(`Répo: ${json === appsJson ? 'apps.json' : 'repoURL'}`);
+                    console.log(`Source: ${json === appsJson ? 'apps.json' : 'repoURL'}`);
                     console.log(`Application: ${appInfo.name}`);
-                    console.log(`Version actuelle: ${currentVersion}`);
-                    console.log(`Dernière version: ${latestVersion}`);
+                    console.log(`Current version: ${currentVersion}`);
+                    console.log(`Latest version: ${latestVersion}`);
 
                     if (versionComparison < 0) {
-                        console.log('Une mise à jour est disponible!\n');
+                        console.log('An update is available !\n');
                     } else {
-                        console.log('Vous utilisez la dernière version.\n');
+                        console.log('The latest version is installed.\n');
                     }
                 }
             });
