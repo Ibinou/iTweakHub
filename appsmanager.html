@@ -546,7 +546,7 @@ async function checkForUpdates() {
     const repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
     // Récupérer les données depuis "apps.json"
-    const appsJson = await fetchData('apps.json');
+    const appsJson = await fetchData('https://ibinou.github.io/iTweakHub/apps.json');
 
     if (!appsJson) {
         console.error('Impossible de récupérer les données depuis apps.json');
