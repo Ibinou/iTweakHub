@@ -553,14 +553,14 @@ async function checkForUpdates() {
         return;
     }
 
-    // Parcourir chaque URL du tableau "repoURLs"
-    for (const repoURL of [...repoURLs, appsJson]) {
-        // Récupérer les données JSON depuis l'URL
-        const json = await fetchData(repoURL);
+   // Parcourir chaque URL du tableau "repoURLs"
+for (const repoURL of repoURLs) {
+    // Récupérer les données JSON depuis l'URL
+    const json = await fetchData(repoURL);
 
-        if (!json) {
-            continue; // Passer à l'itération suivante si la récupération échoue
-        }
+    if (!json) {
+        continue; // Passer à l'itération suivante si la récupération échoue
+    }
 
         // Récupérer le tableau "recent" du local storage
         const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
