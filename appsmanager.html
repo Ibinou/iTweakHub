@@ -546,7 +546,7 @@ async function checkForUpdates() {
     const repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
     // Récupérer les données depuis "apps.json"
-    const appsJson = await fetchData('chemin/vers/apps.json');
+    const appsJson = await fetchData('apps.json');
 
     if (!appsJson) {
         console.error('Impossible de récupérer les données depuis apps.json');
@@ -579,7 +579,7 @@ async function checkForUpdates() {
                 const versionComparison = compareVersions(currentVersion, latestVersion);
 
                 // Afficher le résultat
-                console.log(`Répo: ${repoURL}`);
+                console.log(`Repo: ${repoURL}`);
                 console.log(`Application: ${appInfo.name}`);
                 console.log(`Version actuelle: ${currentVersion}`);
                 console.log(`Dernière version: ${latestVersion}`);
