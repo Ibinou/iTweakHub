@@ -529,50 +529,68 @@ function compareVersions(version1, version2) {
     return 0;
 }
 
+// Fonction pour récupérer les données depuis une URL
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        return await response.json();
+    } catch (error) {
+        console.error(`Erreur lors de la récupération des données depuis ${url}: ${error}`);
+        return null;
+    }
+}
+
 // Fonction pour vérifier les mises à jour
 async function checkForUpdates() {
     // Récupérer le tableau "repoURLs" du local storage
     const repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
+    // Récupérer les données depuis "apps.json"
+    const appsJson = await fetchData('chemin/vers/apps.json');
+
+    if (!appsJson) {
+        console.error('Impossible de récupérer les données depuis apps.json');
+        return;
+    }
+
     // Parcourir chaque URL du tableau "repoURLs"
-    for (const repoURL of repoURLs) {
-        try {
-            // Récupérer les données JSON depuis l'URL
-            const response = await fetch(repoURL);
-            const json = await response.json();
+    for (const repoURL of [...repoURLs, appsJson]) {
+        // Récupérer les données JSON depuis l'URL
+        const json = await fetchData(repoURL);
 
-            // Récupérer le tableau "recent" du local storage
-            const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
-
-            // Parcourir chaque application récente
-            recentApps.forEach((recentApp) => {
-                // Récupérer les informations de l'application à partir du JSON
-                const appInfo = json.apps.find(app => app.name === recentApp.name);
-
-                if (appInfo) {
-                    // Récupérer la version la plus récente
-                    const latestVersion = appInfo.version;
-
-                    // Comparer avec la version actuelle dans le tableau "recent"
-                    const currentVersion = recentApp.version;
-                    const versionComparison = compareVersions(currentVersion, latestVersion);
-
-                    // Afficher le résultat
-                    console.log(`Répo: ${repoURL}`);
-                    console.log(`Application: ${appInfo.name}`);
-                    console.log(`Version actuelle: ${currentVersion}`);
-                    console.log(`Dernière version: ${latestVersion}`);
-
-                    if (versionComparison < 0) {
-                        console.log('Une mise à jour est disponible!\n');
-                    } else {
-                        console.log('Vous utilisez la dernière version.\n');
-                    }
-                }
-            });
-        } catch (error) {
-            console.error(`Erreur lors de la récupération des données depuis ${repoURL}: ${error}`);
+        if (!json) {
+            continue; // Passer à l'itération suivante si la récupération échoue
         }
+
+        // Récupérer le tableau "recent" du local storage
+        const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
+
+        // Parcourir chaque application récente
+        recentApps.forEach((recentApp) => {
+            // Récupérer les informations de l'application à partir du JSON
+            const appInfo = json.apps.find(app => app.name === recentApp.name);
+
+            if (appInfo) {
+                // Récupérer la version la plus récente
+                const latestVersion = appInfo.version;
+
+                // Comparer avec la version actuelle dans le tableau "recent"
+                const currentVersion = recentApp.version;
+                const versionComparison = compareVersions(currentVersion, latestVersion);
+
+                // Afficher le résultat
+                console.log(`Répo: ${repoURL}`);
+                console.log(`Application: ${appInfo.name}`);
+                console.log(`Version actuelle: ${currentVersion}`);
+                console.log(`Dernière version: ${latestVersion}`);
+
+                if (versionComparison < 0) {
+                    console.log('Une mise à jour est disponible!\n');
+                } else {
+                    console.log('Vous utilisez la dernière version.\n');
+                }
+            }
+        });
     }
 }
 
