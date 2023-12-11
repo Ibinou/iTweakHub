@@ -509,6 +509,7 @@ function removeInvalidRepo(url) {
 // Appeler la fonction CheckValidity lors du chargement de la page
 window.addEventListener("load", CheckValidity);
 
+
 // Fonction pour comparer les numéros de version
 function compareVersions(version1, version2) {
     const parts1 = version1.split('.');
@@ -546,11 +547,11 @@ async function checkForUpdates() {
             // Parcourir chaque application récente
             recentApps.forEach((recentApp) => {
                 // Récupérer les informations de l'application à partir du JSON
-                const appInfo = json.apps.find(app => app.bundleIdentifier === recentApp.name);
+                const appInfo = json.apps.find(app => app.name === recentApp.name);
 
                 if (appInfo) {
                     // Récupérer la version la plus récente
-                    const latestVersion = appInfo.versions[0].version;
+                    const latestVersion = appInfo.version;
 
                     // Comparer avec la version actuelle dans le tableau "recent"
                     const currentVersion = recentApp.version;
