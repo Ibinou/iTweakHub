@@ -596,6 +596,23 @@ async function checkForUpdates() {
 
 // Exécuter la vérification des mises à jour
 checkForUpdates();
+// Fonction pour récupérer les données depuis une URL
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+
+        // Vérifier si la réponse est de type JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new Error('La réponse n\'est pas de type JSON.');
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(`Erreur lors de la récupération des données depuis ${url}: ${error}`);
+        return null;
+    }
+}
     </script>
 <script src="js/index.js"></script>
     </div>
