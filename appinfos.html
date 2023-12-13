@@ -100,7 +100,7 @@ nav h1 i a {
   </div>
 
 <div class="option_btn_container">
-    <i id="option_btn" class="fa-solid fa-ellipsis"></i>
+    <i onclick="toggleActionSheet()" id="option_btn" class="fa-solid fa-ellipsis"></i>
     <i id="favorite" class="fa-regular fa-heart option_btn"></i>
 </div>
 
@@ -110,6 +110,12 @@ nav h1 i a {
     
 </div>
 
+<div class="action-sheet" id="myActionSheet">
+  <div class="action-sheet-item">Option 1</div>
+  <div class="action-sheet-item">Option 2</div>
+  <div class="action-sheet-item">Option 3</div>
+  <div class="action-sheet-item" onclick="toggleActionSheet()">Cancel</div>
+</div>	
   
  <!--
    <div id="alertbox" class="alertbox">
@@ -563,6 +569,10 @@ favoriteButton.addEventListener("click", () => {
         chevronIcon.classList.remove('rotate');
       }
     }
+  function toggleActionSheet() {
+    const actionSheet = document.getElementById('myActionSheet');
+    actionSheet.classList.toggle('show');
+  }
 </script>
 
 </body>
