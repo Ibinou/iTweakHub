@@ -333,15 +333,31 @@ function displayAppInfo(appData) {
         const appBannerElement = document.getElementById("appBanner");
         appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
 
-        // Ajouter le nom de l'application à la liste "recent" dans le Local Storage lorsque l'utilisateur appuie sur le bouton Installer
-        const installButton = document.getElementById("geturl");
-        if(installButton) {
-        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
+	// Vérifier la valeur de custom_cert dans le Local Storage
+	const customCert = localStorage.getItem('custom_cert');
 
-        installButton.addEventListener("click", function() {
-            addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
-        });
-        }
+	// Récupérer les données pertinentes du tableau (si custom_cert est true)
+	const p12Url = appData.p12Url || "";
+	const mobileprovisionUrl = appData.mobileprovisionUrl || "";
+	const certpass = appData.password || "";
+	const url = appData.downloadURL || appData.versions[0].downloadURL;
+
+	// Vérifier si custom_cert est true
+		if (customCert && customCert.toLowerCase() === 'true') {
+    		// Construire le lien en utilisant les données du tableau
+  		  const customLink = `https://api.cococloud-signing.online/files/free/own-signing.php?certp12URL=${p12Url}&certmobileprovisionURL=${mobileprovisionUrl}&certpass=${certpass}&url=${url}`;
+
+   	 // Mettre à jour le lien du bouton
+    		installButton.setAttribute("href", customLink);
+	} else {
+   	 // Utiliser la méthode traditionnelle si custom_cert est false ou n'existe pas
+   		 installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${url}`);
+	}
+
+	// Ajouter l'événement click
+	installButton.addEventListener("click", function() {
+   		 addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
+	});
 
         const importButton = document.getElementById("import");
         if(importButton) {
