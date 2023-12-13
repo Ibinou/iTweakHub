@@ -1702,6 +1702,7 @@ a > button {
       bottom: 0;
       left: 0;
       right: 0;
+      z-index: 899999999999;
       background-color: #2c2c2c;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
