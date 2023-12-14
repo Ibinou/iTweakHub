@@ -68,7 +68,14 @@ nav h1 i a {
 }
 /* I had to put the css here because the bottom nav bar was in top idk why */
   </style>
-  
+
+<div class="action-sheet" id="myActionSheet">
+  <div onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'" class="action-sheet-item">Share</div>
+  <a style="color: white;" href="" id="import"><div class="action-sheet-item">Export to Scarlet</div></a>
+  <div class="action-sheet-item">Help</div>
+  <div class="action-sheet-item" onclick="toggleActionSheet()">Cancel</div>
+</div>	
+	
   <div id="notification" class="notification hidden">
   <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
   <div class="notification-content">
@@ -109,13 +116,6 @@ nav h1 i a {
 <div class="appInfo">
     
 </div>
-
-<div class="action-sheet" id="myActionSheet">
-  <div onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'" class="action-sheet-item">Share</div>
-  <a style="color: white;" href="" id="import"><div class="action-sheet-item">Export to Scarlet</div></a>
-  <div class="action-sheet-item">Help</div>
-  <div class="action-sheet-item" onclick="toggleActionSheet()">Cancel</div>
-</div>	
   
  <!--
    <div id="alertbox" class="alertbox">
@@ -577,17 +577,16 @@ function toggleActionSheet() {
   // Vérifier si la classe 'show' est présente
   const isActionSheetVisible = actionSheet.classList.contains('show');
 
-  // Modifier l'attribut style de la div avec l'id "sheet_background"
-  if (isActionSheetVisible) {
-    backgroundSheet.style.backgroundColor = '#000000bd';
-    backgroundSheet.style.zIndex = '99999999999999';
-  } else {
-    // Remettre à zéro l'attribut style lorsque la feuille est refermée
-    backgroundSheet.removeAttribute('style');
-  }
-
   // Ajouter ou supprimer la classe 'show'
   actionSheet.classList.toggle('show');
+
+  // Modifier l'opacité de la div avec l'id "sheet_background" seulement si la feuille est ouverte
+  if (isActionSheetVisible) {
+    backgroundSheet.style.opacity = '0.5';
+  } else {
+    // Réinitialiser l'opacité lorsque la feuille est refermée
+    backgroundSheet.style.opacity = '';
+  }
 }
 </script>
 
