@@ -584,11 +584,13 @@ function toggleActionSheet() {
   if (isActionSheetVisible) {
     // Ajouter la classe après un délai de 10 millisecondes
     setTimeout(() => {
+      backgroundSheet.style.transition = 'opacity 0.5s ease';
       backgroundSheet.style.opacity = '0.5';
     }, 10);
   } else {
     // Supprimer la classe après un délai de 500 millisecondes
     setTimeout(() => {
+      backgroundSheet.style.transition = 'opacity 0.5s ease';
       backgroundSheet.style.opacity = '';
     }, 500);
   }
