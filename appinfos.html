@@ -574,17 +574,17 @@ function toggleActionSheet() {
   const actionSheet = document.getElementById('myActionSheet');
   const backgroundSheet = document.getElementById('sheet_background');
 
-  // Vérifier si la classe 'show' est présente
-  const isActionSheetVisible = actionSheet.classList.contains('show');
-
   // Ajouter ou supprimer la classe 'show'
   actionSheet.classList.toggle('show');
+
+  // Vérifier si la classe 'show' est présente après le changement
+  const isActionSheetVisible = actionSheet.classList.contains('show');
 
   // Modifier l'opacité de la div avec l'id "sheet_background" seulement si la feuille est ouverte
   if (isActionSheetVisible) {
     backgroundSheet.style.opacity = '0.5';
   } else {
-    // Réinitialiser l'opacité lorsque la feuille est refermée
+    // Réinitialiser l'opacité lorsque la feuille est fermée
     backgroundSheet.style.opacity = '';
   }
 }
