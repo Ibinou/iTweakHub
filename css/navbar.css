@@ -264,6 +264,9 @@ div.content {
   .getbar button {
     margin-bottom: 15px;
   }
+  .toptitle {
+  padding-top: 50px;
+  }
 }
 
 /* iPhone 15 Plus */
@@ -273,6 +276,9 @@ div.content {
   }
   .getbar button {
     margin-bottom: 15px;
+  }
+  .toptitle {
+  padding-top: 50px;
   }
 }
 
@@ -284,6 +290,9 @@ div.content {
   .getbar button {
     margin-bottom: 15px;
   }
+  .toptitle {
+  padding-top: 50px;
+  }
 }
 
 /* iPhone 15 Pro Max */
@@ -293,6 +302,9 @@ div.content {
   }
   .getbar button {
     margin-bottom: 15px;
+  }
+  .toptitle {
+  padding-top: 50px;
   }
 }
 
@@ -304,6 +316,9 @@ div.content {
   .getbar button {
     margin-bottom: 15px;
   }
+  .toptitle {
+  padding-top: 50px;
+  }
 }
 
 /* iPhone 14 Plus */
@@ -313,6 +328,9 @@ div.content {
   }
   .getbar button {
     margin-bottom: 15px;
+  }
+  .toptitle {
+  padding-top: 50px;
   }
 }
 
@@ -324,6 +342,9 @@ div.content {
   .getbar button {
     margin-bottom: 15px;
   }
+  .toptitle {
+  padding-top: 50px;
+  }
 }
 
 /* iPhone 14 Pro Max */
@@ -333,6 +354,9 @@ div.content {
   }
   .getbar button {
     margin-bottom: 15px;
+  }
+  .toptitle {
+  padding-top: 50px;
   }
 }
 
@@ -347,5 +371,8 @@ div.content {
   }
   .getbar button {
     margin-bottom: 15px;
+  }
+  .toptitle {
+  padding-top: 50px;
   }
 }
