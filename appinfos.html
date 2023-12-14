@@ -76,7 +76,7 @@ nav h1 i a {
     <p class="notification-message">The app will be installed soon.</p>
   </div>
 </div>
-  
+ <div id="sheet_background"> 
   <nav id="topbar">
 <a style="text-decoration: none" href="javascript:history.back()">
     <h1 style="font-family:helvetica;font-size:23px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #ffffff;margin-right: 5px;"></i>Back</h1>
@@ -195,7 +195,7 @@ onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%
   <button id="reset-button">Reset</button>
 	</div> 
 
-
+ </div>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
@@ -569,10 +569,26 @@ favoriteButton.addEventListener("click", () => {
         chevronIcon.classList.remove('rotate');
       }
     }
-  function toggleActionSheet() {
-    const actionSheet = document.getElementById('myActionSheet');
-    actionSheet.classList.toggle('show');
+	
+function toggleActionSheet() {
+  const actionSheet = document.getElementById('myActionSheet');
+  const backgroundSheet = document.getElementById('sheet_background');
+
+  // Vérifier si la classe 'show' est présente
+  const isActionSheetVisible = actionSheet.classList.contains('show');
+
+  // Modifier l'attribut style de la div avec l'id "sheet_background"
+  if (isActionSheetVisible) {
+    backgroundSheet.style.backgroundColor = '#000000bd';
+    backgroundSheet.style.zIndex = '99999999999999';
+  } else {
+    // Remettre à zéro l'attribut style lorsque la feuille est refermée
+    backgroundSheet.removeAttribute('style');
   }
+
+  // Ajouter ou supprimer la classe 'show'
+  actionSheet.classList.toggle('show');
+}
 </script>
 
 </body>
