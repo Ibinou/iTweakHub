@@ -580,12 +580,17 @@ function toggleActionSheet() {
   // Vérifier si la classe 'show' est présente après le changement
   const isActionSheetVisible = actionSheet.classList.contains('show');
 
-  // Modifier l'opacité de la div avec l'id "sheet_background" seulement si la feuille est ouverte
+  // Ajouter ou supprimer une classe avec délai pour l'animation
   if (isActionSheetVisible) {
-    backgroundSheet.style.opacity = '0.5';
+    // Ajouter la classe après un délai de 10 millisecondes
+    setTimeout(() => {
+      backgroundSheet.style.opacity = '0.5';
+    }, 10);
   } else {
-    // Réinitialiser l'opacité lorsque la feuille est fermée
-    backgroundSheet.style.opacity = '';
+    // Supprimer la classe après un délai de 500 millisecondes
+    setTimeout(() => {
+      backgroundSheet.style.opacity = '';
+    }, 500);
   }
 }
 </script>
