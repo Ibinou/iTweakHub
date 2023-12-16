@@ -18,6 +18,16 @@
             "section": "MDC"
         },
         {
+            "name": "InstaSpring",
+            "developer": "haxi0",
+            "version": "1.0",
+            "ipa": "https://github.com/haxi0/InstaSpring/releases/download/1.0/InstaSpring.1.0.Fix.ipa",
+            "icon": "https://github.com/haxi0/InstaSpring/blob/main/InstaSpring16/InstaSpring16/Assets.xcassets/AppIcon.appiconset/Icon-60@3x.png?raw=true",
+            "compatibility": "All versions",
+            "description": "iOS app that immediately resprings your device after you open it!",
+            "section": "Utilities"
+        },
+        {
             "name": "FlixHub",
             "developer": "Dangerous Pixel",
             "version": "1.0.7",
