@@ -265,6 +265,9 @@ div.content {
   .toptitle {
     padding-top: 50px;
   }
+  .nav {
+    padding-top: 50px;
+  }
 }
 
 /* Styles for iPhones Xr and 11 */
@@ -276,6 +279,9 @@ div.content {
     margin-bottom: 15px;
   }
   .toptitle {
+    padding-top: 50px;
+  }
+  .nav {
     padding-top: 50px;
   }
 }
