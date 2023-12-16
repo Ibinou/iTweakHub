@@ -194,6 +194,7 @@ div.content {
     z-index: 999;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    padding-top: 20px;
 }
 /*SECTIONS CHOOSE*/
 .sectionscarr {
