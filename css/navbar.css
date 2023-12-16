@@ -254,10 +254,8 @@ div.content {
 }
 
 
-
-/* Styles for iPhones with notch (iPhone X or later) excluding iPhone SE models */
-/* iPhone 15 */
-@media only screen and (width: 393px) and (height: 852px) and (-webkit-device-pixel-ratio: 3) {
+/* Styles for iPhones with a pixel ratio of 3 (and higher) */
+@media only screen and (-webkit-device-pixel-ratio: 3) {
   .mobile-nav {
     margin-bottom: 30px;
   }
@@ -265,12 +263,12 @@ div.content {
     margin-bottom: 15px;
   }
   .toptitle {
-  padding-top: 50px;
+    padding-top: 50px;
   }
 }
 
-/* iPhone 15 Plus */
-@media only screen and (width: 430px) and (height: 932px) and (-webkit-device-pixel-ratio: 3) {
+/* Styles for iPhones Xr and 11 */
+@media only screen  and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
   .mobile-nav {
     margin-bottom: 30px;
   }
@@ -278,101 +276,6 @@ div.content {
     margin-bottom: 15px;
   }
   .toptitle {
-  padding-top: 50px;
-  }
-}
-
-/* iPhone 15 Pro */
-@media only screen and (width: 393px) and (height: 852px) and (-webkit-device-pixel-ratio: 3) {
-  .mobile-nav {
-    margin-bottom: 30px;
-  }
-  .getbar button {
-    margin-bottom: 15px;
-  }
-  .toptitle {
-  padding-top: 50px;
-  }
-}
-
-/* iPhone 15 Pro Max */
-@media only screen and (width: 430px) and (height: 932px) and (-webkit-device-pixel-ratio: 3) {
-  .mobile-nav {
-    margin-bottom: 30px;
-  }
-  .getbar button {
-    margin-bottom: 15px;
-  }
-  .toptitle {
-  padding-top: 50px;
-  }
-}
-
-/* iPhone 14 */
-@media only screen and (width: 390px) and (height: 844px) and (-webkit-device-pixel-ratio: 3) {
-  .mobile-nav {
-    margin-bottom: 30px;
-  }
-  .getbar button {
-    margin-bottom: 15px;
-  }
-  .toptitle {
-  padding-top: 50px;
-  }
-}
-
-/* iPhone 14 Plus */
-@media only screen and (width: 428px) and (height: 926px) and (-webkit-device-pixel-ratio: 3) {
-  .mobile-nav {
-    margin-bottom: 30px;
-  }
-  .getbar button {
-    margin-bottom: 15px;
-  }
-  .toptitle {
-  padding-top: 50px;
-  }
-}
-
-/* iPhone 14 Pro */
-@media only screen and (width: 393px) and (height: 852px) and (-webkit-device-pixel-ratio: 3) {
-  .mobile-nav {
-    margin-bottom: 30px;
-  }
-  .getbar button {
-    margin-bottom: 15px;
-  }
-  .toptitle {
-  padding-top: 50px;
-  }
-}
-
-/* iPhone 14 Pro Max */
-@media only screen and (width: 430px) and (height: 932px) and (-webkit-device-pixel-ratio: 3) {
-  .mobile-nav {
-    margin-bottom: 30px;
-  }
-  .getbar button {
-    margin-bottom: 15px;
-  }
-  .toptitle {
-  padding-top: 50px;
-  }
-}
-
-/* Styles for other iPhones with notch (iPhone X or later) excluding iPhone SE models */
-/* (Include other iPhone models not mentioned above) */
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
-       only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
-       only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
-       only screen and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) {
-  .mobile-nav {
-    margin-bottom: 30px;
-  }
-  .getbar button {
-    margin-bottom: 15px;
-  }
-  .toptitle {
-  padding-top: 50px;
+    padding-top: 50px;
   }
 }
