@@ -45,6 +45,8 @@
     .conteneur {
       position: relative;
       height: 303px;
+      margin-left: -16px;
+      margin-right: -16px;
     }
 
     /* Style de l'image à l'intérieur de la div principale */
@@ -67,7 +69,7 @@
       border-radius: 50px;
       background-color: #1c1c1ca8;
       backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       
     }
 
@@ -92,20 +94,22 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      align-items: flex-start; /* Aligner à gauche */
-      color: white; /* Couleur du texte */
-      padding: 10px; /* Ajout d'un espace autour du texte */
+      align-items: flex-start; 
+      color: white; 
+      padding: 16px; 
     }
 
     /* Style du titre sur le dégradé */
     .titre {
-      font-size: 1.5em;
+      font-size: 22px;
       margin-bottom: 5px;
+      font-weight: 700;
     }
 
     /* Style du sous-titre sur le dégradé */
     .sous-titre {
-      font-size: 1em;
+       font-size: 14px;
+       color: #ffffffc7;
     }
 
     /* Style du lien en bas avec l'icône */
@@ -113,12 +117,12 @@
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: white; /* Couleur du lien */
+      color: var(--accent-color);
     }
 
     /* Style de l'icône Font Awesome */
     .icone {
-      margin-left: 10px; /* Pour centrer à droite */
+      margin-left: 10px; 
     }
   </style>
 
@@ -129,7 +133,7 @@
       <!-- Texte dans la div "share" -->
       <div class="share-text">Share</div>
       <!-- Icône dans la div "share" -->
-      <i class="fas fa-share-alt share-icon"></i>
+      <i class="fa-solid fa-arrow-up-from-bracket"></i>
     </div>
     <!-- Image à l'intérieur de la div principale -->
     <img src="https://altstore.io/images/AltStore_AppIcon.png" alt="Votre Image" class="image">
@@ -138,15 +142,15 @@
       <!-- Contenu textuel sur le dégradé -->
       <div>
         <!-- Titre sur le dégradé -->
-        <div class="titre">Titre de l'image</div>
+        <div class="titre">RepoName</div>
         <!-- Sous-titre sur le dégradé -->
-        <div class="sous-titre">Sous-titre de l'image</div>
+        <div class="sous-titre">Description</div>
       </div>
       <!-- Lien en bas avec l'icône -->
       <a href="#" class="lien">
-        Lien vers quelque chose
+        Website
         <!-- Icône Font Awesome -->
-        <i class="fas fa-arrow-right icone"></i>
+        <i class="fa-solid fa-circle-chevron-right"></i>
       </a>
     </div>
   </div>
