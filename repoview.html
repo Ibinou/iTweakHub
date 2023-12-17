@@ -111,13 +111,17 @@
        font-size: 14px;
        color: #ffffffc7;
     }
-
+    .content {
+       transform: translateY(-10px);
+    }
+	  
     /* Style du lien en bas avec l'icône */
     .lien {
       display: flex;
       align-items: center;
       text-decoration: none;
       color: var(--accent-color);
+      margin-top: 15px;
     }
 
     /* Style de l'icône Font Awesome */
@@ -140,18 +144,19 @@
     <!-- Div avec le dégradé vers le bas -->
     <div class="degrade">
       <!-- Contenu textuel sur le dégradé -->
-      <div>
+      <div class="content">
         <!-- Titre sur le dégradé -->
         <div class="titre">RepoName</div>
         <!-- Sous-titre sur le dégradé -->
         <div class="sous-titre">Description</div>
-      </div>
+      
       <!-- Lien en bas avec l'icône -->
       <a href="#" class="lien">
         Website
         <!-- Icône Font Awesome -->
-        <i class="fa-solid fa-circle-chevron-right"></i>
+        <i class="fa-solid fa-circle-chevron-right icone"></i>
       </a>
+	      </div>
     </div>
   </div>
 	  
