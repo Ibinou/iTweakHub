@@ -28,9 +28,17 @@
 
   <div class="content">
 
-<div class="toptitle">	
-	<a style="text-decoration: none" href="appsmanager.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
-</div>
+    <div class="toptitle">
+        <a style="text-decoration: none; margin-left: 16px; color: var(--accent-color); font-family: helvetica; font-size: 21px;" href="appsmanager.html">
+            <i style="color: var(--accent-color); margin-right: 5px;" class="fas fa-angle-left"></i>
+            Back
+        </a>
+
+        <!-- Icône de partage Font Awesome -->
+        <div style="font-size: 24px; color: var(--accent-color);" class="share-icon">
+            <i class="fas fa-share"></i>
+        </div>
+    </div>
 
 <div id="header" style="margin-top: 77px;" class="source_header">
 	<div class="share-icon">
@@ -89,6 +97,12 @@
             right: 10px;
             font-size: 24px;
             color: #fff; /* Couleur de l'icône */
+            cursor: pointer;
+        }
+        .share-icon {
+            margin-left: auto; /* Place l'icône à droite de la barre de navigation */
+            font-size: 24px;
+            color: var(--accent-color); /* Couleur de l'icône de partage */
             cursor: pointer;
         }
   </style>
