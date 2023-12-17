@@ -41,82 +41,8 @@
 
 
   <style>
-    /* Style de la div principale */
-    .conteneur {
-      position: relative;
-      height: 303px;
-      margin-left: -16px;
-      margin-right: -16px;
-    }
 
-    /* Style de l'image à l'intérieur de la div principale */
-    .image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Pour assurer que l'image couvre la totalité de la div */
-    }
-
-    /* Style de la div "share" en haut à droite */
-    .share {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #333;
-      color: white;
-      padding: 5px 10px;
-      display: flex;
-      align-items: center;
-      border-radius: 50px;
-      background-color: #1c1c1ca8;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      
-    }
-
-    /* Style du texte dans la div "share" */
-    .share-text {
-      margin-right: 5px;
-    }
-
-    /* Style de l'icône dans la div "share" */
-    .share-icon {
-      font-size: 1em;
-    }
-
-    /* Style de la div avec le dégradé vers le bas */
-    .degrade {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100px; 
-      background: linear-gradient(to bottom, transparent, #121212);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start; 
-      color: white; 
-      padding: 16px; 
-    }
-
-    /* Style du titre sur le dégradé */
-    .titre {
-      font-size: 22px;
-      margin-bottom: 5px;
-      font-weight: 700;
-    }
-
-    /* Style du sous-titre sur le dégradé */
-    .sous-titre {
-       font-size: 14px;
-       color: #ffffffc7;
-    }
-    .content {
-       transform: translateY(-10px);
-    }
-	  
-    /* Style du lien en bas avec l'icône */
-    .lien {
+    .source_website {
       display: flex;
       align-items: center;
       text-decoration: none;
@@ -124,41 +50,39 @@
       margin-top: 15px;
     }
 
-    /* Style de l'icône Font Awesome */
     .icone {
       margin-left: 10px; 
     }
+
+    .source_title {
+      font-size: 22px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .source_description {
+       font-size: 14px;
+       color: #ffffffc7;
+    }
+    .source_header img {
+       border-radius: 15px;
+       width: 68px;
+       height: 68px;
+       margin-bottom: 23px;
+      border: 0.5px solid #2C2C2C;
+    }
   </style>
 
-  <!-- Div principale -->
-  <div class="conteneur">
-    <!-- Div "share" en haut à droite avec une marge autour -->
-    <div class="share">
-      <!-- Texte dans la div "share" -->
-      <div class="share-text">Share</div>
-      <!-- Icône dans la div "share" -->
-      <i class="fa-solid fa-arrow-up-from-bracket"></i>
-    </div>
-    <!-- Image à l'intérieur de la div principale -->
-    <img src="https://altstore.io/images/AltStore_AppIcon.png" alt="Votre Image" class="image">
-    <!-- Div avec le dégradé vers le bas -->
-    <div class="degrade">
-      <!-- Contenu textuel sur le dégradé -->
-      <div class="content">
-        <!-- Titre sur le dégradé -->
-        <div class="titre">RepoName</div>
-        <!-- Sous-titre sur le dégradé -->
-        <div class="sous-titre">Description</div>
-      
-      <!-- Lien en bas avec l'icône -->
-      <a href="#" class="lien">
+  <div class="source_header">
+  <img src="https://altstore.io/images/AltStore_AppIcon.png">
+  <div class="source_title">repoName</div>
+  <div class="source_description">ha  lol hahbsbbbabbaba</div>
+  <a href="#" class="source_website">
         Website
         <!-- Icône Font Awesome -->
-        <i class="fa-solid fa-circle-chevron-right icone"></i>
+        <i class="fa-solid fa-circle-chevron-right icone" aria-hidden="true"></i>
       </a>
-	      </div>
-    </div>
-  </div>
+</div>
 	  
 <div class="gradient-div"></div>
   <div class="hidecolor">	
