@@ -150,7 +150,7 @@ function afficherDonnees() {
       .then(function(data) {
         // Afficher le nom du repo dans l'élément h1
         h1Element.textContent = data.name;
-        pElement.textContent = data.descripion;
+        pElement.textContent = data.description;
 
         var appsData = data.apps;
 
