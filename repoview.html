@@ -63,6 +63,9 @@
     .icone {
       margin-left: 10px; 
     }
+    .source_header {
+	margin-top: 77px;
+    }
 
     .source_title {
       font-size: 22px;
@@ -250,12 +253,12 @@ function afficherDonnees() {
             var toptitleElement = document.querySelector(".toptitle");
 
             // Récupérer l'élément avec la classe "element"
-            var elementElement = document.getElementById("myInput");
+            var elementElement = document.querySelector("source_header");
 
             // Vérifier si l'élément "toptitle" a un padding top de 43px
             if (window.getComputedStyle(toptitleElement).paddingTop === "43px") {
                 // Si oui, changer le margin-top de l'élément "element" à 143px
-                elementElement.style.marginTop = "143px";
+                elementElement.style.marginTop = "100px";
             }
         });
   </script>
