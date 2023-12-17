@@ -34,7 +34,7 @@
             <i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Back
         </h1>
     </a>
-    <i style="font-size: 24px; margin-left: auto; margin-right: 16px;" class="fas fa-share"></i>
+    <i onclick="share()" style="font-size: 24px; margin-left: auto; margin-right: 16px;" class="fas fa-share"></i>
 </div>
 	  
 
@@ -261,6 +261,13 @@ function afficherDonnees() {
                 elementElement.style.marginTop = "100px";
             }
         });
+function share() {
+	const url = "https://itweakhub.netlify.app/appsmanager?add=${source}";
+
+	if (navigator.share) {
+		navigator.share({title: "Add a source", text: "Share to add this source", url: url})
+	}
+}
   </script>
 
 
