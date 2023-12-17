@@ -38,7 +38,119 @@
  <div class="appList" id="appList" style="margin-top: 8px;"></div>
 <p id="repoDescription">Description</p>
 </center>    
-    
+
+
+  <style>
+    /* Style de la div principale */
+    .conteneur {
+      position: relative;
+      height: 303px;
+    }
+
+    /* Style de l'image à l'intérieur de la div principale */
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Pour assurer que l'image couvre la totalité de la div */
+    }
+
+    /* Style de la div "share" en haut à droite */
+    .share {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: white;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 50px;
+      background-color: #1c1c1ca8;
+      backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+      
+    }
+
+    /* Style du texte dans la div "share" */
+    .share-text {
+      margin-right: 5px;
+    }
+
+    /* Style de l'icône dans la div "share" */
+    .share-icon {
+      font-size: 1em;
+    }
+
+    /* Style de la div avec le dégradé vers le bas */
+    .degrade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px; 
+      background: linear-gradient(to bottom, transparent, #121212);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start; /* Aligner à gauche */
+      color: white; /* Couleur du texte */
+      padding: 10px; /* Ajout d'un espace autour du texte */
+    }
+
+    /* Style du titre sur le dégradé */
+    .titre {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+    }
+
+    /* Style du sous-titre sur le dégradé */
+    .sous-titre {
+      font-size: 1em;
+    }
+
+    /* Style du lien en bas avec l'icône */
+    .lien {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white; /* Couleur du lien */
+    }
+
+    /* Style de l'icône Font Awesome */
+    .icone {
+      margin-left: 10px; /* Pour centrer à droite */
+    }
+  </style>
+
+  <!-- Div principale -->
+  <div class="conteneur">
+    <!-- Div "share" en haut à droite avec une marge autour -->
+    <div class="share">
+      <!-- Texte dans la div "share" -->
+      <div class="share-text">Share</div>
+      <!-- Icône dans la div "share" -->
+      <i class="fas fa-share-alt share-icon"></i>
+    </div>
+    <!-- Image à l'intérieur de la div principale -->
+    <img src="https://altstore.io/images/AltStore_AppIcon.png" alt="Votre Image" class="image">
+    <!-- Div avec le dégradé vers le bas -->
+    <div class="degrade">
+      <!-- Contenu textuel sur le dégradé -->
+      <div>
+        <!-- Titre sur le dégradé -->
+        <div class="titre">Titre de l'image</div>
+        <!-- Sous-titre sur le dégradé -->
+        <div class="sous-titre">Sous-titre de l'image</div>
+      </div>
+      <!-- Lien en bas avec l'icône -->
+      <a href="#" class="lien">
+        Lien vers quelque chose
+        <!-- Icône Font Awesome -->
+        <i class="fas fa-arrow-right icone"></i>
+      </a>
+    </div>
+  </div>
+	  
 <div class="gradient-div"></div>
   <div class="hidecolor">	
   <input type="color" id="color-picker">
