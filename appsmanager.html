@@ -80,7 +80,7 @@
     </div>
     </div>
         <br>
-
+<div class="appList"></div>
 
      <nav class="mobile-nav">
             <a href="index.html" class="bloc-icon">
@@ -539,13 +539,10 @@ async function fetchData(url) {
     }
 }
 
-// Fonction pour vérifier les mises à jour
 async function checkForUpdates() {
-    // Récupérer le tableau "repoURLs" du local storage
     const repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
     try {
-        // Récupérer les données depuis "apps.json" en parallèle avec les fetch sur repoURLs
         const [appsJson, ...repoJsons] = await Promise.all([
             fetchData('apps.json'),
             ...repoURLs.map(url => fetchData(url))
@@ -556,34 +553,39 @@ async function checkForUpdates() {
             return;
         }
 
-        // Parcourir chaque JSON récupéré (y compris apps.json)
+        const appList = document.querySelector('.appList');
+
         for (const json of [appsJson, ...repoJsons]) {
-            // Récupérer le tableau "recent" du local storage
             const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
 
-            // Parcourir chaque application récente
             recentApps.forEach((recentApp) => {
-                // Récupérer les informations de l'application à partir du JSON
                 const appInfo = json.apps.find(app => app.name === recentApp.name);
 
                 if (appInfo) {
-                    // Récupérer la version la plus récente
                     const latestVersion = appInfo.version;
-
-                    // Comparer avec la version actuelle dans le tableau "recent"
                     const currentVersion = recentApp.version;
                     const versionComparison = compareVersions(currentVersion, latestVersion);
 
-                    // Afficher le résultat
-                    console.log(`Source: ${json === appsJson ? 'apps.json' : 'repoURL'}`);
-                    console.log(`Application: ${appInfo.name}`);
-                    console.log(`Current version: ${currentVersion}`);
-                    console.log(`Latest version: ${latestVersion}`);
-
                     if (versionComparison < 0) {
-                        console.log('An update is available !\n');
-                    } else {
-                        console.log('The latest version is installed.\n');
+                        const dockElement = document.createElement('div');
+                        dockElement.classList.add('dock');
+
+                        dockElement.innerHTML = `
+                            <div class="app_cell_left">
+                                <img src="${appInfo.icon}" class="appicon">
+                                <div class="app_cell_meta">
+                                    <div class="appname">${appInfo.name}</div>
+                                    <div class="appsection">${appInfo.section}</div>
+                                </div>
+                            </div>
+                            <div class="appget">
+                                <a href="appinfos.html?name=${appInfo.name}">
+                                    <button class="getbtn" id="getbtn">GET</button>
+                                </a>
+                            </div>
+                        `;
+
+                        appList.appendChild(dockElement);
                     }
                 }
             });
@@ -593,7 +595,6 @@ async function checkForUpdates() {
     }
 }
 
-// Exécuter la vérification des mises à jour
 checkForUpdates();
     </script>
 <script src="js/index.js"></script>
