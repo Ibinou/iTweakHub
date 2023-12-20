@@ -557,6 +557,7 @@ async function checkForUpdates() {
         }
 
         const appList = document.querySelector('.appList');
+        const processedApps = new Set();
 
         for (const json of [appsJson, ...repoJsons]) {
             const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
@@ -564,7 +565,7 @@ async function checkForUpdates() {
             recentApps.forEach((recentApp) => {
                 const appInfo = json.apps.find(app => app.name === recentApp.name);
 
-                if (appInfo) {
+                if (appInfo && !processedApps.has(appInfo.name)) {
                     const latestVersion = appInfo.version;
                     const currentVersion = recentApp.version;
                     const versionComparison = compareVersions(currentVersion, latestVersion);
@@ -575,20 +576,21 @@ async function checkForUpdates() {
 
                         dockElement.innerHTML = `
                             <div class="app_cell_left">
-                                <img src="${appInfo.iconURL}" class="appicon">
+                                <img src="${appInfo.icon}" class="appicon">
                                 <div class="app_cell_meta">
                                     <div class="appname">${appInfo.name}</div>
-                                    <div class="appsection">${appInfo.developerName}</div>
+                                    <div class="appsection">${appInfo.section}</div>
                                 </div>
                             </div>
                             <div class="appget">
                                 <a href="appinfos.html?name=${appInfo.name}">
-                                    <button class="getbtn" id="getbtn">Update</button>
+                                    <button class="getbtn" id="getbtn">GET</button>
                                 </a>
                             </div>
                         `;
 
                         appList.appendChild(dockElement);
+                        processedApps.add(appInfo.name);
                     }
                 }
             });
