@@ -558,6 +558,7 @@ async function checkForUpdates() {
 
         const appList = document.querySelector('.appList');
         const processedApps = new Set();
+        let updatesExist = false; // Ajout de la variable pour vérifier l'existence de mises à jour
 
         for (const json of [appsJson, ...repoJsons]) {
             const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
@@ -591,9 +592,16 @@ async function checkForUpdates() {
 
                         appList.appendChild(dockElement);
                         processedApps.add(appInfo.name);
+                        updatesExist = true; // Mise à jour de la variable si une mise à jour est trouvée
                     }
                 }
             });
+        }
+
+        // Condition pour afficher ou masquer l'élément avec l'id "updates"
+        const updatesElement = document.getElementById('updates');
+        if (updatesElement) {
+            updatesElement.style.display = updatesExist ? 'block' : 'none';
         }
     } catch (error) {
         console.error('Erreur lors de la récupération des données:', error);
