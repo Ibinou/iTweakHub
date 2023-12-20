@@ -576,15 +576,15 @@ async function checkForUpdates() {
 
                         dockElement.innerHTML = `
                             <div class="app_cell_left">
-                                <img src="${appInfo.icon}" class="appicon">
+                                <img src="${appInfo.iconURL}" class="appicon">
                                 <div class="app_cell_meta">
                                     <div class="appname">${appInfo.name}</div>
-                                    <div class="appsection">${appInfo.section}</div>
+                                    <div class="appsection">${appInfo.developerName}</div>
                                 </div>
                             </div>
                             <div class="appget">
                                 <a href="appinfos.html?name=${appInfo.name}">
-                                    <button class="getbtn" id="getbtn">GET</button>
+                                    <button class="getbtn" id="getbtn">Update</button>
                                 </a>
                             </div>
                         `;
