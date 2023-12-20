@@ -140,6 +140,7 @@ function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
   var h1Element = document.getElementById("repoName"); // Élément h1 pour afficher le nom du repo
   var pElement = document.getElementById("repoDescription");
+  var imgElement = document.getElementById("source_icon");
 
   var urlParams = new URLSearchParams(window.location.search);
   var repoUrl = urlParams.get("repo");
@@ -150,9 +151,10 @@ function afficherDonnees() {
         return response.json();
       })
       .then(function(data) {
-        // Afficher le nom du repo dans l'élément h1
+        // Afficher les infos
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
+	imgElement.src = data.iconURL;
 
         var appsData = data.apps;
 
