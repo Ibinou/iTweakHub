@@ -42,7 +42,7 @@
 	<img id="source_icon" src="https://altstore.io/images/AltStore_AppIcon.png">
 	<div id="repoName" class="source_title">repoName</div>
 	<div id="repoDescription" class="source_description">description</div>
-	<a href="#" class="source_website">
+	<a id="source_website" href="#" class="source_website">
        		Website
         	<!-- Icône Font Awesome -->
        		<i class="fa-solid fa-circle-chevron-right icone" aria-hidden="true"></i>
@@ -140,6 +140,7 @@ function afficherDonnees() {
   var h1Element = document.getElementById("repoName"); // Élément h1 pour afficher le nom du repo
   var pElement = document.getElementById("repoDescription");
   var imgElement = document.getElementById("source_icon");
+  var webElement = document.getElementById("source_website");
 
   var urlParams = new URLSearchParams(window.location.search);
   var repoUrl = urlParams.get("repo");
@@ -154,7 +155,8 @@ function afficherDonnees() {
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
 	imgElement.src = data.iconURL;
-
+	webElement.href = data.website;
+	      
         var appsData = data.apps;
 
         appsData.sort(function(a, b) {
