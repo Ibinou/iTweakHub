@@ -269,7 +269,7 @@ function afficherDonnees() {
         var repoUrl = urlParams.get("repo");
 
         if (navigator.share && repoUrl) {
-            navigator.share({ title: "Add a source", text: "Share to add this source", url: repoUrl })
+            navigator.share({ title: "Share the source", text: "Tap the link, copy paste it to iTweakHub to add this source.", url: repoUrl })
                 .then(() => console.log('Shared successfully'))
                 .catch((error) => console.error('Error sharing:', error));
         }
