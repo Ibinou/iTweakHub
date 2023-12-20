@@ -262,11 +262,17 @@ function afficherDonnees() {
             }
         });
 function share() {
-	const url = "https://itweakhub.netlify.app/appsmanager?add=${source}";
+    // Récupérer l'URL complète
+    const fullUrl = window.location.href;
 
-	if (navigator.share) {
-		navigator.share({title: "Add a source", text: "Share to add this source", url: url})
-	}
+    // Extraire le paramètre 'repo' de l'URL
+    const urlParams = new URLSearchParams(fullUrl);
+    const repoUrl = urlParams.get('repo');
+
+    // Utiliser le repoUrl comme URL dans la fonction share
+    if (navigator.share && repoUrl) {
+        navigator.share({title: "Share the source", text: "To add this source, copy paste this link to iTweakHub.", url: repoUrl});
+    }
 }
   </script>
 
