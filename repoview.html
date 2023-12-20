@@ -34,7 +34,7 @@
             <i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Back
         </h1>
     </a>
-    <i style="font-size: 24px; margin-left: auto; margin-right: 16px;" class="fas fa-share"></i>
+    <i id="shareIcon" style="font-size: 24px; margin-left: auto; margin-right: 16px;" class="fas fa-share"></i>
 </div>
 	  
 
@@ -53,7 +53,6 @@
   <input style="margin-top: 16px;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
  <div class="appList" id="appList" style="margin-top: 8px;"></div>
 </center>    
-<button onclick="share()">click</button>
 
   <style>
 
@@ -276,6 +275,19 @@ function share() {
         navigator.share({title: "Share the source", text: "To add this source, copy paste this link to iTweakHub.", url: repoUrl});
     }
 }
+   document.getElementById('shareIcon').addEventListener('click', share);
+
+    function share() {
+        const fullUrl = window.location.href;
+        const urlParams = new URLSearchParams(fullUrl);
+        const repoUrl = urlParams.get('repo');
+
+        if (navigator.share && repoUrl) {
+            navigator.share({ title: "Add a source", text: "Share to add this source", url: repoUrl })
+                .then(() => console.log('Shared successfully'))
+                .catch((error) => console.error('Error sharing:', error));
+        }
+    }
   </script>
 
 
