@@ -262,15 +262,13 @@ function afficherDonnees() {
                 elementElement.style.marginTop = "100px";
             }
         });
-
-   document.getElementById('shareIcon').addEventListener('click', share);
+    document.getElementById('shareIcon').addEventListener('click', share);
 
     function share() {
-        const fullUrl = window.location.href;
-        const urlParams = new URLSearchParams(fullUrl);
-        const repoUrl = urlParams.get('repo');
+        var urlParams = new URLSearchParams(window.location.search);
+        var repoUrl = urlParams.get("repo");
 
-        if (navigator.share) {
+        if (navigator.share && repoUrl) {
             navigator.share({ title: "Add a source", text: "Share to add this source", url: repoUrl })
                 .then(() => console.log('Shared successfully'))
                 .catch((error) => console.error('Error sharing:', error));
