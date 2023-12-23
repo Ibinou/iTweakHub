@@ -167,7 +167,17 @@ div.content {
   animation: click 0.2s linear;
 }
 
-
+.topNav {
+    background-color: #121312c4;
+    backdrop-filter: blur(10px);
+    color: white;
+    top: 0;
+    z-index: 99999999999999;
+    position: fixed;
+    text-align: center;
+    padding: 18px 0;
+    width: 100%;
+}
 
 /*top nav bar title + back*/
 @media only screen and (min-width: 768px) {
@@ -269,6 +279,9 @@ div.content {
   nav {
     padding-top: 43px;
   }
+  .topNav {
+    padding-top: 43px;
+  }
 }
 
 /* Styles for iPhones Xr and 11 */
@@ -283,6 +296,9 @@ div.content {
     padding-top: 43px;
   }
   nav {
+    padding-top: 43px;
+  }
+  .topNav {
     padding-top: 43px;
   }
 }
