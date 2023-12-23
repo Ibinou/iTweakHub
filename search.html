@@ -25,24 +25,19 @@
   <a href="appsmanager.html">Apps Manager</a>
   <a class="active" href="search.html">Search</a>
 </div>
-
-<div class="content">
 	
+   <div id="topnav" style="display: none;" class="topNav">
+        <div>Home</div>
+    </div>
+	
+<div class="content">
+<div>	
 <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;margin-bottom: -5px;">Search</h1>
 
 <div id="navbar">
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
-      
-      <div class="sectionscarr">
-          <div class="sections">Games</div>
-          <div class="sections">Tweaked</div>
-          <div class="sections">Utilities</div>
-          <div class="sections">Jailbreak</div>
-          <div class="sections">Emulators</div>
-	  <div class="sections">Exclusive</div>
-	  <div class="sections">Legacy</div>
-      </div>
 </div> 
+</div>
   <center>	    
 <div class="appList" id="appList"></div>
          <br>
@@ -326,8 +321,56 @@ function afficherApplicationsPourSection(sectionName) {
         });
     }
 }
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".topNav");
+            var elementElement = document.getElementById("header");
 
-    
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "43px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "43px";
+            }
+        });
+       var topNav = document.querySelector(".topNav");
+        var isNavVisible = false;
+
+        document.addEventListener("scroll", function() {
+            // Vérifier si l'utilisateur a fait défiler suffisamment
+            if (window.scrollY > 100 && !isNavVisible) {
+                fadeIn(topNav);
+                isNavVisible = true;
+            } else if (window.scrollY <= 100 && isNavVisible) {
+                fadeOut(topNav);
+                isNavVisible = false;
+            }
+        });
+
+        function fadeIn(element) {
+            var opacity = 0;
+            element.style.display = "block";
+            var fadeInInterval = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, 20);
+        }
+
+        function fadeOut(element) {
+            var opacity = 1;
+            var fadeOutInterval = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    element.style.display = "none";
+                    clearInterval(fadeOutInterval);
+                }
+            }, 20);
+        }    
   </script>
 <script src="js/index.js"></script>
 	</div>
