@@ -1740,24 +1740,25 @@ a > button {
       background-color: #454545;
     }
 
-  #tip-carousel {
-    display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    width: 100%;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
+#tip-carousel {
+  display: flex;
+  overflow-x: auto; 
+  overflow-y: hidden;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
 
-  .tip-card {
-    scroll-snap-align: start;
-    background-color: #222;
-    border-radius: 8px;
-    padding: 20px;
-    margin-right: 20px;
-    width: 300px;
-    box-sizing: border-box;
-  }
+.tip-card {
+  scroll-snap-align: start;
+  background-color: #222;
+  border-radius: 8px;
+  padding: 20px;
+  margin-right: 20px;
+  width: 300px;
+  box-sizing: border-box;
+  flex: 0 0 auto; 
+}
 
   .tip-header {
     color: white;
