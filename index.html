@@ -31,18 +31,6 @@
         }(document, "script"));
 </script>
 <!-- End PushAlert -->
-<style>
-    .topNav {
-        background-color: #121312; 
-        backdrop-filter: blur(10px);
-        color: white;
-        top: 0;
-        z-index: 99999999999999;
-        position: fixed;
-        text-align: center;
-        padding: 10px 0; /* Espacement au-dessus et en dessous du texte */
-    }
-</style>    
 </head>
 <body style="opacity: 0;">
 	
@@ -54,7 +42,7 @@
   <a href="search.html">Search</a>
 </div>
 	
-   <div class="topNav">
+   <div style="display: none;" class="topNav">
         <div>Home</div>
     </div>
 	
@@ -565,6 +553,16 @@ document.addEventListener('DOMContentLoaded', function () {
         return color;
     }
 });
+        document.addEventListener("scroll", function() {
+            var topNav = document.querySelector(".topNav");
+
+            // Vérifier si l'utilisateur a fait défiler suffisamment
+            if (window.scrollY > 100) {
+                topNav.style.display = "block"; // Afficher la div
+            } else {
+                topNav.style.display = "none"; // Cacher la div
+            }
+        });
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
