@@ -553,16 +553,45 @@ document.addEventListener('DOMContentLoaded', function () {
         return color;
     }
 });
-        document.addEventListener("scroll", function() {
-            var topNav = document.querySelector(".topNav");
+        var topNav = document.querySelector(".topNav");
+        var isNavVisible = false;
 
+        document.addEventListener("scroll", function() {
             // Vérifier si l'utilisateur a fait défiler suffisamment
-            if (window.scrollY > 100) {
-                topNav.style.display = "block"; // Afficher la div
-            } else {
-                topNav.style.display = "none"; // Cacher la div
+            if (window.scrollY > 100 && !isNavVisible) {
+                fadeIn(topNav);
+                isNavVisible = true;
+            } else if (window.scrollY <= 100 && isNavVisible) {
+                fadeOut(topNav);
+                isNavVisible = false;
             }
         });
+
+        function fadeIn(element) {
+            var opacity = 0;
+            element.style.display = "block";
+            var fadeInInterval = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, 50);
+        }
+
+        function fadeOut(element) {
+            var opacity = 1;
+            var fadeOutInterval = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    element.style.display = "none";
+                    clearInterval(fadeOutInterval);
+                }
+            }, 50);
+        }
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
