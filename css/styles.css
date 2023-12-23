@@ -1740,48 +1740,48 @@ a > button {
       background-color: #454545;
     }
 
+  #tip-carousel {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    #tip-carousel {
-      display: flex;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      width: 100vw;
-    }
-    
-    .tip-card {
-      scroll-snap-align: start;
-      background-color: #222;
-      border-radius: 8px;
-      padding: 20px;
-      margin-right: 20px;
-      width: 300px;
-      box-sizing: border-box;
-    }
-    
-    .tip-header {
-      color: white;
-      font-size: 1em;
-      margin-bottom: 10px;
-    }
-    
-    .tip-content {
-      color: #bbb;
-      font-size: 0.9em;
-      margin-bottom: 20px;
-    }
-    
-    .tip-button {
-      text-decoration: none;
-      color: white;
-      background-color: var(--accent-color);
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 0.9em;
-    }
-    
-    #tip-carousel::-webkit-scrollbar {
-      display: none;
-    }
+  .tip-card {
+    scroll-snap-align: start;
+    background-color: #222;
+    border-radius: 8px;
+    padding: 20px;
+    margin-right: 20px;
+    width: 300px;
+    box-sizing: border-box;
+  }
+
+  .tip-header {
+    color: white;
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+
+  .tip-content {
+    color: #bbb;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+
+  .tip-button {
+    text-decoration: none;
+    color: white;
+    background-color: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    display: inline-block;
+  }
+
+  #tip-carousel::-webkit-scrollbar {
+    display: none;
+  }
 
