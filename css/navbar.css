@@ -169,7 +169,8 @@ div.content {
 
 .topNav {
     background-color: #121312c4;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: white;
     top: 0;
     z-index: 99999999999999;
