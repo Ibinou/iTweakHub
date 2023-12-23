@@ -42,12 +42,12 @@
   <a href="search.html">Search</a>
 </div>
 	
-   <div style="display: none;" class="topNav">
+   <div id="topnav" style="display: none;" class="topNav">
         <div>Home</div>
     </div>
 	
 <div class="content">
-
+<div id="header">
 <a href="account.html">	
   <img id="displayProfilePic" src="" style="margin-bottom: 0px;border-radius: 41px;float: right;margin-top: 36px;width: 35px;height: 35px;">
 </a>
@@ -56,7 +56,7 @@
 	
 	
     <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="margin-left: 4px;color: #a1a1a1;"></span></h1>
-	
+</div>	
 <!--Featured Header-->	
 
   <div class="slider-container">
@@ -600,6 +600,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }, 20);
         }
+	      
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".topNav");
+            var elementElement = document.getElementById("header");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "43px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "100px";
+            }
+        });
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
