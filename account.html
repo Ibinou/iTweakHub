@@ -54,7 +54,15 @@
 	
 <center>	
     <img style="height: 70px;width: 70px;border-radius: 50px;" id="displayProfilePic" src="" alt="Photo de Profil">
-    <p>Username: <span id="displayUsername"></span></p>
+    <p>
+  Username: <span id="displayUsername"></span>
+  <button id="editButton">Modifier</button>
+</p>
+
+<form id="editForm" style="display: none;">
+  Nouveau Username: <input type="text" id="newUsername" />
+  <button type="button" id="applyButton">Appliquer</button>
+</form>
     
     <br>
     <br>
@@ -167,18 +175,37 @@ window.addEventListener("scroll", function() {
     navbar.classList.remove("navbar-scrolled");
   }
 });
-        const displayUsername = document.getElementById('displayUsername');
-        const displayProfilePic = document.getElementById('displayProfilePic');
+const displayUsername = document.getElementById('displayUsername');
+const editButton = document.getElementById('editButton');
+const editForm = document.getElementById('editForm');
+const newUsernameInput = document.getElementById('newUsername');
+const applyButton = document.getElementById('applyButton');
 
-        // Check if data is already stored in localStorage
-        const storedUsername = localStorage.getItem('username');
-        const storedProfilePicBase64 = localStorage.getItem('profilePic');
-        if (storedUsername && storedProfilePicBase64) {
-            displayUsername.textContent = storedUsername;
-            displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
-        } else {
-            window.location.href = 'setup.html'; // Redirect to setup page if no data
-        }
+// Check if data is already stored in localStorage
+const storedUsername = localStorage.getItem('username');
+const storedProfilePicBase64 = localStorage.getItem('profilePic');
+if (storedUsername && storedProfilePicBase64) {
+  displayUsername.textContent = storedUsername;
+  // Display stored profile picture logic...
+
+  editButton.addEventListener('click', () => {
+    editForm.style.display = 'block';
+    newUsernameInput.value = storedUsername;
+    displayUsername.style.display = 'none';
+  });
+
+  applyButton.addEventListener('click', () => {
+    const newUsername = newUsernameInput.value;
+    displayUsername.textContent = newUsername;
+    displayUsername.style.display = 'inline';
+    editForm.style.display = 'none';
+
+    // Update localStorage with the new username
+    localStorage.setItem('username', newUsername);
+  });
+} else {
+  window.location.href = 'setup.html'; // Redirect to setup page if no data
+}
 	  
 //cokie/ LS delete	
 document.getElementById("clear-cookies-btn").addEventListener("click", function() {
