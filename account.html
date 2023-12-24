@@ -53,20 +53,8 @@
         <br>
 	
 <center>	
-<img style="height: 70px; width: 70px; border-radius: 50px;" id="displayProfilePic" src="" alt="Photo de Profil">
-<p>
-  Username: <span id="displayUsername"></span>
-  <button id="editButton">Modifier</button>
-</p>
-
-<form id="editForm" style="display: none;">
-  Nouveau Username: <input type="text" id="newUsername" />
-  Nouvelle Photo de Profil: <input type="file" id="newProfilePic" accept="image/*">
-  <img style="height: 70px; width: 70px; border-radius: 50px;" id="displayProfilePicEdit" src="" alt="Photo de Profil">
-  <button type="button" id="applyButton">Appliquer</button>
-</form>
-
-
+    <img style="height: 70px;width: 70px;border-radius: 50px;" id="displayProfilePic" src="" alt="Photo de Profil">
+    <p>Username: <span id="displayUsername"></span></p>
     
     <br>
     <br>
@@ -179,53 +167,18 @@ window.addEventListener("scroll", function() {
     navbar.classList.remove("navbar-scrolled");
   }
 });
-const displayUsername = document.getElementById('displayUsername');
-const displayProfilePic = document.getElementById('displayProfilePic');
-const editButton = document.getElementById('editButton');
-const editForm = document.getElementById('editForm');
-const newUsernameInput = document.getElementById('newUsername');
-const newProfilePicInput = document.getElementById('newProfilePic');
-const displayProfilePicEdit = document.getElementById('displayProfilePicEdit');
-const applyButton = document.getElementById('applyButton');
+        const displayUsername = document.getElementById('displayUsername');
+        const displayProfilePic = document.getElementById('displayProfilePic');
 
-// Check if data is already stored in localStorage
-const storedUsername = localStorage.getItem('username');
-const storedProfilePicBase64 = localStorage.getItem('profilePic');
-if (storedUsername && storedProfilePicBase64) {
-  displayUsername.textContent = storedUsername;
-  displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
-
-  editButton.addEventListener('click', () => {
-    editForm.style.display = 'block';
-    newUsernameInput.value = storedUsername;
-    displayUsername.style.display = 'none';
-    displayProfilePicEdit.src = displayProfilePic.src; // Display current profile picture in the form
-  });
-
-  applyButton.addEventListener('click', () => {
-    const newUsername = newUsernameInput.value;
-    displayUsername.textContent = newUsername;
-    displayUsername.style.display = 'inline';
-    editForm.style.display = 'none';
-
-    // Update localStorage with the new username
-    localStorage.setItem('username', newUsername);
-
-    // Handle new profile picture upload
-    if (newProfilePicInput.files.length > 0) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const newProfilePicBase64 = e.target.result.split(',')[1];
-        displayProfilePic.src = `data:image;base64,${newProfilePicBase64}`;
-        displayProfilePicEdit.src = displayProfilePic.src; // Update profile picture in the form
-        localStorage.setItem('profilePic', newProfilePicBase64);
-      };
-      reader.readAsDataURL(newProfilePicInput.files[0]);
-    }
-  });
-} else {
-  window.location.href = 'setup.html'; // Redirect to setup page if no data
-}
+        // Check if data is already stored in localStorage
+        const storedUsername = localStorage.getItem('username');
+        const storedProfilePicBase64 = localStorage.getItem('profilePic');
+        if (storedUsername && storedProfilePicBase64) {
+            displayUsername.textContent = storedUsername;
+            displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
+        } else {
+            window.location.href = 'setup.html'; // Redirect to setup page if no data
+        }
 	  
 //cokie/ LS delete	
 document.getElementById("clear-cookies-btn").addEventListener("click", function() {
@@ -267,3 +220,7 @@ document.getElementById("clear-cookies-btn").addEventListener("click", function(
 </body>
 
 </html>
+  
+  
+  
+  
