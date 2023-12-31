@@ -19,7 +19,7 @@ h1 {
  left: 50%;
  transform: translate(-50%, -50%);
  color: #f4f5f7;
- font-family: "Impact,Charcoal,sans-serif";
+ font-family: Arial, Helvetica, sans-serif;
  font-size: 5em;
  font-weight: 800;
  -webkit-user-select: none;
@@ -31,7 +31,7 @@ h2 {
  left: 50%;
  transform: translate(-50%, -50%);
  color: #f4f6f7;
- font-family: "Impact,Charcoal,sans-serif";
+ font-family: Arial, Helvetica, sans-serif;
  font-size: 5em;
  font-weight: 800;
  -webkit-user-select: none;
@@ -76,6 +76,24 @@ class Birthday {
 
   let count = random(3, 5);
   for (let i = 0; i < count; i++)
+   this.fireworks.push(
+    new Firework(
+     random(this.spawnA, this.spawnB),
+     this.height,
+     x,
+     y,
+     random(0, 260),
+     random(30, 110)
+    )
+   );
+
+  this.counter = -1;
+ }
+
+ update(delta) {
+  ctx.globalCompositeOperation = "hard-light";
+  ctx.fillStyle = `rgba(20,20,20,${7 * delta})`;
+  ctx.fillRect(0, 0, this.width, this.height);
 </script>
 </body>
 </html>
