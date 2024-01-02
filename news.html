@@ -43,16 +43,31 @@
 </div>
    
 <div class="content">
-   
-      <div class="toptitle">	
-    <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
-    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">News</h1>
+  
+    <div id="topnav" style="display: none;" class="topNav">
+        <div>News</div>
     </div>
-
+<div id="header">
+<h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="margin-left: 4px;color: #a1a1a1;">BETA</span></h1>
+</div>
 <div id="news">
 </div>
 
+	        <nav class="mobile-nav">
+            <a href="index.html" class="bloc-icon">
+                <i class="fa-solid fa-fire" style="color: #fff;"></i>
+            </a>
+            <a href="appsmanager.html" class="bloc-icon">
+                <i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>
+            </a>
+            <a href="search.html" class="bloc-icon">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </a>
 	
+        <a href="news.html" class="bloc-icon">
+      <i class="fa-regular fa-newspaper" style="color: var(--accent-color);"></i>
+    </a>
+        </nav>
 
 <div class="gradient-div"></div>
 
@@ -339,6 +354,57 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
             if (window.getComputedStyle(toptitleElement).paddingTop === "43px") {
                 // Si oui, changer le margin-top de l'élément "element" à 143px
                 elementElement.style.marginTop = "143px";
+            }
+        });
+        var topNav = document.querySelector(".topNav");
+        var isNavVisible = false;
+
+        document.addEventListener("scroll", function() {
+            // Vérifier si l'utilisateur a fait défiler suffisamment
+            if (window.scrollY > 100 && !isNavVisible) {
+                fadeIn(topNav);
+                isNavVisible = true;
+            } else if (window.scrollY <= 100 && isNavVisible) {
+                fadeOut(topNav);
+                isNavVisible = false;
+            }
+        });
+
+        function fadeIn(element) {
+            var opacity = 0;
+            element.style.display = "block";
+            var fadeInInterval = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, 20);
+        }
+
+        function fadeOut(element) {
+            var opacity = 1;
+            var fadeOutInterval = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    element.style.display = "none";
+                    clearInterval(fadeOutInterval);
+                }
+            }, 20);
+        }
+	      
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".topNav");
+            var elementElement = document.getElementById("header");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "50px";
             }
         });
 </script>
