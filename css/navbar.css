@@ -26,7 +26,7 @@
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     height: 53px;
-    border-bottom: solid 1px #4040404d;
+    border-top: solid 1px #4040404d;
 }
 }
 
@@ -273,7 +273,7 @@ div.content {
 /* Styles for iPhones with a pixel ratio of 3 (and higher) */
 @media only screen and (-webkit-device-pixel-ratio: 3) {
   .mobile-nav {
-    margin-bottom: 30px;
+    padding-bottom: 55px;
   }
   .getbar button {
     margin-bottom: 15px;
@@ -292,7 +292,7 @@ div.content {
 /* Styles for iPhones Xr and 11 */
 @media only screen  and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
   .mobile-nav {
-    margin-bottom: 30px;
+    padding-bottom: 55px;
   }
   .getbar button {
     margin-bottom: 15px;
