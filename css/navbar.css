@@ -273,7 +273,7 @@ div.content {
 /* Styles for iPhones with a pixel ratio of 3 (and higher) */
 @media only screen and (-webkit-device-pixel-ratio: 3) {
   .mobile-nav {
-    padding-bottom: 55px;
+    padding-bottom: 62px;
   }
   .getbar button {
     margin-bottom: 15px;
@@ -292,7 +292,7 @@ div.content {
 /* Styles for iPhones Xr and 11 */
 @media only screen  and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
   .mobile-nav {
-    padding-bottom: 55px;
+    padding-bottom: 62px;
   }
   .getbar button {
     margin-bottom: 15px;
