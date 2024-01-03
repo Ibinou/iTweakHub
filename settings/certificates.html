@@ -40,7 +40,7 @@
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
     </div>
 
-<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Custom certificate</p>	
+<p id="help" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Custom certificate</p>	
 <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
  <div class="certificate-list" id="certificateList"></div>
         <div class="custom-cert-message" id="customCertMessage">Custom cert added !</div>
@@ -157,7 +157,18 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
-        
+	
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("help");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "100px";
+            }
+        });        
   </script>
 </div>
         <script src=".../js/index.js"></script>
