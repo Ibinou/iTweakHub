@@ -11,7 +11,7 @@
   }
   
 /* Mobile nav bar */
-@supports ( (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px)) )
+@supports ( (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px)) ) {
 .mobile-nav {
     justify-content: center;
     position: fixed;
@@ -27,6 +27,7 @@
     backdrop-filter: blur(20px);
     height: 53px;
     border-bottom: solid 1px #4040404d;
+}
 }
 
 .bloc-icon {
