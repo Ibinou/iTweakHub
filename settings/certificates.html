@@ -40,6 +40,15 @@
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
     </div>
 
+<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Custom certificate</p>	
+<i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
+ <div class="certificate-list" id="certificateList"></div>
+        <div class="custom-cert-message" id="customCertMessage">Custom cert added !</div>
+
+	
+<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Community certificate</p>	
+
+	
     <form id="myForm" class="cert_form">
         <label for="p12Url" class="cert_label">P12 URL file:</label>
         <input type="url" id="p12Url" class="cert_input" required>
@@ -52,8 +61,6 @@
 
         <button type="button" onclick="saveData()" class="add_cert">Add this certificate</button>
 
-        <div class="certificate-list" id="certificateList"></div>
-        <div class="custom-cert-message" id="customCertMessage">Custom cert added !</div>
     </form>
 	
 <div class="gradient-div"></div>
