@@ -253,7 +253,7 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                     }
                 }
             });
-		
+
             var urlsString = localStorage.getItem('repoURLs');
             var urls = JSON.parse(urlsString);
 
@@ -300,6 +300,9 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                                         var appData = data.apps.find(app => app.id === newsItem.appID);
                                         if (appData) {
                                             displayAppInfo(appData);
+
+                                            // Ajouter la source directe à l'URL "View"
+                                            link.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(url);
                                         } else {
                                             console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
                                         }
