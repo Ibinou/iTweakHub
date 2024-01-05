@@ -99,8 +99,10 @@ pointer-events: none;
 }
 
 .appList {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 .apps:last-child {
@@ -1711,21 +1713,22 @@ a > button {
 }
 
 .tip-card {
-  scroll-snap-align: start;
-  background-color: #222;
-  border-radius: 8px;
-  padding: 20px;
-  margin-right: 20px;
-  width: 300px;
-  box-sizing: border-box;
-  flex: 0 0 auto; 
+    scroll-snap-align: start;
+    background-color: #222;
+    border-radius: 14px;
+    padding: 20px;
+    margin-right: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    flex: 0 0 auto;
 }
 
-  .tip-header {
+.tip-header {
     color: white;
-    font-size: 1em;
+    font-size: 17px;
     margin-bottom: 10px;
-  }
+    font-weight: 600;
+}
 
   .tip-content {
     color: #bbb;
