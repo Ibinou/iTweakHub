@@ -117,7 +117,7 @@ function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
   // Fetcher les données de apps.json
-  fetch('apps.json')
+  fetch('https://ibinou.github.io/iTweakHub/apps.json')
     .then(function(response) {
       return response.json();
     })
