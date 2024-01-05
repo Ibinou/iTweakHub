@@ -138,7 +138,7 @@ function findAppByIdentifier(identifier, apps) {
 }
 
 // Fonction pour afficher les informations de l'application
-function displayAppInfo(appData) {
+function displayAppInfo(appData, sourceURL) {
     // Créer des éléments HTML pour afficher les infos de l'application
     var appInfoWrapper = document.createElement('div');
     appInfoWrapper.classList.add('app-info-wrapper');
@@ -169,7 +169,7 @@ function displayAppInfo(appData) {
     subtitle.textContent = appData.developerName || '';
 
     var link = document.createElement('a');
-    link.href = 'appinfos.html?name=' + appData.name;
+    link.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(sourceURL);
 
     var button = document.createElement('button');
     button.classList.add('uibutton');
@@ -247,7 +247,7 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
 
                     if (appData) {
                         // Afficher les informations de l'application
-                        displayAppInfo(appData);
+                        displayAppInfo(appData, 'https://ibinou.github.io/iTweakHub/apps.json');
                     } else {
                         console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
                     }
@@ -299,10 +299,7 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                                     if (newsItem.appID) {
                                         var appData = data.apps.find(app => app.id === newsItem.appID);
                                         if (appData) {
-                                            displayAppInfo(appData);
-
-                                            // Ajouter la source directe à l'URL "View"
-                                            link.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(url);
+                                            displayAppInfo(appData, url);
                                         } else {
                                             console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
                                         }
