@@ -207,10 +207,7 @@
               </div>
    </div>
 	
-<h3 id="newstuto" style="margin-top: 15px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">News<span><a href="news.html"><p style="font-size: 19px;color: var(--accent-color);font-size: 17px;float: right;margin-top: 5px;">View All</p></a></span></h3>
-<div id="custom-news-carousel" class="custom-carousel-container">
-    <!-- News items will be added dynamically here -->
-</div>
+
 <!--	
 <a href="appinfos.html?name=Minecraft">
 <img class="solobanner" src="img/minecraft.jpg">
@@ -475,106 +472,7 @@ function openDebugPage() {
 }
 </style>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Effectuer une première requête AJAX pour récupérer le JSON à partir de apps.json
-    fetch('https://ibinou.github.io/iTweakHub/apps.json')  
-        .then(response => response.json())
-        .then(data => {
-            // Vérifier si le JSON contient un tableau news
-            if (data.news) {
-                // Créer le carouselContainer
-                var carouselContainer = document.getElementById('custom-news-carousel');
 
-                // Parcourir le tableau news dans le JSON
-                data.news.slice(0, 5).forEach(function (newsItem) {
-                    // Créer des éléments HTML pour chaque actualité
-                    var newsWrapper = document.createElement('div');
-                    newsWrapper.classList.add('custom-carousel-item-wrapper');
-
-                    var item = document.createElement('div');
-                    item.classList.add('custom-carousel-item');
-                    item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760'; // Add "#" before the color code
-
-                    var textContainer = document.createElement('div');
-                    textContainer.classList.add('custom-carousel-text');
-
-                    var headline = document.createElement('h3');
-                    headline.textContent = newsItem.title || '';
-
-                    var description = document.createElement('p');
-                    description.textContent = newsItem.caption || '';
-
-                    // Ajouter les éléments au DOM
-                    textContainer.appendChild(headline);
-                    textContainer.appendChild(description);
-
-                    item.appendChild(textContainer);
-                    newsWrapper.appendChild(item);
-                    carouselContainer.appendChild(newsWrapper);
-                });
-
-                // Récupérer le tableau urls depuis le local storage
-                var urlsString = localStorage.getItem('repoURLs');
-                var urls = JSON.parse(urlsString);
-
-                // Vérifier si urls est défini
-                if (urls) {
-                    // Parcourir chaque URL dans urls
-                    urls.slice(0, 5).forEach(function (url) {
-                        // Effectuer une deuxième requête AJAX pour récupérer le JSON à partir de l'URL
-                        fetch(url)
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.news) {
-                                    data.news.slice(0, 5).forEach(function (newsItem) {
-                                        // Créer des éléments HTML pour chaque actualité
-                                        var newsWrapper = document.createElement('div');
-                                        newsWrapper.classList.add('custom-carousel-item-wrapper');
-
-                                        var item = document.createElement('div');
-                                        item.classList.add('custom-carousel-item');
-                                        item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760'; // Add "#" before the color code
-
-                                        var textContainer = document.createElement('div');
-                                        textContainer.classList.add('custom-carousel-text');
-
-                                        var headline = document.createElement('h3');
-                                        headline.textContent = newsItem.title || '';
-
-                                        var description = document.createElement('p');
-                                        description.textContent = newsItem.caption || '';
-
-                                        // Ajouter les éléments au DOM
-                                        textContainer.appendChild(headline);
-                                        textContainer.appendChild(description);
-
-                                        item.appendChild(textContainer);
-                                        newsWrapper.appendChild(item);
-                                        carouselContainer.appendChild(newsWrapper);
-                                    });
-                                } else {
-                                    console.error('Le tableau news est introuvable dans le JSON.');
-                                }
-                            })
-                            .catch(error => console.error('Erreur lors de la récupération du JSON depuis le local storage:', error));
-                    });
-                } else {
-                    console.error('Le tableau urls est introuvable dans le local storage.');
-                }
-            } else {
-                console.error('Le tableau news est introuvable dans le fichier apps.json.');
-            }
-        })
-        .catch(error => console.error('Erreur lors de la récupération du JSON depuis apps.json:', error));
-
-    // Fonction pour ajouter "#" devant le nombre hexadécimal de la couleur si nécessaire
-    function formatColor(color) {
-        if (color && color.charAt(0) !== '#') {
-            color = '#' + color;
-        }
-        return color;
-    }
-});
         var topNav = document.querySelector(".topNav");
         var isNavVisible = false;
 
