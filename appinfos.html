@@ -274,6 +274,11 @@ function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
+// Fonction pour récupérer le paramètre "source" dans l'URL
+function getSourceParameter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("source");
+}
 
 // Mettez à jour la fonction addToRecentApps
 function addToRecentApps(appName, appVersion) {
