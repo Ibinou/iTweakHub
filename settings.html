@@ -228,40 +228,16 @@ if (document.cookie.indexOf('card1=hidden') !== -1) {
     card.style.display = 'none';
 }
 
-        // Fonction pour détecter si l'iPhone a une encoche
-        function isIphoneWithNotch() {
-            // Really basic check for the iOS platform
-            var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("header");
 
-            // Get the device pixel ratio
-            var ratio = window.devicePixelRatio || 1;
-
-            // Define the user's device screen dimensions
-            var screen = {
-                width: window.screen.width * ratio,
-                height: window.screen.height * ratio
-            };
-
-            // iPhone X Detection (Adjust values as needed)
-            return iOS && screen.width === 1125 && screen.height === 2436;
-        }
-
-        // Fonction pour ajouter le padding top en prenant en compte la "safe area"
-        function addPaddingIfIphoneWithNotch() {
-            var toptitleElement = document.querySelector('.toptitle');
-
-            if (isIphoneWithNotch()) {
-                // Obtenez la taille de la "safe area"
-                var safeAreaHeight = window.innerHeight - document.documentElement.clientHeight;
-
-                // Ajoutez le padding top nécessaire
-                toptitleElement.style.paddingTop = '50px';
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "100px";
             }
-        }
-
-        // Appelez la fonction lors du chargement de la page
-        window.onload = addPaddingIfIphoneWithNotch;
-    </script>
 
    </script>
 
