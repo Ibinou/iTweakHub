@@ -168,9 +168,10 @@ div.content {
     z-index: 99999999999999;
     position: fixed;
     text-align: center;
-    padding: 18px 0;
     width: 100%;
     border-bottom: solid 1px #4040404d;
+    padding-top: 38px;
+    padding-bottom: 18px;
 }
 
 @media only screen and (min-width: 768px) {
