@@ -171,7 +171,7 @@ div.content {
     width: 100%;
     border-bottom: solid 1px #4040404d;
     padding-top: 32px;
-    padding-bottom: 18px;
+    padding-bottom: 14px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -299,10 +299,10 @@ div.content {
     margin-bottom: 15px;
   }
   .toptitle {
-    padding-top: 50px;
+    padding-top: 60px;
   }
   nav {
-    padding-top: 50px;
+    padding-top: 60px;
   }
   .topNav {
     padding-top: 50px;
