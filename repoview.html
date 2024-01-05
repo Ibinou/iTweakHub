@@ -154,15 +154,15 @@ function afficherDonnees() {
         // Afficher les infos
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
-	imgElement.src = data.iconURL;
-	webElement.href = data.website;
-	      
+        imgElement.src = data.iconURL;
+        webElement.href = data.website;
+
         var appsData = data.apps;
 
         appsData.sort(function(a, b) {
-        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+          return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
         });
-	      
+
         var nombreApplicationsAafficher = appsData.length; // Comptez le nombre d'applications dans le JSON
 
         // Utilisez une boucle for pour itérer sur le nombre d'applications à afficher
@@ -178,20 +178,20 @@ function afficherDonnees() {
           var appIconImg = document.createElement("img");
           appIconImg.className = "appicon";
           // Vérifier si appData.iconURL existe
-    if (appData.iconURL) {
-      // Vérifier si le lien d'image est valide
-      appIconImg.onload = function() {
-        // L'image a été chargée avec succès
-      };
-      appIconImg.onerror = function() {
-        // Le lien d'image n'est pas valide, utiliser un placeholder
-        appIconImg.src = "img/blank.JPG";
-      };
-      appIconImg.src = appData.iconURL;
-    } else {
-      // Utiliser un placeholder si aucun lien d'image n'est fourni
-      appIconImg.src = "img/blank.JPG";
-    }
+          if (appData.iconURL) {
+            // Vérifier si le lien d'image est valide
+            appIconImg.onload = function() {
+              // L'image a été chargée avec succès
+            };
+            appIconImg.onerror = function() {
+              // Le lien d'image n'est pas valide, utiliser un placeholder
+              appIconImg.src = "img/blank.JPG";
+            };
+            appIconImg.src = appData.iconURL;
+          } else {
+            // Utiliser un placeholder si aucun lien d'image n'est fourni
+            appIconImg.src = "img/blank.JPG";
+          }
           appCellLeftDiv.appendChild(appIconImg);
 
           var appCellMetaDiv = document.createElement("div");
@@ -214,7 +214,8 @@ function afficherDonnees() {
           appGetDiv.className = "appget";
 
           var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+          // Ajouter la source directe à l'URL
+          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(repoUrl);
 
           var getBtn = document.createElement("button");
           getBtn.className = "getbtn";
@@ -234,8 +235,6 @@ function afficherDonnees() {
     console.log("Repo URL not provided in the 'repo' parameter.");
   }
 }
-
-// Appeler la fonction une fois que le DOM est chargé
 
 
     </script>
