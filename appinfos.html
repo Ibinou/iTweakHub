@@ -446,40 +446,40 @@ function loadImage(url) {
     });
 }
 
-        // Fonction pour charger et afficher les informations de l'application
-        function loadAppInfo() {
-            const appNameFromURL = getParameterByName("name");
-            const sourceParameter = getSourceParameter();
+// Fonction pour charger et afficher les informations de l'application
+function loadAppInfo() {
+    const appNameFromURL = getParameterByName("name");
+    const sourceParameter = getParameterByName("source");
 
-            if (!appNameFromURL || !sourceParameter) {
-                console.error("Paramètres requis manquants (name ou source).");
-            } else {
-                const jsonFileURL = `https://itweakhub.netlify.app/${sourceParameter}`;
+    if (!appNameFromURL || !sourceParameter) {
+        console.error("Paramètres requis manquants (name ou source).");
+    } else {
+        const jsonFileURL = sourceParameter;  // Utilisez l'URL complète sans préfixe
 
-                fetch(jsonFileURL)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log("Données chargées depuis le fichier JSON :", data);
+        fetch(jsonFileURL)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Données chargées depuis le fichier JSON :", data);
 
-                        const appData = data.apps.find(app => app.name === appNameFromURL);
+                const appData = data.apps.find(app => app.name === appNameFromURL);
 
-                        if (appData) {
-                            displayAppInfo(appData);
-                            document.title = appData.name;
-                        } else {
-                            console.error("Données de l'application non trouvées pour le nom spécifié.");
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Erreur lors du chargement du fichier JSON :", error);
-                        const appInfoDiv = document.getElementById("appInfo");
-                        appInfoDiv.textContent = "";
-                    });
-            }
-        }
+                if (appData) {
+                    displayAppInfo(appData);
+                    document.title = appData.name;
+                } else {
+                    console.error("Données de l'application non trouvées pour le nom spécifié.");
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors du chargement du fichier JSON :", error);
+                const appInfoDiv = document.getElementById("appInfo");
+                appInfoDiv.textContent = "";
+            });
+    }
+}
 
-        // Charger et afficher les informations de l'application lorsque la page se charge
-        window.onload = loadAppInfo;
+// Charger et afficher les informations de l'application lorsque la page se charge
+window.onload = loadAppInfo;
     </script>
 <script>
 // Fonction pour ajouter ou supprimer une application des favoris
