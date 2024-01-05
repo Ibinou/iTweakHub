@@ -1387,6 +1387,7 @@ font-size: 20px;
 /*news css by therealfoxter*/
 .custom-news-item-wrapper {
     margin-bottom: 3em;
+    margin-bottom: 30px;
 }
 
 .custom-item {
@@ -1439,6 +1440,10 @@ font-size: 20px;
     display: flex;
 }
 
+.app-info-wrapper {
+    margin-bottom: 30px;
+}
+
 .app-header > .content {
     display: flex;
     flex-direction: row;
@@ -1449,6 +1454,7 @@ font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    height: auto;
 }
 
 .app-header .background {
@@ -1469,9 +1475,8 @@ font-size: 20px;
 
 #news img {
     width: 100%;
-    height: 215px;
     display: block;
-    border-radius: 23px;
+    border-radius: 15px;
     object-fit: cover;
 }
 
