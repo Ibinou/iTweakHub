@@ -224,20 +224,20 @@ function createRepoElement(data, url) {
   deleteIcon.style.cursor = "pointer";
   infoDiv.appendChild(deleteIcon);
 
-  // Créer l'élément image pour l'icône du repo
+    // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
-  iconElement.src = data.iconURL; // Assurez-vous que l'objet data contient l'URL de l'icône
+  iconElement.src = data.iconURL || "img/blank.JPG"; // Utilisez l'URL de l'icône du repo ou un placeholder
   infoDiv.appendChild(iconElement);
 
-  // Créer l'élément h2 pour le nom du repo
+// Créer l'élément h2 pour le nom du repo
   var repoNameElement = document.createElement("h2");
-  repoNameElement.textContent = data.name;
+  repoNameElement.textContent = data.name || "Untitled Source"; // Utilisez le nom du repo ou un placeholder
   infoDiv.appendChild(repoNameElement);
 
   // Créer l'élément p pour le sous-titre du repo
   var repoSubtitleElement = document.createElement("p");
-  repoSubtitleElement.textContent = data.subtitle;
-  infoDiv.appendChild(repoSubtitleElement);
+  repoSubtitleElement.textContent = data.subtitle || "iTweakHub Source"; // Utilisez le sous-titre du repo ou un placeholder
+infoDiv.appendChild(repoSubtitleElement);
 
   // Ajouter un gestionnaire d'événements pour la suppression du repo
   deleteIcon.addEventListener("click", function () {
