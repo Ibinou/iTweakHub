@@ -181,7 +181,14 @@ function afficherReposDepuisLocalStorage() {
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
-  var url = prompt("Enter source URL :");
+  var url = prompt("Enter source URL:");
+
+  // Check if the URL already exists in localStorage
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  if (repoURLs.includes(url)) {
+    alert('Error', 'Source URL already exists!');
+    return;
+  }
 
   fetch(url)
     .then(function(response) {
@@ -200,7 +207,6 @@ function afficherInfosDepuisJSON() {
         reposDiv.appendChild(repoLink);
 
         // Enregistrer l'URL du repo dans le localStorage
-        var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
         repoURLs.push(url);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
       } else {
