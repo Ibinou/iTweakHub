@@ -574,6 +574,17 @@ function toggleActionSheet() {
     }, 500);
   }
 }
+    document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.getElementById("topbar");
+            var elementElement = document.getElementById("notification");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "45px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "50px";
+            }
+        });
 </script>
 
 </body>
