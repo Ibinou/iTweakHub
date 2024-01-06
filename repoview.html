@@ -154,8 +154,25 @@ function afficherDonnees() {
         // Afficher les infos
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
-        imgElement.src = data.iconURL;
-        webElement.href = data.website;
+        if (data.iconURL) {
+           imgElement.onload = function() {
+           // L'image a été chargée avec succès
+        };
+           imgElement.onerror = function() {
+           // Le lien d'image n'est pas valide, utiliser un placeholder
+           imgElement.src = "img/blank.JPG";
+         };
+           imgElement.src = data.iconURL;
+        } else {
+        // Utiliser un placeholder si aucun lien d'image n'est fourni
+        imgElement.src = "img/blank.JPG";
+        }
+        if (data.website) {
+  webElement.href = data.website;
+} else {
+  // Cacher l'élément website s'il n'y a pas de lien de site web
+  webElement.style.display = "none";
+}
 
         var appsData = data.apps;
 
