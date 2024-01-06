@@ -181,48 +181,38 @@ function afficherReposDepuisLocalStorage() {
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
-  var jsonData = prompt("Enter JSON data:");
+  var url = prompt("Enter source URL :");
 
-  try {
-    var data = JSON.parse(jsonData);
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      // Ajout de la condition : le repo doit avoir l'array apps et la propriété name
+      if (data.apps && Array.isArray(data.apps) && data.name) {
+        var reposDiv = document.getElementById("repos");
+        var infoDiv = createRepoElement(data, url);
 
-    if (data.Info && data.Info.repoName) {
-      var reposDiv = document.getElementById("repos");
-      var infoDiv = createRepoElement({
-        name: data.Info.repoName,
-        subtitle: getInfoSubtitle(data.Info),
-        iconURL: data.Info.repoIcon || "default-icon-url" // Use a default icon URL if not provided
-      });
+        var repoLink = document.createElement("a");
+        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
+        repoLink.appendChild(infoDiv);
 
-      var repoLink = document.createElement("a");
-      repoLink.href = "#"; // Set the appropriate link if needed
-      repoLink.appendChild(infoDiv);
+        reposDiv.appendChild(repoLink);
 
-      reposDiv.appendChild(repoLink);
-
-      // Save repo information to localStorage
-      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-      repoURLs.push("#"); // Use the appropriate link if needed
-      localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-    } else {
-      console.log('Warning', 'Source added despite missing required properties');
-    }
-  } catch (error) {
-    console.log('Error', 'Invalid JSON data:', error);
-    alert('Error, invalid JSON data', error);
-  }
+        // Enregistrer l'URL du repo dans le localStorage
+        var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+        repoURLs.push(url);
+        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+      } else {
+        console.log('Warning', 'Source added despite missing "apps" array or "name" property');
+      }
+    })
+    .catch(function(error) {
+      console.log('Error', error);
+      alert('Error, unable to load the source', error);
+    });
 }
 
-function getInfoSubtitle(info) {
-  var subtitle = "";
-
-  if (info.repoAuthor) subtitle += "Author: " + info.repoAuthor + " | ";
-  if (info.repoVersion) subtitle += "Version: " + info.repoVersion + " | ";
-
-  // Add additional properties if needed
-
-  return subtitle.slice(0, -2); // Remove the trailing " | " if present
-}
 
 // Fonction pour créer l'élément du repo
 function createRepoElement(data, url) {
