@@ -1646,7 +1646,7 @@ a > button {
     .instruction-row {
       display: flex;
       align-items: center;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .icon-col {
@@ -1753,4 +1753,9 @@ a > button {
     font-size: 20px;
     margin-left: 16px;
     margin-top: 70px;
+}
+#choosepls {
+    font-size: 18px;
+    color: #e4e4e4;
+    margin-left: 16px;
 }
