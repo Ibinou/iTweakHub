@@ -1021,8 +1021,7 @@ h3, p {
   align-items: center;
   padding: 10px;
   background-color: #1c1c1c;
-  border-radius: 13px;
-  border: 1px solid rgb(37, 37, 39);
+  border-radius: 20px;
 }
 
 .icon-container img {
@@ -1641,7 +1640,7 @@ a > button {
       margin-left: 16px;
       margin-right: 16px;
       margin-top: 16px;
-      margin-bottom: 50%;
+      margin-bottom: 10%;
     }
 
     .instruction-row {
@@ -1750,3 +1749,8 @@ a > button {
     display: none;
   }
 
+#installpls {
+    font-size: 20px;
+    margin-left: 16px;
+    margin-top: 70px;
+}
