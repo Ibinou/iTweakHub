@@ -64,6 +64,7 @@
     
 </div>  
   <div id="addPage" class="page">
+    <h1>Add iTweakHub to the homescreen</h1>
     <div class="page-content">
       <div class="block">
         <div class="instruction-row">
@@ -101,6 +102,7 @@ Choose “On Home Screen” from the options.</p>
         </div>
       </div>
     </div>
+     <img src="votre_image.jpg" alt="Image" id="changeFavicon">
   </div>
     <script>
 const accountForm = document.getElementById('accountForm');
@@ -140,7 +142,9 @@ if (!window.matchMedia('(display-mode: standalone)').matches) {
     document.getElementById('addPage').style.display = 'block';
     document.getElementById('UIContainer').style.display = 'none';
 }
-
+  document.getElementById('changeFavicon').addEventListener('click', function() {
+      document.getElementById('favicon').href = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png';
+    });
     </script>
    
 <script src="js/account.js"></script>
