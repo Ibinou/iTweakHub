@@ -186,7 +186,7 @@ function afficherInfosDepuisJSON() {
   // Check if the URL already exists in localStorage
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
   if (repoURLs.includes(url)) {
-    alert('Error', 'Source URL already exists!');
+    alert('This source is already added !');
     return;
   }
 
