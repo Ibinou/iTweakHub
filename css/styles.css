@@ -1759,3 +1759,64 @@ a > button {
     color: #e4e4e4;
     margin-left: 16px;
 }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.centered-popup-container {
+    position: relative;
+}
+
+custom-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    z-index: 9999;
+}
+
+custom-modal.appear {
+    animation: fadeIn 0.5s ease-out;
+}
+
+custom-modal.disappear {
+    animation: fadeOut 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+custom-modal-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+custom-modal-text {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+custom-modal-paragraph {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
