@@ -83,6 +83,15 @@ nav h1 i a {
     <p class="notification-message">The app will be installed soon.</p>
   </div>
 </div>
+
+<div class="centered-popup-container">
+        <div class="custom-modal" id="custom-modal">
+            <div class="custom-modal-icon" id="custom-modal-icon"></div>
+            <div class="custom-modal-text" id="custom-modal-text">Title</div>
+            <div class="custom-modal-paragraph" id="custom-modal-paragraph">Text</div>
+        </div>
+ </div>
+	
  <div id="sheet_background"> 
   <nav id="topbar">
 <a style="text-decoration: none" href="javascript:history.back()">
@@ -585,6 +594,31 @@ function toggleActionSheet() {
                 elementElement.style.marginTop = "50px";
             }
         });
+
+	
+document.getElementById('favorite').addEventListener('click', function() {
+    // Personnalisez les éléments de la popup depuis JavaScript
+    document.getElementById('custom-modal-icon').innerHTML = '<i class="fas fa-info-circle"></i>';
+    document.getElementById('custom-modal-text').innerText = 'Votre texte personnalisé';
+    document.getElementById('custom-modal-paragraph').innerText = 'Votre paragraphe personnalisé.';
+
+    // Affiche la popup avec l'animation d'apparition
+    document.getElementById('custom-modal').style.display = 'block';
+    document.getElementById('custom-modal').classList.add('appear');
+    
+    // Disparition automatique après 3 secondes (3000 millisecondes)
+    setTimeout(function() {
+        // Masque la popup avec l'animation de disparition
+        document.getElementById('custom-modal').classList.remove('appear');
+        document.getElementById('custom-modal').classList.add('disappear');
+
+        // Supprime la classe 'disappear' après l'animation pour réinitialiser la popup
+        setTimeout(function() {
+            document.getElementById('custom-modal').style.display = 'none';
+            document.getElementById('custom-modal').classList.remove('disappear');
+        }, 500); // 500 millisecondes correspondent à la durée de l'animation fadeOut
+    }, 3000);
+});
 </script>
 
 </body>
