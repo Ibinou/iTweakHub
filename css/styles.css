@@ -1683,14 +1683,14 @@ a > button {
 /* Styles for iPhones with a pixel ratio of 3 (and higher) */
 @media only screen and (-webkit-device-pixel-ratio: 3) {
   .action-sheet {
-    padding-bottom: 35px;
+    margin-bottom: 35px;
   }
 }
 
 /* Styles for iPhones Xr and 11 */
 @media only screen  and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
   .action-sheet {
-    padding-bottom: 35px;
+    margin-bottom: 35px;
   }
 }
     .action-sheet.show {
