@@ -92,16 +92,17 @@ function afficherDonnees() {
     var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
     var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
 
-    fetch('apps.json') 
+    fetch('apps.json')
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             var appsData = data.apps;
 
-            favapps.forEach(function (favAppName) {
+            favapps.forEach(function (favAppInfo) {
+                var [favAppName, favAppSource] = favAppInfo.split("-");
                 var appData = appsData.find(function (app) {
-                    return app.name === favAppName;
+                    return app.name === favAppName && app.source === favAppSource;
                 });
 
                 if (!appData) {
@@ -112,60 +113,11 @@ function afficherDonnees() {
                             })
                             .then(function (repoData) {
                                 var repoAppData = repoData.apps.find(function (app) {
-                                    return app.name === favAppName;
+                                    return app.name === favAppName && app.source === favAppSource;
                                 });
 
                                 if (repoAppData) {
-                                    var dockDiv = document.createElement("div");
-                                    dockDiv.className = "dock";
-
-                                    var appCellLeftDiv = document.createElement("div");
-                                    appCellLeftDiv.className = "app_cell_left";
-
-                                    var appIconImg = document.createElement("img");
-                                    appIconImg.className = "appicon";
-                                    appIconImg.src = repoAppData.iconURL;
-                                    appCellLeftDiv.appendChild(appIconImg);
-
-                                    var appCellMetaDiv = document.createElement("div");
-                                    appCellMetaDiv.className = "app_cell_meta";
-
-                                    var appNameDiv = document.createElement("div");
-                                    appNameDiv.className = "appname";
-                                    appNameDiv.textContent = repoAppData.name;
-
-                                    var appDevDiv = document.createElement("div");
-                                    appDevDiv.className = "appsection";
-                                    appDevDiv.textContent = repoAppData.developerName;
-
-                                    appCellMetaDiv.appendChild(appNameDiv);
-                                    appCellMetaDiv.appendChild(appDevDiv);
-                                    appCellLeftDiv.appendChild(appCellMetaDiv);
-                                    dockDiv.appendChild(appCellLeftDiv);
-
-                                    var appGetDiv = document.createElement("div");
-                                    appGetDiv.className = "appget";
-
-                                    var appGetBtn = document.createElement("a");
-                                    appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(repoAppData.name);
-
-                                    var getBtn = document.createElement("button");
-                                    getBtn.className = "getbtn";
-                                    getBtn.textContent = "GET";
-
-                                    var removeBtn = document.createElement("button");
-                                    removeBtn.className = "removebtn";
-                                    removeBtn.textContent = "Remove";
-                                    removeBtn.addEventListener("click", function () {
-                                        removeFavorite(repoAppData.name);
-                                        appListDiv.removeChild(dockDiv);
-                                    });
-
-                                    appGetBtn.appendChild(getBtn);
-                                    appGetBtn.appendChild(removeBtn);
-                                    appGetDiv.appendChild(appGetBtn);
-                                    dockDiv.appendChild(appGetDiv);
-
+                                    var dockDiv = createAppElement(repoAppData);
                                     appListDiv.appendChild(dockDiv);
                                 }
                             })
@@ -174,56 +126,7 @@ function afficherDonnees() {
                             });
                     }
                 } else {
-                    var dockDiv = document.createElement("div");
-                    dockDiv.className = "dock";
-
-                    var appCellLeftDiv = document.createElement("div");
-                    appCellLeftDiv.className = "app_cell_left";
-
-                    var appIconImg = document.createElement("img");
-                    appIconImg.className = "appicon";
-                    appIconImg.src = appData.iconURL;
-                    appCellLeftDiv.appendChild(appIconImg);
-
-                    var appCellMetaDiv = document.createElement("div");
-                    appCellMetaDiv.className = "app_cell_meta";
-
-                    var appNameDiv = document.createElement("div");
-                    appNameDiv.className = "appname";
-                    appNameDiv.textContent = appData.name;
-
-                    var appDevDiv = document.createElement("div");
-                    appDevDiv.className = "appsection";
-                    appDevDiv.textContent = appData.developerName;
-
-                    appCellMetaDiv.appendChild(appNameDiv);
-                    appCellMetaDiv.appendChild(appDevDiv);
-                    appCellLeftDiv.appendChild(appCellMetaDiv);
-                    dockDiv.appendChild(appCellLeftDiv);
-
-                    var appGetDiv = document.createElement("div");
-                    appGetDiv.className = "appget";
-
-                    var appGetBtn = document.createElement("a");
-                    appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
-
-                    var getBtn = document.createElement("button");
-                    getBtn.className = "getbtn";
-                    getBtn.textContent = "GET";
-
-                    var removeBtn = document.createElement("button");
-                    removeBtn.className = "removebtn";
-                    removeBtn.textContent = "Remove";
-                    removeBtn.addEventListener("click", function () {
-                        removeFavorite(appData.name);
-                        appListDiv.removeChild(dockDiv);
-                    });
-
-                    appGetBtn.appendChild(getBtn);
-                    appGetBtn.appendChild(removeBtn);
-                    appGetDiv.appendChild(appGetBtn);
-                    dockDiv.appendChild(appGetDiv);
-
+                    var dockDiv = createAppElement(appData);
                     appListDiv.appendChild(dockDiv);
                 }
             });
@@ -233,27 +136,74 @@ function afficherDonnees() {
         });
 }
 
-function removeFavorite(appName) {
-    var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-    var updatedFavapps = favapps.filter(function (favAppName) {
-        return favAppName !== appName;
+// Fonction pour créer un élément d'application avec des boutons "GET" et "Remove"
+function createAppElement(appData) {
+    var dockDiv = document.createElement("div");
+    dockDiv.className = "dock";
+
+    var appCellLeftDiv = document.createElement("div");
+    appCellLeftDiv.className = "app_cell_left";
+
+    var appIconImg = document.createElement("img");
+    appIconImg.className = "appicon";
+    appIconImg.src = appData.iconURL;
+    appCellLeftDiv.appendChild(appIconImg);
+
+    var appCellMetaDiv = document.createElement("div");
+    appCellMetaDiv.className = "app_cell_meta";
+
+    var appNameDiv = document.createElement("div");
+    appNameDiv.className = "appname";
+    appNameDiv.textContent = appData.name;
+
+    var appDevDiv = document.createElement("div");
+    appDevDiv.className = "appsection";
+    appDevDiv.textContent = appData.developerName;
+
+    appCellMetaDiv.appendChild(appNameDiv);
+    appCellMetaDiv.appendChild(appDevDiv);
+    appCellLeftDiv.appendChild(appCellMetaDiv);
+    dockDiv.appendChild(appCellLeftDiv);
+
+    var appGetDiv = document.createElement("div");
+    appGetDiv.className = "appget";
+
+    var appGetBtn = document.createElement("a");
+    appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+
+    var getBtn = document.createElement("button");
+    getBtn.className = "getbtn";
+    getBtn.textContent = "GET";
+
+    var removeBtn = document.createElement("button");
+    removeBtn.className = "getbtn"; // Utilisez la même classe que le bouton "GET"
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener("click", function () {
+        removeFavorite(`${appData.name}-${appData.source}`);
+        appListDiv.removeChild(dockDiv);
     });
-    localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
+
+    appGetBtn.appendChild(getBtn);
+    appGetBtn.appendChild(removeBtn); // Ajoutez le bouton "Remove" au même niveau que le bouton "GET"
+    appGetDiv.appendChild(appGetBtn);
+    dockDiv.appendChild(appGetDiv);
+
+    return dockDiv;
 }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Récupérer l'élément avec la classe "toptitle"
-            var toptitleElement = document.querySelector(".toptitle");
+document.addEventListener("DOMContentLoaded", function () {
+    // Récupérer l'élément avec la classe "toptitle"
+    var toptitleElement = document.querySelector(".toptitle");
 
-            // Récupérer l'élément avec la classe "element"
-            var elementElement = document.querySelector(".appList");
+    // Récupérer l'élément avec la classe "element"
+    var elementElement = document.querySelector(".appList");
 
-            // Vérifier si l'élément "toptitle" a un padding top de 43px
-            if (window.getComputedStyle(toptitleElement).paddingTop === "43px") {
-                // Si oui, changer le margin-top de l'élément "element" à 143px
-                elementElement.style.marginTop = "143px";
-            }
-        });
+    // Vérifier si l'élément "toptitle" a un padding top de 43px
+    if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+        // Si oui, changer le margin-top de l'élément "element" à 143px
+        elementElement.style.marginTop = "150px";
+    }
+});
 </script>
 
 
