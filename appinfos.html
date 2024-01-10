@@ -83,15 +83,6 @@ nav h1 i a {
     <p class="notification-message">The app will be installed soon.</p>
   </div>
 </div>
-
-<div class="centered-popup-container">
-        <div class="custom-modal" id="custom-modal">
-            <div class="custom-modal-icon" id="custom-modal-icon"></div>
-            <div class="custom-modal-text" id="custom-modal-text">Title</div>
-            <div class="custom-modal-paragraph" id="custom-modal-paragraph">Text</div>
-        </div>
- </div>
-	
  <div id="sheet_background"> 
   <nav id="topbar">
 <a style="text-decoration: none" href="javascript:history.back()">
@@ -493,57 +484,29 @@ window.onload = loadAppInfo;
 <script>
 // Fonction pour ajouter ou supprimer une application des favoris
 function toggleFavorites(appName) {
-  let favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-  const favoriteButton = document.getElementById("favorite");
+    let favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+    const favoriteButton = document.getElementById("favorite");
 
-  if (!favapps.includes(appName)) {
-    // Ajouter l'application aux favoris
-    favapps.push(appName);
-    localStorage.setItem("favapps", JSON.stringify(favapps));
-    alert("Application added to favorites!");
-    favoriteButton.classList.add("fas");
-  } else {
-    // Supprimer l'application des favoris
-    favapps = favapps.filter(app => app !== appName);
-    localStorage.setItem("favapps", JSON.stringify(favapps));
-    alert("Application removed from favorites.");
-    favoriteButton.classList.remove("fas");
-  }
-
-  // Afficher la popup de confirmation
-  showCustomModal();
-}
-
-// Fonction pour afficher la popup avec l'animation
-function showCustomModal() {
-  // Personnalisez les éléments de la popup depuis JavaScript
-  document.getElementById('custom-modal-icon').innerHTML = '<i class="fas fa-info-circle"></i>';
-  document.getElementById('custom-modal-text').innerText = 'L\'application a été ajoutée aux favoris';
-  document.getElementById('custom-modal-paragraph').innerText = 'Vous pouvez retrouver vos favoris à tout moment.';
-
-  // Affiche la popup avec l'animation d'apparition
-  document.getElementById('popup-container').style.visibility = 'visible';
-  document.getElementById('custom-modal').classList.add('appear');
-
-  // Disparition automatique après 3 secondes (3000 millisecondes)
-  setTimeout(function() {
-    // Masque la popup avec l'animation de disparition
-    document.getElementById('custom-modal').classList.remove('appear');
-    document.getElementById('custom-modal').classList.add('disappear');
-
-    // Supprime la classe 'disappear' après l'animation pour réinitialiser la popup
-    setTimeout(function() {
-      document.getElementById('popup-container').style.visibility = 'hidden';
-      document.getElementById('custom-modal').classList.remove('disappear');
-    }, 500); // 500 millisecondes correspondent à la durée de l'animation fadeOut
-  }, 3000);
+    if (!favapps.includes(appName)) {
+        // Ajouter l'application aux favoris
+        favapps.push(appName);
+        localStorage.setItem("favapps", JSON.stringify(favapps));
+        alert("Application added to favorites!");
+        favoriteButton.classList.add("fas");
+    } else {
+        // Supprimer l'application des favoris
+        favapps = favapps.filter(app => app !== appName);
+        localStorage.setItem("favapps", JSON.stringify(favapps));
+        alert("Application removed from favorites.");
+        favoriteButton.classList.remove("fas");
+    }
 }
 
 // Écouter le clic sur le bouton "favorite"
 const favoriteButton = document.getElementById("favorite");
 favoriteButton.addEventListener("click", () => {
-  const appNameFromURL = getParameterByName("name");
-  toggleFavorites(appNameFromURL);
+    const appNameFromURL = getParameterByName("name");
+    toggleFavorites(appNameFromURL);
 });
         // Fonction pour extraire les paramètres de l'URL (la même fonction que précédemment)
 
@@ -622,10 +585,8 @@ function toggleActionSheet() {
                 elementElement.style.marginTop = "50px";
             }
         });
-
-
 </script>
 
 </body>
 
-</html>
+</html>	
