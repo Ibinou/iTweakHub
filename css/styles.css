@@ -1678,6 +1678,7 @@ a > button {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     margin-bottom: 16px;
+    transform: translateY(247px);
 }
 
 /* Styles for iPhones with a pixel ratio of 3 (and higher) */
