@@ -262,10 +262,10 @@ function createRepoElement(data, url) {
     }
   });
 
-  // Ajouter un gestionnaire d'événements pour afficher le repo dans une iframe (si l'écran est un ordinateur ou une tablette)
+  // Ajouter un gestionnaire d'événements pour afficher le repo dans une iframe ou rediriger vers la page repoview
   infoDiv.addEventListener("click", function () {
-    // Vérifier la largeur de l'écran
     if (window.innerWidth >= 768) { // Ajustez la limite selon vos besoins
+      // Afficher l'iframe
       var iframeContainer = document.getElementById("iframeContainer");
       iframeContainer.innerHTML = ""; // Supprimer les anciens iframes
 
@@ -278,13 +278,14 @@ function createRepoElement(data, url) {
       // Ajouter l'iframe à un conteneur sur la droite de l'écran
       iframeContainer.appendChild(iframe);
     } else {
-      // Si la largeur de l'écran est inférieure à la limite, rediriger vers la page repoview
+      // Rediriger vers la page repoview
       window.location.href = "repoview.html?repo=" + encodeURIComponent(url);
     }
   });
 
   return infoDiv;
 }
+
 
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
