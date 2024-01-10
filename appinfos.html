@@ -483,20 +483,22 @@ window.onload = loadAppInfo;
     </script>
 <script>
 // Fonction pour ajouter ou supprimer une application des favoris
-function toggleFavorites(appName) {
-    let favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+function toggleFavorites(appName, source) {
+    const favapps = JSON.parse(localStorage.getItem("favapps")) || [];
     const favoriteButton = document.getElementById("favorite");
 
-    if (!favapps.includes(appName)) {
+    const appIdentifier = `${appName}-${source}`;
+
+    if (!favapps.includes(appIdentifier)) {
         // Ajouter l'application aux favoris
-        favapps.push(appName);
+        favapps.push(appIdentifier);
         localStorage.setItem("favapps", JSON.stringify(favapps));
         alert("Application added to favorites!");
         favoriteButton.classList.add("fas");
     } else {
         // Supprimer l'application des favoris
-        favapps = favapps.filter(app => app !== appName);
-        localStorage.setItem("favapps", JSON.stringify(favapps));
+        const updatedFavapps = favapps.filter(app => app !== appIdentifier);
+        localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
         alert("Application removed from favorites.");
         favoriteButton.classList.remove("fas");
     }
@@ -506,8 +508,15 @@ function toggleFavorites(appName) {
 const favoriteButton = document.getElementById("favorite");
 favoriteButton.addEventListener("click", () => {
     const appNameFromURL = getParameterByName("name");
-    toggleFavorites(appNameFromURL);
+    const sourceParameter = getParameterByName("source");
+
+    if (appNameFromURL && sourceParameter) {
+        toggleFavorites(appNameFromURL, sourceParameter);
+    } else {
+        console.error("Paramètres requis manquants (name ou source) pour ajouter aux favoris.");
+    }
 });
+
         // Fonction pour extraire les paramètres de l'URL (la même fonction que précédemment)
 
         // Obtenez la valeur du paramètre "name" de l'URL
