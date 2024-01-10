@@ -57,6 +57,13 @@
     <p>Username: <span id="displayUsername"></span></p>
     
     <br>
+<ul class="ioslist">
+<li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
+<div class="ioslist_icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+<span>Favorite Apps</span>
+<div class="ioslist_opposite"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></div>
+</li>
+</ul>
     <br>
     <br>
 	
@@ -205,9 +212,9 @@ document.getElementById("clear-cookies-btn").addEventListener("click", function(
             var elementElement = document.getElementById("displayProfilePic");
 
             // Vérifier si l'élément "toptitle" a un padding top de 43px
-            if (window.getComputedStyle(toptitleElement).paddingTop === "43px") {
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
                 // Si oui, changer le margin-top de l'élément "element" à 100px
-                elementElement.style.marginTop = "100px";
+                elementElement.style.marginTop = "140px";
             }
         });
 </script>
