@@ -231,12 +231,12 @@ function createRepoElement(data, url) {
   deleteIcon.style.cursor = "pointer";
   infoDiv.appendChild(deleteIcon);
 
-    // Créer l'élément image pour l'icône du repo
+  // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
   iconElement.src = data.iconURL || "img/blank.JPG"; // Utilisez l'URL de l'icône du repo ou un placeholder
   infoDiv.appendChild(iconElement);
 
-// Créer l'élément h2 pour le nom du repo
+  // Créer l'élément h2 pour le nom du repo
   var repoNameElement = document.createElement("h2");
   repoNameElement.textContent = data.name || "Untitled Source"; // Utilisez le nom du repo ou un placeholder
   infoDiv.appendChild(repoNameElement);
@@ -244,11 +244,11 @@ function createRepoElement(data, url) {
   // Créer l'élément p pour le sous-titre du repo
   var repoSubtitleElement = document.createElement("p");
   repoSubtitleElement.textContent = data.subtitle || "iTweakHub Source"; // Utilisez le sous-titre du repo ou un placeholder
-infoDiv.appendChild(repoSubtitleElement);
+  infoDiv.appendChild(repoSubtitleElement);
 
   // Ajouter un gestionnaire d'événements pour la suppression du repo
   deleteIcon.addEventListener("click", function () {
-    if (confirm("Are you sure to delete this source ?")) {
+    if (confirm("Are you sure to delete this source?")) {
       // Supprimer l'URL du repo du localStorage
       var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
       var index = repoURLs.indexOf(url);
@@ -259,9 +259,27 @@ infoDiv.appendChild(repoSubtitleElement);
 
       // Supprimer l'élément du DOM
       infoDiv.remove();
+    }
+  });
 
-      // Redirection vers appsmanager.html
-      window.location.href = "appsmanager.html";
+  // Ajouter un gestionnaire d'événements pour afficher le repo dans une iframe (si l'écran est un ordinateur ou une tablette)
+  infoDiv.addEventListener("click", function () {
+    // Vérifier la largeur de l'écran
+    if (window.innerWidth >= 768) { // Ajustez la limite selon vos besoins
+      var iframeContainer = document.getElementById("iframeContainer");
+      iframeContainer.innerHTML = ""; // Supprimer les anciens iframes
+
+      var iframe = document.createElement("iframe");
+      iframe.src = "repoview.html?repo=" + encodeURIComponent(url);
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "none";
+
+      // Ajouter l'iframe à un conteneur sur la droite de l'écran
+      iframeContainer.appendChild(iframe);
+    } else {
+      // Si la largeur de l'écran est inférieure à la limite, rediriger vers la page repoview
+      window.location.href = "repoview.html?repo=" + encodeURIComponent(url);
     }
   });
 
