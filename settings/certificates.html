@@ -72,7 +72,7 @@
         <button type="button" onclick="saveData()" class="add_cert">Add this certificate</button>
 
     </form>
-	
+<div id="custom_cert"></div>	
 <div class="gradient-div"></div>
 
 
@@ -120,37 +120,81 @@
       localStorage.setItem('password', password);
 
       // Ajout d'un certificat avec custom_cert à true
-      addCertificateItem('Custom certificate');
+      addCertificateItem();
       
       alert('Your custom certificate has been added!');
       displayCertificates();
     }
 
     function displayCertificates() {
-      var certificateListDiv = document.getElementById('certificateList');
-      var customCertMessageDiv = document.getElementById('customCertMessage');
-      certificateListDiv.innerHTML = '';
+      var customCertMessageDiv = document.getElementById('custom_cert');
+      customCertMessageDiv.innerHTML = '';
 
       var customCert = localStorage.getItem('custom_cert') === 'false';
 
       if (customCert) {
         customCertMessageDiv.style.display = 'block';
-        addCertificateItem('Custom certificate');
+        addCertificateItem();
       } else {
         customCertMessageDiv.style.display = 'none';
       }
     }
 
-    function addCertificateItem(certificateType) {
-      var certificateListDiv = document.getElementById('certificateList');
-      var certificateItemDiv = document.createElement('div');
-      certificateItemDiv.classList.add('certificate-item');
+    function addCertificateItem() {
+      var customCertContainer = document.getElementById('custom_cert');
 
-      var label = document.createElement('label');
-      label.textContent = certificateType;
+      // Vérifier si la carte existe déjà
+      var existingCard = document.getElementById('customCertCard');
+      if (existingCard) {
+        return; // Si la carte existe, ne rien faire
+      }
 
-      certificateItemDiv.appendChild(label);
-      certificateListDiv.appendChild(certificateItemDiv);
+      // Créer la carte
+      var cardDiv = document.createElement('div');
+      cardDiv.id = 'customCertCard';
+      cardDiv.classList.add('card');
+
+      var cardBodyDiv = document.createElement('div');
+      cardBodyDiv.classList.add('card-body');
+
+      var iconImg = document.createElement('img');
+      iconImg.src = 'https://macmule.com/wp-content/uploads/2015/09/Icon_CertificateStandard.png';
+      iconImg.alt = 'Award Icon';
+      iconImg.classList.add('icon-img');
+
+      var cardTextDiv = document.createElement('div');
+      cardTextDiv.classList.add('card-text');
+
+      var h2Element = document.createElement('h2');
+      h2Element.textContent = 'Your Certificate';
+
+      var pElement = document.createElement('p');
+      pElement.textContent = 'Expires 22 juil. 2024';
+
+      cardTextDiv.appendChild(h2Element);
+      cardTextDiv.appendChild(pElement);
+
+      cardBodyDiv.appendChild(iconImg);
+      cardBodyDiv.appendChild(cardTextDiv);
+
+      var cardFooterDiv = document.createElement('div');
+      cardFooterDiv.classList.add('card-footer');
+
+      var downloadButton = document.createElement('div');
+      downloadButton.classList.add('button');
+      downloadButton.innerHTML = '<i class="fas fa-download"></i> Download';
+
+      var unlinkButton = document.createElement('div');
+      unlinkButton.classList.add('button');
+      unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Unlink';
+
+      cardFooterDiv.appendChild(downloadButton);
+      cardFooterDiv.appendChild(unlinkButton);
+
+      cardDiv.appendChild(cardBodyDiv);
+      cardDiv.appendChild(cardFooterDiv);
+
+      customCertContainer.appendChild(cardDiv);
     }
 
     // Afficher les certificats lors du chargement de la page
