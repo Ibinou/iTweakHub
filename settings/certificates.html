@@ -79,50 +79,50 @@
 <button id="reset-button">Reset</button>
 </div>
   <script>
-    // Récupérer la checkbox
-    var customCertCheckbox = document.getElementById('customCertCheckbox');
+// Récupérer la checkbox
+var customCertCheckbox = document.getElementById('customCertCheckbox');
 
-    // Mettre à jour la valeur de custom_cert lors du chargement de la page
-    if (localStorage.getItem('custom_cert') === null) {
-      // Si "custom_cert" n'est pas présent, la case à cocher est cochée par défaut
-      customCertCheckbox.checked = true;
-      // Ajouter la propriété "custom_cert" au localStorage
-      localStorage.setItem('custom_cert', true);
-    } else {
-      // Sinon, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
-      customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false';
-    }
+// Mettre à jour la valeur de custom_cert lors du chargement de la page
+if (localStorage.getItem('custom_cert') === null) {
+  // Si "custom_cert" n'est pas présent, la case à cocher est cochée par défaut
+  customCertCheckbox.checked = true;
+  // Ajouter la propriété "custom_cert" au localStorage
+  localStorage.setItem('custom_cert', true);
+} else {
+  // Sinon, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
+  customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false';
+}
 
-    // Ajouter un gestionnaire d'événements pour suivre les modifications
-    customCertCheckbox.addEventListener('change', function() {
-      // Vérifier la présence des propriétés avant de permettre à la checkbox d'être décochée
-      if (localStorage.getItem('p12Url') && localStorage.getItem('mobileprovisionUrl') && localStorage.getItem('password')) {
-        // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
-        localStorage.setItem('custom_cert', !customCertCheckbox.checked);
-      } else {
-        // Empêcher le changement d'état de la checkbox s'il manque des propriétés
-        customCertCheckbox.checked = true;
-      }
+// Ajouter un gestionnaire d'événements pour suivre les modifications
+customCertCheckbox.addEventListener('change', function() {
+  // Vérifier la présence des propriétés avant de permettre à la checkbox d'être décochée
+  if (localStorage.getItem('p12Url') && localStorage.getItem('mobileprovisionUrl') && localStorage.getItem('password')) {
+    // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
+    localStorage.setItem('custom_cert', !customCertCheckbox.checked);
+  } else {
+    // Empêcher le changement d'état de la checkbox s'il manque des propriétés
+    customCertCheckbox.checked = true;
+  }
 
-      displayCertificates(); // Mettre à jour l'affichage des certificats
-    });
+  displayCertificates(); // Mettre à jour l'affichage des certificats
+});
 
-    function saveData() {
-      var p12Url = document.getElementById('p12Url').value;
-      var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
-      var password = document.getElementById('password').value;
+function saveData() {
+  var p12Url = document.getElementById('p12Url').value;
+  var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
+  var password = document.getElementById('password').value;
 
-      // Enregistrement dans le local storage
-      localStorage.setItem('p12Url', p12Url);
-      localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
-      localStorage.setItem('password', password);
+  // Enregistrement dans le local storage
+  localStorage.setItem('p12Url', p12Url);
+  localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
+  localStorage.setItem('password', password);
 
-      // Ajout d'un certificat avec custom_cert à true
-      addCertificateItem();
-      
-      alert('Your custom certificate has been added!');
-      displayCertificates();
-    }
+  // Ajout d'un certificat avec custom_cert à true
+  addCertificateItem();
+
+  alert('Your custom certificate has been added!');
+  displayCertificates();
+}
 
 function displayCertificates() {
   var customCertMessageDiv = document.getElementById('custom_cert');
@@ -131,9 +131,13 @@ function displayCertificates() {
   var customCert = localStorage.getItem('custom_cert') === 'false';
 
   if (customCert) {
-    // If custom_cert is false, add the "disabled" class to the card
-    customCertMessageDiv.style.display = 'block';
-    addCertificateItem(true); // Pass true to indicate that the card should be disabled
+    // If custom_cert is false, check if any certificates are added
+    if (hasCertificates()) {
+      customCertMessageDiv.style.display = 'block';
+      addCertificateItem(true); // Pass true to indicate that the card should be disabled
+    } else {
+      customCertMessageDiv.style.display = 'none';
+    }
   } else {
     // If custom_cert is true, display the card normally
     customCertMessageDiv.style.display = 'none';
@@ -201,8 +205,15 @@ function addCertificateItem(isDisabled) {
 
   customCertContainer.appendChild(cardDiv);
 }
-    // Afficher les certificats lors du chargement de la page
-    displayCertificates();
+
+function hasCertificates() {
+  var customCertContainer = document.getElementById('custom_cert');
+  return customCertContainer && customCertContainer.children.length > 0;
+}
+
+// Afficher les certificats lors du chargement de la page
+displayCertificates();
+
     </script>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
