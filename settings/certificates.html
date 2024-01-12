@@ -138,62 +138,68 @@
       }
     }
 
-    function addCertificateItem() {
-      var customCertContainer = document.getElementById('custom_cert');
+function addCertificateItem() {
+  var customCertContainer = document.getElementById('custom_cert');
 
-      // Vérifier si la carte existe déjà
-      var existingCard = document.getElementById('customCertCard');
-      if (existingCard) {
-        return; // Si la carte existe, ne rien faire
-      }
+  // Vérifier si la carte existe déjà
+  var existingCard = document.getElementById('customCertCard');
+  if (existingCard) {
+    return; // Si la carte existe, ne rien faire
+  }
 
-      // Créer la carte
-      var cardDiv = document.createElement('div');
-      cardDiv.id = 'customCertCard';
-      cardDiv.classList.add('card');
+  // Créer la carte
+  var cardDiv = document.createElement('div');
+  cardDiv.id = 'customCertCard';
+  cardDiv.classList.add('card');
 
-      var cardBodyDiv = document.createElement('div');
-      cardBodyDiv.classList.add('card-body');
+  // Ajouter la classe disabled si custom_cert est false
+  var customCert = localStorage.getItem('custom_cert') === 'false';
+  if (customCert) {
+    cardDiv.classList.add('disabled');
+  }
 
-      var iconImg = document.createElement('img');
-      iconImg.src = 'https://macmule.com/wp-content/uploads/2015/09/Icon_CertificateStandard.png';
-      iconImg.alt = 'Award Icon';
-      iconImg.classList.add('icon-img');
+  var cardBodyDiv = document.createElement('div');
+  cardBodyDiv.classList.add('card-body');
 
-      var cardTextDiv = document.createElement('div');
-      cardTextDiv.classList.add('card-text');
+  var iconImg = document.createElement('img');
+  iconImg.src = 'https://macmule.com/wp-content/uploads/2015/09/Icon_CertificateStandard.png';
+  iconImg.alt = 'Award Icon';
+  iconImg.classList.add('icon-img');
 
-      var h2Element = document.createElement('h2');
-      h2Element.textContent = 'Your Certificate';
+  var cardTextDiv = document.createElement('div');
+  cardTextDiv.classList.add('card-text');
 
-      var pElement = document.createElement('p');
-      pElement.textContent = 'Expires 22 juil. 2024';
+  var h2Element = document.createElement('h2');
+  h2Element.textContent = 'Your Certificate';
 
-      cardTextDiv.appendChild(h2Element);
-      cardTextDiv.appendChild(pElement);
+  var pElement = document.createElement('p');
+  pElement.textContent = 'Expires 22 juil. 2024';
 
-      cardBodyDiv.appendChild(iconImg);
-      cardBodyDiv.appendChild(cardTextDiv);
+  cardTextDiv.appendChild(h2Element);
+  cardTextDiv.appendChild(pElement);
 
-      var cardFooterDiv = document.createElement('div');
-      cardFooterDiv.classList.add('card-footer');
+  cardBodyDiv.appendChild(iconImg);
+  cardBodyDiv.appendChild(cardTextDiv);
 
-      var downloadButton = document.createElement('div');
-      downloadButton.classList.add('button');
-      downloadButton.innerHTML = '<i class="fas fa-download"></i> Download';
+  var cardFooterDiv = document.createElement('div');
+  cardFooterDiv.classList.add('card-footer');
 
-      var unlinkButton = document.createElement('div');
-      unlinkButton.classList.add('button');
-      unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Unlink';
+  var downloadButton = document.createElement('div');
+  downloadButton.classList.add('button');
+  downloadButton.innerHTML = '<i class="fas fa-download"></i> Download';
 
-      cardFooterDiv.appendChild(downloadButton);
-      cardFooterDiv.appendChild(unlinkButton);
+  var unlinkButton = document.createElement('div');
+  unlinkButton.classList.add('button');
+  unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Unlink';
 
-      cardDiv.appendChild(cardBodyDiv);
-      cardDiv.appendChild(cardFooterDiv);
+  cardFooterDiv.appendChild(downloadButton);
+  cardFooterDiv.appendChild(unlinkButton);
 
-      customCertContainer.appendChild(cardDiv);
-    }
+  cardDiv.appendChild(cardBodyDiv);
+  cardDiv.appendChild(cardFooterDiv);
+
+  customCertContainer.appendChild(cardDiv);
+}
 
     // Afficher les certificats lors du chargement de la page
     displayCertificates();
