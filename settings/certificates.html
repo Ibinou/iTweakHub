@@ -79,188 +79,134 @@
 <button id="reset-button">Reset</button>
 </div>
   <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Récupérer la checkbox
-    var customCertCheckbox = document.getElementById('customCertCheckbox');
+// Récupérer la checkbox
+var customCertCheckbox = document.getElementById('customCertCheckbox');
 
-    // Mettre à jour la valeur de custom_cert lors du chargement de la page
-    if (localStorage.getItem('password') === null) {
-        // Si "password" n'est pas présent, la case à cocher est décochée par défaut
-        customCertCheckbox.checked = false;
-        // Ajouter la propriété "custom_cert" au localStorage avec la valeur false
-        localStorage.setItem('custom_cert', false);
+// Mettre à jour la valeur de custom_cert lors du chargement de la page
+if (localStorage.getItem('custom_cert') === null) {
+  // Si "custom_cert" n'est pas présent, la case à cocher est cochée par défaut
+  customCertCheckbox.checked = true;
+  // Ajouter la propriété "custom_cert" au localStorage
+  localStorage.setItem('custom_cert', true);
+} else {
+  // Sinon, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
+  customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false';
+}
+
+// Ajouter un gestionnaire d'événements pour suivre les modifications
+customCertCheckbox.addEventListener('change', function() {
+  // Vérifier la présence des propriétés avant de permettre à la checkbox d'être décochée
+  if (localStorage.getItem('p12Url') && localStorage.getItem('mobileprovisionUrl') && localStorage.getItem('password')) {
+    // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
+    localStorage.setItem('custom_cert', !customCertCheckbox.checked);
+  } else {
+    // Empêcher le changement d'état de la checkbox s'il manque des propriétés
+    customCertCheckbox.checked = true;
+  }
+
+  displayCertificates(); // Mettre à jour l'affichage des certificats
+});
+
+function saveData() {
+  var p12Url = document.getElementById('p12Url').value;
+  var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
+  var password = document.getElementById('password').value;
+
+  // Enregistrement dans le local storage
+  localStorage.setItem('p12Url', p12Url);
+  localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
+  localStorage.setItem('password', password);
+
+  // Ajout d'un certificat avec custom_cert à true
+  addCertificateItem();
+
+  alert('Your custom certificate has been added!');
+  displayCertificates();
+}
+
+function displayCertificates() {
+  var customCertMessageDiv = document.getElementById('custom_cert');
+  customCertMessageDiv.innerHTML = '';
+
+  var customCert = localStorage.getItem('custom_cert') === 'false';
+
+  // Ajouter une vérification de la propriété "password"
+  if (localStorage.getItem('password')) {
+    if (customCert) {
+      // If custom_cert is false, add the "disabled" class to the card
+      customCertMessageDiv.style.display = 'block';
+      addCertificateItem(true); // Pass true to indicate that the card should be disabled
     } else {
-        // Si "password" est présent, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
-        customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false';
+      // If custom_cert is true, display the card normally
+      addCertificateItem(false); // Pass false to indicate that the card should not be disabled
     }
+  }
+}
 
-    // Ajouter un gestionnaire d'événements pour suivre les modifications
-    customCertCheckbox.addEventListener('change', function () {
-        // Vérifier la présence de la propriété "password"
-        if (localStorage.getItem('password')) {
-            // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
-            localStorage.setItem('custom_cert', !customCertCheckbox.checked);
-            displayCertificates(); // Mettre à jour l'affichage des certificats
-        } else {
-            // Empêcher le changement d'état de la checkbox s'il manque la propriété "password"
-            customCertCheckbox.checked = false;
-        }
-    });
+function addCertificateItem(isDisabled) {
+  var customCertContainer = document.getElementById('custom_cert');
 
-    // Fonction pour enregistrer la couleur dans localStorage
-    function setAccentColor(color) {
-        localStorage.setItem('accentColor', color);
-    }
+  // Vérifier si la carte existe déjà
+  var existingCard = document.getElementById('customCertCard');
+  if (existingCard) {
+    return; // Si la carte existe, ne rien faire
+  }
 
-    // Fonction pour récupérer la couleur de localStorage
-    function getAccentColor() {
-        return localStorage.getItem('accentColor');
-    }
+  // Créer la carte
+  var cardDiv = document.createElement('div');
+  cardDiv.id = 'customCertCard';
+  cardDiv.classList.add('card');
 
-    // Fonction pour appliquer la couleur à l'élément souhaité
-    function applyAccentColor() {
-        const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
-        document.documentElement.style.setProperty('--accent-color', accentColor);
-    }
+  if (isDisabled) {
+    cardDiv.classList.add('disabled');
+  }
 
-    // Réinitialiser la couleur à celle par défaut
-    function resetAccentColor() {
-        setAccentColor('#7163FF'); // Couleur de base
-        applyAccentColor();
-    }
+  var cardBodyDiv = document.createElement('div');
+  cardBodyDiv.classList.add('card-body');
 
-    // Écouteur d'événement pour le changement de couleur
-    const colorPicker = document.getElementById('color-picker');
-    colorPicker.addEventListener('change', function () {
-        const color = this.value;
-        setAccentColor(color);
-        applyAccentColor();
-    });
+  var iconImg = document.createElement('img');
+  iconImg.src = 'https://macmule.com/wp-content/uploads/2015/09/Icon_CertificateStandard.png';
+  iconImg.alt = 'Award Icon';
+  iconImg.classList.add('icon-img');
 
-    // Écouteur d'événement pour le bouton de réinitialisation
-    const resetButton = document.getElementById('reset-button');
-    resetButton.addEventListener('click', function () {
-        resetAccentColor();
-    });
+  var cardTextDiv = document.createElement('div');
+  cardTextDiv.classList.add('card-text');
 
-    // Appliquer la couleur lors du chargement de la page
-    applyAccentColor();
+  var h2Element = document.createElement('h2');
+  h2Element.textContent = 'Your Certificate';
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Récupérer l'élément avec la classe "toptitle"
-        var toptitleElement = document.querySelector(".toptitle");
-        var elementElement = document.getElementById("help");
+  var pElement = document.createElement('p');
+  pElement.textContent = 'Expires 22 juil. 2024';
 
-        // Vérifier si l'élément "toptitle" a un padding top de 43px
-        if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
-            // Si oui, changer le margin-top de l'élément "element" à 100px
-            elementElement.style.marginTop = "130px";
-        }
-    });
+  cardTextDiv.appendChild(h2Element);
+  cardTextDiv.appendChild(pElement);
 
-    // Fonction pour sauvegarder les données
-    function saveData() {
-        var p12Url = document.getElementById('p12Url').value;
-        var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
-        var password = document.getElementById('password').value;
+  cardBodyDiv.appendChild(iconImg);
+  cardBodyDiv.appendChild(cardTextDiv);
 
-        // Enregistrement dans le local storage
-        localStorage.setItem('p12Url', p12Url);
-        localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
-        localStorage.setItem('password', password);
+  var cardFooterDiv = document.createElement('div');
+  cardFooterDiv.classList.add('card-footer');
 
-        // Ajout d'un certificat avec custom_cert à true
-        addCertificateItem();
+  var downloadButton = document.createElement('div');
+  downloadButton.classList.add('button');
+  downloadButton.innerHTML = '<i class="fas fa-download"></i> Download';
 
-        alert('Your custom certificate has been added!');
-        displayCertificates();
-    }
+  var unlinkButton = document.createElement('div');
+  unlinkButton.classList.add('button');
+  unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Unlink';
 
-    // Fonction pour afficher les certificats
-    function displayCertificates() {
-        var customCertMessageDiv = document.getElementById('custom_cert');
-        customCertMessageDiv.innerHTML = '';
+  cardFooterDiv.appendChild(downloadButton);
+  cardFooterDiv.appendChild(unlinkButton);
 
-        var customCert = localStorage.getItem('custom_cert') === 'false';
+  cardDiv.appendChild(cardBodyDiv);
+  cardDiv.appendChild(cardFooterDiv);
 
-        // Ajouter une vérification de la propriété "password"
-        if (localStorage.getItem('password')) {
-            if (customCert) {
-                // If custom_cert is false, add the "disabled" class to the card
-                customCertMessageDiv.style.display = 'block';
-                addCertificateItem(true); // Pass true to indicate that the card should be disabled
-            } else {
-                // If custom_cert is true, display the card normally
-                addCertificateItem(false); // Pass false to indicate that the card should not be disabled
-            }
-        }
-    }
+  customCertContainer.appendChild(cardDiv);
+}
 
-    // Fonction pour ajouter un certificat
-    function addCertificateItem(isDisabled) {
-        var customCertContainer = document.getElementById('custom_cert');
 
-        // Vérifier si la carte existe déjà
-        var existingCard = document.getElementById('customCertCard');
-        if (existingCard) {
-            return; // Si la carte existe, ne rien faire
-        }
-
-        // Créer la carte
-        var cardDiv = document.createElement('div');
-        cardDiv.id = 'customCertCard';
-        cardDiv.classList.add('card');
-
-        if (isDisabled) {
-            cardDiv.classList.add('disabled');
-        }
-
-        var cardBodyDiv = document.createElement('div');
-        cardBodyDiv.classList.add('card-body');
-
-        var iconImg = document.createElement('img');
-        iconImg.src = 'https://macmule.com/wp-content/uploads/2015/09/Icon_CertificateStandard.png';
-        iconImg.alt = 'Award Icon';
-        iconImg.classList.add('icon-img');
-
-        var cardTextDiv = document.createElement('div');
-        cardTextDiv.classList.add('card-text');
-
-        var h2Element = document.createElement('h2');
-        h2Element.textContent = 'Your Certificate';
-
-        var pElement = document.createElement('p');
-        pElement.textContent = 'Expires 22 juil. 2024';
-
-        cardTextDiv.appendChild(h2Element);
-        cardTextDiv.appendChild(pElement);
-
-        cardBodyDiv.appendChild(iconImg);
-        cardBodyDiv.appendChild(cardTextDiv);
-
-        var cardFooterDiv = document.createElement('div');
-        cardFooterDiv.classList.add('card-footer');
-
-        var downloadButton = document.createElement('div');
-        downloadButton.classList.add('button');
-        downloadButton.innerHTML = '<i class="fas fa-download"></i> Download';
-
-        var unlinkButton = document.createElement('div');
-        unlinkButton.classList.add('button');
-        unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Unlink';
-
-        cardFooterDiv.appendChild(downloadButton);
-        cardFooterDiv.appendChild(unlinkButton);
-
-        cardDiv.appendChild(cardBodyDiv);
-        cardDiv.appendChild(cardFooterDiv);
-
-        customCertContainer.appendChild(cardDiv);
-    }
-
-    // Afficher les certificats lors du chargement de la page
-    displayCertificates();
-
+// Afficher les certificats lors du chargement de la page
+displayCertificates();
 
     </script>
 <script>
