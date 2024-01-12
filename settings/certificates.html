@@ -47,7 +47,7 @@
 
 		
 <ul class="ioslist">
-<li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
+<li style="border-bottom-width: 0px;">
 <div class="ioslist_icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
 <span>Use community certificate</span>
 <div class="ioslist_opposite" style="transform: translateY(-4px);"><label class="form-switch">
@@ -79,52 +79,65 @@
 <button id="reset-button">Reset</button>
 </div>
   <script>
-        function saveData() {
-            var p12Url = document.getElementById('p12Url').value;
-            var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
-            var password = document.getElementById('password').value;
+    // Récupérer la checkbox
+    var customCertCheckbox = document.getElementById('customCertCheckbox');
 
-            // Enregistrement dans le local storage
-            localStorage.setItem('p12Url', p12Url);
-            localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
-            localStorage.setItem('password', password);
+    // Ajouter un gestionnaire d'événements pour suivre les modifications
+    customCertCheckbox.addEventListener('change', function() {
+      // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox
+      localStorage.setItem('custom_cert', customCertCheckbox.checked);
+      displayCertificates(); // Mettre à jour l'affichage des certificats
+    });
 
-            // Enregistrement du type de certificat
-            localStorage.setItem('custom_cert', true);
+    function saveData() {
+      var p12Url = document.getElementById('p12Url').value;
+      var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
+      var password = document.getElementById('password').value;
 
-            alert('Your custom certificate has been added !');
-            displayCertificates();
-        }
+      // Enregistrement dans le local storage
+      localStorage.setItem('p12Url', p12Url);
+      localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
+      localStorage.setItem('password', password);
 
-        function displayCertificates() {
-            var certificateListDiv = document.getElementById('certificateList');
-            var customCertMessageDiv = document.getElementById('customCertMessage');
-            certificateListDiv.innerHTML = '';
+      // Enregistrement du type de certificat
+      localStorage.setItem('custom_cert', customCertCheckbox.checked);
 
-            var customCert = localStorage.getItem('custom_cert') === 'true';
+      alert('Your custom certificate has been added!');
+      displayCertificates();
+    }
 
-            if (customCert) {
-                customCertMessageDiv.style.display = 'block';
-                addCertificateItem('Cutom certificate');
-            } else {
-                customCertMessageDiv.style.display = 'none';
-            }
-        }
+    function displayCertificates() {
+      var certificateListDiv = document.getElementById('certificateList');
+      var customCertMessageDiv = document.getElementById('customCertMessage');
+      certificateListDiv.innerHTML = '';
 
-        function addCertificateItem(certificateType) {
-            var certificateListDiv = document.getElementById('certificateList');
-            var certificateItemDiv = document.createElement('div');
-            certificateItemDiv.classList.add('certificate-item');
+      var customCert = localStorage.getItem('custom_cert') === 'true';
 
-            var label = document.createElement('label');
-            label.textContent = certificateType;
+      if (customCert) {
+        customCertMessageDiv.style.display = 'block';
+        addCertificateItem('Custom certificate');
+      } else {
+        customCertMessageDiv.style.display = 'none';
+      }
+    }
 
-            certificateItemDiv.appendChild(label);
-            certificateListDiv.appendChild(certificateItemDiv);
-        }
+    function addCertificateItem(certificateType) {
+      var certificateListDiv = document.getElementById('certificateList');
+      var certificateItemDiv = document.createElement('div');
+      certificateItemDiv.classList.add('certificate-item');
 
-        // Afficher les certificats lors du chargement de la page
-        displayCertificates();
+      var label = document.createElement('label');
+      label.textContent = certificateType;
+
+      certificateItemDiv.appendChild(label);
+      certificateListDiv.appendChild(certificateItemDiv);
+    }
+
+    // Afficher les certificats lors du chargement de la page
+    displayCertificates();
+
+    // Initialiser l'état de la checkbox en fonction de la valeur de custom_cert
+    customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'true';
     </script>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
