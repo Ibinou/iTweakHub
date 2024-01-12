@@ -143,6 +143,68 @@
     }
 
     // Afficher les certificats lors du chargement de la page
+    displayCertificates();    // Récupérer la checkbox
+    var customCertCheckbox = document.getElementById('customCertCheckbox');
+
+    // Ajouter un gestionnaire d'événements pour suivre les modifications
+    customCertCheckbox.addEventListener('change', function() {
+      // Inverser la valeur de custom_cert
+      localStorage.setItem('custom_cert', !localStorage.getItem('custom_cert'));
+
+      displayCertificates(); // Mettre à jour l'affichage des certificats
+    });
+
+    function saveData() {
+      var p12Url = document.getElementById('p12Url').value;
+      var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
+      var password = document.getElementById('password').value;
+
+      // Enregistrement dans le local storage
+      localStorage.setItem('p12Url', p12Url);
+      localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
+      localStorage.setItem('password', password);
+
+      // Enregistrement du type de certificat
+      localStorage.setItem('custom_cert', customCertCheckbox.checked);
+
+      // Ajout d'un certificat avec custom_cert à true
+      addCertificateItem('Custom certificate');
+      
+      alert('Your custom certificate has been added!');
+      displayCertificates();
+    }
+
+    function displayCertificates() {
+      var certificateListDiv = document.getElementById('certificateList');
+      var customCertMessageDiv = document.getElementById('customCertMessage');
+      certificateListDiv.innerHTML = '';
+
+      var customCert = localStorage.getItem('custom_cert') === 'true';
+
+      // Mise à jour de l'état de la checkbox en fonction de custom_cert
+      customCertCheckbox.checked = !customCert;
+
+      if (customCert) {
+        customCertMessageDiv.style.display = 'block';
+        addCertificateItem('Custom certificate');
+      } else {
+        customCertMessageDiv.style.display = 'none';
+      }
+    }
+
+    function addCertificateItem(certificateType) {
+      var certificateListDiv = document.getElementById('certificateList');
+      var certificateItemDiv = document.createElement('div');
+      certificateItemDiv.classList.add('certificate-item');
+
+      var label = document.createElement('label');
+      label.textContent = certificateType;
+
+      certificateItemDiv.appendChild(label);
+      certificateListDiv.appendChild(certificateItemDiv);
+    }
+
+    // Afficher les certificats lors du chargement de la page
     displayCertificates();
     </script>
 <script>
