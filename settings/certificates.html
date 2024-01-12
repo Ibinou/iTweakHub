@@ -99,8 +99,8 @@
       localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
       localStorage.setItem('password', password);
 
-      // Enregistrement du type de certificat
-      localStorage.setItem('custom_cert', customCertCheckbox.checked);
+      // Enregistrement du type de certificat (inverse de l'état de la checkbox)
+      localStorage.setItem('custom_cert', !customCertCheckbox.checked);
 
       alert('Your custom certificate has been added!');
       displayCertificates();
@@ -135,9 +135,6 @@
 
     // Afficher les certificats lors du chargement de la page
     displayCertificates();
-
-    // Initialiser l'état de la checkbox en fonction de la valeur de custom_cert
-    customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'true';
     </script>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
