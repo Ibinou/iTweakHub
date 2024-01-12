@@ -1822,3 +1822,39 @@ a > button {
 .form-switch input:checked + i { background-color: #4BD763; }
 .form-switch input:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
 .form-switch input:checked + i::after { transform: translate3d(22px, 2px, 0); }
+
+.card {
+    background-color: #004400; 
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    width: 300px;  
+    display: flex;
+    flex-direction: column; 
+  }
+  .card-body {
+    display: flex;
+    align-items: center;
+  }
+  .card-text {
+    margin-left: 10px;  
+  }
+  .card-footer {
+    margin-top: 20px; 
+    display: flex;
+    justify-content: space-between;
+  }
+  .button {
+    background-color: #003300; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    text-align: center;
+    cursor: pointer; 
+  }
+  .icon-img {
+    width: 50px; 
+  }
+ 
+  .button:hover {
+    opacity: 0.8;
+  }
