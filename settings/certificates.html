@@ -124,21 +124,24 @@
       displayCertificates();
     }
 
-    function displayCertificates() {
-      var customCertMessageDiv = document.getElementById('custom_cert');
-      customCertMessageDiv.innerHTML = '';
+function displayCertificates() {
+  var customCertMessageDiv = document.getElementById('custom_cert');
+  customCertMessageDiv.innerHTML = '';
 
-      var customCert = localStorage.getItem('custom_cert') === 'false';
+  var customCert = localStorage.getItem('custom_cert') === 'false';
 
-      if (customCert) {
-        customCertMessageDiv.style.display = 'block';
-        addCertificateItem();
-      } else {
-        customCertMessageDiv.style.display = 'none';
-      }
-    }
+  if (customCert) {
+    // If custom_cert is false, add the "disabled" class to the card
+    customCertMessageDiv.style.display = 'block';
+    addCertificateItem(true); // Pass true to indicate that the card should be disabled
+  } else {
+    // If custom_cert is true, display the card normally
+    customCertMessageDiv.style.display = 'none';
+    addCertificateItem(false); // Pass false to indicate that the card should not be disabled
+  }
+}
 
-function addCertificateItem() {
+function addCertificateItem(isDisabled) {
   var customCertContainer = document.getElementById('custom_cert');
 
   // Vérifier si la carte existe déjà
@@ -152,10 +155,7 @@ function addCertificateItem() {
   cardDiv.id = 'customCertCard';
   cardDiv.classList.add('card');
 
-  var customCert = localStorage.getItem('custom_cert') === 'false';
-
-  // Ajouter la classe "disabled" si custom_cert est false
-  if (customCert) {
+  if (isDisabled) {
     cardDiv.classList.add('disabled');
   }
 
