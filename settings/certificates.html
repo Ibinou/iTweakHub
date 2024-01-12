@@ -118,6 +118,9 @@
 
       var customCert = localStorage.getItem('custom_cert') === 'true';
 
+      // Mise à jour de l'état de la checkbox en fonction de custom_cert
+      customCertCheckbox.checked = !customCert;
+
       if (customCert) {
         customCertMessageDiv.style.display = 'block';
         addCertificateItem('Custom certificate');
