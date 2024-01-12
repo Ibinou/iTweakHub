@@ -154,7 +154,7 @@ function addCertificateItem() {
 
   // Ajouter la classe disabled si custom_cert est false
   var customCert = localStorage.getItem('custom_cert') === 'false';
-  if (customCert) {
+  if (!customCert) {
     cardDiv.classList.add('disabled');
   }
 
