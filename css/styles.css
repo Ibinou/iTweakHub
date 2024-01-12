@@ -1867,3 +1867,8 @@ a > button {
     margin: 5px;
   font-size:15px
 }
+  .card.disabled {
+    filter: grayscale(100%);
+    pointer-events: none;
+    opacity: 61%;
+  }
