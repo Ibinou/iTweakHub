@@ -85,12 +85,12 @@
     var customCertCheckbox = document.getElementById('customCertCheckbox');
 
     // Mettre à jour la valeur de custom_cert lors du chargement de la page
-    customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'true';
+    customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false';
 
     // Ajouter un gestionnaire d'événements pour suivre les modifications
     customCertCheckbox.addEventListener('change', function() {
-      // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox
-      localStorage.setItem('custom_cert', customCertCheckbox.checked);
+      // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
+      localStorage.setItem('custom_cert', !customCertCheckbox.checked);
 
       displayCertificates(); // Mettre à jour l'affichage des certificats
     });
@@ -117,7 +117,7 @@
       var customCertMessageDiv = document.getElementById('customCertMessage');
       certificateListDiv.innerHTML = '';
 
-      var customCert = localStorage.getItem('custom_cert') === 'true';
+      var customCert = localStorage.getItem('custom_cert') === 'false';
 
       if (customCert) {
         customCertMessageDiv.style.display = 'block';
