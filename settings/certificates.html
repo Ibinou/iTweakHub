@@ -86,13 +86,8 @@
 
     // Ajouter un gestionnaire d'événements pour suivre les modifications
     customCertCheckbox.addEventListener('change', function() {
-      // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox
-      localStorage.setItem('custom_cert', customCertCheckbox.checked);
-
-      // Inverser la valeur de custom_cert si la checkbox est cochée
-      if (customCertCheckbox.checked) {
-        localStorage.setItem('custom_cert', !localStorage.getItem('custom_cert'));
-      }
+      // Inverser la valeur de custom_cert
+      localStorage.setItem('custom_cert', !localStorage.getItem('custom_cert'));
 
       displayCertificates(); // Mettre à jour l'affichage des certificats
     });
