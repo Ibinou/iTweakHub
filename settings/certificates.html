@@ -88,6 +88,8 @@
     if (localStorage.getItem('custom_cert') === null) {
       // Si "custom_cert" n'est pas présent, la case à cocher est cochée par défaut
       customCertCheckbox.checked = true;
+      // Ajouter la propriété "custom_cert" au localStorage
+      localStorage.setItem('custom_cert', true);
     } else {
       // Sinon, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
       customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false';
