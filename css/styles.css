@@ -1830,6 +1830,7 @@ a > button {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   .card-body {
     display: flex;
