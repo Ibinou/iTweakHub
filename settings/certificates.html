@@ -46,16 +46,18 @@
         <div class="custom-cert-message" id="customCertMessage">Custom cert added !</div>
 
 		
-<ul class="ioslist">
-<li style="border-bottom-width: 0px;">
-<div class="ioslist_icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
-<span>Use community certificate</span>
-<div class="ioslist_opposite" style="transform: translateY(-4px);"><label class="form-switch">
-  <input type="checkbox">
-  <i></i>
-</label></i></div>
-</li>
-</ul>
+  <ul class="ioslist">
+    <li style="border-bottom-width: 0px;">
+      <div class="ioslist_icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+      <span>Use community certificate</span>
+      <div class="ioslist_opposite" style="transform: translateY(-4px);">
+        <label class="form-switch">
+          <input type="checkbox" id="customCertCheckbox" checked>
+          <i></i>
+        </label>
+      </div>
+    </li>
+  </ul>
 	
     <form id="myForm" class="cert_form">
         <label for="p12Url" class="cert_label">P12 URL file:</label>
@@ -99,9 +101,12 @@
       localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
       localStorage.setItem('password', password);
 
-      // Enregistrement du type de certificat (inverse de l'état de la checkbox)
-      localStorage.setItem('custom_cert', !customCertCheckbox.checked);
+      // Enregistrement du type de certificat
+      localStorage.setItem('custom_cert', customCertCheckbox.checked);
 
+      // Ajout d'un certificat avec custom_cert à true
+      addCertificateItem('Custom certificate');
+      
       alert('Your custom certificate has been added!');
       displayCertificates();
     }
