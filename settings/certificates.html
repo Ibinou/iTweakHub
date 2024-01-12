@@ -125,21 +125,30 @@ function saveData() {
 }
 
 function displayCertificates() {
-  var customCertContainer = document.getElementById('custom_cert');
-  customCertContainer.innerHTML = '';
+  var customCertMessageDiv = document.getElementById('custom_cert');
+  customCertMessageDiv.innerHTML = '';
 
   var customCert = localStorage.getItem('custom_cert') === 'false';
 
   if (customCert) {
-    // If custom_cert is false, check if any certificates are added
-    if (hasCertificates()) {
-      addCertificateItem(true); // Pass true to indicate that the card should be disabled
-    }
+    // If custom_cert is false, add the "disabled" class to the card
+    customCertMessageDiv.style.display = 'block';
+    addCertificateItem(true); // Pass true to indicate that the card should be disabled
+  } else {
+    // If custom_cert is true, display the card normally
+    customCertMessageDiv.style.display = 'none';
+    addCertificateItem(false); // Pass false to indicate that the card should not be disabled
   }
 }
 
 function addCertificateItem(isDisabled) {
   var customCertContainer = document.getElementById('custom_cert');
+
+  // Vérifier si la carte existe déjà
+  var existingCard = document.getElementById('customCertCard');
+  if (existingCard) {
+    return; // Si la carte existe, ne rien faire
+  }
 
   // Créer la carte
   var cardDiv = document.createElement('div');
@@ -193,10 +202,6 @@ function addCertificateItem(isDisabled) {
   customCertContainer.appendChild(cardDiv);
 }
 
-function hasCertificates() {
-  var customCertContainer = document.getElementById('custom_cert');
-  return customCertContainer.children.length > 0;
-}
 
 // Afficher les certificats lors du chargement de la page
 displayCertificates();
