@@ -1824,13 +1824,12 @@ a > button {
 .form-switch input:checked + i::after { transform: translate3d(22px, 2px, 0); }
 
 .card {
-    background-color: #004400; 
+    background-color: #7163ff73;
     border-radius: 20px;
     color: white;
     padding: 20px;
-    width: 300px;  
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
   }
   .card-body {
     display: flex;
@@ -1840,16 +1839,17 @@ a > button {
     margin-left: 10px;  
   }
   .card-footer {
-    margin-top: 20px; 
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
   }
   .button {
-    background-color: #003300; 
-    padding: 10px 20px; 
-    border-radius: 5px; 
+    background-color: #7163ff73;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-align: center;
-    cursor: pointer; 
+    cursor: pointer;
+    width: 149px;
   }
   .icon-img {
     width: 50px; 
@@ -1858,3 +1858,12 @@ a > button {
   .button:hover {
     opacity: 0.8;
   }
+
+.card-text h2  {
+    margin: 5px;
+  font-size: 20px;
+}
+.card-text p  {
+    margin: 5px;
+  font-size:15px
+}
