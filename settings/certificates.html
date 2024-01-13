@@ -115,13 +115,16 @@ customCertCheckbox.addEventListener('change', function () {
 // Ajouter un gestionnaire d'événements pour la touche "Delete"
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Delete') {
-    // Supprimer les propriétés du localStorage
-    localStorage.removeItem('password');
-    localStorage.removeItem('p12Url');
-    localStorage.removeItem('mobileprovisionUrl');
+    // Vérifier si la propriété 'p12Url' existe dans le localStorage
+    if (localStorage.getItem('p12Url')) {
+      // Supprimer les propriétés du localStorage
+      localStorage.removeItem('password');
+      localStorage.removeItem('p12Url');
+      localStorage.removeItem('mobileprovisionUrl');
+    }
 
-    // Mettre à jour la valeur de custom_cert à false
-    localStorage.setItem('custom_cert', 'false');
+    // Mettre à jour la valeur de custom_cert à false si 'p12Url' n'est pas présent
+    localStorage.setItem('custom_cert', localStorage.getItem('p12Url') ? 'true' : 'false');
 
     // Recharger la page
     location.reload();
