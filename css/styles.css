@@ -1564,7 +1564,7 @@ a > button {
     margin-top: 10px;
 }
 
-       .cert_form {
+        .cert_form {
             display: none; /* Hide the form by default */
             opacity: 0; /* Set initial opacity to 0 */
             transition: opacity 0.5s ease; /* Add transition for opacity */
@@ -1572,11 +1572,13 @@ a > button {
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 108px;
             backdrop-filter: blur(10px);
             z-index: 999999999;
             position: fixed;
             width: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .cert_form.show {
