@@ -146,6 +146,9 @@ function displayCertificates() {
       customCertMessageDiv.style.display = 'block';
       addCertificateItem(true); // Passer true pour indiquer que la carte doit être désactivée
     }
+  } else {
+    // Ajoutez une gestion pour le cas où la propriété "password" est absente
+    customCertMessageDiv.style.display = 'none';
   }
 }
 
