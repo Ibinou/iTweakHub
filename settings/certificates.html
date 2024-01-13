@@ -81,93 +81,6 @@
 <button id="reset-button">Reset</button>
 </div>
   <script>
-// Récupérer la checkbox
-var customCertCheckbox = document.getElementById('customCertCheckbox');
-
-// Mettre à jour la valeur de custom_cert lors du chargement de la page
-if (localStorage.getItem('custom_cert') === null) {
-  // Si "custom_cert" n'est pas présent, la case à cocher est cochée par défaut
-  customCertCheckbox.checked = true;
-  // Ajouter la propriété "custom_cert" au localStorage
-  localStorage.setItem('custom_cert', true); // Mettez 'false' à 'true'
-} else {
-  // Sinon, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
-  customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false'; // Inverser 'false' à 'true'
-}
-
-// Appelez displayCertificates() après avoir configuré l'état initial de la case à cocher
-displayCertificates();
-
-// Ajouter un gestionnaire d'événements pour suivre les modifications
-customCertCheckbox.addEventListener('change', function () {
-  // Vérifier la présence des propriétés avant de permettre à la checkbox d'être décochée
-  if (localStorage.getItem('p12Url') && localStorage.getItem('mobileprovisionUrl') && localStorage.getItem('password')) {
-    // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
-    localStorage.setItem('custom_cert', !customCertCheckbox.checked);
-  } else {
-    // Empêcher le changement d'état de la checkbox s'il manque des propriétés
-    customCertCheckbox.checked = true;
-  }
-
-  displayCertificates(); // Mettre à jour l'affichage des certificats
-});
-
-// Ajouter un gestionnaire d'événements pour la touche "Delete"
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Delete') {
-    // Supprimer les propriétés du localStorage
-    localStorage.removeItem('password');
-    localStorage.removeItem('p12Url');
-    localStorage.removeItem('mobileprovisionUrl');
-
-    // Recharger la page
-    location.reload();
-  }
-});
-
-function saveData() {
-  var p12Url = document.getElementById('p12Url').value;
-  var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
-  var password = document.getElementById('password').value;
-
-  // Enregistrement dans le local storage
-  localStorage.setItem('p12Url', p12Url);
-  localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
-  localStorage.setItem('password', password);
-
-  // Ajout d'un certificat avec custom_cert à true
-  addCertificateItem();
-
-  alert('Your custom certificate has been added!');
-  displayCertificates();
-
-  // Recharger la page
-  location.reload();
-}
-
-function displayCertificates() {
-  var customCertMessageDiv = document.getElementById('custom_cert');
-  customCertMessageDiv.innerHTML = '';
-
-  // Récupérer la valeur actuelle de custom_cert dans le localStorage
-  var customCert = localStorage.getItem('custom_cert') === 'true';
-
-  // Ajouter une vérification de la propriété "password"
-  if (localStorage.getItem('password')) {
-    if (customCert) {
-      // Si custom_cert est true, afficher la carte normalement
-      addCertificateItem(false); // Passer false pour indiquer que la carte ne doit pas être désactivée
-    } else {
-      // Si custom_cert est false, ajouter la classe "disabled" à la div de message
-      customCertMessageDiv.style.display = 'block';
-      addCertificateItem(true); // Passer true pour indiquer que la carte doit être désactivée
-    }
-  } else {
-    // Ajoutez une gestion pour le cas où la propriété "password" est absente
-    customCertMessageDiv.style.display = 'none';
-  }
-}
-
 function addCertificateItem(isDisabled) {
   var customCertContainer = document.getElementById('custom_cert');
 
@@ -223,6 +136,9 @@ function addCertificateItem(isDisabled) {
     localStorage.removeItem('p12Url');
     localStorage.removeItem('mobileprovisionUrl');
 
+    // Mettre à jour la valeur de custom_cert à false
+    localStorage.setItem('custom_cert', 'false');
+
     // Recharger la page
     location.reload();
   });
@@ -234,7 +150,6 @@ function addCertificateItem(isDisabled) {
 
   customCertContainer.appendChild(cardDiv);
 }
-
 
 function toggleForm() {
     var certForm = document.getElementById("myForm");
