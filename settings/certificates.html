@@ -53,11 +53,7 @@
     <a style="text-decoration: none" href="settings.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
     <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
     </div>
-
-<p id="help" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 100px;">Custom certificate</p>	
-<i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" onclick="toggleForm()"></i>
-
-		
+	
   <ul class="ioslist">
     <li style="border-bottom-width: 0px;">
       <div class="ioslist_icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
@@ -71,10 +67,12 @@
     </li>
   </ul>
 	
-
+<p id="help" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 100px;">Custom certificate</p>	
+<i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" onclick="toggleForm()"></i>
+	
 <div id="custom_cert"></div>	
+	
 <div class="gradient-div"></div>
-
 
 <div class="hidecolor">  
 <input type="color" id="color-picker">
@@ -127,6 +125,9 @@ function saveData() {
 
   alert('Your custom certificate has been added!');
   displayCertificates();
+
+  // Recharger la page
+  location.reload();
 }
 
 function displayCertificates() {
