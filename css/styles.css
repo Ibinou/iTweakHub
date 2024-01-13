@@ -1572,7 +1572,8 @@ a > button {
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 999999999;
             position: fixed;
             width: 300px;
@@ -1833,7 +1834,7 @@ a > button {
 }
 .form-switch:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
 .form-switch input { display: none; }
-.form-switch input:checked + i { background-color: #4BD763; }
+.form-switch input:checked + i { background-color: #66CC64; }
 .form-switch input:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
 .form-switch input:checked + i::after { transform: translate3d(22px, 2px, 0); }
 
