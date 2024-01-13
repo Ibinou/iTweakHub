@@ -99,7 +99,7 @@ if (localStorage.getItem('custom_cert') === null) {
 displayCertificates();
 
 // Ajouter un gestionnaire d'événements pour suivre les modifications
-customCertCheckbox.addEventListener('change', function() {
+customCertCheckbox.addEventListener('change', function () {
   // Vérifier la présence des propriétés avant de permettre à la checkbox d'être décochée
   if (localStorage.getItem('p12Url') && localStorage.getItem('mobileprovisionUrl') && localStorage.getItem('password')) {
     // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
@@ -110,6 +110,19 @@ customCertCheckbox.addEventListener('change', function() {
   }
 
   displayCertificates(); // Mettre à jour l'affichage des certificats
+});
+
+// Ajouter un gestionnaire d'événements pour la touche "Delete"
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Delete') {
+    // Supprimer les propriétés du localStorage
+    localStorage.removeItem('password');
+    localStorage.removeItem('p12Url');
+    localStorage.removeItem('mobileprovisionUrl');
+
+    // Recharger la page
+    location.reload();
+  }
 });
 
 function saveData() {
@@ -199,15 +212,10 @@ function addCertificateItem(isDisabled) {
   var cardFooterDiv = document.createElement('div');
   cardFooterDiv.classList.add('card-footer');
 
-  var downloadButton = document.createElement('div');
-  downloadButton.classList.add('button');
-  downloadButton.innerHTML = '<i class="fas fa-download"></i> Download';
-
   var unlinkButton = document.createElement('div');
   unlinkButton.classList.add('button');
-  unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Unlink';
+  unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Delete';
 
-  cardFooterDiv.appendChild(downloadButton);
   cardFooterDiv.appendChild(unlinkButton);
 
   cardDiv.appendChild(cardBodyDiv);
