@@ -1887,3 +1887,11 @@ a > button {
     pointer-events: none;
     opacity: 61%;
   }
+#help {
+    margin-top: 130px;
+    background-color: #1c1c1c;
+    border-radius: 16px;
+    padding: 18px;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
