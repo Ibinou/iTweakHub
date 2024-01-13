@@ -216,6 +216,17 @@ function addCertificateItem(isDisabled) {
   unlinkButton.classList.add('button');
   unlinkButton.innerHTML = '<i class="fas fa-unlink"></i> Delete';
 
+  // Ajouter un gestionnaire d'événements pour le clic sur le bouton de suppression
+  unlinkButton.addEventListener('click', function () {
+    // Supprimer les propriétés du localStorage
+    localStorage.removeItem('password');
+    localStorage.removeItem('p12Url');
+    localStorage.removeItem('mobileprovisionUrl');
+
+    // Recharger la page
+    location.reload();
+  });
+
   cardFooterDiv.appendChild(unlinkButton);
 
   cardDiv.appendChild(cardBodyDiv);
