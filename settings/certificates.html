@@ -207,10 +207,15 @@ function addCertificateItem(isDisabled) {
 
 // Afficher les certificats lors du chargement de la page
 displayCertificates();
-
+	  
 function toggleForm() {
-    var certForm = document.getElementById("myForm");
-    certForm.classList.toggle("show");
+  var certForm = document.getElementById("myForm");
+  var contentElement = document.querySelector(".content");
+
+  certForm.classList.toggle("show");
+            
+   // Toggle opacity of the content based on the presence of .show class
+    contentElement.style.opacity = certForm.classList.contains("show") ? 0.5 : 1;
 }
     </script>
 <script>
