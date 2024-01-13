@@ -1565,9 +1565,9 @@ a > button {
 }
 
         .cert_form {
-            display: none; /* Hide the form by default */
-            opacity: 0; /* Set initial opacity to 0 */
-            transition: opacity 0.5s ease; /* Add transition for opacity */
+            visibility: hidden; /* Initial visibility set to hidden */
+            opacity: 0;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
             background-color: #1c1c1c96;
             padding: 20px;
             border-radius: 8px;
@@ -1581,10 +1581,10 @@ a > button {
             transform: translate(-50%, -50%);
         }
 
-        .cert_form.show {
-            display: block;
-            opacity: 1;
-        }
+.cert_form.show {
+    visibility: visible; /* Show the form */
+    opacity: 1;
+}
 
         .cert_label {
             display: block;
