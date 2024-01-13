@@ -1856,8 +1856,6 @@ a > button {
   }
   .card-footer {
     margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
   }
   .button {
     background-color: #7163ff73;
@@ -1865,7 +1863,6 @@ a > button {
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
-    width: 149px;
   }
   .icon-img {
     width: 50px; 
