@@ -1564,39 +1564,51 @@ a > button {
     margin-top: 10px;
 }
 
-.cert_form {
-    background-color: #1c1c1c;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 108px;
-}
+       .cert_form {
+            display: none; /* Hide the form by default */
+            opacity: 0; /* Set initial opacity to 0 */
+            transition: opacity 0.5s ease; /* Add transition for opacity */
+            background-color: #1c1c1c96;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 108px;
+            backdrop-filter: blur(10px);
+            z-index: 999999999;
+            position: fixed;
+            width: 300px;
+        }
 
-.cert_label {
-   display: block;
-   margin-bottom: 8px;
-}
+        .cert_form.show {
+            display: block;
+            opacity: 1;
+        }
 
-.cert_input {
-    width: 100%;
-    padding: 11px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border-radius: 9px;
-    border: none;
-    background-color: #454545;
-    color: white;
-}
+        .cert_label {
+            display: block;
+            margin-bottom: 8px;
+        }
 
-.add_cert {
-    background-color: #ffffff;
-    color: #000;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 11px;
-    cursor: pointer;
-    font-weight: 600;
-}
+        .cert_input {
+            width: 100%;
+            padding: 11px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border-radius: 9px;
+            border: none;
+            background-color: #454545;
+            color: white;
+        }
+
+        .add_cert {
+            background-color: #ffffff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 11px;
+            cursor: pointer;
+            font-weight: 600;
+        }
 .bottom-choices-color {
   display: flex;
   flex-direction: column;
