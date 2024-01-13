@@ -133,17 +133,18 @@ function displayCertificates() {
   var customCertMessageDiv = document.getElementById('custom_cert');
   customCertMessageDiv.innerHTML = '';
 
-  var customCert = localStorage.getItem('custom_cert') === 'false';
+  // Récupérer la valeur actuelle de custom_cert dans le localStorage
+  var customCert = localStorage.getItem('custom_cert') === 'true';
 
   // Ajouter une vérification de la propriété "password"
   if (localStorage.getItem('password')) {
-    if (customCert) {
-      // If custom_cert is false, add the "disabled" class to the card
+    if (!customCert) {
+      // Si custom_cert est false, ajouter la classe "disabled" à la div de message
       customCertMessageDiv.style.display = 'block';
-      addCertificateItem(true); // Pass true to indicate that the card should be disabled
+      addCertificateItem(true); // Passer true pour indiquer que la carte doit être désactivée
     } else {
-      // If custom_cert is true, display the card normally
-      addCertificateItem(false); // Pass false to indicate that the card should not be disabled
+      // Si custom_cert est true, afficher la carte normalement
+      addCertificateItem(false); // Passer false pour indiquer que la carte ne doit pas être désactivée
     }
   }
 }
