@@ -32,7 +32,21 @@
   <a href=".../appsmanager.html">Apps Manager</a>
   <a href=".../search.html">Search</a>
 </div>
-   
+	
+     <form id="myForm" class="cert_form">
+        <label for="p12Url" class="cert_label">P12 URL file:</label>
+        <input type="url" id="p12Url" class="cert_input" required>
+
+        <label for="mobileprovisionUrl" class="cert_label">Mobileprovision URL file:</label>
+        <input type="url" id="mobileprovisionUrl" class="cert_input" required>
+
+        <label for="password" class="cert_label">Password:</label>
+        <input type="password" id="password" class="cert_input" required>
+
+        <button type="button" onclick="saveData()" class="add_cert">Add this certificate</button>
+
+    </form>  
+	
 <div class="content">
    
       <div class="toptitle">	
@@ -57,19 +71,7 @@
     </li>
   </ul>
 	
-    <form id="myForm" class="cert_form">
-        <label for="p12Url" class="cert_label">P12 URL file:</label>
-        <input type="url" id="p12Url" class="cert_input" required>
 
-        <label for="mobileprovisionUrl" class="cert_label">Mobileprovision URL file:</label>
-        <input type="url" id="mobileprovisionUrl" class="cert_input" required>
-
-        <label for="password" class="cert_label">Password:</label>
-        <input type="password" id="password" class="cert_input" required>
-
-        <button type="button" onclick="saveData()" class="add_cert">Add this certificate</button>
-
-    </form>
 <div id="custom_cert"></div>	
 <div class="gradient-div"></div>
 
