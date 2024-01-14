@@ -270,15 +270,23 @@ function cancelForm() {
     // Rétablit l'opacité de la contentDiv
     contentDiv.style.opacity = '1';
 }
-// Vérifier si la propriété "p12Url" est absente dans le localStorage
-if (!localStorage.getItem("p12Url")) {
+// Vérifier si la propriété "p12Url" est présente dans le localStorage
+if (localStorage.getItem("p12Url")) {
+    // La propriété "p12Url" est présente, masquer la div avec l'id "no-cert"
+    var noCertDiv = document.getElementById("no-cert");
+    if (noCertDiv) {
+        noCertDiv.style.display = "none";
+        console.log("La propriété 'p12Url' est présente dans le localStorage. Masquage de la div 'no-cert'.");
+    } else {
+        console.error("La div avec l'id 'no-cert' n'a pas été trouvée.");
+    }
+} else {
     // La propriété "p12Url" n'est pas présente, afficher la div avec l'id "no-cert"
     var noCertDiv = document.getElementById("no-cert");
     if (noCertDiv) {
         noCertDiv.style.display = "block";
         console.log("La propriété 'p12Url' n'est pas présente dans le localStorage. Affichage de la div 'no-cert'.");
     } else {
-	noCertDiv.style.display = "none";
         console.error("La div avec l'id 'no-cert' n'a pas été trouvée.");
     }
 }
