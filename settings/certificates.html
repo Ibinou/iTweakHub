@@ -282,12 +282,12 @@ if (localStorage.getItem("p12Url")) {
     }
 } else {
     // La propriété "p12Url" n'est pas présente, afficher la div avec l'id "no-cert"
-    var noCertDiv = document.getElementById("no-cert");
+    var noCertDiv = document.getElementById("no_cert");
     if (noCertDiv) {
         noCertDiv.style.display = "block";
-        console.log("La propriété 'p12Url' n'est pas présente dans le localStorage. Affichage de la div 'no-cert'.");
+        console.log("La propriété 'p12Url' n'est pas présente dans le localStorage. Affichage de la div 'no_cert'.");
     } else {
-        console.error("La div avec l'id 'no-cert' n'a pas été trouvée.");
+        console.error("La div avec l'id 'no_cert' n'a pas été trouvée.");
     }
 }
     </script>
