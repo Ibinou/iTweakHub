@@ -258,9 +258,16 @@ function toggleForm() {
         certForm.style.visibility = certForm.classList.contains("show") ? "visible" : "hidden";
     }, 100);
 }
-    function cancelForm() {
-        document.getElementById('myForm').classList.remove('show');
-    }
+function cancelForm() {
+    var certForm = document.getElementById('myForm');
+    var contentDiv = document.querySelector('.content');
+
+    // Retire la classe 'show' de la certForm
+    certForm.classList.remove('show');
+
+    // Rétablit l'opacité de la contentDiv
+    contentDiv.style.opacity = '1';
+}
     </script>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
