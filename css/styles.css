@@ -1893,3 +1893,10 @@ a > button {
     font-size: 15px;
     margin-bottom: 25px;
 }
+#no_cert {
+    display: none; 
+    text-align: center;
+    color: #ffffff91;
+    font-size: 16px;
+    margin-top: 50px;
+}
