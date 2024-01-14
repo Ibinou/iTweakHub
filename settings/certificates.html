@@ -156,7 +156,7 @@ function saveData() {
 
 function displayCertificates() {
   var customCertMessageDiv = document.getElementById('custom_cert');
-  customCertMessageDiv.innerHTML = '';
+  var noCertDiv = document.getElementById('no_cert');
 
   // Récupérer la valeur actuelle de custom_cert dans le localStorage
   var customCert = localStorage.getItem('custom_cert') === 'true';
@@ -165,15 +165,19 @@ function displayCertificates() {
   if (localStorage.getItem('password')) {
     if (customCert) {
       // Si custom_cert est true, afficher la carte normalement
+      customCertMessageDiv.style.display = 'block';
+      noCertDiv.style.display = 'none';
       addCertificateItem(false); // Passer false pour indiquer que la carte ne doit pas être désactivée
     } else {
       // Si custom_cert est false, ajouter la classe "disabled" à la div de message
-      customCertMessageDiv.style.display = 'block';
+      customCertMessageDiv.style.display = 'none';
+      noCertDiv.style.display = 'none';
       addCertificateItem(true); // Passer true pour indiquer que la carte doit être désactivée
     }
   } else {
     // Ajoutez une gestion pour le cas où la propriété "password" est absente
     customCertMessageDiv.style.display = 'none';
+    noCertDiv.style.display = 'block';
   }
 }
 
