@@ -75,16 +75,6 @@
             "compatibility": "iOS 13 +"
         },
         {
-            "name": "iCreate Pro",
-            "version": "5.5.0",
-            "ipa": "https://icreate.pro/download/latest",
-            "icon": "https://pbs.twimg.com/profile_images/1614364813563502592/MAHuOYo3_400x400.jpg",
-            "developer": "camila 314",
-            "section": "Tweaked Games",
-            "description": "iCreate Pro, developed by camila314, is a huge collection of tweaks, mods, and new features for the iOS edition of Geometry Dash. With over 40 different mods, this app is a must-have for any iOS Geometry Dash player.",
-            "compatibility": "iOS"
-        },
-        {
             "name": "iSpoofer",
             "version": "unknown",
             "ipa": "https://ispoofer.app/Signed.ipa",
