@@ -1905,12 +1905,12 @@ a > button {
 /* div animations loading index.html*/
 @keyframes slideIn {
      from {
-       transform: translateY(50px); /* Commence à 50px en dessous de sa position normale */
+       transform: translateY(45px); /* Commence à 50px en dessous de sa position normale */
       }
       to {
         transform: translateY(0); /* Termine à sa position normale */
        }
 }
 .animated-enter {
-       animation: slideIn 0.5s ease-out; 
+       animation: slideIn 0.3s ease-out; 
 }
