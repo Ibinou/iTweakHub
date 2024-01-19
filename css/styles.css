@@ -554,9 +554,10 @@ font-size: 20px;
 .explore_title {
   font-size: 24px;
   color: white;
+  font-weight: bold;
 }
 .explore_text {
-  font-size: 14px;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.76);
   margin-top: 5px;
 }
