@@ -76,7 +76,7 @@
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" id="reload" ></i>
 
-    <div id="repos" class="repos">
+    <div id="repos" class="appList">
 <a id="base" href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">     
 <div class="item">
     <i class="fa-solid fa-circle-minus" aria-hidden="true"></i>
@@ -154,28 +154,22 @@
 <script>
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  var appListDiv = document.getElementById("appList");
 
-  repoURLs.forEach(function(url) {
+  repoURLs.forEach(function (url) {
     fetch(url)
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(data) {
-        // Ajout de la condition : le repo doit avoir l'array apps et la propriété name
+      .then(function (data) {
         if (data.apps && Array.isArray(data.apps) && data.name) {
-          var reposDiv = document.getElementById("repos");
-          var infoDiv = createRepoElement(data, url);
-
-          var repoLink = document.createElement("a");
-          repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-          repoLink.appendChild(infoDiv);
-
-          reposDiv.appendChild(repoLink);
+          var repoElement = createRepoElement(data, url);
+          appListDiv.appendChild(repoElement);
         } else {
           console.log('Warning', 'Source added despite missing "apps" array or "name" property');
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log('Error', error);
       });
   });
