@@ -569,6 +569,7 @@ font-size: 20px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     margin-left: -19px; /* Utilisez une valeur négative pour que le carrousel touche le bord gauche */
+    margin-top: 19px;
 }
 .item {
   display: flex;
