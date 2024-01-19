@@ -212,15 +212,14 @@ function createRepoElement(data, url) {
   appGetDiv.className = "appget";
   dockDiv.appendChild(appGetDiv);
 
+  var appLink = document.createElement("a");
+  appLink.href = "appinfos.html?name=" + encodeURIComponent(data.name) + "&source=" + encodeURIComponent(url);
+  appGetDiv.appendChild(appLink);
+
   var getButton = document.createElement("button");
   getButton.className = "getbtn";
   getButton.textContent = "GET";
-  appGetDiv.appendChild(getButton);
-
-  // Ajouter un gestionnaire d'événements pour le bouton GET
-  getButton.addEventListener("click", function () {
-    window.location.href = "appinfos.html?name=" + encodeURIComponent(data.name) + "&source=" + encodeURIComponent(url);
-  });
+  appLink.appendChild(getButton);
 
   return dockDiv;
 }
