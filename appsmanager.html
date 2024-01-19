@@ -219,6 +219,9 @@ function afficherInfosDepuisJSON() {
 
 // Fonction pour créer l'élément de la source
 function createRepoElement(data, url) {
+  var appLink = document.createElement("a");
+  appLink.href = "appinfos.html?name=" + encodeURIComponent(data.name) + "&source=" + encodeURIComponent(url);
+
   var dockDiv = document.createElement("div");
   dockDiv.className = "dock";
 
@@ -249,19 +252,14 @@ function createRepoElement(data, url) {
   appGetDiv.className = "appget";
   dockDiv.appendChild(appGetDiv);
 
-  var appLink = document.createElement("a");
-  appLink.href = "appinfos.html?name=" + encodeURIComponent(data.name) + "&source=" + encodeURIComponent(url);
-
   var getButton = document.createElement("button");
   getButton.className = "getbtn";
   getButton.textContent = "GET";
   appGetDiv.appendChild(getButton);
 
-  appLink.appendChild(appNameDiv);
-  appLink.appendChild(appSectionDiv);
-  appLink.appendChild(getButton);
+  appLink.appendChild(dockDiv);
 
-  return dockDiv;
+  return appLink;
 }
 
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
