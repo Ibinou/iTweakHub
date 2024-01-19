@@ -543,40 +543,45 @@ font-size: 20px;
   white-space: break
 }
 
-/*css progress bar*/
-progress {
-  width: 100%;
-  height: 20px;
-  border-radius: 50px;
-  background-color: #252525;
-}
-
-progress::-webkit-progress-bar {
-  background-color: #252525;
-  border-radius: 9px;
-}
-
-progress::-webkit-progress-value {
-  background-color: #7163FF;
-  border-radius: 9px;
-}
-
 /*Repos Rectangles*/
-.repos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(163px, 1fr));
-  gap: 16px;
+.explore {
+  background-image: url(https://tailwindcomponents.com/gradient-generator/assets/header.a6837f08.webp);
+  padding: 19px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+}
+.explore_title {
+  font-size: 24px;
+  color: white;
+}
+.explore_text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.76);
+  margin-top: 5px;
+}
+.featuredrepos {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-top: 19px;
 }
 
 .item {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #1c1c1c;
+  background-color: rgba(40, 40, 40, 0.75);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-radius: 15px;
   padding: 16px;
   padding-top: 0;
-  border: 1px solid rgb(37, 37, 39);
+  width: 120px;
+  height: 100px;
 }
 
 .item img {
@@ -631,6 +636,16 @@ progress::-webkit-progress-value {
     font-size: 17px;
     color: #CACACA;
     margin-left: auto;
+    transform: translateY(27px);
+}
+.item button {
+    font-size: 12px;
+    background-color: var(--accent-color);
+    margin-left: auto;
+    border-radius: 13px;
+    border: none;
+    text-decoration: none;
+    color: white;
     transform: translateY(27px);
 }
 
@@ -1041,14 +1056,7 @@ h3, p {
     color: white;
     transform: translateY(27px);
 }
-.featuredrepos {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    width: 100%;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
+
 .welcomeimg {
   width: 125px;
   margin-top: 100px;
