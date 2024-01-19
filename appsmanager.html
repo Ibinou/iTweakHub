@@ -222,52 +222,47 @@ function afficherInfosDepuisJSON() {
 }
 
 
-// Fonction pour créer l'élément du repo
 function createRepoElement(data, url) {
-  var infoDiv = document.createElement("div");
-  infoDiv.className = "item";
+  var dockDiv = document.createElement("div");
+  dockDiv.className = "dock";
 
-  // Créer l'élément i pour l'icône de la poubelle (Font Awesome)
-  var deleteIcon = document.createElement("i");
-  deleteIcon.className = "fa-solid fa-circle-minus";
-  deleteIcon.style.cursor = "pointer";
-  infoDiv.appendChild(deleteIcon);
+  var appCellLeftDiv = document.createElement("div");
+  appCellLeftDiv.className = "app_cell_left";
+  dockDiv.appendChild(appCellLeftDiv);
 
-    // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
-  iconElement.src = data.iconURL || "img/blank.JPG"; // Utilisez l'URL de l'icône du repo ou un placeholder
-  infoDiv.appendChild(iconElement);
+  iconElement.className = "appicon";
+  iconElement.src = data.iconURL || "img/blank.JPG";
+  appCellLeftDiv.appendChild(iconElement);
 
-// Créer l'élément h2 pour le nom du repo
-  var repoNameElement = document.createElement("h2");
-  repoNameElement.textContent = data.name || "Untitled Source"; // Utilisez le nom du repo ou un placeholder
-  infoDiv.appendChild(repoNameElement);
+  var appCellMetaDiv = document.createElement("div");
+  appCellMetaDiv.className = "app_cell_meta";
+  appCellLeftDiv.appendChild(appCellMetaDiv);
 
-  // Créer l'élément p pour le sous-titre du repo
-  var repoSubtitleElement = document.createElement("p");
-  repoSubtitleElement.textContent = data.subtitle || "iTweakHub Source"; // Utilisez le sous-titre du repo ou un placeholder
-infoDiv.appendChild(repoSubtitleElement);
+  var appNameDiv = document.createElement("div");
+  appNameDiv.className = "appname";
+  appNameDiv.textContent = data.name || "Untitled Source";
+  appCellMetaDiv.appendChild(appNameDiv);
 
-  // Ajouter un gestionnaire d'événements pour la suppression du repo
-  deleteIcon.addEventListener("click", function () {
-    if (confirm("Are you sure to delete this source ?")) {
-      // Supprimer l'URL du repo du localStorage
-      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-      var index = repoURLs.indexOf(url);
-      if (index !== -1) {
-        repoURLs.splice(index, 1);
-        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-      }
+  var appSectionDiv = document.createElement("div");
+  appSectionDiv.className = "appsection";
+  appSectionDiv.textContent = data.author || "Unknown Author"; // Ajouter la propriété d'auteur (author) si elle existe
+  appCellMetaDiv.appendChild(appSectionDiv);
 
-      // Supprimer l'élément du DOM
-      infoDiv.remove();
+  var appGetDiv = document.createElement("div");
+  appGetDiv.className = "appget";
+  dockDiv.appendChild(appGetDiv);
 
-      // Redirection vers appsmanager.html
-      window.location.href = "appsmanager.html";
-    }
-  });
+  var appLink = document.createElement("a");
+  appLink.href = "appinfos.html?name=" + encodeURIComponent(data.name) + "&source=" + encodeURIComponent(url);
+  appGetDiv.appendChild(appLink);
 
-  return infoDiv;
+  var getButton = document.createElement("button");
+  getButton.className = "getbtn";
+  getButton.textContent = "GET";
+  appLink.appendChild(getButton);
+
+  return dockDiv;
 }
 
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
