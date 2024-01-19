@@ -219,9 +219,6 @@ function afficherInfosDepuisJSON() {
 
 // Fonction pour créer l'élément de la source
 function createRepoElement(data, url) {
-  var appLink = document.createElement("a");
-  appLink.href = "appinfos.html?name=" + encodeURIComponent(data.name) + "&source=" + encodeURIComponent(url);
-
   var dockDiv = document.createElement("div");
   dockDiv.className = "dock";
 
@@ -257,11 +254,13 @@ function createRepoElement(data, url) {
   getButton.textContent = "GET";
   appGetDiv.appendChild(getButton);
 
-  appLink.appendChild(dockDiv);
+  // Ajouter un gestionnaire d'événements pour ouvrir la page repoview.html
+  dockDiv.addEventListener("click", function() {
+    window.open("repoview.html?repo=" + encodeURIComponent(url), "_blank");
+  });
 
-  return appLink;
+  return dockDiv;
 }
-
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
