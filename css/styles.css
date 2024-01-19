@@ -565,12 +565,11 @@ font-size: 20px;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    width: 100%;
+    width: calc(100% + 38px); /* Largeur de la div parent + double du padding (19px de chaque côté) */
     scrollbar-width: none;
     -ms-overflow-style: none;
-    margin-top: 19px;
+    margin-left: -19px; /* Utilisez une valeur négative pour que le carrousel touche le bord gauche */
 }
-
 .item {
   display: flex;
   flex-direction: column;
