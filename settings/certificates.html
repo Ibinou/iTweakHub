@@ -89,13 +89,13 @@ var customCertCheckbox = document.getElementById('customCertCheckbox');
 
 // Mettre à jour la valeur de custom_cert lors du chargement de la page
 if (localStorage.getItem('custom_cert') === null) {
-  // Si "custom_cert" n'est pas présent, la case à cocher est cochée par défaut
-  customCertCheckbox.checked = true;
-  // Ajouter la propriété "custom_cert" au localStorage
-  localStorage.setItem('custom_cert', true); // Mettez 'false' à 'true'
+  // Si "custom_cert" n'est pas présent, la case à cocher est décochée par défaut
+  customCertCheckbox.checked = false;
+  // Ajouter la propriété "custom_cert" au localStorage avec la valeur false
+  localStorage.setItem('custom_cert', 'false');
 } else {
   // Sinon, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
-  customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'false'; // Inverser 'false' à 'true'
+  customCertCheckbox.checked = localStorage.getItem('custom_cert') === 'true';
 }
 
 // Appelez displayCertificates() après avoir configuré l'état initial de la case à cocher
