@@ -44,19 +44,19 @@
   <div class="explore_title">Explore</div>
   <div class="explore_text">Explore our recommended sources to discover new apps !</div>
   <div class="featuredrepos">	    
-<div style="margin-right: 14px;margin-left: 19px;" class="item">
+<div class="item">
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/KFD-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/KFD-repo/icon.png?raw=true">
        <h2>KFD Repo by enzo_zsh</h2>
     <p>Enzo_zsh</p>
 </div>
-<div style="margin-right: 14px;" class="item">
+<div class="item">
     <button id="https://apps.nabzclan.vip/repos/itweakhub.php">Add</button>
        <img src="https:\/\/apps.nabzclan.vip\/images\/default_share_image.png">
        <h2>Nabzclan Apps</h2>
     <p>nabzclan</p>
 </div>
-<div style="margin-right: 14px;" class="item">
+<div class="item">
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/MacDirtyCow-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/MacDirtyCow-repo/icon.png?raw=true">
        <h2>MacDirtyCow Repo by enzo_zsh</h2>
@@ -618,6 +618,20 @@ async function checkForUpdates() {
 }
 
 checkForUpdates();
+
+// Sélectionnez tous les éléments avec la classe "item"
+var items = document.querySelectorAll('.featuredrepos .item');
+
+// Parcourez chaque élément et appliquez les marges appropriées
+items.forEach(function(item, index) {
+    // Ajoute une marge à droite de 14px à tous les éléments
+    item.style.marginRight = '14px';
+
+    // Si c'est le premier élément, ajoute une marge à gauche de 19px
+    if (index === 0) {
+        item.style.marginLeft = '19px';
+    }
+});
     </script>
 <script>
         document.addEventListener("DOMContentLoaded", function() {
