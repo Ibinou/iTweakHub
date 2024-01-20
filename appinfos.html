@@ -74,7 +74,7 @@ nav h1 i a {
   }
 
   /* Hide the popup initially */
-  .unique-popup {
+.unique-popup {
     display: none;
     position: fixed;
     left: 50%;
@@ -82,13 +82,15 @@ nav h1 i a {
     transform: translate(-50%, -50%);
     width: 80%;
     max-width: 400px;
-    background-color: #333;
+    background-color: #1c1c1ca6;
     color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     z-index: 2;
-  }
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
 
   /* The dark background behind the popup */
   .custom-overlay {
@@ -103,20 +105,20 @@ nav h1 i a {
   }
 
   /* Styling for buttons inside custom popup */
-  .unique-action-button {
+.unique-action-button {
     display: block;
     width: 100%;
     padding: 10px;
     margin-top: 20px;
     margin-bottom: 0px;
     text-align: center;
-    background: #555;
+    background: #393939c2;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
+}
 
   .unique-action-button:hover {
     background-color: #666;
@@ -149,7 +151,6 @@ nav h1 i a {
   .custom-image-option {
     width: calc(25% - 20px); 
     margin: 10px;
-    background-color: #ffffff;
     border-radius: 5px;
   }
 
@@ -157,7 +158,7 @@ nav h1 i a {
   .custom-image-option img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 9px;
   }	  
   </style>
 
