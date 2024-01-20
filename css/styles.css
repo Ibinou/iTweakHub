@@ -557,7 +557,7 @@ font-size: 20px;
   font-weight: bold;
 }
 .explore_text {
-  font-size: 18px;
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.76);
   margin-top: 5px;
 }
@@ -581,8 +581,8 @@ font-size: 20px;
     border-radius: 20px;
     padding: 16px;
     padding-top: 0;
-    width: 147px;
-    height: 120px;
+    width: 141px;
+    height: 111px;
 }
 .item img {
   height: 37px;
