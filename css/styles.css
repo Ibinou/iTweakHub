@@ -575,14 +575,14 @@ font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: rgba(40, 40, 40, 0.75);
+    background-color: rgb(40 40 40 / 55%);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 16px;
     padding-top: 0;
     width: 141px;
-    height: 111px;
+    height: 117px;
 }
 .item img {
   height: 37px;
