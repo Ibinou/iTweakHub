@@ -66,7 +66,96 @@ nav h1 i a {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
 }
-/* I had to put the css here because the bottom nav bar was in top idk why */
+
+  .installation-method {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Hide the popup initially */
+  .unique-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+  /* The dark background behind the popup */
+  .custom-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Styling for buttons inside custom popup */
+  .unique-action-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .unique-action-button:hover {
+    background-color: #666;
+  }
+
+  /* Opening animation for popup */
+  .animate-popup {
+    display: block;
+    animation: fadeIn 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /* Styling for image containers */
+  .custom-image-option {
+    width: 60px; 
+    height: 60px; 
+    margin: 10px;
+    background-color: #ffffff;
+    display: inline-block;
+    border-radius: 5px;
+    vertical-align: middle;
+  }
+
+  /* Make the images responsive */
+  .custom-image-option img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }	  
   </style>
 
 <div class="action-sheet" id="myActionSheet">
@@ -83,6 +172,28 @@ nav h1 i a {
     <p class="notification-message">The app will be installed soon.</p>
   </div>
 </div>
+	
+<div class="custom-overlay" id="overlay"></div>
+	
+<div class="custom-popup" id="popup">
+  <div class="method">Choose an installation method</div>
+  <div style="text-align: center;">
+    <div class="image-option">
+      <img src="path-to-your-image1.png">
+    </div>
+    <div class="image-option">
+      <img src="path-to-your-image2.png">
+    </div>
+    <div class="image-option">
+      <img src="path-to-your-image3.png">
+    </div>
+    <div class="image-option">
+      <img src="path-to-your-image3.png">
+    </div>
+    <button id="cancel" class="action-button">Cancel</button>
+  </div>
+</div>
+	
  <div id="sheet_background"> 
   <nav id="topbar">
 <a style="text-decoration: none" href="javascript:history.back()">
@@ -92,6 +203,7 @@ nav h1 i a {
   <br>
 
 
+	 
  <div class="appbanner">
     <img id="appBanner" src="" class="img-banner">
 </div>
@@ -157,7 +269,7 @@ nav h1 i a {
 <button>Report</button>
 </div>
 <br>
-
+<button id="triggerPopup" class="unique-action-button">Open Popup</button>
 
 	
 <!-- 
@@ -480,6 +592,31 @@ function loadAppInfo() {
 
 // Charger et afficher les informations de l'application lorsque la page se charge
 window.onload = loadAppInfo;
+
+
+  // Function to show the popup
+  function showPopup() {
+    document.getElementById('popup').classList.add('animate-popup');
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  // Function to hide the popup
+  function hidePopup() {
+    document.getElementById('popup').classList.remove('animate-popup');
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  // Event listeners for the popup actions
+  document.getElementById('triggerPopup').addEventListener('click', showPopup);
+  document.getElementById('cancel').addEventListener('click', hidePopup);
+  document.getElementById('overlay').addEventListener('click', hidePopup);
+
+  // Hide popup when user clicks on the overlay
+  window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('overlay')) {
+      hidePopup();
+    }
+  });
     </script>
 <script>
 // Fonction pour ajouter ou supprimer une application des favoris
