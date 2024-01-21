@@ -182,26 +182,18 @@ nav h1 i a {
 <div class="unique-popup" id="popup">
   <div class="installation-method">Choose an installation method</div>
   <div class="custom-image-container">
-    <a id="AltStore">
-    <div class="custom-image-option">
+    <div id="AltStore" class="custom-image-option">
       <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/2018600523.webp">
     </div>
-    </a>
-    <a id="TrollStore">
-    <div class="custom-image-option">
+    <div id="TrollStore" class="custom-image-option">
       <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/TrollStore-Logo.jpg">
     </div>
-    </a>
-    <a id="import">
-    <div class="custom-image-option">
+    <div id="import" class="custom-image-option">
       <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/spaces_FJiyQY8c07uhMBUxEiix_icon_vXR6UhwzjUotIjWQQNJs_CydiaIcon.webp">
     </div>
-    </a>
-    <a id="geturl">
-    <div class="custom-image-option">
+    <div id="geturl" class="custom-image-option">
       <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/unnamed.jpg">
     </div>
-    </a>
   </div>
   <button id="cancel" class="unique-action-button">Cancel</button>
 </div>
@@ -496,24 +488,33 @@ installButton.addEventListener("click", function() {
     addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
 });
 
-        const importButton = document.getElementById("import");
-        if(importButton) {
-        importButton.setAttribute("href", `scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`);
-        }
-        
-        const AltButton = document.getElementById("AltStore");
-        if(importButton) {
-        AltButton.setAttribute("href", `altstore://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
-        }
-        
-        const trollButton = document.getElementById("TrollStore");
-        if(importButton) {
-        trollButton.setAttribute("href", `apple-magnifier://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`);
-        }
-        
-        const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+const importButton = document.getElementById("import");
+if (importButton) {
+    importButton.addEventListener("click", () => {
+        window.open(`scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+    });
+}
 
+const AltButton = document.getElementById("AltStore");
+if (AltButton) {
+    AltButton.addEventListener("click", () => {
+        window.open(`altstore://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+    });
+}
+
+const trollButton = document.getElementById("TrollStore");
+if (trollButton) {
+    trollButton.addEventListener("click", () => {
+        window.open(`apple-magnifier://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+    });
+}
+
+const ipaButton = document.getElementById("ipa");
+if (ipaButton) {
+    ipaButton.addEventListener("click", () => {
+        window.open(`${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+    });
+}
         // Afficher les captures d'écran
         displayScreenshots(appData.screenshotURLs);
 
