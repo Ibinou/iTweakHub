@@ -509,12 +509,10 @@ if (trollButton) {
     });
 }
 
-const ipaButton = document.getElementById("ipa");
-if (ipaButton) {
-    ipaButton.addEventListener("click", () => {
-        window.open(`${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
-    });
-}
+        const ipaButton = document.getElementById("ipa");
+        ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+        
+        
         // Afficher les captures d'écran
         displayScreenshots(appData.screenshotURLs);
 
