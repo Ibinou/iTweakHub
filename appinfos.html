@@ -477,16 +477,17 @@ if (customCert && customCert.toLowerCase() === 'true') {
     const customLink = `https://api.cococloud-signing.online/files/free/own-signing.php?certp12URL=${p12Url}&certmobileprovisionURL=${mobileprovisionUrl}&certpass=${certpass}&url=${url}`;
 
     // Mettre à jour le lien du bouton
-    installButton.setAttribute("href", customLink);
+    installButton.addEventListener("click", function() {
+        addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
+        window.open(customLink, "_blank");
+    });
 } else {
     // Utiliser la méthode traditionnelle si custom_cert est false ou n'existe pas
-    installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${url}`);
+    installButton.addEventListener("click", function() {
+        addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
+        window.open(`https://api.cococloud-signing.online/free-plist?url=${url}`, "_blank");
+    });
 }
-
-// Ajouter l'événement click
-installButton.addEventListener("click", function() {
-    addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
-});
 
 const importButton = document.getElementById("import");
 if (importButton) {
@@ -508,8 +509,7 @@ if (trollButton) {
         window.open(`apple-magnifier://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
     });
 }
-
-        const ipaButton = document.getElementById("ipa");
+      const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
         
         
