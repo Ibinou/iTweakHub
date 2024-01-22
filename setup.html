@@ -149,19 +149,42 @@ if (!window.matchMedia('(display-mode: standalone)').matches) {
     document.getElementById('UIContainer').style.display = 'none';
 }
 
-// icon thing
+// change custom icon system       
+function addBorderToImageWithSrc(src) {
+    var images = document.getElementsByTagName('img');
+    
+    for (var i = 0; i < images.length; i++) {
+        if (images[i].src === src) {
+            images[i].style.border = '3px solid #7163ff';
+        } else {
+            images[i].style.border = 'none';
+        }
+    }
+}
+
 document.getElementById('DevIcon').addEventListener('click', function() {
-   document.getElementById('favicon').href = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png';
+    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png';
+    document.getElementById('favicon').href = faviconSrc;
+    addBorderToImageWithSrc(faviconSrc);
 });
+
 document.getElementById('Default').addEventListener('click', function() {
-   document.getElementById('favicon').href = 'https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png';
-});    
+    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png';
+    document.getElementById('favicon').href = faviconSrc;
+    addBorderToImageWithSrc(faviconSrc);
+});
+
 document.getElementById('PrideIcon').addEventListener('click', function() {
-   document.getElementById('favicon').href = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646466.087501-46CA1109-7659-4782-B44D-C3C465C5D70F.png';
-}); 
+    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646466.087501-46CA1109-7659-4782-B44D-C3C465C5D70F.png';
+    document.getElementById('favicon').href = faviconSrc;
+    addBorderToImageWithSrc(faviconSrc);
+});
+
 document.getElementById('Winter').addEventListener('click', function() {
-   document.getElementById('favicon').href = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646472.591928-6B901ADB-9CA8-470D-B9F6-21CFA4BC2579.png';
-}); 
+    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646472.591928-6B901ADB-9CA8-470D-B9F6-21CFA4BC2579.png';
+    document.getElementById('favicon').href = faviconSrc;
+    addBorderToImageWithSrc(faviconSrc);
+});
     </script>
    
 <script src="js/account.js"></script>
