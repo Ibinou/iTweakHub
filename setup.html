@@ -162,6 +162,11 @@ function addBorderToImageWithSrc(src) {
     }
 }
 
+// Set the 'Default' icon and apply the border by default
+var defaultIconSrc = 'https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png';
+document.getElementById('favicon').href = defaultIconSrc;
+addBorderToImageWithSrc(defaultIconSrc);
+
 document.getElementById('DevIcon').addEventListener('click', function() {
     var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png';
     document.getElementById('favicon').href = faviconSrc;
@@ -169,9 +174,7 @@ document.getElementById('DevIcon').addEventListener('click', function() {
 });
 
 document.getElementById('Default').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
+    // 'Default' icon is already set and border is applied by default
 });
 
 document.getElementById('PrideIcon').addEventListener('click', function() {
