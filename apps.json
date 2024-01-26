@@ -38,6 +38,16 @@
             "section": "Movies"
         },
         {
+            "name": "Royal Match MOD",
+            "developer": "Unknown",
+            "version": "7.0",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/v7/Royal-Match.ipa",
+            "icon": "https://omtk.vip/wp-content/uploads/2023/02/royal-match.png",
+            "compatibility": "iOS - iPadOS",
+            "description": "Royal Match iPA (Unlimited Boosters, Stars, Coins)",
+            "section": "Games"
+        },
+        {
             "name": "Enmity",
             "developer": "Enmity Team",
             "version": "1.0.0",
