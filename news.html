@@ -375,6 +375,20 @@ fetch('https://ibinou.github.io/iTweakHub/apps.json')
                 elementElement.style.marginTop = "50px";
             }
         });
+	
+        // Fonction pour appliquer le style en fonction de la largeur de l'écran
+        function appliquerStyle() {
+            var element = document.querySelector('.content');
+            if (window.innerWidth >= 768) {
+                element.style.marginLeft = '0'; // Ajoutez la valeur souhaitée ici
+            } else {
+                element.style.marginLeft = ''; // Réinitialise la valeur si nécessaire
+            }
+        }
+
+        // Appliquer le style au chargement de la page et lors du redimensionnement de la fenêtre
+        window.onload = appliquerStyle;
+        window.onresize = appliquerStyle;
 </script>
 <style>
 ::-webkit-scrollbar {
