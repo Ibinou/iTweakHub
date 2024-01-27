@@ -32,7 +32,7 @@
     <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Accent color setup</h1>
 </div>
 	    
-<p id="p" style="margin-top: 115px;">Accent color let you set a color to use as primary iTweakHub color. You will be able to change it later on the Settings page.</p>
+<p style="margin: 16px;" id="explain" style="margin-top: 115px;">Accent color let you set a color to use as primary iTweakHub color. You will be able to change it later on the Settings page.</p>
 	
  <center>
 <div style="margin-top: 64px;margin-bottom: 30px;border-radius: 20px;background-color: var(--accent-color);width: 100px;height: 100px;"></div>
@@ -93,7 +93,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             // Récupérer l'élément avec la classe "toptitle"
             var toptitleElement = document.querySelector(".toptitle");
-            var elementElement = document.getElementById("p");
+            var elementElement = document.getElementById("explain");
 
             // Vérifier si l'élément "toptitle" a un padding top de 43px
             if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
