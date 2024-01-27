@@ -399,21 +399,7 @@ function removeFavorite(appName) {
             }
         });
 
-// Vérifie si le tableau "repoURLs" est présent dans le stockage local
-if (localStorage.getItem("repoURLs")) {
-    // Le tableau "repoURLs" existe dans le stockage local
-    // Récupère le tableau et vérifie s'il est vide
-    const repoURLs = JSON.parse(localStorage.getItem("repoURLs"));
-    if (repoURLs.length === 0) {
-        // Le tableau "repoURLs" est vide, donc applique le style "width: 50%" à l'élément <a>
-        const linkElement = document.getElementById("base");
-        linkElement.style.width = "50%";
-    }
-} else {
-    // Le tableau "repoURLs" n'existe pas dans le stockage local, donc applique le style "width: 50%" à l'élément <a>
-    const linkElement = document.querySelector("a");
-    linkElement.style.width = "50%";
-}
+
 
 
 function isValidUrl(url) {
