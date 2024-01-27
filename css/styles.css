@@ -1442,7 +1442,7 @@ font-size: 20px;
     margin-bottom: 30px;
 }
 
-.app-header > .content {
+.app-header > .contentapp {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1493,7 +1493,7 @@ font-size: 20px;
     }
 }
 
-.app-header > .content > .right {
+.app-header > .contentapp > .right {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1503,7 +1503,7 @@ font-size: 20px;
     min-width: 0;
 }
 
-.app-header > .content .text {
+.app-header > .contentapp .text {
     margin-right: 0.5em;
     overflow: hidden;
 }
