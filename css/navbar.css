@@ -75,7 +75,7 @@ padding-bottom: 25px;
 .sidebar a.active {
   background-color: #404040;
   color: white;
-  border-radius: 15px;
+  border-radius: 12px;
   margin: 12px
 }
 
@@ -83,7 +83,7 @@ padding-bottom: 25px;
   background-color: #555;
   color: white;
   margin: 12px;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 
 div.content {
@@ -107,6 +107,12 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+
+.sidebar i {
+  margin-right: 10px; 
+  font-size: 18px; 
+  color: #ffffff; 
 }
 
 .bloc-icon i {
