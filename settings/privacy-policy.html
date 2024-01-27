@@ -39,7 +39,7 @@
     <a style="text-decoration: none" href="../settings.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Settings</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Privacy Policy</h1>
 </div>
-<div style="margin-top: 100px;">
+<div id="p" style="margin-top: 100px;">
   <h3>iTweakHub Privacy Policy</h3>
   <p>This Privacy Policy explains how iTweakHub collects, uses, shares, and protects the personal information you provide when using our service. By using iTweakHub, you agree to the practices described in this Privacy Policy.</p>
   
@@ -108,6 +108,17 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("p");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });
   </script>
 
 </body>
