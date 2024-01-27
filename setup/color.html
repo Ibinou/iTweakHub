@@ -26,14 +26,11 @@
 </script>
 </head>
 <body style="opacity: 0;">
-   
 
-
-
-	
-    <a style="text-decoration: none" href="setup.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
-    <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Accent Color</h1>
-
+<div class="toptitle">	
+    <a style="text-decoration: none" href="../setup.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;" aria-hidden="true"></i>Back</h1></a>
+    <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Accent color setup</h1>
+</div>
 	    
 <p id="p" style="margin-top: 115px;">Accent color let you set a color to use as primary iTweakHub color. You will be able to change it later on the Settings page.</p>
 	
@@ -99,9 +96,9 @@
             var elementElement = document.getElementById("p");
 
             // Vérifier si l'élément "toptitle" a un padding top de 43px
-            if (window.getComputedStyle(toptitleElement).paddingTop === "43px") {
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
                 // Si oui, changer le margin-top de l'élément "element" à 100px
-                elementElement.style.marginTop = "100px";
+                elementElement.style.marginTop = "130px";
             }
         });
   </script>
