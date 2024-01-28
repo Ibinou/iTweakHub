@@ -1894,3 +1894,23 @@ a > button {
        animation: slideIn 0.3s ease-out; 
 }
 
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+.fullscreen-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121212;
+    color: #fff;
+    z-index: 9999999999999999;
+    position: absolute;
+}
+
+        .content-container {
+            text-align: center;
+            padding: 20px;
+        }
