@@ -225,20 +225,19 @@
     ],
     "news": [
         {
-            "title": "Update to the Latest Version of uYouPlus for an Important Crash Fix",
+            "title": "Follow us !",
             "identifier": "foxster-news-2",
-            "caption": "This update fixes crashing on startup after closing the app with a uYou download in progress. If you don't see an update in the My Apps tab, manually uninstall and reinstall uYouPlus.",
-            "tintColor": "cb1633",
+            "caption": "Follow us on X and join our Discord server 😊.",
+            "tintColor": "7449ff",
+            "imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/banners/Capture%20d%E2%80%99%C3%A9cran%202024-01-28%20122343.png",
             "date": "2023-05-23",
-            "appID": "com.google.ios.youtube",
             "notify": true
         },
         {
-            "title": "Breaking News!",
+            "title": "Welcome !",
             "identifier": "foxster-news-1",
-            "caption": "The quick brown fox jumps over the lazy dog! 🎉",
-            "tintColor": "D85240",
-            "url": "https://youtu.be/dQw4w9WgXcQ",
+            "caption": "Welcome to iTweakHub 2.0 ! 🎉",
+            "tintColor": "1c0026",
             "date": "2023-04-06",
             "notify": false
         }
