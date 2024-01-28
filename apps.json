@@ -177,6 +177,176 @@
          "screenshotURLs":null,
          "banner":"https://theodyssey.dev/assets/images/meta.png"
       },
+    "Info": {
+        "repoName": "iTweakHub Apps",
+        "repoAuthor": "iBaDev",
+        "repoVersion": "beta",
+        "repoIcon": "https://github.com/Ibinou/iTweakHub/blob/main/img/logo.png?raw=true"
+    },
+    "Apps": [
+        {
+            "name": "Blacklist",
+            "developer": "AppInstalleriOS",
+            "version": "1.0",
+            "ipa": "https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
+            "icon": "https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
+            "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
+            "alert" : "Only compatible with MacDirtyCow !",
+            "description": "Unblacklist your iDevice using MacDirtyCow",
+            "section": "MDC"
+        },
+        {
+            "name": "InstaSpring",
+            "developer": "haxi0",
+            "version": "1.0",
+            "ipa": "https://github.com/haxi0/InstaSpring/releases/download/1.0/InstaSpring.1.0.Fix.ipa",
+            "icon": "https://github.com/haxi0/InstaSpring/blob/main/InstaSpring16/InstaSpring16/Assets.xcassets/AppIcon.appiconset/Icon-60@3x.png?raw=true",
+            "compatibility": "All versions",
+            "description": "iOS app that immediately resprings your device after you open it!",
+            "section": "Utilities"
+        },
+        {
+            "name": "FlixHub",
+            "developer": "Dangerous Pixel",
+            "version": "1.0.7",
+            "ipa": "https://github.com/Ibinou/iTweakHub/raw/main/apps/Flixhub.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/4IZcJrc.jpeg?raw=true",
+            "compatibility": "iOS - iPadOS",
+            "description": "[Use a vpn if the app is not working] Watch movies and Tv shows in good quality and WITHOUT ad for FREE",
+            "section": "Movies"
+        },
+        {
+            "name": "Royal Match MOD",
+            "developer": "Unknown",
+            "version": "7.0",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/v7/Royal-Match.ipa",
+            "icon": "https://omtk.vip/wp-content/uploads/2023/02/royal-match.png",
+            "compatibility": "iOS - iPadOS",
+            "description": "Royal Match iPA (Unlimited Boosters, Stars, Coins)",
+            "section": "Games"
+        },
+        {
+            "name": "Enmity",
+            "developer": "Enmity Team",
+            "version": "1.0.0",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/V.4.0/Enmity.ipa",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/IMG_2859.jpeg",
+            "compatibility": "iOS - iPadOS",
+	    "banner" : "https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg",
+            "description": "Enmity is a tweaked Discord version that allows you to use plugins & themes. To get plugins & themes go to the official Enmity Discord",
+            "section": "Tweaked Apps"
+        },
+        {
+            "name": "Delta",
+            "developer": "Riley Testut",
+            "version": "1.4.1",
+            "ipa": "https://cdn.altstore.io/file/altstore/apps/delta/1_4_1.ipa",
+            "icon": "https://user-images.githubusercontent.com/705880/63391976-4d311700-c37a-11e9-91a8-4fb0c454413d.png",
+            "screenshots": [
+				"https://user-images.githubusercontent.com/705880/65600448-f7d9be00-df54-11e9-9e3e-d4c31296da94.PNG",
+                "https://user-images.githubusercontent.com/705880/65813009-f2ae8600-e183-11e9-9eb7-704effc11173.png",
+				"https://user-images.githubusercontent.com/705880/65601117-58b5c600-df56-11e9-9c19-9a5ba5da54cf.PNG",
+                "https://user-images.githubusercontent.com/705880/65601125-5b182000-df56-11e9-9e7e-261480e893c0.PNG"
+            ],     
+            "compatibility": "iOS",
+            "description": "Delta is an all-in-one emulator for iOS. Delta builds upon the strengths of its predecessor, GBA4iOS, while expanding to include support for more game systems such as NES, SNES, and N64.",
+            "section": "Emulators"
+        },
+        {
+            "name": "uYouPlusExtra",
+            "version": "18.40.1-3.0.1",
+            "ipa": "https://github.com/arichorn/uYouPlusExtra/releases/download/v18.40.1-3.0.1/uYouPlusExtra_18.40.1_3.0.1.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/uYou+.PNG?raw=true",
+            "developer": "arichorn",
+            "section": "Tweaked Apps",
+            "description": "uYouPlusExtra is a modified version of uYou (made by @MiRO92) and uYou+ with additional features and mainly made for non jailbroken users and still updated!",
+            "compatibility": "iOS 13 +"
+        },
+        {
+            "name": "iSpoofer",
+            "version": "unknown",
+            "ipa": "https://ispoofer.app/Signed.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
+            "developer": "Dave",
+            "section": "Tweaked Games",
+            "banner" : "https://miro.medium.com/v2/resize:fit:1400/0*jc9FPbRF6vg26qGO.jpg",
+            "description": "The best spoofer for PokémonGO",
+            "compatibility": "iOS"
+        },
+        {
+            "name": "EmuThreeDS",
+            "version": "1.0.6.5(6)",
+            "ipa": "https://github.com/emuPlace/emuThreeDS/releases/download/1.0.6.5.6/emuThreeDS.v1.0.6.5.6.ipa",
+            "icon": "https://raw.githubusercontent.com/emuPlace/emuThreeDS/main/emuThreeDS/Assets.xcassets/LightAppIcon.appiconset/Icon-App-76x76%402x.png",
+            "developer": "emuPlace",
+            "section": "Emulators",
+            "description": "EmuThreeDS is a free and open-source Nintendo 3DS emulator for iOS devices. It allows you to play your favorite Nintendo 3DS games on your iPhone, iPad, or Apple TV. EmuThreeDS is still under development, but it is already capable of running many popular Nintendo 3DS games at full speed.",
+            "compatibility": "iOS"
+        },
+        {
+            "name": "PPSSPP",
+            "version": "1.16.6",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/V6/PPSSPP_v1.16.6-368-g737ec3e90.ipa",
+            "icon": "https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
+            "developer": "unknown",
+            "section": "Emulators",
+            "description": "PPSSPP is the one and only PSP emulator for iOS written in C++. It is capable of running a lot of original games but, depending on the power of your device, not all may run at full speed due to JIT.",
+            "compatibility": "iOS 5+"
+        },
+        {
+            "name": "OldOS",
+            "version": "1.0 Build 18",
+            "ipa": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
+            "developer": "zzanehip",
+            "section": "Utilities",
+            "description": "iOS 4 rebuilt in swift UI.",
+            "compatibility": "iOS 14+"
+        },
+        {
+            "name": "Misaka KFD",
+            "version": "2.0.3 beta",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/raw/main/misaka-2.0.3_Beta.ipa",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png?raw=true",
+            "developer": "straight-tamago",
+            "section": "MacDirtyCow",
+            "description": "Misaka tweak manager for iOS provides seamless access to repositories housing a vast collection of tweaks, including the comprehensive range of MacDirtyCow packages tailored specifically for iOS 15 and iOS 16. With an extensive library of over 333 packages, Misaka Tweak Manager offers an abundance of options to customize and enhance your device's functionality, all without the requirement of a jailbreak. All iPhones are supported.",
+            "compatibility": "iOS 16.2-16.5 & 16.6b1"
+        },
+        {
+            "name": "Scrennshot X",
+            "version": "1.0 2022",
+            "ipa": "https://drive.google.com/uc?export=download&id=19oRvCjtsIwuHool8B807rib8BSYYws4Z",
+            "icon": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/5432A85D-214E-4A17-9268-85EA17F5D4E1.png",
+            "developer": "JunesiPhone",
+            "banner": "https://im5.pandahelp.vip/userapp/AppIcon/201812/05/115750142.jpg",
+            "section": "Utilities",
+            "description": "Add very cool mockups to your screenshots. You can also import your own.",
+            "compatibility": "iOS"
+        },
+        {
+            "name": "ClassicPlayer",
+            "version": "1.0.3",
+            "ipa": "https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
+            "icon": "https://github.com/guillermo-moran/ClassicPlayer/blob/master/ClassicPlayer_icon.png?raw=true",
+            "developer": "guillermo-moran",
+            "banner": "https://media.idownloadblog.com/wp-content/uploads/2017/06/ClassicPlayer.jpg",
+            "section": "Music",
+            "description": "An iPod Classic simulator for iOS 9+.",
+            "compatibility": "iOS 9+"
+        },
+        {
+            "name": "Odyssey",
+            "version": "1.4.3",
+            "ipa": "https://github.com/Odyssey-Team/Odyssey/releases/download/v1.4.3/Odyssey-1.4.3.ipa",
+            "icon": "https://bunnyinject.fun/img/odyssey.png",
+            "developer": "Coolstar",
+            "banner": "https://theodyssey.dev/assets/images/meta.png",
+            "section": "Jailbreak",
+            "description": "Jailbreak tool for all A9-A13 devices on iOS 13.0-13.7",
+            "compatibility": "iOS 13.0-13.7"
+        },
+
         {
             "name": "MovieBox Pro",
             "version": "unknown",
@@ -310,6 +480,11 @@
             "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
             "downloadURL": "https://ipogo.app/download/ipogo-3.2.1.ipa",
             "localizedDescription": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
+            "developer": "Niantic, Inc.",
+            "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
+            "ipa": "https://ipogo.app/download/ipogo-3.2.1.ipa",
+            "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
+          
             "compatibility": "iOS 14+",
             "screenshots": [
                 "https://ipogo.app/assets/img/feature-iphone-1.png"

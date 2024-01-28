@@ -466,6 +466,8 @@ const customCert = localStorage.getItem('custom_cert');
  const mobileprovisionUrl = localStorage.getItem('mobileprovisionUrl') || "";
 const certpass = localStorage.getItem('password') || "";
 const url = appData.downloadURL || appData.versions[0].downloadURL;
+        const installButton = document.getElementById("geturl");
+        installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
 // Vérifier si custom_cert est true
 if (customCert && customCert.toLowerCase() === 'true') {

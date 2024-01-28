@@ -39,6 +39,7 @@
 <p id="updates" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Updates</p>
 <div class="appList"></div>
 
+
 	    
 <div class="animated-enter">	    
 <div class="explore">
@@ -46,6 +47,16 @@
   <div class="explore_text">Explore our recommended sources to discover new apps !</div>
   <div class="featuredrepos">	    
 <div class="item">
+
+<div class="featuredrepos">	    
+<div style="margin-right: 14px;" class="item">
+    <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/TrollHub-repo/repo.json">Add</button>
+       <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/TrollHub-repo/icon.png?raw=true">
+       <h2>TrollStore Repo by enzo_zsh</h2>
+    <p>Enzo_zsh</p>
+</div>
+<div style="margin-right: 14px;" class="item">
+
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/KFD-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/KFD-repo/icon.png?raw=true">
        <h2>KFD Repo by enzo_zsh</h2>
@@ -269,90 +280,6 @@ var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
 </script>
 <script>
-function afficherDonnees() {
-  var appListDiv = document.getElementById("appList");
-  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-
-  fetch('apps.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var appsData = data.Apps;
-
-      favapps.forEach(function(favAppName) {
-        var appData = appsData.find(function(app) {
-          return app.name === favAppName;
-        });
-
-        if (appData) {
-          var dockDiv = document.createElement("div");
-          dockDiv.className = "dock";
-
-          var appCellLeftDiv = document.createElement("div");
-          appCellLeftDiv.className = "app_cell_left";
-
-          var appIconImg = document.createElement("img");
-          appIconImg.className = "appicon";
-          appIconImg.src = appData.icon;
-          appCellLeftDiv.appendChild(appIconImg);
-
-          var appCellMetaDiv = document.createElement("div");
-          appCellMetaDiv.className = "app_cell_meta";
-
-          var appNameDiv = document.createElement("div");
-          appNameDiv.className = "appname";
-          appNameDiv.textContent = appData.name;
-          appCellMetaDiv.appendChild(appNameDiv);
-
-          var appDevDiv = document.createElement("div");
-          appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developer;
-          appCellMetaDiv.appendChild(appDevDiv);
-
-          appCellLeftDiv.appendChild(appCellMetaDiv);
-          dockDiv.appendChild(appCellLeftDiv);
-
-          var appGetDiv = document.createElement("div");
-          appGetDiv.className = "appget";
-
-          var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
-
-          var getBtn = document.createElement("button");
-          getBtn.className = "getbtn";
-          getBtn.textContent = "GET";
-
-          var removeBtn = document.createElement("button");
-          removeBtn.className = "removebtn";
-          removeBtn.textContent = "Remove";
-          removeBtn.addEventListener("click", function() {
-            removeFavorite(appData.name);
-            appListDiv.removeChild(dockDiv);
-          });
-
-          appGetBtn.appendChild(getBtn);
-          appGetBtn.appendChild(removeBtn);
-          appGetDiv.appendChild(appGetBtn);
-          dockDiv.appendChild(appGetDiv);
-
-          appListDiv.appendChild(dockDiv);
-        }
-      });
-    })
-    .catch(function(error) {
-      console.log('Error', error);
-    });
-}
-
-function removeFavorite(appName) {
-  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-  var updatedFavapps = favapps.filter(function(favAppName) {
-    return favAppName !== appName;
-  });
-  localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
-}
-
         // Sélectionnez le bouton par son ID
         var reloadButton = document.getElementById('reload');
 
