@@ -266,7 +266,7 @@
             "developerName": "X Corp.",
             "version": "1.0",
             "banner": "https://pbs.twimg.com/profile_banners/3260518932/1690380560/1080x360",
-            "ipa": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
+            "downloadURL": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
             "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/BHTwitter.PNG?raw=true",
             "compatibility": "iOS 13.4+",
             "section": "Tweaked Apps",
@@ -277,7 +277,7 @@
             "version": "0.261.1",
             "developerName": "Unknown",
             "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
-            "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
+            "downloadURL": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
             "localizedDescription": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also includes a lot of other features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
             "compatibility": "iOS 14+",
             "section": "Tweaked Games"
@@ -287,7 +287,7 @@
             "version":"Beta 0.1.2",
             "developerName": "Kevin Alavik",
             "iconURL":"https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg",
-            "ipa":"https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
+            "downloadURL":"https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
             "section":"Utilities",
             "localizedDescription":"Scylla is yet another app signer for iOS",
             "compatibility":"iOS"    
@@ -295,7 +295,7 @@
         {
             "name": "Spotilife",
             "version": "8.6.42",
-            "ipa": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
+            "downloadURL": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
             "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/60BF6600-8900-41C7-8D42-E1F03AC884B2.png?raw=true",
             "category": "Tweaked Apps",
             "localizedDescription": "Enabled -No Forced Shuffle -Unlimited Skips -Extreme Quality stream enabled -Import songs from Music app",
@@ -308,7 +308,7 @@
             "version": "3.2.1",
             "developerName": "Niantic, Inc.",
             "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
-            "ipa": "https://ipogo.app/download/ipogo-3.2.1.ipa",
+            "downloadURL": "https://ipogo.app/download/ipogo-3.2.1.ipa",
             "localizedDescription": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
             "compatibility": "iOS 14+",
             "screenshots": [
@@ -324,7 +324,7 @@
             "version": "1.1.6",
             "compatibility": "14.0-14.3",
             "iconURL": "https://cdn.discordapp.com/attachments/752890955236901055/829728600446074930/Taurine.png",
-            "ipa": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
+            "downloadURL": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
             "localizedDescription": "Jailbreak for iOS 14.",
             "section": "Jailbreak"
         },
