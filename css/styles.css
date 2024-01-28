@@ -1277,3 +1277,18 @@ font-size: 20px;
     color: var(--accent-color);
     font-size: 20px;
     margin-right: 16px;    
+}
+    .fullscreen-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #121212; /* couleur de fond */
+        color: #fff; /* couleur du texte */
+    }
+
+    .content-container {
+        text-align: center;
+        padding: 20px;
+    }
