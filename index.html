@@ -581,11 +581,13 @@ function openDebugPage() {
             }
         });
 	
-    document.addEventListener("DOMContentLoaded", function () {
+   document.addEventListener("DOMContentLoaded", function () {
         // Vérifier si la propriété "id" n'est pas présente dans le local storage
         if (!localStorage.getItem("id")) {
             // Afficher la div
             document.getElementById("fullscreen-container").style.display = "flex";
+            // Ajouter la classe pour désactiver le scroll
+            document.body.classList.add("no-scroll");
         }
     });
 
