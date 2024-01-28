@@ -207,6 +207,7 @@ function afficherInfosDepuisJSON() {
         var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
         repoURLs.push(url);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+        location.reload();
       } else {
         console.log('Warning', 'Source added despite missing "apps" array or "name" property');
       }
