@@ -85,6 +85,16 @@
   <img id="displayProfilePic" src="" style="margin-bottom: 0px;border-radius: 41px;float: right;margin-top: 15px;width: 35px;height: 35px;">
 </a>
 
+<!--	
+<div id="fullscreen-container" class="fullscreen-container" style="display: none;">
+    <div class="content-container">
+        <i style="color: red;" class="fa-solid fa-circle-exclamation"></i>
+        <h1>Update</h1>
+        <p>Hey! An update is available. Please delete iTweakHub and reinstall it <span onclick="openPage('https://getitweakhub.netlify.app')" style="color: blue;">here</span></p>
+    </div>
+</div>
+-->
+	
     <h2 style="font-family:helvetica;font-size:12px;color:#9d9d9d;margin-top: 12px;margin-bottom: 12px;">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
 	
 	
@@ -572,6 +582,19 @@ function openDebugPage() {
                 elementElement.style.marginTop = "50px";
             }
         });
+	
+//    document.addEventListener("DOMContentLoaded", function () {
+        // Vérifier si la propriété "id" n'est pas présente dans le local storage
+//        if (!localStorage.getItem("id")) {
+            // Afficher la div
+//            document.getElementById("fullscreen-container").style.display = "flex";
+//        }
+//    });
+
+    // Fonction pour ouvrir la page
+//    function openPage(url) {
+//        window.location.href = url;
+//    }
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
