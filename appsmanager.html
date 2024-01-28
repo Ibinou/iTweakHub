@@ -80,9 +80,7 @@
         </div>
     </div>
     <div class="appget">
-        <a href="appinfos.html?name=Quantum%20Source&amp;source=https%3A%2F%2Fquarksources.github.io%2Fquantumsource.json">
             <button class="getbtn">VIEW</button>
-        </a>
     </div>
 </div>
 </a>
@@ -442,6 +440,9 @@ function showErrorPopup(message, url) {
 
     // Ensuite, supprimer la div d'erreur du DOM
     errorDiv.remove();
+   
+   // reload the page
+   location.reload()
   });
 
   errorDiv.appendChild(deleteDiv);
