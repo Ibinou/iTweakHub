@@ -6,6 +6,17 @@
     "iconURL": "https://avatars.githubusercontent.com/u/77606385",
     "tintColor": "D85240",
     "apps": [
+      {
+         "name":"Blacklist",
+         "id":"Blacklist",
+         "developerName":"AppInstalleriOS",
+         "version":"1.0",
+         "compatibility":"14.0 - 15.7.1 and 16 - 16.1.2",
+         "iconURL":"https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
+         "downloadURL":"https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
+         "localizedDescription":"Unblacklist your iDevice using MacDirtyCow",
+         "screenshotURLs":null
+      },
         {
             "id": "uyouplus",
             "name": "uYouPlus",
