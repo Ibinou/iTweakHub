@@ -21,9 +21,10 @@
    
                                                                                     
 <div class="sidebar">
-  <a href="index.html">Home</a>
-  <a class="active" href="appsmanager.html">Apps Manager</a>
-  <a href="search.html">Search</a>
+  <a href="index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a class="active" href="appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="news.html"><i class="fa-regular fa-newspaper"></i>News</a>
 </div>
 
    <div id="topnav" style="display: none;" class="topNav">
@@ -35,14 +36,6 @@
 
 <div id="errormsg"></div>
 	    
-<ul class="ioslist">
-<li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
-<div class="ioslist_icon"><i class="fa-solid fa-heart"></i></div>
-<span>Favorite Apps</span>
-<div class="ioslist_opposite"><i class="fa-solid fa-angle-right"></i></div>
-</li>
-</ul>
-	    
 <p id="updates" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Updates</p>
 <div class="appList"></div>
 
@@ -52,19 +45,19 @@
   <div class="explore_title">Explore</div>
   <div class="explore_text">Explore our recommended sources to discover new apps !</div>
   <div class="featuredrepos">	    
-<div style="margin-right: 14px;" class="item">
+<div class="item">
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/KFD-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/KFD-repo/icon.png?raw=true">
        <h2>KFD Repo by enzo_zsh</h2>
     <p>Enzo_zsh</p>
 </div>
-<div style="margin-right: 14px;" class="item">
+<div class="item">
     <button id="https://apps.nabzclan.vip/repos/itweakhub.php">Add</button>
        <img src="https:\/\/apps.nabzclan.vip\/images\/default_share_image.png">
        <h2>Nabzclan Apps</h2>
     <p>nabzclan</p>
 </div>
-<div style="margin-right: 14px;" class="item">
+<div class="item">
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/MacDirtyCow-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/MacDirtyCow-repo/icon.png?raw=true">
        <h2>MacDirtyCow Repo by enzo_zsh</h2>
@@ -78,12 +71,20 @@
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" id="reload" ></i>
 
     <div id="appList" class="appList">
-<a id="base" href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">     
-<div class="item">
-    <i class="fa-solid fa-circle-minus" aria-hidden="true"></i>
-       <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico">
-       <h2>iTH Base Repo</h2>
-    <p>iTweakHub Team</p>
+<a href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">
+<div class="dock">
+    <div class="app_cell_left">
+        <img class="appicon" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png">
+        <div class="app_cell_meta">
+            <div class="appname">iTweakHub Base Source</div>
+            <div class="appsection">iTweakHub Team</div>
+        </div>
+    </div>
+    <div class="appget">
+      <a>
+            <button class="getbtn">VIEW</button>
+      </a>
+    </div>
 </div>
 </a>
     </div>
@@ -217,7 +218,7 @@ function afficherInfosDepuisJSON() {
 }
 
 
-// Fonction pour créer l'élément du repo
+// Fonction pour créer l'élément de la source
 function createRepoElement(data, url) {
   var dockDiv = document.createElement("div");
   dockDiv.className = "dock";
@@ -242,25 +243,25 @@ function createRepoElement(data, url) {
 
   var appSectionDiv = document.createElement("div");
   appSectionDiv.className = "appsection";
-  appSectionDiv.textContent = data.author || "Unknown Author"; // Ajouter la propriété d'auteur (author) si elle existe
+  appSectionDiv.textContent = data.author || "Unknown Author";
   appCellMetaDiv.appendChild(appSectionDiv);
 
   var appGetDiv = document.createElement("div");
   appGetDiv.className = "appget";
   dockDiv.appendChild(appGetDiv);
 
-  var appLink = document.createElement("a");
-  appLink.href = "appinfos.html?name=" + encodeURIComponent(data.name) + "&source=" + encodeURIComponent(url);
-  appGetDiv.appendChild(appLink);
-
   var getButton = document.createElement("button");
   getButton.className = "getbtn";
-  getButton.textContent = "GET";
-  appLink.appendChild(getButton);
+  getButton.textContent = "VIEW";
+  appGetDiv.appendChild(getButton);
+
+  // Ajouter un gestionnaire d'événements pour ouvrir la page repoview.html
+  dockDiv.addEventListener("click", function() {
+    window.open("repoview.html?repo=" + encodeURIComponent(url), "_blank");
+  });
 
   return dockDiv;
 }
-
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
@@ -398,21 +399,7 @@ function removeFavorite(appName) {
             }
         });
 
-// Vérifie si le tableau "repoURLs" est présent dans le stockage local
-if (localStorage.getItem("repoURLs")) {
-    // Le tableau "repoURLs" existe dans le stockage local
-    // Récupère le tableau et vérifie s'il est vide
-    const repoURLs = JSON.parse(localStorage.getItem("repoURLs"));
-    if (repoURLs.length === 0) {
-        // Le tableau "repoURLs" est vide, donc applique le style "width: 50%" à l'élément <a>
-        const linkElement = document.getElementById("base");
-        linkElement.style.width = "50%";
-    }
-} else {
-    // Le tableau "repoURLs" n'existe pas dans le stockage local, donc applique le style "width: 50%" à l'élément <a>
-    const linkElement = document.querySelector("a");
-    linkElement.style.width = "50%";
-}
+
 
 
 function isValidUrl(url) {
@@ -442,6 +429,9 @@ function showErrorPopup(message, url) {
 
     // Ensuite, supprimer la div d'erreur du DOM
     errorDiv.remove();
+   
+   // reload the page
+   location.reload()
   });
 
   errorDiv.appendChild(deleteDiv);
@@ -615,6 +605,20 @@ async function checkForUpdates() {
 }
 
 checkForUpdates();
+
+// Sélectionnez tous les éléments avec la classe "item"
+var items = document.querySelectorAll('.featuredrepos .item');
+
+// Parcourez chaque élément et appliquez les marges appropriées
+items.forEach(function(item, index) {
+    // Ajoute une marge à droite de 14px à tous les éléments
+    item.style.marginRight = '14px';
+
+    // Si c'est le premier élément, ajoute une marge à gauche de 19px
+    if (index === 0) {
+        item.style.marginLeft = '19px';
+    }
+});
     </script>
 <script>
         document.addEventListener("DOMContentLoaded", function() {
