@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/featured.css" keep>
+    <link rel="stylesheet" href="css/navbar.css" keep>
+    <link rel="stylesheet" href="css/styles.css" keep>
+    <link rel="stylesheet" href="css/banner.css" keep>
+    <link rel="stylesheet" href="https://unpkg.com/@ivteplo/utilities.css@1.0.0/build/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  
+    <title>iTweakHub | News</title>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#121212">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="iphonex_splash.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="iphonex_splash.png">
+    
+<!-- PushAlert -->
+<script type="text/javascript">
+        (function(d, t) {
+                var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+                g.src = "https://cdn.pushalert.co/integrate_8d0f3fb974f3c466c91728b39e7f2a4a.js";
+                s.parentNode.insertBefore(g, s);
+        }(document, "script"));
+</script>
+<!-- End PushAlert -->
+    
+</head>
+<body style="opacity: 0;">
+	
+ 
+                                                                                
+<div class="sidebar">
+  <a href="index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a href="appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a class="active" href="news.html"><i class="fa-regular fa-newspaper"></i>News</a>
+</div>
+
+    <div id="topnav" style="display: none;" class="topNav">
+        <div>News</div>
+    </div>
+	
+<div class="content">
+  
+<div id="header">
+<h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;margin-bottom: -5px;">News</h1>
+</div>
+<div class="animated-enter">
+<div id="news"></div>
+</div>
+<div style="padding-top: 35px;"></div>
+	
+	        <nav class="mobile-nav">
+            <a href="index.html" class="bloc-icon">
+                <i class="fa-solid fa-fire" style="color: #fff;"></i>
+            </a>
+            <a href="appsmanager.html" class="bloc-icon">
+                <i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>
+            </a>
+            <a href="search.html" class="bloc-icon">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </a>
+	
+        <a href="news.html" class="bloc-icon">
+      <i class="fa-regular fa-newspaper" style="color: var(--accent-color);"></i>
+    </a>
+        </nav>
+
+<div class="gradient-div"></div>
+
+
+<div class="hidecolor">  
+<input type="color" id="color-picker">
+<button id="reset-button">Reset</button>
+</div>
+	    
+<script src="https://cococloud-signing.online/cert-status/sign-status.js"></script>
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+        
+  </script>
+<script>
+// Récupérer l'élément HTML où les actualités seront affichées
+var container = document.getElementById('news');
+
+// Fonction pour ajouter "#" devant le nombre hexadécimal de la couleur si nécessaire
+function formatColor(color) {
+    if (color && color.charAt(0) !== '#') {
+        color = '#' + color;
+    }
+    return color;
+}
+
+// Fonction pour trouver une application par appID ou bundleIdentifier
+function findAppByIdentifier(identifier, apps) {
+    return apps.find(app => app.appID === identifier || app.bundleIdentifier === identifier);
+}
+
+// Fonction pour afficher les informations de l'application
+function displayAppInfo(appData, sourceURL) {
+    // Créer des éléments HTML pour afficher les infos de l'application
+    var appInfoWrapper = document.createElement('div');
+    appInfoWrapper.classList.add('app-info-wrapper');
+
+    var appHeader = document.createElement('div');
+    appHeader.classList.add('app-header');
+
+    var content = document.createElement('div');
+    content.classList.add('contentapp');
+
+    var appIcon = document.createElement('img');
+    appIcon.id = 'app-icon';
+    appIcon.src = appData.iconURL || '';
+    appIcon.alt = '';
+
+    var right = document.createElement('div');
+    right.classList.add('right');
+
+    var text = document.createElement('div');
+    text.classList.add('text');
+
+    var title = document.createElement('p');
+    title.classList.add('title');
+    title.textContent = appData.name || '';
+
+    var subtitle = document.createElement('p');
+    subtitle.classList.add('subtitle');
+    subtitle.textContent = appData.developerName || '';
+
+    var link = document.createElement('a');
+    link.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(sourceURL);
+
+    var button = document.createElement('button');
+    button.classList.add('uibutton');
+    button.style.backgroundColor = formatColor(appData.tintColor) || '#';
+    button.textContent = 'View';
+
+    // Ajouter les éléments au DOM
+    text.appendChild(title);
+    text.appendChild(subtitle);
+
+    link.appendChild(button);
+
+    right.appendChild(text);
+    right.appendChild(link);
+
+    content.appendChild(appIcon);
+    content.appendChild(right);
+
+    appHeader.appendChild(content);
+
+    var background = document.createElement('div');
+    background.classList.add('background');
+    background.style.backgroundColor = formatColor(appData.tintColor) || '';
+
+    appHeader.appendChild(background);
+
+    appInfoWrapper.appendChild(appHeader);
+    container.appendChild(appInfoWrapper);
+}
+
+// Effectuer une première requête AJAX pour récupérer le JSON à partir de apps.json
+fetch('https://ibinou.github.io/iTweakHub/apps.json')
+    .then(response => response.json())
+    .then(data => {
+        if (data.news) {
+            data.news.forEach(function (newsItem) {
+                // Créer des éléments HTML pour chaque actualité
+                var newsWrapper = document.createElement('div');
+                newsWrapper.classList.add('custom-news-item-wrapper');
+
+                var item = document.createElement('div');
+                item.classList.add('custom-item');
+                item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
+
+                var textContainer = document.createElement('div');
+                textContainer.classList.add('custom-text');
+
+                var headline = document.createElement('h3');
+                headline.textContent = newsItem.title || '';
+
+                var description = document.createElement('p');
+                description.textContent = newsItem.caption || '';
+
+                var imgContainer = document.createElement('div');
+                imgContainer.classList.add('custom-image-wrapper');
+
+                var img = document.createElement('img');
+                img.src = newsItem.imageURL || '';
+
+                // Ajouter les éléments au DOM
+                textContainer.appendChild(headline);
+                textContainer.appendChild(description);
+
+                item.appendChild(textContainer);
+                item.appendChild(imgContainer);
+                imgContainer.appendChild(img);
+
+                newsWrapper.appendChild(item);
+                container.appendChild(newsWrapper);
+
+                // Vérifier si la news a un appID
+                if (newsItem.appID) {
+                    // Rechercher l'application correspondante
+                    var appData = findAppByIdentifier(newsItem.appID, data.apps);
+
+                    if (appData) {
+                        // Afficher les informations de l'application
+                        displayAppInfo(appData, 'https://ibinou.github.io/iTweakHub/apps.json');
+                    } else {
+                        console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
+                    }
+                }
+            });
+
+            var urlsString = localStorage.getItem('repoURLs');
+            var urls = JSON.parse(urlsString);
+
+            if (urls) {
+                urls.forEach(function (url) {
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.news) {
+                                data.news.forEach(function (newsItem) {
+                                    var newsWrapper = document.createElement('div');
+                                    newsWrapper.classList.add('custom-news-item-wrapper');
+
+                                    var item = document.createElement('div');
+                                    item.classList.add('custom-item');
+                                    item.style.backgroundColor = formatColor(newsItem.tintColor) || '#1ed760';
+
+                                    var textContainer = document.createElement('div');
+                                    textContainer.classList.add('custom-text');
+
+                                    var headline = document.createElement('h3');
+                                    headline.textContent = newsItem.title || '';
+
+                                    var description = document.createElement('p');
+                                    description.textContent = newsItem.caption || '';
+
+                                    var imgContainer = document.createElement('div');
+                                    imgContainer.classList.add('custom-image-wrapper');
+
+                                    var img = document.createElement('img');
+                                    img.src = newsItem.imageURL || '';
+
+                                    textContainer.appendChild(headline);
+                                    textContainer.appendChild(description);
+
+                                    item.appendChild(textContainer);
+                                    item.appendChild(imgContainer);
+                                    imgContainer.appendChild(img);
+
+                                    newsWrapper.appendChild(item);
+                                    container.appendChild(newsWrapper);
+
+                                    if (newsItem.appID) {
+                                        var appData = data.apps.find(app => app.id === newsItem.appID);
+                                        if (appData) {
+                                            displayAppInfo(appData, url);
+                                        } else {
+                                            console.error('Données de l\'application non trouvées pour appID :', newsItem.appID);
+                                        }
+                                    }
+                                });
+                            } else {
+                                console.error('Le tableau news est introuvable dans le JSON.');
+                            }
+                        })
+                        .catch(error => console.error('Erreur lors de la récupération du JSON depuis le local storage :', error));
+                });
+            } else {
+                console.error('Le tableau urls est introuvable dans le local storage.');
+            }
+        } else {
+            console.error('Le tableau news est introuvable dans le fichier apps.json.');
+        }
+    })
+    .catch(error => console.error('Erreur lors de la récupération du JSON depuis apps.json :', error));
+
+        
+        var topNav = document.querySelector(".topNav");
+        var isNavVisible = false;
+
+        document.addEventListener("scroll", function() {
+            // Vérifier si l'utilisateur a fait défiler suffisamment
+            if (window.scrollY > 100 && !isNavVisible) {
+                fadeIn(topNav);
+                isNavVisible = true;
+            } else if (window.scrollY <= 100 && isNavVisible) {
+                fadeOut(topNav);
+                isNavVisible = false;
+            }
+        });
+
+        function fadeIn(element) {
+            var opacity = 0;
+            element.style.display = "block";
+            var fadeInInterval = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, 20);
+        }
+
+        function fadeOut(element) {
+            var opacity = 1;
+            var fadeOutInterval = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    element.style.display = "none";
+                    clearInterval(fadeOutInterval);
+                }
+            }, 20);
+        }
+	      
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".topNav");
+            var elementElement = document.getElementById("header");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "60px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "50px";
+            }
+        });
+	
+
+</script>
+<style>
+::-webkit-scrollbar {
+     display: none; 
+}
+</style>
+        <script src="js/index.js"></script>
+	<script src="js/script.js"></script>
+        <script src="js/transition.js"></script>
+        <script src="js/language.js"></script>
+	<script src="sw.js"></script>
+ 
+</div>
+</body>
+
+</html>

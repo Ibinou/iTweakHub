@@ -21,32 +21,29 @@
 <body style="opacity: 0;" onload="afficherDonnees()">
 	
 <div class="sidebar">
-  <a href="index.html">Home</a>
-  <a href="appsmanager.html">Apps Manager</a>
-  <a class="active" href="search.html">Search</a>
+  <a href="index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a href="appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a class="active" href="search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="news.html"><i class="fa-regular fa-newspaper"></i>News</a>
 </div>
-
-<div class="content">
 	
+   <div id="topnav" style="display: none;" class="topNav">
+        <div>Search</div>
+    </div>
+	
+<div class="content">
+<div id="header">	
 <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;margin-bottom: -5px;">Search</h1>
 
 <div id="navbar">
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
-      
-      <div class="sectionscarr">
-          <div class="sections">Games</div>
-          <div class="sections">Tweaked</div>
-          <div class="sections">Utilities</div>
-          <div class="sections">Jailbreak</div>
-          <div class="sections">Emulators</div>
-	  <div class="sections">Exclusive</div>
-	  <div class="sections">Legacy</div>
-      </div>
 </div> 
+</div>
   <center>	    
+<div class="animated-enter">
 <div class="appList" id="appList"></div>
          <br>
-  
+</div>
 	 <br> 
 	 <br>
 	 <br>
@@ -62,6 +59,9 @@
     </a>
     <a href="search.html" class="bloc-icon">
       <i class="fa-solid fa-magnifying-glass" style="color: var(--accent-color);"></i>
+    </a>
+        <a href="news.html" class="bloc-icon">
+      <i class="fa-regular fa-newspaper" style="color: #fff;"></i>
     </a>
   </nav>
 	  
@@ -114,104 +114,123 @@
   </script>
    
 <script>
+// Fonction pour afficher les données
 function afficherDonnees() {
-    var appListDiv = document.getElementById("appList");
+  var appListDiv = document.getElementById("appList");
 
-    // Fetcher les données de apps.json
-    fetch('apps.json')
-        .then(function(response) {
+  // Fetcher les données de apps.json
+  fetch('https://ibinou.github.io/iTweakHub/apps.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var appsData = data.apps; // Assurez-vous que le format JSON correspond
+
+      // Triez les applications par nom (ordre alphabétique)
+      appsData.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+      });
+
+      afficherApplications(appsData);
+
+      // Récupérer les URLs des JSON depuis le localStorage
+      var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+
+      // Fetcher les données des URLs stockées dans repoURLs
+      var fetchPromises = repoURLs.map(function(url) {
+        return fetch(url)
+          .then(function(response) {
             return response.json();
-        })
-        .then(function(data) {
-            var appsData = data.Apps;
+          })
+          .then(function(data) {
+            var appsDataFromURL = data.apps; // Assurez-vous que le format JSON correspond
 
-            // Triez les applications par nom (ordre alphabétique)
-            appsData.sort(function(a, b) {
-                return a.name.localeCompare(b.name);
+            // Triez les applications par nom également
+            appsDataFromURL.sort(function(a, b) {
+              return a.name.localeCompare(b.name);
             });
 
-            afficherApplications(appsData);
+            afficherApplications(appsDataFromURL, url);
+          })
+          .catch(function(error) {
+            console.log('Error fetching data from URL', error);
+          });
+      });
 
-            // Récupérer les URLs des JSON depuis le localStorage
-            var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+      // Attendre que toutes les requêtes de fetch se terminent
+      return Promise.all(fetchPromises);
+    })
+    .catch(function(error) {
+      console.log('Error fetching apps.json', error);
+    });
 
-            // Fetcher les données des URLs stockées dans repoURLs
-            var fetchPromises = repoURLs.map(function(url) {
-                return fetch(url)
-                    .then(function(response) {
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        var appsDataFromURL = data.Apps;
+  function afficherApplications(appsData, source) {
+    appsData.forEach(function(appData) {
+      var dockDiv = document.createElement("div");
+      dockDiv.className = "dock";
 
-                        // Triez les applications par nom également
-                        appsDataFromURL.sort(function(a, b) {
-                            return a.name.localeCompare(b.name);
-                        });
+      var appCellLeftDiv = document.createElement("div");
+      appCellLeftDiv.className = "app_cell_left";
 
-                        afficherApplications(appsDataFromURL);
-                    })
-                    .catch(function(error) {
-                        console.log('Error fetching data from URL', error);
-                    });
-            });
+      var appIconImg = document.createElement("img");
+      appIconImg.className = "appicon";
 
-            // Attendre que toutes les requêtes de fetch se terminent
-            return Promise.all(fetchPromises);
-        })
-        .catch(function(error) {
-            console.log('Error fetching apps.json', error);
-        });
+      // Vérifier si appData.iconURL existe
+      if (appData.iconURL) {
+        // Vérifier si le lien d'image est valide
+        appIconImg.onload = function() {
+          // L'image a été chargée avec succès
+        };
+        appIconImg.onerror = function() {
+          // Le lien d'image n'est pas valide, utiliser un placeholder
+          appIconImg.src = "img/blank.JPG";
+        };
+        appIconImg.src = appData.iconURL;
+      } else {
+        // Utiliser un placeholder si aucun lien d'image n'est fourni
+        appIconImg.src = "img/blank.JPG";
+      }
 
-    function afficherApplications(appsData) {
-        appsData.forEach(function(appData) {
-            var dockDiv = document.createElement("div");
-            dockDiv.className = "dock";
+      appCellLeftDiv.appendChild(appIconImg);
 
-            var appCellLeftDiv = document.createElement("div");
-            appCellLeftDiv.className = "app_cell_left";
+      var appCellMetaDiv = document.createElement("div");
+      appCellMetaDiv.className = "app_cell_meta";
 
-            var appIconImg = document.createElement("img");
-            appIconImg.className = "appicon";
-            appIconImg.src = appData.icon;
-            appCellLeftDiv.appendChild(appIconImg);
+      var appNameDiv = document.createElement("div");
+      appNameDiv.className = "appname";
+      appNameDiv.textContent = appData.name;
+      appCellMetaDiv.appendChild(appNameDiv);
 
-            var appCellMetaDiv = document.createElement("div");
-            appCellMetaDiv.className = "app_cell_meta";
+      var appDevDiv = document.createElement("div");
+      appDevDiv.className = "appsection";
+      appDevDiv.textContent = appData.developerName;
+      appCellMetaDiv.appendChild(appDevDiv);
 
-            var appNameDiv = document.createElement("div");
-            appNameDiv.className = "appname";
-            appNameDiv.textContent = appData.name;
-            appCellMetaDiv.appendChild(appNameDiv);
+      appCellLeftDiv.appendChild(appCellMetaDiv);
+      dockDiv.appendChild(appCellLeftDiv);
 
-            var appDevDiv = document.createElement("div");
-            appDevDiv.className = "appsection";
-            appDevDiv.textContent = appData.developer;
-            appCellMetaDiv.appendChild(appDevDiv);
+      var appGetDiv = document.createElement("div");
+      appGetDiv.className = "appget";
 
-            appCellLeftDiv.appendChild(appCellMetaDiv);
-            dockDiv.appendChild(appCellLeftDiv);
+      var appGetBtn = document.createElement("a");
 
-            var appGetDiv = document.createElement("div");
-            appGetDiv.className = "appget";
+      // Utiliser l'opérateur ternaire pour définir la valeur de source
+      var sourceValue = source !== undefined ? encodeURIComponent(source) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
-            var appGetBtn = document.createElement("a");
-            appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+      var getBtn = document.createElement("button");
+      getBtn.className = "getbtn";
+      getBtn.textContent = "GET";
 
-            var getBtn = document.createElement("button");
-            getBtn.className = "getbtn";
-            getBtn.textContent = "GET";
+      appGetBtn.appendChild(getBtn);
+      appGetDiv.appendChild(appGetBtn);
+      dockDiv.appendChild(appGetDiv);
 
-            appGetBtn.appendChild(getBtn);
-            appGetDiv.appendChild(appGetBtn);
-            dockDiv.appendChild(appGetDiv);
-
-            appListDiv.appendChild(dockDiv);
-        });
-    }
+      appListDiv.appendChild(dockDiv);
+    });
+  }
 }
 
-        // Appeler la fonction pour afficher les données
         
   </script>
       <script>
@@ -311,8 +330,60 @@ function afficherApplicationsPourSection(sectionName) {
     }
 }
 
-    
   </script>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".topNav");
+            var elementElement = document.getElementById("header");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "60px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "50px";
+            }
+        });
+	
+       var topNav = document.querySelector(".topNav");
+        var isNavVisible = false;
+
+        document.addEventListener("scroll", function() {
+            // Vérifier si l'utilisateur a fait défiler suffisamment
+            if (window.scrollY > 100 && !isNavVisible) {
+                fadeIn(topNav);
+                isNavVisible = true;
+            } else if (window.scrollY <= 100 && isNavVisible) {
+                fadeOut(topNav);
+                isNavVisible = false;
+            }
+        });
+
+        function fadeIn(element) {
+            var opacity = 0;
+            element.style.display = "block";
+            var fadeInInterval = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, 20);
+        }
+
+        function fadeOut(element) {
+            var opacity = 1;
+            var fadeOutInterval = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    element.style.display = "none";
+                    clearInterval(fadeOutInterval);
+                }
+            }, 20);
+        }    
+</script>
 <script src="js/index.js"></script>
 	</div>
 

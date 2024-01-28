@@ -20,13 +20,12 @@
 <body style="opacity: 0;">
 
 <div class="sidebar">
-  <a href="index.html" class="active">Home</a>
-  <a href="appsmanager.html">Apps Manager</a>
-  <a href="search.html">Search</a>
+  <a class="active" href="index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a href="appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="news.html"><i class="fa-regular fa-newspaper"></i>News</a>
 </div>
 <div class="content">
-
-	
 
 <div class="toptitle">	
     <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Home</h1></a>
@@ -34,12 +33,12 @@
 </div>
 	
 <center>
-<img src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" style="width:75px;height:75px;border-radius:20px;margin-top: 102px;">
+<img id="header" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" style="width:75px;height:75px;border-radius:20px;margin-top: 102px;">
 <p style="font-family:helvetica;font-size:18px;color:#fff;margin-top: 10px;margin-bottom: 10px;">iTweakHub</p>	
-<p style="font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 10px;margin-bottom: 10px;">1.1 beta</p>
+<p style="font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 10px;margin-bottom: 10px;">2.0</p>
 </center>
 <br>
-
+<div class="animated-enter">
     <div class="suggestion-card" id="card">
         <div class="iconfeedback">
             <i class="fa fa-thumbs-up"></i>
@@ -63,16 +62,7 @@
 <div class="ioslist_opposite"><i class="fa-solid fa-angle-right"></i></div>
 </li>
 </ul>
-	
-<p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">ICON</p>
-  <div class="icon-container">
-    <a href="https://github.com/Ibinou/GetiTweakHub/raw/main/installfiles/iTweakHub.mobileconfig"><img src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" alt="Icon 1"></a>
-    <a href=""><img src="https://github.com/Ibinou/iTweakHub/blob/main/img/Dev%20icon.png?raw=true" alt="Icon 2"></a>
-    <img src="https://raw.githubusercontent.com/Ibinou/GetItweakHub/main/assets/feature-sign.png" alt="Icon 3">
-    <img src="https://raw.githubusercontent.com/Ibinou/GetItweakHub/main/assets/feature-sign.png" alt="Icon 4">
-    <img src="https://raw.githubusercontent.com/Ibinou/GetItweakHub/main/assets/feature-sign.png" alt="Icon 5">
-  </div> 	
-	
+
 <p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">DOCUMENTATION</p>	
 <ul class="ioslist">
 <li onclick="window.location.href='settings/privacy-policy.html'">
@@ -94,9 +84,9 @@
 <span>Notifications</span>
 <div class="ioslist_opposite"><i class="fa-solid fa-angle-right"></i></div>
 </li>
-<li onclick="alert('Not available for the moment !')" >
-<div class="ioslist_icon"><i class="fa-solid fa-brush"></i></div>
-<span>Theme (coming soon)</span>
+<li onclick="window.location.href='settings/certificates.html'">
+<div class="ioslist_icon"><i class="fa-solid fa-address-card"></i></div>
+<span>Certificate manager (beta)</span>
 <div class="ioslist_opposite"><i class="fa-solid fa-angle-right"></i></div>
 </li>
     <li style="border-bottom-width: 0px;">
@@ -132,7 +122,6 @@
 </div>  
 
 
-    
 
 <p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">DANGER ZONE</p>	
 <div id="clear-cookies-btn">
@@ -146,11 +135,12 @@
 <br>
 <br>
 <br>
-
-<div class="gradient-div"></div
+</div>
+</div>
+<div class="gradient-div"></div>
 <script src="js/language.js"></script>
 <script src="js/index.js"></script>
-  <script>
+<script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
       localStorage.setItem('accentColor', color);
@@ -189,8 +179,9 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+</script>
 
-	  
+<script>
 //cokie/ LS delete	
 document.getElementById("clear-cookies-btn").addEventListener("click", function() {
   // Supprimer tous les cookies
@@ -227,16 +218,20 @@ closeIcon.addEventListener('click', () => {
 if (document.cookie.indexOf('card1=hidden') !== -1) {
     card.style.display = 'none';
 }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Récupérer l'élément avec la classe "toptitle"
+        var toptitleElement = document.querySelector(".toptitle");
+        var elementElement = document.getElementById("header");
 
-    
-
-   </script>
-
-  </script>
-    
-
-	</div>
-
+        // Vérifier si l'élément "toptitle" a un padding top de 43px
+        if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+            // Si oui, changer le margin-top de l'élément "element" à 100px
+            elementElement.style.marginTop = "140px";
+        }
+    });
+</script>
 </body>
 
 </html>

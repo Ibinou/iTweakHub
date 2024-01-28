@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/featured.css" keep>
+    <link rel="stylesheet" href="../css/navbar.css" keep>
+    <link rel="stylesheet" href="../css/styles.css" keep>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+    <title>Certificate Manager</title>
+    <script src="../js/index.js"></script>
+    <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+        <!-- PushAlert -->
+<script type="text/javascript">
+        (function(d, t) {
+                var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+                g.src = "https://cdn.pushalert.co/integrate_8d0f3fb974f3c466c91728b39e7f2a4a.js";
+                s.parentNode.insertBefore(g, s);
+        }(document, "script"));
+</script>
+</head>
+<body style="opacity: 0;">
+    
+<div class="sidebar">
+  <a class="active" href="../index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a href="../appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="../search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="../news.html"><i class="fa-regular fa-newspaper"></i>News</a>
+</div>
+	
+     <form id="myForm" class="cert_form">
+        <label for="p12Url" class="cert_label">P12 URL file:</label>
+        <input type="url" id="p12Url" class="cert_input" required>
+
+        <label for="mobileprovisionUrl" class="cert_label">Mobileprovision URL file:</label>
+        <input type="url" id="mobileprovisionUrl" class="cert_input" required>
+
+        <label for="password" class="cert_label">Password:</label>
+        <input type="password" id="password" class="cert_input" required>
+
+        <button type="button" onclick="saveData()" class="add_cert">Add this certificate</button>
+	<button type="button" onclick="cancelForm()" class="add_cert cancel_btn">Cancel</button>
+
+    </form>  
+	
+<div class="content">
+   
+      <div class="toptitle">	
+    <a style="text-decoration: none" href="../settings.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
+    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Certificate Manager</h1>
+    </div>
+	
+<p style="margin-top: 113px;" id="help">A certificate is required to sign and install the apps. You can use free community certificates that can be revoked by Apple or use a paid certificate that is working for 1 year. To get paid certificate, you can buy one (less than $10) or use your Apple Developer Account ($99 per year). Keep in mind that paid certificates are only working for 1 device but with the Apple developer Account you can use a certificate for multiple iDevices</p>
+	
+  <ul class="ioslist">
+    <li style="border-bottom-width: 0px;">
+      <div class="ioslist_icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+      <span>Use community certificate</span>
+      <div class="ioslist_opposite" style="transform: translateY(-4px);">
+        <label class="form-switch">
+          <input type="checkbox" id="customCertCheckbox" checked>
+          <i></i>
+        </label>
+      </div>
+    </li>
+  </ul>
+	
+<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 22px;">Custom certificate</p>	
+<i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" onclick="toggleForm()"></i>
+
+<div id="no_cert">You haven't added a custom certificate yet.</div>
+	
+<div id="custom_cert"></div>	
+	
+<div class="gradient-div"></div>
+
+<div class="hidecolor">  
+<input type="color" id="color-picker">
+<button id="reset-button">Reset</button>
+</div>
+  <script>
+// Récupérer la checkbox
+var customCertCheckbox = document.getElementById('customCertCheckbox');
+
+// Mettre à jour la valeur de custom_cert lors du chargement de la page
+if (localStorage.getItem('custom_cert') === null || localStorage.getItem('custom_cert') === 'false') {
+  // Si "custom_cert" n'est pas présent ou est en false, la case à cocher est cochée par défaut
+  customCertCheckbox.checked = true;
+  // Ajouter la propriété "custom_cert" au localStorage avec la valeur false
+  localStorage.setItem('custom_cert', 'false');
+} else {
+  // Sinon, mettre à jour l'état de la case à cocher en fonction de la valeur dans le local storage
+  customCertCheckbox.checked = false;
+}
+	  
+// Appelez displayCertificates() après avoir configuré l'état initial de la case à cocher
+displayCertificates();
+
+// Ajouter un gestionnaire d'événements pour suivre les modifications
+customCertCheckbox.addEventListener('change', function () {
+  // Vérifier la présence des propriétés avant de permettre à la checkbox d'être décochée
+  if (localStorage.getItem('p12Url') && localStorage.getItem('mobileprovisionUrl') && localStorage.getItem('password')) {
+    // Mettre à jour la valeur de custom_cert en fonction de l'état de la checkbox (inversé)
+    localStorage.setItem('custom_cert', !customCertCheckbox.checked);
+  } else {
+    // Empêcher le changement d'état de la checkbox s'il manque des propriétés
+    customCertCheckbox.checked = true;
+  }
+
+  displayCertificates(); // Mettre à jour l'affichage des certificats
+});
+
+// Ajouter un gestionnaire d'événements pour la touche "Delete"
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Delete') {
+    // Vérifier si la propriété 'p12Url' existe dans le localStorage
+    if (localStorage.getItem('p12Url')) {
+      // Supprimer les propriétés du localStorage
+      localStorage.removeItem('password');
+      localStorage.removeItem('p12Url');
+      localStorage.removeItem('mobileprovisionUrl');
+    }
+
+    // Mettre à jour la valeur de custom_cert à false si 'p12Url' n'est pas présent
+    localStorage.setItem('custom_cert', localStorage.getItem('p12Url') ? 'true' : 'false');
+
+    // Recharger la page
+    location.reload();
+  }
+});
+
+function saveData() {
+  var p12Url = document.getElementById('p12Url').value;
+  var mobileprovisionUrl = document.getElementById('mobileprovisionUrl').value;
+  var password = document.getElementById('password').value;
+
+  // Enregistrement dans le local storage
+  localStorage.setItem('p12Url', p12Url);
+  localStorage.setItem('mobileprovisionUrl', mobileprovisionUrl);
+  localStorage.setItem('password', password);
+
+  // Ajout d'un certificat avec custom_cert à true
+  addCertificateItem();
+
+  alert('Your custom certificate has been added!');
+  displayCertificates();
+
+  // Recharger la page
+  location.reload();
+}
+
+function displayCertificates() {
+  var customCertMessageDiv = document.getElementById('custom_cert');
+  customCertMessageDiv.innerHTML = '';
+
+  // Récupérer la valeur actuelle de custom_cert dans le localStorage
+  var customCert = localStorage.getItem('custom_cert') === 'true';
+
+  // Ajouter une vérification de la propriété "password"
+  if (localStorage.getItem('password')) {
+    if (customCert) {
+      // Si custom_cert est true, afficher la carte normalement
+      addCertificateItem(false); // Passer false pour indiquer que la carte ne doit pas être désactivée
+    } else {
+      // Si custom_cert est false, ajouter la classe "disabled" à la div de message
+      customCertMessageDiv.style.display = 'block';
+      addCertificateItem(true); // Passer true pour indiquer que la carte doit être désactivée
+    }
+  } else {
+    // Ajoutez une gestion pour le cas où la propriété "password" est absente
+    customCertMessageDiv.style.display = 'none';
+  }
+}
+
+function addCertificateItem(isDisabled) {
+  var customCertContainer = document.getElementById('custom_cert');
+
+  // Vérifier si la carte existe déjà
+  var existingCard = document.getElementById('customCertCard');
+  if (existingCard) {
+    return; // Si la carte existe, ne rien faire
+  }
+
+  // Créer la carte
+  var cardDiv = document.createElement('div');
+  cardDiv.id = 'customCertCard';
+  cardDiv.classList.add('card');
+
+  if (isDisabled) {
+    cardDiv.classList.add('disabled');
+  }
+
+  var cardBodyDiv = document.createElement('div');
+  cardBodyDiv.classList.add('card-body');
+
+  var iconImg = document.createElement('img');
+  iconImg.src = 'https://macmule.com/wp-content/uploads/2015/09/Icon_CertificateStandard.png';
+  iconImg.alt = 'Award Icon';
+  iconImg.classList.add('icon-img');
+
+  var cardTextDiv = document.createElement('div');
+  cardTextDiv.classList.add('card-text');
+
+  var h2Element = document.createElement('h2');
+  h2Element.textContent = 'Custom certificate';
+
+  var pElement = document.createElement('p');
+  pElement.textContent = 'Toggle off the switch to use it.';
+
+  cardTextDiv.appendChild(h2Element);
+  cardTextDiv.appendChild(pElement);
+
+  cardBodyDiv.appendChild(iconImg);
+  cardBodyDiv.appendChild(cardTextDiv);
+
+  var cardFooterDiv = document.createElement('div');
+  cardFooterDiv.classList.add('card-footer');
+
+  var unlinkButton = document.createElement('div');
+  unlinkButton.classList.add('button');
+  unlinkButton.innerHTML = '<i class="fa-solid fa-trash"></i> Delete';
+
+  // Ajouter un gestionnaire d'événements pour le clic sur le bouton de suppression
+  unlinkButton.addEventListener('click', function () {
+    // Supprimer les propriétés du localStorage
+    localStorage.removeItem('password');
+    localStorage.removeItem('p12Url');
+    localStorage.removeItem('mobileprovisionUrl');
+
+    // Mettre à jour la valeur de custom_cert à false
+    localStorage.setItem('custom_cert', 'false');
+
+    // Recharger la page
+    location.reload();
+  });
+
+  cardFooterDiv.appendChild(unlinkButton);
+
+  cardDiv.appendChild(cardBodyDiv);
+  cardDiv.appendChild(cardFooterDiv);
+
+  customCertContainer.appendChild(cardDiv);
+}
+function toggleForm() {
+    var certForm = document.getElementById("myForm");
+    var contentElement = document.querySelector(".content");
+
+    certForm.classList.toggle("show");
+    
+    // Toggle opacity of the content based on the presence of .show class
+    contentElement.style.opacity = certForm.classList.contains("show") ? 0.5 : 1;
+
+    // Delay the visibility toggle to allow the transition to work
+    setTimeout(function() {
+        certForm.style.visibility = certForm.classList.contains("show") ? "visible" : "hidden";
+    }, 100);
+}
+function cancelForm() {
+    var certForm = document.getElementById('myForm');
+    var contentDiv = document.querySelector('.content');
+
+    // Retire la classe 'show' de la certForm
+    certForm.classList.remove('show');
+
+    // Rétablit l'opacité de la contentDiv
+    contentDiv.style.opacity = '1';
+}
+// Vérifier si la propriété "p12Url" est présente dans le localStorage
+if (localStorage.getItem("p12Url")) {
+    // La propriété "p12Url" est présente, masquer la div avec l'id "no-cert"
+    var noCertDiv = document.getElementById("no-cert");
+    if (noCertDiv) {
+        noCertDiv.style.display = "none";
+        console.log("La propriété 'p12Url' est présente dans le localStorage. Masquage de la div 'no-cert'.");
+    } else {
+        console.error("La div avec l'id 'no-cert' n'a pas été trouvée.");
+    }
+} else {
+    // La propriété "p12Url" n'est pas présente, afficher la div avec l'id "no-cert"
+    var noCertDiv = document.getElementById("no_cert");
+    if (noCertDiv) {
+        noCertDiv.style.display = "block";
+        console.log("La propriété 'p12Url' n'est pas présente dans le localStorage. Affichage de la div 'no_cert'.");
+    } else {
+        console.error("La div avec l'id 'no_cert' n'a pas été trouvée.");
+    }
+}
+    </script>
+<script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+	
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("help");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });  
+
+  </script>
+</div>
+        <script src=".../js/index.js"></script>
+	<script src=".../js/script.js"></script>
+        <script src=".../js/transition.js"></script>
+        <script src=".../js/language.js"></script>
+	<script src=".../sw.js"></script>
+</body>
+</html>

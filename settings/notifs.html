@@ -27,10 +27,12 @@
 </head>
 
 <body>
+	
 <div class="sidebar">
-  <a class="active" href="index.html">Home</a>
-  <a href="appsmanager.html">Apps Manager</a>
-  <a href="search.html">Search</a>
+  <a class="active" href="../index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a href="../appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="../search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="../news.html"><i class="fa-regular fa-newspaper"></i>News</a>
 </div>
 
 <div class="content">
@@ -39,7 +41,7 @@
     <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Push Notifications</h1>
 </div>
 
-<div class="notifspref" style="margin-top: 100px;">
+<div id="p" class="notifspref" style="margin-top: 100px;">
     <p>You can diable our push notifications without uninstalling iTweakHub. Re-enable them anytime by clicking on the "Suscribe" button.</p>
     <br>
 <button type="button" class="pushalert-custom-unsubscribe">Unsubscribe from Notifications</button>
@@ -91,6 +93,18 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+	
+document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("p");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });
   </script>
 
 </body>

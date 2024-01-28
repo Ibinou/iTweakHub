@@ -66,9 +66,108 @@ nav h1 i a {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);/* Couleur de fond lorsque l'utilisateur scroll */
 }
-/* I had to put the css here because the bottom nav bar was in top idk why */
+
+  .installation-method {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Hide the popup initially */
+.unique-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: #1c1c1ca6;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+  /* The dark background behind the popup */
+  .custom-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Styling for buttons inside custom popup */
+.unique-action-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+    background: #393939c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+  .unique-action-button:hover {
+    background-color: #666;
+  }
+
+  /* Opening animation for popup */
+  .animate-popup {
+    display: block;
+    animation: fadeIn 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /* Styling for image containers */
+  .custom-image-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .custom-image-option {
+    width: calc(25% - 20px); 
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  /* Make the images responsive */
+  .custom-image-option img {
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+  }	  
   </style>
-  
+
+<div class="action-sheet" id="myActionSheet">
+  <div onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'" class="action-sheet-item">Share</div>
+  <div onclick="window.location.href='https://ibadevs-organization.gitbook.io/untitled'" class="action-sheet-item">Help</div>
+  <div class="action-sheet-item" onclick="toggleActionSheet()">Cancel</div>
+</div>	
+	
   <div id="notification" class="notification hidden">
   <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico" alt="Notification icon">
   <div class="notification-content">
@@ -76,7 +175,29 @@ nav h1 i a {
     <p class="notification-message">The app will be installed soon.</p>
   </div>
 </div>
-  
+	
+<div class="custom-overlay" id="overlay"></div>
+	
+<div class="unique-popup" id="popup">
+  <div class="installation-method">Choose an installation method</div>
+  <div class="custom-image-container">
+    <div id="AltStore" class="custom-image-option">
+      <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/2018600523.webp">
+    </div>
+    <div id="TrollStore" class="custom-image-option">
+      <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/TrollStore-Logo.jpg">
+    </div>
+    <div id="import" class="custom-image-option">
+      <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/spaces_FJiyQY8c07uhMBUxEiix_icon_vXR6UhwzjUotIjWQQNJs_CydiaIcon.webp">
+    </div>
+    <div id="geturl" class="custom-image-option">
+      <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/Update-v2.0/img/unnamed.jpg">
+    </div>
+  </div>
+  <button id="cancel" class="unique-action-button">Cancel</button>
+</div>
+	
+ <div id="sheet_background"> 
   <nav id="topbar">
 <a style="text-decoration: none" href="javascript:history.back()">
     <h1 style="font-family:helvetica;font-size:23px;color:white;padding-left:16px;margin-top: 20px;"><i class="fa-solid fa-angle-left" style="color: #ffffff;margin-right: 5px;"></i>Back</h1>
@@ -85,38 +206,57 @@ nav h1 i a {
   <br>
 
 
+	 
  <div class="appbanner">
     <img id="appBanner" src="" class="img-banner">
 </div>
 
-<img id="appIcon" src="" class="icon"> <!-- L'attribut src sera mis à jour via JavaScript -->
 
-<div class="appInfo">
-    <h2 style="text-align:center;"><span id="appName">App Name</span></h2>
+<div class="nameanddev" >
+  <div class="app_cell_left_info">
+    <img src="" id="appIcon" class="appiconinfo">
+    <div class="app_cell_meta_info">
+      <div id="appName" class="appnameinfo">AppName</div>
+      <div id="appDeveloper" class="appsectioninfo">AppDev</div>
+    </div>
+  </div>
+
+<div class="option_btn_container">
+    <i onclick="toggleActionSheet()" id="option_btn" class="fa-solid fa-ellipsis"></i>
+    <i id="favorite" class="fa-regular fa-heart option_btn"></i>
 </div>
 
+</div>
 
-<span id="appDescription" style="opacity:90%;display: block;width: 90%;margin-left:16px;margin-top: -47px;">App Description</span>
+<div class="appInfo">
+    
+</div>
+  
+ <!--
+   <div id="alertbox" class="alertbox">
+    <i id="alerticon" class="fa-solid fa-triangle-exclamation"></i>
+    <p class="alerttext">TEST</p>
+  </div>
+ --> 
 
+ <p id="appDescription">App Description</p>
 
+  <div class="view_more_btn" onclick="toggleDescription()">
+    <div id="viewMoreText">View more</div>
+    <i id="down" class="fa-solid fa-chevron-down"></i>
+  </div>
+	
 <h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Screenshots</h3>
     <div id="screenshots" class="screenshot">
         <!-- Screenshots will be added here -->
     </div>
-    
-    <!-- 
-       <div id="alertbox" class="alertbox">
-    <i id="alerticon" class="fa-solid fa-triangle-exclamation"></i>
-    <p class="alerttext">TEST</p>
-  </div>
-  -->
       
 
-<h3 id="screen" style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Informations</h3>
+<h3 style="margin-left:16px;font-family:helvetica;font-size:20px;color:white;margin-top: 20px;">Informations</h3>
 <ul class="ioslistinfos" style="margin-left: 16px;margin-right: 16px;">
     <li>
-        <span>Developer</span>
-        <div class="ioslist_oppositeinfos" id="appDeveloper">appdev</div>
+        <span>Bundle Identifier</span>
+        <div class="ioslist_oppositeinfos" id="bundle">bundle</div>
     </li>
     <li>
         <span>Version</span>
@@ -127,19 +267,22 @@ nav h1 i a {
         <div class="ioslist_oppositeinfos" id="appCompatibility">compatibility</div>
     </li>
 </ul>
-<div class="others">
-<button id="favorite">Add to favorite</button>
-<button id="share" onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'">Share</button>
-</div>
+
 <br>
+<!-- <button id="triggerPopup" class="unique-action-button">Open Popup</button>. -->
+
+	
+<!-- 
 <a id="import" href="">
-  <ul style="margin-right: 16px;margin-left: 16px;" class="ioslist">
-<li style="border-bottom-width: 0px;">
-<div class="ioslist_icon"><i class="fa-solid fa-file-export"></i></div>
-<span>Open in Scarlet</span>
-</li>
-</ul>
+<p>EXPORT TO SCARLET</p>
 </a>
+
+id favorite pour favoriter
+id share pout partager
+
+share :
+onclick="window.location.href='twitter://post?message=Install%20iTweakHub%20now%20!%20I%20love%20this%203rd%20party%20AppStore.%20X%20(Twitter)%20account%20:%20%40iTweakHub'"
+-->
 <br>
 <br>
  
@@ -147,8 +290,8 @@ nav h1 i a {
 <br>
 <div id="appInfo"></div>
 <div class="getbar">
-    <a id="geturl" href="">
-        <button class="get" onclick="showNotification()" href="">Install</button>
+    <a>
+        <button id="triggerPopup" class="get" onclick="showNotification()" href="">Install</button>
     </a>
     <a href="" id="ipa">
         <button class="getipa" onclick="showNotification()">iPA</button>
@@ -164,7 +307,7 @@ nav h1 i a {
   <button id="reset-button">Reset</button>
 	</div> 
 
-
+ </div>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
@@ -237,161 +380,284 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     <script>
+
 // Fonction pour récupérer le paramètre "name" dans l'URL
 function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
+// Fonction pour récupérer le paramètre "source" dans l'URL
+function getSourceParameter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("source");
+}
+
+// Mettez à jour la fonction addToRecentApps
+function addToRecentApps(appName, appVersion) {
+    const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
+    
+    // Stockez le nom de l'application et sa version comme un objet
+    const appInfo = { name: appName, version: appVersion };
+    
+    recentApps.unshift(appInfo); // Ajouter au début de la liste
+
+    // Limitez la liste 
+    const maxLength = 5;
+    const trimmedRecentApps = recentApps.slice(0, maxLength);
+
+    localStorage.setItem("recent", JSON.stringify(trimmedRecentApps));
+}
 
 // Fonction pour afficher les informations de l'application en fonction du nom donné dans l'URL
 function displayAppInfo(appData) {
+    console.log("Displaying App Info:", appData);
+
     const appInfoDiv = document.getElementById("appInfo");
 
     if (appData) {
+        console.log("AppData is not null");
+
         const appIconElement = document.getElementById("appIcon");
-        appIconElement.src = appData.icon;
+        // Vérifier si appData.iconURL existe
+    if (appData.iconURL) {
+      // Vérifier si le lien d'image est valide
+      appIconElement.onload = function() {
+        // L'image a été chargée avec succès
+      };
+      appIconElement.onerror = function() {
+        // Le lien d'image n'est pas valide, utiliser un placeholder
+        appIconElement.src = "img/blank.JPG";
+      };
+      appIconElement.src = appData.iconURL;
+    } else {
+      // Utiliser un placeholder si aucun lien d'image n'est fourni
+      appIconElement.src = "img/blank.JPG";
+    }
         appIconElement.alt = `${appData.name} Icon`;
 
         const appNameElement = document.getElementById("appName");
         appNameElement.textContent = appData.name;
 
         const appDescriptionElement = document.getElementById("appDescription");
-        appDescriptionElement.textContent = appData.description;
+        appDescriptionElement.textContent = appData.localizedDescription;
+
+        const appBundleElement = document.getElementById("bundle");
+        appBundleElement.textContent = appData.bundleIdentifier;
 
         const appDeveloperElement = document.getElementById("appDeveloper");
-        appDeveloperElement.textContent = appData.developer;
+        appDeveloperElement.textContent = appData.developerName;
 
         const appVersionElement = document.getElementById("appVersion");
-        appVersionElement.textContent = appData.version;
+        appVersionElement.textContent = appData.version || (appData.versions && appData.versions[0].version);
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.compatibility;
+        appCompatibilityElement.textContent = appData.minOSVersion || (appData.versions && appData.versions[0].min0SVersion);
 
         const appBannerElement = document.getElementById("appBanner");
+        appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
 
-        if (appData.banner) {
-            appBannerElement.src = appData.banner;
-        } else {
-            appBannerElement.src = "https://proton-resources-production.imgix.net/cbd7ed4cef494955e2599ab9dbf6e951e90c5de08efabb88b2e383220b33f077.png?auto=compress";
-        }
+       const installButton = document.getElementById("geturl");
 
+// Vérifier la valeur de custom_cert dans le Local Storage
+const customCert = localStorage.getItem('custom_cert');
+
+// Récupérer les données pertinentes du tableau (si custom_cert est true)
+ const p12Url = localStorage.getItem('p12Url') || "";
+ const mobileprovisionUrl = localStorage.getItem('mobileprovisionUrl') || "";
+const certpass = localStorage.getItem('password') || "";
+const url = appData.downloadURL || appData.versions[0].downloadURL;
         const installButton = document.getElementById("geturl");
         installButton.setAttribute("href", `https://api.cococloud-signing.online/free-plist?url=${appData.ipa}`);
 
-        const importButton = document.getElementById("import");
-        importButton.setAttribute("href", `scarlet://install=${appData.ipa}`);
+// Vérifier si custom_cert est true
+if (customCert && customCert.toLowerCase() === 'true') {
+    // Construire le lien en utilisant les données du tableau
+    const customLink = `https://api.cococloud-signing.online/files/free/own-signing.php?certp12URL=${p12Url}&certmobileprovisionURL=${mobileprovisionUrl}&certpass=${certpass}&url=${url}`;
 
-        const ipaButton = document.getElementById("ipa");
-        ipaButton.setAttribute("href", `${appData.ipa}`);
+    // Mettre à jour le lien du bouton
+    installButton.addEventListener("click", function() {
+        addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
+        window.open(customLink, "_blank");
+    });
+} else {
+    // Utiliser la méthode traditionnelle si custom_cert est false ou n'existe pas
+    installButton.addEventListener("click", function() {
+        addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
+        window.open(`https://api.cococloud-signing.online/free-plist?url=${url}`, "_blank");
+    });
+}
 
-        const screenshotsDiv = document.getElementById("screenshots");
-        screenshotsDiv.innerHTML = ""; // Clear existing screenshots
+const importButton = document.getElementById("import");
+if (importButton) {
+    importButton.addEventListener("click", () => {
+        window.open(`scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+    });
+}
 
-        if (appData.screenshots && appData.screenshots.length > 0) {
-            for (const screenshotUrl of appData.screenshots) {
-                const screenshotElement = document.createElement("img");
-                screenshotElement.style.width = "200px";
-                screenshotElement.style.borderRadius = "20px";
-                screenshotElement.style.margin = "5px";
-                screenshotElement.src = screenshotUrl;
-                screenshotsDiv.appendChild(screenshotElement);
-            }
+const AltButton = document.getElementById("AltStore");
+if (AltButton) {
+    AltButton.addEventListener("click", () => {
+        window.open(`altstore://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+    });
+}
 
-            const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "block"; // Show the h3 element
-        } else {
-            const screenHeading = document.getElementById("screen");
-            screenHeading.style.display = "none"; // Hide the h3 element
-        }
+const trollButton = document.getElementById("TrollStore");
+if (trollButton) {
+    trollButton.addEventListener("click", () => {
+        window.open(`apple-magnifier://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+    });
+}
+      const ipaButton = document.getElementById("ipa");
+        ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
+        
+        
+        // Afficher les captures d'écran
+        displayScreenshots(appData.screenshotURLs);
 
         const alertBox = document.querySelector(".alertbox");
         const alertText = document.querySelector(".alerttext");
 
-        if (appData.alert) {
+        if (appData.alert && alertBox && alertText) {
             alertBox.style.display = "flex";
             alertText.textContent = appData.alert;
-        } else {
+            console.log("Displaying alert:", appData.alert);
+        } else if(alertBox) {
             alertBox.style.display = "none";
+            console.log("Hiding alert");
         }
     } else {
-        appInfoDiv.textContent = "Application not found.";
+        appInfoDiv.textContent = "";
+        console.log("AppData is null");
     }
 }
 
-// Récupérer le nom de l'application depuis l'URL
-const appNameFromURL = getParameterByName("name");
+// Fonction pour afficher et créer les images de captures d'écran
+function displayScreenshots(screenshotURLs) {
+    const screenshotsDiv = document.getElementById("screenshots");
+    screenshotsDiv.innerHTML = ""; // Effacer les captures d'écran existantes
 
-// Charger le fichier JSON en utilisant une requête AJAX
-const jsonFileURL = "apps.json";
-fetch(jsonFileURL)
-    .then(response => response.json())
-    .then(data => {
-        let appData = data.Apps.find(app => app.name === appNameFromURL);
-
-        if (!appData) {
-            // Si l'application n'a pas été trouvée dans "apps.json",
-            // essayez de la chercher dans les URL JSON de "repoURLs" depuis le Local Storage
-            const repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-
-            const fetchAppData = async (url) => {
-                try {
-                    const response = await fetch(url);
-                    const data = await response.json();
-                    return data;
-                } catch (error) {
-                    console.error("Error loading JSON file from repoURL:", error);
-                    return null;
-                }
-            };
-
-            // Utilisez Promise.all pour effectuer des requêtes parallèles aux URL JSON de repoURLs
-            const repoURLPromises = repoURLs.map(fetchAppData);
-
-            Promise.all(repoURLPromises)
-                .then(repoDataArray => {
-                    // Recherchez l'application dans les données de chaque URL JSON de repoURLs
-                    appData = repoDataArray.reduce((foundApp, repoData) => {
-                        if (!foundApp) {
-                            return repoData.Apps.find(app => app.name === appNameFromURL) || null;
-                        }
-                        return foundApp;
-                    }, null);
-
-                    displayAppInfo(appData);
-
-                    // Modifier le titre de la page avec le nom de l'application
-                    document.title = appData ? appData.name : "Application Details";
-                })
-                .catch(error => {
-                    console.error("Error loading JSON data from repoURLs:", error);
-                    const appInfoDiv = document.getElementById("appInfo");
-                    
-                });
-        } else {
-            // Si l'application a été trouvée dans "apps.json"
-            displayAppInfo(appData);
-
-            // Modifier le titre de la page avec le nom de l'application
-            document.title = appData.name;
+    if (screenshotURLs && screenshotURLs.length > 0) {
+        for (const screenshotUrl of screenshotURLs) {
+            createAndAppendScreenshot(screenshotUrl, screenshotsDiv);
         }
-    })
-    .catch(error => {
-        console.error("Error loading JSON file:", error);
-        const appInfoDiv = document.getElementById("appInfo");
-        
-    });
 
+        const screenHeading = document.getElementById("screen");
+        screenHeading.style.display = "block"; // Afficher l'élément h3
+        console.log("Displaying screenshot heading");
+    } else {
+        const screenHeading = document.getElementById("screen");
+        screenHeading.style.display = "none"; // Masquer l'élément h3
+        console.log("Hiding screenshot heading");
+    }
+}
+
+// Fonction pour créer une image de capture d'écran
+async function createAndAppendScreenshot(screenshotUrl, parentElement) {
+    try {
+        const screenshotElement = document.createElement("img");
+        screenshotElement.classList.add("screenshotimg");
+        screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
+
+        // Attendre le chargement de l'image avant de l'ajouter au DOM
+        await loadImage(screenshotElement.src);
+
+        parentElement.appendChild(screenshotElement);
+        console.log("Adding screenshot:", screenshotUrl);
+    } catch (error) {
+        console.error("Error loading screenshot:", screenshotUrl, error);
+    }
+}
+
+// Fonction pour charger une image de manière asynchrone
+function loadImage(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = url;
+    });
+}
+
+// Fonction pour charger et afficher les informations de l'application
+function loadAppInfo() {
+    const appNameFromURL = getParameterByName("name");
+    const sourceParameter = getParameterByName("source");
+
+    if (!appNameFromURL || !sourceParameter) {
+        console.error("Paramètres requis manquants (name ou source).");
+    } else {
+        const jsonFileURL = sourceParameter;  // Utilisez l'URL complète sans préfixe
+
+        fetch(jsonFileURL)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Données chargées depuis le fichier JSON :", data);
+
+                const appData = data.apps.find(app => app.name === appNameFromURL);
+
+                if (appData) {
+                    displayAppInfo(appData);
+                    document.title = appData.name;
+                } else {
+                    console.error("Données de l'application non trouvées pour le nom spécifié.");
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors du chargement du fichier JSON :", error);
+                const appInfoDiv = document.getElementById("appInfo");
+                appInfoDiv.textContent = "";
+            });
+    }
+}
+
+// Charger et afficher les informations de l'application lorsque la page se charge
+window.onload = loadAppInfo;
+
+
+  // Function to show the popup
+  function showPopup() {
+    document.getElementById('popup').classList.add('animate-popup');
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  // Function to hide the popup
+  function hidePopup() {
+    document.getElementById('popup').classList.remove('animate-popup');
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  // Event listeners for the popup actions
+  document.getElementById('triggerPopup').addEventListener('click', showPopup);
+  document.getElementById('cancel').addEventListener('click', hidePopup);
+  document.getElementById('overlay').addEventListener('click', hidePopup);
+
+  // Hide popup when user clicks on the overlay
+  window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('overlay')) {
+      hidePopup();
+    }
+  });
     </script>
 <script>
-// Fonction pour ajouter une application aux favoris
-function addToFavorites(appName) {
-    let favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-    if (!favapps.includes(appName)) {
-        favapps.push(appName);
+// Fonction pour ajouter ou supprimer une application des favoris
+function toggleFavorites(appName, source) {
+    const favapps = JSON.parse(localStorage.getItem("favapps")) || [];
+    const favoriteButton = document.getElementById("favorite");
+
+    const appIdentifier = `${appName}-${source}`;
+
+    if (!favapps.includes(appIdentifier)) {
+        // Ajouter l'application aux favoris
+        favapps.push(appIdentifier);
         localStorage.setItem("favapps", JSON.stringify(favapps));
         alert("Application added to favorites!");
+        favoriteButton.classList.add("fas");
     } else {
-        alert("Application is already in favorites.");
+        // Supprimer l'application des favoris
+        const updatedFavapps = favapps.filter(app => app !== appIdentifier);
+        localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
+        alert("Application removed from favorites.");
+        favoriteButton.classList.remove("fas");
     }
 }
 
@@ -399,7 +665,13 @@ function addToFavorites(appName) {
 const favoriteButton = document.getElementById("favorite");
 favoriteButton.addEventListener("click", () => {
     const appNameFromURL = getParameterByName("name");
-    addToFavorites(appNameFromURL);
+    const sourceParameter = getParameterByName("source");
+
+    if (appNameFromURL && sourceParameter) {
+        toggleFavorites(appNameFromURL, sourceParameter);
+    } else {
+        console.error("Paramètres requis manquants (name ou source) pour ajouter aux favoris.");
+    }
 });
 
         // Fonction pour extraire les paramètres de l'URL (la même fonction que précédemment)
@@ -424,9 +696,63 @@ favoriteButton.addEventListener("click", () => {
                 window.open(tweetIntentUrl, '_blank');
             });
         }
+        
+    function toggleDescription(isDescriptionExpanded) {
+      const appDescription = document.getElementById('appDescription');
+      const viewMoreText = document.getElementById('viewMoreText');
+      const chevronIcon = document.getElementById('down');
+
+      isDescriptionExpanded = !isDescriptionExpanded;
+
+      if (isDescriptionExpanded) {
+        appDescription.style.height = appDescription.scrollHeight + 'px';
+        viewMoreText.textContent = 'View less';
+        chevronIcon.classList.add('rotate');
+      } else {
+        appDescription.style.height = '53px'; // Réduction à la hauteur de départ
+        viewMoreText.textContent = 'View more';
+        chevronIcon.classList.remove('rotate');
+      }
+    }
+	
+function toggleActionSheet() {
+  const actionSheet = document.getElementById('myActionSheet');
+  const backgroundSheet = document.getElementById('sheet_background');
+
+  // Ajouter ou supprimer la classe 'show'
+  actionSheet.classList.toggle('show');
+
+  // Vérifier si la classe 'show' est présente après le changement
+  const isActionSheetVisible = actionSheet.classList.contains('show');
+
+  // Ajouter ou supprimer une classe avec délai pour l'animation
+  if (isActionSheetVisible) {
+    // Ajouter la classe après un délai de 10 millisecondes
+    setTimeout(() => {
+      backgroundSheet.style.transition = 'opacity 0.5s ease';
+      backgroundSheet.style.opacity = '0.5';
+    }, 10);
+  } else {
+    // Supprimer la classe après un délai de 500 millisecondes
+    setTimeout(() => {
+      backgroundSheet.style.transition = 'opacity 0.5s ease';
+      backgroundSheet.style.opacity = '';
+    }, 500);
+  }
+}
+    document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.getElementById("topbar");
+            var elementElement = document.getElementById("notification");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "45px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "50px";
+            }
+        });
 </script>
 
-<script src="js/appInfos.js"></script> 
 </body>
 
-</html>
+</html>	

@@ -11,31 +11,22 @@
   }
   
 /* Mobile nav bar */
-@supports (
-(-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))
-) {
+@supports ( (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px)) ) {
 .mobile-nav {
-justify-content: center;
-position: fixed;
-bottom: 0px;
-z-index: 99;
-text-align: center;
-padding: 10px;
-margin-bottom: 10px;
-margin: 5% auto;
-border-style: solid;
-border-color: #404040;
-border-radius: 1px;
-border-width: 1px;
-left: 0;
-right: 0;
-width: 73%;
-max-width: 500px;
-background-color: rgba(42, 42, 42, 0.4);
-border-radius: 40px;
--webkit-backdrop-filter: blur(15px);
-backdrop-filter: blur(15px);
-height: 53px;
+    justify-content: center;
+    position: fixed;
+    bottom: 0px;
+    z-index: 99;
+    text-align: center;
+    padding: 11px;
+    margin-bottom: 0px;
+    left: 0;
+    right: 0;
+    background-color: rgba(42, 42, 42, 0.4);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    height: 53px;
+    border-top: solid 1px #4040404d;
 }
 }
 
@@ -44,6 +35,9 @@ font-size: 26px;
 margin: 19px;
 color: var(--accent-color);
 }
+
+
+
 
 /* Styles pour les iPhones avec encoche (iPhone X ou ultérieurs) */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
@@ -90,6 +84,7 @@ color: var(--accent-color);
   }
 }
 
+
 @media only screen and (min-width: 768px) {
 .mobile-nav {
 display: none;
@@ -106,6 +101,7 @@ padding-bottom: 25px;
 .sidebar {
     margin: 0;
     padding: 0;
+    padding-top: 20px;
     width: 200px;
     /* background-color: #2c2c2c; */
     position: fixed;
@@ -126,7 +122,7 @@ padding-bottom: 25px;
 .sidebar a.active {
   background-color: #404040;
   color: white;
-  border-radius: 15px;
+  border-radius: 12px;
   margin: 12px
 }
 
@@ -134,7 +130,7 @@ padding-bottom: 25px;
   background-color: #555;
   color: white;
   margin: 12px;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 
 div.content {
@@ -158,6 +154,12 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+
+.sidebar i {
+  margin-right: 10px; 
+  font-size: 18px; 
+  color: #ffffff; 
 }
 
 .bloc-icon i {
@@ -209,6 +211,31 @@ div.content {
 .get.clicked {
   animation: click 0.2s linear;
 }
+
+
+.topNav {
+    background-color: #121312c4;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: white;
+    top: 0;
+    z-index: 99999999999999;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    border-bottom: solid 1px #4040404d;
+    padding-top: 32px;
+    padding-bottom: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+.topNav {
+  left: 200px;
+}
+.topNav div {
+  margin-right: 196px;
+  position: sticky;
+
 /* Styles pour les iPhones avec encoche (iPhone X ou ultérieurs) */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
   /* iPhone X, XS, 11 Pro, 12 Pro, 13 Mini */
@@ -253,10 +280,6 @@ div.content {
     margin-bottom: 15px;
   }
 }
-@keyframes click {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.95); }
-  100% { transform: scale(1); }
 }
 
 
@@ -285,6 +308,7 @@ div.content {
     z-index: 999;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    padding-top: 20px;
 }
 /*SECTIONS CHOOSE*/
 .sectionscarr {
@@ -341,5 +365,44 @@ div.content {
     position: sticky;
     top: 0px;
     padding-top: 17px;
-    height: 129px;
+    height: 68px;
+}
+
+
+/* Styles for iPhones with a pixel ratio of 3 (and higher) */
+@media only screen and (-webkit-device-pixel-ratio: 3) {
+  .mobile-nav {
+    padding-bottom: 62px;
+  }
+  .getbar button {
+    margin-bottom: 15px;
+  }
+  .toptitle {
+    padding-top: 50px;
+  }
+  nav {
+    padding-top: 45px;
+  }
+  .topNav {
+    padding-top: 60px;
+  }
+}
+
+/* Styles for iPhones Xr and 11 */
+@media only screen  and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
+  .mobile-nav {
+    padding-bottom: 62px;
+  }
+  .getbar button {
+    margin-bottom: 15px;
+  }
+  .toptitle {
+    padding-top: 50px;
+  }
+  nav {
+    padding-top: 45px;
+  }
+  .topNav {
+    padding-top: 60px;
+  }
 }

@@ -28,9 +28,10 @@
 
 <body>
 <div class="sidebar">
-  <a class="active" href=".../index.html">Home</a>
-  <a href=".../appsmanager.html">Apps Manager</a>
-  <a href=".../search.html">Search</a>
+  <a class="active" href="../index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a href="../appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="../search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="../news.html"><i class="fa-regular fa-newspaper"></i>News</a>
 </div>
 
 <div class="content">
@@ -39,7 +40,7 @@
     <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Terms and Conditions</h1>
 </div>
 
-<div style="margin-top: 100px;" class="terms">
+<div id="p" style="margin-top: 100px;" class="terms">
     <h3>iTweakHub Terms and Conditions</h3>
   <p>Welcome to iTweakHub! Before using our service, please take a moment to carefully read the following Terms and Conditions. Your use of our alternative iPA/AppStore library implies your full acceptance of the conditions outlined below.</p>
   
@@ -114,6 +115,17 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("p");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });
   </script>
 
 </body>

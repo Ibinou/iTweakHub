@@ -18,10 +18,12 @@
 </head>
 
 <body>
+	
 <div class="sidebar">
-  <a class="active" href="index.html">Home</a>
-  <a href="appsmanager.html">Apps Manager</a>
-  <a href="search.html">Search</a>
+  <a class="active" href="../index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a href="../appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="../search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="../news.html"><i class="fa-regular fa-newspaper"></i>News</a>
 </div>
 
 <div class="content">
@@ -31,14 +33,16 @@
 </div>
 
 	
-<div class="devcard" style="margin-top: 98px;">
+<div id="devcard" class="devcard" style="margin-top: 98px;">
   <div class="profile-pic">
-    <img src="https://pbs.twimg.com/profile_images/1671528760154157063/frCT_FPk_400x400.jpg">
+    <img src="https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/profile/IMG_4298.jpeg?raw=true">
   </div>
   <div class="card-content">
     <h3>iBaDev</h3>
     <p>Frontend dev, UI, owner</p>
-    <button class="socialbtn" href="https://twitter.com/Ibatech1">Twitter (𝕏)</button>
+    <a href="https://twitter.com/Ibatech1">
+    <button class="socialbtn">Twitter (𝕏)</button>
+    </a>
   </div>
 </div>
 <div class="devcard">
@@ -48,7 +52,9 @@
   <div class="card-content">
     <h3>Kevin Alavik</h3>
     <p>Help for the backend </p>
-    <button class="socialbtn" href="https://twitter.com/pufferisadev">Twitter (𝕏)</button>
+    <a href="https://twitter.com/pufferisadev">
+    <button class="socialbtn">Twitter (𝕏)</button>
+    </a>
   </div>
 </div>
 <div class="devcard">
@@ -58,7 +64,9 @@
   <div class="card-content">
     <h3>Janneske2001 </h3>
     <p>Icon designer</p>
-    <button class="socialbtn" href="https://twitter.com/pufferisadev">Twitter (𝕏)</button>
+    <a href="https://twitter.com/jam_minty">
+    <button class="socialbtn">Twitter (𝕏)</button>
+    </a>
   </div>
 </div>
 <div class="devcard">
@@ -66,22 +74,40 @@
     <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/profile/animations.jpg">
   </div>
   <div class="card-content">
-    <h3>Ou714nd3r2007</h3>
+    <h3>Nanotek</h3>
     <p>Help for animations</p>
-    <button class="socialbtn" href="https://twitter.com/Outland3r2007">Twitter (𝕏)</button>
+    <a href="https://twitter.com/Outland3r2007">
+    <button class="socialbtn">Twitter (𝕏)</button>
+    </a>
   </div>
 </div>
 
 <div class="devcard">
   <div class="profile-pic">
-    <img src="https://pbs.twimg.com/profile_images/1705507569949679617/p97QfLwf_400x400.jpg">
+    <img src="https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/profile/IMG_4299.jpeg?raw=true">
   </div>
   <div class="card-content">
     <h3>Enzo 𝕏 </h3>
-    <p>Alternative icons & KFD-MDC repos</p>
-    <button class="socialbtn" href="https://x.com/enzo_lzrt">Twitter (𝕏)</button>
+    <p>Alternative icons & KFD-MDC-Troll sources</p>
+     <a href="https://x.com/enzo_lzrt">
+    <button class="socialbtn">Twitter (𝕏)</button>
+    </a>
   </div>
 </div>
+
+<div class="devcard">
+  <div class="profile-pic">
+    <img src="https://github.com/Ibinou/iTweakHub/blob/Update-v2.0/img/profile/IMG_4300.jpeg?raw=true">
+  </div>
+  <div class="card-content">
+    <h3>Alexandre 🇫🇷</h3>
+    <p>Bug fixes</p>
+    <a href="https://x.com/RawZ06Off">
+    <button class="socialbtn">Twitter (𝕏)</button>
+    </a>
+  </div>
+</div>
+
 	
 
 </div>
@@ -130,6 +156,17 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("devcard");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });  
   </script>
 
 </body>

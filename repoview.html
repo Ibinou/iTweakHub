@@ -28,15 +28,65 @@
 
   <div class="content">
 
-    <div class="toptitle">	
-    <a style="text-decoration: none" href="appsmanager.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
-    <h1 id="repoName" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;width: 280px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">RepoName</h1>
+<div class="toptitle" style="display: flex; align-items: center;">
+    <a style="text-decoration: none" href="appsmanager.html">
+        <h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px; color: var(--accent-color);">
+            <i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Back
+        </h1>
+    </a>
+    <i id="shareIcon" style="font-size: 24px; margin-left: auto; margin-right: 16px;" class="fas fa-share"></i>
 </div>
+	  
+
+<div id="header" style="margin-top: 77px;" class="source_header">
+	<img id="source_icon" src="https://altstore.io/images/AltStore_AppIcon.png">
+	<div id="repoName" class="source_title">repoName</div>
+	<div id="repoDescription" class="source_description">description</div>
+	<a id="source_website" href="#" class="source_website">
+       		Website
+        	<!-- Icône Font Awesome -->
+       		<i class="fa-solid fa-circle-chevron-right icone" aria-hidden="true"></i>
+      	</a>
+</div>
+	  
 <center>
-  <input style="margin-top: 100px;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
+  <input style="margin-top: 16px;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name">
  <div class="appList" id="appList" style="margin-top: 8px;"></div>
 </center>    
-    
+
+  <style>
+
+    .source_website {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--accent-color);
+      margin-top: 15px;
+    }
+
+    .icone {
+      margin-left: 10px; 
+    }
+
+    .source_title {
+      font-size: 22px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .source_description {
+       font-size: 14px;
+       color: #ffffffc7;
+    }
+    .source_header img {
+       border-radius: 18px;
+       width: 68px;
+       height: 68px;
+       margin-bottom: 11px;
+       border: 0.5px solid #2C2C2C;
+    }
+  </style>
+	  
 <div class="gradient-div"></div>
   <div class="hidecolor">	
   <input type="color" id="color-picker">
@@ -88,6 +138,9 @@
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
   var h1Element = document.getElementById("repoName"); // Élément h1 pour afficher le nom du repo
+  var pElement = document.getElementById("repoDescription");
+  var imgElement = document.getElementById("source_icon");
+  var webElement = document.getElementById("source_website");
 
   var urlParams = new URLSearchParams(window.location.search);
   var repoUrl = urlParams.get("repo");
@@ -98,14 +151,38 @@ function afficherDonnees() {
         return response.json();
       })
       .then(function(data) {
-        // Afficher le nom du repo dans l'élément h1
-        var repoName = data.Info.repoName;
-        h1Element.textContent = repoName;
+        // Afficher les infos
+        h1Element.textContent = data.name;
+        pElement.textContent = data.description;
+        if (data.iconURL) {
+           imgElement.onload = function() {
+           // L'image a été chargée avec succès
+        };
+           imgElement.onerror = function() {
+           // Le lien d'image n'est pas valide, utiliser un placeholder
+           imgElement.src = "img/blank.JPG";
+         };
+           imgElement.src = data.iconURL;
+        } else {
+        // Utiliser un placeholder si aucun lien d'image n'est fourni
+        imgElement.src = "img/blank.JPG";
+        }
+        if (data.website) {
+  webElement.href = data.website;
+} else {
+  // Cacher l'élément website s'il n'y a pas de lien de site web
+  webElement.style.display = "none";
+}
 
-        var appsData = data.Apps;
+        var appsData = data.apps;
+
+        appsData.sort(function(a, b) {
+          return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+        });
+
         var nombreApplicationsAafficher = appsData.length; // Comptez le nombre d'applications dans le JSON
 
-        // Utilisez un for loop pour itérer sur le nombre d'applications à afficher
+        // Utilisez une boucle for pour itérer sur le nombre d'applications à afficher
         for (var i = 0; i < nombreApplicationsAafficher; i++) {
           var appData = appsData[i];
 
@@ -117,7 +194,21 @@ function afficherDonnees() {
 
           var appIconImg = document.createElement("img");
           appIconImg.className = "appicon";
-          appIconImg.src = appData.icon;
+          // Vérifier si appData.iconURL existe
+          if (appData.iconURL) {
+            // Vérifier si le lien d'image est valide
+            appIconImg.onload = function() {
+              // L'image a été chargée avec succès
+            };
+            appIconImg.onerror = function() {
+              // Le lien d'image n'est pas valide, utiliser un placeholder
+              appIconImg.src = "img/blank.JPG";
+            };
+            appIconImg.src = appData.iconURL;
+          } else {
+            // Utiliser un placeholder si aucun lien d'image n'est fourni
+            appIconImg.src = "img/blank.JPG";
+          }
           appCellLeftDiv.appendChild(appIconImg);
 
           var appCellMetaDiv = document.createElement("div");
@@ -130,7 +221,7 @@ function afficherDonnees() {
 
           var appDevDiv = document.createElement("div");
           appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developer;
+          appDevDiv.textContent = appData.developerName;
           appCellMetaDiv.appendChild(appDevDiv);
 
           appCellLeftDiv.appendChild(appCellMetaDiv);
@@ -140,7 +231,8 @@ function afficherDonnees() {
           appGetDiv.className = "appget";
 
           var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
+          // Ajouter la source directe à l'URL
+          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(repoUrl);
 
           var getBtn = document.createElement("button");
           getBtn.className = "getbtn";
@@ -161,8 +253,6 @@ function afficherDonnees() {
   }
 }
 
-// Appeler la fonction une fois que le DOM est chargé
-
 
     </script>
       <script>
@@ -178,7 +268,30 @@ function afficherDonnees() {
         dock[i].style.display = display;
       }
     }
+	      
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("header");
 
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "100px";
+            }
+        });
+    document.getElementById('shareIcon').addEventListener('click', share);
+
+    function share() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var repoUrl = urlParams.get("repo");
+
+        if (navigator.share && repoUrl) {
+            navigator.share({ title: "Share the source", text: "Tap the link, copy paste it to iTweakHub to add this source.", url: repoUrl })
+                .then(() => console.log('Shared successfully'))
+                .catch((error) => console.error('Error sharing:', error));
+        }
+    }
   </script>
 
 

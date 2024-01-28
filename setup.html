@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="https://unpkg.com/@ivteplo/utilities.css@1.0.0/build/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
   
-    <title>iTweakHub</title>
+    <title>setup.app</title>
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/framework7-icons@5/css/framework7-icons.min.css"></script>
     <link rel="manifest" href="manifest.json">
     
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.ico">
+    <link id="favicon" rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="iphonex_splash.png">
     <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="iphonex_splash.png">
     
@@ -38,7 +40,7 @@
         background-color: #1c0026;
     }
 </style>
-<div class="UIContainer">
+<div id="UIContainer" class="UIContainer">
   
 <div class="welcomeheader">
 <img class="welcomeimg" src="img/AppBox.png">
@@ -55,41 +57,138 @@
         </center>
         <br>
          <div class="bottom-choices">   
-             <button id="done" type="submit" class="login" onclick="window.location.href='index.html';">Done</button>
+             <button id="done" type="submit" class="login" onclick="window.location.href='setup/color.html';">Done</button>
     </form>
 
 </div> 
     
 </div>  
+  <div id="addPage" class="page">
+    <h1 id="installpls">Add iTweakHub to the homescreen</h1>
+    <div class="page-content">
+      <div class="block">
+        <div class="instruction-row">
+          <div class="icon-col">
+            <i class="f7-icons">compass</i>
+          </div>
+          <div class="instruction-col">
+            <p>Open this page in Safari</p>
+          </div>
+        </div>
+        <div class="instruction-row">
+          <div class="icon-col">
+            <i class="f7-icons">square_arrow_up</i>
+          </div>
+          <div class="instruction-col">
+            <p>Click the "Share" button</p>
+          </div>
+        </div>
+        <div class="instruction-row">
+          <div class="icon-col">
+            <i class="f7-icons">plus_square</i>
+          </div>
+          <div class="instruction-col">
+            <p>
+Choose “On Home Screen” from the options.</p>
+          </div>
+        </div>
+        <div class="instruction-row" style="margin-bottom: 0px;">
+          <div class="icon-col">
+            <i class="f7-icons">checkmark_alt_circle</i>
+          </div>
+          <div class="instruction-col">
+            <p>Tap "Add to Home Screen"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p id="choosepls">Choose an icon</p> 
+   <div class="icon-container" style="margin: 16px;">
+    <a id="Default"><img src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" alt="Icon 5"></a>
+    <a id="DevIcon"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png" alt="Icon 1"></a>
+    <a id="PrideIcon"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646466.087501-46CA1109-7659-4782-B44D-C3C465C5D70F.png" alt="Icon 2"></a>
+    <a id="Winter"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646472.591928-6B901ADB-9CA8-470D-B9F6-21CFA4BC2579.png" alt="Icon 3"></a>
+  </div>   
+  </div>
     <script>
-        const accountForm = document.getElementById('accountForm');
+const accountForm = document.getElementById('accountForm');
 
-        accountForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const usernameInput = document.getElementById('username');
-            const profilePicInput = document.getElementById('profilePic');
-            const username = usernameInput.value;
+accountForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const usernameInput = document.getElementById('username');
+    const profilePicInput = document.getElementById('profilePic');
+    const username = usernameInput.value;
 
-            if (profilePicInput.files && profilePicInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const profilePicBase64 = event.target.result.split(',')[1];
-                    localStorage.setItem('username', username);
-                    localStorage.setItem('profilePic', profilePicBase64);
-                    alert('Welcome on iTweakHub 🥳');
-                    window.location.href = 'index.html'; // Redirect to index page after saving
-                };
-                reader.readAsDataURL(profilePicInput.files[0]);
-            } else {
-                alert('Please select a profile picture.');
-            }
-        });
-        
+    // Génération d'un UDID aléatoire de 6 chiffres
+    const randomUdid = Math.floor(100000 + Math.random() * 900000);
+
+    if (profilePicInput.files && profilePicInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const profilePicBase64 = event.target.result.split(',')[1];
+
+            // Ajout des informations au local storage
+            localStorage.setItem('id', randomUdid);
+            localStorage.setItem('username', username);
+            localStorage.setItem('profilePic', profilePicBase64);
+
+            // Ajout de la date de création du compte
+            const setupDate = new Date().toISOString();
+            localStorage.setItem('setupDate', setupDate);
+
+            window.location.href = 'setup/color.html'; // Redirection vers la page d'accueil après l'enregistrement
+        };
+        reader.readAsDataURL(profilePicInput.files[0]);
+    } else {
+        alert('Please select a profile picture.');
+    }
+});
+
 if (!window.matchMedia('(display-mode: standalone)').matches) {
-  // L'application n'est pas installée sur l'écran d'accueil
-  alert("Please add iTweakHub to your homescreen to use it.");
+    document.getElementById('addPage').style.display = 'block';
+    document.getElementById('UIContainer').style.display = 'none';
 }
 
+// change custom icon: system       
+function addBorderToImageWithSrc(src) {
+    var images = document.getElementsByTagName('img');
+    
+    for (var i = 0; i < images.length; i++) {
+        if (images[i].src === src) {
+            images[i].style.border = '3px solid #7163ff';
+        } else {
+            images[i].style.border = 'none';
+        }
+    }
+}
+
+// Set the 'Default' icon and apply the border by default
+var defaultIconSrc = 'https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png';
+document.getElementById('favicon').href = defaultIconSrc;
+addBorderToImageWithSrc(defaultIconSrc);
+
+document.getElementById('DevIcon').addEventListener('click', function() {
+    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png';
+    document.getElementById('favicon').href = faviconSrc;
+    addBorderToImageWithSrc(faviconSrc);
+});
+
+document.getElementById('Default').addEventListener('click', function() {
+    // 'Default' icon is already set, reapply the border
+    addBorderToImageWithSrc(defaultIconSrc);
+});
+
+document.getElementById('PrideIcon').addEventListener('click', function() {
+    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646466.087501-46CA1109-7659-4782-B44D-C3C465C5D70F.png';
+    document.getElementById('favicon').href = faviconSrc;
+    addBorderToImageWithSrc(faviconSrc);
+});
+
+document.getElementById('Winter').addEventListener('click', function() {
+    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646472.591928-6B901ADB-9CA8-470D-B9F6-21CFA4BC2579.png';
+    document.getElementById('favicon').href = faviconSrc;
+    addBorderToImageWithSrc(faviconSrc);
+});
     </script>
    
 <script src="js/account.js"></script>

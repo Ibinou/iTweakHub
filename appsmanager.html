@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="css/navbar.css" keep>
     <link rel="stylesheet" href="css/styles.css" keep>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
     <meta name="theme-color" content="#121212">
     <title>Apps Manager | iTweakHub</title>
     <script src="/js/index.js"></script>
-    <script src="/js/repo-handler.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -23,23 +21,32 @@
    
                                                                                     
 <div class="sidebar">
-  <a href="index.html">Home</a>
-  <a class="active" href="appsmanager.html">Apps Manager</a>
-  <a href="search.html">Search</a>
+  <a href="index.html"><i class="fa-solid fa-fire"></i>Home</a>
+  <a class="active" href="appsmanager.html"><i class="fa-solid fa-earth-americas"></i>Sources</a>
+  <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+  <a href="news.html"><i class="fa-regular fa-newspaper"></i>News</a>
 </div>
 
+   <div id="topnav" style="display: none;" class="topNav">
+        <div>Sources</div>
+    </div>
+	
     <div class="content">
-    <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Apps Manager</h1>
+    <h1 id="header" style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Sources</h1>
+
+<div id="errormsg"></div>
 	    
-<ul class="ioslist">
-<li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
-<div class="ioslist_icon"><i class="fa-solid fa-heart"></i></div>
-<span>Favorite Apps</span>
-<div class="ioslist_opposite"><i class="fa-solid fa-angle-right"></i></div>
-</li>
-</ul>
+<p id="updates" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Updates</p>
+<div class="appList"></div>
+
+
 	    
-<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Featured Repos</p>
+<div class="animated-enter">	    
+<div class="explore">
+  <div class="explore_title">Explore</div>
+  <div class="explore_text">Explore our recommended sources to discover new apps !</div>
+  <div class="featuredrepos">	    
+<div class="item">
 
 <div class="featuredrepos">	    
 <div style="margin-right: 14px;" class="item">
@@ -49,43 +56,52 @@
     <p>Enzo_zsh</p>
 </div>
 <div style="margin-right: 14px;" class="item">
+
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/KFD-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/KFD-repo/icon.png?raw=true">
        <h2>KFD Repo by enzo_zsh</h2>
     <p>Enzo_zsh</p>
 </div>
-<div style="margin-right: 14px;" class="item">
+<div class="item">
     <button id="https://apps.nabzclan.vip/repos/itweakhub.php">Add</button>
        <img src="https:\/\/apps.nabzclan.vip\/images\/default_share_image.png">
        <h2>Nabzclan Apps</h2>
     <p>nabzclan</p>
 </div>
-<div style="margin-right: 14px;" class="item">
+<div class="item">
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/MacDirtyCow-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/MacDirtyCow-repo/icon.png?raw=true">
        <h2>MacDirtyCow Repo by enzo_zsh</h2>
     <p>Enzo_zsh</p>
 </div>
-</div>	
-	    
-<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Repos</p>	
+</div>
+</div>
+<div class="animated-enter">
+<p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Added Sources</p>	
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" id="reload" ></i>
 
-    <div id="repos" class="repos">
-<a id="base" href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">     
-<div class="item">
-    <i class="fa-solid fa-circle-minus" aria-hidden="true"></i>
-       <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico">
-       <h2>iTH Base Repo</h2>
-    <p>iTweakHub Team</p>
+    <div id="appList" class="appList">
+<a href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">
+<div class="dock">
+    <div class="app_cell_left">
+        <img class="appicon" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png">
+        <div class="app_cell_meta">
+            <div class="appname">iTweakHub Base Source</div>
+            <div class="appsection">iTweakHub Team</div>
+        </div>
+    </div>
+    <div class="appget">
+      <a>
+            <button class="getbtn">VIEW</button>
+      </a>
+    </div>
 </div>
 </a>
     </div>
     </div>
         <br>
-
-
+    </div>
      <nav class="mobile-nav">
             <a href="index.html" class="bloc-icon">
                 <i class="fa-solid fa-fire" style="color: #ffffff;"></i>
@@ -96,6 +112,10 @@
             <a href="search.html" class="bloc-icon">
                 <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
             </a>
+	
+        <a href="news.html" class="bloc-icon">
+      <i class="fa-regular fa-newspaper" style="color: #fff;"></i>
+    </a>
         </nav>
 <div class="gradient-div"></div>
 
@@ -143,30 +163,49 @@
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
   </script>
-    <script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymuos"></script>
-<script>
-function openPopup() {
-  var popup = document.getElementById("myPopup");
-  popup.style.display = "block";
-}
 
-function closePopup() {
-  var popup = document.getElementById("myPopup");
-  popup.style.display = "none";
-}
-
-    </script>
 <script>
-// Fonction pour afficher les informations depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  var appListDiv = document.getElementById("appList");
 
-  repoURLs.forEach(function(url) {
+  repoURLs.forEach(function (url) {
     fetch(url)
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(data) {
+      .then(function (data) {
+        if (data.apps && Array.isArray(data.apps) && data.name) {
+          var repoElement = createRepoElement(data, url);
+          appListDiv.appendChild(repoElement);
+        } else {
+          console.log('Warning', 'Source added despite missing "apps" array or "name" property');
+        }
+      })
+      .catch(function (error) {
+        console.log('Error', error);
+      });
+  });
+}
+
+// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
+function afficherInfosDepuisJSON() {
+  var url = prompt("Enter source URL:");
+
+  // Check if the URL already exists in localStorage
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  if (repoURLs.includes(url)) {
+    alert('This source is already added !');
+    return;
+  }
+
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      // Ajout de la condition : le repo doit avoir l'array apps et la propriété name
+      if (data.apps && Array.isArray(data.apps) && data.name) {
         var reposDiv = document.getElementById("repos");
         var infoDiv = createRepoElement(data, url);
 
@@ -175,93 +214,70 @@ function afficherReposDepuisLocalStorage() {
         repoLink.appendChild(infoDiv);
 
         reposDiv.appendChild(repoLink);
-      })
-      .catch(function(error) {
-        console.log('Erreur', error);
-      });
-  });
-}
 
-// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
-function afficherInfosDepuisJSON() {
-  var url = prompt("Enter URL repo :");
-
-  fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var reposDiv = document.getElementById("repos");
-      var infoDiv = createRepoElement(data, url);
-
-      var repoLink = document.createElement("a");
-      repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-      repoLink.appendChild(infoDiv);
-
-      reposDiv.appendChild(repoLink);
-
-      // Enregistrer l'URL du repo dans le localStorage
-      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-      repoURLs.push(url);
-      localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+        // Enregistrer l'URL du repo dans le localStorage
+        repoURLs.push(url);
+        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+      } else {
+        console.log('Warning', 'Source added despite missing "apps" array or "name" property');
+      }
     })
     .catch(function(error) {
-      console.log('Erreur', error);
-      alert('Error, invalid repo', error);
+      console.log('Error', error);
+      alert('Error, unable to load the source', error);
     });
 }
 
+
+// Fonction pour créer l'élément de la source
 function createRepoElement(data, url) {
-  var infoDiv = document.createElement("div");
-  infoDiv.className = "item";
+  var dockDiv = document.createElement("div");
+  dockDiv.className = "dock";
 
-  // Créer l'élément i pour l'icône de la poubelle (Font Awesome)
-  var deleteIcon = document.createElement("i");
-  deleteIcon.className = "fa-solid fa-circle-minus";
-  deleteIcon.style.cursor = "pointer";
-  infoDiv.appendChild(deleteIcon);
+  var appCellLeftDiv = document.createElement("div");
+  appCellLeftDiv.className = "app_cell_left";
+  dockDiv.appendChild(appCellLeftDiv);
 
-  // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
-  iconElement.src = data.Info.repoIcon;
-  infoDiv.appendChild(iconElement);
+  iconElement.className = "appicon";
+  iconElement.src = data.iconURL || "img/blank.JPG";
+  appCellLeftDiv.appendChild(iconElement);
 
-  // Créer l'élément h2 pour le nom du repo
-  var repoNameElement = document.createElement("h2");
-  repoNameElement.textContent = data.Info.repoName;
-  infoDiv.appendChild(repoNameElement);
+  var appCellMetaDiv = document.createElement("div");
+  appCellMetaDiv.className = "app_cell_meta";
+  appCellLeftDiv.appendChild(appCellMetaDiv);
 
-  // Créer l'élément p pour l'auteur du repo
-  var repoAuthorElement = document.createElement("p");
-  repoAuthorElement.textContent = data.Info.repoAuthor;
-  infoDiv.appendChild(repoAuthorElement);
+  var appNameDiv = document.createElement("div");
+  appNameDiv.className = "appname";
+  appNameDiv.textContent = data.name || "Untitled Source";
+  appCellMetaDiv.appendChild(appNameDiv);
 
-  // Ajouter un gestionnaire d'événements pour la suppression du repo
-  deleteIcon.addEventListener("click", function () {
-    if (confirm("Are you sure to delete this repository ?")) {
-      // Supprimer l'URL du repo du localStorage
-      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-      var index = repoURLs.indexOf(url);
-      if (index !== -1) {
-        repoURLs.splice(index, 1);
-        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-      }
+  var appSectionDiv = document.createElement("div");
+  appSectionDiv.className = "appsection";
+  appSectionDiv.textContent = data.author || "Unknown Author";
+  appCellMetaDiv.appendChild(appSectionDiv);
 
-      // Supprimer l'élément du DOM
-      infoDiv.remove();
-    }
+  var appGetDiv = document.createElement("div");
+  appGetDiv.className = "appget";
+  dockDiv.appendChild(appGetDiv);
+
+  var getButton = document.createElement("button");
+  getButton.className = "getbtn";
+  getButton.textContent = "VIEW";
+  appGetDiv.appendChild(getButton);
+
+  // Ajouter un gestionnaire d'événements pour ouvrir la page repoview.html
+  dockDiv.addEventListener("click", function() {
+    window.open("repoview.html?repo=" + encodeURIComponent(url), "_blank");
   });
 
-  return infoDiv;
+  return dockDiv;
 }
-
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
-
-
 </script>
 <script>
         // Sélectionnez le bouton par son ID
@@ -272,9 +288,7 @@ popupButton.addEventListener("click", afficherInfosDepuisJSON);
             // Rechargez la page actuelle
             location.reload();
         });
-</script>
 
-    <script>
         // Récupérer les URLs déjà stockées dans le localStorage
         var storedURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
@@ -304,7 +318,7 @@ popupButton.addEventListener("click", afficherInfosDepuisJSON);
                     button.parentElement.style.display = 'none';
 
                     // Afficher une alerte
-                    alert('The repo has been added succesfully !');
+                    alert('The source has been added succesfully !');
 
                     // Recharger la page après l'alerte
                     window.location.reload();
@@ -312,23 +326,281 @@ popupButton.addEventListener("click", afficherInfosDepuisJSON);
             }
         });
 
-// Vérifie si le tableau "repoURLs" est présent dans le stockage local
-if (localStorage.getItem("repoURLs")) {
-    // Le tableau "repoURLs" existe dans le stockage local
-    // Récupère le tableau et vérifie s'il est vide
-    const repoURLs = JSON.parse(localStorage.getItem("repoURLs"));
-    if (repoURLs.length === 0) {
-        // Le tableau "repoURLs" est vide, donc applique le style "width: 50%" à l'élément <a>
-        const linkElement = document.getElementById("base");
-        linkElement.style.width = "50%";
-    }
-} else {
-    // Le tableau "repoURLs" n'existe pas dans le stockage local, donc applique le style "width: 50%" à l'élément <a>
-    const linkElement = document.querySelector("a");
-    linkElement.style.width = "50%";
+
+
+
+function isValidUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }
 
+function showErrorPopup(message, url) {
+  // Créer la div d'erreur
+  var errorDiv = document.createElement("div");
+  errorDiv.id = "error";
+
+  var messageDiv = document.createElement("div");
+  messageDiv.textContent = message;
+  errorDiv.appendChild(messageDiv);
+
+  var deleteDiv = document.createElement("div");
+  deleteDiv.id = "delete";
+  deleteDiv.textContent = "Delete";
+  deleteDiv.addEventListener("click", function() {
+    // Supprimer le repo invalide
+    removeInvalidRepo(url);
+
+    // Ensuite, supprimer la div d'erreur du DOM
+    errorDiv.remove();
+   
+   // reload the page
+   location.reload()
+  });
+
+  errorDiv.appendChild(deleteDiv);
+
+  // Ajouter la div d'erreur à l'élément avec l'ID "errormsg"
+  var errorMsgDiv = document.getElementById("errormsg");
+  errorMsgDiv.appendChild(errorDiv);
+}
+
+function CheckValidity() {
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+
+  repoURLs.forEach(function (url) {
+    // Vérifier si l'URL est valide
+    if (!isValidUrl(url)) {
+      // URL invalide détectée
+      showErrorPopup("Invalid URL: " + url, url);
+      return; // Ignorer les URLs invalides
+    }
+
+    fetch(url)
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          // Repo invalide détecté
+          showErrorPopup("Invalid source detected for URL: " + url, url);
+          throw new Error('Invalid source detected.');
+        }
+      })
+      .then(function (data) {
+        if (data) {
+          // Vérifier le format du repo
+          if (isValidRepoFormat(data)) {
+            // Le repo est valide, pas d'action supplémentaire nécessaire
+          } else {
+            // Repo invalide détecté (ne respecte pas le format)
+            showErrorPopup("Invalid source format for URL: " + url, url);
+          }
+        }
+      })
+      .catch(function (error) {
+        console.log('Error', error);
+      });
+  });
+}
+
+// Appeler la fonction CheckValidity lors du chargement de la page
+window.addEventListener("load", CheckValidity);
+
+function isValidRepoFormat(data) {
+  return data.apps && Array.isArray(data.apps) && data.name;
+}
+
+function removeInvalidRepo(url) {
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  var index = repoURLs.indexOf(url);
+  if (index !== -1) {
+    repoURLs.splice(index, 1);
+    localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+  }
+
+  // Supprimer l'élément du DOM
+  var reposDiv = document.getElementById("repos");
+  var repoLinks = reposDiv.getElementsByTagName("a");
+  for (var i = 0; i < repoLinks.length; i++) {
+    if (repoLinks[i].href === "repoview.html?repo=" + encodeURIComponent(url)) {
+      repoLinks[i].remove();
+      break;
+    }
+  }
+}
+
+// Appeler la fonction CheckValidity lors du chargement de la page
+window.addEventListener("load", CheckValidity);
+
+// Fonction pour comparer les numéros de version
+function compareVersions(version1, version2) {
+    const parts1 = version1.split('.');
+    const parts2 = version2.split('.');
+    
+    for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+        const part1 = parseInt(parts1[i], 10) || 0;
+        const part2 = parseInt(parts2[i], 10) || 0;
+        
+        if (part1 < part2) {
+            return -1;
+        } else if (part1 > part2) {
+            return 1;
+        }
+    }
+    
+    return 0;
+}
+
+// Fonction pour récupérer les données depuis une URL
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        return await response.json();
+    } catch (error) {
+        console.error(`Erreur lors de la récupération des données depuis ${url}: ${error}`);
+        return null;
+    }
+}
+
+async function checkForUpdates() {
+    const repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+
+    try {
+        const [appsJson, ...repoJsons] = await Promise.all([
+            fetchData('apps.json'),
+            ...repoURLs.map(url => fetchData(url))
+        ]);
+
+        if (!appsJson) {
+            console.error('Impossible de récupérer les données depuis apps.json');
+            return;
+        }
+
+        const appList = document.querySelector('.appList');
+        const processedApps = new Set();
+        let updatesExist = false; // Ajout de la variable pour vérifier l'existence de mises à jour
+
+        for (const json of [appsJson, ...repoJsons]) {
+            const recentApps = JSON.parse(localStorage.getItem('recent')) || [];
+
+            recentApps.forEach((recentApp) => {
+                const appInfo = json.apps.find(app => app.name === recentApp.name);
+
+                if (appInfo && !processedApps.has(appInfo.name)) {
+                    const latestVersion = appInfo.version;
+                    const currentVersion = recentApp.version;
+                    const versionComparison = compareVersions(currentVersion, latestVersion);
+
+                    if (versionComparison < 0) {
+                        const dockElement = document.createElement('div');
+                        dockElement.classList.add('dock');
+
+                        dockElement.innerHTML = `
+                            <div class="app_cell_left">
+                                <img src="${appInfo.iconURL}" class="appicon">
+                                <div class="app_cell_meta">
+                                    <div class="appname">${appInfo.name}</div>
+                                    <div class="appsection">${appInfo.developerName}</div>
+                                </div>
+                            </div>
+                            <div class="appget">
+                                <a href="appinfos.html?name=${appInfo.name}">
+                                    <button class="getbtn" id="getbtn">Update</button>
+                                </a>
+                            </div>
+                        `;
+
+                        appList.appendChild(dockElement);
+                        processedApps.add(appInfo.name);
+                        updatesExist = true; // Mise à jour de la variable si une mise à jour est trouvée
+                    }
+                }
+            });
+        }
+
+        // Condition pour afficher ou masquer l'élément avec l'id "updates"
+        const updatesElement = document.getElementById('updates');
+        if (updatesElement) {
+            updatesElement.style.display = updatesExist ? 'block' : 'none';
+        }
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données:', error);
+    }
+}
+
+checkForUpdates();
+
+// Sélectionnez tous les éléments avec la classe "item"
+var items = document.querySelectorAll('.featuredrepos .item');
+
+// Parcourez chaque élément et appliquez les marges appropriées
+items.forEach(function(item, index) {
+    // Ajoute une marge à droite de 14px à tous les éléments
+    item.style.marginRight = '14px';
+
+    // Si c'est le premier élément, ajoute une marge à gauche de 19px
+    if (index === 0) {
+        item.style.marginLeft = '19px';
+    }
+});
     </script>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".topNav");
+            var elementElement = document.getElementById("header");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "60px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "50px";
+            }
+        });
+	
+       var topNav = document.querySelector(".topNav");
+        var isNavVisible = false;
+
+        document.addEventListener("scroll", function() {
+            // Vérifier si l'utilisateur a fait défiler suffisamment
+            if (window.scrollY > 100 && !isNavVisible) {
+                fadeIn(topNav);
+                isNavVisible = true;
+            } else if (window.scrollY <= 100 && isNavVisible) {
+                fadeOut(topNav);
+                isNavVisible = false;
+            }
+        });
+
+        function fadeIn(element) {
+            var opacity = 0;
+            element.style.display = "block";
+            var fadeInInterval = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, 20);
+        }
+
+        function fadeOut(element) {
+            var opacity = 1;
+            var fadeOutInterval = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    element.style.display = "none";
+                    clearInterval(fadeOutInterval);
+                }
+            }, 20);
+        }    
+</script>
+
 <script src="js/index.js"></script>
     </div>
 </div>

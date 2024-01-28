@@ -37,4 +37,10 @@ function setCookie(name, value, days) {
         body.style.opacity = 1;
         body.style.transition = 'opacity 0.5s ease-in-out';
     });
+  
+  
+  
+  
+
+
     

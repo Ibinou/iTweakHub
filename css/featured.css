@@ -40,7 +40,7 @@
     padding: 8px;
     border-radius: 20px;
     width: 100%;
-    max-width: 382px;
+    max-width: 445px;
     margin-right: 5px;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -90,26 +90,29 @@
     }
 
 .appget {
-    background-color: #303030;
+    background-color: #1c1c1e;
     border-radius: 40px;
     padding: 5px;
     display: flex;
     justify-content: center;
-    width: 60px;
+    width: 67px;
     height: 30px;
     object-fit: cover;
-    background-color: var(--accent-color);
+    color: var(--accent-color);
     align-items: center;
 }
+
 .appget a {
     margin-bottom: 2px;
 }
+
 .getbtn {
     background-color: transparent;
     border: none;
-    color: #ffffff;
     font-weight: 750;
+    color: var(--accent-color);
 }
+
 .overlay {
     width: 100%;
     height: 220px;
