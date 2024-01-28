@@ -462,10 +462,10 @@ function displayAppInfo(appData) {
 const customCert = localStorage.getItem('custom_cert');
 
 // Récupérer les données pertinentes du tableau (si custom_cert est true)
-const p12Url = localStorage.getItem('p12Url') || "";
-const mobileprovisionUrl = localStorage.getItem('mobileprovisionUrl') || "";
-const certpass = localStorage.getItem('password') || "";
-const url = appData.downloadURL || appData.versions[0].downloadURL;
+// const p12Url = localStorage.getItem('p12Url') || "";
+// const mobileprovisionUrl = localStorage.getItem('mobileprovisionUrl') || "";
+// const certpass = localStorage.getItem('password') || "";
+// const url = appData.downloadURL || appData.versions[0].downloadURL;
 
 // Vérifier si custom_cert est true
 if (customCert && customCert.toLowerCase() === 'true') {
