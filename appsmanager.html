@@ -35,23 +35,16 @@
 
 <div id="errormsg"></div>
 	    
-<ul class="ioslist">
-<li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
-<div class="ioslist_icon"><i class="fa-solid fa-heart"></i></div>
-<span>Favorite Apps</span>
-<div class="ioslist_opposite"><i class="fa-solid fa-angle-right"></i></div>
-</li>
-</ul>
-	    
 <p id="updates" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 10px;margin-top: 20px;">Updates</p>
 <div class="appList"></div>
 
+	    
 <div class="animated-enter">	    
 <div class="explore">
   <div class="explore_title">Explore</div>
   <div class="explore_text">Explore our recommended sources to discover new apps !</div>
   <div class="featuredrepos">	    
-<div style="margin-right: 14px;" class="item">
+<div style="margin-right: 14px;margin-left: 19px;" class="item">
     <button id="https://raw.githubusercontent.com/Enzo-zsh/iTweakHub-repo/main/KFD-repo/repo.json">Add</button>
        <img src="https://github.com/Enzo-zsh/iTweakHub-repo/blob/main/KFD-repo/icon.png?raw=true">
        <h2>KFD Repo by enzo_zsh</h2>
@@ -76,13 +69,21 @@
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" id="reload" ></i>
 
-    <div id="repos" class="repos">
-<a id="base" href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">     
-<div class="item">
-    <i class="fa-solid fa-circle-minus" aria-hidden="true"></i>
-       <img src="https://ibinou.github.io/iTweakHub/img/favicon.ico">
-       <h2>iTH Base Repo</h2>
-    <p>iTweakHub Team</p>
+    <div id="appList" class="appList">
+<a href="repoview.html?repo=https://ibinou.github.io/iTweakHub/apps.json">
+<div class="dock">
+    <div class="app_cell_left">
+        <img class="appicon" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png">
+        <div class="app_cell_meta">
+            <div class="appname">iTweakHub Base Source</div>
+            <div class="appsection">iTweakHub Team</div>
+        </div>
+    </div>
+    <div class="appget">
+        <a href="appinfos.html?name=Quantum%20Source&amp;source=https%3A%2F%2Fquarksources.github.io%2Fquantumsource.json">
+            <button class="getbtn">VIEW</button>
+        </a>
+    </div>
 </div>
 </a>
     </div>
@@ -154,28 +155,22 @@
 <script>
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  var appListDiv = document.getElementById("appList");
 
-  repoURLs.forEach(function(url) {
+  repoURLs.forEach(function (url) {
     fetch(url)
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(data) {
-        // Ajout de la condition : le repo doit avoir l'array apps et la propriété name
+      .then(function (data) {
         if (data.apps && Array.isArray(data.apps) && data.name) {
-          var reposDiv = document.getElementById("repos");
-          var infoDiv = createRepoElement(data, url);
-
-          var repoLink = document.createElement("a");
-          repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-          repoLink.appendChild(infoDiv);
-
-          reposDiv.appendChild(repoLink);
+          var repoElement = createRepoElement(data, url);
+          appListDiv.appendChild(repoElement);
         } else {
           console.log('Warning', 'Source added despite missing "apps" array or "name" property');
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log('Error', error);
       });
   });
@@ -222,54 +217,50 @@ function afficherInfosDepuisJSON() {
 }
 
 
-// Fonction pour créer l'élément du repo
+// Fonction pour créer l'élément de la source
 function createRepoElement(data, url) {
-  var infoDiv = document.createElement("div");
-  infoDiv.className = "item";
+  var dockDiv = document.createElement("div");
+  dockDiv.className = "dock";
 
-  // Créer l'élément i pour l'icône de la poubelle (Font Awesome)
-  var deleteIcon = document.createElement("i");
-  deleteIcon.className = "fa-solid fa-circle-minus";
-  deleteIcon.style.cursor = "pointer";
-  infoDiv.appendChild(deleteIcon);
+  var appCellLeftDiv = document.createElement("div");
+  appCellLeftDiv.className = "app_cell_left";
+  dockDiv.appendChild(appCellLeftDiv);
 
-    // Créer l'élément image pour l'icône du repo
   var iconElement = document.createElement("img");
-  iconElement.src = data.iconURL || "img/blank.JPG"; // Utilisez l'URL de l'icône du repo ou un placeholder
-  infoDiv.appendChild(iconElement);
+  iconElement.className = "appicon";
+  iconElement.src = data.iconURL || "img/blank.JPG";
+  appCellLeftDiv.appendChild(iconElement);
 
-// Créer l'élément h2 pour le nom du repo
-  var repoNameElement = document.createElement("h2");
-  repoNameElement.textContent = data.name || "Untitled Source"; // Utilisez le nom du repo ou un placeholder
-  infoDiv.appendChild(repoNameElement);
+  var appCellMetaDiv = document.createElement("div");
+  appCellMetaDiv.className = "app_cell_meta";
+  appCellLeftDiv.appendChild(appCellMetaDiv);
 
-  // Créer l'élément p pour le sous-titre du repo
-  var repoSubtitleElement = document.createElement("p");
-  repoSubtitleElement.textContent = data.subtitle || "iTweakHub Source"; // Utilisez le sous-titre du repo ou un placeholder
-infoDiv.appendChild(repoSubtitleElement);
+  var appNameDiv = document.createElement("div");
+  appNameDiv.className = "appname";
+  appNameDiv.textContent = data.name || "Untitled Source";
+  appCellMetaDiv.appendChild(appNameDiv);
 
-  // Ajouter un gestionnaire d'événements pour la suppression du repo
-  deleteIcon.addEventListener("click", function () {
-    if (confirm("Are you sure to delete this source ?")) {
-      // Supprimer l'URL du repo du localStorage
-      var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-      var index = repoURLs.indexOf(url);
-      if (index !== -1) {
-        repoURLs.splice(index, 1);
-        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-      }
+  var appSectionDiv = document.createElement("div");
+  appSectionDiv.className = "appsection";
+  appSectionDiv.textContent = data.author || "Unknown Author";
+  appCellMetaDiv.appendChild(appSectionDiv);
 
-      // Supprimer l'élément du DOM
-      infoDiv.remove();
+  var appGetDiv = document.createElement("div");
+  appGetDiv.className = "appget";
+  dockDiv.appendChild(appGetDiv);
 
-      // Redirection vers appsmanager.html
-      window.location.href = "appsmanager.html";
-    }
+  var getButton = document.createElement("button");
+  getButton.className = "getbtn";
+  getButton.textContent = "VIEW";
+  appGetDiv.appendChild(getButton);
+
+  // Ajouter un gestionnaire d'événements pour ouvrir la page repoview.html
+  dockDiv.addEventListener("click", function() {
+    window.open("repoview.html?repo=" + encodeURIComponent(url), "_blank");
   });
 
-  return infoDiv;
+  return dockDiv;
 }
-
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
