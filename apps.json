@@ -17,6 +17,317 @@
          "localizedDescription":"Unblacklist your iDevice using MacDirtyCow",
          "screenshotURLs":null
       },
+      {
+         "name":"InstaSpring",
+         "id":"InstaSpring",
+         "developerName":"haxi0",
+         "version":"1.0",
+         "compatibility":"All versions",
+         "iconURL":"https://github.com/haxi0/InstaSpring/blob/main/InstaSpring16/InstaSpring16/Assets.xcassets/AppIcon.appiconset/Icon-60@3x.png?raw=true",
+         "downloadURL":"https://github.com/haxi0/InstaSpring/releases/download/1.0/InstaSpring.1.0.Fix.ipa",
+         "localizedDescription":"iOS app that immediately resprings your device after you open it!",
+         "screenshotURLs":null
+      },
+      {
+         "name":"FlixHub",
+         "id":"FlixHub",
+         "developerName":"Dangerous Pixel",
+         "version":"1.0.7",
+         "compatibility":"iOS - iPadOS",
+         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/4IZcJrc.jpeg?raw=true",
+         "downloadURL":"https://github.com/Ibinou/iTweakHub/raw/main/apps/Flixhub.ipa",
+         "localizedDescription":"[Use a vpn if the app is not working] Watch movies and Tv shows in good quality and WITHOUT ad for FREE",
+         "screenshotURLs":null
+      },
+      {
+         "name":"Royal Match MOD",
+         "id":"RoyalMatchMOD",
+         "developerName":"Unknown",
+         "version":"7.0",
+         "compatibility":"iOS - iPadOS",
+         "iconURL":"https://omtk.vip/wp-content/uploads/2023/02/royal-match.png",
+         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/v7/Royal-Match.ipa",
+         "localizedDescription":"Royal Match iPA (Unlimited Boosters, Stars, Coins)",
+         "screenshotURLs":null
+      },
+      {
+         "name":"Enmity",
+         "id":"Enmity",
+         "developerName":"Enmity Team",
+         "version":"1.0.0",
+         "compatibility":"iOS - iPadOS",
+         "iconURL":"https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/IMG_2859.jpeg",
+         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/V.4.0/Enmity.ipa",
+         "localizedDescription":"Enmity is a tweaked Discord version that allows you to use plugins & themes. To get plugins & themes go to the official Enmity Discord",
+         "screenshotURLs":null,
+         "banner":"https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"
+      },
+      {
+         "name":"Delta",
+         "id":"Delta",
+         "developerName":"Riley Testut",
+         "version":"1.4.1",
+         "compatibility":"iOS",
+         "iconURL":"https://user-images.githubusercontent.com/705880/63391976-4d311700-c37a-11e9-91a8-4fb0c454413d.png",
+         "downloadURL":"https://cdn.altstore.io/file/altstore/apps/delta/1_4_1.ipa",
+         "localizedDescription":"Delta is an all-in-one emulator for iOS. Delta builds upon the strengths of its predecessor, GBA4iOS, while expanding to include support for more game systems such as NES, SNES, and N64.",
+         "screenshotURLs":[
+            "https://user-images.githubusercontent.com/705880/65600448-f7d9be00-df54-11e9-9e3e-d4c31296da94.PNG",
+            "https://user-images.githubusercontent.com/705880/65813009-f2ae8600-e183-11e9-9eb7-704effc11173.png",
+            "https://user-images.githubusercontent.com/705880/65601117-58b5c600-df56-11e9-9c19-9a5ba5da54cf.PNG",
+            "https://user-images.githubusercontent.com/705880/65601125-5b182000-df56-11e9-9e7e-261480e893c0.PNG"
+         ]
+      },
+      {
+         "name":"uYouPlusExtra",
+         "id":"uYouPlusExtra",
+         "version":"18.40.1-3.0.1",
+         "compatibility":"iOS 13 +",
+         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/uYou+.PNG?raw=true",
+         "developerName":"arichorn",
+         "localizedDescription":"uYouPlusExtra is a modified version of uYou (made by @MiRO92) and uYou+ with additional features and mainly made for non jailbroken users and still updated!",
+         "screenshotURLs":null
+      },
+      {
+         "name":"iSpoofer",
+         "id":"iSpoofer",
+         "version":"unknown",
+         "compatibility":"iOS",
+         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
+         "downloadURL":"https://ispoofer.app/Signed.ipa",
+         "developerName":"Dave",
+         "localizedDescription":"The best spoofer for PokémonGO",
+         "screenshotURLs":null,
+         "banner":"https://miro.medium.com/v2/resize:fit:1400/0*jc9FPbRF6vg26qGO.jpg"
+      },
+      {
+         "name":"EmuThreeDS",
+         "id":"EmuThreeDS",
+         "version":"1.0.6.5(6)",
+         "compatibility":"iOS",
+         "iconURL":"https://raw.githubusercontent.com/emuPlace/emuThreeDS/main/emuThreeDS/Assets.xcassets/LightAppIcon.appiconset/Icon-App-76x76%402x.png",
+         "downloadURL":"https://github.com/emuPlace/emuThreeDS/releases/download/1.0.6.5.6/emuThreeDS.v1.0.6.5.6.ipa",
+         "localizedDescription":"EmuThreeDS is a free and open-source Nintendo 3DS emulator for iOS devices. It allows you to play your favorite Nintendo 3DS games on your iPhone, iPad, or Apple TV. EmuThreeDS is still under development, but it is already capable of running many popular Nintendo 3DS games at full speed.",
+         "screenshotURLs":null
+      },
+      {
+         "name":"PPSSPP",
+         "id":"PPSSPP",
+         "version":"1.16.6",
+         "compatibility":"iOS 5+",
+         "iconURL":"https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
+         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/V6/PPSSPP_v1.16.6-368-g737ec3e90.ipa",
+         "localizedDescription":"PPSSPP is the one and only PSP emulator for iOS written in C++. It is capable of running a lot of original games but, depending on the power of your device, not all may run at full speed due to JIT.",
+         "screenshotURLs":null
+      },
+      {
+         "name":"OldOS",
+         "id":"OldOS",
+         "version":"1.0 Build 18",
+         "compatibility":"iOS 14+",
+         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
+         "downloadURL":"https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
+         "localizedDescription":"iOS 4 rebuilt in swift UI.",
+         "screenshotURLs":null
+      },
+      {
+         "name":"Misaka KFD",
+         "id":"MisakaKFD",
+         "version":"2.0.3 beta",
+         "compatibility":"iOS 16.2-16.5 & 16.6b1",
+         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png?raw=true",
+         "downloadURL":"https://github.com/Ibinou/ipanocodehub/raw/main/misaka-2.0.3_Beta.ipa",
+         "localizedDescription":"Misaka tweak manager for iOS provides seamless access to repositories housing a vast collection of tweaks, including the comprehensive range of MacDirtyCow packages tailored specifically for iOS 15 and iOS 16. With an extensive library of over 333 packages, Misaka Tweak Manager offers an abundance of options to customize and enhance your device's functionality, all without the requirement of a jailbreak. All iPhones are supported.",
+         "screenshotURLs":null,
+         "banner":"https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"
+      },
+      {
+         "name":"Scrennshot X",
+         "id":"ScrennshotX",
+         "version":"1.0 2022",
+         "compatibility":"iOS",
+         "iconURL":"https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/5432A85D-214E-4A17-9268-85EA17F5D4E1.png",
+         "downloadURL":"https://drive.google.com/uc?export=download&id=19oRvCjtsIwuHool8B807rib8BSYYws4Z",
+         "developerName":"JunesiPhone",
+         "localizedDescription":"Add very cool mockups to your screenshots. You can also import your own.",
+         "screenshotURLs":null,
+         "banner":"https://im5.pandahelp.vip/userapp/AppIcon/201812/05/115750142.jpg"
+      },
+      {
+         "name":"ClassicPlayer",
+         "id":"ClassicPlayer",
+         "version":"1.0.3",
+         "compatibility":"iOS 9+",
+         "iconURL":"https://github.com/guillermo-moran/ClassicPlayer/blob/master/ClassicPlayer_icon.png?raw=true",
+         "downloadURL":"https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
+         "developerName":"guillermo-moran",
+         "localizedDescription":"An iPod Classic simulator for iOS 9+.",
+         "screenshotURLs":null,
+         "banner":"https://media.idownloadblog.com/wp-content/uploads/2017/06/ClassicPlayer.jpg"
+      },
+      {
+         "name":"Odyssey",
+         "id":"Odyssey",
+         "version":"1.4.3",
+         "compatibility":"iOS 13.0-13.7",
+         "iconURL":"https://bunnyinject.fun/img/odyssey.png",
+         "downloadURL":"https://github.com/Odyssey-Team/Odyssey/releases/download/v1.4.3/Odyssey-1.4.3.ipa",
+         "developerName":"Coolstar",
+         "localizedDescription":"Jailbreak tool for all A9-A13 devices on iOS 13.0-13.7",
+         "screenshotURLs":null,
+         "banner":"https://theodyssey.dev/assets/images/meta.png"
+      },
+        {
+            "name": "MovieBox Pro",
+            "version": "unknown",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/V68/MovieBoxPro_12.5_2.ipa",
+            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true",
+            "developerName": "MovieBoxPro",
+            "section": "Utilities",
+            "description": "Watch movies for free and without ads.",
+            "compatibility": "iOS 9+",
+            "banner": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true"
+        },
+        {
+            "name": "Among US Hack",
+            "version": "unknown",
+            "ipa": "https://drive.google.com/uc?export=download&id=1mSIKvVEK7Z9BA35G14EFFLTZOweUVpQN",
+            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/AmongUS++.JPG?raw=true",
+            "developerName": "Laxus",
+            "section": "Games",
+            "description": "The hacked game with a lot of new features.",
+            "compatibility": "iOS 10+",
+            "banner": "https://raw.githubusercontent.com/Ibinou/Lem0nStore/main/ressources/AmongUs.png"
+        },
+        {
+            "name": "Scriptware",
+            "version": "2.591.630",
+            "ipa": "https://github.com/DebianArch64/ScarletDecrypt/releases/download/Latest/Roblox.ipa",
+            "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/29/30/a9/2930a996-9c1e-531b-b650-416c3eae66c5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+            "developerName": "unknown",
+            "section": "Games",
+            "description": "The hacked game with a lot of new features.",
+            "compatibility": "iOS 15+",
+            "banner": "https://e1.pxfuel.com/desktop-wallpaper/73/806/desktop-wallpaper-the-best-roblox-games-for-2022-roblox-banner.jpg"
+        },
+        {
+            "name": "Minecraft",
+            "version": "1.20.40.22",
+            "ipa": "https://github.com/Ibinou/ipanocodehub/releases/download/v33/Minecraft.ipa",
+            "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/2B3E554A-FD7B-4013-89EE-3C6F9A2A9916.webp",
+            "developerName": "Mojang",
+            "section": "Games",
+            "description": "Minecraft for iOS is a universal application! You can play on the iPhone and iPad. The game is constantly evolving thanks to our free updates. Minecraft is a game based on placing blocks for building things from them! Minecraft Pocket Edition includes randomly generated worlds, multiplayer over Wi-Fi networks, survival and creative mode. You can work and create your new world with friends. In the latest update, monsters from the game Creepers are added. They are big and green. But this is just one of many updates.",
+            "compatibility": "iOS 15+",
+            "banner": "https://ibinou.github.io/iTweakHub/img/minecraft.jpg"
+        },
+        {
+            "name": "Agar.io hack",
+            "version": "1.20.15",
+            "ipa": "https://drive.google.com/uc?export=download&id=1el8X7GcxG4RPPZWGdHHE1NIseqC3dNMu",
+            "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/512x512bb.jpg",
+            "developerName": "Laxus",
+            "section": "Games",
+            "description": "The hacked version of the game with a lot of new features.",
+            "compatibility": "iOS 15+",
+            "banner": "https://www.imgawards.com/wp-content/uploads/2016/03/agario-720x380.jpg"
+        },
+        {
+            "name": "Cowabunga",
+            "developerName": "leminlimez",
+            "version": "8.1.3",
+            "ipa": "https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
+            "iconURL": "https://user-images.githubusercontent.com/52459150/215552092-9dc1e029-da35-43da-867f-17279e3dc180.png",
+            "compatibility": "14.0 - 15.7.1 and 16 - 16.1.2",
+            "description": "A Jailed toolbox application for iOS using the MacDirtyCow exploit",
+            "section": "MDC"
+        },
+        {
+            "name": "Unc0ver",
+            "developerName": "unc0ver Team",
+            "version": "8.0.2",
+            "ipa": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+            "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
+            "compatibility": "iOS 11",
+            "description": "Jailbreak for iOS 11.",
+            "section": "Jailbreak"
+        },
+        {
+            "name": "Instagram Rhino",
+            "developerName": "Instagram, Inc.",
+            "version": "187.0",
+            "compatibility": "iOS 14.+",
+            "iconURL": "https://iosninja.io/img/ipas/instagram_rhino.png",
+            "ipa": "https://resources.usescarlet.com/repo/IPAs/instagramRhino.ipa",
+            "section": "Tweaked Apps"
+        },
+        {
+            "name": "BHTwitter",
+            "developerName": "X Corp.",
+            "version": "1.0",
+            "banner": "https://pbs.twimg.com/profile_banners/3260518932/1690380560/1080x360",
+            "ipa": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
+            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/BHTwitter.PNG?raw=true",
+            "compatibility": "iOS 13.4+",
+            "section": "Tweaked Apps",
+            "description": "Tweaked version of Twitter (X) with many new features."
+        },
+        {
+            "name": "SpooferX",
+            "version": "0.261.1",
+            "developerName": "Unknown",
+            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
+            "ipa": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
+            "description": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also includes a lot of other features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
+            "compatibility": "iOS 14+",
+            "section": "Tweaked Games"
+        },
+        {
+            "name":"Scylla",
+            "version":"Beta 0.1.2",
+            "developerName": "Kevin Alavik",
+            "iconURL":"https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg",
+            "ipa":"https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
+            "section":"Utilities",
+            "description":"Scylla is yet another app signer for iOS",
+            "compatibility":"iOS"    
+        },
+        {
+            "name": "Spotilife",
+            "version": "8.6.42",
+            "ipa": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
+            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/60BF6600-8900-41C7-8D42-E1F03AC884B2.png?raw=true",
+            "category": "Tweaked Apps",
+            "description": "Enabled -No Forced Shuffle -Unlimited Skips -Extreme Quality stream enabled -Import songs from Music app",
+            "compatibility": "iOS 13+",
+            "banner": "https://photos5.appleinsider.com/gallery/43969-85507-Spotify-xl.jpg",
+            "developerName": "Unknown"
+        },
+        {
+            "name": "iPogo",
+            "version": "3.2.1",
+            "developerName": "Niantic, Inc.",
+            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
+            "ipa": "https://ipogo.app/download/ipogo-3.2.1.ipa",
+            "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
+            "compatibility": "iOS 14+",
+            "screenshots": [
+                "https://ipogo.app/assets/img/feature-iphone-1.png"
+            ],     
+            "banner": "https://digistatement.com/wp-content/uploads/2022/02/iPogo-1.jpg",
+            "section": "Tweaked Games"
+        },
+        {
+            "name": "Taurine",
+            "id": "Odyssey-Team",
+            "developerName": "Odyssey-Team",
+            "version": "1.1.6",
+            "compatibility": "14.0-14.3",
+            "iconURL": "https://cdn.discordapp.com/attachments/752890955236901055/829728600446074930/Taurine.png",
+            "ipa": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
+            "description": "Jailbreak for iOS 14.",
+            "section": "Jailbreak"
+        }
         {
             "id": "uyouplus",
             "name": "uYouPlus",
