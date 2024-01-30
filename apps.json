@@ -79,6 +79,21 @@
          ]
       },
       {
+         "name":"Sonic Runners Revival",
+         "id":"sonicrunners",
+         "developerName":"Mtbcooler and others",
+         "version":"2.2.4",
+         "compatibility":"iOS",
+         "iconURL":"https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/AGjnhu0BaHa6AAAAAElFTkSuQmCC.png",
+         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/34/srr224.ipa",
+         "localizedDescription":"Sonic Runners Revival is an 2D endless runner game for Android and iOS. Aim for the top on the leaderboards!",
+         "screenshotURLs":[
+            "https://sonicrunners.com/assets/windy.jpg",
+            "https://sonicrunners.com/assets/sky.jpg#/",
+            "https://sonicrunners.com/assets/lava.jpg"
+         ]
+      },
+      {
          "name":"iSpoofer",
          "id":"iSpoofer",
          "version":"unknown",
