@@ -18,6 +18,21 @@
          "screenshotURLs":null
       },
       {
+         "name":"Hill Climb Racing MOD",
+         "id":"hillclimb",
+         "developerName":"unknown",
+         "version":"1.54-2",
+         "minOSVersion":"14.0 - 15.7.1 and 16 - 16.1.2",
+         "iconURL":"https://play-lh.googleusercontent.com/N0UxhBVUmx8s7y3F7Kqre2AcpXyPDKAp8nHjiPPoOONc_sfugHCYMjBpbUKCMlK_XUs",
+         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/8/Hill-Climb.ipa",
+         "localizedDescription":"Hill Climb Racing IPA for iOS offers an exhilarating and addictive gaming experience for adventure enthusiasts.
+With the added benefit of unlimited money and fuel, players can fully immerse themselves in this thrilling driving game.
+Take on the challenging terrains as you navigate through various landscapes, from sandy deserts to icy mountains.
+Upgrade your vehicle and unlock new levels as you progress through the game.
+The unlimited money and fuel feature allows players to freely experiment with different vehicles and upgrades, ensuring an exciting and dynamic gameplay. So buckle up, put your pedal to the metal, and prepare for an adrenaline-fueled climb to the top of the leaderboard.",
+         "screenshotURLs":null
+      },
+      {
          "name":"InstaSpring",
          "id":"InstaSpring",
          "developerName":"haxi0",
