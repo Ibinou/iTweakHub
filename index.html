@@ -307,11 +307,11 @@
   </div>   
 </div>
 
-<a id="cert" href="">
+<a href="https://nabzclan.vip/forums/ios-certificates.43/">
   <ul class="ioslist">
 <li style="border-bottom-width: 0px;">
 <div class="ioslist_icon"><i class="fa-regular fa-id-card"></i></div>
-<span>Download the certificate</span>
+<span>Download the certificates</span>
 </li>
 </ul>
 </a>
@@ -458,19 +458,7 @@
         }
         
         
-          // Récupérer l'élément <a> par son ID
-        var lien = document.getElementById("cert");
 
-        // Faire une requête HTTP pour récupérer le JSON depuis l'URL
-        fetch('https://cococloud-signing.online/certs/?latest=true')
-        .then(response => response.json())
-        .then(data => {
-            // Mettre à jour l'attribut href avec l'URL du JSON
-            lien.href = data[0].download;
-        })
-        .catch(error => {
-            console.error('Erreur de chargement du JSON :', error);
-        });
         
   </script>
 <script>
