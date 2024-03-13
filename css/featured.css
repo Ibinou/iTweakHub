@@ -162,3 +162,125 @@ color: rgba(255, 255, 255, 0.65);
   margin: 9px;
 }
 
+.container_header {
+  font-family: Helvetica;
+  display: flex;
+}
+
+.header {
+  padding: 216px 0px 0px;
+  box-sizing: border-box;
+  display: flex;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  justify-content: center;
+  min-width: 100vw;
+  scroll-snap-align: start;
+  text-align: center;
+  position: relative;
+}
+
+.image_header {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+
+.cell_app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, .7);
+  padding: 16px;
+  width: 100%;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.text_app {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.icon_app {
+  border-radius: 15px;
+  background-color: #000;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.meta_cell_app {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.2rem;
+}
+.appget {
+    background-color: rgba(49, 49, 53, 0.87);
+    border-radius: 40px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    height: 30px;
+    object-fit: cover;
+    color: var(--accent-color);
+    align-items: center;
+}
+
+.appget a {
+    margin-bottom: 2px;
+}
+
+.getbtn {
+    background-color: transparent;
+    border: none;
+    font-weight: 750;
+    color: var(--accent-color);
+}
+  
+.title_cell_app {
+  width: 170px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden!important;
+  text-overflow: ellipsis;
+}
+
+.author_cell_app {
+  opacity: .6;
+  color: white;
+  font-size: .875rem;
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden!important;
+  text-overflow: ellipsis;
+}
+
+.get_app {
+  background-color: #db2c99;
+  border-radius: 100px;
+  padding: 5px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+
+
+
+
