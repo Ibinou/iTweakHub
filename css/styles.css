@@ -1914,3 +1914,23 @@ a > button {
             text-align: center;
             padding: 20px;
         }
+
+.selection-title {
+    margin-bottom: 1px;
+    font-family: helvetica;
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+}
+.selection-liltitle {
+    margin-bottom: 7px;
+    font-family: helvetica;
+    font-size: 15px;
+    color: #a8a8a8;
+    font-weight: 700;
+}
+.selection {
+    background-color: #1C1C1E;
+    padding: 17px;
+    border-radius: 20px;
+}
