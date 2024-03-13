@@ -63,7 +63,7 @@ pointer-events: none;
 /* Pour les écrans de PC/tablette */
 @media screen and (min-width: 768px) {
   body {
-    background-color: #121212;
+    background-color: #000;
     color: white;
     margin: 0;
     padding: 0;
