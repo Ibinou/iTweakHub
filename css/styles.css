@@ -82,7 +82,7 @@ pointer-events: none;
 /* Pour les écrans de téléphone */
 @media screen and (max-width: 767px) {
   body {
-    background-color: #121212;
+    background-color: #000;
     color: white;
     margin: 0;
     padding: 0;
