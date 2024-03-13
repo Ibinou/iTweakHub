@@ -90,12 +90,12 @@
     }
 
 .appget {
-    background-color: #1c1c1e;
+    background-color: rgba(49, 49, 53, 0.87);
     border-radius: 40px;
     padding: 5px;
     display: flex;
     justify-content: center;
-    width: 67px;
+    width: 70px;
     height: 30px;
     object-fit: cover;
     color: var(--accent-color);
