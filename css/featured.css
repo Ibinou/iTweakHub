@@ -1,4 +1,4 @@
-    * {
+   * {
         box-sizing: border-box;
     }
 
@@ -165,7 +165,6 @@ color: rgba(255, 255, 255, 0.65);
 .container_header {
   font-family: Helvetica;
   display: flex;
-  margin-bottom: 15px;
 }
 
 .header {
@@ -218,8 +217,8 @@ color: rgba(255, 255, 255, 0.65);
 .icon_app {
   border-radius: 12px;
   background-color: #000;
-  width: 44px;
-  height: 44px;
+  width: 47px;
+  height: 47px;
   object-fit: cover;
 }
 
@@ -258,7 +257,7 @@ color: rgba(255, 255, 255, 0.65);
   white-space: nowrap;
   overflow: hidden!important;
   text-overflow: ellipsis;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .author_cell_app {
@@ -268,7 +267,7 @@ color: rgba(255, 255, 255, 0.65);
   white-space: nowrap;
   overflow: hidden!important;
   text-overflow: ellipsis;
-  ont-size: 13px;
+  ont-size: 15px;
 }
 
 .get_app {
@@ -282,8 +281,4 @@ color: rgba(255, 255, 255, 0.65);
   height: 30px;
   object-fit: cover;
 }
-
-
-
-
 
