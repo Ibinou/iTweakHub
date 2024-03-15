@@ -1945,11 +1945,15 @@ a > button {
 }
 
 .item1, .item2, .item3, .item4, .item5, .item6 {
-  background-size: cover;
-  text-align: center;
-  width: calc(50% - 6px); /* 50% width minus half of the gap */
-  height: 94px;
-  border-radius: 15px;
+    background-size: cover;
+    text-align: center;
+    width: calc(50% - 6px);
+    height: 94px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 57px;
+    padding-right: 90px;
 }
 
 .item1, .item2, .item3, .item4, .item5, .item6 {
