@@ -340,64 +340,29 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
-
-// slider banner js
-    const sliderItems = document.querySelectorAll('.slider-item');
-    const indicatorContainer = document.querySelector('.slider-indicators');
-
-    sliderItems.forEach((item, index) => {
-      const indicator = document.createElement('div');
-      indicator.classList.add('slider-indicator');
-      indicator.addEventListener('click', () => {
-        document.querySelector('.slider-list').style.transform = `translateX(-${index * 100}%)`;
-        updateActiveIndicator(index);
-      });
-      indicatorContainer.appendChild(indicator);
-      if (index === 0) {
-        indicator.classList.add('active');
-      }
-    });
-
-    const sliderContainer = document.querySelector('.slider-container');
-    let activeIndex = 0;
-
-    sliderContainer.addEventListener('scroll', () => {
-      const sliderWidth = sliderContainer.offsetWidth;
-      const currentIndex = Math.round(sliderContainer.scrollLeft / sliderWidth);
-      if (currentIndex !== activeIndex) {
-        activeIndex = currentIndex;
-        updateActiveIndicator(activeIndex);
-      }
-    });
-
-    function updateActiveIndicator(index) {
-      const indicators = document.querySelectorAll('.slider-indicator');
-      indicators.forEach((indicator, i) => {
-        if (i === index) {
-          indicator.classList.add('active');
-        } else {
-          indicator.classList.remove('active');
-        }
-      });
-    }
-        const displayUsername = document.getElementById('displayUsername');
-        const displayProfilePic = document.getElementById('displayProfilePic');
-
-        // Check if data is already stored in localStorage
-        const storedUsername = localStorage.getItem('username');
-        const storedProfilePicBase64 = localStorage.getItem('profilePic');
-        if (storedUsername && storedProfilePicBase64) {
-            displayUsername.textContent = storedUsername;
-            displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
-        } else {
-            window.location.href = 'setup.html'; // Redirect to setup page if no data
-        }
-        
-        
-
         
   </script>
 <script>
+  // Account system script
+  document.addEventListener('DOMContentLoaded', function() {
+    // Récupérer l'username depuis le local storage
+    var username = localStorage.getItem('username');
+    // Récupérer la photo de profil depuis le local storage
+    var profilePic = localStorage.getItem('profilePic');
+
+    // Vérifier si l'username et la photo de profil existent
+    if (username !== null && profilePic !== null) {
+      // Mettre à jour le texte de l'élément span
+      document.getElementById('displayUsername').textContent = username;
+      // Mettre à jour l'attribut src de l'élément img
+      document.getElementById('displayProfilePic').src = profilePic;
+    } else {
+      // Rediriger vers setup.html si l'username ou la photo de profil n'existe pas
+      window.location.href = 'setup.html';
+    }
+  });
+
+// Prevent malfunctions for older browsers	
   function openPage(url) {
     window.location.href = url;
   }
