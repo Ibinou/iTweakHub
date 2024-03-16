@@ -162,7 +162,7 @@ color: rgba(255, 255, 255, 0.65);
   margin: 9px;
 }
 
-.header {
+.header_app {
     font-family: Helvetica;
     display: flex;
     margin-bottom: 20px;
