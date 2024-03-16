@@ -162,40 +162,15 @@ color: rgba(255, 255, 255, 0.65);
   margin: 9px;
 }
 
-.container_header {
+.header {
     font-family: Helvetica;
     display: flex;
     margin-bottom: 20px;
     background-image: url(https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg);
+    background-position: center;
     background-size: cover;
     border-radius: 20px;
-}
-
-.header {
-  padding: 157px 0px 0px;
-  box-sizing: border-box;
-  display: flex;
-  background: no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  justify-content: center;
-  min-width: 100vw;
-  scroll-snap-align: start;
-  text-align: center;
-  position: relative;
-}
-
-.image_header {
-  position: absolute;
-  height: 100%;
-  width: 92%;
-  top: 0;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 20px;
-  margin-right: 32px;
+    padding: 157px 0px 0px;
 }
 
 .cell_app {
