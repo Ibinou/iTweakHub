@@ -163,9 +163,12 @@ color: rgba(255, 255, 255, 0.65);
 }
 
 .container_header {
-  font-family: Helvetica;
-  display: flex;
-  margin-bottom: 20px;
+    font-family: Helvetica;
+    display: flex;
+    margin-bottom: 20px;
+    background-image: url(https://assets-global.website-files.com/5f90723…/6116da8…_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg);
+    background-size: cover;
+    border-radius: 20px;
 }
 
 .header {
@@ -196,17 +199,17 @@ color: rgba(255, 255, 255, 0.65);
 }
 
 .cell_app {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, .7);
-  padding: 16px;
-  width: 100%;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  margin-right: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, .7);
+    padding: 16px;
+    width: 100%;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-right: 32px;
 }
 
 .text_app {
