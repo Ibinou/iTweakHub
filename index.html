@@ -339,14 +339,14 @@
     // Récupérer l'username depuis le local storage
     var username = localStorage.getItem('username');
     // Récupérer la photo de profil depuis le local storage
-    var profilePic = localStorage.getItem('profilePic');
+    var profilePicBase64 = localStorage.getItem('profilePic');
 
     // Vérifier si l'username et la photo de profil existent
-    if (username !== null && profilePic !== null) {
+    if (username !== null && profilePicBase64 !== null) {
       // Mettre à jour le texte de l'élément span
       document.getElementById('displayUsername').textContent = username;
-      // Mettre à jour l'attribut src de l'élément img
-      document.getElementById('displayProfilePic').src = profilePic;
+      // Mettre à jour l'attribut src de l'élément img avec la donnée base64
+      document.getElementById('displayProfilePic').src = "data:image/png;base64," + profilePicBase64;
     } else {
       // Rediriger vers setup.html si l'username ou la photo de profil n'existe pas
       window.location.href = 'setup.html';
