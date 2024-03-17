@@ -267,7 +267,6 @@ div.content {
 
 #navbar {
     overflow: hidden;
-    background-color: #121212;
     width: 100%;
     z-index: 9999999;
     position: sticky;
@@ -276,6 +275,30 @@ div.content {
     height: 68px;
 }
 
+.search-container {
+    position: relative;
+}
+
+.search-container i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #727272;
+}
+
+#myInput {
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
+    margin: auto;
+    border-radius: 15px;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: 1px solid rgb(37, 37, 39);
+}
 
 /* Styles for iPhones with a pixel ratio of 3 (and higher) */
 @media only screen and (-webkit-device-pixel-ratio: 3) {
