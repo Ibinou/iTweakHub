@@ -332,10 +332,10 @@
         },
         {
             "name": "iPogo",
-            "version": "3.2.3",
+            "version": "3.2.6",
             "developerName": "Niantic, Inc.",
             "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
-            "downloadURL": "https://ipogo.app/download/ipogo-3.2.3.ipa",
+            "downloadURL": "https://ipogo.app/download/ipogo-3.2.6.ipa",
             "localizedDescription": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
             "minOSVersion": "iOS 14+",
             "screenshots": [
