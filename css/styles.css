@@ -1976,3 +1976,8 @@ a > button {
     color: white;
     font-weight: 700;
 }
+sections_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
