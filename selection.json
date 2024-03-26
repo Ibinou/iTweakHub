@@ -1,22 +1,22 @@
 {
   "apps": [
     {
-      "name": "App Name 1",
-      "developer": "Developer 1",
-      "icon": "https://example.com/icon1.jpg",
-      "link": "appinfos.html?name=App%20Name%201&source=Developer%201"
+      "name": "FlixHub",
+      "developer": "Dangerous Pixel",
+      "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/4IZcJrc.jpeg?raw=true",
+      "link": "appinfos.html?name=FlixHub&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
     },
     {
-      "name": "App Name 2",
-      "developer": "Developer 2",
-      "icon": "https://example.com/icon2.jpg",
-      "link": "appinfos.html?name=App%20Name%202&source=Developer%202"
+      "name": "PPSSPP",
+      "developer": "PPSSPP Team",
+      "icon": "https://play-lh.googleusercontent.com/9W88RU_0oI8gFEUGPKm__gI9Jz7ZJhjv9yrAtzxaehXaYCk7G8TcumfNKJlySuk7yGY=w480-h960",
+      "link": "appinfos.html?name=PPSSPP&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
     },
     {
-      "name": "App Name 3",
-      "developer": "Developer 3",
-      "icon": "https://example.com/icon3.jpg",
-      "link": "appinfos.html?name=App%20Name%203&source=Developer%203"
+      "name": "uYouPlus",
+      "developer": "uYou Team",
+      "icon": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/uYou.png",
+      "link": "appinfos.html?name=App%20Name%203&sour3"
     },
     {
       "name": "App Name 4",
