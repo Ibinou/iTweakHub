@@ -16,13 +16,13 @@
       "name": "uYouPlus",
       "developer": "uYou Team",
       "icon": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/uYou.png",
-      "link": "appinfos.html?name=App%20Name%203&sour3"
+      "link": "appinfos.html?name=uYouPlus&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
     },
     {
-      "name": "App Name 4",
-      "developer": "Developer 4",
-      "icon": "https://example.com/icon4.jpg",
-      "link": "appinfos.html?name=App%20Name%204&source=Developer%204"
+      "name": "Taurine",
+      "developer": "Odyssey-Team",
+      "icon": "https://iosninja.io/img/ipas/taurine.png",
+      "link": "appinfos.html?name=Taurine&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
     }
   ]
 }
