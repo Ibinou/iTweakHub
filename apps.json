@@ -140,10 +140,10 @@
       {
          "name":"PPSSPP",
          "id":"PPSSPP",
-         "version":"1.16.6",
+         "version":"1.17.1",
          "minOSVersion":"iOS 5+",
          "iconURL":"https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/V6/PPSSPP_v1.16.6-368-g737ec3e90.ipa",
+         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/V1.17.1/PPSSPP_v1.17.1-35-g0159102a1.ipa",
          "localizedDescription":"PPSSPP is the one and only PSP emulator for iOS written in C++. It is capable of running a lot of original games but, depending on the power of your device, not all may run at full speed due to JIT.",
          "screenshotURLs":null
       },
