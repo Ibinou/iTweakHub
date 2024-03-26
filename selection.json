@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "name": "App Name 1",
+      "developer": "Developer 1",
+      "icon": "https://example.com/icon1.jpg",
+      "link": "appinfos.html?name=App%20Name%201&source=Developer%201"
+    },
+    {
+      "name": "App Name 2",
+      "developer": "Developer 2",
+      "icon": "https://example.com/icon2.jpg",
+      "link": "appinfos.html?name=App%20Name%202&source=Developer%202"
+    },
+    {
+      "name": "App Name 3",
+      "developer": "Developer 3",
+      "icon": "https://example.com/icon3.jpg",
+      "link": "appinfos.html?name=App%20Name%203&source=Developer%203"
+    },
+    {
+      "name": "App Name 4",
+      "developer": "Developer 4",
+      "icon": "https://example.com/icon4.jpg",
+      "link": "appinfos.html?name=App%20Name%204&source=Developer%204"
+    }
+  ]
+}
