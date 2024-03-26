@@ -410,6 +410,7 @@ function openDebugPage() {
         window.location.href = url;
     }
     
+// Selection script
 fetch('selection.json')
   .then(response => response.json())
   .then(data => {
@@ -417,7 +418,10 @@ fetch('selection.json')
     data.apps.forEach(app => {
       const appDiv = document.createElement('div');
       appDiv.classList.add('dock');
-      appDiv.style.margin = '5px';
+      appDiv.style.marginRight = '5px';
+      appDiv.style.marginBottom = '0px';
+      appDiv.style.marginTop = '0px';
+      appDiv.style.marginLeft = '5px';
       appDiv.innerHTML = `
         <div class="app_cell_left">
           <img style="width: 54px;height: 54px;" src="${app.icon}" class="appicon">
