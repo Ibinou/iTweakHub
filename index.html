@@ -114,70 +114,10 @@
 
 	
 <div class="selection">
-    <!--Recently Added-->
-   <h3 id="topapps" class="selection-liltitle">FROM THE DEVS</h3>
-   <h3 id="topapps" class="selection-title">The best movies apps</h3>	
-<div class="appList">										  
-              <div class="dock" style="margin-right: 5px;margin-bottom: 0px;margin-top: 0px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img style="width: 54px;height: 54px;" src="https://garden.spoonflower.com/c/13653054/p/f/m/4Ny7a2vS9n0AtTHrD7epPmf_kwwfgDuSl0RGAXMmH7uD5LU1oO9JwyI/Solid%20dark%20grey.jpg" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">OldOS</div>
-                    <div class="appsection">iOS 4 simulator</div>
-                  </div>
-                </div>
-                <div style="background-color: #323135;" class="appget">
-		<a href="appinfos.html?name=OldOS">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-	      
-              <div class="dock" style="margin-right: 5px;margin-bottom: 0px;margin-top: 0px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img style="width: 54px;height: 54px;" src="https://garden.spoonflower.com/c/13653054/p/f/m/4Ny7a2vS9n0AtTHrD7epPmf_kwwfgDuSl0RGAXMmH7uD5LU1oO9JwyI/Solid%20dark%20grey.jpg" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">Misaka</div>
-                    <div class="appsection">MDC Tweak Manager</div>
-                  </div>
-                </div>
-                <div style="background-color: #323135;" class="appget">
-		<a href="appinfos.html?name=Misaka">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-              <div class="dock" style="margin-right: 5px;margin-bottom: 0px;margin-top: 0px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img style="width: 54px;height: 54px;" src="https://garden.spoonflower.com/c/13653054/p/f/m/4Ny7a2vS9n0AtTHrD7epPmf_kwwfgDuSl0RGAXMmH7uD5LU1oO9JwyI/Solid%20dark%20grey.jpg" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">Misaka</div>
-                    <div class="appsection">MDC Tweak Manager</div>
-                  </div>
-                </div>
-                <div style="background-color: #323135;" class="appget">
-		<a href="appinfos.html?name=Misaka">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-              <div class="dock" style="margin-right: 5px;margin-bottom: 0px;margin-top: 0px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img style="width: 54px;height: 54px;" src="https://garden.spoonflower.com/c/13653054/p/f/m/4Ny7a2vS9n0AtTHrD7epPmf_kwwfgDuSl0RGAXMmH7uD5LU1oO9JwyI/Solid%20dark%20grey.jpg" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">ClassicPlayer</div>
-                    <div class="appsection">iPod interface on iOS.</div>
-                  </div>
-                </div>
-                <div style="background-color: #323135;" class="appget">
-		<a href="appinfos.html?name=ClassicPlayer">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-   </div>
-</div>	
-
+    <h3 id="topapps" class="selection-liltitle">FROM THE TEAM</h3>
+    <h3 id="topapps" class="selection-title">The best apps for your iDevice</h3>
+    <div class="appList" id="appList"></div>
+</div>
 
 <h3 class="title-page-section">Sections</h3>
 <div class="sections_div">
@@ -469,6 +409,32 @@ function openDebugPage() {
     function openPage(url) {
         window.location.href = url;
     }
+    
+fetch('selection.json')
+  .then(response => response.json())
+  .then(data => {
+    const appList = document.getElementById('appList');
+    data.apps.forEach(app => {
+      const appDiv = document.createElement('div');
+      appDiv.classList.add('dock');
+      appDiv.style.margin = '5px';
+      appDiv.innerHTML = `
+        <div class="app_cell_left">
+          <img style="width: 54px;height: 54px;" src="${app.icon}" class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">${app.name}</div>
+            <div class="appsection">${app.developer}</div>
+          </div>
+        </div>
+        <div style="background-color: #323135;" class="appget">
+          <a href="${app.link}">
+            <button class="getbtn">GET</button>
+          </a>
+        </div>
+      `;
+      appList.appendChild(appDiv);
+    });
+  });
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
