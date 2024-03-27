@@ -467,6 +467,7 @@ fetch('selection.json')
 // welcome back changing text script
 document.addEventListener('DOMContentLoaded', function() {
     var changingText = document.getElementById('changingText');
+    var displayUsername = document.getElementById('displayUsername');
     var isWelcomeBack = true;
 
     function changeText() {
@@ -481,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var monthIndex = currentDate.getMonth();
             var monthName = monthNames[monthIndex];
             var suffix = getDaySuffix(day);
-            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix + ', <span style="color: var(--accent-color);font-size:12px;">' + document.getElementById('displayUsername').textContent + '</span>';
+            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix + ',<span style="color: var(--accent-color);font-size:12px;">' + displayUsername.textContent + '</span>';
         }
         isWelcomeBack = !isWelcomeBack;
     }
