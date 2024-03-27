@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function changeText() {
         if (isWelcomeBack) {
-            changingText.innerHTML = 'Welcome back,';
+            changingText.innerHTML = 'Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span>';
         } else {
             var currentDate = new Date();
             var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -482,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var monthIndex = currentDate.getMonth();
             var monthName = monthNames[monthIndex];
             var suffix = getDaySuffix(day);
-            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix;
+            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix + ',<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span>';
         }
         isWelcomeBack = !isWelcomeBack;
     }
