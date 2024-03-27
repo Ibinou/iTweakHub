@@ -109,7 +109,7 @@
   <img id="displayProfilePic" src="" style="margin-bottom: 0px;border-radius: 41px;float: right;margin-top: 15px;width: 35px;height: 35px;">
 </a>
 	
- <h2 class="welcomeback" id="changingText">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
+<h2 class="welcomeback" id="changingText">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
 	
 	
     <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="margin-left: 4px;color: #a1a1a1;"></span></h1>
@@ -467,12 +467,11 @@ fetch('selection.json')
 // welcome back changing text script
 document.addEventListener('DOMContentLoaded', function() {
     var changingText = document.getElementById('changingText');
-    var displayUsername = document.getElementById('displayUsername');
     var isWelcomeBack = true;
 
     function changeText() {
         if (isWelcomeBack) {
-            changingText.innerHTML = 'Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span>';
+            changingText.innerHTML = 'Welcome back,';
         } else {
             var currentDate = new Date();
             var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -482,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var monthIndex = currentDate.getMonth();
             var monthName = monthNames[monthIndex];
             var suffix = getDaySuffix(day);
-            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix + ',<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span>';
+            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix + ', <span style="color: var(--accent-color);font-size:12px;">' + document.getElementById('displayUsername').textContent + '</span>';
         }
         isWelcomeBack = !isWelcomeBack;
     }
