@@ -1981,3 +1981,11 @@ sections_div {
     justify-content: center;
     align-items: center;
 }
+
+.welcomeback {
+   font-family:helvetica;
+   font-size:12px;
+   color:#9d9d9d;
+   margin-top: 12px;
+   margin-bottom: 12px;
+}
