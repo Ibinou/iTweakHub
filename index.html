@@ -63,6 +63,30 @@
         }(document, "script"));
 </script>
 <!-- End PushAlert -->
+<style>
+@keyframes fade {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  40% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+}
+
+#changingText {
+  animation: fade 4s infinite;
+}
+</style>
 </head>
 <body style="opacity: 0;">
 	
@@ -85,7 +109,7 @@
   <img id="displayProfilePic" src="" style="margin-bottom: 0px;border-radius: 41px;float: right;margin-top: 15px;width: 35px;height: 35px;">
 </a>
 	
-    <h2 class="welcomeback">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
+ <h2 class="welcomeback" id="changingText">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
 	
 	
     <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="margin-left: 4px;color: #a1a1a1;"></span></h1>
@@ -439,6 +463,49 @@ fetch('selection.json')
       appList.appendChild(appDiv);
     });
   });
+  
+// welcome back changing text script
+document.addEventListener('DOMContentLoaded', function() {
+    var changingText = document.getElementById('changingText');
+    var displayUsername = document.getElementById('displayUsername');
+    var isWelcomeBack = true;
+
+    function changeText() {
+        if (isWelcomeBack) {
+            changingText.innerHTML = 'Welcome back,';
+        } else {
+            var currentDate = new Date();
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
+            var day = currentDate.getDate();
+            var monthIndex = currentDate.getMonth();
+            var monthName = monthNames[monthIndex];
+            var suffix = getDaySuffix(day);
+            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix;
+        }
+        isWelcomeBack = !isWelcomeBack;
+    }
+
+    // Décalage du premier changement de texte de 2 secondes
+    setTimeout(changeText, 2000);
+
+    // Changement de texte toutes les 4 secondes
+    setInterval(changeText, 4000);
+
+    // Fonction pour obtenir le suffixe du jour (st, nd, rd, th)
+    function getDaySuffix(day) {
+        if (day >= 11 && day <= 13) {
+            return "th";
+        }
+        switch (day % 10) {
+            case 1:  return "st";
+            case 2:  return "nd";
+            case 3:  return "rd";
+            default: return "th";
+        }
+    }
+});
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
