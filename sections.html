@@ -142,14 +142,10 @@ function afficherDonnees() {
 
             // Filtrer les applications par nom
             var filteredApps = appsDataFromURL.filter(function(app) {
-              return ["spotilife", "uYouPlus", "FlixHub"].includes(app.name.toLowerCase());
+              return ["spotilife", "uYouPlus", "snapchat"].includes(app.name.toLowerCase());
             });
 
-            // Triez les applications filtrées par nom également
-            filteredApps.sort(function(a, b) {
-              return a.name.localeCompare(b.name);
-            });
-
+            // Afficher les applications filtrées
             afficherApplications(filteredApps, url);
           })
           .catch(function(error) {
