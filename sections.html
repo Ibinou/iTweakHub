@@ -28,14 +28,15 @@
 </div>
 	
 <div class="content">
-<div id="header">	
+	
 <div class="toptitle">	
     <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;" aria-hidden="true"></i>Home</h1></a>
     <h1 id="sectiontitle" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;"></h1>
 </div>
-</div>
-  <center>	    
-<div class="animated-enter">
+
+  <center>	
+	  
+<div id="header" class="animated-enter">
 <div class="appList" id="appList"></div>
          <br>
 </div>
@@ -232,17 +233,17 @@ function afficherDonnees() {
 
 
 <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Récupérer l'élément avec la classe "toptitle"
-            var toptitleElement = document.querySelector(".topNav");
-            var elementElement = document.getElementById("header");
+    document.addEventListener("DOMContentLoaded", function() {
+        // Récupérer l'élément avec la classe "toptitle"
+        var toptitleElement = document.querySelector(".toptitle");
+        var elementElement = document.getElementById("header");
 
-            // Vérifier si l'élément "toptitle" a un padding top de 43px
-            if (window.getComputedStyle(toptitleElement).paddingTop === "60px") {
-                // Si oui, changer le margin-top de l'élément "element" à 100px
-                elementElement.style.marginTop = "50px";
-            }
-        });
+        // Vérifier si l'élément "toptitle" a un padding top de 43px
+        if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+            // Si oui, changer le margin-top de l'élément "element" à 100px
+            elementElement.style.marginTop = "140px";
+        }
+    });
 	
        var topNav = document.querySelector(".topNav");
         var isNavVisible = false;
