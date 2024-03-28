@@ -110,7 +110,6 @@
   </script>
    
 <script>
-// Fonction pour afficher les données
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
@@ -141,12 +140,17 @@ function afficherDonnees() {
           .then(function(data) {
             var appsDataFromURL = data.apps; // Assurez-vous que le format JSON correspond
 
-            // Triez les applications par nom également
-            appsDataFromURL.sort(function(a, b) {
+            // Filtrer les applications par nom
+            var filteredApps = appsDataFromURL.filter(function(app) {
+              return ["Spotilife", "uYou+", "uYouPlus"].includes(app.name.toLowerCase());
+            });
+
+            // Triez les applications filtrées par nom également
+            filteredApps.sort(function(a, b) {
               return a.name.localeCompare(b.name);
             });
 
-            afficherApplications(appsDataFromURL, url);
+            afficherApplications(filteredApps, url);
           })
           .catch(function(error) {
             console.log('Error fetching data from URL', error);
@@ -226,7 +230,6 @@ function afficherDonnees() {
     });
   }
 }
-
         
   </script>
 
