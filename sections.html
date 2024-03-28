@@ -138,11 +138,11 @@ function afficherDonnees() {
             return response.json();
           })
           .then(function(data) {
-            var appsDataFromURL = data.apps; // Assurez-vous que le format JSON correspond
+            var appsDataFromURL = data.apps || []; // Assurez-vous que le format JSON correspond
 
             // Filtrer les applications par nom
             var filteredApps = appsDataFromURL.filter(function(app) {
-              return ["Spotilife", "uYou+", "uYouPlus"].includes(app.name.toLowerCase());
+              return ["spotilife", "uYouPlus", "FlixHub"].includes(app.name.toLowerCase());
             });
 
             // Triez les applications filtrées par nom également
