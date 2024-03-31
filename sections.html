@@ -142,25 +142,34 @@ function afficherDonnees() {
 
             // Filtrer les applications par nom
             var filteredApps = appsDataFromURL.filter(function(app) {
-              return ["spotilife", "uYouPlus", "snapchat"].includes(app.name.toLowerCase());
+              return ["spotify", "youtube", "snapchat"].includes(app.name.toLowerCase());
             });
 
-            // Afficher les applications filtrées
-            afficherApplications(filteredApps, url);
+            return filteredApps; // Retourner les applications filtrées
           })
           .catch(function(error) {
             console.log('Error fetching data from URL', error);
+            return []; // Retourner un tableau vide en cas d'erreur
           });
       });
 
       // Attendre que toutes les requêtes de fetch se terminent
-      return Promise.all(fetchPromises);
+      return Promise.all(fetchPromises)
+        .then(function(appsFromURLs) {
+          // Concaténer toutes les applications filtrées des URLs
+          var allFilteredApps = appsFromURLs.reduce(function(acc, apps) {
+            return acc.concat(apps);
+          }, []);
+
+          // Afficher toutes les applications filtrées
+          afficherApplications(allFilteredApps);
+        });
     })
     .catch(function(error) {
       console.log('Error fetching apps.json', error);
     });
 
-  function afficherApplications(appsData, source) {
+  function afficherApplications(appsData) {
     appsData.forEach(function(appData) {
       var dockDiv = document.createElement("div");
       dockDiv.className = "dock";
@@ -211,7 +220,7 @@ function afficherDonnees() {
       var appGetBtn = document.createElement("a");
 
       // Utiliser l'opérateur ternaire pour définir la valeur de source
-      var sourceValue = source !== undefined ? encodeURIComponent(source) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      var sourceValue = encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
       appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
       var getBtn = document.createElement("button");
