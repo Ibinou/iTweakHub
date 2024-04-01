@@ -250,6 +250,17 @@ function afficherDonnees() {
     });
   }
 }
+// Fonction pour récupérer les paramètres de l'URL
+function obtenirParametreUrl(nomParametre) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(nomParametre);
+}
+
+// Récupérer la valeur du paramètre "monParametre" de l'URL
+const valeurParametre = obtenirParametreUrl('section');
+
+// Afficher la valeur dans la div avec l'ID spécifié
+document.getElementById('sectiontitle').innerText = valeurParametre;
 </script>
 
 
