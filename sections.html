@@ -121,77 +121,87 @@ async function fetchData(url) {
 function displayApps(appsData, targetNames) {
   const appListDiv = document.querySelector('.appList');
   appListDiv.innerHTML = ''; // Effacer le contenu précédent
-  const filteredApps = appsData.filter(app => targetNames.includes(app.name));
-  filteredApps.forEach(app => {
-    const appDiv = document.createElement('div');
-    appDiv.classList.add('dock');
 
-    const leftDiv = document.createElement('div');
-    leftDiv.classList.add('app_cell_left');
+  // Parcourir chaque élément du tableau "apps" dans appsData
+  appsData.apps.forEach(app => {
+    // Vérifier si le nom de l'application fait partie des noms cibles
+    if (targetNames.includes(app.name)) {
+      const appDiv = document.createElement('div');
+      appDiv.classList.add('dock');
 
-    const iconImg = document.createElement('img');
-    iconImg.classList.add('appicon');
-    iconImg.src = app.iconURL;
-    leftDiv.appendChild(iconImg);
+      const leftDiv = document.createElement('div');
+      leftDiv.classList.add('app_cell_left');
 
-    const metaDiv = document.createElement('div');
-    metaDiv.classList.add('app_cell_meta');
+      const iconImg = document.createElement('img');
+      iconImg.classList.add('appicon');
+      iconImg.src = app.iconURL;
+      leftDiv.appendChild(iconImg);
 
-    const appNameDiv = document.createElement('div');
-    appNameDiv.classList.add('appname');
-    appNameDiv.textContent = app.name;
-    metaDiv.appendChild(appNameDiv);
+      const metaDiv = document.createElement('div');
+      metaDiv.classList.add('app_cell_meta');
 
-    const appSectionDiv = document.createElement('div');
-    appSectionDiv.classList.add('appsection');
-    appSectionDiv.textContent = app.dev;
-    metaDiv.appendChild(appSectionDiv);
+      const appNameDiv = document.createElement('div');
+      appNameDiv.classList.add('appname');
+      appNameDiv.textContent = app.name;
+      metaDiv.appendChild(appNameDiv);
 
-    leftDiv.appendChild(metaDiv);
-    appDiv.appendChild(leftDiv);
+      const appSectionDiv = document.createElement('div');
+      appSectionDiv.classList.add('appsection');
+      appSectionDiv.textContent = app.developerName;
+      metaDiv.appendChild(appSectionDiv);
 
-    const getDiv = document.createElement('div');
-    getDiv.classList.add('appget');
+      leftDiv.appendChild(metaDiv);
+      appDiv.appendChild(leftDiv);
 
-    const aTag = document.createElement('a');
-    aTag.href = `appinfos.html?name=${app.name}&source=${app.sourceURL}`;
+      const getDiv = document.createElement('div');
+      getDiv.classList.add('appget');
 
-    const getBtn = document.createElement('button');
-    getBtn.classList.add('getbtn');
-    getBtn.textContent = 'GET';
+      const aTag = document.createElement('a');
+      aTag.href = `appinfos.html?name=${app.name}&source=${app.sourceURL}`;
 
-    aTag.appendChild(getBtn);
-    getDiv.appendChild(aTag);
-    appDiv.appendChild(getDiv);
+      const getBtn = document.createElement('button');
+      getBtn.classList.add('getbtn');
+      getBtn.textContent = 'GET';
 
-    appListDiv.appendChild(appDiv);
+      aTag.appendChild(getBtn);
+      getDiv.appendChild(aTag);
+      appDiv.appendChild(getDiv);
+
+      appListDiv.appendChild(appDiv);
+    }
   });
 }
 
 // Récupérer les URLs des repos depuis le localStorage
 const repoURLs = JSON.parse(localStorage.getItem('repoURLs'));
 
-// Récupérer les données des applications depuis les URLs des repos
-Promise.all(repoURLs.map(fetchData))
-  .then(async appsData => {
-    // Concaténer les tableaux d'applications
-    let allAppsData = [];
-    for (const data of appsData) {
-      allAppsData = allAppsData.concat(data);
-    }
-
-    // Charger les données d'applications depuis apps.json
-    const appsJSON = await fetchData('apps.json');
-    allAppsData = allAppsData.concat(appsJSON);
-
+// Récupérer les données depuis chaque URL de repo
+Promise.all(repoURLs.map(url => fetchData(url)))
+  .then(appsData => {
+    // Concaténer les données de chaque repo en un seul tableau
+    let allAppsData = { apps: [] };
+    appsData.forEach(data => {
+      allAppsData.apps = allAppsData.apps.concat(data.apps);
+    });
+    return allAppsData;
+  })
+  .then(allAppsData => {
+    // Récupérer les données d'applications depuis apps.json
+    return fetchData('apps.json').then(appsJSON => {
+      // Concaténer les données d'apps.json avec les autres données d'applications
+      allAppsData.apps = allAppsData.apps.concat(appsJSON.apps);
+      return allAppsData;
+    });
+  })
+  .then(allAppsData => {
     // Liste des noms d'applications que vous souhaitez afficher
-    const targetAppNames = ['uYouPlus', 'Spotilife'];
+    const targetAppNames = ['DolphiniOS', 'iPogo', 'OldOS'];
 
     // Afficher uniquement les applications avec les noms spécifiques
     displayApps(allAppsData, targetAppNames);
   })
   .catch(error => console.error('Erreur lors du chargement des données :', error));
-  </script>
+</script>
 
 
 
