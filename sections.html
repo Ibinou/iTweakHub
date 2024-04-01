@@ -113,6 +113,9 @@
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
+  // Applications à filtrer
+  var appsAInclure = ["iPogo", "Spotilife", "uYouPlus"];
+
   // Fetcher les données de apps.json
   fetch('https://ibinou.github.io/iTweakHub/apps.json')
     .then(function(response) {
@@ -121,9 +124,9 @@ function afficherDonnees() {
     .then(function(data) {
       var appsData = data.apps; // Assurez-vous que le format JSON correspond
 
-      // Filtre les applications commençant par "iPogo"
+      // Filtre les applications incluses dans appsAInclure
       appsData = appsData.filter(function(app) {
-        return app.name.startsWith("iPogo");
+        return appsAInclure.includes(app.name);
       });
 
       // Triez les applications par nom (ordre alphabétique)
@@ -145,9 +148,9 @@ function afficherDonnees() {
           .then(function(data) {
             var appsDataFromURL = data.apps; // Assurez-vous que le format JSON correspond
 
-            // Filtre les applications commençant par "iPogo"
+            // Filtre les applications incluses dans appsAInclure
             appsDataFromURL = appsDataFromURL.filter(function(app) {
-              return app.name.startsWith("iPogo");
+              return appsAInclure.includes(app.name);
             });
 
             // Triez les applications par nom également
