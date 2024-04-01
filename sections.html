@@ -110,132 +110,87 @@
   </script>
    
 <script>
-function afficherDonnees() {
-  var appListDiv = document.getElementById("appList");
-
-  // Fetcher les données de apps.json
-  fetch('https://ibinou.github.io/iTweakHub/apps.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var appsData = data.apps; // Assurez-vous que le format JSON correspond
-
-      // Triez les applications par nom (ordre alphabétique)
-      appsData.sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-      });
-
-      afficherApplications(appsData);
-
-      // Récupérer les URLs des JSON depuis le localStorage
-      var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
-
-      // Fetcher les données des URLs stockées dans repoURLs
-      var fetchPromises = repoURLs.map(function(url) {
-        return fetch(url)
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(data) {
-            var appsDataFromURL = data.apps || []; // Assurez-vous que le format JSON correspond
-
-            // Filtrer les applications par nom
-            var filteredApps = appsDataFromURL.filter(function(app) {
-              return ["spotify", "youtube", "snapchat"].includes(app.name.toLowerCase());
-            });
-
-            return filteredApps; // Retourner les applications filtrées
-          })
-          .catch(function(error) {
-            console.log('Error fetching data from URL', error);
-            return []; // Retourner un tableau vide en cas d'erreur
-          });
-      });
-
-      // Attendre que toutes les requêtes de fetch se terminent
-      return Promise.all(fetchPromises)
-        .then(function(appsFromURLs) {
-          // Concaténer toutes les applications filtrées des URLs
-          var allFilteredApps = appsFromURLs.reduce(function(acc, apps) {
-            return acc.concat(apps);
-          }, []);
-
-          // Afficher toutes les applications filtrées
-          afficherApplications(allFilteredApps);
-        });
-    })
-    .catch(function(error) {
-      console.log('Error fetching apps.json', error);
-    });
-
-  function afficherApplications(appsData) {
-    appsData.forEach(function(appData) {
-      var dockDiv = document.createElement("div");
-      dockDiv.className = "dock";
-
-      var appCellLeftDiv = document.createElement("div");
-      appCellLeftDiv.className = "app_cell_left";
-
-      var appIconImg = document.createElement("img");
-      appIconImg.className = "appicon";
-
-      // Vérifier si appData.iconURL existe
-      if (appData.iconURL) {
-        // Vérifier si le lien d'image est valide
-        appIconImg.onload = function() {
-          // L'image a été chargée avec succès
-        };
-        appIconImg.onerror = function() {
-          // Le lien d'image n'est pas valide, utiliser un placeholder
-          appIconImg.src = "img/blank.JPG";
-        };
-        appIconImg.src = appData.iconURL;
-      } else {
-        // Utiliser un placeholder si aucun lien d'image n'est fourni
-        appIconImg.src = "img/blank.JPG";
-      }
-
-      appCellLeftDiv.appendChild(appIconImg);
-
-      var appCellMetaDiv = document.createElement("div");
-      appCellMetaDiv.className = "app_cell_meta";
-
-      var appNameDiv = document.createElement("div");
-      appNameDiv.className = "appname";
-      appNameDiv.textContent = appData.name;
-      appCellMetaDiv.appendChild(appNameDiv);
-
-      var appDevDiv = document.createElement("div");
-      appDevDiv.className = "appsection";
-      appDevDiv.textContent = appData.developerName;
-      appCellMetaDiv.appendChild(appDevDiv);
-
-      appCellLeftDiv.appendChild(appCellMetaDiv);
-      dockDiv.appendChild(appCellLeftDiv);
-
-      var appGetDiv = document.createElement("div");
-      appGetDiv.className = "appget";
-
-      var appGetBtn = document.createElement("a");
-
-      // Utiliser l'opérateur ternaire pour définir la valeur de source
-      var sourceValue = encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
-      appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
-
-      var getBtn = document.createElement("button");
-      getBtn.className = "getbtn";
-      getBtn.textContent = "GET";
-
-      appGetBtn.appendChild(getBtn);
-      appGetDiv.appendChild(appGetBtn);
-      dockDiv.appendChild(appGetDiv);
-
-      appListDiv.appendChild(dockDiv);
-    });
-  }
+// Fonction pour charger les données depuis une URL JSON
+async function fetchData(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
 }
-        
+
+// Fonction pour afficher les applications avec des noms spécifiques
+function displayApps(appsData, targetNames) {
+  const appListDiv = document.querySelector('.appList');
+  appListDiv.innerHTML = ''; // Effacer le contenu précédent
+  const filteredApps = appsData.filter(app => targetNames.includes(app.name));
+  filteredApps.forEach(app => {
+    const appDiv = document.createElement('div');
+    appDiv.classList.add('dock');
+
+    const leftDiv = document.createElement('div');
+    leftDiv.classList.add('app_cell_left');
+
+    const iconImg = document.createElement('img');
+    iconImg.classList.add('appicon');
+    iconImg.src = app.iconURL;
+    leftDiv.appendChild(iconImg);
+
+    const metaDiv = document.createElement('div');
+    metaDiv.classList.add('app_cell_meta');
+
+    const appNameDiv = document.createElement('div');
+    appNameDiv.classList.add('appname');
+    appNameDiv.textContent = app.name;
+    metaDiv.appendChild(appNameDiv);
+
+    const appSectionDiv = document.createElement('div');
+    appSectionDiv.classList.add('appsection');
+    appSectionDiv.textContent = app.dev;
+    metaDiv.appendChild(appSectionDiv);
+
+    leftDiv.appendChild(metaDiv);
+    appDiv.appendChild(leftDiv);
+
+    const getDiv = document.createElement('div');
+    getDiv.classList.add('appget');
+
+    const aTag = document.createElement('a');
+    aTag.href = `appinfos.html?name=${app.name}&source=${app.sourceURL}`;
+
+    const getBtn = document.createElement('button');
+    getBtn.classList.add('getbtn');
+    getBtn.textContent = 'GET';
+
+    aTag.appendChild(getBtn);
+    getDiv.appendChild(aTag);
+    appDiv.appendChild(getDiv);
+
+    appListDiv.appendChild(appDiv);
+  });
+}
+
+// Récupérer les URLs des repos depuis le localStorage
+const repoURLs = JSON.parse(localStorage.getItem('repoURLs'));
+
+// Récupérer les données des applications depuis les URLs des repos
+Promise.all(repoURLs.map(fetchData))
+  .then(async appsData => {
+    // Concaténer les tableaux d'applications
+    let allAppsData = [];
+    for (const data of appsData) {
+      allAppsData = allAppsData.concat(data);
+    }
+
+    // Charger les données d'applications depuis apps.json
+    const appsJSON = await fetchData('apps.json');
+    allAppsData = allAppsData.concat(appsJSON);
+
+    // Liste des noms d'applications que vous souhaitez afficher
+    const targetAppNames = ['App1', 'App3'];
+
+    // Afficher uniquement les applications avec les noms spécifiques
+    displayApps(allAppsData, targetAppNames);
+  })
+  .catch(error => console.error('Erreur lors du chargement des données :', error));
   </script>
 
 
