@@ -1989,3 +1989,27 @@ sections_div {
    margin-top: 12px;
    margin-bottom: 12px;
 }
+   .changelog-card {
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 18px;
+      background-color: #1c1c1c;
+    }
+
+    #changelogtitle {
+      margin-top: 0;
+      margin-bottom: -10px;
+      font-size: 25px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+#version {
+   opacity: .5;
+}
