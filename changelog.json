@@ -1,0 +1,5 @@
+[
+  {"version": "1.0.0", "changes": ["Initial release"]},
+  {"version": "1.1.0", "changes": ["UI/UX improvements"]},
+  {"version": "2.1", "changes": ["UI/UX improvements", "Improved performance", "Added a section page", "Improved the iTweakHub setup"]}
+]
