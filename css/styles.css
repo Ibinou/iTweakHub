@@ -2002,12 +2002,12 @@ sections_div {
       font-size: 25px;
     }
 
-    ul {
+    .ul {
       list-style-type: none;
       padding: 0;
     }
 
-    li {
+    .li {
       margin-bottom: 10px;
     }
 #version {
