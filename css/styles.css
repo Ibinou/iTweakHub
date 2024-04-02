@@ -1990,7 +1990,7 @@ sections_div {
    margin-bottom: 12px;
 }
    .changelog-card {
-      margin: 50px auto;
+      margin: 20px auto;
       padding: 20px;
       border-radius: 18px;
       background-color: #1c1c1c;
@@ -1998,7 +1998,7 @@ sections_div {
 
     #changelogtitle {
       margin-top: 0;
-      margin-bottom: -10px;
+      margin-bottom: 0px;
       font-size: 25px;
     }
 
