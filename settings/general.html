@@ -58,6 +58,15 @@
 <div class="ioslist_opposite">Public</div>
 </li>
 </ul>
+
+
+<div class="changelog-card">
+    <h2 id="changelogtitle">Changelog</h2>
+    <p id="version"></p>
+    <ul id="changelog-list"></ul>
+</div>
+
+
 <div class="hidecolor">	
   <input type="color" id="color-picker">
   <button id="reset-button">Reset</button>
@@ -141,6 +150,25 @@
                 elementElement.style.marginTop = "130px";
             }
         });  
+        
+document.addEventListener("DOMContentLoaded", function() {
+      fetch("../changelog.json")
+        .then(response => response.json())
+        .then(data => {
+          const latestChangelog = data[data.length - 1];
+          const versionElement = document.getElementById("version");
+          const changelogList = document.getElementById("changelog-list");
+          
+          versionElement.textContent = `Version: ${latestChangelog.version}`;
+          
+          latestChangelog.changes.forEach(change => {
+            const listItem = document.createElement("li");
+            listItem.textContent = change;
+            changelogList.appendChild(listItem);
+          });
+        })
+        .catch(error => console.error("Error fetching changelog:", error));
+    });
      </script>  
     
 
