@@ -574,15 +574,6 @@
     ],
     "news": [
         {
-            "title": "Major update",
-            "identifier": "big-update",
-            "caption": "iTweakHub just got a major update ! Go check the changelog in Settings -> General",
-            "tintColor": "7449ff",
-            "imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/2.1/img/banners/1712138905.942442-2C0E6CA2-2D45-410F-B2B9-452266850B09.png",
-            "date": "2024-04-03",
-            "notify": true
-        },
-        {
             "title": "Follow us !",
             "identifier": "foxster-news-2",
             "caption": "Follow us on X and join our Discord server 😊.",
