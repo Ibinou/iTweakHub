@@ -302,23 +302,19 @@
   </script>
 <script>
   // Account system script
-  document.addEventListener('DOMContentLoaded', function() {
-    // Récupérer l'username depuis le local storage
-    var username = localStorage.getItem('username');
-    // Récupérer la photo de profil depuis le local storage
-    var profilePicBase64 = localStorage.getItem('profilePic');
-
-    // Vérifier si l'username et la photo de profil existent
-    if (username !== null && profilePicBase64 !== null) {
-      // Mettre à jour le texte de l'élément span
-      document.getElementById('displayUsername').textContent = username;
-      // Mettre à jour l'attribut src de l'élément img avec la donnée base64
-      document.getElementById('displayProfilePic').src = "data:image/png;base64," + profilePicBase64;
+document.addEventListener('DOMContentLoaded', function() {
+    // Vérifier si la clé "setup" avec la propriété "done" existe dans le local storage
+    if (!localStorage.getItem('setup') || localStorage.getItem('setup') !== 'done') {
+        // Rediriger vers setup.html si la clé "setup" n'existe pas ou si sa valeur n'est pas "done"
+        window.location.href = 'setup.html';
     } else {
-      // Rediriger vers setup.html si l'username ou la photo de profil n'existe pas
-      window.location.href = 'setup.html';
+        // Récupérer l'username depuis le local storage
+        var username = localStorage.getItem('username');
+        // Récupérer la photo de profil depuis le local storage
+        var profilePicBase64 = localStorage.getItem('profilePic');
+
     }
-  });
+});
 
 // Prevent malfunctions for older browsers	
   function openPage(url) {
