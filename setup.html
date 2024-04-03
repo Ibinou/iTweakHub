@@ -143,6 +143,12 @@ Choose “On Home Screen” from the options.</p>
   </div>   
   </div>
     <script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem('setup') === 'done') {
+        window.location.href = 'index.html'; // Redirection vers index.html si la clé 'setup' est définie à 'done'
+    }
+});
+
 const accountForm = document.getElementById('accountForm');
 
 accountForm.addEventListener('submit', function(event) {
@@ -167,6 +173,7 @@ accountForm.addEventListener('submit', function(event) {
             // Ajout de la date de création du compte
             const setupDate = new Date().toISOString();
             localStorage.setItem('setupDate', setupDate);
+            localStorage.setItem('setup', 'done'); // Définition de la clé 'setup' à 'done'
 
             window.location.href = 'setup/color.html'; // Redirection vers la page d'accueil après l'enregistrement
         };
