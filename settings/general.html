@@ -46,6 +46,18 @@
 <p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">APP INFOS</p>	
 <ul class="ioslist">
 <li>
+<span>Setup</span>
+<div id="setup" class="ioslist_opposite"></div>
+</li>
+<li>
+<span>Setup date</span>
+<div id="date" class="ioslist_opposite"></div>
+</li>
+<li>
+<span>UUID</span>
+<div id="id" class="ioslist_opposite"></div>
+</li>
+<li>
 <span>Clydia (backend)</span>
 <div class="ioslist_opposite">2.1</div>
 </li>
@@ -170,6 +182,20 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(error => console.error("Error fetching changelog:", error));
 });
+// Récupérer les valeurs des clés du local storage
+var id = localStorage.getItem('id');
+var setupDate = localStorage.getItem('setupDate');
+var setup = localStorage.getItem('setup');
+
+// Sélectionner les éléments HTML correspondants
+var idElement = document.getElementById('id');
+var setupDateElement = document.getElementById('date');
+var setupElement = document.getElementById('setup');
+
+// Mettre à jour le contenu des éléments avec les valeurs récupérées
+idElement.textContent = id;
+setupDateElement.textContent = setupDate;
+setupElement.textContent = setup;
      </script>  
     
 
