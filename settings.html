@@ -33,7 +33,7 @@
 </div>
 	
 <center>
-<img id="header" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" style="width:75px;height:75px;border-radius:20px;margin-top: 102px;">
+<img onclick="zoomEtDezoom()" id="header" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" style="transition: all 1.5s ease-in-out;width:75px;height:75px;border-radius:20px;margin-top: 102px;">
 <p style="font-family:helvetica;font-size:18px;color:#fff;margin-top: 10px;margin-bottom: 10px;">iTweakHub</p>	
 <p style="font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 10px;margin-bottom: 10px;">2.1</p>
 </center>
@@ -231,6 +231,17 @@ if (document.cookie.indexOf('card1=hidden') !== -1) {
             elementElement.style.marginTop = "140px";
         }
     });
+function zoomEtDezoom() {
+  var div = document.querySelector('.sautiller');
+
+  // Zoomer rapidement la div
+  div.style.transform = 'scale(1.5)';
+
+  // Dézoomer rapidement la div après 1.5 seconde
+  setTimeout(function() {
+    div.style.transform = 'scale(1)';
+  }, 1500);
+}
 </script>
 </body>
 
