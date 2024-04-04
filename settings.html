@@ -31,9 +31,9 @@
     <a style="text-decoration: none" href="index.html"><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Home</h1></a>
     <h1 id="settings" style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Settings</h1>
 </div>
-	
+	    <audio id="audio" src="img/spotifydown.com - Cornfield Chase.mp3"></audio>
 <center>
-<img id="header" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" style="transition: all 1.5s ease-in-out;width:75px;height:75px;border-radius:20px;margin-top: 102px;">
+<img onclick="playAudio()" id="header" src="https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png" style="transition: all 1.5s ease-in-out;width:75px;height:75px;border-radius:20px;margin-top: 102px;">
 <p style="font-family:helvetica;font-size:18px;color:#fff;margin-top: 10px;margin-bottom: 10px;">iTweakHub</p>	
 <p style="font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 10px;margin-bottom: 10px;">2.1</p>
 </center>
@@ -231,6 +231,12 @@ if (document.cookie.indexOf('card1=hidden') !== -1) {
             elementElement.style.marginTop = "140px";
         }
     });
+    
+        function easterEgg() {
+            var audio = document.getElementById("audio");
+            audio.play();
+            alert("Interstellar is the best movie EVER !");
+        }
 
 </script>
 </body>
