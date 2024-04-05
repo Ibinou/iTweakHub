@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versions</title>
+    <style>
+        /* Ajoutez votre CSS ici */
+        /* Styles pour la liste des versions */
+          .installation-method {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Hide the popup initially */
+.unique-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: #1c1c1ca6;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+  /* The dark background behind the popup */
+  .custom-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Styling for buttons inside custom popup */
+.unique-action-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+    background: #393939c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+  .unique-action-button:hover {
+    background-color: #666;
+  }
+
+  /* Opening animation for popup */
+  .animate-popup {
+    display: block;
+    animation: fadeIn 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /* Styling for image containers */
+  .custom-image-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .custom-image-option {
+    width: calc(25% - 20px); 
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  /* Make the images responsive */
+  .custom-image-option img {
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+  }	  
+        #versionList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .versionItem {
+            margin-bottom: 10px;
+        }
+
+        .versionNumber {
+            font-weight: bold;
+        }
+
+        .versionDescription {
+            margin-top: 5px;
+        }
+
+        .installButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .installButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Versions de l'application</h1>
+    <ul id="versionList"></ul>
+
+    <!-- Popup d'installation -->
+    <div class="custom-overlay" id="overlay"></div>
+    <div class="unique-popup" id="popup">
+        <div class="installation-method">Choisissez une méthode d'installation</div>
+        <div class="custom-image-container">
+            <div id="AltStore" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/2018600523.webp">
+            </div>
+            <div id="TrollStore" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/TrollStore-Logo.jpg">
+            </div>
+            <div id="import" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/spaces_FJiyQY8c07uhMBUxEiix_icon_vXR6UhwzjUotIjWQQNJs_CydiaIcon.webp">
+            </div>
+            <div id="geturl" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/unnamed.jpg">
+            </div>
+        </div>
+        <button id="cancel" class="unique-action-button">Annuler</button>
+    </div>
+
+    <script>
+        // Fonction pour récupérer les paramètres de l'URL
+        function getUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return Object.fromEntries(urlParams.entries());
+        }
+
+        // Fonction pour charger les versions de l'application
+        function loadAppVersions() {
+            const params = getUrlParams();
+            const appName = params.name;
+            const sourceURL = params.source;
+
+            if (!appName || !sourceURL) {
+                console.error("Paramètres requis manquants (name ou source).");
+                return;
+            }
+
+            fetch(sourceURL)
+                .then(response => response.json())
+                .then(data => {
+                    const app = data.apps.find(app => app.name === appName);
+                    if (app) {
+                        displayAppVersions(app.versions);
+                    } else {
+                        console.error("Application non trouvée.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur lors du chargement des données:", error);
+                });
+        }
+
+        // Fonction pour afficher les versions de l'application
+        function displayAppVersions(versions) {
+            const versionList = document.getElementById('versionList');
+            versionList.innerHTML = '';
+
+            versions.forEach(version => {
+                const versionItem = document.createElement('li');
+                versionItem.classList.add('versionItem');
+
+                const versionNumber = document.createElement('div');
+                versionNumber.classList.add('versionNumber');
+                versionNumber.textContent = `Version ${version.version}`;
+                versionItem.appendChild(versionNumber);
+
+                const versionDescription = document.createElement('div');
+                versionDescription.classList.add('versionDescription');
+                versionDescription.textContent = version.localizedDescription;
+                versionItem.appendChild(versionDescription);
+
+                const installButton = document.createElement('button');
+                installButton.classList.add('installButton');
+                installButton.textContent = 'Installer';
+                installButton.addEventListener('click', () => {
+                    showPopup();
+                });
+                versionItem.appendChild(installButton);
+
+                versionList.appendChild(versionItem);
+            });
+        }
+
+        // Fonction pour afficher la popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Fonction pour cacher la popup
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Event listener pour le bouton "Annuler" de la popup
+        document.getElementById('cancel').addEventListener('click', hidePopup);
+
+        // Event listener pour cacher la popup lorsque l'utilisateur clique sur l'overlay
+        document.getElementById('overlay').addEventListener('click', hidePopup);
+
+        // Charger les versions de l'application lorsque la page se charge
+        window.onload = loadAppVersions;
+    </script>
+</body>
+</html>
