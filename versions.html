@@ -121,6 +121,7 @@
         #versionList {
             list-style-type: none;
             padding: 0;
+            margin-top: 100px;
         }
 
         .versionItem {
@@ -301,6 +302,19 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
+
+  
+          document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("versionList");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });  
   </script>
 </body>
 </html>
