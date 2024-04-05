@@ -125,7 +125,9 @@
         }
 
         .versionItem {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            background-color: #1c1c1c;
+            padding: 15px;
         }
 
         .versionNumber {
@@ -137,12 +139,13 @@
         }
 
         .installButton {
-            background-color: #4CAF50;
+            background-color: #363636;
             color: white;
             padding: 8px 16px;
             border: none;
             cursor: pointer;
             border-radius: 4px;
+            margin-top: 5px;
         }
 
         .installButton:hover {
@@ -150,7 +153,7 @@
         }
     </style>
 </head>
-<body>
+<body style="margin-right: 16px;margin-left: 16px;">
 <div class="toptitle">	
     <a style="text-decoration: none" ><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
     <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Versions</h1>
@@ -315,7 +318,7 @@
             // Vérifier si l'élément "toptitle" a un padding top de 43px
             if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
                 // Si oui, changer le margin-top de l'élément "element" à 100px
-                elementElement.style.marginTop = "130px";
+                elementElement.style.marginTop = "150px";
             }
         });  
   </script>
