@@ -134,17 +134,19 @@
             font-weight: bold;
         }
 
-        .versionDescription {
-            margin-top: 5px;
-	    max-height: 100px; /* Limite de la hauteur */
-            transition: max-height 0.5s ease; /* Animation de transition */
-        }
+
+.versionDescription {
+    overflow: hidden;
+    max-height: 100px; /* Limite de la hauteur */
+    transition: max-height 0.5s ease; /* Animation de transition */
+}
 .versionDescription.expanded {
     max-height: none; /* Afficher tout le texte */
 }
 .readMoreButton {
     display: none; /* Caché par défaut */
 }
+
         .installButton {
             background-color: #363636;
             color: white;
@@ -251,11 +253,7 @@ function displayAppVersions(versions) {
             readMoreButton.textContent = 'Read More';
             readMoreButton.addEventListener('click', () => {
                 versionDescription.classList.toggle('expanded');
-                if (versionDescription.classList.contains('expanded')) {
-                    readMoreButton.textContent = 'Read Less';
-                } else {
-                    readMoreButton.textContent = 'Read More';
-                }
+                readMoreButton.style.display = 'none';
             });
             versionItem.appendChild(readMoreButton);
         }
