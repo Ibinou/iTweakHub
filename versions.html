@@ -136,8 +136,15 @@
 
         .versionDescription {
             margin-top: 5px;
+	    max-height: 100px; /* Limite de la hauteur */
+            transition: max-height 0.5s ease; /* Animation de transition */
         }
-
+.versionDescription.expanded {
+    max-height: none; /* Afficher tout le texte */
+}
+.readMoreButton {
+    display: none; /* Caché par défaut */
+}
         .installButton {
             background-color: #363636;
             color: white;
@@ -185,37 +192,37 @@
 <button id="reset-button">Reset</button>
 </div>
     <script>
-        // Fonction pour récupérer les paramètres de l'URL
-        function getUrlParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return Object.fromEntries(urlParams.entries());
-        }
+// Fonction pour récupérer les paramètres de l'URL
+function getUrlParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return Object.fromEntries(urlParams.entries());
+}
 
-        // Fonction pour charger les versions de l'application
-        function loadAppVersions() {
-            const params = getUrlParams();
-            const appName = params.name;
-            const sourceURL = params.source;
+// Fonction pour charger les versions de l'application
+function loadAppVersions() {
+    const params = getUrlParams();
+    const appName = params.name;
+    const sourceURL = params.source;
 
-            if (!appName || !sourceURL) {
-                console.error("Paramètres requis manquants (name ou source).");
-                return;
+    if (!appName || !sourceURL) {
+        console.error("Paramètres requis manquants (name ou source).");
+        return;
+    }
+
+    fetch(sourceURL)
+        .then(response => response.json())
+        .then(data => {
+            const app = data.apps.find(app => app.name === appName);
+            if (app) {
+                displayAppVersions(app.versions);
+            } else {
+                console.error("Application non trouvée.");
             }
-
-            fetch(sourceURL)
-                .then(response => response.json())
-                .then(data => {
-                    const app = data.apps.find(app => app.name === appName);
-                    if (app) {
-                        displayAppVersions(app.versions);
-                    } else {
-                        console.error("Application non trouvée.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Erreur lors du chargement des données:", error);
-                });
-        }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données:", error);
+        });
+}
 
 // Fonction pour afficher les versions de l'application
 function displayAppVersions(versions) {
@@ -234,16 +241,24 @@ function displayAppVersions(versions) {
         const versionDescription = document.createElement('div');
         versionDescription.classList.add('versionDescription');
 
-        // Vérifier si la description dépasse 25 mots
-        const words = version.localizedDescription.split(' ');
-        if (words.length > 25) {
-            const shortDescription = words.slice(0, 25).join(' ');
-            const remainingDescription = words.slice(25).join(' ');
-            versionDescription.innerHTML = `${shortDescription} <span class="more" style="display:none">${remainingDescription}</span> <button class="readMoreButton">Read More</button>`;
-        } else {
-            versionDescription.textContent = version.localizedDescription;
-        }
+        versionDescription.textContent = version.localizedDescription;
         versionItem.appendChild(versionDescription);
+
+        // Vérifier si la hauteur dépasse 100px
+        if (versionDescription.offsetHeight > 100) {
+            const readMoreButton = document.createElement('button');
+            readMoreButton.classList.add('readMoreButton');
+            readMoreButton.textContent = 'Read More';
+            readMoreButton.addEventListener('click', () => {
+                versionDescription.classList.toggle('expanded');
+                if (versionDescription.classList.contains('expanded')) {
+                    readMoreButton.textContent = 'Read Less';
+                } else {
+                    readMoreButton.textContent = 'Read More';
+                }
+            });
+            versionItem.appendChild(readMoreButton);
+        }
 
         const installButton = document.createElement('button');
         installButton.classList.add('installButton');
@@ -255,37 +270,28 @@ function displayAppVersions(versions) {
 
         versionList.appendChild(versionItem);
     });
-
-    // Ajouter un événement pour gérer le clic sur "Read More"
-    versionList.addEventListener('click', function(e) {
-        if (e.target && e.target.classList.contains('readMoreButton')) {
-            const descriptionSpan = e.target.previousElementSibling.querySelector('.more');
-            descriptionSpan.style.display = 'inline';
-            e.target.style.display = 'none';
-        }
-    });
 }
 
-        // Fonction pour afficher la popup
-        function showPopup() {
-            document.getElementById('popup').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
+// Fonction pour afficher la popup
+function showPopup() {
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
 
-        // Fonction pour cacher la popup
-        function hidePopup() {
-            document.getElementById('popup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
+// Fonction pour cacher la popup
+function hidePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
 
-        // Event listener pour le bouton "Annuler" de la popup
-        document.getElementById('cancel').addEventListener('click', hidePopup);
+// Event listener pour le bouton "Annuler" de la popup
+document.getElementById('cancel').addEventListener('click', hidePopup);
 
-        // Event listener pour cacher la popup lorsque l'utilisateur clique sur l'overlay
-        document.getElementById('overlay').addEventListener('click', hidePopup);
+// Event listener pour cacher la popup lorsque l'utilisateur clique sur l'overlay
+document.getElementById('overlay').addEventListener('click', hidePopup);
 
-        // Charger les versions de l'application lorsque la page se charge
-        window.onload = loadAppVersions;
+// Charger les versions de l'application lorsque la page se charge
+window.onload = loadAppVersions;
     </script>
   <script>
     // Fonction pour enregistrer la couleur dans localStorage
