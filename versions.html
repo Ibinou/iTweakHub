@@ -246,8 +246,8 @@ function displayAppVersions(versions) {
         versionDescription.textContent = version.localizedDescription;
         versionItem.appendChild(versionDescription);
 
-        // Vérifier si la hauteur dépasse 100px
-        if (versionDescription.offsetHeight > 100) {
+        // Vérifier si le texte dépasse 100 caractères
+        if (version.localizedDescription.length > 100) {
             const readMoreButton = document.createElement('button');
             readMoreButton.classList.add('readMoreButton');
             readMoreButton.textContent = 'Read More';
