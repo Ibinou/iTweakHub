@@ -239,8 +239,7 @@ function displayAppVersions(versions) {
         if (words.length > 25) {
             const shortDescription = words.slice(0, 25).join(' ');
             const remainingDescription = words.slice(25).join(' ');
-
-            versionDescription.innerHTML = `${shortDescription} <span class="more">${remainingDescription}</span> <button class="readMoreButton">Read More</button>`;
+            versionDescription.innerHTML = `${shortDescription} <span class="more" style="display:none">${remainingDescription}</span> <button class="readMoreButton">Read More</button>`;
         } else {
             versionDescription.textContent = version.localizedDescription;
         }
