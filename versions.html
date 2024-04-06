@@ -217,36 +217,55 @@
                 });
         }
 
-        // Fonction pour afficher les versions de l'application
-        function displayAppVersions(versions) {
-            const versionList = document.getElementById('versionList');
-            versionList.innerHTML = '';
+// Fonction pour afficher les versions de l'application
+function displayAppVersions(versions) {
+    const versionList = document.getElementById('versionList');
+    versionList.innerHTML = '';
 
-            versions.forEach(version => {
-                const versionItem = document.createElement('li');
-                versionItem.classList.add('versionItem');
+    versions.forEach(version => {
+        const versionItem = document.createElement('li');
+        versionItem.classList.add('versionItem');
 
-                const versionNumber = document.createElement('div');
-                versionNumber.classList.add('versionNumber');
-                versionNumber.textContent = `Version ${version.version}`;
-                versionItem.appendChild(versionNumber);
+        const versionNumber = document.createElement('div');
+        versionNumber.classList.add('versionNumber');
+        versionNumber.textContent = `Version ${version.version}`;
+        versionItem.appendChild(versionNumber);
 
-                const versionDescription = document.createElement('div');
-                versionDescription.classList.add('versionDescription');
-                versionDescription.textContent = version.localizedDescription;
-                versionItem.appendChild(versionDescription);
+        const versionDescription = document.createElement('div');
+        versionDescription.classList.add('versionDescription');
 
-                const installButton = document.createElement('button');
-                installButton.classList.add('installButton');
-                installButton.textContent = 'Installer';
-                installButton.addEventListener('click', () => {
-                    showPopup();
-                });
-                versionItem.appendChild(installButton);
+        // Vérifier si la description dépasse 25 mots
+        const words = version.localizedDescription.split(' ');
+        if (words.length > 25) {
+            const shortDescription = words.slice(0, 25).join(' ');
+            const remainingDescription = words.slice(25).join(' ');
 
-                versionList.appendChild(versionItem);
-            });
+            versionDescription.innerHTML = `${shortDescription} <span class="more">${remainingDescription}</span> <button class="readMoreButton">Read More</button>`;
+        } else {
+            versionDescription.textContent = version.localizedDescription;
         }
+        versionItem.appendChild(versionDescription);
+
+        const installButton = document.createElement('button');
+        installButton.classList.add('installButton');
+        installButton.textContent = 'Installer';
+        installButton.addEventListener('click', () => {
+            showPopup();
+        });
+        versionItem.appendChild(installButton);
+
+        versionList.appendChild(versionItem);
+    });
+
+    // Ajouter un événement pour gérer le clic sur "Read More"
+    versionList.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('readMoreButton')) {
+            const descriptionSpan = e.target.previousElementSibling.querySelector('.more');
+            descriptionSpan.style.display = 'inline';
+            e.target.style.display = 'none';
+        }
+    });
+}
 
         // Fonction pour afficher la popup
         function showPopup() {
