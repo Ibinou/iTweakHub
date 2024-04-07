@@ -143,9 +143,30 @@
         });
         
 document.getElementById('done').addEventListener('click', function() {
-    localStorage.setItem('setup', 'done');
-    // Redirection vers la nouvelle page
-    window.location.href = 'https://ibinou.github.io/iTweakHub/index.html';
+    // Vérifier si les clés profilePic et username existent dans le stockage local
+    if (localStorage.getItem('profilePic') !== null && localStorage.getItem('username') !== null) {
+        var profilePic = localStorage.getItem('profilePic');
+        var username = localStorage.getItem('username');
+
+        // Vérifier si profilePic et username sont définis et non vides
+        if (profilePic.trim() !== '' && username.trim() !== '') {
+            localStorage.setItem('setup', 'done');
+            // Redirection vers la nouvelle page
+            window.location.href = 'https://ibinou.github.io/iTweakHub/index.html';
+        } else {
+            // Afficher une alerte si les valeurs sont vides
+            var confirmation = confirm("Please fill in your profile picture and username before continuing.");
+            if (confirmation) {
+                window.location.href = '../setup.html';
+            }
+        }
+    } else {
+        // Afficher une alerte si les clés n'existent pas dans le stockage local
+        var confirmation = confirm("Please provide your profile picture and username before continuing.");
+        if (confirmation) {
+            window.location.href = '../setup.html';
+        }
+    }
 });
   </script>
 
