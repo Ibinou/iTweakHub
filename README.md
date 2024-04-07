@@ -5,7 +5,7 @@ Install at 👉🏻 https://getitweakhub.netlify.app/
 ## What you get
 - An app with sleek and modern UI
 - An app to sign and install your favourite apps
-- An app to get tutorials about the sideloading
+- An app to import any AltStore source
 - An app to download all the iPA's of your favorite apps
 
 ## Sources
@@ -13,4 +13,4 @@ We use AltStore format to handle the apps.
 Go check [this page](https://ibadevs-organization.gitbook.io/untitled/sources/make-your-source) to make your own source.
 
 ## Version
-2.0 Beta
+2.0 
