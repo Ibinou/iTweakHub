@@ -172,7 +172,7 @@
     <!-- Popup d'installation -->
     <div class="custom-overlay" id="overlay"></div>
     <div class="unique-popup" id="popup">
-        <div class="installation-method">Choisissez une méthode d'installation</div>
+        <div class="installation-method">Choose an installation method</div>
         <div class="custom-image-container">
             <div id="AltStore" class="custom-image-option">
                 <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/2018600523.webp">
@@ -187,7 +187,7 @@
                 <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/unnamed.jpg">
             </div>
         </div>
-        <button id="cancel" class="unique-action-button">Annuler</button>
+        <button id="cancel" class="unique-action-button">Cancel</button>
     </div>
 <div class="hidecolor">  
 <input type="color" id="color-picker">
@@ -327,7 +327,35 @@ function loadAppVersions() {
             console.error("Erreur lors du chargement des données:", error);
         });
 }
-    </script>
+// Fonction pour réinitialiser les liens dans la popup
+function resetPopupLinks() {
+    const importButton = document.getElementById("import");
+    if (importButton) {
+        importButton.setAttribute("href", "");
+    }
+
+    const AltButton = document.getElementById("AltStore");
+    if (AltButton) {
+        AltButton.setAttribute("href", "");
+    }
+
+    const trollButton = document.getElementById("TrollStore");
+    if (trollButton) {
+        trollButton.setAttribute("href", "");
+    }
+
+    const ipaButton = document.getElementById("ipa");
+    if (ipaButton) {
+        ipaButton.setAttribute("href", "");
+    }
+}
+
+// Event listener pour le bouton "Annuler" de la popup
+document.getElementById('cancel').addEventListener('click', () => {
+    hidePopup();
+    resetPopupLinks();
+});
+    </script> 
   <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
