@@ -194,7 +194,7 @@
 <button id="reset-button">Reset</button>
 </div>
     <script>
-// Fonction pour afficher la popup avec les liens appropriés
+// Fonction pour afficher/masquer la popup avec les liens appropriés
 function showPopup(version) {
     setInstallLinks(version);
     document.getElementById('popup').style.display = 'block';
@@ -230,6 +230,50 @@ function setInstallLinks(version) {
     }
 }
 
+// Fonction pour réinitialiser les liens dans la popup
+function resetPopupLinks() {
+    const importButton = document.getElementById("import");
+    if (importButton) {
+        importButton.setAttribute("href", "");
+    }
+
+    const AltButton = document.getElementById("AltStore");
+    if (AltButton) {
+        AltButton.setAttribute("href", "");
+    }
+
+    const trollButton = document.getElementById("TrollStore");
+    if (trollButton) {
+        trollButton.setAttribute("href", "");
+    }
+
+    const ipaButton = document.getElementById("ipa");
+    if (ipaButton) {
+        ipaButton.setAttribute("href", "");
+    }
+}
+
+// Fonction pour afficher/masquer la description complète
+function toggleDescription(versionItem) {
+    const versionDescription = versionItem.querySelector('.versionDescription');
+    const viewMoreText = versionItem.querySelector('#viewMoreText');
+    const chevronIcon = versionItem.querySelector('#down');
+
+    if (versionDescription.classList.contains('expanded')) {
+        // Si la description est déjà étendue, la réduire
+        versionDescription.classList.remove('expanded');
+        versionDescription.style.height = '53px'; // Réduction à la hauteur de départ
+        viewMoreText.textContent = 'View more';
+        chevronIcon.classList.remove('rotate');
+    } else {
+        // Si la description est réduite, l'étendre
+        versionDescription.classList.add('expanded');
+        versionDescription.style.height = versionDescription.scrollHeight + 'px';
+        viewMoreText.textContent = 'View less';
+        chevronIcon.classList.add('rotate');
+    }
+}
+
 // Fonction pour afficher les versions de l'application
 function displayAppVersions(versions) {
     const versionList = document.getElementById('versionList');
@@ -246,21 +290,20 @@ function displayAppVersions(versions) {
 
         const versionDescription = document.createElement('div');
         versionDescription.classList.add('versionDescription');
-
         versionDescription.textContent = version.localizedDescription;
         versionItem.appendChild(versionDescription);
 
-        // Vérifier si le texte dépasse 100 caractères
-        if (version.localizedDescription.length > 100) {
-            const readMoreButton = document.createElement('button');
-            readMoreButton.classList.add('readMoreButton');
-            readMoreButton.textContent = 'Read More';
-            readMoreButton.addEventListener('click', () => {
-                versionDescription.classList.toggle('expanded');
-                readMoreButton.style.display = 'none';
-            });
-            versionItem.appendChild(readMoreButton);
-        }
+        // Ajouter le bouton "View more" pour chaque version
+        const viewMoreButton = document.createElement('div');
+        viewMoreButton.classList.add('view_more_btn');
+        viewMoreButton.onclick = function() {
+            toggleDescription(versionItem);
+        };
+        viewMoreButton.innerHTML = `
+            <div id="viewMoreText">View more</div>
+            <i id="down" class="fa-solid fa-chevron-down"></i>
+        `;
+        versionItem.appendChild(viewMoreButton);
 
         const installButton = document.createElement('button');
         installButton.classList.add('installButton');
@@ -285,6 +328,7 @@ function showPopup(version) {
 function hidePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
+    resetPopupLinks();
 }
 
 // Event listener pour le bouton "Annuler" de la popup
@@ -327,34 +371,6 @@ function loadAppVersions() {
             console.error("Erreur lors du chargement des données:", error);
         });
 }
-// Fonction pour réinitialiser les liens dans la popup
-function resetPopupLinks() {
-    const importButton = document.getElementById("import");
-    if (importButton) {
-        importButton.setAttribute("href", "");
-    }
-
-    const AltButton = document.getElementById("AltStore");
-    if (AltButton) {
-        AltButton.setAttribute("href", "");
-    }
-
-    const trollButton = document.getElementById("TrollStore");
-    if (trollButton) {
-        trollButton.setAttribute("href", "");
-    }
-
-    const ipaButton = document.getElementById("ipa");
-    if (ipaButton) {
-        ipaButton.setAttribute("href", "");
-    }
-}
-
-// Event listener pour le bouton "Annuler" de la popup
-document.getElementById('cancel').addEventListener('click', () => {
-    hidePopup();
-    resetPopupLinks();
-});
     </script> 
   <script>
     // Fonction pour enregistrer la couleur dans localStorage
