@@ -1,5 +1,5 @@
 [
   {"version": "1.0.0", "changes": ["Initial release"]},
   {"version": "1.1.0", "changes": ["UI/UX improvements"]},
-  {"version": "2.1", "changes": ["Added version history for supported apps", "More informations on the "General" page on settings", "UI/UX improvements", "Improved performance (faster)", "Added a section page", "Added and updated a lot of apps", "Improved the iTweakHub setup"]}
+  {"version": "2.1", "changes": ["Added version history for supported apps", "More informations on the 'General' page on settings", "UI/UX improvements", "Improved performance (faster)", "Added a section page", "Added and updated a lot of apps", "Improved the iTweakHub setup"]}
 ]
