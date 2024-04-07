@@ -164,7 +164,7 @@
         
         
 .view_more_btn {
-   margin-left: -16px;
+   margin-left: -6px;
 }
     </style>
 </head>
@@ -238,25 +238,8 @@ function setInstallLinks(version) {
 
 // Fonction pour réinitialiser les liens dans la popup
 function resetPopupLinks() {
-    const importButton = document.getElementById("import");
-    if (importButton) {
-        importButton.setAttribute("href", "");
-    }
-
-    const AltButton = document.getElementById("AltStore");
-    if (AltButton) {
-        AltButton.setAttribute("href", "");
-    }
-
-    const trollButton = document.getElementById("TrollStore");
-    if (trollButton) {
-        trollButton.setAttribute("href", "");
-    }
-
-    const ipaButton = document.getElementById("ipa");
-    if (ipaButton) {
-        ipaButton.setAttribute("href", "");
-    }
+    // Recharger la page actuelle pour reset les href
+    location.reload();
 }
 
 // Fonction pour afficher/masquer la description complète
@@ -313,7 +296,7 @@ function displayAppVersions(versions) {
 
         const installButton = document.createElement('button');
         installButton.classList.add('installButton');
-        installButton.textContent = 'Installer';
+        installButton.textContent = 'Install';
         installButton.addEventListener('click', () => {
             showPopup(version);
         });
