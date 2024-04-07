@@ -194,36 +194,40 @@
 <button id="reset-button">Reset</button>
 </div>
     <script>
-// Fonction pour récupérer les paramètres de l'URL
-function getUrlParams() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return Object.fromEntries(urlParams.entries());
+// Fonction pour afficher la popup avec les liens appropriés
+function showPopup(version) {
+    setInstallLinks(version);
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
 }
 
-// Fonction pour charger les versions de l'application
-function loadAppVersions() {
-    const params = getUrlParams();
-    const appName = params.name;
-    const sourceURL = params.source;
-
-    if (!appName || !sourceURL) {
-        console.error("Paramètres requis manquants (name ou source).");
-        return;
+// Fonction pour mettre à jour les liens dans la popup en fonction de la version sélectionnée
+function setInstallLinks(version) {
+    const importButton = document.getElementById("import");
+    if (importButton) {
+        importButton.addEventListener("click", () => {
+            window.open(`scarlet://install=${version.downloadURL}`, "_blank");
+        });
     }
 
-    fetch(sourceURL)
-        .then(response => response.json())
-        .then(data => {
-            const app = data.apps.find(app => app.name === appName);
-            if (app) {
-                displayAppVersions(app.versions);
-            } else {
-                console.error("Application non trouvée.");
-            }
-        })
-        .catch(error => {
-            console.error("Erreur lors du chargement des données:", error);
+    const AltButton = document.getElementById("AltStore");
+    if (AltButton) {
+        AltButton.addEventListener("click", () => {
+            window.open(`altstore://install?url=${version.downloadURL}`, "_blank");
         });
+    }
+
+    const trollButton = document.getElementById("TrollStore");
+    if (trollButton) {
+        trollButton.addEventListener("click", () => {
+            window.open(`apple-magnifier://install?url=${version.downloadURL}`, "_blank");
+        });
+    }
+
+    const ipaButton = document.getElementById("ipa");
+    if (ipaButton) {
+        ipaButton.setAttribute("href", version.downloadURL);
+    }
 }
 
 // Fonction pour afficher les versions de l'application
@@ -262,7 +266,7 @@ function displayAppVersions(versions) {
         installButton.classList.add('installButton');
         installButton.textContent = 'Installer';
         installButton.addEventListener('click', () => {
-            showPopup();
+            showPopup(version);
         });
         versionItem.appendChild(installButton);
 
@@ -271,7 +275,8 @@ function displayAppVersions(versions) {
 }
 
 // Fonction pour afficher la popup
-function showPopup() {
+function showPopup(version) {
+    setInstallLinks(version);
     document.getElementById('popup').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
 }
@@ -290,6 +295,38 @@ document.getElementById('overlay').addEventListener('click', hidePopup);
 
 // Charger les versions de l'application lorsque la page se charge
 window.onload = loadAppVersions;
+
+// Fonction pour récupérer les paramètres de l'URL
+function getUrlParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return Object.fromEntries(urlParams.entries());
+}
+
+// Fonction pour charger les versions de l'application
+function loadAppVersions() {
+    const params = getUrlParams();
+    const appName = params.name;
+    const sourceURL = params.source;
+
+    if (!appName || !sourceURL) {
+        console.error("Paramètres requis manquants (name ou source).");
+        return;
+    }
+
+    fetch(sourceURL)
+        .then(response => response.json())
+        .then(data => {
+            const app = data.apps.find(app => app.name === appName);
+            if (app) {
+                displayAppVersions(app.versions);
+            } else {
+                console.error("Application non trouvée.");
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données:", error);
+        });
+}
     </script>
   <script>
     // Fonction pour enregistrer la couleur dans localStorage
