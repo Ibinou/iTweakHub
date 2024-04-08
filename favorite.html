@@ -90,50 +90,22 @@
 function afficherDonnees() {
     var appListDiv = document.getElementById("appList");
     var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-    var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
 
-    fetch('apps.json')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            var appsData = data.apps;
+    favapps.forEach(function (favAppInfo) {
+        var [favAppName, favAppURL] = favAppInfo.split("-");
 
-            favapps.forEach(function (favAppInfo) {
-                var [favAppName, favAppSource] = favAppInfo.split("-");
-                var appData = appsData.find(function (app) {
-                    return app.name === favAppName && app.source === favAppSource;
-                });
-
-                if (!appData) {
-                    for (var i = 0; i < repoURLs.length; i++) {
-                        fetch(repoURLs[i])
-                            .then(function (response) {
-                                return response.json();
-                            })
-                            .then(function (repoData) {
-                                var repoAppData = repoData.apps.find(function (app) {
-                                    return app.name === favAppName && app.source === favAppSource;
-                                });
-
-                                if (repoAppData) {
-                                    var dockDiv = createAppElement(repoAppData);
-                                    appListDiv.appendChild(dockDiv);
-                                }
-                            })
-                            .catch(function (error) {
-                                console.log('Error', error);
-                            });
-                    }
-                } else {
-                    var dockDiv = createAppElement(appData);
-                    appListDiv.appendChild(dockDiv);
-                }
+        fetch(favAppURL)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (appData) {
+                var dockDiv = createAppElement(appData);
+                appListDiv.appendChild(dockDiv);
+            })
+            .catch(function (error) {
+                console.log('Error', error);
             });
-        })
-        .catch(function (error) {
-            console.log('Error', error);
-        });
+    });
 }
 
 // Fonction pour créer un élément d'application avec des boutons "GET" et "Remove"
