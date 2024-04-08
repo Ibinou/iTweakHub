@@ -98,9 +98,17 @@ function afficherDonnees() {
             .then(function (response) {
                 return response.json();
             })
-            .then(function (appData) {
-                var dockDiv = createAppElement(appData);
-                appListDiv.appendChild(dockDiv);
+            .then(function (data) {
+                var appData = data.apps.find(function(app) {
+                    return app.name === favAppName;
+                });
+
+                if (appData) {
+                    var dockDiv = createAppElement(appData);
+                    appListDiv.appendChild(dockDiv);
+                } else {
+                    console.log("Application not found: " + favAppName);
+                }
             })
             .catch(function (error) {
                 console.log('Error', error);
