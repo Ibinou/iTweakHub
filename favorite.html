@@ -92,15 +92,23 @@ function afficherDonnees() {
     var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
 
     favapps.forEach(function (favAppInfo) {
-        var [favAppName, favAppURL] = favAppInfo.split("-"); // Séparer le nom de l'application et son URL
+        var [favAppName, favAppURL] = favAppInfo.split("-"); // Séparer le nom de l'application et son URL JSON
 
-        fetch(favAppURL.trim()) // Utiliser l'URL directement sans le nom de l'application
+        fetch(favAppURL.trim())
             .then(function (response) {
                 return response.json();
             })
-            .then(function (appData) {
-                var dockDiv = createAppElement(appData); // Utiliser directement les données de l'application
-                appListDiv.appendChild(dockDiv);
+            .then(function (data) {
+                var appData = data.apps.find(function(app) {
+                    return app.name === favAppName;
+                });
+
+                if (appData) {
+                    var dockDiv = createAppElement(appData);
+                    appListDiv.appendChild(dockDiv);
+                } else {
+                    console.log("Application not found: " + favAppName);
+                }
             })
             .catch(function (error) {
                 console.log('Error', error);
