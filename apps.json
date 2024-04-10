@@ -4,8 +4,99 @@
     "subtitle": "The official iTweakHub source !",
     "description": "The official iTweakHub source !",
     "iconURL": "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png",
+    "website": "https://x.com/iTweakHub";
     "tintColor": "D85240",
     "apps": [
+    {
+      "name": "Ignited",
+      "bundleIdentifier": "com.litritt.ignited",
+      "developerName": "Lit Development",
+      "subtitle": "Retro games meet modern design.",
+      "localizedDescription": "Ignited is an overhaul of Delta, an all-in-one emulator for iOS.\n\nFEATURES\n\nSupported Game Systems\n\u2022 Nintendo Entertainment System\n\u2022 Super Nintendo Entertainment System\n\u2022 Sega Genesis\n\u2022 Nintendo 64\n\u2022 Game Boy (Color)\n\u2022 Game Boy Advance\n\u2022 Nintendo DS\n\nController Support\n\u2022 Supports PS4, PS5, Xbox One S, Xbox Series X, and MFi game controllers.\n\u2022 Supports bluetooth (and wired) keyboards, as well as the Apple Smart Keyboard.\n\u2022 Completely customize button mappings on a per-system, per-controller basis.\n\u2022 Map buttons to special \"Quick Save\", \"Quick Load,\" and \"Fast Forward\" actions.\n\nSave States\n\u2022 Save and load save states for any game from the pause menu.\n\u2022 Lock save states to prevent them from being accidentally overwritten.\n\u2022 Automatically makes backup save states to ensure you never lose your progress.\n\u2022 Support for \"Quick Saves,\" save states that can be quickly saved/loaded with a single button press (requires external controller or supported skin).\n\u2022 Save State Rewind - Rolling save states that can be rewound to for up to 2 minutes. Configurable interval. (Currently disabled)\n\nCheats\n\u2022 Supports various types of cheat codes for each supported system:\n\u2022 NES: Game Genie\n\u2022 SNES: Game Genie, Pro Action Replay\n\u2022 N64: GameShark\n\u2022 GBC: Game Genie, GameShark\n\u2022 GBA: Action Replay, Code Breaker, GameShark\n\u2022 DS: Action Replay\n\nDelta Sync\n\u2022 Sync your games, game saves, save states, cheats, controller skins, and controller mappings between devices.\n\u2022 View version histories of everything you sync and optionally restore them to earlier versions.\n\u2022 Supports both Google Drive and Dropbox.\n\nCustom Controller Skins\n\u2022 Beautiful built-in controller skins for all systems.\n\u2022 Import controller skins made by others, or even make your own to share with the world!\n\nHold Button\n\u2022 Choose buttons for Delta to hold down on your behalf, freeing up your thumbs to press other buttons instead.\n\u2022 Perfect for games that typically require one button be held down constantly (ex: run button in Mario games, or the A button in Mario Kart).\n\nFast Forward\n\u2022 Speed through slower parts of games by running the game much faster than normal.\n\u2022 Easily enable or disable from the pause menu, or optionally with a mapped button on an external controller.\n\n3D/Haptic Touch\n\u2022 Use 3D or Haptic Touch to \"peek\" at games, save states, and cheat codes.\n\u2022 App icon shortcuts allow quick access to your most recently played games, or optionally customize the shortcuts to always include certain games.\n\nGame Artwork\n\u2022 Automatically displays appropriate box art for imported games.\n\u2022 Change a game's artwork to anything you want, or select from the built-in game artwork database.\n\nMisc.\n\u2022 Gyroscope support (WarioWare: Twisted! only)\n\u2022 Microphone support (DS only)\n\u2022 Support for delta:// URL scheme to jump directly into a specific game.\n\n**Ignited and Lit Development are in no way affiliated with Nintendo. The name \"Nintendo\" and all associated game console names are registered trademarks of Nintendo Co., Ltd.**",
+      "iconURL": "https://i.imgur.com/LO2Ckm2.png",
+      "tintColor": "FF6A00",
+      "screenshotURLs": [
+        "https://i.imgur.com/5CHWVQj.png",
+        "https://i.imgur.com/m6aoJbS.png",
+        "https://i.imgur.com/jCCF6u1.png",
+        "https://i.imgur.com/jxqUA1p.png"
+      ],
+      "versions": [
+        {
+          "version": "1.8.6",
+          "date": "2024-01-29T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 New icons by LitRitt\n  \u2022 Super Ignited Bros (Smash Bros)\n  \u2022 Red Plumber (Mario)\n  \u2022 Green Plumber (Luigi)\n  \u2022 Stomp Bait (Goomba)\n  \u2022 Sparky (Pikachu)\n  \u2022 Puffball (Kirby)\n  \u2022 Sword That Seals (Master Sword)\n  \u2022 Sword That Seals Alt (Master Sword)\n  \u2022 Sword That Ignites (Master Sword)\n  \u2022 Sword That Ignites Alt (Master Sword)\n\u2022 New icons by Kongolabongo\n  \u2022 Barrel of Kong (DK)\n  \u2022 Barrel of Flame (DK)\n\u2022 New icons by Scoot the Rizzler\n  \u2022 Master Sword\n  \u2022 Hylian Shield\n  \u2022 Many Marios\n\u2022 Adds beta label for features/options\n\u2022 Adds 1.5x fast forward speed option for pause menu presets\n\nChanged\n\u2022 Raises minimum iOS version to 16\n\u2022 Updates some icons and shrinks file sizes\n\u2022 Icons are now sorted into categories\n\nFixed\n\u2022 Fixes some incorrect feature reset defaults\n\u2022 Fixes some grammar and spelling in settings\n\u2022 Fixes showing icon images after updating deployment target version",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.6/Ignited.ipa",
+          "size": 74540387,
+          "sha256": "1e540d93c8f1b79e3976ef21879273168d9cd6ab7fbbce668d4a4aebf8247a84",
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "1.8.5",
+          "date": "2024-01-19T10:00:00-04:00",
+          "localizedDescription": "Changed\n\u2022 Shrinks icon file sizes\n\u2022 Makes the background blur show when a controller is connected\n\u2022 Changes \"View patreon\" button to \"View membership\" when signed into Patreon\n\u2022 Updates Premium members page to load dynamically from PatreonAPI\n\nFixed\n\u2022 Fixes emulation not pausing when app is in the background\n\u2022 Fixes emulation not pausing when the screen is locked\n\u2022 Fixes issue causing Harmony to skip seeding database\n\u2022 Fixes game artwork losing shadows when toggling VRAM and OpenGLES options",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.5/Ignited.ipa",
+          "size": 65555254,
+          "sha256": "b1e346450f2d287bcf39866006a01bcf7999572e82974753486c06ad6c2ae4da",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.4",
+          "date": "2024-01-13T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Battery Safety Feature\n  \u2022 Allows users to set low and critical battery level\n  \u2022 At low battery (5-10%) a popup is shown and auto save states start being created periodically\n  \u2022 At critical battery (2-5%) the currently playing game will save and close, and games cannot be launched until the device is charged\n\u2022 N64 Overscan Feature\n  \u2022 Allows users to remove the black bars surrounding N64 games\n  \u2022 Overscan settings can be edited using the new pause menu button while playing N64 games\n  \u2022 Overscan settings are backed up with Ignited Sync\n\u2022 Adds \"Learn More...\" links to guide users to relevant documentation\n  \u2022 Added to library when no games are present\n  \u2022 Added to MelonDS core BIOS section footers\n  \u2022 Added to controller skins section footer\n\nChanged\n\u2022 Updated Fir\u00e9 Ball icon\n\u2022 Changes Live Artwork feature to be disabled by default\n\nFixed\n\u2022 Fixes visual bugs on MelonDS core settings screen\n\u2022 Fixes crashes when presenting alerts\n\u2022 Fixes library play menu not updating when deleting a game",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.4/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "1663f60144e9de34c18c1f6fe475821177df4d4093ad22d3e16b02d992c40441",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.3",
+          "date": "2024-01-10T11:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Added a check for N64 games to disallow mismatched OpenGLES versions\n\u2022 Added a view in settings to see all games with OpenGLES 3 enabled and remove them\n\u2022 Added a view in settings to see all games with Invalid VRAM Access enabled and remove them",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.3/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "5a5be897df61e2a3ba01a23cc1d9f1e1b9be12b695c5a1002abc0dc04b13f8db",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.2",
+          "date": "2024-01-10T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 SNES Invalid VRAM Access\n  \u2022 Allows text and other sprites to render properly in some emulator-only games\n  \u2022 Applied per game using the game's context menu\n\nChanged\n\u2022 N64 Graphics replaced with OpenGLES 3 toggle\n  \u2022 Applied per game using the game's context menu\n\u2022 Toast notification style updated and the code flow for toasts has been unified/simplified",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.2/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "bd24a80aa3815d6b38326156be915dfa29b9aed585a89743402c62b118a2efcd",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.1",
+          "date": "2024-01-08T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Microphone can now be toggled on and off, and only allows microphone usage when using the melonDS core\n\u2022 Create an auto save state any time the app becomes inactive, even when immediately quitting the app from a game\n\u2022 Adds new icons by LitRitt and Kongolabongo\n\nChanged\n\u2022 Makes the Pro label fancy\n\u2022 Makes the alternate icon feature free, some icons will remain Pro only\n\u2022 Removes the Documentation link until it's more complete\n\u2022 Makes most system titles use full names instead of short names\n\u2022 Unhides the status bar feature in settings\n\nFixed\n\u2022 Fixes patrons list after update to Patreon benefits\n\u2022 Fixes toggling the status bar showing the wrong toast notification\n\u2022 Fixes setting game preview parameters when feature is disabled",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.1/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "a432e89507149e28a7a8f527a6379a566261afcb5951461297ad715632b46a39",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8",
+          "date": "2024-01-06T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Ignited Pro\n  \u2022 Select features and options will now only be available to patrons\n\u2022 Patreon Integration\n  \u2022 You can now link your Patreon account within the app to access Ignited Pro\n\nFixed\n\u2022 Fixes skin debugging being shown when the feature is off\n\u2022 Fixes game search results overlapping other games\n\u2022 Makes the transition from Quick Settings to Main Menu create an auto save state\n\u2022 Fixes animated artwork still animating when the feature is off",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8/Ignited.ipa",
+          "size": 62180523,
+          "sha256": "af3fda70bbb6b7e397d231c8637e1f14976b3b3a2bbca752be10fa518c7e63ae",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.7.2",
+          "date": "2023-12-23T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Adds options for opening the Pause Menu by shaking your device\n\nChanged\n\u2022 Makes the New Game, Pause, and Star icons on artwork able to be disabled\n\u2022 Makes the Pause Menu items able to be rearranged in settings\n\u2022 Makes context menu previews use auto-save states if enabled\n\nFixed\n\u2022 Makes custom artwork background color support transparency\n\u2022 Adjusts DS artwork forced aspect ratio",
+          "downloadURL": "https://f005.backblazeb2.com/file/lit-apps/ignited/1.7.2/Ignited.ipa",
+          "size": 62108866,
+          "sha256": "62bbae22ec808128334565e392ed46d8af7e6313064b5538bb59e13c9fd563c0",
+          "minOSVersion": "14.0"
+        }
+      ],
+      "appID": "com.litritt.ignited"
+    },
       {
          "name":"Blacklist",
          "id":"Blacklist",
