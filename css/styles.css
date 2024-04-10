@@ -2014,3 +2014,26 @@ sections_div {
 #version {
    opacity: .5;
 }
+
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      width: calc(50% - 10px);
+      height: auto;
+    }
+
+    .title {
+      margin-top: 20px;
+    }
+
+    #selectedBackground {
+      width: 300px;
+      height: 200px;
+      margin: 20px auto;
+      background-size: cover;
+      background-position: center;
+    }
