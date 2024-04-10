@@ -130,20 +130,20 @@
       function updateBackgroundType() {
         if (backgroundType1.checked) {
           setBackgroundImage(image1.src);
-          updateLocalStorage('explore-background', '1');
+          updateLocalStorage('explore-background', image1.src);
         } else if (backgroundType2.checked) {
           setBackgroundImage(image2.src);
-          updateLocalStorage('explore-background', '2');
+          updateLocalStorage('explore-background', image2.src);
         }
       }
 
       // Load background from Local Storage if available
       function loadBackgroundFromLocalStorage() {
-        const backgroundType = localStorage.getItem('explore-background');
-        if (backgroundType === '1') {
+        const backgroundUrl = localStorage.getItem('explore-background');
+        if (backgroundUrl === image1.src) {
           setBackgroundImage(image1.src);
           backgroundType1.checked = true;
-        } else if (backgroundType === '2') {
+        } else if (backgroundUrl === image2.src) {
           setBackgroundImage(image2.src);
           backgroundType2.checked = true;
         }
@@ -155,7 +155,6 @@
       // Update background when background type changes
       backgroundType1.addEventListener('change', updateBackgroundType);
       backgroundType2.addEventListener('change', updateBackgroundType);
-    });
   
      </script>  
     
