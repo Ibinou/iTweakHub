@@ -2030,10 +2030,4 @@ sections_div {
       margin-top: 20px;
     }
 
-    #selectedBackground {
-      width: 300px;
-      height: 200px;
-      margin: 20px auto;
-      background-size: cover;
-      background-position: center;
-    }
+
