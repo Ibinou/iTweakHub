@@ -111,7 +111,7 @@
                 elementElement.style.marginTop = "130px";
             }
         });  
-        
+ 
     document.addEventListener('DOMContentLoaded', function () {
       const image1 = document.getElementById('image1');
       const image2 = document.getElementById('image2');
@@ -130,20 +130,20 @@
       function updateBackgroundType() {
         if (backgroundType1.checked) {
           setBackgroundImage(image1.src);
-          updateLocalStorage('explore-background', image1.src);
+          updateLocalStorage('explore-background', 'url1.jpg');
         } else if (backgroundType2.checked) {
           setBackgroundImage(image2.src);
-          updateLocalStorage('explore-background', image2.src);
+          updateLocalStorage('explore-background', 'url2.jpg');
         }
       }
 
       // Load background from Local Storage if available
       function loadBackgroundFromLocalStorage() {
         const backgroundUrl = localStorage.getItem('explore-background');
-        if (backgroundUrl === image1.src) {
+        if (backgroundUrl === 'url1.jpg') {
           setBackgroundImage(image1.src);
           backgroundType1.checked = true;
-        } else if (backgroundUrl === image2.src) {
+        } else if (backgroundUrl === 'url2.jpg') {
           setBackgroundImage(image2.src);
           backgroundType2.checked = true;
         }
@@ -155,7 +155,7 @@
       // Update background when background type changes
       backgroundType1.addEventListener('change', updateBackgroundType);
       backgroundType2.addEventListener('change', updateBackgroundType);
-  
+    });
      </script>  
     
 
