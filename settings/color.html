@@ -99,28 +99,6 @@
 
   </script>
      <script type="text/javascript">
-        function getDeviceType() {
-            const ua = navigator.userAgent;
-            const tabletRegex = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i;
-            const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
-
-            if (tabletRegex.test(ua)) return "tablet";
-            if (mobRegex.test(ua)) return "mobile";
-            return "desktop";
-        }
-
-        // Obtenir le type de l'appareil
-        var deviceType = getDeviceType();
-
-        // Mettre à jour la source de l'image en fonction du type de l'appareil
-        var image = document.getElementById("device");
-        if (deviceType === "mobile") {
-            image.src = "https://ipsw.me/assets/devices/iPhone16,2.png";
-        } else if (deviceType === "tablet") {
-            image.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/devices/ipad.png";
-        } else {
-            image.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/devices/macbook.png";
-        }
 	     
         document.addEventListener("DOMContentLoaded", function() {
             // Récupérer l'élément avec la classe "toptitle"
@@ -134,7 +112,7 @@
             }
         });  
         
-  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
       const image1 = document.getElementById('image1');
       const image2 = document.getElementById('image2');
       const backgroundType1 = document.getElementById('backgroundType1');
