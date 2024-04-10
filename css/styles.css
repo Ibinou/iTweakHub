@@ -575,14 +575,15 @@ font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: rgb(40 40 40 / 55%);
+    background-color: rgb(40 40 40 / 40%);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 16px;
     padding-top: 0;
-    width: 141px;
+    width: 155px;
     height: 117px;
+    border: 1px solid #2f2f2f;
 }
 .item img {
   height: 37px;
@@ -615,7 +616,7 @@ font-size: 20px;
     margin-bottom: 5px;
     margin-top: 0px;
     color: white;
-    width: 122px;
+    width: 132px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
