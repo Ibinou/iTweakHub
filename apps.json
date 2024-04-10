@@ -8,6 +8,107 @@
     "tintColor": "D85240",
     "apps": [
     {
+      "name": "iTorrent",
+      "bundleIdentifier": "ru.nonamedude.iTorrent",
+      "developerName": "XITRIX",
+      "subtitle": "Ordinary iOS torrent client app.",
+      "localizedDescription": "iTorrent is an ordinary torrent client for iOS with Files app support.\n\nWhat can this app do:\n\n\u2022 Download in the background\n\u2022 Sequential download (use VLC to watch films while loading)\n\u2022 Add torrent files from Share menu (Safari and other apps)\n\u2022 Add magnet links directly from Safari\n\u2022 Store files in Files app (iOS 11+)\n\u2022 File sharing directly from app\n\u2022 Download torrent by link\n\u2022 Download torrent by magnet\n\u2022 Send notification on torrent downloaded\n\u2022 FTP Server (unstable)\n\u2022 Select files to download or not\n\u2022 Change UI to dark theme\n\nNow supporting these localizations:\n\u2022 English\n\u2022 Russian\n\u2022 Turkish",
+      "iconURL": "https://i.imgur.com/C3KwMP5.png",
+      "tintColor": "#e32b3c",
+      "screenshotURLs": [
+        "https://i.imgur.com/0o7qou3.png",
+        "https://i.imgur.com/sO510zC.png",
+        "https://i.imgur.com/MQPWxYz.png",
+        "https://i.imgur.com/xTAo5uE.png"
+      ],
+      "versions": [
+        {
+          "version": "1.8.3",
+          "date": "2020-09-20",
+          "localizedDescription": "What's new:\n\n\u2022 Text accessibility support added\n\u2022 Huge backend refactoring\n\u2022 Libtorrent updated to 1.2.9\n\u2022 Minor UI improvements\n\u2022 Many bugs fixed (possibly new ones added)",
+          "downloadURL": "https://github.com/XITRIX/iTorrent/releases/download/v1.8.3/iTorrent.ipa",
+          "size": 21218913,
+          "sha256": "f6854b9b402b522dca849469b15dd8c4c41f0fe2e3efcd2b3550f6074ece5564"
+        }
+      ]
+    },
+    {
+      "name": "GBA4iOS",
+      "bundleIdentifier": "com.rileytestut.GBA4iOS",
+      "developerName": "Riley Testut",
+      "subtitle": "Game Boy games in your pocket.",
+      "localizedDescription": "Classic Gaming, Meet iOS.\n\nWhile iPhone and iOS have brought a new era of gaming upon us, there will always be room in our hearts for those classic games from decades ago. Unfortunately, there has been no easy way for people to play these games whenever they so desired...that is, until now. GBA4iOS was made for one purpose and one purpose only: to help everyone relive their favorite games from their past. Now, every where you take your iPhone, iPad, or iPod Touch, you can bring and play your classic games with you, giving you practically endless hours of entertainment!\n\nSo that's great and all, but what features does GBA4iOS actually have? Far too many to list in one App Store description, but here are some of the biggest:\n\n\u2022 Multiplayer (iPhone 5 or newer, iPad 4 or newer). GBA4iOS allows you to link with other players nearby and play with them, allowing you to unlock or experience certain events in games that are unavailable to just one player! Plus, nothing is cooler than playing games with your friends.\n\n\u2022 Save States. Ever get frustrated when a game requires you to save only at certain points? Well be frustrated no longer, GBA4iOS fully supports Save States, allowing you to save anywhere in the game and resume right from that point later. Even better, you can protect certain save states so you never accidentally overwrite them (and as everyone knows losing game data is one of the worst things in the world).\n\n\u2022 Cheat Codes. Sometimes games are just too hard, and you need a little boost to help defeat it. GBA4iOS allows you to input and use GameShark, Action Replay, Code Breaker, and Game Genie codes as you see fit. Don't worry, we won't judge!\n\n\u2022 Fast Forward (iPhone 4s or newer, iPad 2 or newer, iPod Touch 5th Gen). Don't you wish there was a way to speed up long cutscenes in games, or to reduce the time doing boring tasks in the game? Well, now there is! GBA4iOS allows you to \"Fast Forward\" through slow parts of the game, allowing you to get back to the fun even quicker.\n\n\u2022 Customizable Controller Skins. Want to change the look of the controller to something more personal? No worries, you can download a multitude of new controller skins from within the app, or download almost countless more from the web! You'll definitely be able to find a controller skin you like.\n\n\u2022 Dropbox Sync. Have multiple devices, or worried something will happen to your games? Dropbox Sync solves both these issues! When enabled, GBA4iOS will sync your game saves, save states, and cheat codes to Dropbox, keeping any and all your devices up to date with your latest changes. Plus, this means your game data is always backed up in the cloud, so if something happens to your device, your data is safe.\n\n\u2022 MFi Controller Support. Sometimes, touchscreen buttons just aren't good enough for the level of precision needed by some games. Luckily, GBA4iOS supports MFi Controllers, allowing you to connect and use physical controllers with your games! Now you can beat that final boss without a sweat.\n\nAll this and more ensures that GBA4iOS will give you the best portable gaming experience, hands down. So what are you waiting for, download GBA4iOS now and enjoy reliving your favorite classic games immediately!",
+      "iconURL": "https://i.imgur.com/SBrqO9g.png",
+      "tintColor": "78209d",
+      "screenshotURLs": [
+        "https://i.imgur.com/L4H0yM3.png",
+        "https://i.imgur.com/UPGYLVr.png",
+        "https://i.imgur.com/sWpUAii.png",
+        "https://i.imgur.com/UwnDXRc.png"
+      ],
+      "versions": [
+        {
+          "version": "2.1",
+          "date": "2020-03-24T14:30:00-07:00",
+          "localizedDescription": "Initial AltStore release!",
+          "downloadURL": "https://f000.backblazeb2.com/file/altstore/sources/demo/GBA4iOS.ipa",
+          "size": 7924507,
+          "sha256": "523ede3000e89716dc6e16f04ddd1d6e66a950a9295784769dab3e65a5ecc351"
+        }
+      ],
+      "appID": "com.rileytestut.GBA4iOS"
+    },
+    {
+      "name": "iDOS",
+      "bundleIdentifier": "com.litchie.idosgames",
+      "developerName": "litchie",
+      "subtitle": "Play DOS games on iOS.",
+      "localizedDescription": "Play classic DOS games on your iPhone and iPad!\n\niDOS turns your device right into a powerful DOS gaming PC, with modern game control to make your old favorites as playable as possible.\n\nYou can also use iDOS for non-gaming purposes, such as word processing, casual programming. Apps in the DOS days are often simpler and surprisingly productive.\n\nKEYBOARD\n\niDOS provides a PC compatible on-screen keyboard with carefully designed layouts for different devices and orientations. The keyboard has a sliding control in landscape mode so that you can keep it from covering critical part of the screen.\n\nBluetooth keyboard is partially supported. We support ESC, function keys, and ordinary CTRL and ALT key bindings. Unfortunately the arrow keys can't be used for game control. You should use a bluetooth game controller instead.\n\nGAMEPAD\n\niDOS provides a virtual gamepad with key bindings that are fairly common in DOS games. You can customize the bindings. The DPAD works in 8-axis way. It can also be toggled into a joystick.\n\nExternal bluetooth game controllers are supported. Make sure your game controller is connected (System Settings->Bluetooth). To customize button bindings, go to iDOS in landscape mode, tap on bluetooth icon on the auto-hiding top bar.\n\nMOUSE\n\n* The screen area serves as a trackpad for moving mouse pointer.\n* Tap on the screen for left click. If direct touch is enabled, the mouse pointer will move to where you tap.\n* Hold one finger on the screen, and tap with another finger for right click.\n* On-screen mouse buttons are also provided for your convenience.\n* Bluetooth mice are only partially supported.\n\nSUPPORT\n\n- Visit https://litchie.com/dospad for more information.\n- Send email to idos@litchie.com\n- Follow the developer on Twitter: https://twitter.com/litchiedev\n- iDOS is open source, report issues on https://github.com/litchie/dospad",
+      "iconURL": "https://i.imgur.com/Yah6zFk.png",
+      "tintColor": "#042eef",
+      "screenshotURLs": [
+        "https://i.imgur.com/hRMA2Zr.png",
+        "https://i.imgur.com/gvhvQpo.png",
+        "https://i.imgur.com/NHOE1ba.png",
+        "https://i.imgur.com/eBEqmnt.png"
+      ],
+      "versions": [
+        {
+          "version": "2.1",
+          "date": "2020-10-20",
+          "localizedDescription": "- Support Mfi game controllers\n- Support external bluetooth keyboard (Text input only).\nYou can use Command-1, Command-2 .. for function keys.",
+          "downloadURL": "https://github.com/litchie/dospad/releases/download/2.1/iDOS.ipa",
+          "size": 5704322,
+          "sha256": "1660903b0d3ec6cc4686bc99c028d3f46267018ecdac5ccf9c02778a96cb1a4d"
+        }
+      ]
+    },
+    {
+      "name": "ActiveGS iOS",
+      "bundleIdentifier": "com.yoshisuga.activeGS",
+      "developerName": "yoshisuga & Olivier Goguel",
+      "subtitle": "An emulator for Apple II/2GS.",
+      "localizedDescription": "An emulator for all things Apple.",
+      "iconURL": "https://i.imgur.com/7LuLkoR.png",
+      "tintColor": "#21486b",
+      "screenshotURLs": [
+        "https://i.imgur.com/8xekjhv.png",
+        "https://i.imgur.com/JFd6LiM.png",
+        "https://i.imgur.com/4ZE0DbB.png"
+      ],
+      "versions": [
+        {
+          "absoluteVersion": "2021.9",
+          "version": "2021.9",
+          "date": "2021-09-23T09:28:59Z",
+          "localizedDescription": "# 2021.9\n\nThis is a fork of Olivier Goguel's ActiveGS emulator for iOS.\r\n\r\nI've been tinkering it over the years and added some experimental features such as:\r\n\r\n- Support for iOS 15\r\n- Remap keyboard to supported wireless controller buttons (mFi/PS4/PS5/XBox One)\r\n- Custom split keyboard usable in landscape mode (written in Swift)\r\n\r\n![Simulator Screen Shot - iPhone 13 Pro Max - 2021-09-22 at 22 43 15](https://user-images.githubusercontent.com/564774/134484167-3c17c2a7-1d6a-467c-ac82-d7bfae7f281b.png)\r\n\r\n- A memory debugger/rudimentary memory-editing cheat engine (also written in Swift). Accessible via the \"D\" button in the right pane custom keyboard. Browse the memory map and change memory values. Not sure how the bank switching works and how it's mapped to memory but you get some representation of memory. \r\n![Simulator Screen Shot - iPhone 13 Pro Max - 2021-09-22 at 23 25 55](https://user-images.githubusercontent.com/564774/134484125-b984318a-b089-4484-b306-b976521963c3.png)\r\n\r\n\r\n",
+          "downloadURL": "https://github.com/yoshisuga/activegs-ios/releases/download/2021.9/ActiveGS.ipa",
+          "size": 16593403,
+          "sha256": "4ce99019167c13e1fdce6005243002591586366852ddf793fa6a6521885a4910"
+        }
+      ]
+    },
+    {
       "name": "Ignited",
       "bundleIdentifier": "com.litritt.ignited",
       "developerName": "Lit Development",
