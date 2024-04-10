@@ -135,7 +135,23 @@
     </a>
         </nav>
 <div class="gradient-div"></div>
-
+<div style="display: none;" class="container">
+    <div class="image-container">
+      <img id="image1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1">
+      <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2">
+    </div>
+    <div class="typetext">
+      <label for="backgroundType1">
+        <input type="radio" id="backgroundType1" name="backgroundType" value="1" checked="">
+        Type 1
+      </label>
+      <label for="backgroundType2">
+        <input type="radio" id="backgroundType2" name="backgroundType" value="2">
+        Type 2
+      </label>
+    </div>
+    <div id="selectedBackground" style="background-image: url(&quot;https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png&quot;);"></div>
+  </div>
 <div class="hidecolor">	
 <input type="color" id="color-picker">
 <button id="reset-button">Reset</button>
@@ -587,6 +603,65 @@ items.forEach(function(item, index) {
                 }
             }, 20);
         }    
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("p");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });  
+
+
+// background explorer script
+    document.addEventListener('DOMContentLoaded', function () {
+      const image1 = document.getElementById('image1');
+      const image2 = document.getElementById('image2');
+      const backgroundType1 = document.getElementById('backgroundType1');
+      const backgroundType2 = document.getElementById('backgroundType2');
+      const selectedBackgroundDiv = document.getElementById('selectedBackground');
+
+      function setBackgroundImage(url) {
+        selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
+      }
+
+      function updateLocalStorage(key, value) {
+        localStorage.setItem(key, value);
+      }
+
+      function updateBackgroundType() {
+        if (backgroundType1.checked) {
+          setBackgroundImage(image1.src);
+          updateLocalStorage('explore-background', 'url1.jpg');
+        } else if (backgroundType2.checked) {
+          setBackgroundImage(image2.src);
+          updateLocalStorage('explore-background', 'url2.jpg');
+        }
+      }
+
+      // Load background from Local Storage if available
+      function loadBackgroundFromLocalStorage() {
+        const backgroundUrl = localStorage.getItem('explore-background');
+        if (backgroundUrl === 'url1.jpg') {
+          setBackgroundImage(image1.src);
+          backgroundType1.checked = true;
+        } else if (backgroundUrl === 'url2.jpg') {
+          setBackgroundImage(image2.src);
+          backgroundType2.checked = true;
+        }
+      }
+
+      // Initial update
+      loadBackgroundFromLocalStorage();
+
+      // Update background when background type changes
+      backgroundType1.addEventListener('change', updateBackgroundType);
+      backgroundType2.addEventListener('change', updateBackgroundType);
+    });
 </script>
 
 <script src="js/index.js"></script>
