@@ -137,8 +137,20 @@
         }
       }
 
+      // Load background from Local Storage if available
+      function loadBackgroundFromLocalStorage() {
+        const backgroundType = localStorage.getItem('explore-background');
+        if (backgroundType === '1') {
+          setBackgroundImage(image1.src);
+          backgroundType1.checked = true;
+        } else if (backgroundType === '2') {
+          setBackgroundImage(image2.src);
+          backgroundType2.checked = true;
+        }
+      }
+
       // Initial update
-      updateBackgroundType();
+      loadBackgroundFromLocalStorage();
 
       // Update background when background type changes
       backgroundType1.addEventListener('change', updateBackgroundType);
