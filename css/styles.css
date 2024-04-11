@@ -2046,7 +2046,7 @@ sections_div {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-top: 20px; /* Adjust top position as needed */
+    margin-top: 60px; /* Adjust top position as needed */
     background-color: #1c1c1c;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
