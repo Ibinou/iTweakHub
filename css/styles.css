@@ -2037,19 +2037,22 @@ sections_div {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 9999;
     display: none;
   }
 
   .message-container {
-    margin-top: 20px; /* Adjust top position as needed */
+    position: fixed;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+    margin-top: 20px; /* Adjust top position as needed */
     background-color: #1c1c1c;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 20px;
     width: 300px;
+    z-index: 10000;
     display: none;
   }
 
