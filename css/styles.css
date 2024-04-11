@@ -2042,11 +2042,9 @@ sections_div {
   }
 
   .message-container {
-    position: fixed;
-    top: 20px; /* Adjust top position as needed */
+    margin-top: 20px; /* Adjust top position as needed */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
     background-color: #1c1c1c;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
