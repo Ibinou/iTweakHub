@@ -29,35 +29,56 @@
 <div class="content">
 <div class="toptitle">	
     <a style="text-decoration: none" href="../settings.html"><h1 style="font-family: helvetica; font-size: 21px; margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color); margin-right: 5px;"></i>Settings</h1></a>
-    <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">General (beta)</h1>
+    <h1 style="font-family:helvetica;font-size:28px;color: white;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">General</h1>
 </div>
 
 	<p id="p" style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 100px;margin-bottom: 10px;">DEVICE INFOS</p>	
  <div class="deviceinfos">
   <img id="device" src="" alt="idevice">
   <div class="infos">
-    <h2 style="margin-left:9px;">Device</h2>
+    <h2 style="margin-left:9px;">iDevice</h2>
       	 <p style="display:inline-block;margin-left:9px;"><script type="text/javascript"> var ios = ((navigator.userAgent).match(/OS (\d)?\d_\d(_\d)?/i)[0].replace(/_/g, ".").replace("OS", "iOS"))
                         document.write(""+ios+"")
                     </script></p>
   </div>
 	</div>
 
-<p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">APP INFOS</p>	
+<p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-top: 20px;margin-bottom: 10px;">NERD INFOS</p>	
 <ul class="ioslist">
 <li>
+<span>Setup</span>
+<div id="setup" class="ioslist_opposite"></div>
+</li>
+<li>
+<span>Setup date</span>
+<div id="date" class="ioslist_opposite"></div>
+</li>
+<li>
+<span>UUID</span>
+<div id="id" class="ioslist_opposite"></div>
+</li>
+<li>
 <span>Clydia (backend)</span>
-<div class="ioslist_opposite">2.0</div>
+<div class="ioslist_opposite">2.1</div>
 </li>
 <li>
 <span>Version</span>
-<div class="ioslist_opposite">2.0</div>
+<div class="ioslist_opposite">2.1</div>
 </li>
 <li style="border-bottom-width: 0px;">
 <span>Release Type</span>
-<div class="ioslist_opposite">Beta</div>
+<div class="ioslist_opposite">Public</div>
 </li>
 </ul>
+
+
+<div class="changelog-card">
+    <h2 id="changelogtitle">Changelog</h2>
+    <p id="version"></p>
+    <ul class="ul" id="changelog-list"></ul>
+</div>
+
+
 <div class="hidecolor">	
   <input type="color" id="color-picker">
   <button id="reset-button">Reset</button>
@@ -141,6 +162,40 @@
                 elementElement.style.marginTop = "130px";
             }
         });  
+        
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("../changelog.json")
+    .then(response => response.json())
+    .then(data => {
+      const latestChangelog = data[data.length - 1];
+      const versionElement = document.getElementById("version");
+      const changelogList = document.getElementById("changelog-list");
+
+      versionElement.textContent = `Version: ${latestChangelog.version}`;
+
+      latestChangelog.changes.forEach(change => {
+        const listItem = document.createElement("li");
+        listItem.textContent = change;
+        listItem.classList.add("li"); // Ajouter la classe "li"
+        changelogList.appendChild(listItem);
+      });
+    })
+    .catch(error => console.error("Error fetching changelog:", error));
+});
+// Récupérer les valeurs des clés du local storage
+var id = localStorage.getItem('id');
+var setupDate = localStorage.getItem('setupDate');
+var setup = localStorage.getItem('setup');
+
+// Sélectionner les éléments HTML correspondants
+var idElement = document.getElementById('id');
+var setupDateElement = document.getElementById('date');
+var setupElement = document.getElementById('setup');
+
+// Mettre à jour le contenu des éléments avec les valeurs récupérées
+idElement.textContent = id;
+setupDateElement.textContent = setupDate;
+setupElement.textContent = setup;
      </script>  
     
 

@@ -4,8 +4,200 @@
     "subtitle": "The official iTweakHub source !",
     "description": "The official iTweakHub source !",
     "iconURL": "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png",
+    "website": "https://x.com/iTweakHub",
     "tintColor": "D85240",
     "apps": [
+    {
+      "name": "iTorrent",
+      "bundleIdentifier": "ru.nonamedude.iTorrent",
+      "developerName": "XITRIX",
+      "subtitle": "Ordinary iOS torrent client app.",
+      "localizedDescription": "iTorrent is an ordinary torrent client for iOS with Files app support.\n\nWhat can this app do:\n\n\u2022 Download in the background\n\u2022 Sequential download (use VLC to watch films while loading)\n\u2022 Add torrent files from Share menu (Safari and other apps)\n\u2022 Add magnet links directly from Safari\n\u2022 Store files in Files app (iOS 11+)\n\u2022 File sharing directly from app\n\u2022 Download torrent by link\n\u2022 Download torrent by magnet\n\u2022 Send notification on torrent downloaded\n\u2022 FTP Server (unstable)\n\u2022 Select files to download or not\n\u2022 Change UI to dark theme\n\nNow supporting these localizations:\n\u2022 English\n\u2022 Russian\n\u2022 Turkish",
+      "iconURL": "https://i.imgur.com/C3KwMP5.png",
+      "tintColor": "#e32b3c",
+      "screenshotURLs": [
+        "https://i.imgur.com/0o7qou3.png",
+        "https://i.imgur.com/sO510zC.png",
+        "https://i.imgur.com/MQPWxYz.png",
+        "https://i.imgur.com/xTAo5uE.png"
+      ],
+      "versions": [
+        {
+          "version": "1.8.3",
+          "date": "2020-09-20",
+          "localizedDescription": "What's new:\n\n\u2022 Text accessibility support added\n\u2022 Huge backend refactoring\n\u2022 Libtorrent updated to 1.2.9\n\u2022 Minor UI improvements\n\u2022 Many bugs fixed (possibly new ones added)",
+          "downloadURL": "https://github.com/XITRIX/iTorrent/releases/download/v1.8.3/iTorrent.ipa",
+          "size": 21218913,
+          "sha256": "f6854b9b402b522dca849469b15dd8c4c41f0fe2e3efcd2b3550f6074ece5564"
+        }
+      ]
+    },
+    {
+      "name": "GBA4iOS",
+      "bundleIdentifier": "com.rileytestut.GBA4iOS",
+      "developerName": "Riley Testut",
+      "subtitle": "Game Boy games in your pocket.",
+      "localizedDescription": "Classic Gaming, Meet iOS.\n\nWhile iPhone and iOS have brought a new era of gaming upon us, there will always be room in our hearts for those classic games from decades ago. Unfortunately, there has been no easy way for people to play these games whenever they so desired...that is, until now. GBA4iOS was made for one purpose and one purpose only: to help everyone relive their favorite games from their past. Now, every where you take your iPhone, iPad, or iPod Touch, you can bring and play your classic games with you, giving you practically endless hours of entertainment!\n\nSo that's great and all, but what features does GBA4iOS actually have? Far too many to list in one App Store description, but here are some of the biggest:\n\n\u2022 Multiplayer (iPhone 5 or newer, iPad 4 or newer). GBA4iOS allows you to link with other players nearby and play with them, allowing you to unlock or experience certain events in games that are unavailable to just one player! Plus, nothing is cooler than playing games with your friends.\n\n\u2022 Save States. Ever get frustrated when a game requires you to save only at certain points? Well be frustrated no longer, GBA4iOS fully supports Save States, allowing you to save anywhere in the game and resume right from that point later. Even better, you can protect certain save states so you never accidentally overwrite them (and as everyone knows losing game data is one of the worst things in the world).\n\n\u2022 Cheat Codes. Sometimes games are just too hard, and you need a little boost to help defeat it. GBA4iOS allows you to input and use GameShark, Action Replay, Code Breaker, and Game Genie codes as you see fit. Don't worry, we won't judge!\n\n\u2022 Fast Forward (iPhone 4s or newer, iPad 2 or newer, iPod Touch 5th Gen). Don't you wish there was a way to speed up long cutscenes in games, or to reduce the time doing boring tasks in the game? Well, now there is! GBA4iOS allows you to \"Fast Forward\" through slow parts of the game, allowing you to get back to the fun even quicker.\n\n\u2022 Customizable Controller Skins. Want to change the look of the controller to something more personal? No worries, you can download a multitude of new controller skins from within the app, or download almost countless more from the web! You'll definitely be able to find a controller skin you like.\n\n\u2022 Dropbox Sync. Have multiple devices, or worried something will happen to your games? Dropbox Sync solves both these issues! When enabled, GBA4iOS will sync your game saves, save states, and cheat codes to Dropbox, keeping any and all your devices up to date with your latest changes. Plus, this means your game data is always backed up in the cloud, so if something happens to your device, your data is safe.\n\n\u2022 MFi Controller Support. Sometimes, touchscreen buttons just aren't good enough for the level of precision needed by some games. Luckily, GBA4iOS supports MFi Controllers, allowing you to connect and use physical controllers with your games! Now you can beat that final boss without a sweat.\n\nAll this and more ensures that GBA4iOS will give you the best portable gaming experience, hands down. So what are you waiting for, download GBA4iOS now and enjoy reliving your favorite classic games immediately!",
+      "iconURL": "https://i.imgur.com/SBrqO9g.png",
+      "tintColor": "78209d",
+      "screenshotURLs": [
+        "https://i.imgur.com/L4H0yM3.png",
+        "https://i.imgur.com/UPGYLVr.png",
+        "https://i.imgur.com/sWpUAii.png",
+        "https://i.imgur.com/UwnDXRc.png"
+      ],
+      "versions": [
+        {
+          "version": "2.1",
+          "date": "2020-03-24T14:30:00-07:00",
+          "localizedDescription": "Initial AltStore release!",
+          "downloadURL": "https://f000.backblazeb2.com/file/altstore/sources/demo/GBA4iOS.ipa",
+          "size": 7924507,
+          "sha256": "523ede3000e89716dc6e16f04ddd1d6e66a950a9295784769dab3e65a5ecc351"
+        }
+      ],
+      "appID": "com.rileytestut.GBA4iOS"
+    },
+    {
+      "name": "iDOS",
+      "bundleIdentifier": "com.litchie.idosgames",
+      "developerName": "litchie",
+      "subtitle": "Play DOS games on iOS.",
+      "localizedDescription": "Play classic DOS games on your iPhone and iPad!\n\niDOS turns your device right into a powerful DOS gaming PC, with modern game control to make your old favorites as playable as possible.\n\nYou can also use iDOS for non-gaming purposes, such as word processing, casual programming. Apps in the DOS days are often simpler and surprisingly productive.\n\nKEYBOARD\n\niDOS provides a PC compatible on-screen keyboard with carefully designed layouts for different devices and orientations. The keyboard has a sliding control in landscape mode so that you can keep it from covering critical part of the screen.\n\nBluetooth keyboard is partially supported. We support ESC, function keys, and ordinary CTRL and ALT key bindings. Unfortunately the arrow keys can't be used for game control. You should use a bluetooth game controller instead.\n\nGAMEPAD\n\niDOS provides a virtual gamepad with key bindings that are fairly common in DOS games. You can customize the bindings. The DPAD works in 8-axis way. It can also be toggled into a joystick.\n\nExternal bluetooth game controllers are supported. Make sure your game controller is connected (System Settings->Bluetooth). To customize button bindings, go to iDOS in landscape mode, tap on bluetooth icon on the auto-hiding top bar.\n\nMOUSE\n\n* The screen area serves as a trackpad for moving mouse pointer.\n* Tap on the screen for left click. If direct touch is enabled, the mouse pointer will move to where you tap.\n* Hold one finger on the screen, and tap with another finger for right click.\n* On-screen mouse buttons are also provided for your convenience.\n* Bluetooth mice are only partially supported.\n\nSUPPORT\n\n- Visit https://litchie.com/dospad for more information.\n- Send email to idos@litchie.com\n- Follow the developer on Twitter: https://twitter.com/litchiedev\n- iDOS is open source, report issues on https://github.com/litchie/dospad",
+      "iconURL": "https://i.imgur.com/Yah6zFk.png",
+      "tintColor": "#042eef",
+      "screenshotURLs": [
+        "https://i.imgur.com/hRMA2Zr.png",
+        "https://i.imgur.com/gvhvQpo.png",
+        "https://i.imgur.com/NHOE1ba.png",
+        "https://i.imgur.com/eBEqmnt.png"
+      ],
+      "versions": [
+        {
+          "version": "2.1",
+          "date": "2020-10-20",
+          "localizedDescription": "- Support Mfi game controllers\n- Support external bluetooth keyboard (Text input only).\nYou can use Command-1, Command-2 .. for function keys.",
+          "downloadURL": "https://github.com/litchie/dospad/releases/download/2.1/iDOS.ipa",
+          "size": 5704322,
+          "sha256": "1660903b0d3ec6cc4686bc99c028d3f46267018ecdac5ccf9c02778a96cb1a4d"
+        }
+      ]
+    },
+    {
+      "name": "ActiveGS iOS",
+      "bundleIdentifier": "com.yoshisuga.activeGS",
+      "developerName": "yoshisuga & Olivier Goguel",
+      "subtitle": "An emulator for Apple II/2GS.",
+      "localizedDescription": "An emulator for all things Apple.",
+      "iconURL": "https://i.imgur.com/7LuLkoR.png",
+      "tintColor": "#21486b",
+      "screenshotURLs": [
+        "https://i.imgur.com/8xekjhv.png",
+        "https://i.imgur.com/JFd6LiM.png",
+        "https://i.imgur.com/4ZE0DbB.png"
+      ],
+      "versions": [
+        {
+          "absoluteVersion": "2021.9",
+          "version": "2021.9",
+          "date": "2021-09-23T09:28:59Z",
+          "localizedDescription": "# 2021.9\n\nThis is a fork of Olivier Goguel's ActiveGS emulator for iOS.\r\n\r\nI've been tinkering it over the years and added some experimental features such as:\r\n\r\n- Support for iOS 15\r\n- Remap keyboard to supported wireless controller buttons (mFi/PS4/PS5/XBox One)\r\n- Custom split keyboard usable in landscape mode (written in Swift)\r\n\r\n![Simulator Screen Shot - iPhone 13 Pro Max - 2021-09-22 at 22 43 15](https://user-images.githubusercontent.com/564774/134484167-3c17c2a7-1d6a-467c-ac82-d7bfae7f281b.png)\r\n\r\n- A memory debugger/rudimentary memory-editing cheat engine (also written in Swift). Accessible via the \"D\" button in the right pane custom keyboard. Browse the memory map and change memory values. Not sure how the bank switching works and how it's mapped to memory but you get some representation of memory. \r\n![Simulator Screen Shot - iPhone 13 Pro Max - 2021-09-22 at 23 25 55](https://user-images.githubusercontent.com/564774/134484125-b984318a-b089-4484-b306-b976521963c3.png)\r\n\r\n\r\n",
+          "downloadURL": "https://github.com/yoshisuga/activegs-ios/releases/download/2021.9/ActiveGS.ipa",
+          "size": 16593403,
+          "sha256": "4ce99019167c13e1fdce6005243002591586366852ddf793fa6a6521885a4910"
+        }
+      ]
+    },
+    {
+      "name": "Ignited",
+      "bundleIdentifier": "com.litritt.ignited",
+      "developerName": "Lit Development",
+      "subtitle": "Retro games meet modern design.",
+      "localizedDescription": "Ignited is an overhaul of Delta, an all-in-one emulator for iOS.\n\nFEATURES\n\nSupported Game Systems\n\u2022 Nintendo Entertainment System\n\u2022 Super Nintendo Entertainment System\n\u2022 Sega Genesis\n\u2022 Nintendo 64\n\u2022 Game Boy (Color)\n\u2022 Game Boy Advance\n\u2022 Nintendo DS\n\nController Support\n\u2022 Supports PS4, PS5, Xbox One S, Xbox Series X, and MFi game controllers.\n\u2022 Supports bluetooth (and wired) keyboards, as well as the Apple Smart Keyboard.\n\u2022 Completely customize button mappings on a per-system, per-controller basis.\n\u2022 Map buttons to special \"Quick Save\", \"Quick Load,\" and \"Fast Forward\" actions.\n\nSave States\n\u2022 Save and load save states for any game from the pause menu.\n\u2022 Lock save states to prevent them from being accidentally overwritten.\n\u2022 Automatically makes backup save states to ensure you never lose your progress.\n\u2022 Support for \"Quick Saves,\" save states that can be quickly saved/loaded with a single button press (requires external controller or supported skin).\n\u2022 Save State Rewind - Rolling save states that can be rewound to for up to 2 minutes. Configurable interval. (Currently disabled)\n\nCheats\n\u2022 Supports various types of cheat codes for each supported system:\n\u2022 NES: Game Genie\n\u2022 SNES: Game Genie, Pro Action Replay\n\u2022 N64: GameShark\n\u2022 GBC: Game Genie, GameShark\n\u2022 GBA: Action Replay, Code Breaker, GameShark\n\u2022 DS: Action Replay\n\nDelta Sync\n\u2022 Sync your games, game saves, save states, cheats, controller skins, and controller mappings between devices.\n\u2022 View version histories of everything you sync and optionally restore them to earlier versions.\n\u2022 Supports both Google Drive and Dropbox.\n\nCustom Controller Skins\n\u2022 Beautiful built-in controller skins for all systems.\n\u2022 Import controller skins made by others, or even make your own to share with the world!\n\nHold Button\n\u2022 Choose buttons for Delta to hold down on your behalf, freeing up your thumbs to press other buttons instead.\n\u2022 Perfect for games that typically require one button be held down constantly (ex: run button in Mario games, or the A button in Mario Kart).\n\nFast Forward\n\u2022 Speed through slower parts of games by running the game much faster than normal.\n\u2022 Easily enable or disable from the pause menu, or optionally with a mapped button on an external controller.\n\n3D/Haptic Touch\n\u2022 Use 3D or Haptic Touch to \"peek\" at games, save states, and cheat codes.\n\u2022 App icon shortcuts allow quick access to your most recently played games, or optionally customize the shortcuts to always include certain games.\n\nGame Artwork\n\u2022 Automatically displays appropriate box art for imported games.\n\u2022 Change a game's artwork to anything you want, or select from the built-in game artwork database.\n\nMisc.\n\u2022 Gyroscope support (WarioWare: Twisted! only)\n\u2022 Microphone support (DS only)\n\u2022 Support for delta:// URL scheme to jump directly into a specific game.\n\n**Ignited and Lit Development are in no way affiliated with Nintendo. The name \"Nintendo\" and all associated game console names are registered trademarks of Nintendo Co., Ltd.**",
+      "iconURL": "https://i.imgur.com/LO2Ckm2.png",
+      "tintColor": "FF6A00",
+      "screenshotURLs": [
+        "https://i.imgur.com/5CHWVQj.png",
+        "https://i.imgur.com/m6aoJbS.png",
+        "https://i.imgur.com/jCCF6u1.png",
+        "https://i.imgur.com/jxqUA1p.png"
+      ],
+      "versions": [
+        {
+          "version": "1.8.6",
+          "date": "2024-01-29T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 New icons by LitRitt\n  \u2022 Super Ignited Bros (Smash Bros)\n  \u2022 Red Plumber (Mario)\n  \u2022 Green Plumber (Luigi)\n  \u2022 Stomp Bait (Goomba)\n  \u2022 Sparky (Pikachu)\n  \u2022 Puffball (Kirby)\n  \u2022 Sword That Seals (Master Sword)\n  \u2022 Sword That Seals Alt (Master Sword)\n  \u2022 Sword That Ignites (Master Sword)\n  \u2022 Sword That Ignites Alt (Master Sword)\n\u2022 New icons by Kongolabongo\n  \u2022 Barrel of Kong (DK)\n  \u2022 Barrel of Flame (DK)\n\u2022 New icons by Scoot the Rizzler\n  \u2022 Master Sword\n  \u2022 Hylian Shield\n  \u2022 Many Marios\n\u2022 Adds beta label for features/options\n\u2022 Adds 1.5x fast forward speed option for pause menu presets\n\nChanged\n\u2022 Raises minimum iOS version to 16\n\u2022 Updates some icons and shrinks file sizes\n\u2022 Icons are now sorted into categories\n\nFixed\n\u2022 Fixes some incorrect feature reset defaults\n\u2022 Fixes some grammar and spelling in settings\n\u2022 Fixes showing icon images after updating deployment target version",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.6/Ignited.ipa",
+          "size": 74540387,
+          "sha256": "1e540d93c8f1b79e3976ef21879273168d9cd6ab7fbbce668d4a4aebf8247a84",
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "1.8.5",
+          "date": "2024-01-19T10:00:00-04:00",
+          "localizedDescription": "Changed\n\u2022 Shrinks icon file sizes\n\u2022 Makes the background blur show when a controller is connected\n\u2022 Changes \"View patreon\" button to \"View membership\" when signed into Patreon\n\u2022 Updates Premium members page to load dynamically from PatreonAPI\n\nFixed\n\u2022 Fixes emulation not pausing when app is in the background\n\u2022 Fixes emulation not pausing when the screen is locked\n\u2022 Fixes issue causing Harmony to skip seeding database\n\u2022 Fixes game artwork losing shadows when toggling VRAM and OpenGLES options",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.5/Ignited.ipa",
+          "size": 65555254,
+          "sha256": "b1e346450f2d287bcf39866006a01bcf7999572e82974753486c06ad6c2ae4da",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.4",
+          "date": "2024-01-13T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Battery Safety Feature\n  \u2022 Allows users to set low and critical battery level\n  \u2022 At low battery (5-10%) a popup is shown and auto save states start being created periodically\n  \u2022 At critical battery (2-5%) the currently playing game will save and close, and games cannot be launched until the device is charged\n\u2022 N64 Overscan Feature\n  \u2022 Allows users to remove the black bars surrounding N64 games\n  \u2022 Overscan settings can be edited using the new pause menu button while playing N64 games\n  \u2022 Overscan settings are backed up with Ignited Sync\n\u2022 Adds \"Learn More...\" links to guide users to relevant documentation\n  \u2022 Added to library when no games are present\n  \u2022 Added to MelonDS core BIOS section footers\n  \u2022 Added to controller skins section footer\n\nChanged\n\u2022 Updated Fir\u00e9 Ball icon\n\u2022 Changes Live Artwork feature to be disabled by default\n\nFixed\n\u2022 Fixes visual bugs on MelonDS core settings screen\n\u2022 Fixes crashes when presenting alerts\n\u2022 Fixes library play menu not updating when deleting a game",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.4/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "1663f60144e9de34c18c1f6fe475821177df4d4093ad22d3e16b02d992c40441",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.3",
+          "date": "2024-01-10T11:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Added a check for N64 games to disallow mismatched OpenGLES versions\n\u2022 Added a view in settings to see all games with OpenGLES 3 enabled and remove them\n\u2022 Added a view in settings to see all games with Invalid VRAM Access enabled and remove them",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.3/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "5a5be897df61e2a3ba01a23cc1d9f1e1b9be12b695c5a1002abc0dc04b13f8db",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.2",
+          "date": "2024-01-10T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 SNES Invalid VRAM Access\n  \u2022 Allows text and other sprites to render properly in some emulator-only games\n  \u2022 Applied per game using the game's context menu\n\nChanged\n\u2022 N64 Graphics replaced with OpenGLES 3 toggle\n  \u2022 Applied per game using the game's context menu\n\u2022 Toast notification style updated and the code flow for toasts has been unified/simplified",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.2/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "bd24a80aa3815d6b38326156be915dfa29b9aed585a89743402c62b118a2efcd",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.1",
+          "date": "2024-01-08T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Microphone can now be toggled on and off, and only allows microphone usage when using the melonDS core\n\u2022 Create an auto save state any time the app becomes inactive, even when immediately quitting the app from a game\n\u2022 Adds new icons by LitRitt and Kongolabongo\n\nChanged\n\u2022 Makes the Pro label fancy\n\u2022 Makes the alternate icon feature free, some icons will remain Pro only\n\u2022 Removes the Documentation link until it's more complete\n\u2022 Makes most system titles use full names instead of short names\n\u2022 Unhides the status bar feature in settings\n\nFixed\n\u2022 Fixes patrons list after update to Patreon benefits\n\u2022 Fixes toggling the status bar showing the wrong toast notification\n\u2022 Fixes setting game preview parameters when feature is disabled",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.1/Ignited.ipa",
+          "size": 73931114,
+          "sha256": "a432e89507149e28a7a8f527a6379a566261afcb5951461297ad715632b46a39",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8",
+          "date": "2024-01-06T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Ignited Pro\n  \u2022 Select features and options will now only be available to patrons\n\u2022 Patreon Integration\n  \u2022 You can now link your Patreon account within the app to access Ignited Pro\n\nFixed\n\u2022 Fixes skin debugging being shown when the feature is off\n\u2022 Fixes game search results overlapping other games\n\u2022 Makes the transition from Quick Settings to Main Menu create an auto save state\n\u2022 Fixes animated artwork still animating when the feature is off",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8/Ignited.ipa",
+          "size": 62180523,
+          "sha256": "af3fda70bbb6b7e397d231c8637e1f14976b3b3a2bbca752be10fa518c7e63ae",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.7.2",
+          "date": "2023-12-23T10:00:00-04:00",
+          "localizedDescription": "New\n\u2022 Adds options for opening the Pause Menu by shaking your device\n\nChanged\n\u2022 Makes the New Game, Pause, and Star icons on artwork able to be disabled\n\u2022 Makes the Pause Menu items able to be rearranged in settings\n\u2022 Makes context menu previews use auto-save states if enabled\n\nFixed\n\u2022 Makes custom artwork background color support transparency\n\u2022 Adjusts DS artwork forced aspect ratio",
+          "downloadURL": "https://f005.backblazeb2.com/file/lit-apps/ignited/1.7.2/Ignited.ipa",
+          "size": 62108866,
+          "sha256": "62bbae22ec808128334565e392ed46d8af7e6313064b5538bb59e13c9fd563c0",
+          "minOSVersion": "14.0"
+        }
+      ],
+      "appID": "com.litritt.ignited"
+    },
       {
          "name":"Blacklist",
          "id":"Blacklist",

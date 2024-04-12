@@ -63,6 +63,30 @@
         }(document, "script"));
 </script>
 <!-- End PushAlert -->
+<style>
+@keyframes fade {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  40% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+}
+
+#changingText {
+  animation: fade 4s infinite;
+}
+</style>
 </head>
 <body style="opacity: 0;">
 	
@@ -84,220 +108,55 @@
 <a href="account.html">	
   <img id="displayProfilePic" src="" style="margin-bottom: 0px;border-radius: 41px;float: right;margin-top: 15px;width: 35px;height: 35px;">
 </a>
-
-<div id="fullscreen-container" class="fullscreen-container" style="display: none;margin-left: -16px;">
-    <div class="content-container">
-        <i style="color: red;font-size: 49px;" class="fa-solid fa-circle-exclamation"></i>
-        <h1>Update</h1>
-        <p>Hey! An update is available. Please delete iTweakHub and reinstall it <span onclick="openPage('https://getitweakhub.netlify.app')" style="color: blue;">here</span></p>
-	<p>Tip: Tap the safari icon in the right bottom of your screen to open iTweakHub 2.0 installer in safari.</p>
-    </div>
-</div>
 	
-    <h2 style="font-family:helvetica;font-size:12px;color:#9d9d9d;margin-top: 12px;margin-bottom: 12px;">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
+
+<h2 class="welcomeback" id="changingText">Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername"></span></h2>
+
 	
 	
     <h1 id="home" style="font-family:helvetica;font-size:28px;color: white;margin-top: -6px;margin-bottom: 12px;">Home<span style="margin-left: 4px;color: #a1a1a1;"></span></h1>
 </div>	
-<!--Featured Header-->	
 
-  <div class="slider-container">
-    <div class="slider-list">
-      <div onclick="openPage('appinfos.html?name=Unc0ver')" class="slider-item active"><img src="https://media.idownloadblog.com/wp-content/uploads/2019/01/unc0ver-clouds.jpg"></div>
-      <div onclick="openPage('appinfos.html?name=PostBox')" class="slider-item"><img src="https://pbs.twimg.com/media/E7wltdwVgAAEVUE?format=jpg&name=4096x4096"></div>
-      <div onclick="openPage('appinfos.html?name=Enmity')" class="slider-item"><img src="https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"></div>
-    </div>
-  </div>
 
-  <div class="slider-indicators"></div>
-	
-<!-- End Featured Header-->
-<div class="circle-container">
-  <div class="circle" onclick="openPage('settings.html')">
-    <i class="fa-solid fa-gear" style="color: #FF983F;"></i>
-  </div>
-  <div class="circle" onclick="openPage('https://sign.cococloud-signing.online/own-cert/')">
-    <i class="fa-solid fa-address-card" style="color: #55cb59;"></i>
-  </div>
-  <div class="circle" onclick="openPage('https://sign.cococloud-signing.online/free/')">
-    <i class="fa-solid fa-signature" style="color: #2e95fc;"></i>
-  </div>
-  <div class="circle" onclick="openPage('account.html')">
-    <i class="fa-solid fa-user" style="color: #F96269;"></i> 
-  </div>
-</div>	
-	
-<br>
-<div class="animated-enter">
-<h3 id="newstuto" style="margin-bottom: 10px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Tips for you</h3>
-  <div id="tip-carousel">
-    <div class="tip-card">
-      <div class="tip-header">
-        Add a source
-      </div>
-      <div class="tip-content">
-        Add a source to expand our library and discover new apps.
-      </div>
-      <a href="appsmanager.html" class="tip-button">Source page</a>
-    </div>
-    
-    <div class="tip-card">
-      <div class="tip-header">
-        Use alternative icons
-      </div>
-      <div class="tip-content">
-        Try our alternative icons for free !
-      </div>
-      <a href="settings.html" class="tip-button">Settings page</a>
-    </div>
-	  
-    <div class="tip-card">
-      <div class="tip-header">
-        Custom certificates
-      </div>
-      <div class="tip-content">
-        Use your own certificate to install your favorite apps !
-      </div>
-      <a href="settings/certificates.html" class="tip-button">Certificates page</a>
-    </div>
-    
-    <div class="tip-card">
-      <div class="tip-header">
-        Block iOS updates
-      </div>
-      <div class="tip-content">
-        Follow this guide to block OTA updates without jailbreak and for free !
-      </div>
-      <a href="https://betaprofiles.dev/install/block-ota/" class="tip-button">See the guide</a>
-    </div>
 
-  </div>
-    
-    <!--Recently Added-->
-   <h3 id="topapps" style="margin-top: 30px;margin-bottom: 7px;font-family:helvetica;font-size: 22px;color: white;font-weight: 700;">Featured</h3>
-	
-<div class="appList">										  
-              <div class="dock" style="margin-bottom: 10px;margin-right: 5px;margin-bottom: 5px;margin-top: 5px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">OldOS</div>
-                    <div class="appsection">iOS 4 simulator</div>
-                  </div>
-                </div>
-                <div class="appget">
-		<a href="appinfos.html?name=OldOS">
-                  <button class="getbtn" id="getbtn">GET</button>
+
+<div class="header_app">
+
+<div class="cell_app" onclick="window.location.href='appinfos.html?name=Enmity&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json'">
+      <div class="text_app">
+        <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/IMG_2859.jpeg" class="icon_app">
+        <div class="meta_cell_app">
+          <div class="title_cell_app">Enmity</div>
+          <div class="author_cell_app">Enmity Team</div>
+        </div>
+      </div>
+<div class="app_get">
+		<a href="appinfos.html?name=Enmity&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json">
+                  <button class="get_btn" id="get_btn">GET</button>
 		</a>
-                </div>
-              </div>
-	      
-              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">Misaka</div>
-                    <div class="appsection">MDC Tweak Manager</div>
-                  </div>
-                </div>
-                <div class="appget">
-		<a href="appinfos.html?name=Misaka">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img src="https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">Misaka</div>
-                    <div class="appsection">MDC Tweak Manager</div>
-                  </div>
-                </div>
-                <div class="appget">
-		<a href="appinfos.html?name=Misaka">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img src="https://github.com/guillermo-moran/ClassicPlayer/blob/master/ClassicPlayer_icon.png?raw=true" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">ClassicPlayer</div>
-                    <div class="appsection">iPod interface on iOS.</div>
-                  </div>
-                </div>
-                <div class="appget">
-		<a href="appinfos.html?name=ClassicPlayer">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img src="https://bunnyinject.fun/img/odyssey.png" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">Odyssey</div>
-                    <div class="appsection">Jailbreak tool</div>
-                  </div>
-                </div>
-                <div class="appget">
-		<a href="appinfos.html?name=Odyssey">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-              <div class="dock" style="margin-bottom: 5px;margin-right: 5px;margin-top: 5px;margin-left: 5px;">
-                <div class="app_cell_left">
-                  <img src="https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true" class="appicon">
-                  <div class="app_cell_meta">
-                    <div class="appname">MovieBox Pro</div>
-                    <div class="appsection">Watch movies for free</div>
-                  </div>
-                </div>
-                <div class="appget">
-		<a href="appinfos.html?name=MovieBox Pro">
-                  <button class="getbtn" id="getbtn">GET</button>
-		</a>
-                </div>
-              </div>
-   </div>
-</div>	
-
-<!--	
-<a href="appinfos.html?name=Minecraft">
-<img class="solobanner" src="img/minecraft.jpg">
-</a>
-
-    <!--Tutorials-->
-
-   <!--
-<div class="carousel-container">
-	
-  <div class="news-card" onclick="openPage('articles/article1.html')">
-    <div class="illu">
-      <img src="https://proton-resources-production.imgix.net/91da0717ad7859dec073a5b8caac0db4900c585b1c6eda16c7a1fef2e359091b.png?auto=compress" alt="Banner Image">
     </div>
-    <h2 class="newstitle">How to create your own repo ?</h2>
-  </div>
-
-  <div class="news-card" onclick="openPage('articles/article2.html')">
-    <div class="illu">
-      <img src="https://proton-resources-production.imgix.net/e7da97f006fe92e7142f6ddd49da2d6d74b078c039161de977a160b80e11864d.png?auto=compress" alt="Banner Image">
-    </div>
-    <h2 class="newstitle">How to install an app on iOS with an iPA?</h2>
-  </div>
-
-  <div class="news-card" onclick="openPage('articles/article3.html')">
-    <div class="illu">
-      <img src="https://www.addictivetips.com/app/uploads/2020/02/untrusted-dev.jpg" alt="Banner Image">
-    </div>
-    <h2 class="newstitle">How to fix "Untrusted Enterprise Developer" ?</h2>
-  </div>
+    </div> 
 </div>
--->
-    <!--End Tutorials-->
+
+	
+<div class="selection">
+    <h3 id="topapps" class="selection-liltitle">FROM THE TEAM</h3>
+    <h3 id="topapps" class="selection-title">The best apps for your iDevice</h3>
+    <div class="appList" id="appList"></div>
+</div>
+
+<h3 class="title-page-section">Sections</h3>
+<div class="sections_div">
+<div class="grid-container">
+	<div onclick="openPage('sections.html?section=Movies')" class="item1">Movies</div>
+	<div onclick="openPage('sections.html?section=Jailbreak')" class="item2">Jailbreak</div>
+	<div onclick="openPage('sections.html?section=Social')" class="item3">Social</div>
+	<div onclick="openPage('sections.html?section=Utilities')" class="item4">Utilities</div>
+	<div onclick="openPage('sections.html?section=Games')" class="item5">Games</div>
+	<div onclick="openPage('sections.html?section=Music')" class="item6">Music</div> 
+</div>
+</div>
+   
 	
 <div class="cert-container">
   <div class="cert-infos">
@@ -307,15 +166,22 @@
   </div>   
 </div>
 
-<a href="https://nabzclan.vip/forums/ios-certificates.43/">
-  <ul class="ioslist">
-<li style="border-bottom-width: 0px;">
-<div class="ioslist_icon"><i class="fa-regular fa-id-card"></i></div>
-<span>Download the certificates</span>
+<ul style="margin-top: 8px" class="ioslist">
+<li style="border-bottom-width: 0px;" onclick="window.location.href='settings.html'">
+<div class="ioslist_icon"><i class="fa-solid fa-gear" aria-hidden="true"></i></div>
+<span>Settings</span>
+<div class="ioslist_opposite"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></div>
 </li>
 </ul>
-</a>
-<button id="secretButton" class="debugbtn" onclick="countClicks()"></button>
+<ul style="margin-top: 8px;" class="ioslist">
+<li style="border-bottom-width: 0px;" onclick="window.location.href='favorite.html'">
+<div class="ioslist_icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+<span>Favorite apps</span>
+<div class="ioslist_opposite"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></div>
+</li>
+</ul>
+	
+<button style="display: none;" id="secretButton" class="debugbtn" onclick="countClicks()"></button>
 
         <br>
         <br>
@@ -365,7 +231,7 @@
 </div>
 	    
 <script src="https://api.cococloud-signing.online/cert-status/sign-status.js"></script> 
-	
+
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
@@ -405,64 +271,35 @@
 
     // Appliquer la couleur lors du chargement de la page
     applyAccentColor();
-
-// slider banner js
-    const sliderItems = document.querySelectorAll('.slider-item');
-    const indicatorContainer = document.querySelector('.slider-indicators');
-
-    sliderItems.forEach((item, index) => {
-      const indicator = document.createElement('div');
-      indicator.classList.add('slider-indicator');
-      indicator.addEventListener('click', () => {
-        document.querySelector('.slider-list').style.transform = `translateX(-${index * 100}%)`;
-        updateActiveIndicator(index);
-      });
-      indicatorContainer.appendChild(indicator);
-      if (index === 0) {
-        indicator.classList.add('active');
-      }
-    });
-
-    const sliderContainer = document.querySelector('.slider-container');
-    let activeIndex = 0;
-
-    sliderContainer.addEventListener('scroll', () => {
-      const sliderWidth = sliderContainer.offsetWidth;
-      const currentIndex = Math.round(sliderContainer.scrollLeft / sliderWidth);
-      if (currentIndex !== activeIndex) {
-        activeIndex = currentIndex;
-        updateActiveIndicator(activeIndex);
-      }
-    });
-
-    function updateActiveIndicator(index) {
-      const indicators = document.querySelectorAll('.slider-indicator');
-      indicators.forEach((indicator, i) => {
-        if (i === index) {
-          indicator.classList.add('active');
-        } else {
-          indicator.classList.remove('active');
-        }
-      });
-    }
-        const displayUsername = document.getElementById('displayUsername');
-        const displayProfilePic = document.getElementById('displayProfilePic');
-
-        // Check if data is already stored in localStorage
-        const storedUsername = localStorage.getItem('username');
-        const storedProfilePicBase64 = localStorage.getItem('profilePic');
-        if (storedUsername && storedProfilePicBase64) {
-            displayUsername.textContent = storedUsername;
-            displayProfilePic.src = `data:image;base64,${storedProfilePicBase64}`;
-        } else {
-            window.location.href = 'setup.html'; // Redirect to setup page if no data
-        }
-        
-        
-
         
   </script>
 <script>
+// Account system script
+document.addEventListener('DOMContentLoaded', function() {
+    // Vérifier si la clé "setup" avec la propriété "done" existe dans le local storage
+    if (!localStorage.getItem('setup') || localStorage.getItem('setup') !== 'done') {
+        // Rediriger vers setup.html si la clé "setup" n'existe pas ou si sa valeur n'est pas "done"
+        window.location.href = 'setup.html';
+    } else {
+        // Récupérer l'username depuis le local storage
+        var username = localStorage.getItem('username');
+        // Récupérer la photo de profil depuis le local storage
+        var profilePicBase64 = localStorage.getItem('profilePic');
+
+        // Vérifier si l'username et la photo de profil existent
+        if (username !== null && profilePicBase64 !== null) {
+            // Mettre à jour le texte de l'élément span
+            document.getElementById('displayUsername').textContent = username;
+            // Mettre à jour l'attribut src de l'élément img avec la donnée base64
+            document.getElementById('displayProfilePic').src = "data:image/png;base64," + profilePicBase64;
+        } else {
+            // Rediriger vers setup.html si l'username ou la photo de profil n'existe pas
+            window.location.href = 'setup.html';
+        }
+    }
+});
+
+// Prevent malfunctions for older browsers	
   function openPage(url) {
     window.location.href = url;
   }
@@ -571,20 +408,85 @@ function openDebugPage() {
             }
         });
 	
-   document.addEventListener("DOMContentLoaded", function () {
-        // Vérifier si la propriété "id" n'est pas présente dans le local storage
-        if (!localStorage.getItem("id")) {
-            // Afficher la div
-            document.getElementById("fullscreen-container").style.display = "flex";
-            // Ajouter la classe pour désactiver le scroll
-            document.body.classList.add("no-scroll");
-        }
-    });
+   
 
     // Fonction pour ouvrir la page
     function openPage(url) {
         window.location.href = url;
     }
+    
+// Selection script
+fetch('selection.json')
+  .then(response => response.json())
+  .then(data => {
+    const appList = document.getElementById('appList');
+    data.apps.forEach(app => {
+      const appDiv = document.createElement('div');
+      appDiv.classList.add('dock');
+      appDiv.style.marginRight = '5px';
+      appDiv.style.marginBottom = '0px';
+      appDiv.style.marginTop = '0px';
+      appDiv.style.marginLeft = '5px';
+      appDiv.innerHTML = `
+        <div class="app_cell_left">
+          <img style="width: 54px;height: 54px;" src="${app.icon}" class="appicon">
+          <div class="app_cell_meta">
+            <div class="appname">${app.name}</div>
+            <div class="appsection">${app.developer}</div>
+          </div>
+        </div>
+        <div style="background-color: #323135;" class="appget">
+          <a href="${app.link}">
+            <button class="getbtn">GET</button>
+          </a>
+        </div>
+      `;
+      appList.appendChild(appDiv);
+    });
+  });
+  
+// welcome back changing text script
+document.addEventListener('DOMContentLoaded', function() {
+    var changingText = document.getElementById('changingText');
+    var displayUsername = document.getElementById('displayUsername');
+    var isWelcomeBack = true;
+
+    function changeText() {
+        if (isWelcomeBack) {
+            changingText.innerHTML = 'Welcome back,<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername">' + displayUsername.textContent + '</span>';
+        } else {
+            var currentDate = new Date();
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
+            var day = currentDate.getDate();
+            var monthIndex = currentDate.getMonth();
+            var monthName = monthNames[monthIndex];
+            var suffix = getDaySuffix(day);
+            changingText.innerHTML = 'Today is ' + monthName + ' ' + day + suffix + ',<span style="margin-left: 4px;color: var(--accent-color);font-size:12px;" id="displayUsername">' + displayUsername.textContent + '</span>';
+        }
+        isWelcomeBack = !isWelcomeBack;
+    }
+
+    // Décalage du premier changement de texte de 2 secondes
+    setTimeout(changeText, 2000);
+
+    // Changement de texte toutes les 4 secondes
+    setInterval(changeText, 4000);
+
+    // Fonction pour obtenir le suffixe du jour (st, nd, rd, th)
+    function getDaySuffix(day) {
+        if (day >= 11 && day <= 13) {
+            return "th";
+        }
+        switch (day % 10) {
+            case 1:  return "st";
+            case 2:  return "nd";
+            case 3:  return "rd";
+            default: return "th";
+        }
+    }
+});
 </script>
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>

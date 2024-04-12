@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
     <meta name="theme-color" content="#121212">
-    <title>Apps Manager | iTweakHub</title>
+    <title>Sources | iTweakHub</title>
     <script src="/js/index.js"></script>
 
     <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
 
 	    
 <div class="animated-enter">	    
-<div class="explore">
+<div id="selectedBackground" class="explore">
   <div class="explore_title">Explore</div>
   <div class="explore_text">Explore our recommended sources to discover new apps !</div>
   <div class="featuredrepos">	 
@@ -59,7 +59,7 @@
 </div>
 <div class="item">
     <button id="https://repo.apptesters.org">Add</button>
-       <img src="https://cdn.discordapp.com/attachments/1105094393771347976/1146587609674547230/apptesters-resized.png">
+       <img src="https://apptesters.org/wp-content/uploads/2024/04/AppTesters-Logo-Site-Icon.webp">
        <h2>AppTesters IPA Repo</h2>
     <p>apptesters</p>
 </div>
@@ -91,6 +91,17 @@
 -->
 </div>
 </div>
+<div class="message-overlay"></div>
+
+<div class="message-container">
+  <h2 class="message-title">Personalization</h2>
+  <p class="message-description">You can choose beetween two differents background for this section. Tap the "Open" button to change or tap "Later" to choose later in the settings.</p>
+  <div class="button-container">
+    <button onclick="openPage('settings/color.html')" class="message-button">Open</button>
+    <button class="message-button">Later</button>
+  </div>
+</div>
+
 <div class="animated-enter">
 <p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 8px;margin-top: 20px;">Added Sources</p>	
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
@@ -135,11 +146,27 @@
     </a>
         </nav>
 <div class="gradient-div"></div>
-
+<div style="display: none;" class="container">
+    <div class="image-container">
+      <img id="image1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1">
+      <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2">
+    </div>
+    <div class="typetext">
+      <label for="backgroundType1">
+        <input type="radio" id="backgroundType1" name="backgroundType" value="1" checked="">
+        Type 1
+      </label>
+      <label for="backgroundType2">
+        <input type="radio" id="backgroundType2" name="backgroundType" value="2">
+        Type 2
+      </label>
+    </div>
+  </div>
 <div class="hidecolor">	
 <input type="color" id="color-picker">
 <button id="reset-button">Reset</button>
 </div>
+<script src="js/sources.js"></script>
 <script>
     // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
@@ -181,204 +208,8 @@
     applyAccentColor();
   </script>
 
+
 <script>
-function afficherReposDepuisLocalStorage() {
-  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-  var appListDiv = document.getElementById("sourceList");
-
-  repoURLs.forEach(function (url) {
-    fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        if (data.apps && Array.isArray(data.apps) && data.name) {
-          var repoElement = createRepoElement(data, url);
-          appListDiv.appendChild(repoElement);
-        } else {
-          console.log('Warning', 'Source added despite missing "apps" array or "name" property');
-        }
-      })
-      .catch(function (error) {
-        console.log('Error', error);
-      });
-  });
-}
-
-// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
-function afficherInfosDepuisJSON() {
-  var url = prompt("Enter source URL:");
-
-  console.log('Before fetch. URL:', url); // Ajout pour débogage
-
-  fetch(url)
-    .then(function(response) {
-      console.log('After fetch, before response.json(). Status:', response.status); // Ajout pour débogage
-      return response.json();
-    })
-    .then(function(data) {
-      console.log('After response.json(), data:', data); // Ajout pour débogage
-
-      if (data.apps && Array.isArray(data.apps) && data.name) {
-        var reposDiv = document.getElementById("repos");
-        var infoDiv = createRepoElement(data, url);
-
-        var repoLink = document.createElement("a");
-        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-        repoLink.appendChild(infoDiv);
-
-        reposDiv.appendChild(repoLink);
-
-        // Enregistrer l'URL du repo dans le localStorage
-        var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-        repoURLs.push(url);
-        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-        location.reload();
-      } else {
-        console.log('Warning', 'Source added despite missing "apps" array or "name" property');
-      }
-    })
-    .catch(function(error) {
-      console.log('Error during fetch', error); // Ajout pour débogage
-      alert('Error, unable to load the source', error);
-    });
-}
-
-// Fonction pour créer l'élément de la source
-function createRepoElement(data, url) {
-  var dockDiv = document.createElement("div");
-  dockDiv.className = "dock";
-
-  var appCellLeftDiv = document.createElement("div");
-  appCellLeftDiv.className = "app_cell_left";
-  dockDiv.appendChild(appCellLeftDiv);
-
-  var iconElement = document.createElement("img");
-  iconElement.className = "appicon";
-  iconElement.src = data.iconURL || "img/blank.JPG";
-  appCellLeftDiv.appendChild(iconElement);
-
-  var appCellMetaDiv = document.createElement("div");
-  appCellMetaDiv.className = "app_cell_meta";
-  appCellLeftDiv.appendChild(appCellMetaDiv);
-
-  var appNameDiv = document.createElement("div");
-  appNameDiv.className = "appname";
-  appNameDiv.textContent = data.name || "Untitled Source";
-  appCellMetaDiv.appendChild(appNameDiv);
-
-  var appSectionDiv = document.createElement("div");
-  appSectionDiv.className = "appsection";
-  appSectionDiv.textContent = data.author || "Unknown Author";
-  appCellMetaDiv.appendChild(appSectionDiv);
-
-  var appGetDiv = document.createElement("div");
-  appGetDiv.className = "appget";
-  dockDiv.appendChild(appGetDiv);
-
-  var getButton = document.createElement("button");
-  getButton.className = "getbtn";
-  getButton.textContent = "VIEW";
-  appGetDiv.appendChild(getButton);
-
-  // Ajouter un gestionnaire d'événements pour ouvrir la page repoview.html
-  dockDiv.addEventListener("click", function() {
-    window.open("repoview.html?repo=" + encodeURIComponent(url), "_blank");
-  });
-
-  return dockDiv;
-}
-// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
-window.addEventListener("load", afficherReposDepuisLocalStorage);
-
-var popupButton = document.getElementById("popupButton");
-popupButton.addEventListener("click", afficherInfosDepuisJSON);
-</script>
-<script>
-function afficherDonnees() {
-  var appListDiv = document.getElementById("appList");
-  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-
-  fetch('apps.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var appsData = data.Apps;
-
-      favapps.forEach(function(favAppName) {
-        var appData = appsData.find(function(app) {
-          return app.name === favAppName;
-        });
-
-        if (appData) {
-          var dockDiv = document.createElement("div");
-          dockDiv.className = "dock";
-
-          var appCellLeftDiv = document.createElement("div");
-          appCellLeftDiv.className = "app_cell_left";
-
-          var appIconImg = document.createElement("img");
-          appIconImg.className = "appicon";
-          appIconImg.src = appData.icon;
-          appCellLeftDiv.appendChild(appIconImg);
-
-          var appCellMetaDiv = document.createElement("div");
-          appCellMetaDiv.className = "app_cell_meta";
-
-          var appNameDiv = document.createElement("div");
-          appNameDiv.className = "appname";
-          appNameDiv.textContent = appData.name;
-          appCellMetaDiv.appendChild(appNameDiv);
-
-          var appDevDiv = document.createElement("div");
-          appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developer;
-          appCellMetaDiv.appendChild(appDevDiv);
-
-          appCellLeftDiv.appendChild(appCellMetaDiv);
-          dockDiv.appendChild(appCellLeftDiv);
-
-          var appGetDiv = document.createElement("div");
-          appGetDiv.className = "appget";
-
-          var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name);
-
-          var getBtn = document.createElement("button");
-          getBtn.className = "getbtn";
-          getBtn.textContent = "GET";
-
-          var removeBtn = document.createElement("button");
-          removeBtn.className = "removebtn";
-          removeBtn.textContent = "Remove";
-          removeBtn.addEventListener("click", function() {
-            removeFavorite(appData.name);
-            appListDiv.removeChild(dockDiv);
-          });
-
-          appGetBtn.appendChild(getBtn);
-          appGetBtn.appendChild(removeBtn);
-          appGetDiv.appendChild(appGetBtn);
-          dockDiv.appendChild(appGetDiv);
-
-          appListDiv.appendChild(dockDiv);
-        }
-      });
-    })
-    .catch(function(error) {
-      console.log('Error', error);
-    });
-}
-
-function removeFavorite(appName) {
-  var favapps = JSON.parse(localStorage.getItem("favapps")) || [];
-  var updatedFavapps = favapps.filter(function(favAppName) {
-    return favAppName !== appName;
-  });
-  localStorage.setItem("favapps", JSON.stringify(updatedFavapps));
-}
-
         // Sélectionnez le bouton par son ID
         var reloadButton = document.getElementById('reload');
 
@@ -698,6 +529,97 @@ items.forEach(function(item, index) {
                 }
             }, 20);
         }    
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle");
+            var elementElement = document.getElementById("p");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "130px";
+            }
+        });  
+
+
+// background explorer script
+    document.addEventListener('DOMContentLoaded', function () {
+      const image1 = document.getElementById('image1');
+      const image2 = document.getElementById('image2');
+      const backgroundType1 = document.getElementById('backgroundType1');
+      const backgroundType2 = document.getElementById('backgroundType2');
+      const selectedBackgroundDiv = document.getElementById('selectedBackground');
+
+      function setBackgroundImage(url) {
+        selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
+      }
+
+      function updateLocalStorage(key, value) {
+        localStorage.setItem(key, value);
+      }
+
+      function updateBackgroundType() {
+        if (backgroundType1.checked) {
+          setBackgroundImage(image1.src);
+          updateLocalStorage('explore-background', 'url1.jpg');
+        } else if (backgroundType2.checked) {
+          setBackgroundImage(image2.src);
+          updateLocalStorage('explore-background', 'url2.jpg');
+        }
+      }
+
+      // Load background from Local Storage if available
+      function loadBackgroundFromLocalStorage() {
+        const backgroundUrl = localStorage.getItem('explore-background');
+        if (backgroundUrl === 'url1.jpg') {
+          setBackgroundImage(image1.src);
+          backgroundType1.checked = true;
+        } else if (backgroundUrl === 'url2.jpg') {
+          setBackgroundImage(image2.src);
+          backgroundType2.checked = true;
+        }
+      }
+
+      // Initial update
+      loadBackgroundFromLocalStorage();
+
+      // Update background when background type changes
+      backgroundType1.addEventListener('change', updateBackgroundType);
+      backgroundType2.addEventListener('change', updateBackgroundType);
+    });
+document.addEventListener('DOMContentLoaded', function() {
+  const overlay = document.querySelector('.message-overlay');
+  const messageContainer = document.querySelector('.message-container');
+  const messageButtons = document.querySelectorAll('.message-button');
+
+  messageButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      messageContainer.style.display = 'none';
+      overlay.style.display = 'none';
+      // Mettre à jour la propriété "message" dans le stockage local
+      localStorage.setItem('message', 'hidden');
+    });
+  });
+
+  function showMessage() {
+    // Vérification de la valeur de la propriété "message" dans le stockage local
+    const messageStatus = localStorage.getItem('message');
+    if (messageStatus === 'show') {
+      messageContainer.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+  }
+
+  // Vérifie si la propriété "message" existe dans le stockage local
+  // Si elle n'existe pas, créez-la avec la valeur par défaut "show"
+  if (!localStorage.getItem('message')) {
+    localStorage.setItem('message', 'show');
+  }
+
+  // Appelez showMessage() pour afficher la bulle de message si nécessaire
+  showMessage();
+});
 </script>
 
 <script src="js/index.js"></script>

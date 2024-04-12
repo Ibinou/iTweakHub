@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/featured.css" keep>
+  <link rel="stylesheet" href="css/navbar.css" keep>
+  <link rel="stylesheet" href="css/styles.css" keep>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121212">
+  <meta name="viewport"content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+  <title>App Versions | iTweakHub</title>
+  <script src="/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/repojs/src/index.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a5ae6c00ff.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+	
+
+
+    <style>
+        /* Ajoutez votre CSS ici */
+        /* Styles pour la liste des versions */
+          .installation-method {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Hide the popup initially */
+.unique-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: #1c1c1ca6;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+  /* The dark background behind the popup */
+  .custom-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Styling for buttons inside custom popup */
+.unique-action-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+    background: #393939c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+  .unique-action-button:hover {
+    background-color: #666;
+  }
+
+  /* Opening animation for popup */
+  .animate-popup {
+    display: block;
+    animation: fadeIn 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /* Styling for image containers */
+  .custom-image-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .custom-image-option {
+    width: calc(25% - 20px); 
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  /* Make the images responsive */
+  .custom-image-option img {
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+  }	  
+        #versionList {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 115px;
+        }
+
+        .versionItem {
+            margin-bottom: 20px;
+            background-color: #1c1c1c;
+            padding: 15px;
+            border-radius: 18px;
+        }
+
+        .versionNumber {
+            font-weight: bold;
+        }
+
+
+.versionDescription {
+    overflow: hidden;
+    max-height: 100px; /* Limite de la hauteur */
+    transition: max-height 0.5s ease; /* Animation de transition */
+}
+.versionDescription.expanded {
+    max-height: none; /* Afficher tout le texte */
+}
+.readMoreButton {
+    display: none; /* Caché par défaut */
+}
+
+        .installButton {
+            background-color: #363636;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .installButton:hover {
+            background-color: #45a049;
+        }
+        
+        
+.view_more_btn {
+   margin-left: 0px;
+}
+    </style>
+</head>
+<body style="margin-right: 16px;margin-left: 16px;">
+<div class="toptitle2">	
+    <a onclick="window.history.back()" style="text-decoration: none" ><h1 style="font-family:helvetica;font-size:21px;margin-left: 16px;color: var(--accent-color);"><i class="fa-solid fa-angle-left" style="color: var(--accent-color);margin-right: 5px;"></i>Back</h1></a>
+    <h1 style="font-family:helvetica;font-size:28px;color: #fff;margin-top: 0px;margin-left: 16px;margin-bottom: 10px;">Versions</h1>
+</div>
+    <ul id="versionList"></ul>
+
+    <!-- Popup d'installation -->
+    <div class="custom-overlay" id="overlay"></div>
+    <div class="unique-popup" id="popup">
+        <div class="installation-method">Choose an installation method</div>
+        <div class="custom-image-container">
+            <div id="AltStore" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/2018600523.webp">
+            </div>
+            <div id="TrollStore" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/TrollStore-Logo.jpg">
+            </div>
+            <div id="import" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/spaces_FJiyQY8c07uhMBUxEiix_icon_vXR6UhwzjUotIjWQQNJs_CydiaIcon.webp">
+            </div>
+            <div id="geturl" class="custom-image-option">
+                <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/unnamed.jpg">
+            </div>
+        </div>
+        <button id="cancel" class="unique-action-button">Cancel</button>
+    </div>
+<div class="hidecolor">  
+<input type="color" id="color-picker">
+<button id="reset-button">Reset</button>
+</div>
+    <script>
+// Fonction pour afficher/masquer la popup avec les liens appropriés
+function showPopup(version) {
+    setInstallLinks(version);
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+// Fonction pour mettre à jour les liens dans la popup en fonction de la version sélectionnée
+function setInstallLinks(version) {
+    const importButton = document.getElementById("import");
+    if (importButton) {
+        importButton.addEventListener("click", () => {
+            window.open(`scarlet://install=${version.downloadURL}`, "_blank");
+        });
+    }
+
+    const AltButton = document.getElementById("AltStore");
+    if (AltButton) {
+        AltButton.addEventListener("click", () => {
+            window.open(`altstore://install?url=${version.downloadURL}`, "_blank");
+        });
+    }
+
+    const trollButton = document.getElementById("TrollStore");
+    if (trollButton) {
+        trollButton.addEventListener("click", () => {
+            window.open(`apple-magnifier://install?url=${version.downloadURL}`, "_blank");
+        });
+    }
+
+    const ipaButton = document.getElementById("ipa");
+    if (ipaButton) {
+        ipaButton.setAttribute("href", version.downloadURL);
+    }
+}
+
+// Fonction pour réinitialiser les liens dans la popup
+function resetPopupLinks() {
+    // Recharger la page actuelle pour reset les href
+    location.reload();
+}
+
+// Fonction pour afficher/masquer la description complète
+function toggleDescription(versionItem) {
+    const versionDescription = versionItem.querySelector('.versionDescription');
+    const viewMoreText = versionItem.querySelector('#viewMoreText');
+    const chevronIcon = versionItem.querySelector('#down');
+
+    if (versionDescription.classList.contains('expanded')) {
+        // Si la description est déjà étendue, la réduire
+        versionDescription.classList.remove('expanded');
+        versionDescription.style.height = '53px'; // Réduction à la hauteur de départ
+        viewMoreText.textContent = 'View more';
+        chevronIcon.classList.remove('rotate');
+    } else {
+        // Si la description est réduite, l'étendre
+        versionDescription.classList.add('expanded');
+        versionDescription.style.height = versionDescription.scrollHeight + 'px';
+        viewMoreText.textContent = 'View less';
+        chevronIcon.classList.add('rotate');
+    }
+}
+
+// Fonction pour afficher les versions de l'application
+function displayAppVersions(versions) {
+    const versionList = document.getElementById('versionList');
+    versionList.innerHTML = '';
+
+    versions.forEach(version => {
+        const versionItem = document.createElement('li');
+        versionItem.classList.add('versionItem');
+
+        const versionNumber = document.createElement('div');
+        versionNumber.classList.add('versionNumber');
+        versionNumber.textContent = `Version ${version.version}`;
+        versionItem.appendChild(versionNumber);
+
+        const versionDescription = document.createElement('div');
+        versionDescription.classList.add('versionDescription');
+        versionDescription.textContent = version.localizedDescription;
+        versionItem.appendChild(versionDescription);
+
+        // Ajouter le bouton "View more" pour chaque version
+        const viewMoreButton = document.createElement('div');
+        viewMoreButton.classList.add('view_more_btn');
+        viewMoreButton.onclick = function() {
+            toggleDescription(versionItem);
+        };
+        viewMoreButton.innerHTML = `
+            <div id="viewMoreText">View more</div>
+            <i id="down" class="fa-solid fa-chevron-down"></i>
+        `;
+        versionItem.appendChild(viewMoreButton);
+
+        const installButton = document.createElement('button');
+        installButton.classList.add('installButton');
+        installButton.textContent = 'Install';
+        installButton.addEventListener('click', () => {
+            showPopup(version);
+        });
+        versionItem.appendChild(installButton);
+
+        versionList.appendChild(versionItem);
+    });
+}
+
+// Fonction pour afficher la popup
+function showPopup(version) {
+    setInstallLinks(version);
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+// Fonction pour cacher la popup
+function hidePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+    resetPopupLinks();
+}
+
+// Event listener pour le bouton "Annuler" de la popup
+document.getElementById('cancel').addEventListener('click', hidePopup);
+
+// Event listener pour cacher la popup lorsque l'utilisateur clique sur l'overlay
+document.getElementById('overlay').addEventListener('click', hidePopup);
+
+// Charger les versions de l'application lorsque la page se charge
+window.onload = loadAppVersions;
+
+// Fonction pour récupérer les paramètres de l'URL
+function getUrlParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return Object.fromEntries(urlParams.entries());
+}
+
+// Fonction pour charger les versions de l'application
+function loadAppVersions() {
+    const params = getUrlParams();
+    const appName = params.name;
+    const sourceURL = params.source;
+
+    if (!appName || !sourceURL) {
+        console.error("Paramètres requis manquants (name ou source).");
+        return;
+    }
+
+    fetch(sourceURL)
+        .then(response => response.json())
+        .then(data => {
+            const app = data.apps.find(app => app.name === appName);
+            if (app) {
+                displayAppVersions(app.versions);
+            } else {
+                console.error("Application non trouvée.");
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données:", error);
+        });
+}
+    </script> 
+  <script>
+    // Fonction pour enregistrer la couleur dans localStorage
+    function setAccentColor(color) {
+      localStorage.setItem('accentColor', color);
+    }
+
+    // Fonction pour récupérer la couleur de localStorage
+    function getAccentColor() {
+      return localStorage.getItem('accentColor');
+    }
+
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
+
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
+    });
+
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
+
+  
+          document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'élément avec la classe "toptitle"
+            var toptitleElement = document.querySelector(".toptitle2");
+            var elementElement = document.getElementById("versionList");
+
+            // Vérifier si l'élément "toptitle" a un padding top de 43px
+            if (window.getComputedStyle(toptitleElement).paddingTop === "50px") {
+                // Si oui, changer le margin-top de l'élément "element" à 100px
+                elementElement.style.marginTop = "150px";
+            }
+        });  
+  </script>
+</body>
+</html>

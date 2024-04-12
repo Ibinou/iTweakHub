@@ -1,4 +1,4 @@
-    * {
+   * {
         box-sizing: border-box;
     }
 
@@ -42,8 +42,8 @@
     width: 100%;
     max-width: 445px;
     margin-right: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 1px;
+    margin-top: 1px;
     margin-left: 5px;
 }
 
@@ -95,7 +95,7 @@
     padding: 5px;
     display: flex;
     justify-content: center;
-    width: 67px;
+    width: 70px;
     height: 30px;
     object-fit: cover;
     color: var(--accent-color);
@@ -160,5 +160,103 @@ color: rgba(255, 255, 255, 0.65);
     height: 60px;
   border-radius: 15px;
   margin: 9px;
+}
+
+.header_app {
+    font-family: Helvetica;
+    display: flex;
+    margin-bottom: 20px;
+    background-image: url(https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 157px 0px 0px;
+}
+
+.cell_app {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, .7);
+    padding: 16px;
+    width: 100%;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.text_app {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.icon_app {
+  border-radius: 12px;
+  background-color: #000;
+  width: 47px;
+  height: 47px;
+  object-fit: cover;
+}
+
+.meta_cell_app {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.2rem;
+}
+.app_get {
+    border-radius: 40px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    height: 30px;
+    object-fit: cover;
+    background-color: var(--accent-color);
+    align-items: center;
+}
+
+.app_get a {
+    margin-bottom: 2px;
+}
+
+.get_btn {
+    background-color: transparent;
+    border: none;
+    font-weight: 750;
+    color: white;
+}
+  
+.title_cell_app {
+  width: 170px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden!important;
+  text-overflow: ellipsis;
+  font-size: 15px;
+}
+
+.author_cell_app {
+  opacity: .6;
+  color: white;
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden!important;
+  text-overflow: ellipsis;
+  font-size: 15px;
+}
+
+.get_app {
+  background-color: #db2c99;
+  border-radius: 100px;
+  padding: 5px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
 }
 

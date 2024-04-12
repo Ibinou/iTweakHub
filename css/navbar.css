@@ -2,13 +2,13 @@
 
 
 
-  .gradient-div {
+.gradient-div {
     width: 100%;
     height: 70px; /* Ajustez la hauteur selon vos besoins */
-    background: linear-gradient(to bottom, #00000000, #121212);
+    background: linear-gradient(to bottom, #00000000, #000);
     position: fixed;
     bottom: 0;
-  }
+}
   
 /* Mobile nav bar */
 @supports ( (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px)) ) {
@@ -218,6 +218,17 @@ div.content {
     -webkit-backdrop-filter: blur(20px);
     padding-top: 20px;
 }
+.toptitle2 {
+    background-color: #1212128a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding-top: 20px;
+}
 /*SECTIONS CHOOSE*/
 .sectionscarr {
   display: flex;
@@ -267,7 +278,6 @@ div.content {
 
 #navbar {
     overflow: hidden;
-    background-color: #121212;
     width: 100%;
     z-index: 9999999;
     position: sticky;
@@ -276,6 +286,30 @@ div.content {
     height: 68px;
 }
 
+.search-container {
+    position: relative;
+}
+
+.search-container i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #727272;
+}
+
+#myInput {
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
+    margin: auto;
+    border-radius: 15px;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: 1px solid rgb(37, 37, 39);
+}
 
 /* Styles for iPhones with a pixel ratio of 3 (and higher) */
 @media only screen and (-webkit-device-pixel-ratio: 3) {
@@ -286,6 +320,9 @@ div.content {
     margin-bottom: 15px;
   }
   .toptitle {
+    padding-top: 50px;
+  }
+  .toptitle2 {
     padding-top: 50px;
   }
   nav {
@@ -305,6 +342,9 @@ div.content {
     margin-bottom: 15px;
   }
   .toptitle {
+    padding-top: 50px;
+  }
+  .toptitle2 {
     padding-top: 50px;
   }
   nav {

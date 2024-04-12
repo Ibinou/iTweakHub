@@ -267,8 +267,16 @@ nav h1 i a {
         <div class="ioslist_oppositeinfos" id="appCompatibility">compatibility</div>
     </li>
 </ul>
-
 <br>
+<a id="versions">
+<ul style="margin-left: 16px;margin-right: 16px;" class="ioslist">
+<li style="border-bottom-width: 0px;">
+<div class="ioslist_icon"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></div>
+<span>Version history</span>
+<div class="ioslist_opposite"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></div>
+</li>
+</ul>
+</a>
 <!-- <button id="triggerPopup" class="unique-action-button">Open Popup</button>. -->
 
 	
@@ -635,6 +643,21 @@ window.onload = loadAppInfo;
       hidePopup();
     }
   });
+  
+  
+document.addEventListener("DOMContentLoaded", function() {
+    // Récupérer les valeurs des paramètres d'URL
+    const params = new URLSearchParams(window.location.search);
+    const appName = params.get('name');
+    const sourceURL = params.get('source');
+    
+    // Construire l'URL cible
+    const targetURL = `versions.html?name=${appName}&source=${sourceURL}`;
+    
+    // Attribuer l'URL cible à l'élément <li> avec l'ID "versions"
+    const versionsLink = document.getElementById("versions");
+    versionsLink.href = targetURL;
+});
     </script>
 <script>
 // Fonction pour ajouter ou supprimer une application des favoris

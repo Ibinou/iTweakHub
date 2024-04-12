@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "name": "FlixHub",
+      "developer": "Dangerous Pixel",
+      "icon": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/4IZcJrc.jpeg?raw=true",
+      "link": "appinfos.html?name=FlixHub&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
+    },
+    {
+      "name": "PPSSPP",
+      "developer": "PPSSPP Team",
+      "icon": "https://play-lh.googleusercontent.com/9W88RU_0oI8gFEUGPKm__gI9Jz7ZJhjv9yrAtzxaehXaYCk7G8TcumfNKJlySuk7yGY=w480-h960",
+      "link": "appinfos.html?name=PPSSPP&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
+    },
+    {
+      "name": "uYouPlus",
+      "developer": "uYou Team",
+      "icon": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/uYou.png",
+      "link": "appinfos.html?name=uYouPlus&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
+    },
+    {
+      "name": "Taurine",
+      "developer": "Odyssey-Team",
+      "icon": "https://iosninja.io/img/ipas/taurine.png",
+      "link": "appinfos.html?name=Taurine&source=https%3A%2F%2Fibinou.github.io%2FiTweakHub%2Fapps.json"
+    }
+  ]
+}

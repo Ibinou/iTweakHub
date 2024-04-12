@@ -63,7 +63,7 @@ pointer-events: none;
 /* Pour les écrans de PC/tablette */
 @media screen and (min-width: 768px) {
   body {
-    background-color: #121212;
+    background-color: #000;
     color: white;
     margin: 0;
     padding: 0;
@@ -82,7 +82,7 @@ pointer-events: none;
 /* Pour les écrans de téléphone */
 @media screen and (max-width: 767px) {
   body {
-    background-color: #121212;
+    background-color: #000;
     color: white;
     margin: 0;
     padding: 0;
@@ -545,7 +545,7 @@ font-size: 20px;
 
 /*Repos Rectangles*/
 .explore {
-  background-image: url(https://tailwindcomponents.com/gradient-generator/assets/header.a6837f08.webp);
+  background-image: url(https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png);
   padding: 19px;
   border-radius: 16px;
   background-size: cover;
@@ -575,14 +575,15 @@ font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: rgb(40 40 40 / 55%);
+    background-color: rgb(40 40 40 / 40%);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 16px;
     padding-top: 0;
-    width: 141px;
+    width: 155px;
     height: 117px;
+    border: 1px solid #2f2f2f;
 }
 .item img {
   height: 37px;
@@ -615,7 +616,7 @@ font-size: 20px;
     margin-bottom: 5px;
     margin-top: 0px;
     color: white;
-    width: 122px;
+    width: 132px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1914,3 +1915,186 @@ a > button {
             text-align: center;
             padding: 20px;
         }
+
+.selection-title {
+    margin-bottom: 1px;
+    font-family: helvetica;
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+}
+.selection-liltitle {
+    margin-bottom: 7px;
+    font-family: helvetica;
+    font-size: 15px;
+    color: #a8a8a8;
+    font-weight: 700;
+}
+.selection {
+    background-color: #1C1C1D;
+    border-radius: 20px;
+    padding-top: 21px;
+    padding-right: 17px;
+    padding-bottom: 11px;
+    padding-left: 17px;
+    box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 50%);
+}
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.item1, .item2, .item3, .item4, .item5, .item6 {
+    background-size: cover;
+    width: calc(50% - 6px);
+    height: 94px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 57px;
+    padding-left: 13px;
+}
+
+.item1 {
+  background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/2.1/img/sections/movie_section.png');
+}.item2 {
+  background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/2.1/img/sections/jailbreak_section.png');
+}.item3 {
+  background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/2.1/img/sections/social_section.png');
+}.item4 {
+  background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/2.1/img/sections/tool_section.png');
+}.item5 {
+  background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/2.1/img/sections/game_section.png');
+}.item6 {
+  background-image: url('https://raw.githubusercontent.com/Ibinou/iTweakHub/2.1/img/sections/music_section.png');
+}
+.title-page-section {
+    margin-bottom: 7px;
+    margin-top: 25px;
+    font-family: helvetica;
+    font-size: 22px;
+    color: white;
+    font-weight: 700;
+}
+sections_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomeback {
+   font-family:helvetica;
+   font-size:12px;
+   color:#9d9d9d;
+   margin-top: 12px;
+   margin-bottom: 12px;
+}
+   .changelog-card {
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 18px;
+      background-color: #1c1c1c;
+    }
+
+    #changelogtitle {
+      margin-top: 0;
+      margin-bottom: 0px;
+      font-size: 25px;
+    }
+
+    .ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .li {
+      margin-bottom: 10px;
+    }
+#version {
+   opacity: .5;
+}
+
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      width: calc(50% - 10px);
+      height: auto;
+    }
+
+    .typetext {
+      margin-top: 20px;
+    }
+
+  .message-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+  }
+
+  .message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 90px; /* Adjust top position as needed */
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+    z-index: 10000;
+    display: none;
+  }
+
+  .message-container:before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #1c1c1c transparent;
+  }
+
+  .message-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  .message-description {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 15px;
+    opacity: 0.7;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .message-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .message-button:hover {
+    background-color: #0056b3;
+  }
