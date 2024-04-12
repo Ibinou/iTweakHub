@@ -152,7 +152,7 @@ document.getElementById('done').addEventListener('click', function() {
         if (profilePic.trim() !== '' && username.trim() !== '') {
             localStorage.setItem('setup', 'done');
             // Redirection vers la nouvelle page
-            window.location.href = 'https://ibinou.github.io/iTweakHub/index.html';
+            window.location.href = '../index.html';
         } else {
             // Afficher une alerte si les valeurs sont vides
             var confirmation = confirm("Please fill in your profile picture and username before continuing.");
