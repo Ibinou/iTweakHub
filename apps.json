@@ -766,6 +766,15 @@
     ],
     "news": [
         {
+            "title": "New major update !",
+            "identifier": "foxster-news-2",
+            "caption": "Welcome on iTweakHub 2.1 ! Go check what's new in 'settings -> general' ",
+            "tintColor": "3B1A25",
+            "imageURL": "https://github.com/Ibinou/iTweakHub/blob/main/img/banners/1712138905.942442-2C0E6CA2-2D45-410F-B2B9-452266850B09.png?raw=true",
+            "date": "2024-04-12",
+            "notify": true
+        },
+        {
             "title": "Follow us !",
             "identifier": "foxster-news-2",
             "caption": "Follow us on X and join our Discord server 😊.",
