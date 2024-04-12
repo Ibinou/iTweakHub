@@ -204,7 +204,7 @@ function displayAppInfo(appData, sourceURL) {
 }
 
 // Effectuer une première requête AJAX pour récupérer le JSON à partir de apps.json
-fetch('https://ibinou.github.io/iTweakHub/apps.json')
+fetch('apps.json')
     .then(response => response.json())
     .then(data => {
         if (data.news) {
