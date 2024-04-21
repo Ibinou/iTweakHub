@@ -584,7 +584,7 @@ function loadImage(url) {
     });
 }
 
-// Fonction pour charger et afficher les informations de l'application
+// Charger et afficher les informations de l'application
 function loadAppInfo() {
     const appNameFromURL = getParameterByName("name");
     const sourceParameter = getParameterByName("source");
@@ -602,6 +602,10 @@ function loadAppInfo() {
                 const appData = data.apps.find(app => app.name === appNameFromURL);
 
                 if (appData) {
+                    // Décoder les barres obliques inversées dans l'URL du fichier IPA
+                    const decodedDownloadURL = appData.downloadURL.replace(/\\\//g, '/');
+                    appData.downloadURL = decodedDownloadURL;
+                    
                     displayAppInfo(appData);
                     document.title = appData.name;
                 } else {
