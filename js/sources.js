@@ -22,6 +22,23 @@ function transformerBoutonsDelete() {
   });
 }
 
+// Fonction pour supprimer une source
+function supprimerSource(url) {
+  // Obtenir les URL des repos depuis le localStorage
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  
+  // Trouver et supprimer l'URL spécifiée
+  var index = repoURLs.indexOf(url);
+  if (index !== -1) {
+    repoURLs.splice(index, 1);
+    localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+    alert("Source deleted successfully.");
+    window.location.href = "appsmanager.html"; // Redirection vers appsmanager.html
+  } else {
+    alert("Source not found.");
+  }
+}
+
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
