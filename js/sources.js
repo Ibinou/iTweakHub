@@ -32,44 +32,7 @@ function supprimerSource(url) {
     alert("Source not found.");
   }
 }
-// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
-function afficherInfosDepuisJSON() {
-  var url = prompt("Enter source URL:");
 
-  console.log('Before fetch. URL:', url); // Ajout pour débogage
-
-  fetch(url)
-    .then(function(response) {
-      console.log('After fetch, before response.json(). Status:', response.status); // Ajout pour débogage
-      return response.json();
-    })
-    .then(function(data) {
-      console.log('After response.json(), data:', data); // Ajout pour débogage
-
-      if (data.apps && Array.isArray(data.apps) && data.name) {
-        var reposDiv = document.getElementById("repos");
-        var infoDiv = createRepoElement(data, url);
-
-        var repoLink = document.createElement("a");
-        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
-        repoLink.appendChild(infoDiv);
-
-        reposDiv.appendChild(repoLink);
-
-        // Enregistrer l'URL du repo dans le localStorage
-        var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-        repoURLs.push(url);
-        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-        location.reload();
-      } else {
-        console.log('Warning', 'Source added despite missing "apps" array or "name" property');
-      }
-    })
-    .catch(function(error) {
-      console.log('Error during fetch', error); // Ajout pour débogage
-      alert('Error, unable to load the source', error);
-    });
-}
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
@@ -144,10 +107,51 @@ function createRepoElement(data, url) {
   return dockDiv;
 }
 
+// Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
+function afficherInfosDepuisJSON() {
+  var url = prompt("Enter source URL:");
+
+  console.log('Before fetch. URL:', url); // Ajout pour débogage
+
+  fetch(url)
+    .then(function(response) {
+      console.log('After fetch, before response.json(). Status:', response.status); // Ajout pour débogage
+      return response.json();
+    })
+    .then(function(data) {
+      console.log('After response.json(), data:', data); // Ajout pour débogage
+
+      if (data.apps && Array.isArray(data.apps) && data.name) {
+        var reposDiv = document.getElementById("repos");
+        var infoDiv = createRepoElement(data, url);
+
+        var repoLink = document.createElement("a");
+        repoLink.href = "repoview.html?repo=" + encodeURIComponent(url);
+        repoLink.appendChild(infoDiv);
+
+        reposDiv.appendChild(repoLink);
+
+        // Enregistrer l'URL du repo dans le localStorage
+        var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+        repoURLs.push(url);
+        localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+        location.reload();
+      } else {
+        console.log('Warning', 'Source added despite missing "apps" array or "name" property');
+      }
+    })
+    .catch(function(error) {
+      console.log('Error during fetch', error); // Ajout pour débogage
+      alert('Error, unable to load the source', error);
+    });
+}
+
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", function() {
   afficherReposDepuisLocalStorage();
-  transformerBoutonsDelete(); // Appeler la fonction pour transformer les boutons
+  // Ajouter un gestionnaire d'événements pour l'élément avec l'ID "edit"
+  var editIcon = document.getElementById("edit");
+  editIcon.addEventListener("click", transformerBoutonsDelete);
 });
 
 var popupButton = document.getElementById("popupButton");
