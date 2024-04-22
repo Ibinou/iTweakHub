@@ -15,10 +15,10 @@ function transformerBoutonsDelete() {
     });
   });
 
-  // Masquer temporairement le lien vers repoview.html
+  // Supprimer temporairement le lien vers repoview.html du DOM
   var repoLinks = document.querySelectorAll('#repos a');
   repoLinks.forEach(function(link) {
-    link.style.display = "none";
+    link.parentNode.removeChild(link);
   });
 }
 
