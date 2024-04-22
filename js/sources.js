@@ -1,5 +1,5 @@
-// Variable pour stocker temporairement les href des liens
-var originalHrefs = [];
+// Variable pour stocker temporairement les écouteurs d'événements
+var eventListeners = [];
 
 // Fonction pour transformer les boutons "View" en boutons "Delete" lorsque le bouton "edit" est cliqué
 function transformerBoutonsDelete() {
@@ -18,26 +18,27 @@ function transformerBoutonsDelete() {
     });
   });
 
-  // Modifier temporairement les href des liens vers "appsmanager.html"
-  var repoLinks = document.querySelectorAll('#repos a');
-  repoLinks.forEach(function(link) {
-    originalHrefs.push(link.href); // Stocker l'href d'origine
-    link.href = "appsmanager.html"; // Modifier l'href
+  // Désactiver temporairement les écouteurs d'événements sur dockDiv
+  var repoDivs = document.querySelectorAll('.dock');
+  repoDivs.forEach(function(dockDiv) {
+    var listener = dockDiv.onclick; // Stocker l'écouteur d'événements
+    eventListeners.push(listener); // Ajouter l'écouteur d'événements au tableau
+    dockDiv.onclick = null; // Désactiver l'écouteur d'événements
   });
 }
 
-// Fonction pour restaurer les href d'origine des liens
-function restaurerHrefsOriginaux() {
-  var repoLinks = document.querySelectorAll('#repos a');
-  repoLinks.forEach(function(link, index) {
-    link.href = originalHrefs[index]; // Restaurer l'href d'origine
+// Fonction pour restaurer les écouteurs d'événements sur dockDiv
+function restaurerEventListeners() {
+  var repoDivs = document.querySelectorAll('.dock');
+  repoDivs.forEach(function(dockDiv, index) {
+    dockDiv.onclick = eventListeners[index]; // Réactiver l'écouteur d'événements
   });
-  // Vider le tableau des hrefs originaux
-  originalHrefs = [];
+  // Vider le tableau des écouteurs d'événements
+  eventListeners = [];
 }
 
-// Appeler la fonction pour restaurer les href d'origine lors du chargement de la page
-window.addEventListener("load", restaurerHrefsOriginaux);
+// Appeler la fonction pour restaurer les écouteurs d'événements lors du chargement de la page
+window.addEventListener("load", restaurerEventListeners);
 
 // Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
 var editButton = document.getElementById("edit");
