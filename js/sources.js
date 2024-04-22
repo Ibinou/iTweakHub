@@ -3,7 +3,7 @@ function transformerBoutonsDelete() {
   var viewButtons = document.querySelectorAll('.getbtn');
   viewButtons.forEach(function(button) {
     button.textContent = "DELETE";
-    button.style.backgroundColor = "red";
+    button.style.color = "red"; // Changement de la couleur du texte en rouge
     button.removeAttribute("onclick");
     var url = button.dataset.url; // Récupérer l'URL à partir de l'attribut de données
     button.addEventListener("click", function() {
@@ -14,23 +14,12 @@ function transformerBoutonsDelete() {
       }
     });
   });
-}
 
-// Fonction pour supprimer une source
-function supprimerSource(url) {
-  // Obtenir les URL des repos depuis le localStorage
-  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-  
-  // Trouver et supprimer l'URL spécifiée
-  var index = repoURLs.indexOf(url);
-  if (index !== -1) {
-    repoURLs.splice(index, 1);
-    localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-    alert("Source deleted successfully.");
-    location.reload(); // Recharger la page pour refléter les changements
-  } else {
-    alert("Source not found.");
-  }
+  // Masquer temporairement le lien vers repoview.html
+  var repoLinks = document.querySelectorAll('#repos a');
+  repoLinks.forEach(function(link) {
+    link.style.display = "none";
+  });
 }
 
 // Fonction pour afficher les repos depuis le localStorage
