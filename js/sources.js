@@ -1,5 +1,4 @@
-// Variable pour stocker temporairement les écouteurs d'événements
-var eventListeners = [];
+
 
 // Fonction pour transformer les boutons "View" en boutons "Delete" lorsque le bouton "edit" est cliqué
 function transformerBoutonsDelete() {
@@ -27,23 +26,6 @@ function transformerBoutonsDelete() {
   });
 }
 
-// Fonction pour restaurer les écouteurs d'événements sur dockDiv
-function restaurerEventListeners() {
-  var repoDivs = document.querySelectorAll('.dock');
-  repoDivs.forEach(function(dockDiv, index) {
-    dockDiv.onclick = eventListeners[index]; // Réactiver l'écouteur d'événements
-  });
-  // Vider le tableau des écouteurs d'événements
-  eventListeners = [];
-}
-
-// Appeler la fonction pour restaurer les écouteurs d'événements lors du chargement de la page
-window.addEventListener("load", restaurerEventListeners);
-
-// Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
-var editButton = document.getElementById("edit");
-editButton.addEventListener("click", transformerBoutonsDelete);
-
 // Fonction pour supprimer une source
 function supprimerSource(url) {
   // Obtenir les URL des repos depuis le localStorage
@@ -61,6 +43,9 @@ function supprimerSource(url) {
   }
 }
 
+// Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
+var editButton = document.getElementById("edit");
+editButton.addEventListener("click", transformerBoutonsDelete);
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
