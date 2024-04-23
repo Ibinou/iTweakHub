@@ -493,10 +493,10 @@
         },
         {
             "name": "SpooferX",
-            "version": "0.261.1",
+            "version": "0.309.0-0.298",
             "developerName": "Unknown",
             "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
-            "downloadURL": "https://www.spooferx.app/ipa/SpooferPro-0.261.1-0.129.ipa",
+            "downloadURL": "https://www.spooferx.app/ipa/SpooferPro-0.309.0-0.298.ipa",
             "localizedDescription": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also includes a lot of other features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
             "minOSVersion": "iOS 14+",
             "section": "Tweaked Games"
@@ -524,10 +524,10 @@
         },
         {
             "name": "iPogo",
-            "version": "3.3.1",
+            "version": "3.3.2",
             "developerName": "Niantic, Inc.",
             "iconURL": "https://play-lh.googleusercontent.com/6qUR3CmTyz3lMdMK8GENfibQ9ZQIIgHIP3_pgnYcuG04ykheKtl-dhyPzjlvhF_MANI",
-            "downloadURL": "https://ipogo.app/download/ipogo-3.3.1.ipa",
+            "downloadURL": "https://ipogo.app/download/ipogo-3.3.2.ipa",
             "localizedDescription": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
             "minOSVersion": "iOS 14+",
             "screenshots": [
