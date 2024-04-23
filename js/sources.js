@@ -4,9 +4,6 @@ var eventListeners = [];
 // Variable pour stocker temporairement les href des liens
 var originalHrefs = [];
 
-// Variable pour stocker temporairement les écouteurs d'événements sur dockDiv
-var originalEventListeners = [];
-
 // Fonction pour transformer les boutons "View" en boutons "Delete" lorsque le bouton "edit" est cliqué
 function transformerBoutonsDelete() {
   var viewButtons = document.querySelectorAll('.getbtn');
@@ -28,7 +25,7 @@ function transformerBoutonsDelete() {
   var repoDivs = document.querySelectorAll('.dock');
   repoDivs.forEach(function(dockDiv) {
     var listener = dockDiv.onclick; // Stocker l'écouteur d'événements
-    originalEventListeners.push(listener); // Ajouter l'écouteur d'événements au tableau
+    eventListeners.push(listener); // Ajouter l'écouteur d'événements au tableau
     dockDiv.onclick = null; // Désactiver l'écouteur d'événements
   });
 
@@ -40,14 +37,31 @@ function transformerBoutonsDelete() {
   });
 }
 
+// Fonction pour supprimer une source
+function supprimerSource(url) {
+  // Obtenir les URL des repos depuis le localStorage
+  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
+  
+  // Trouver et supprimer l'URL spécifiée
+  var index = repoURLs.indexOf(url);
+  if (index !== -1) {
+    repoURLs.splice(index, 1);
+    localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
+    alert("Source deleted successfully.");
+    window.location.href = "appsmanager.html"; // Redirection vers appsmanager.html
+  } else {
+    alert("Source not found.");
+  }
+}
+
 // Fonction pour restaurer les écouteurs d'événements sur dockDiv
 function restaurerEventListeners() {
   var repoDivs = document.querySelectorAll('.dock');
   repoDivs.forEach(function(dockDiv, index) {
-    dockDiv.onclick = originalEventListeners[index]; // Réactiver l'écouteur d'événements
+    dockDiv.onclick = eventListeners[index]; // Réactiver l'écouteur d'événements
   });
   // Vider le tableau des écouteurs d'événements
-  originalEventListeners = [];
+  eventListeners = [];
 
   // Restaurer les href d'origine des liens
   var repoLinks = document.querySelectorAll('#repos a');
@@ -64,29 +78,6 @@ window.addEventListener("load", restaurerEventListeners);
 // Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
 var editButton = document.getElementById("edit");
 editButton.addEventListener("click", transformerBoutonsDelete);
-
-// Fonction pour supprimer une source du localStorage
-function supprimerSourceLocalStorage(url) {
-  // Obtenir les URL des repos depuis le localStorage
-  var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
-  
-  // Trouver et supprimer l'URL spécifiée
-  var index = repoURLs.indexOf(url);
-  if (index !== -1) {
-    repoURLs.splice(index, 1);
-    localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-  } else {
-    console.log("Source not found.");
-  }
-}
-
-// Fonction pour supprimer une source
-function supprimerSource(url) {
-  supprimerSourceLocalStorage(url); // Supprimer la source du localStorage
-  alert("Source deleted successfully.");
-  window.location.href = "appsmanager.html"; // Redirection vers appsmanager.html
-}
-
 
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
