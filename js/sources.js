@@ -1,4 +1,8 @@
+// Variable pour stocker temporairement les écouteurs d'événements
+var eventListeners = [];
 
+// Variable pour stocker temporairement les href des liens
+var originalHrefs = [];
 
 // Fonction pour transformer les boutons "View" en boutons "Delete" lorsque le bouton "edit" est cliqué
 function transformerBoutonsDelete() {
@@ -24,6 +28,13 @@ function transformerBoutonsDelete() {
     eventListeners.push(listener); // Ajouter l'écouteur d'événements au tableau
     dockDiv.onclick = null; // Désactiver l'écouteur d'événements
   });
+
+  // Modifier temporairement les href des liens vers "appsmanager.html"
+  var repoLinks = document.querySelectorAll('#repos a');
+  repoLinks.forEach(function(link) {
+    originalHrefs.push(link.href); // Stocker l'href d'origine
+    link.href = "appsmanager.html"; // Modifier l'href
+  });
 }
 
 // Fonction pour supprimer une source
@@ -43,9 +54,31 @@ function supprimerSource(url) {
   }
 }
 
+// Fonction pour restaurer les écouteurs d'événements sur dockDiv
+function restaurerEventListeners() {
+  var repoDivs = document.querySelectorAll('.dock');
+  repoDivs.forEach(function(dockDiv, index) {
+    dockDiv.onclick = eventListeners[index]; // Réactiver l'écouteur d'événements
+  });
+  // Vider le tableau des écouteurs d'événements
+  eventListeners = [];
+
+  // Restaurer les href d'origine des liens
+  var repoLinks = document.querySelectorAll('#repos a');
+  repoLinks.forEach(function(link, index) {
+    link.href = originalHrefs[index]; // Restaurer l'href d'origine
+  });
+  // Vider le tableau des hrefs originaux
+  originalHrefs = [];
+}
+
+// Appeler la fonction pour restaurer les écouteurs d'événements lors du chargement de la page
+window.addEventListener("load", restaurerEventListeners);
+
 // Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
 var editButton = document.getElementById("edit");
 editButton.addEventListener("click", transformerBoutonsDelete);
+
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
