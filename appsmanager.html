@@ -32,13 +32,9 @@
     </div>
 	
     <div class="content">
-    <h1 id="header" style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;">Sources</h1>
+    <h1 id="header" style="font-family:helvetica;font-size:32px;color:white;margin-top: 30px;">Sources</h1>
 
 <div id="errormsg"></div>
-	    
-<p id="updates" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 8px;margin-top: 20px;">Updates</p>
-<div style="padding-bottom: 8;" class="appList"></div>
-
 	    
 <div class="animated-enter">	    
 <div id="selectedBackground" class="explore">
@@ -109,6 +105,9 @@
 </div>
 
 <div class="animated-enter">
+<p id="updates" style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 8px;margin-top: 20px;">Updates</p>
+<div style="padding-bottom: 8;" class="appList"></div>
+
 <p style="font-family:helvetica;font-size:18px;color:#e4e4e4;margin-bottom: 8px;margin-top: 20px;">Added Sources</p>	
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);" class="fa-solid fa-plus" id="popupButton"></i>
          <i style=" float:right; margin-top: -31px;font-size:20px;color: var(--accent-color);margin-right: 32px;" class="fa-solid fa-rotate-right" id="reload"></i>
@@ -443,7 +442,7 @@ async function checkForUpdates() {
                                 </div>
                             </div>
                             <div class="appget">
-                                <a href="appinfos.html?name=${appInfo.name}">
+                                <a href="appinfos.html?name=${encodeURIComponent(appInfo.name)}&source=${encodeURIComponent(json.source)}">
                                     <button class="getbtn" id="getbtn">Update</button>
                                 </a>
                             </div>
