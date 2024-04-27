@@ -8,7 +8,7 @@ var originalHrefs = [];
 function transformerBoutonsDelete() {
   var viewButtons = document.querySelectorAll('.getbtn');
   viewButtons.forEach(function(button) {
-    button.textContent = "DELETE"; // Remettre le texte à "DELETE"
+    button.innerHTML = '<i class="fa-solid fa-trash-can"></i>'; // Remplacer le texte par l'icône de corbeille
     button.style.width = "71px"; // Définir la largeur temporairement à 71px
     button.style.color = "red"; // Changement de la couleur du texte en rouge
     button.removeAttribute("onclick");
@@ -104,7 +104,7 @@ function afficherReposDepuisLocalStorage() {
           // Ajouter l'attribut de données data-url au bouton "View"
           var viewButton = repoElement.querySelector('.getbtn');
           if (viewButton) {
-            viewButton.textContent = data.apps.length; // Afficher seulement le nombre d'applications
+            viewButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>'; // Afficher l'icône de corbeille
             viewButton.dataset.url = url;
           }
         } else {
