@@ -71,7 +71,7 @@ function afficherDonnees() {
         };
         appIconImg.setAttribute('data-src', appData.iconURL); // Utilisez data-src pour lazy loading
       } else {
-        // Utiliser un placeholder si aucun lien d'image n'est fourni
+        // Utiliser un placeholder si aucun lien d'image est fourni
         appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
       }
 
@@ -112,16 +112,19 @@ function afficherDonnees() {
 
       appListDiv.appendChild(dockDiv);
     });
+
+    // Appelez lazyLoadIcons une fois pour charger les 7 premières icônes au chargement de la page
+    lazyLoadIcons();
   }
 
   // Fonction pour charger les icônes d'application de manière paresseuse
   function lazyLoadIcons() {
     var appIcons = document.querySelectorAll('.appicon[data-src]');
     
-    appIcons.forEach(function(icon) {
+    appIcons.forEach(function(icon, index) {
       var rect = icon.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        // L'icône est dans la zone visible, chargez son image
+      if ((rect.top < window.innerHeight && rect.bottom >= 0) || index < 7) {
+        // L'icône est dans la zone visible ou fait partie des 7 premières, chargez son image
         icon.src = icon.getAttribute('data-src');
         icon.removeAttribute('data-src');
       }
@@ -131,9 +134,6 @@ function afficherDonnees() {
   // Gestionnaire d'événements de défilement pour le lazy loading des icônes
   window.addEventListener('scroll', lazyLoadIcons);
   window.addEventListener('resize', lazyLoadIcons);
-
-  // Appelez lazyLoadIcons une fois pour charger les icônes visibles au chargement de la page
-  lazyLoadIcons();
 }
 
 //search bar script
@@ -148,3 +148,4 @@ function myFunction() {
     dock[i].style.display = display;
   }
 }
+
