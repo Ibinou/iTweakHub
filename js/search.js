@@ -67,12 +67,12 @@ function afficherDonnees() {
         };
         appIconImg.onerror = function() {
           // Le lien d'image n'est pas valide, utiliser un placeholder
-          appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/2.1/img/blank.JPG?raw=true";
+          appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
         };
         appIconImg.src = appData.iconURL;
       } else {
         // Utiliser un placeholder si aucun lien d'image n'est fourni
-        appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/2.1/img/blank.JPG?raw=true";
+        appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
       }
 
       appCellLeftDiv.appendChild(appIconImg);
