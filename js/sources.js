@@ -206,10 +206,19 @@ function afficherLogs(logs) {
       var logEntry = document.createElement("div");
       logEntry.textContent = "Added " + logs[index];
       logText.appendChild(logEntry);
-      logElement.container.scrollTop = logElement.container.scrollHeight; // Faire défiler vers le bas
+      if (logText.scrollHeight > maxHeight) {
+        logText.scrollTop = logText.scrollHeight - maxHeight;
+      }
       index++;
     } else {
       clearInterval(intervalId); // Arrêter l'intervalle une fois que tous les logs ont été affichés
+      // Afficher le log de confirmation final
+      var confirmationLog = document.createElement("div");
+      confirmationLog.textContent = "The source has been added";
+      logText.appendChild(confirmationLog);
+      logElement.container.scrollTop = logElement.container.scrollHeight; // Faire défiler vers le bas
+      // Afficher le bouton de fermeture de la popup log
+      logElement.closeBtn.style.display = "block";
     }
   }, 200); // Délai de 0.2 seconde entre chaque app
   logElement.container.style.display = "block"; // Afficher la popup log
@@ -250,6 +259,7 @@ function createLogElement() {
   closeButton.style.color = "#fff";
   closeButton.style.width = "100px";
   closeButton.style.height = "30px";
+  closeButton.style.display = "none"; // Caché par défaut
   logContainer.appendChild(closeButton);
 
   document.body.appendChild(logContainer); // Ajouter le conteneur de log à la fin du body
