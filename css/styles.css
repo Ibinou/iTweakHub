@@ -2104,6 +2104,9 @@ sections_div {
 }
 #morediv {
   margin-bottom: 50px;
+  height: 20px;
+  width: 20px;
+  background-color: 000;
 }
   .message-button:hover {
     background-color: #0056b3;
