@@ -2094,7 +2094,17 @@ sections_div {
     border-radius: 5px;
     cursor: pointer;
   }
-
+#more {
+      display: block;
+    background-color: #1c1c1c;
+    border-radius: 20px;
+    color: #fff;
+    width: 300px;
+    height: 20px;
+}
+#morediv {
+  margin-bottom: 50px;
+}
   .message-button:hover {
     background-color: #0056b3;
   }
