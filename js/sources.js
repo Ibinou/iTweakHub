@@ -224,7 +224,7 @@ function afficherLogs(logs) {
         location.reload();
       });
     }
-  }, 100); // Délai de 0.1 seconde entre chaque app pour une vitesse accrue
+  }, 50); // Délai de 0.1 seconde entre chaque app pour une vitesse accrue
   logElement.container.style.display = "block"; // Afficher la popup log
 }
 
@@ -238,10 +238,11 @@ function createLogElement() {
   logContainer.style.left = "50%";
   logContainer.style.transform = "translate(-50%, -50%)";
   logContainer.style.width = "300px";
-  logContainer.style.height = "200px";
+  logContainer.style.height = "222px";
   logContainer.style.backgroundColor = "#1c1c1c";
   logContainer.style.borderRadius = "20px";
   logContainer.style.padding = "20px";
+  logContainer.style.boxShadow = "0 0 100px 50px rgba(0, 0, 0, 0.8)";
 
   var logText = document.createElement("div");
   logText.className = "log_text";
@@ -265,6 +266,7 @@ function createLogElement() {
   closeButton.style.height = "30px";
   closeButton.style.display = "none"; // Caché par défaut
   logContainer.appendChild(closeButton);
+  closeButton.style.border = "none";
 
   document.body.appendChild(logContainer); // Ajouter le conteneur de log à la fin du body
 
