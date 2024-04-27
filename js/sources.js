@@ -104,7 +104,7 @@ function afficherReposDepuisLocalStorage() {
           // Ajouter l'attribut de données data-url au bouton "View"
           var viewButton = repoElement.querySelector('.getbtn');
           if (viewButton) {
-            viewButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>'; // Afficher l'icône de corbeille
+            viewButton.textContent = data.apps.length; // Afficher seulement le nombre d'applications
             viewButton.dataset.url = url;
           }
         } else {
