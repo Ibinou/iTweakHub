@@ -1,8 +1,6 @@
-// Fonction pour charger et afficher les applications par lots
-function chargerPlusApplications(pageNumber, pageSize) {
+function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
-  var loadMoreBtn = document.getElementById("more");
-  var h1Element = document.getElementById("repoName");
+  var h1Element = document.getElementById("repoName"); // Élément h1 pour afficher le nom du repo
   var pElement = document.getElementById("repoDescription");
   var imgElement = document.getElementById("source_icon");
   var webElement = document.getElementById("source_website");
@@ -16,43 +14,62 @@ function chargerPlusApplications(pageNumber, pageSize) {
         return response.json();
       })
       .then(function(data) {
-        // Afficher les informations de la source
+        // Afficher les infos
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
         if (data.iconURL) {
-          imgElement.src = data.iconURL;
+           imgElement.onload = function() {
+           // L'image a été chargée avec succès
+        };
+           imgElement.onerror = function() {
+           // Le lien d'image n'est pas valide, utiliser un placeholder
+           imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+         };
+           imgElement.src = data.iconURL;
         } else {
-          imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+        // Utiliser un placeholder si aucun lien d'image n'est fourni
+        imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
         }
         if (data.website) {
-          webElement.href = data.website;
-        } else {
-          webElement.style.display = "none";
-        }
+  webElement.href = data.website;
+} else {
+  // Cacher l'élément website s'il n'y a pas de lien de site web
+  webElement.style.display = "none";
+}
 
         var appsData = data.apps;
+
         appsData.sort(function(a, b) {
           return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
         });
 
-        var totalApps = appsData.length;
-        var startIndex = (pageNumber - 1) * pageSize;
-        var endIndex = Math.min(startIndex + pageSize, totalApps);
+        var nombreApplicationsAafficher = appsData.length; // Comptez le nombre d'applications dans le JSON
 
-        for (var i = startIndex; i < endIndex; i++) {
+        // Utilisez une boucle for pour itérer sur le nombre d'applications à afficher
+        for (var i = 0; i < nombreApplicationsAafficher; i++) {
           var appData = appsData[i];
+
           var dockDiv = document.createElement("div");
           dockDiv.className = "dock";
 
-          // Création et ajout des éléments pour chaque application
           var appCellLeftDiv = document.createElement("div");
           appCellLeftDiv.className = "app_cell_left";
 
           var appIconImg = document.createElement("img");
           appIconImg.className = "appicon";
+          // Vérifier si appData.iconURL existe
           if (appData.iconURL) {
+            // Vérifier si le lien d'image est valide
+            appIconImg.onload = function() {
+              // L'image a été chargée avec succès
+            };
+            appIconImg.onerror = function() {
+              // Le lien d'image n'est pas valide, utiliser un placeholder
+              appIconImg.src = "img/blank.JPG";
+            };
             appIconImg.src = appData.iconURL;
           } else {
+            // Utiliser un placeholder si aucun lien d'image n'est fourni
             appIconImg.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
           }
           appCellLeftDiv.appendChild(appIconImg);
@@ -62,12 +79,12 @@ function chargerPlusApplications(pageNumber, pageSize) {
 
           var appNameDiv = document.createElement("div");
           appNameDiv.className = "appname";
-          appNameDiv.textContent = appData.name; // Affichage du nom de l'application
+          appNameDiv.textContent = appData.name;
           appCellMetaDiv.appendChild(appNameDiv);
 
           var appDevDiv = document.createElement("div");
           appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developerName; // Affichage du nom du développeur
+          appDevDiv.textContent = appData.developerName;
           appCellMetaDiv.appendChild(appDevDiv);
 
           appCellLeftDiv.appendChild(appCellMetaDiv);
@@ -77,6 +94,7 @@ function chargerPlusApplications(pageNumber, pageSize) {
           appGetDiv.className = "appget";
 
           var appGetBtn = document.createElement("a");
+          // Ajouter la source directe à l'URL
           appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(repoUrl);
 
           var getBtn = document.createElement("button");
@@ -89,18 +107,6 @@ function chargerPlusApplications(pageNumber, pageSize) {
 
           appListDiv.appendChild(dockDiv);
         }
-
-        // Vérifie s'il reste des applications à charger
-        if (endIndex < totalApps) {
-          // Afficher le bouton "Charger plus d'applications"
-          loadMoreBtn.style.display = "block";
-
-          // Ajout de l'événement de clic pour charger plus d'applications
-          loadMoreBtn.addEventListener("click", function() {
-            chargerPlusApplications(pageNumber + 1, pageSize);
-            loadMoreBtn.style.display = "none"; // Masquer le bouton après son utilisation
-          });
-        }
       })
       .catch(function(error) {
         console.log('Error', error);
@@ -109,6 +115,3 @@ function chargerPlusApplications(pageNumber, pageSize) {
     console.log("Repo URL not provided in the 'repo' parameter.");
   }
 }
-
-// Appeler la fonction pour charger initialement les 20 premières applications
-chargerPlusApplications(1, 20);
