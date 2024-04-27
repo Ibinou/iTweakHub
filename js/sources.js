@@ -8,7 +8,7 @@ var originalHrefs = [];
 function transformerBoutonsDelete() {
   var viewButtons = document.querySelectorAll('.getbtn');
   viewButtons.forEach(function(button) {
-    button.textContent = ""; // Effacer le texte existant
+    button.textContent = "DELETE"; // Remettre le texte à "DELETE"
     button.style.width = "71px"; // Définir la largeur temporairement à 71px
     button.style.color = "red"; // Changement de la couleur du texte en rouge
     button.removeAttribute("onclick");
@@ -75,6 +75,17 @@ function restaurerEventListeners() {
 
 // Appeler la fonction pour restaurer les écouteurs d'événements lors du chargement de la page
 window.addEventListener("load", restaurerEventListeners);
+
+// Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
+var editButton = document.getElementById("edit");
+editButton.addEventListener("click", function() {
+  transformerBoutonsDelete();
+});
+
+// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
+window.addEventListener("load", function() {
+  afficherReposDepuisLocalStorage();
+});
 
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
@@ -194,17 +205,6 @@ function afficherInfosDepuisJSON() {
       alert('Error, unable to load the source', error);
     });
 }
-
-// Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
-var editButton = document.getElementById("edit");
-editButton.addEventListener("click", function() {
-  transformerBoutonsDelete();
-});
-
-// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
-window.addEventListener("load", function() {
-  afficherReposDepuisLocalStorage();
-});
 
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
