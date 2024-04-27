@@ -206,6 +206,7 @@ function afficherInfosDepuisJSON() {
 function afficherLogs(logs) {
   var logText = logElement.text;
   var index = 0;
+  var maxHeight = 150; // Hauteur maximale pour le conteneur de logs
   var intervalId = setInterval(function() {
     if (index < logs.length) {
       var logEntry = document.createElement("div");
@@ -224,14 +225,37 @@ function afficherLogs(logs) {
 function createLogElement() {
   var logContainer = document.createElement("div");
   logContainer.className = "popup_log";
+  logContainer.style.display = "none"; // Caché par défaut
+  logContainer.style.position = "fixed";
+  logContainer.style.top = "50%";
+  logContainer.style.left = "50%";
+  logContainer.style.transform = "translate(-50%, -50%)";
+  logContainer.style.width = "300px";
+  logContainer.style.height = "200px";
+  logContainer.style.backgroundColor = "#1c1c1c";
+  logContainer.style.borderRadius = "20px";
+  logContainer.style.padding = "20px";
 
   var logText = document.createElement("div");
   logText.className = "log_text";
+  logText.style.color = "white";
+  logText.style.fontSize = "16px";
+  logText.style.maxHeight = "150px";
+  logText.style.overflowY = "auto";
   logContainer.appendChild(logText);
 
   var closeButton = document.createElement("button");
   closeButton.className = "close_log_btn";
   closeButton.textContent = "Close";
+  closeButton.style.position = "absolute";
+  closeButton.style.bottom = "10px";
+  closeButton.style.left = "50%";
+  closeButton.style.transform = "translateX(-50%)";
+  closeButton.style.backgroundColor = "#363636";
+  closeButton.style.borderRadius = "20px";
+  closeButton.style.color = "#fff";
+  closeButton.style.width = "100px";
+  closeButton.style.height = "30px";
   logContainer.appendChild(closeButton);
 
   document.body.appendChild(logContainer); // Ajouter le conteneur de log à la fin du body
@@ -246,9 +270,16 @@ function createLogElement() {
 // Appel de la fonction pour créer l'élément de log
 var logElement = createLogElement();
 
-// Appeler la fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
-var popupButton = document.getElementById("popupButton");
-popupButton.addEventListener("click", afficherInfosDepuisJSON);
-
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
+
+// Appeler la fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
+var popupButton = document.getElementById("popupButton");
+popupButton.addEventListener("click", function() {
+  alert("Please enter the URL of the source.");
+});
+
+// Écouter le clic sur le bouton de fermeture de la popup log
+logElement.closeBtn.addEventListener("click", function() {
+  logElement.container.style.display = "none"; // Cacher la popup log
+});
