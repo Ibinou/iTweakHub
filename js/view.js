@@ -2,6 +2,10 @@
 function chargerPlusApplications(pageNumber, pageSize) {
   var appListDiv = document.getElementById("appList");
   var loadMoreBtn = document.getElementById("more");
+  var h1Element = document.getElementById("repoName");
+  var pElement = document.getElementById("repoDescription");
+  var imgElement = document.getElementById("source_icon");
+  var webElement = document.getElementById("source_website");
 
   var urlParams = new URLSearchParams(window.location.search);
   var repoUrl = urlParams.get("repo");
@@ -12,6 +16,20 @@ function chargerPlusApplications(pageNumber, pageSize) {
         return response.json();
       })
       .then(function(data) {
+        // Afficher les informations de la source
+        h1Element.textContent = data.name;
+        pElement.textContent = data.description;
+        if (data.iconURL) {
+          imgElement.src = data.iconURL;
+        } else {
+          imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+        }
+        if (data.website) {
+          webElement.href = data.website;
+        } else {
+          webElement.style.display = "none";
+        }
+
         var appsData = data.apps;
         appsData.sort(function(a, b) {
           return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
@@ -44,12 +62,12 @@ function chargerPlusApplications(pageNumber, pageSize) {
 
           var appNameDiv = document.createElement("div");
           appNameDiv.className = "appname";
-          appNameDiv.textContent = appData.name;
+          appNameDiv.textContent = appData.name; // Affichage du nom de l'application
           appCellMetaDiv.appendChild(appNameDiv);
 
           var appDevDiv = document.createElement("div");
           appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developerName;
+          appDevDiv.textContent = appData.developerName; // Affichage du nom du développeur
           appCellMetaDiv.appendChild(appDevDiv);
 
           appCellLeftDiv.appendChild(appCellMetaDiv);
