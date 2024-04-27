@@ -1,4 +1,3 @@
- // Fonction pour afficher les données
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
@@ -8,14 +7,12 @@ function afficherDonnees() {
       return response.json();
     })
     .then(function(data) {
-      var appsData = data.apps; // Assurez-vous que le format JSON correspond
+      var appsData = data.apps; // appsData
 
       // Triez les applications par nom (ordre alphabétique)
       appsData.sort(function(a, b) {
         return a.name.localeCompare(b.name);
       });
-
-      afficherApplications(appsData);
 
       // Récupérer les URLs des JSON depuis le localStorage
       var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
@@ -61,15 +58,19 @@ function afficherDonnees() {
 
       // Vérifier si appData.iconURL existe
       if (appData.iconURL) {
-        // Vérifier si le lien d'image est valide
-        appIconImg.onload = function() {
-          // L'image a été chargée avec succès
-        };
-        appIconImg.onerror = function() {
-          // Le lien d'image n'est pas valide, utiliser un placeholder
-          appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
-        };
-        appIconImg.src = appData.iconURL;
+        // Créer un observer d'intersection
+        var observer = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              // Charger l'image
+              appIconImg.src = appData.iconURL;
+              observer.unobserve(entry.target); // Arrêter l'observation une fois l'image chargée
+            }
+          });
+        });
+
+        // Attacher l'observateur à l'élément d'icône d'application
+        observer.observe(appIconImg);
       } else {
         // Utiliser un placeholder si aucun lien d'image n'est fourni
         appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
@@ -114,7 +115,6 @@ function afficherDonnees() {
     });
   }
 }
-
 //search bar script
     function myFunction() {
       const input = document.getElementById("myInput");
