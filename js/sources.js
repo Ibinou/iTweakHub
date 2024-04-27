@@ -163,18 +163,12 @@ function createRepoElement(data, url) {
 }
 
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
-function afficherInfosDepuisJSON() {
-  var url = prompt("Enter source URL:");
-  console.log('Before fetch. URL:', url); // Ajout pour débogage
-
+function afficherInfosDepuisJSON(url) {
   fetch(url)
     .then(function(response) {
-      console.log('After fetch, before response.json(). Status:', response.status); // Ajout pour débogage
       return response.json();
     })
     .then(function(data) {
-      console.log('After response.json(), data:', data); // Ajout pour débogage
-
       if (data.apps && Array.isArray(data.apps) && data.name) {
         var reposDiv = document.getElementById("repos");
         var infoDiv = createRepoElement(data, url);
@@ -204,20 +198,85 @@ function afficherInfosDepuisJSON() {
 
 // Fonction pour afficher les logs dans la popup log
 function afficherLogs(logs) {
-  var logContainer = document.getElementById("popup_log");
-  var logText = logContainer.querySelector(".log_text");
-  logs.forEach(function(log) {
-    var logEntry = document.createElement("div");
-    logEntry.textContent = "Added " + log;
-    logText.appendChild(logEntry);
-  });
-  logContainer.style.display = "block"; // Afficher la popup log
-  logText.scrollTop = logText.scrollHeight; // Faire défiler vers le bas
+  var logText = logElement.text;
+  var index = 0;
+  var maxHeight = 150; // Hauteur maximale pour le conteneur de logs
+  var intervalId = setInterval(function() {
+    if (index < logs.length) {
+      var logEntry = document.createElement("div");
+      logEntry.textContent = "Added " + logs[index];
+      logText.appendChild(logEntry);
+      logElement.container.scrollTop = logElement.container.scrollHeight; // Faire défiler vers le bas
+      index++;
+    } else {
+      clearInterval(intervalId); // Arrêter l'intervalle une fois que tous les logs ont été affichés
+    }
+  }, 200); // Délai de 0.2 seconde entre chaque app
+  logElement.container.style.display = "block"; // Afficher la popup log
 }
+
+// Fonction pour créer l'élément de log
+function createLogElement() {
+  var logContainer = document.createElement("div");
+  logContainer.className = "popup_log";
+  logContainer.style.display = "none"; // Caché par défaut
+  logContainer.style.position = "fixed";
+  logContainer.style.top = "50%";
+  logContainer.style.left = "50%";
+  logContainer.style.transform = "translate(-50%, -50%)";
+  logContainer.style.width = "300px";
+  logContainer.style.height = "200px";
+  logContainer.style.backgroundColor = "#1c1c1c";
+  logContainer.style.borderRadius = "20px";
+  logContainer.style.padding = "20px";
+
+  var logText = document.createElement("div");
+  logText.className = "log_text";
+  logText.style.color = "white";
+  logText.style.fontSize = "16px";
+  logText.style.maxHeight = "150px";
+  logText.style.overflowY = "auto";
+  logContainer.appendChild(logText);
+
+  var closeButton = document.createElement("button");
+  closeButton.className = "close_log_btn";
+  closeButton.textContent = "Close";
+  closeButton.style.position = "absolute";
+  closeButton.style.bottom = "10px";
+  closeButton.style.left = "50%";
+  closeButton.style.transform = "translateX(-50%)";
+  closeButton.style.backgroundColor = "#363636";
+  closeButton.style.borderRadius = "20px";
+  closeButton.style.color = "#fff";
+  closeButton.style.width = "100px";
+  closeButton.style.height = "30px";
+  logContainer.appendChild(closeButton);
+
+  document.body.appendChild(logContainer); // Ajouter le conteneur de log à la fin du body
+
+  return {
+    container: logContainer,
+    text: logText,
+    closeBtn: closeButton
+  };
+}
+
+// Appel de la fonction pour créer l'élément de log
+var logElement = createLogElement();
 
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
 
-// Appeler la fonction pour afficher les logs lors de l'ajout d'une nouvelle source
+// Écouter le clic sur le bouton de fermeture de la popup log
+logElement.closeBtn.addEventListener("click", function() {
+  logElement.container.style.display = "none"; // Cacher la popup log
+});
+
+// Appeler la fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 var popupButton = document.getElementById("popupButton");
-popupButton.addEventListener("click", afficherInfosDepuisJSON);
+popupButton.addEventListener("click", function() {
+  var url = prompt("Enter source URL:");
+  if (url !== null && url.trim() !== "") {
+    afficherInfosDepuisJSON(url);
+  }
+});
