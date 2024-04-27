@@ -95,7 +95,7 @@
     padding: 5px;
     display: flex;
     justify-content: center;
-    width: 52px;
+    width: 64px;
     height: 30px;
     object-fit: cover;
     color: var(--accent-color);
