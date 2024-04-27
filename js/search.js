@@ -1,17 +1,3 @@
-// Fonction pour charger les données supplémentaires lors du défilement
-function chargerDonneesAuScroll() {
-  window.addEventListener('scroll', function() {
-    // Vérifier si nous avons atteint le bas de la page
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      // Charger plus de données
-      afficherDonnees();
-    }
-  });
-}
-
-// Appeler la fonction pour charger les données supplémentaires au défilement
-chargerDonneesAuScroll();
-
 // Fonction pour afficher les données
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
@@ -81,12 +67,12 @@ function afficherDonnees() {
         };
         appIconImg.onerror = function() {
           // Le lien d'image n'est pas valide, utiliser un placeholder
-          appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
+          appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/2.1/img/blank.JPG?raw=true";
         };
         appIconImg.src = appData.iconURL;
       } else {
         // Utiliser un placeholder si aucun lien d'image n'est fourni
-        appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
+        appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/2.1/img/blank.JPG?raw=true";
       }
 
       appCellLeftDiv.appendChild(appIconImg);
@@ -141,4 +127,3 @@ function afficherDonnees() {
         dock[i].style.display = display;
       }
     }
-
