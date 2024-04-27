@@ -82,11 +82,6 @@ editButton.addEventListener("click", function() {
   transformerBoutonsDelete();
 });
 
-// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
-window.addEventListener("load", function() {
-  afficherReposDepuisLocalStorage();
-});
-
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
@@ -170,7 +165,6 @@ function createRepoElement(data, url) {
 // Fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 function afficherInfosDepuisJSON() {
   var url = prompt("Enter source URL:");
-
   console.log('Before fetch. URL:', url); // Ajout pour débogage
 
   fetch(url)
@@ -195,7 +189,12 @@ function afficherInfosDepuisJSON() {
         var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
         repoURLs.push(url);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
-        location.reload();
+        
+        // Afficher le message "Added source"
+        console.log('Added source');
+        
+        // Afficher les logs dans la popup log
+        afficherLogs(data.apps);
       } else {
         console.log('Warning', 'Source added despite missing "apps" array or "name" property');
       }
@@ -206,5 +205,41 @@ function afficherInfosDepuisJSON() {
     });
 }
 
+// Fonction pour afficher les logs dans la popup log
+function afficherLogs(logs) {
+  var logText = logElement.text;
+  logs.forEach(function(log) {
+    logText.textContent += "Added [" + log + "]\n";
+  });
+  logElement.container.style.display = "block"; // Afficher la popup log
+}
+
+// Fonction pour créer l'élément de log
+function createLogElement() {
+  var logContainer = document.createElement("div");
+  logContainer.className = "popup_log";
+
+  var logText = document.createElement("div");
+  logText.className = "log_text";
+  logContainer.appendChild(logText);
+
+  var closeButton = document.createElement("button");
+  closeButton.className = "close_log_btn";
+  closeButton.textContent = "Close";
+  logContainer.appendChild(closeButton);
+
+  document.body.appendChild(logContainer); // Ajouter le conteneur de log à la fin du body
+
+  return {
+    container: logContainer,
+    text: logText,
+    closeBtn: closeButton
+  };
+}
+
+// Appel de la fonction pour créer l'élément de log
+var logElement = createLogElement();
+
+// Appeler la fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
