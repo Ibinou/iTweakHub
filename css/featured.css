@@ -55,7 +55,7 @@
 
     .appicon {
         border-radius: 15px;
-        background-color: #000;
+        background-image: linear-gradient(to top, #141414, #3d3d3d);
         width: 60px;
         height: 60px;
         object-fit: cover;
