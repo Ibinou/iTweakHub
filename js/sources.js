@@ -216,11 +216,15 @@ function afficherLogs(logs) {
       var confirmationLog = document.createElement("div");
       confirmationLog.textContent = "The source has been added";
       logText.appendChild(confirmationLog);
-      logElement.container.scrollTop = logElement.container.scrollHeight; // Faire défiler vers le bas
+      logElement.container.scrollTop = 0; // Faire défiler vers le haut pour afficher le log de confirmation
       // Afficher le bouton de fermeture de la popup log
       logElement.closeBtn.style.display = "block";
+      // Rafraîchir la page après la fermeture de la popup log
+      logElement.closeBtn.addEventListener("click", function() {
+        location.reload();
+      });
     }
-  }, 200); // Délai de 0.2 seconde entre chaque app
+  }, 100); // Délai de 0.1 seconde entre chaque app pour une vitesse accrue
   logElement.container.style.display = "block"; // Afficher la popup log
 }
 
@@ -288,5 +292,7 @@ popupButton.addEventListener("click", function() {
   var url = prompt("Enter source URL:");
   if (url !== null && url.trim() !== "") {
     afficherInfosDepuisJSON(url);
+  } else {
+    alert("Please enter the URL of the source.");
   }
 });
