@@ -9,11 +9,11 @@ function isInViewport(element) {
   );
 }
 
-function afficherDonnees() {
+// Fonction pour afficher les données paginées
+function afficherDonnees(pageNumber, pageSize) {
   var appListDiv = document.getElementById("appList");
-  var h1Element = document.getElementById("repoName"); 
+  var h1Element = document.getElementById("repoName");
   var pElement = document.getElementById("repoDescription");
-  var imgElement = document.getElementById("source_icon");
   var webElement = document.getElementById("source_website");
 
   var urlParams = new URLSearchParams(window.location.search);
@@ -27,19 +27,6 @@ function afficherDonnees() {
       .then(function(data) {
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
-        if (data.iconURL) {
-           imgElement.onload = function() {
-           // L'image a été chargée avec succès
-        };
-           imgElement.onerror = function() {
-           // Le lien d'image n'est pas valide, utiliser un placeholder
-           imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
-         };
-           imgElement.src = data.iconURL;
-        } else {
-        // Utiliser un placeholder si aucun lien d'image n'est fourni
-        imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
-        }
         if (data.website) {
           webElement.href = data.website;
         } else {
@@ -47,67 +34,26 @@ function afficherDonnees() {
         }
 
         var appsData = data.apps;
-        appsData.sort(function(a, b) {
-          return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-        });
+        var totalApps = appsData.length;
+        var startIndex = (pageNumber - 1) * pageSize;
+        var endIndex = Math.min(startIndex + pageSize, totalApps);
 
-        var nombreApplicationsAafficher = appsData.length; 
-
-        for (var i = 0; i < nombreApplicationsAafficher; i++) {
+        for (var i = startIndex; i < endIndex; i++) {
           var appData = appsData[i];
 
           var dockDiv = document.createElement("div");
           dockDiv.className = "dock";
 
-          var appCellLeftDiv = document.createElement("div");
-          appCellLeftDiv.className = "app_cell_left";
-
-          var appIconImg = document.createElement("img");
-          appIconImg.className = "appicon";
-          if (appData.iconURL) {
-            // Utiliser data-src au lieu de src
-            appIconImg.setAttribute("data-src", appData.iconURL);
-          } else {
-            appIconImg.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
-          }
-          appCellLeftDiv.appendChild(appIconImg);
-
-          var appCellMetaDiv = document.createElement("div");
-          appCellMetaDiv.className = "app_cell_meta";
-
+          // Création des éléments pour afficher le nom de l'application
           var appNameDiv = document.createElement("div");
           appNameDiv.className = "appname";
           appNameDiv.textContent = appData.name;
-          appCellMetaDiv.appendChild(appNameDiv);
 
-          var appDevDiv = document.createElement("div");
-          appDevDiv.className = "appsection";
-          appDevDiv.textContent = appData.developerName;
-          appCellMetaDiv.appendChild(appDevDiv);
-
-          appCellLeftDiv.appendChild(appCellMetaDiv);
-          dockDiv.appendChild(appCellLeftDiv);
-
-          var appGetDiv = document.createElement("div");
-          appGetDiv.className = "appget";
-
-          var appGetBtn = document.createElement("a");
-          appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(repoUrl);
-
-          var getBtn = document.createElement("button");
-          getBtn.className = "getbtn";
-          getBtn.textContent = "GET";
-
-          appGetBtn.appendChild(getBtn);
-          appGetDiv.appendChild(appGetBtn);
-          dockDiv.appendChild(appGetDiv);
+          // Ajout de l'élément du nom de l'application au conteneur du dock
+          dockDiv.appendChild(appNameDiv);
 
           appListDiv.appendChild(dockDiv);
         }
-
-        // Ajout de l'écouteur d'événements pour le lazy loading
-        window.addEventListener('scroll', lazyLoadImages);
-        lazyLoadImages();
       })
       .catch(function(error) {
         console.log('Error', error);
@@ -116,6 +62,9 @@ function afficherDonnees() {
     console.log("Repo URL not provided in the 'repo' parameter.");
   }
 }
+
+// Appeler la fonction pour afficher les données paginées
+afficherDonnees(1, 10); // Charger la première page avec 10 éléments par page
 
 // Fonction pour charger les images lorsque l'utilisateur fait défiler jusqu'à elles
 function lazyLoadImages() {
