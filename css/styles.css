@@ -2094,20 +2094,34 @@ sections_div {
     border-radius: 5px;
     cursor: pointer;
   }
-#more {
-      display: block;
-    background-color: #1c1c1c;
-    border-radius: 20px;
-    color: #fff;
-    width: 300px;
-    height: 20px;
-}
-#morediv {
-  margin-bottom: 50px;
-  height: 80px;
-  width: 50px;
-  background-color: 000;
-}
   .message-button:hover {
     background-color: #0056b3;
   }
+.popup_log {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* ajustez la largeur selon vos besoins */
+  height: 200px; /* ajustez la hauteur selon vos besoins */
+  background-color: #1c1c1c;
+  border-radius: 20px;
+  padding: 20px; /* ajustez le rembourrage selon vos besoins */
+}
+
+.log_text {
+  color: white;
+  font-size: 16px;
+}
+
+.close_log_btn {
+  position: absolute;
+  bottom: 10px; /* ajustez la position verticale selon vos besoins */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #363636;
+  border-radius: 20px;
+  color: #fff;
+  width: 100px; /* ajustez la largeur selon vos besoins */
+  height: 30px;
+}
