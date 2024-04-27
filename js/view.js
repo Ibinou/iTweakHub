@@ -31,11 +31,11 @@ function afficherDonnees() {
         imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
         }
         if (data.website) {
-  webElement.href = data.website;
-} else {
-  // Cacher l'élément website s'il n'y a pas de lien de site web
-  webElement.style.display = "none";
-}
+          webElement.href = data.website;
+        } else {
+          // Cacher l'élément website s'il n'y a pas de lien de site web
+          webElement.style.display = "none";
+        }
 
         var appsData = data.apps;
 
@@ -57,21 +57,23 @@ function afficherDonnees() {
 
           var appIconImg = document.createElement("img");
           appIconImg.className = "appicon";
-          // Vérifier si appData.iconURL existe
-          if (appData.iconURL) {
-            // Vérifier si le lien d'image est valide
-            appIconImg.onload = function() {
-              // L'image a été chargée avec succès
-            };
-            appIconImg.onerror = function() {
-              // Le lien d'image n'est pas valide, utiliser un placeholder
-              appIconImg.src = "img/blank.JPG";
-            };
-            appIconImg.src = appData.iconURL;
-          } else {
-            // Utiliser un placeholder si aucun lien d'image n'est fourni
-            appIconImg.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
-          }
+          // Créer un observer d'intersection pour l'image de l'application
+          var observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                // Charger l'image lorsque l'élément est visible à l'écran
+                if (appData.iconURL) {
+                  appIconImg.src = appData.iconURL;
+                } else {
+                  // Utiliser un placeholder si aucun lien d'image n'est fourni
+                  appIconImg.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+                }
+                observer.unobserve(entry.target); // Arrêter l'observation une fois l'image chargée
+              }
+            });
+          });
+          observer.observe(appIconImg); // Attacher l'observateur à l'élément d'icône d'application
+
           appCellLeftDiv.appendChild(appIconImg);
 
           var appCellMetaDiv = document.createElement("div");
