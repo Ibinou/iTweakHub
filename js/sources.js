@@ -190,9 +190,6 @@ function afficherInfosDepuisJSON() {
         repoURLs.push(url);
         localStorage.setItem("repoURLs", JSON.stringify(repoURLs));
         
-        // Afficher le message "Added source"
-        console.log('Added source');
-        
         // Afficher les logs dans la popup log
         afficherLogs(data.apps.map(app => app.name));
       } else {
@@ -222,6 +219,7 @@ function afficherLogs(logs) {
   }, 200); // Délai de 0.2 seconde entre chaque app
   logElement.container.style.display = "block"; // Afficher la popup log
 }
+
 // Fonction pour créer l'élément de log
 function createLogElement() {
   var logContainer = document.createElement("div");
