@@ -586,13 +586,13 @@ function loadImage(url) {
 
 // Charger et afficher les informations de l'application
 function loadAppInfo() {
-    const appNameFromURL = decodeURIComponent(getParameterByName("name"));
+    const appNameFromURL = getParameterByName("name");
     const sourceParameter = getParameterByName("source");
 
     if (!appNameFromURL || !sourceParameter) {
         console.error("Paramètres requis manquants (name ou source).");
     } else {
-        const jsonFileURL = decodeURIComponent(sourceParameter);  // Décodage de l'URL
+        const jsonFileURL = sourceParameter;  // Utilisez l'URL complète sans préfixe
 
         fetch(jsonFileURL)
             .then(response => response.json())
