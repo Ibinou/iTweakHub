@@ -208,15 +208,20 @@ function afficherInfosDepuisJSON() {
 // Fonction pour afficher les logs dans la popup log
 function afficherLogs(logs) {
   var logText = logElement.text;
-  // Ajouter les nouveaux logs au début de la liste
-  logs.forEach(function(log) {
-    var logEntry = document.createElement("div");
-    logEntry.textContent = "Added " + log;
-    logText.insertBefore(logEntry, logText.firstChild);
-  });
+  var index = 0;
+  var intervalId = setInterval(function() {
+    if (index < logs.length) {
+      var logEntry = document.createElement("div");
+      logEntry.textContent = "Added " + logs[index];
+      logText.appendChild(logEntry);
+      logElement.container.scrollTop = logElement.container.scrollHeight; // Faire défiler vers le bas
+      index++;
+    } else {
+      clearInterval(intervalId); // Arrêter l'intervalle une fois que tous les logs ont été affichés
+    }
+  }, 200); // Délai de 0.2 seconde entre chaque app
   logElement.container.style.display = "block"; // Afficher la popup log
 }
-
 // Fonction pour créer l'élément de log
 function createLogElement() {
   var logContainer = document.createElement("div");
