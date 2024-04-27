@@ -1,6 +1,7 @@
 // Fonction pour charger et afficher les applications par lots
 function chargerPlusApplications(pageNumber, pageSize) {
   var appListDiv = document.getElementById("appList");
+  var loadMoreBtn = document.getElementById("more");
 
   var urlParams = new URLSearchParams(window.location.search);
   var repoUrl = urlParams.get("repo");
@@ -12,6 +13,10 @@ function chargerPlusApplications(pageNumber, pageSize) {
       })
       .then(function(data) {
         var appsData = data.apps;
+        appsData.sort(function(a, b) {
+          return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+        });
+
         var totalApps = appsData.length;
         var startIndex = (pageNumber - 1) * pageSize;
         var endIndex = Math.min(startIndex + pageSize, totalApps);
@@ -69,19 +74,14 @@ function chargerPlusApplications(pageNumber, pageSize) {
 
         // Vérifie s'il reste des applications à charger
         if (endIndex < totalApps) {
-          // Création du bouton pour charger plus d'applications
-          var loadMoreBtn = document.createElement("button");
-          loadMoreBtn.id = "loadMoreBtn";
-          loadMoreBtn.textContent = "Charger plus d'applications";
+          // Afficher le bouton "Charger plus d'applications"
+          loadMoreBtn.style.display = "block";
 
           // Ajout de l'événement de clic pour charger plus d'applications
           loadMoreBtn.addEventListener("click", function() {
             chargerPlusApplications(pageNumber + 1, pageSize);
-            loadMoreBtn.parentNode.removeChild(loadMoreBtn); // Supprimer le bouton après son utilisation
+            loadMoreBtn.style.display = "none"; // Masquer le bouton après son utilisation
           });
-
-          // Ajout du bouton à la fin de la liste des applications
-          appListDiv.appendChild(loadMoreBtn);
         }
       })
       .catch(function(error) {
