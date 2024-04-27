@@ -269,7 +269,7 @@ nav h1 i a {
 </ul>
 <br>
 <a id="versions">
-<ul style="margin-left: 16px;margin-right: 16px;" class="ioslist">
+<ul class="ioslist">
 <li style="border-bottom-width: 0px;">
 <div class="ioslist_icon"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></div>
 <span>Version history</span>
@@ -584,7 +584,7 @@ function loadImage(url) {
     });
 }
 
-// Charger et afficher les informations de l'application
+// Fonction pour charger et afficher les informations de l'application
 function loadAppInfo() {
     const appNameFromURL = getParameterByName("name");
     const sourceParameter = getParameterByName("source");
@@ -602,10 +602,6 @@ function loadAppInfo() {
                 const appData = data.apps.find(app => app.name === appNameFromURL);
 
                 if (appData) {
-                    // Décoder les barres obliques inversées dans l'URL du fichier IPA
-                    const decodedDownloadURL = appData.downloadURL.replace(/\\\//g, '/');
-                    appData.downloadURL = decodedDownloadURL;
-                    
                     displayAppInfo(appData);
                     document.title = appData.name;
                 } else {
