@@ -194,7 +194,7 @@ function afficherInfosDepuisJSON() {
         console.log('Added source');
         
         // Afficher les logs dans la popup log
-        afficherLogs(data.apps);
+        afficherLogs(data.apps.map(app => app.name));
       } else {
         console.log('Warning', 'Source added despite missing "apps" array or "name" property');
       }
@@ -208,8 +208,11 @@ function afficherInfosDepuisJSON() {
 // Fonction pour afficher les logs dans la popup log
 function afficherLogs(logs) {
   var logText = logElement.text;
+  // Ajouter les nouveaux logs au début de la liste
   logs.forEach(function(log) {
-    logText.textContent += "Added [" + log + "]\n";
+    var logEntry = document.createElement("div");
+    logEntry.textContent = "Added " + log;
+    logText.insertBefore(logEntry, logText.firstChild);
   });
   logElement.container.style.display = "block"; // Afficher la popup log
 }
