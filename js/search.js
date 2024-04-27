@@ -1,3 +1,17 @@
+// Fonction pour charger les données supplémentaires lors du défilement
+function chargerDonneesAuScroll() {
+  window.addEventListener('scroll', function() {
+    // Vérifier si nous avons atteint le bas de la page
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      // Charger plus de données
+      afficherDonnees();
+    }
+  });
+}
+
+// Appeler la fonction pour charger les données supplémentaires au défilement
+chargerDonneesAuScroll();
+
 // Fonction pour afficher les données
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
