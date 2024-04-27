@@ -586,7 +586,7 @@ function loadImage(url) {
 
 // Charger et afficher les informations de l'application
 function loadAppInfo() {
-    const appNameFromURL = getParameterByName("name");
+    const appNameFromURL = decodeURIComponent(getParameterByName("name"));
     const sourceParameter = getParameterByName("source");
 
     if (!appNameFromURL || !sourceParameter) {
