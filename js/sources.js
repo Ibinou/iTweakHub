@@ -8,7 +8,8 @@ var originalHrefs = [];
 function transformerBoutonsDelete() {
   var viewButtons = document.querySelectorAll('.getbtn');
   viewButtons.forEach(function(button) {
-    button.textContent = "DELETE";
+    button.textContent = ""; // Effacer le texte existant
+    button.style.width = "71px"; // Définir la largeur temporairement à 71px
     button.style.color = "red"; // Changement de la couleur du texte en rouge
     button.removeAttribute("onclick");
     var url = button.dataset.url; // Récupérer l'URL à partir de l'attribut de données
@@ -75,10 +76,6 @@ function restaurerEventListeners() {
 // Appeler la fonction pour restaurer les écouteurs d'événements lors du chargement de la page
 window.addEventListener("load", restaurerEventListeners);
 
-// Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
-var editButton = document.getElementById("edit");
-editButton.addEventListener("click", transformerBoutonsDelete);
-
 // Fonction pour afficher les repos depuis le localStorage
 function afficherReposDepuisLocalStorage() {
   var repoURLs = JSON.parse(localStorage.getItem("repoURLs")) || [];
@@ -96,7 +93,7 @@ function afficherReposDepuisLocalStorage() {
           // Ajouter l'attribut de données data-url au bouton "View"
           var viewButton = repoElement.querySelector('.getbtn');
           if (viewButton) {
-            viewButton.textContent = "APPS: " + data.apps.length;
+            viewButton.textContent = data.apps.length; // Afficher seulement le nombre d'applications
             viewButton.dataset.url = url;
           }
         } else {
@@ -145,9 +142,9 @@ function createRepoElement(data, url) {
   getButton.className = "getbtn";
   // Affichage du nombre d'applications au lieu de "VIEW"
   if (data.apps && Array.isArray(data.apps)) {
-    getButton.textContent = "APPS: " + data.apps.length;
+    getButton.textContent = data.apps.length;
   } else {
-    getButton.textContent = "APPS: 0";
+    getButton.textContent = "0";
   }
   appGetDiv.appendChild(getButton);
 
@@ -198,12 +195,15 @@ function afficherInfosDepuisJSON() {
     });
 }
 
+// Appeler la fonction pour transformer les boutons en boutons "Delete" lorsque le bouton "edit" est pressé
+var editButton = document.getElementById("edit");
+editButton.addEventListener("click", function() {
+  transformerBoutonsDelete();
+});
+
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", function() {
   afficherReposDepuisLocalStorage();
-  // Ajouter un gestionnaire d'événements pour l'élément avec l'ID "edit"
-  var editIcon = document.getElementById("edit");
-  editIcon.addEventListener("click", transformerBoutonsDelete);
 });
 
 var popupButton = document.getElementById("popupButton");
