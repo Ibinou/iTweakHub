@@ -96,6 +96,7 @@ function afficherReposDepuisLocalStorage() {
           // Ajouter l'attribut de données data-url au bouton "View"
           var viewButton = repoElement.querySelector('.getbtn');
           if (viewButton) {
+            viewButton.textContent = "APPS: " + data.apps.length;
             viewButton.dataset.url = url;
           }
         } else {
@@ -142,7 +143,12 @@ function createRepoElement(data, url) {
 
   var getButton = document.createElement("button");
   getButton.className = "getbtn";
-  getButton.textContent = "VIEW";
+  // Affichage du nombre d'applications au lieu de "VIEW"
+  if (data.apps && Array.isArray(data.apps)) {
+    getButton.textContent = "APPS: " + data.apps.length;
+  } else {
+    getButton.textContent = "APPS: 0";
+  }
   appGetDiv.appendChild(getButton);
 
   // Ajouter un gestionnaire d'événements pour ouvrir la page repoview.html
