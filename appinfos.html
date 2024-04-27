@@ -592,7 +592,7 @@ function loadAppInfo() {
     if (!appNameFromURL || !sourceParameter) {
         console.error("Paramètres requis manquants (name ou source).");
     } else {
-        const jsonFileURL = sourceParameter;  // Utilisez l'URL complète sans préfixe
+        const jsonFileURL = decodeURIComponent(sourceParameter);  // Décodage de l'URL
 
         fetch(jsonFileURL)
             .then(response => response.json())
