@@ -1,5 +1,7 @@
+// Fonction pour charger et afficher les applications par lots
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
+  var loadMoreBtn = document.getElementById("more");
 
   // Fetcher les données de apps.json
   fetch('https://ibinou.github.io/iTweakHub/apps.json')
@@ -14,38 +16,30 @@ function afficherDonnees() {
         return a.name.localeCompare(b.name);
       });
 
-      // Récupérer les URLs des JSON depuis le localStorage
-      var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+      // Afficher les 20 premières applications
+      afficherApplications(appsData.slice(0, 20));
 
-      // Fetcher les données des URLs stockées dans repoURLs
-      var fetchPromises = repoURLs.map(function(url) {
-        return fetch(url)
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(data) {
-            var appsDataFromURL = data.apps; 
+      // Vérifier s'il reste des applications à charger
+      if (appsData.length > 20) {
+        // Afficher le bouton "Charger plus d'applications"
+        loadMoreBtn.style.display = "block";
 
-            // Triez les applications par nom également
-            appsDataFromURL.sort(function(a, b) {
-              return a.name.localeCompare(b.name);
-            });
-
-            afficherApplications(appsDataFromURL, url);
-          })
-          .catch(function(error) {
-            console.log('Error fetching data from URL', error);
-          });
-      });
-
-      // Attendre que toutes les requêtes de fetch se terminent
-      return Promise.all(fetchPromises);
+        // Ajout de l'événement de clic pour charger plus d'applications
+        loadMoreBtn.addEventListener("click", function() {
+          var startIndex = appListDiv.getElementsByClassName("dock").length;
+          var endIndex = Math.min(startIndex + 20, appsData.length);
+          afficherApplications(appsData.slice(startIndex, endIndex));
+          if (endIndex === appsData.length) {
+            loadMoreBtn.style.display = "none"; // Masquer le bouton lorsque toutes les applications sont chargées
+          }
+        });
+      }
     })
     .catch(function(error) {
       console.log('Error fetching apps.json', error);
     });
 
-  function afficherApplications(appsData, source) {
+  function afficherApplications(appsData) {
     appsData.forEach(function(appData) {
       var dockDiv = document.createElement("div");
       dockDiv.className = "dock";
@@ -100,7 +94,7 @@ function afficherDonnees() {
       var appGetBtn = document.createElement("a");
 
       // Utiliser l'opérateur ternaire pour définir la valeur de source
-      var sourceValue = source !== undefined ? encodeURIComponent(source) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      var sourceValue = encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
       appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
       var getBtn = document.createElement("button");
@@ -115,6 +109,7 @@ function afficherDonnees() {
     });
   }
 }
+
 //search bar script
     function myFunction() {
       const input = document.getElementById("myInput");
