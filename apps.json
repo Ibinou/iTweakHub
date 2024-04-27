@@ -7,6 +7,26 @@
     "website": "https://x.com/iTweakHub",
     "tintColor": "D85240",
     "apps": [
+      {
+         "name":"RetroArch (64bit)",
+         "id":"retroarch64",
+         "developerName":"RetroArch Team",
+         "version":"Latest",
+         "minOSVersion":"iOS 13",
+         "iconURL":"https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
+         "downloadURL":"https://buildbot.libretro.com/nightly/apple/ios-arm64/RetroArch.ipa",
+         "localizedDescription":"RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!"
+      },
+      {
+         "name":"RetroArch (32bit)",
+         "id":"retroarch32",
+         "developerName":"RetroArch Team",
+         "version":"Latest",
+         "minOSVersion":"iOS 9",
+         "iconURL":"https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
+         "downloadURL":"https://buildbot.libretro.com/nightly/apple/ios9/RetroArchiOS9.ipa",
+         "localizedDescription":"RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!"
+      },
     {
       "name": "iTorrent",
       "bundleIdentifier": "ru.nonamedude.iTorrent",
