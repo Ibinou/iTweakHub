@@ -217,3 +217,7 @@ function afficherLogs(logs) {
 
 // Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
 window.addEventListener("load", afficherReposDepuisLocalStorage);
+
+// Appeler la fonction pour afficher les logs lors de l'ajout d'une nouvelle source
+var popupButton = document.getElementById("popupButton");
+popupButton.addEventListener("click", afficherInfosDepuisJSON);
