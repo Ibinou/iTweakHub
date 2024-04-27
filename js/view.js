@@ -13,6 +13,7 @@ function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
   var h1Element = document.getElementById("repoName"); 
   var pElement = document.getElementById("repoDescription");
+  var imgElement = document.getElementById("source_icon");
   var webElement = document.getElementById("source_website");
 
   var urlParams = new URLSearchParams(window.location.search);
@@ -26,6 +27,19 @@ function afficherDonnees() {
       .then(function(data) {
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
+        if (data.iconURL) {
+           imgElement.onload = function() {
+           // L'image a été chargée avec succès
+        };
+           imgElement.onerror = function() {
+           // Le lien d'image n'est pas valide, utiliser un placeholder
+           imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+         };
+           imgElement.src = data.iconURL;
+        } else {
+        // Utiliser un placeholder si aucun lien d'image n'est fourni
+        imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+        }
         if (data.website) {
           webElement.href = data.website;
         } else {
