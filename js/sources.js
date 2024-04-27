@@ -249,3 +249,6 @@ var logElement = createLogElement();
 // Appeler la fonction pour afficher les informations depuis le JSON et enregistrer l'URL dans le localStorage
 var popupButton = document.getElementById("popupButton");
 popupButton.addEventListener("click", afficherInfosDepuisJSON);
+
+// Appeler la fonction pour afficher les repos depuis le localStorage lors du chargement de la page
+window.addEventListener("load", afficherReposDepuisLocalStorage);
