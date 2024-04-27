@@ -224,7 +224,7 @@ function afficherLogs(logs) {
         location.reload();
       });
     }
-  }, 50); // Délai de 0.1 seconde entre chaque app pour une vitesse accrue
+  }, 20); // Délai de 0.1 seconde entre chaque app pour une vitesse accrue
   logElement.container.style.display = "block"; // Afficher la popup log
 }
 
