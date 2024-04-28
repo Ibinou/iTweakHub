@@ -2,53 +2,58 @@
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
-  // Fetcher les données de apps.json
+  // Promesse pour fetcher les données de apps.json
   fetch('https://ibinou.github.io/iTweakHub/apps.json')
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      var appsData = data.apps; // Assurez-vous que le format JSON correspond
-
-      // Triez les applications par nom (ordre alphabétique)
-      appsData.sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-      });
-
-      afficherApplications(appsData);
+      var appsData = data.apps || []; // Liste des applications de apps.json
 
       // Récupérer les URLs des JSON depuis le localStorage
       var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
 
-      // Fetcher les données des URLs stockées dans repoURLs
+      // Promesses pour fetcher les données de toutes les URLs stockées dans repoURLs
       var fetchPromises = repoURLs.map(function(url) {
         return fetch(url)
           .then(function(response) {
             return response.json();
           })
           .then(function(data) {
-            var appsDataFromURL = data.apps; 
-
-            // Triez les applications par nom également
-            appsDataFromURL.sort(function(a, b) {
-              return a.name.localeCompare(b.name);
-            });
-
-            afficherApplications(appsDataFromURL, url);
+            return data.apps || []; // Liste des applications de l'URL
           })
           .catch(function(error) {
             console.log('Error fetching data from URL', error);
+            return []; // Retourne une liste vide en cas d'erreur
           });
       });
 
       // Attendre que toutes les requêtes de fetch se terminent
-      return Promise.all(fetchPromises);
+      Promise.all(fetchPromises)
+        .then(function(results) {
+          // Concaténer toutes les listes d'applications en une seule
+          var allAppsData = appsData.concat(...results);
+
+          // Triez toutes les applications par nom (ordre alphabétique)
+          allAppsData.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+          });
+
+          // Afficher les applications triées
+          afficherApplications(allAppsData);
+        })
+        .catch(function(error) {
+          console.log('Error fetching app data', error);
+        });
     })
     .catch(function(error) {
       console.log('Error fetching apps.json', error);
     });
 
-  function afficherApplications(appsData, source) {
+  // Fonction pour afficher les applications dans le DOM
+  function afficherApplications(appsData) {
+    appListDiv.innerHTML = ''; // Effacer le contenu actuel de appListDiv
+
     appsData.forEach(function(appData) {
       var dockDiv = document.createElement("div");
       dockDiv.className = "dock";
@@ -99,7 +104,7 @@ function afficherDonnees() {
       var appGetBtn = document.createElement("a");
 
       // Utiliser l'opérateur ternaire pour définir la valeur de source
-      var sourceValue = source !== undefined ? encodeURIComponent(source) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      var sourceValue = encodeURIComponent(appData.source || 'https://ibinou.github.io/iTweakHub/apps.json');
       appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
       var getBtn = document.createElement("button");
@@ -115,15 +120,20 @@ function afficherDonnees() {
   }
 }
 
-//search bar script
-    function myFunction() {
-      const input = document.getElementById("myInput");
-      const filter = input.value.toUpperCase();
-      const dock = document.getElementsByClassName("dock");
+// Fonction pour filtrer les applications par nom
+function myFunction() {
+  const input = document.getElementById("myInput");
+  const filter = input.value.toUpperCase();
+  const dock = document.getElementsByClassName("dock");
 
-      for (let i = 0; i < dock.length; i++) {
-        const appname = dock[i].getElementsByClassName("appname")[0];
-        const display = appname.innerText.toUpperCase().includes(filter) ? "flex" : "none";
-        dock[i].style.display = display;
-      }
-    }
+  for (let i = 0; i < dock.length; i++) {
+    const appname = dock[i].getElementsByClassName("appname")[0];
+    const display = appname.innerText.toUpperCase().includes(filter) ? "flex" : "none";
+    dock[i].style.display = display;
+  }
+}
+
+// Appel de la fonction afficherDonnees au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+  afficherDonnees();
+});
