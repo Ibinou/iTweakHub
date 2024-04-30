@@ -224,42 +224,39 @@
             location.reload();
         });
 
-        // Récupérer les URLs déjà stockées dans le localStorage
-        var storedURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
-
-        // Sélectionner la div "featuredrepos"
-        var featuredDiv = document.querySelector('.featuredrepos');
-
         // Sélectionner tous les boutons
-        var buttons = document.querySelectorAll('.featuredrepos button');
-        buttons.forEach(function (button) {
-            // Récupérer l'URL à partir de l'ID du bouton
-            var repoURL = button.id;
+var buttons = document.querySelectorAll('.featuredrepos button');
+buttons.forEach(function(button) {
+    // Récupérer l'URL à partir de l'ID du bouton
+    var repoURL = button.id;
 
-            // Vérifier si l'URL est déjà dans le tableau
-            if (storedURLs.indexOf(repoURL) !== -1) {
-                // Masquer la div parent (item)
-                button.parentElement.style.display = 'none';
-            } else {
-                // Ajouter un gestionnaire de clic au bouton
-                button.addEventListener('click', function () {
-                    // Ajouter l'URL au tableau
-                    storedURLs.push(repoURL);
+    // Vérifier si l'URL est déjà dans le tableau
+    if (storedURLs.indexOf(repoURL) !== -1) {
+        // Masquer la div parent (item)
+        button.parentElement.style.display = 'none';
+    } else {
+        // Ajouter un gestionnaire de clic au bouton
+        button.addEventListener('click', function() {
+            // Ajouter l'URL au tableau
+            storedURLs.push(repoURL);
 
-                    // Mettre à jour le localStorage avec le nouveau tableau
-                    localStorage.setItem('repoURLs', JSON.stringify(storedURLs));
+            // Mettre à jour le localStorage avec le nouveau tableau
+            localStorage.setItem('repoURLs', JSON.stringify(storedURLs));
 
-                    // Masquer la div parent (item)
-                    button.parentElement.style.display = 'none';
+            // Masquer la div parent (item)
+            button.parentElement.style.display = 'none';
 
-                    // Afficher une alerte
-                    alert('The source has been added succesfully !');
+            // Afficher une alerte
+            alert('The source has been added successfully!');
 
-                    // Recharger la page après l'alerte
-                    window.location.reload();
-                });
-            }
+            // Afficher les logs dans la popup log
+            afficherLogs([repoURL]); // Affiche l'URL ajoutée comme log
+
+            // Recharger la page après l'alerte
+            window.location.reload();
         });
+    }
+});
 
 
 
