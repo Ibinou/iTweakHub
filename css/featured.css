@@ -74,7 +74,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         color: white;
-         width: 190px;
+         width: 170px;
          white-space: nowrap;
          overflow: hidden;
          text-overflow: ellipsis;
@@ -95,7 +95,7 @@
     padding: 5px;
     display: flex;
     justify-content: center;
-    width: 70px;
+    width: 65px;
     height: 30px;
     object-fit: cover;
     color: var(--accent-color);
