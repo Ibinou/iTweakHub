@@ -186,24 +186,35 @@
 </script>
 
 <script>
-//cokie/ LS delete	
 document.getElementById("clear-cookies-btn").addEventListener("click", function() {
-  // Supprimer tous les cookies
-  var cookies = document.cookie.split(";");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i];
-    var eqPos = cookie.indexOf("=");
-    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; // Supprime le cookie
+  // Demander une confirmation avant de supprimer les cookies
+  var confirmation = confirm("Are you sure you want to reset iTweakHub?\nThis action will delete all added sources, disconnect your user account, and reset other preferences.");
+
+  if (confirmation) {
+    // Supprimer tous les cookies
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; // Supprime le cookie
+    }
+
+    // Vider le localStorage
+    localStorage.clear();
+
+    // Afficher un message de confirmation
+    alert("iTweakHub has been reset.");
+
+    // Afficher un message dans la console
+    console.log("iTweakHub has been reset.");
+
+    // Rediriger l'utilisateur vers setup.html
+    window.location.href = "setup.html";
+  } else {
+    // Action annulée par l'utilisateur
+    console.log("iTweakHub reset canceled.");
   }
-
-  localStorage.clear();
-
-  alert("The cache has been deleted.");
-
-  console.log("The cache has been deleted.");
-
-  window.location.href = "setup.html";
 });
 
   // Ajout de la gestion de fermeture de la carte
