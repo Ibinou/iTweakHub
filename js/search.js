@@ -38,7 +38,7 @@ function afficherDonnees() {
               name: app.name,
               developer: app.developerName,
               iconURL: app.iconURL,
-              sourceURL: data.url || '', // Utiliser l'URL du JSON comme sourceURL
+              sourceURL: data.url || '', // Utiliser data.url ou une chaîne vide comme fallback
             };
           });
           allAppsData = allAppsData.concat(formattedApps);
@@ -122,6 +122,7 @@ function afficherDonnees() {
       appGetDiv.className = "appget";
 
       var appGetBtn = document.createElement("a");
+      // Construire le lien appinfos avec le paramètre source correspondant à data.url
       appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(appData.sourceURL);
 
       var getBtn = document.createElement("button");
