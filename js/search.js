@@ -34,14 +34,16 @@ function afficherDonnees() {
               return app.name === appname;
             });
 
-            if (appData && appData.iconURL && isElementInViewport(appCell)) {
-              appIcon.src = appData.iconURL;
+            if (appData && appData.iconURL && isInViewport(appCell)) {
+              if (!appIcon.src || appIcon.src.indexOf('blank.JPG') !== -1) {
+                appIcon.src = appData.iconURL;
+              }
             }
           }
         });
       }
 
-      function isElementInViewport(el) {
+      function isInViewport(el) {
         var rect = el.getBoundingClientRect();
         return (
           rect.top >= 0 &&
