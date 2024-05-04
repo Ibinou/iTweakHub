@@ -18,16 +18,18 @@ function afficherDonnees() {
         h1Element.textContent = data.name;
         pElement.textContent = data.description;
 
+        // Charger l'icône de la source
         if (data.iconURL) {
-          // Charger l'icône principale de manière paresseuse lorsqu'elle devient visible
-          imgElement.src = data.sourceIconURL;
+          imgElement.src = data.iconURL;
         } else {
-          // Utiliser un placeholder si aucun lien d'image n'est fourni pour l'icône principale
+          // Utiliser un placeholder si aucun lien d'image n'est fourni pour l'icône de la source
           imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
         }
 
+        // Afficher le lien vers le site web de la source
         if (data.website) {
           webElement.href = data.website;
+          webElement.style.display = "inline"; // Assurez-vous que le lien est visible
         } else {
           // Cacher l'élément website s'il n'y a pas de lien de site web
           webElement.style.display = "none";
