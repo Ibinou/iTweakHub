@@ -29,7 +29,7 @@ function afficherDonnees() {
 
         visibleIcons.forEach(function(icon) {
           if (isElementInViewport(icon)) {
-            var appName = icon.parentElement.parentElement.querySelector('.appname').textContent;
+            var appName = icon.closest('.dock').querySelector('.appname').textContent;
             var appData = appsData.find(function(app) {
               return app.name === appName;
             });
