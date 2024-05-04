@@ -122,8 +122,9 @@ function afficherDonnees() {
       appGetDiv.className = "appget";
 
       var appGetBtn = document.createElement("a");
-      // Construire le lien appinfos avec le paramètre source correspondant à data.url
-      appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + encodeURIComponent(appData.sourceURL);
+      // Utiliser l'opérateur ternaire pour définir la valeur de source
+      var sourceValue = source !== undefined ? encodeURIComponent(source) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
       var getBtn = document.createElement("button");
       getBtn.className = "getbtn";
