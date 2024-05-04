@@ -62,18 +62,10 @@ function afficherDonnees() {
 
     appCells.forEach(function(appCell) {
       var appIcon = appCell.querySelector('.appicon');
-      if (appIcon) {
-        var appname = appCell.parentElement.querySelector('.appname').textContent;
-        var appData = allAppsData.find(function(app) {
-          return app.name === appname;
-        });
-
-        if (appData && appData.iconURL && isInViewport(appCell)) {
-          if (!appIcon.src || appIcon.src.indexOf('blank.JPG') !== -1) {
-            // Charger l'icône uniquement si elle n'est pas déjà chargée
-            appIcon.src = appData.iconURL;
-          }
-        }
+      if (appIcon && appIcon.dataset.src && isInViewport(appCell)) {
+        // Charger l'icône uniquement si elle n'est pas déjà chargée
+        appIcon.src = appIcon.dataset.src;
+        delete appIcon.dataset.src; // Supprimer l'attribut dataset après chargement
       }
     });
   }
@@ -101,7 +93,7 @@ function afficherDonnees() {
       appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true"; // Placeholder par défaut
 
       if (appData.iconURL) {
-        // Stocker l'URL de l'image dans un attribut data pour le lazy loading
+        // Stocker l'URL de l'image dans un attribut dataset pour le lazy loading
         appIconImg.dataset.src = appData.iconURL;
       }
 
@@ -138,9 +130,8 @@ function afficherDonnees() {
       dockDiv.appendChild(appGetDiv);
 
       appListDiv.appendChild(dockDiv);
-      
-});
-}
+    });
+  }
 }
 
 
