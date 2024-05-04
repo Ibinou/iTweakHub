@@ -32,14 +32,21 @@ function afficherDonnees() {
       var allAppsData = [];
       dataArray.forEach(function(data) {
         if (data && data.apps && Array.isArray(data.apps)) {
-          allAppsData = allAppsData.concat(data.apps);
+          // Filtrer et formater les données essentielles pour chaque application
+          var formattedApps = data.apps.map(function(app) {
+            return {
+              name: app.name,
+              developer: app.developerName,
+              iconURL: app.iconURL,
+              sourceURL: 'appinfos.html?name=' + encodeURIComponent(app.name) + '&source=' + encodeURIComponent(data.url),
+            };
+          });
+          allAppsData = allAppsData.concat(formattedApps);
         }
       });
 
-      // Triez toutes les applications par nom (ordre alphabétique)
-      allAppsData.sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-      });
+      // Stocker les données dans le localStorage
+      localStorage.setItem('appsData', JSON.stringify(allAppsData));
 
       // Afficher toutes les applications avec les icônes
       afficherApplications(allAppsData);
@@ -111,7 +118,7 @@ function afficherDonnees() {
 
       var appDevDiv = document.createElement("div");
       appDevDiv.className = "appsection";
-      appDevDiv.textContent = appData.developerName;
+      appDevDiv.textContent = appData.developer;
       appCellMetaDiv.appendChild(appDevDiv);
 
       appCellLeftDiv.appendChild(appCellMetaDiv);
@@ -121,8 +128,7 @@ function afficherDonnees() {
       appGetDiv.className = "appget";
 
       var appGetBtn = document.createElement("a");
-      var sourceValue = encodeURIComponent(appData.source || 'https://ibinou.github.io/iTweakHub/apps.json'); // Source par défaut
-      appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
+      appGetBtn.href = appData.sourceURL;
 
       var getBtn = document.createElement("button");
       getBtn.className = "getbtn";
