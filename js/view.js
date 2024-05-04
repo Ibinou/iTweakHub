@@ -19,21 +19,11 @@ function afficherDonnees() {
         pElement.textContent = data.description;
 
         if (data.iconURL) {
-          // Charger l'icône de manière paresseuse lorsqu'elle devient visible
-          imgElement.dataset.src = data.iconURL;
-          imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+          // Charger l'icône principale de manière paresseuse lorsqu'elle devient visible
+          imgElement.src = data.sourceIconURL;
         } else {
-          // Utiliser un placeholder si aucun lien d'image n'est fourni
+          // Utiliser un placeholder si aucun lien d'image n'est fourni pour l'icône principale
           imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
-        }
-
-        if (data.sourceIconURL) {
-          // Charger l'icône de la source
-          var sourceIconImg = document.createElement("img");
-          sourceIconImg.src = data.sourceIconURL;
-          sourceIconImg.alt = "Source Icon";
-          sourceIconImg.style.width = "50px"; // Réglez la largeur de l'icône de la source selon vos besoins
-          imgElement.parentNode.insertBefore(sourceIconImg, imgElement.nextSibling); // Insérer l'icône de la source après imgElement
         }
 
         if (data.website) {
@@ -63,13 +53,12 @@ function afficherDonnees() {
 
           var appIconImg = document.createElement("img");
           appIconImg.className = "appicon";
-          // Vérifier si appData.iconURL existe
+          // Charger l'icône de l'application de manière paresseuse lorsqu'elle devient visible
           if (appData.iconURL) {
-            // Charger l'icône de manière paresseuse lorsqu'elle devient visible
             appIconImg.dataset.src = appData.iconURL;
             appIconImg.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
           } else {
-            // Utiliser un placeholder si aucun lien d'image n'est fourni
+            // Utiliser un placeholder si aucun lien d'image n'est fourni pour l'icône de l'application
             appIconImg.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
           }
           appCellLeftDiv.appendChild(appIconImg);
@@ -144,5 +133,4 @@ function afficherDonnees() {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
-}
 }
