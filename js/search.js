@@ -4,6 +4,9 @@ function chargerDonneesDepuisURL(url) {
     .then(function(response) {
       return response.json();
     })
+    .then(function(data) {
+      return { url: url, apps: data.apps }; // Retourner les données avec l'URL source
+    })
     .catch(function(error) {
       console.log('Error fetching data from URL', error);
       return null;
@@ -32,13 +35,13 @@ function afficherDonnees() {
       var allAppsData = [];
       dataArray.forEach(function(data) {
         if (data && data.apps && Array.isArray(data.apps)) {
-          // Filtrer et formater les données essentielles pour chaque application
+          // Filtrer et formater les données essentielles pour chaque application avec l'URL source
           var formattedApps = data.apps.map(function(app) {
             return {
               name: app.name,
               developer: app.developerName,
               iconURL: app.iconURL,
-              sourceURL: data.url || '', // Utiliser data.url ou une chaîne vide comme fallback
+              sourceURL: data.url || '', // Utiliser l'URL source ou une chaîne vide comme fallback
             };
           });
           allAppsData = allAppsData.concat(formattedApps);
@@ -123,7 +126,7 @@ function afficherDonnees() {
 
       var appGetBtn = document.createElement("a");
       // Utiliser l'opérateur ternaire pour définir la valeur de source
-      var sourceValue = source !== undefined ? encodeURIComponent(source) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      var sourceValue = appData.sourceURL ? encodeURIComponent(appData.sourceURL) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
       appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
       var getBtn = document.createElement("button");
@@ -138,6 +141,8 @@ function afficherDonnees() {
     });
   }
 }
+
+
 
 
 //search bar script
