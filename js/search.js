@@ -47,6 +47,9 @@ function afficherDonnees() {
 
       // Afficher toutes les applications avec les icônes
       afficherApplications(allAppsData);
+
+      // Défilement automatique vers le bas pour déclencher le lazy loading
+      window.scrollTo(0, 1); // Défilement d'un pixel vers le bas
     })
     .catch(function(error) {
       console.log('Error fetching or processing data', error);
