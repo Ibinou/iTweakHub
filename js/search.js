@@ -38,7 +38,7 @@ function afficherDonnees() {
               name: app.name,
               developer: app.developerName,
               iconURL: app.iconURL,
-              sourceURL: 'appinfos.html?name=' + encodeURIComponent(app.name) + '&source=' + encodeURIComponent(data.url),
+              sourceURL: 'appinfos.html?name=' + encodeURIComponent(app.name) + '&source=' + encodeURIComponent(data.url || ''), // Assurez-vous que data.url est défini
             };
           });
           allAppsData = allAppsData.concat(formattedApps);
