@@ -1,61 +1,87 @@
+// Fonction pour charger les données à partir d'une URL JSON
+function chargerDonneesDepuisURL(url) {
+  return fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .catch(function(error) {
+      console.log('Error fetching data from URL', error);
+      return null;
+    });
+}
+
 // Fonction pour afficher les données
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
-  // Fetcher les données de apps.json
-  fetch('https://ibinou.github.io/iTweakHub/apps.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var appsData = data.apps; // Assurez-vous que le format JSON correspond
+  // Liste des URLs à charger (y compris apps.json et les URLs de repoURLs du localStorage)
+  var urls = [
+    'https://ibinou.github.io/iTweakHub/apps.json', // URL de apps.json
+  ];
 
-      // Triez les applications par nom (ordre alphabétique)
-      appsData.sort(function(a, b) {
+  // Récupérer les URLs de repoURLs du localStorage
+  var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
+
+  // Ajouter les URLs de repoURLs à la liste d'URLs à charger
+  urls = urls.concat(repoURLs);
+
+  // Fetcher toutes les données depuis les URLs
+  Promise.all(urls.map(chargerDonneesDepuisURL))
+    .then(function(dataArray) {
+      // Concaténer toutes les applications des différentes sources de données
+      var allAppsData = [];
+      dataArray.forEach(function(data) {
+        if (data && data.apps && Array.isArray(data.apps)) {
+          allAppsData = allAppsData.concat(data.apps);
+        }
+      });
+
+      // Triez toutes les applications par nom (ordre alphabétique)
+      allAppsData.sort(function(a, b) {
         return a.name.localeCompare(b.name);
       });
 
       // Afficher toutes les applications avec les icônes
-      afficherApplications(appsData);
-
-      // Gestion du lazy loading lors du scroll
-      window.addEventListener('scroll', function() {
-        chargerIconesVisibles(appsData);
-      });
-
-      function chargerIconesVisibles(appsData) {
-        var appCells = document.querySelectorAll('.app_cell_left');
-
-        appCells.forEach(function(appCell) {
-          var appIcon = appCell.querySelector('.appicon');
-          if (appIcon) {
-            var appname = appCell.parentElement.querySelector('.appname').textContent;
-            var appData = appsData.find(function(app) {
-              return app.name === appname;
-            });
-
-            if (appData && appData.iconURL && isInViewport(appCell)) {
-              if (!appIcon.src || appIcon.src.indexOf('blank.JPG') !== -1) {
-                appIcon.src = appData.iconURL;
-              }
-            }
-          }
-        });
-      }
-
-      function isInViewport(el) {
-        var rect = el.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
+      afficherApplications(allAppsData);
     })
     .catch(function(error) {
-      console.log('Error fetching apps.json', error);
+      console.log('Error fetching or processing data', error);
     });
+
+  // Gestion du lazy loading lors du scroll
+  window.addEventListener('scroll', function() {
+    chargerIconesVisibles();
+  });
+
+  function chargerIconesVisibles() {
+    var appCells = document.querySelectorAll('.app_cell_left');
+
+    appCells.forEach(function(appCell) {
+      var appIcon = appCell.querySelector('.appicon');
+      if (appIcon) {
+        var appname = appCell.parentElement.querySelector('.appname').textContent;
+        var appData = allAppsData.find(function(app) {
+          return app.name === appname;
+        });
+
+        if (appData && appData.iconURL && isInViewport(appCell)) {
+          if (!appIcon.src || appIcon.src.indexOf('blank.JPG') !== -1) {
+            appIcon.src = appData.iconURL;
+          }
+        }
+      }
+    });
+  }
+
+  function isInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
 
   function afficherApplications(appsData) {
     appsData.forEach(function(appData) {
@@ -95,7 +121,7 @@ function afficherDonnees() {
       appGetDiv.className = "appget";
 
       var appGetBtn = document.createElement("a");
-      var sourceValue = encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      var sourceValue = encodeURIComponent(appData.source || 'https://ibinou.github.io/iTweakHub/apps.json'); // Source par défaut
       appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
       var getBtn = document.createElement("button");
