@@ -45,9 +45,6 @@ function afficherDonnees() {
         }
       });
 
-      // Stocker les données dans le localStorage
-      localStorage.setItem('appsData', JSON.stringify(allAppsData));
-
       // Afficher toutes les applications avec les icônes
       afficherApplications(allAppsData);
     })
@@ -73,6 +70,7 @@ function afficherDonnees() {
 
         if (appData && appData.iconURL && isInViewport(appCell)) {
           if (!appIcon.src || appIcon.src.indexOf('blank.JPG') !== -1) {
+            // Charger l'icône uniquement si elle n'est pas déjà chargée
             appIcon.src = appData.iconURL;
           }
         }
@@ -103,7 +101,8 @@ function afficherDonnees() {
       appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true"; // Placeholder par défaut
 
       if (appData.iconURL) {
-        appIconImg.dataset.src = appData.iconURL; // Stocke l'URL de l'image pour le lazy loading
+        // Stocker l'URL de l'image dans un attribut data pour le lazy loading
+        appIconImg.dataset.src = appData.iconURL;
       }
 
       appCellLeftDiv.appendChild(appIconImg);
@@ -139,8 +138,9 @@ function afficherDonnees() {
       dockDiv.appendChild(appGetDiv);
 
       appListDiv.appendChild(dockDiv);
-    });
-  }
+      
+});
+}
 }
 
 
