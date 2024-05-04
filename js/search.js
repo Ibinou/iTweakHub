@@ -15,27 +15,27 @@ function afficherDonnees() {
         return a.name.localeCompare(b.name);
       });
 
-      // Afficher toutes les applications
+      // Afficher toutes les applications avec les icônes
       afficherApplications(appsData);
 
       // Gestion du lazy loading lors du scroll
       window.addEventListener('scroll', function() {
-        afficherLazyLoadedIcons(appsData);
+        chargerIconesVisibles(appsData);
       });
 
-      function afficherLazyLoadedIcons(appsData) {
-        var appIcons = document.querySelectorAll('.appicon');
+      function chargerIconesVisibles(appsData) {
+        var appCells = document.querySelectorAll('.app_cell_left');
 
-        appIcons.forEach(function(icon) {
-          if (!icon.getAttribute('data-loaded') && isElementInViewport(icon)) {
-            var appName = icon.closest('.dock').querySelector('.appname').textContent;
+        appCells.forEach(function(appCell) {
+          var appIcon = appCell.querySelector('.appicon');
+          if (appIcon) {
+            var appname = appCell.parentElement.querySelector('.appname').textContent;
             var appData = appsData.find(function(app) {
-              return app.name === appName;
+              return app.name === appname;
             });
 
-            if (appData && appData.iconURL) {
-              icon.src = appData.iconURL;
-              icon.setAttribute('data-loaded', 'true'); // Marquer comme chargé
+            if (appData && appData.iconURL && isElementInViewport(appCell)) {
+              appIcon.src = appData.iconURL;
             }
           }
         });
@@ -65,7 +65,6 @@ function afficherDonnees() {
 
       var appIconImg = document.createElement("img");
       appIconImg.className = "appicon";
-      appIconImg.setAttribute('data-loaded', 'false'); // Marque l'image comme non chargée
       appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true"; // Placeholder par défaut
 
       if (appData.iconURL) {
