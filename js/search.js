@@ -15,9 +15,8 @@ function afficherDonnees() {
         return a.name.localeCompare(b.name);
       });
 
-      // Afficher les premières 8 applications initialement
-      var initialAppsData = appsData.slice(0, 8);
-      afficherApplications(initialAppsData);
+      // Afficher toutes les applications
+      afficherApplications(appsData);
 
       // Gestion du lazy loading lors du scroll
       window.addEventListener('scroll', function() {
@@ -25,10 +24,10 @@ function afficherDonnees() {
       });
 
       function afficherLazyLoadedIcons(appsData) {
-        var visibleIcons = document.querySelectorAll('.appicon:not([data-loaded])');
+        var appIcons = document.querySelectorAll('.appicon');
 
-        visibleIcons.forEach(function(icon) {
-          if (isElementInViewport(icon)) {
+        appIcons.forEach(function(icon) {
+          if (!icon.getAttribute('data-loaded') && isElementInViewport(icon)) {
             var appName = icon.closest('.dock').querySelector('.appname').textContent;
             var appData = appsData.find(function(app) {
               return app.name === appName;
