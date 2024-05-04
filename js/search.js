@@ -15,40 +15,48 @@ function afficherDonnees() {
         return a.name.localeCompare(b.name);
       });
 
-      afficherApplications(appsData);
+      // Afficher les premières 8 applications initialement
+      var initialAppsData = appsData.slice(0, 8);
+      afficherApplications(initialAppsData);
 
-      // Récupérer les URLs des JSON depuis le localStorage
-      var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || [];
-
-      // Fetcher les données des URLs stockées dans repoURLs
-      var fetchPromises = repoURLs.map(function(url) {
-        return fetch(url)
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(data) {
-            var appsDataFromURL = data.apps; 
-
-            // Triez les applications par nom également
-            appsDataFromURL.sort(function(a, b) {
-              return a.name.localeCompare(b.name);
-            });
-
-            afficherApplications(appsDataFromURL, url);
-          })
-          .catch(function(error) {
-            console.log('Error fetching data from URL', error);
-          });
+      // Gestion du lazy loading lors du scroll
+      window.addEventListener('scroll', function() {
+        afficherLazyLoadedIcons(appsData);
       });
 
-      // Attendre que toutes les requêtes de fetch se terminent
-      return Promise.all(fetchPromises);
+      function afficherLazyLoadedIcons(appsData) {
+        var visibleIcons = document.querySelectorAll('.appicon:not([data-loaded])');
+
+        visibleIcons.forEach(function(icon) {
+          if (isElementInViewport(icon)) {
+            var appName = icon.parentElement.parentElement.querySelector('.appname').textContent;
+            var appData = appsData.find(function(app) {
+              return app.name === appName;
+            });
+
+            if (appData && appData.iconURL) {
+              icon.src = appData.iconURL;
+              icon.setAttribute('data-loaded', 'true'); // Marquer comme chargé
+            }
+          }
+        });
+      }
+
+      function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
     })
     .catch(function(error) {
       console.log('Error fetching apps.json', error);
     });
 
-  function afficherApplications(appsData, source) {
+  function afficherApplications(appsData) {
     appsData.forEach(function(appData) {
       var dockDiv = document.createElement("div");
       dockDiv.className = "dock";
@@ -58,21 +66,11 @@ function afficherDonnees() {
 
       var appIconImg = document.createElement("img");
       appIconImg.className = "appicon";
+      appIconImg.setAttribute('data-loaded', 'false'); // Marque l'image comme non chargée
+      appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true"; // Placeholder par défaut
 
-      // Vérifier si appData.iconURL existe
       if (appData.iconURL) {
-        // Vérifier si le lien d'image est valide
-        appIconImg.onload = function() {
-          // L'image a été chargée avec succès
-        };
-        appIconImg.onerror = function() {
-          // Le lien d'image n'est pas valide, utiliser un placeholder
-          appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
-        };
-        appIconImg.src = appData.iconURL;
-      } else {
-        // Utiliser un placeholder si aucun lien d'image n'est fourni
-        appIconImg.src = "https://github.com/Ibinou/iTweakHub/blob/main/img/blank.JPG?raw=true";
+        appIconImg.dataset.src = appData.iconURL; // Stocke l'URL de l'image pour le lazy loading
       }
 
       appCellLeftDiv.appendChild(appIconImg);
@@ -97,9 +95,7 @@ function afficherDonnees() {
       appGetDiv.className = "appget";
 
       var appGetBtn = document.createElement("a");
-
-      // Utiliser l'opérateur ternaire pour définir la valeur de source
-      var sourceValue = source !== undefined ? encodeURIComponent(source) : encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
+      var sourceValue = encodeURIComponent('https://ibinou.github.io/iTweakHub/apps.json');
       appGetBtn.href = 'appinfos.html?name=' + encodeURIComponent(appData.name) + '&source=' + sourceValue;
 
       var getBtn = document.createElement("button");
@@ -114,6 +110,7 @@ function afficherDonnees() {
     });
   }
 }
+
 
 //search bar script
     function myFunction() {
