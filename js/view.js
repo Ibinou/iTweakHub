@@ -19,18 +19,22 @@ function afficherDonnees() {
         pElement.textContent = data.description;
 
         if (data.iconURL) {
-          imgElement.onload = function() {
-           // L'image a été chargée avec succès
-        };
-           imgElement.onerror = function() {
-           // Le lien d'image n'est pas valide, utiliser un placeholder
-           imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
-         };
-           imgElement.src = data.iconURL;
+          // Charger l'icône de manière paresseuse lorsqu'elle devient visible
+          imgElement.dataset.src = data.iconURL;
+          imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
         } else {
-        // Utiliser un placeholder si aucun lien d'image n'est fourni
-        imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
-        
+          // Utiliser un placeholder si aucun lien d'image n'est fourni
+          imgElement.src = "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/blank.JPG";
+        }
+
+        if (data.sourceIconURL) {
+          // Charger l'icône de la source
+          var sourceIconImg = document.createElement("img");
+          sourceIconImg.src = data.sourceIconURL;
+          sourceIconImg.alt = "Source Icon";
+          sourceIconImg.style.width = "50px"; // Réglez la largeur de l'icône de la source selon vos besoins
+          imgElement.parentNode.insertBefore(sourceIconImg, imgElement.nextSibling); // Insérer l'icône de la source après imgElement
+        }
 
         if (data.website) {
           webElement.href = data.website;
@@ -140,4 +144,5 @@ function afficherDonnees() {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
+}
 }
