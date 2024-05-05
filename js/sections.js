@@ -8,11 +8,11 @@ function afficherDonnees() {
   // Tableaux de noms d'applications par section
   var sections = {
     "Games": ["Agar.io Hack", "Among US Hack", "Minecraft", "iPogo", "iSpoofer"],
-    "Utilities": ["OldOS", "Blacklist", "ScreenshotX", "Clip", "AltStore", "Filmr Pro"],
+    "Utilities": ["OldOS", "Blacklist", "ScreenshotX", "Clip", "AltStore", "Filmr Pro", "iTorrent"],
     "Music": ["Deezer++", "Spotify++", "Spotilife", "SoundCloud++", "Spotify Tweaked"],
     "Movies": ["FlixHub", "Zinitevi++", "Streamer", "NineAnimator", "Anime Now !", "Cercube+", "Channels"],
-    "Jailbreak": ["Unc0ver", "Taurine", "Odyssey", "Cowabunga", "InstaSpring"],
-    "Social": ["Spotilife", "uYouPlus", "Enmity"]
+    "Jailbreak": ["Unc0ver", "Taurine", "Odyssey", "Cowabunga", "InstaSpring", "Misaka", "TrollStore", "Blacklist"],
+    "Social": ["Spotilife", "uYouPlus", "Enmity", "Instagram++", "Instagram Rhino", "Snapchat", "TikTok", "WhatsApp", "Watusi", "Facebook", "X++", "X", "BHTwitter", "Twitter++"]
   };
 
   // Sélectionner le tableau correspondant à la section
