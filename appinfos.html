@@ -459,7 +459,18 @@ function displayAppInfo(appData) {
         appVersionElement.textContent = appData.version || (appData.versions && appData.versions[0].version);
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-        appCompatibilityElement.textContent = appData.minOSVersion || (appData.versions && appData.versions[0].min0SVersion);
+
+        // Vérifie d'abord si appData.minOSVersion est défini et non vide
+        if (appData.minOSVersion) {
+        appCompatibilityElement.textContent = appData.minOSVersion;
+        } else if (appData.versions && appData.versions.length > 0 && appData.versions[0].min0SVersion) {
+        // Si appData.minOSVersion n'est pas défini ou vide,
+        // vérifie ensuite la première version dans appData.versions
+        appCompatibilityElement.textContent = appData.versions[0].min0SVersion;
+        } else {
+        // Si aucune des conditions ci-dessus n'est remplie, définissez le texte sur "iOS"
+        appCompatibilityElement.textContent = "iOS";
+        }
 
         const appBannerElement = document.getElementById("appBanner");
         appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
