@@ -2231,10 +2231,10 @@ sections_div {
     width: 70%; /* Adjust width to make space for the circles */
 }
 
-.search-container i {
+.search-container1 i {
     position: absolute;
     left: 15px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-88%);
     color: #727272;
 }
