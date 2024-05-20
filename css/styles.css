@@ -2249,3 +2249,13 @@ sections_div {
     transform: translateY(-88%);
     color: #727272;
 }
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparency of background */
+    z-index: 999; /* Ensure overlay is above the modal */
+}
