@@ -161,32 +161,36 @@ function afficherDonnees() {
     });
   }
 
-function afficherSourcesModale(dataArray) {
+ function afficherSourcesModale(dataArray) {
     var modalBody = document.getElementById("modalBody");
     modalBody.innerHTML = ''; // Clear existing content
 
     dataArray.forEach(function(data) {
-        if (data && data.iconURL && data.name && data.identifier) {
-            var sourceItemDiv = document.createElement("div");
-            sourceItemDiv.className = "source-item";
+      if (data && data.iconURL && data.name) {
+        var sourceItemDiv = document.createElement("div");
+        sourceItemDiv.className = "source-item";
 
-            var sourceIconImg = document.createElement("img");
-            sourceIconImg.src = data.iconURL;
-            sourceIconImg.alt = data.name + " Icon";
-            sourceItemDiv.appendChild(sourceIconImg);
+        var sourceIconImg = document.createElement("img");
+        sourceIconImg.src = data.iconURL;
+        sourceIconImg.alt = data.name + " Icon";
+        sourceItemDiv.appendChild(sourceIconImg);
 
-            var sourceNameSpan = document.createElement("span");
-            sourceNameSpan.textContent = data.name;
-            sourceItemDiv.appendChild(sourceNameSpan);
+        var sourceNameSpan = document.createElement("span");
+        sourceNameSpan.textContent = data.name;
+        sourceItemDiv.appendChild(sourceNameSpan);
 
-            var repoUrl = encodeURIComponent(data.identifier); // Encode URL
-            var sourceLink = document.createElement("a");
-            sourceLink.href = 'repoview.html?repo=' + repoUrl; // Set repo URL
-            sourceLink.appendChild(sourceItemDiv);
+        var chevronIcon = document.createElement("i");
+        chevronIcon.className = "fas fa-chevron-right";
+        sourceItemDiv.appendChild(chevronIcon);
 
-            modalBody.appendChild(sourceLink);
-        }
+        var sourceLink = document.createElement("a");
+        sourceLink.href = 'repoview.html?repo=' + encodeURIComponent(data.identifier);
+        sourceLink.appendChild(sourceItemDiv);
+
+        modalBody.appendChild(sourceLink);
+      }
     });
+  }
 }
 
 
