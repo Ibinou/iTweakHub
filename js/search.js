@@ -147,7 +147,7 @@ function afficherDonnees() {
 
 //search bar script
     function myFunction() {
-      const input = document.getElementById("myInput");
+      const input = document.getElementById("myInput1");
       const filter = input.value.toUpperCase();
       const dock = document.getElementsByClassName("dock");
 
