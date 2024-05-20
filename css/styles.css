@@ -2250,7 +2250,7 @@ sections_div {
     color: #727272;
 }
 .modal-overlay {
-    display: none;
+    /*display: none;*/
     position: fixed;
     top: 0;
     left: 0;
