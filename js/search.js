@@ -165,11 +165,8 @@ function afficherSourcesModale(dataArray) {
     var modalBody = document.getElementById("modalBody");
     modalBody.innerHTML = ''; // Clear existing content
 
-    // Retrieve repoURLs from localStorage
-    var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || {};
-
     dataArray.forEach(function(data) {
-        if (data && data.iconURL && data.name && data.identifier && repoURLs[data.identifier]) {
+        if (data && data.iconURL && data.name && data.identifier) {
             var sourceItemDiv = document.createElement("div");
             sourceItemDiv.className = "source-item";
 
@@ -182,14 +179,14 @@ function afficherSourcesModale(dataArray) {
             sourceNameSpan.textContent = data.name;
             sourceItemDiv.appendChild(sourceNameSpan);
 
+            var repoUrl = encodeURIComponent(data.identifier); // Encode URL
             var sourceLink = document.createElement("a");
-            sourceLink.href = 'repoview.html?repo=' + encodeURIComponent(repoURLs[data.identifier]); // Set repo URL
+            sourceLink.href = 'repoview.html?repo=' + repoUrl; // Set repo URL
             sourceLink.appendChild(sourceItemDiv);
 
             modalBody.appendChild(sourceLink);
         }
     });
-}
 }
 
 
