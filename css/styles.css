@@ -2196,11 +2196,11 @@ sections_div {
       right: 0;
     }
 
- .modal-body {
+.modal-body {
     margin-top: 20px;
-    max-height: 200px; /* Définir une hauteur maximale pour activer le défilement */
-    overflow-y: auto; /* Activer le défilement vertical si le contenu dépasse la hauteur maximale */
-    margin-bottom: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-bottom: 25px;
 }
 
 .source-item {
