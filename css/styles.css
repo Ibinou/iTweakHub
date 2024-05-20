@@ -2196,16 +2196,20 @@ sections_div {
       right: 0;
     }
 
-    .modal-body {
-      margin-top: 20px;
-    }
+ .modal-body {
+    margin-top: 20px;
+    max-height: 200px; /* Définir une hauteur maximale pour activer le défilement */
+    overflow-y: auto; /* Activer le défilement vertical si le contenu dépasse la hauteur maximale */
+    margin-bottom: 20px;
+}
 
-    .source-item {
-      display: flex;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #212121;
-    }
+.source-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #212121;
+    width: calc(100% - 20px); 
+}
 
  .source-item img {
     width: 30px;
