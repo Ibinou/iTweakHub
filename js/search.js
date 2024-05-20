@@ -262,7 +262,7 @@ function afficherIconesCercles(iconURLs) {
       }
     });
   }
-}
+
 //search bar script
 function myFunction() {
     const input = document.getElementById("myInput");
