@@ -194,7 +194,7 @@ function afficherSourcesModale(dataArray) {
         }
     });
 }
-
+}
 
 
 //search bar script
