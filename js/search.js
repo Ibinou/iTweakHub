@@ -182,9 +182,8 @@ function afficherSourcesModale(dataArray) {
             sourceNameSpan.textContent = data.name;
             sourceItemDiv.appendChild(sourceNameSpan);
 
-            var repoUrl = encodeURIComponent(repoURLs[data.identifier]); // Encode URL
             var sourceLink = document.createElement("a");
-            sourceLink.href = 'repoview.html?repo=' + repoUrl; // Set repo URL
+            sourceLink.href = 'repoview.html?repo=' + encodeURIComponent(repoURLs[data.identifier]); // Set repo URL
             sourceLink.appendChild(sourceItemDiv);
 
             modalBody.appendChild(sourceLink);
