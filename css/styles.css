@@ -2164,7 +2164,7 @@ sections_div {
       transform: translate(-50%, 100%);
       width: 100%;
       max-width: 400px;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgb(27 27 27 / 80%);
       border-radius: 10px 10px 0 0;
       backdrop-filter: blur(20px);
      -webkit-backdrop-filter: blur(20px);
@@ -2208,7 +2208,7 @@ sections_div {
     display: flex;
     align-items: center;
     padding: 10px 0px; /* Ajuster les marges horizontales */
-    border-bottom: 1px solid #212121;
+    border-bottom: 1px solid #2d2d2d;
 }
 
 .source-item img {
