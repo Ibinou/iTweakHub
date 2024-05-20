@@ -220,6 +220,7 @@ body::-webkit-scrollbar+.screenshot::-webkit-scrollbar {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 .icon {
