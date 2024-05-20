@@ -737,7 +737,6 @@ font-size: 20px;
 }
 
 .modal-content {
-  display: flex;
   align-items: center;
   padding: 10px;
 }
@@ -2128,16 +2127,16 @@ sections_div {
 .src-container {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Ensure the circles are on the right */
+    margin-left: auto;
+    transform: translateY(-9%);
 }
-
 .src-circle {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    border: 2px solid white;
+    border: 2px solid #000;
     position: relative;
     background-image: url(https://pbs.twimg.com/profile_images/1704485229795086336/WjS0ymn4_400x400.jpg);
 }
