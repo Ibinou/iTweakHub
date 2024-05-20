@@ -1,19 +1,14 @@
 // Fonction pour charger les données à partir d'une URL JSON
 function chargerDonneesDepuisURL(url) {
   return fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      return { url: url, apps: data.apps }; // Retourner les données avec l'URL source
-    })
-    .catch(function(error) {
+    .then(response => response.json())
+    .catch(error => {
       console.log('Error fetching data from URL', error);
       return null;
     });
 }
 
-// Fonction pour afficher les données
+// Fonction principale pour charger et afficher les données des applications
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
@@ -31,25 +26,36 @@ function afficherDonnees() {
   // Fetcher toutes les données depuis les URLs
   Promise.all(urls.map(chargerDonneesDepuisURL))
     .then(function(dataArray) {
-      // Concaténer toutes les applications des différentes sources de données
       var allAppsData = [];
-      dataArray.forEach(function(data) {
-        if (data && data.apps && Array.isArray(data.apps)) {
-          // Filtrer et formater les données essentielles pour chaque application avec l'URL source
-          var formattedApps = data.apps.map(function(app) {
-            return {
-              name: app.name,
-              developer: app.developerName,
-              iconURL: app.iconURL,
-              sourceURL: data.url || '', // Utiliser l'URL source ou une chaîne vide comme fallback
-            };
-          });
-          allAppsData = allAppsData.concat(formattedApps);
+      var iconURLs = [];
+
+      dataArray.forEach(function(data, index) {
+        if (data) {
+          if (data.apps && Array.isArray(data.apps)) {
+            // Filtrer et formater les données essentielles pour chaque application
+            var formattedApps = data.apps.map(function(app) {
+              return {
+                name: app.name,
+                developer: app.developerName,
+                iconURL: app.iconURL,
+                sourceURL: urls[index] || '', // Utiliser l'URL source ou une chaîne vide comme fallback
+              };
+            });
+            allAppsData = allAppsData.concat(formattedApps);
+          }
+          
+          // Récupérer les iconURLs des trois dernières sources
+          if (data.iconURL) {
+            iconURLs.push(data.iconURL);
+          }
         }
       });
 
-      // Afficher toutes les applications avec les icônes
+      // Afficher les applications
       afficherApplications(allAppsData);
+
+      // Afficher les icônes dans les cercles
+      afficherIconesCercles(iconURLs.slice(-3));
 
       // Défilement automatique vers le bas pour déclencher le lazy loading
       window.scrollTo(0, 1); // Défilement d'un pixel vers le bas
@@ -140,9 +146,18 @@ function afficherDonnees() {
       appListDiv.appendChild(dockDiv);
     });
   }
+
+  function afficherIconesCercles(iconURLs) {
+    const cercles = ['circle1', 'circle2', 'circle3'];
+    iconURLs.forEach((iconURL, index) => {
+      const circleElement = document.getElementById(cercles[index]);
+      if (circleElement) {
+        circleElement.style.backgroundImage = `url(${iconURL})`;
+        circleElement.style.backgroundSize = 'cover';
+      }
+    });
+  }
 }
-
-
 
 
 //search bar script
