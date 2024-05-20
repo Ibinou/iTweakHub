@@ -165,11 +165,8 @@ function afficherSourcesModale(dataArray) {
     var modalBody = document.getElementById("modalBody");
     modalBody.innerHTML = ''; // Clear existing content
 
-    // Retrieve repoURLs from localStorage
-    var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || {};
-
     dataArray.forEach(function(data, index) {
-        if (data && data.iconURL && data.name && repoURLs[index]) {
+        if (data && data.iconURL && data.name) {
             var sourceItemDiv = document.createElement("div");
             sourceItemDiv.className = "source-item";
 
@@ -182,12 +179,19 @@ function afficherSourcesModale(dataArray) {
             sourceNameSpan.textContent = data.name;
             sourceItemDiv.appendChild(sourceNameSpan);
 
+            // Récupérer l'URL du JSON correspondant à cette source
+            var jsonURL = dataArray[index].sourceURL;
+
+            // Ajouter un attribut HTML personnalisé pour stocker l'URL du JSON
+            sourceItemDiv.setAttribute("data-json-url", jsonURL);
+
             var chevronIcon = document.createElement("i");
             chevronIcon.className = "fas fa-chevron-right";
             sourceItemDiv.appendChild(chevronIcon);
 
+            // Créer le lien avec l'URL correcte
             var sourceLink = document.createElement("a");
-            sourceLink.href = 'repoview.html?repo=' + encodeURIComponent(repoURLs[index]);
+            sourceLink.href = 'repoview.html?repo=' + encodeURIComponent(jsonURL);
             sourceLink.appendChild(sourceItemDiv);
 
             modalBody.appendChild(sourceLink);
