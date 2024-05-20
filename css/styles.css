@@ -2204,14 +2204,15 @@ sections_div {
       display: flex;
       align-items: center;
       padding: 10px 0;
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid #212121;
     }
 
-    .source-item img {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
+ .source-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50px;
+}
 
     .source-item i {
       margin-left: auto;
