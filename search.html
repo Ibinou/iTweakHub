@@ -204,26 +204,43 @@
             }, 20);
         }    
 
-// JavaScript to open and close the modal
-    const openModalBtn = document.getElementById('openModalBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const modal = document.getElementById('modal');
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const modal = document.getElementById('modal');
 
-    // Open modal when button is clicked
-    openModalBtn.addEventListener('click', () => {
-      modal.style.display = 'block';
-      setTimeout(() => {
-        modal.style.transform = 'translate(-50%, 0)'; // Animer la modal depuis le bas
-      }, 50); // Léger délai avant l'animation
-    });
+// Function to create and show the overlay
+function showOverlay() {
+    const overlay = document.createElement('div');
+    overlay.id = 'modal-overlay';
+    overlay.classList.add('modal-overlay'); // Change the class name
+    document.body.appendChild(overlay);
+}
 
-    // Close modal when close button is clicked
-    closeModalBtn.addEventListener('click', () => {
-      modal.style.transform = 'translate(-50%, 100%)'; // Animer la modal vers le bas
-      setTimeout(() => {
+// Function to remove the overlay
+function removeOverlay() {
+    const overlay = document.getElementById('modal-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+// Open modal when button is clicked
+openModalBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    showOverlay(); // Show overlay
+    setTimeout(() => {
+        modal.style.transform = 'translate(-50%, 0)'; // Animate modal from bottom
+    }, 50); // Slight delay before animation
+});
+
+// Close modal when close button is clicked
+closeModalBtn.addEventListener('click', () => {
+    modal.style.transform = 'translate(-50%, 100%)'; // Animate modal down
+    setTimeout(() => {
         modal.style.display = 'none';
-      }, 300); // Attendre la fin de l'animation avant de masquer la modal
-    });
+        removeOverlay(); // Remove overlay
+    }, 300); // Wait for animation to finish before hiding modal
+});
 </script>
 <script src="js/index.js"></script>
 	</div>
