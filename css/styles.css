@@ -2196,32 +2196,37 @@ sections_div {
       right: 0;
     }
 
-.modal-body {
+ .modal-body {
     margin-top: 20px;
-    max-height: 200px;
-    overflow-y: auto;
-    padding-bottom: 25px;
+    max-height: 200px; /* Définir une hauteur maximale pour activer le défilement */
+    overflow-y: auto; /* Activer le défilement vertical si le contenu dépasse la hauteur maximale */
+    padding-bottom: 30px;
 }
+
 
 .source-item {
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px 0px; /* Ajuster les marges horizontales */
     border-bottom: 1px solid #212121;
-    width: calc(100% - 20px); 
 }
 
- .source-item img {
+.source-item img {
     width: 30px;
     height: 30px;
     margin-right: 10px;
     border-radius: 50px;
 }
 
-    .source-item i {
-      margin-left: auto;
-      font-size: 20px;
-    }
+.source-item span {
+    flex-grow: 1; /* Permet au span de prendre autant d'espace que possible */
+}
+
+.source-item i {
+    margin-left: auto; /* Aligner les chevrons à droite */
+    font-size: 20px;
+    color: #838383;
+}
 #myInput1 {
     width: 100%;
     font-size: 16px;
