@@ -279,7 +279,6 @@ div.content {
 #navbar {
     overflow: hidden;
     width: 100%;
-    z-index: 9999999;
     position: sticky;
     top: 0px;
     padding-top: 17px;
