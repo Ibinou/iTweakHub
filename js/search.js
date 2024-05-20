@@ -161,37 +161,40 @@ function afficherDonnees() {
     });
   }
 
- function afficherSourcesModale(dataArray) {
+function afficherSourcesModale(dataArray) {
     var modalBody = document.getElementById("modalBody");
     modalBody.innerHTML = ''; // Clear existing content
 
-    dataArray.forEach(function(data) {
-      if (data && data.iconURL && data.name) {
-        var sourceItemDiv = document.createElement("div");
-        sourceItemDiv.className = "source-item";
+    // Retrieve repoURLs from localStorage
+    var repoURLs = JSON.parse(localStorage.getItem('repoURLs')) || {};
 
-        var sourceIconImg = document.createElement("img");
-        sourceIconImg.src = data.iconURL;
-        sourceIconImg.alt = data.name + " Icon";
-        sourceItemDiv.appendChild(sourceIconImg);
+    dataArray.forEach(function(data, index) {
+        if (data && data.iconURL && data.name && repoURLs[index]) {
+            var sourceItemDiv = document.createElement("div");
+            sourceItemDiv.className = "source-item";
 
-        var sourceNameSpan = document.createElement("span");
-        sourceNameSpan.textContent = data.name;
-        sourceItemDiv.appendChild(sourceNameSpan);
+            var sourceIconImg = document.createElement("img");
+            sourceIconImg.src = data.iconURL;
+            sourceIconImg.alt = data.name + " Icon";
+            sourceItemDiv.appendChild(sourceIconImg);
 
-        var chevronIcon = document.createElement("i");
-        chevronIcon.className = "fas fa-chevron-right";
-        sourceItemDiv.appendChild(chevronIcon);
+            var sourceNameSpan = document.createElement("span");
+            sourceNameSpan.textContent = data.name;
+            sourceItemDiv.appendChild(sourceNameSpan);
 
-        var sourceLink = document.createElement("a");
-        sourceLink.href = 'repoview.html?repo=' + encodeURIComponent(data.identifier);
-        sourceLink.appendChild(sourceItemDiv);
+            var chevronIcon = document.createElement("i");
+            chevronIcon.className = "fas fa-chevron-right";
+            sourceItemDiv.appendChild(chevronIcon);
 
-        modalBody.appendChild(sourceLink);
-      }
+            var sourceLink = document.createElement("a");
+            sourceLink.href = 'repoview.html?repo=' + encodeURIComponent(repoURLs[index]);
+            sourceLink.appendChild(sourceItemDiv);
+
+            modalBody.appendChild(sourceLink);
+        }
     });
-  }
 }
+
 
 
 //search bar script
