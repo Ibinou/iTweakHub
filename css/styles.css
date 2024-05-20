@@ -2239,7 +2239,7 @@ sections_div {
 }
 .search-container1 {
     position: relative;
-    width: 70%; /* Adjust width to make space for the circles */
+    width: 100%; 
 }
 
 .search-container1 i {
