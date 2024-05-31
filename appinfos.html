@@ -266,6 +266,10 @@ nav h1 i a {
         <span>Compatibility</span>
         <div class="ioslist_oppositeinfos" id="appCompatibility">compatibility</div>
     </li>
+    <li style="border-bottom-width: 0px;">
+    <span>Source</span>
+    <div class="ioslist_oppositeinfos" id="sourceName"></div>
+</li>
 </ul>
 <br>
 <a id="versions">
@@ -394,13 +398,14 @@ function getParameterByName(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
+
 // Fonction pour récupérer le paramètre "source" dans l'URL
 function getSourceParameter() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get("source");
 }
 
-// Mettez à jour la fonction addToRecentApps
+// Fonction pour mettre à jour les applications récentes
 function addToRecentApps(appName, appVersion) {
     const recentApps = JSON.parse(localStorage.getItem("recent")) || [];
     
@@ -426,21 +431,19 @@ function displayAppInfo(appData) {
         console.log("AppData is not null");
 
         const appIconElement = document.getElementById("appIcon");
-        // Vérifier si appData.iconURL existe
-    if (appData.iconURL) {
-      // Vérifier si le lien d'image est valide
-      appIconElement.onload = function() {
-        // L'image a été chargée avec succès
-      };
-      appIconElement.onerror = function() {
-        // Le lien d'image n'est pas valide, utiliser un placeholder
-        appIconElement.src = "img/blank.JPG";
-      };
-      appIconElement.src = appData.iconURL;
-    } else {
-      // Utiliser un placeholder si aucun lien d'image n'est fourni
-      appIconElement.src = "img/blank.JPG";
-    }
+        if (appData.iconURL) {
+            appIconElement.onload = function() {
+                // L'image a été chargée avec succès
+            };
+            appIconElement.onerror = function() {
+                // Le lien d'image n'est pas valide, utiliser un placeholder
+                appIconElement.src = "img/blank.JPG";
+            };
+            appIconElement.src = appData.iconURL;
+        } else {
+            // Utiliser un placeholder si aucun lien d'image n'est fourni
+            appIconElement.src = "img/blank.JPG";
+        }
         appIconElement.alt = `${appData.name} Icon`;
 
         const appNameElement = document.getElementById("appName");
@@ -459,76 +462,61 @@ function displayAppInfo(appData) {
         appVersionElement.textContent = appData.version || (appData.versions && appData.versions[0].version);
 
         const appCompatibilityElement = document.getElementById("appCompatibility");
-
-        // Vérifie d'abord si appData.minOSVersion est défini et non vide
         if (appData.minOSVersion) {
-        appCompatibilityElement.textContent = appData.minOSVersion;
-        } else if (appData.versions && appData.versions.length > 0 && appData.versions[0].min0SVersion) {
-        // Si appData.minOSVersion n'est pas défini ou vide,
-        // vérifie ensuite la première version dans appData.versions
-        appCompatibilityElement.textContent = appData.versions[0].min0SVersion;
+            appCompatibilityElement.textContent = appData.minOSVersion;
+        } else if (appData.versions && appData.versions.length > 0 && appData.versions[0].minOSVersion) {
+            appCompatibilityElement.textContent = appData.versions[0].minOSVersion;
         } else {
-        // Si aucune des conditions ci-dessus n'est remplie, définissez le texte sur "iOS"
-        appCompatibilityElement.textContent = "iOS";
+            appCompatibilityElement.textContent = "iOS";
         }
 
         const appBannerElement = document.getElementById("appBanner");
         appBannerElement.src = appData.iconURL || "https://raw.githubusercontent.com/Ibinou/-new-NoCodeHubInstaller/main/img/FD19EBF5-0177-462C-8C10-9C5B37766B29.png";
 
-       const installButton = document.getElementById("geturl");
+        const installButton = document.getElementById("geturl");
+        const customCert = localStorage.getItem('custom_cert');
+        const p12Url = localStorage.getItem('p12Url') || "";
+        const mobileprovisionUrl = localStorage.getItem('mobileprovisionUrl') || "";
+        const certpass = localStorage.getItem('password') || "";
+        const url = appData.downloadURL || appData.versions[0].downloadURL;
 
-// Vérifier la valeur de custom_cert dans le Local Storage
-const customCert = localStorage.getItem('custom_cert');
+        if (customCert && customCert.toLowerCase() === 'true') {
+            const customLink = `https://api.cococloud-signing.online/files/free/own-signing.php?certp12URL=${p12Url}&certmobileprovisionURL=${mobileprovisionUrl}&certpass=${certpass}&url=${url}`;
+            installButton.addEventListener("click", function() {
+                addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
+                window.open(customLink, "_blank");
+            });
+        } else {
+            installButton.addEventListener("click", function() {
+                addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
+                window.open(`https://api.cococloud-signing.online/free-plist?url=${url}`, "_blank");
+            });
+        }
 
-// Récupérer les données pertinentes du tableau (si custom_cert est true)
- const p12Url = localStorage.getItem('p12Url') || "";
- const mobileprovisionUrl = localStorage.getItem('mobileprovisionUrl') || "";
-const certpass = localStorage.getItem('password') || "";
-const url = appData.downloadURL || appData.versions[0].downloadURL;
+        const importButton = document.getElementById("import");
+        if (importButton) {
+            importButton.addEventListener("click", () => {
+                window.open(`scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+            });
+        }
 
-// Vérifier si custom_cert est true
-if (customCert && customCert.toLowerCase() === 'true') {
-    // Construire le lien en utilisant les données du tableau
-    const customLink = `https://api.cococloud-signing.online/files/free/own-signing.php?certp12URL=${p12Url}&certmobileprovisionURL=${mobileprovisionUrl}&certpass=${certpass}&url=${url}`;
+        const AltButton = document.getElementById("AltStore");
+        if (AltButton) {
+            AltButton.addEventListener("click", () => {
+                window.open(`altstore://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+            });
+        }
 
-    // Mettre à jour le lien du bouton
-    installButton.addEventListener("click", function() {
-        addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
-        window.open(customLink, "_blank");
-    });
-} else {
-    // Utiliser la méthode traditionnelle si custom_cert est false ou n'existe pas
-    installButton.addEventListener("click", function() {
-        addToRecentApps(appData.name, appData.version || (appData.versions && appData.versions[0].version));
-        window.open(`https://api.cococloud-signing.online/free-plist?url=${url}`, "_blank");
-    });
-}
+        const trollButton = document.getElementById("TrollStore");
+        if (trollButton) {
+            trollButton.addEventListener("click", () => {
+                window.open(`apple-magnifier://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
+            });
+        }
 
-const importButton = document.getElementById("import");
-if (importButton) {
-    importButton.addEventListener("click", () => {
-        window.open(`scarlet://install=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
-    });
-}
-
-const AltButton = document.getElementById("AltStore");
-if (AltButton) {
-    AltButton.addEventListener("click", () => {
-        window.open(`altstore://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
-    });
-}
-
-const trollButton = document.getElementById("TrollStore");
-if (trollButton) {
-    trollButton.addEventListener("click", () => {
-        window.open(`apple-magnifier://install?url=${appData.downloadURL || appData.versions[0].downloadURL}`, "_blank");
-    });
-}
-      const ipaButton = document.getElementById("ipa");
+        const ipaButton = document.getElementById("ipa");
         ipaButton.setAttribute("href", `${appData.downloadURL || appData.versions[0].downloadURL}`);
         
-        
-        // Afficher les captures d'écran
         displayScreenshots(appData.screenshotURLs);
 
         const alertBox = document.querySelector(".alertbox");
@@ -575,7 +563,6 @@ async function createAndAppendScreenshot(screenshotUrl, parentElement) {
         screenshotElement.classList.add("screenshotimg");
         screenshotElement.src = screenshotUrl.startsWith("http") ? screenshotUrl : "https:" + screenshotUrl;
 
-        // Attendre le chargement de l'image avant de l'ajouter au DOM
         await loadImage(screenshotElement.src);
 
         parentElement.appendChild(screenshotElement);
@@ -610,6 +597,10 @@ function loadAppInfo() {
             .then(data => {
                 console.log("Données chargées depuis le fichier JSON :", data);
 
+                // Affichez le nom de la source
+                const sourceNameElement = document.getElementById("sourceName");
+                sourceNameElement.textContent = data.name;
+
                 const appData = data.apps.find(app => app.name === appNameFromURL);
 
                 if (appData) {
@@ -629,7 +620,6 @@ function loadAppInfo() {
 
 // Charger et afficher les informations de l'application lorsque la page se charge
 window.onload = loadAppInfo;
-
 
   // Function to show the popup
   function showPopup() {
