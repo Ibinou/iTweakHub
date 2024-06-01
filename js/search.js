@@ -12,9 +12,6 @@ function chargerDonneesDepuisURL(url) {
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
 
-  // Afficher le squelette de chargement
-  afficherSqueletteChargement();
-
   // Liste des URLs à charger (y compris apps.json et les URLs de repoURLs du localStorage)
   var urls = [
     'https://ibinou.github.io/iTweakHub/apps.json', // URL de apps.json
@@ -56,9 +53,6 @@ function afficherDonnees() {
           data.sourceURL = urls[index];
         }
       });
-
-      // Supprimer le squelette de chargement
-      appListDiv.innerHTML = '';
 
       // Afficher les applications
       afficherApplications(allAppsData);
@@ -102,27 +96,6 @@ function afficherDonnees() {
       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-  }
-
-  function afficherSqueletteChargement() {
-    for (let i = 0; i < 10; i++) { // Afficher 10 éléments squelette
-      var skeletonDiv = document.createElement("div");
-      skeletonDiv.className = "skeleton";
-
-      var skeletonIconDiv = document.createElement("div");
-      skeletonIconDiv.className = "skeleton-icon";
-      skeletonDiv.appendChild(skeletonIconDiv);
-
-      var skeletonTextDiv = document.createElement("div");
-      skeletonTextDiv.className = "skeleton-text";
-      skeletonDiv.appendChild(skeletonTextDiv);
-
-      var skeletonButtonDiv = document.createElement("div");
-      skeletonButtonDiv.className = "skeleton-button";
-      skeletonDiv.appendChild(skeletonButtonDiv);
-
-      appListDiv.appendChild(skeletonDiv);
-    }
   }
 
   function afficherApplications(appsData) {
