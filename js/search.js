@@ -1,3 +1,13 @@
+// Fonction pour charger les données à partir d'une URL JSON
+function chargerDonneesDepuisURL(url) {
+  return fetch(url)
+    .then(response => response.json())
+    .catch(error => {
+      console.log('Error fetching data from URL', error);
+      return null;
+    });
+}
+
 // Fonction principale pour charger et afficher les données des applications
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
@@ -227,7 +237,7 @@ function myFunction() {
   const dock = document.getElementsByClassName("dock");
 
   for (let i = 0; i < dock.length; i++) {
-    const appname = dock[i].getElementsByClassName("appname")[0];
+    const appname = dock[i.getElementsByClassName("appname")[0];
     const display = appname.innerText.toUpperCase().includes(filter) ? "flex" : "none";
     dock[i].style.display = display;
   }
