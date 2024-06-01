@@ -1,16 +1,9 @@
-// Fonction pour charger les données à partir d'une URL JSON
-function chargerDonneesDepuisURL(url) {
-  return fetch(url)
-    .then(response => response.json())
-    .catch(error => {
-      console.log('Error fetching data from URL', error);
-      return null;
-    });
-}
-
 // Fonction principale pour charger et afficher les données des applications
 function afficherDonnees() {
   var appListDiv = document.getElementById("appList");
+
+  // Afficher le squelette de chargement
+  afficherSqueletteChargement();
 
   // Liste des URLs à charger (y compris apps.json et les URLs de repoURLs du localStorage)
   var urls = [
@@ -54,6 +47,9 @@ function afficherDonnees() {
         }
       });
 
+      // Supprimer le squelette de chargement
+      appListDiv.innerHTML = '';
+
       // Afficher les applications
       afficherApplications(allAppsData);
 
@@ -96,6 +92,27 @@ function afficherDonnees() {
       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
+  }
+
+  function afficherSqueletteChargement() {
+    for (let i = 0; i < 10; i++) { // Afficher 10 éléments squelette
+      var skeletonDiv = document.createElement("div");
+      skeletonDiv.className = "skeleton";
+
+      var skeletonIconDiv = document.createElement("div");
+      skeletonIconDiv.className = "skeleton-icon";
+      skeletonDiv.appendChild(skeletonIconDiv);
+
+      var skeletonTextDiv = document.createElement("div");
+      skeletonTextDiv.className = "skeleton-text";
+      skeletonDiv.appendChild(skeletonTextDiv);
+
+      var skeletonButtonDiv = document.createElement("div");
+      skeletonButtonDiv.className = "skeleton-button";
+      skeletonDiv.appendChild(skeletonButtonDiv);
+
+      appListDiv.appendChild(skeletonDiv);
+    }
   }
 
   function afficherApplications(appsData) {
