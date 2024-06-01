@@ -2,5 +2,6 @@
   {"version": "1.0.0", "changes": ["Initial release"]},
   {"version": "1.1.0", "changes": ["UI/UX improvements"]},
   {"version": "2.1", "changes": ["Optimized the code", "Added version history for supported apps", "More informations on the 'General' page on settings", "UI/UX improvements", "Improved performance (faster)", "Added a section page", "Added and updated a lot of apps", "Improved the iTweakHub setup"]},
-  {"version": "2.1.1", "changes": ["Fixed an issue where some app infos couldn't be fetched", "Added a popup which displays logs when adding a new source"]}
+  {"version": "2.1.1", "changes": ["Fixed an issue where some app infos couldn't be fetched", "Added a popup which displays logs when adding a new source"]},
+  {"version": "2.2", "changes": ["Minor bug fixes", "iTweakHub is now faster", "Added the source provenance on the app infos page", "Added a source filter on the search tab", "Optimized the interface for iPad and Mac"]}
 ]

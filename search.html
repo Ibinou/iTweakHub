@@ -32,17 +32,49 @@
     </div>
 	
 <div class="content">
-<div id="header">	
-<h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;margin-bottom: -5px;">Search</h1>
+<div id="header">    
+    <h1 style="font-family:helvetica;font-size:28px;color:white;margin-top: 30px;margin-bottom: -5px;">Search</h1>
 
-<div id="navbar">
-    <div class="search-container">
-        <i class="fa fa-search"></i>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by app name">
+    <div id="navbar1">
+        <div class="search-container1">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" id="myInput1" onkeyup="myFunction()" placeholder="Search by app name">
+        </div>
+        <div id="openModalBtn" class="src-container">
+            <div id="circle1" class="src-circle circle"></div>
+            <div id="circle2"class="src-circle circle"></div>
+            <div id="circle3" style="margin-right: 0px;" class="src-circle circle"></div>
+        </div>
     </div>
 </div>
+
+  <div class="src-modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>Source filter</span>
+        <i class="fas fa-times" id="closeModalBtn"></i>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <div class="source-item">
+          <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png" alt="Google Icon">
+          <span>sourceNams</span>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="source-item">
+          <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png" alt="Google Icon">
+          <span>sourceName</span>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="source-item">
+          <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png" alt="Google Icon">
+          <span>sourceName</span>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
 	
-</div>
   <center>	    
 <div class="animated-enter">
 <div class="appList" id="appList"></div>
@@ -171,6 +203,44 @@
                 }
             }, 20);
         }    
+
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const modal = document.getElementById('modal');
+
+// Function to create and show the overlay
+function showOverlay() {
+    const overlay = document.createElement('div');
+    overlay.id = 'modal-overlay';
+    overlay.classList.add('modal-overlay'); // Change the class name
+    document.body.appendChild(overlay);
+}
+
+// Function to remove the overlay
+function removeOverlay() {
+    const overlay = document.getElementById('modal-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+// Open modal when button is clicked
+openModalBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    showOverlay(); // Show overlay
+    setTimeout(() => {
+        modal.style.transform = 'translate(-50%, 0)'; // Animate modal from bottom
+    }, 50); // Slight delay before animation
+});
+
+// Close modal when close button is clicked
+closeModalBtn.addEventListener('click', () => {
+    modal.style.transform = 'translate(-50%, 100%)'; // Animate modal down
+    setTimeout(() => {
+        modal.style.display = 'none';
+        removeOverlay(); // Remove overlay
+    }, 300); // Wait for animation to finish before hiding modal
+});
 </script>
 <script src="js/index.js"></script>
 	</div>

@@ -279,13 +279,22 @@ div.content {
 #navbar {
     overflow: hidden;
     width: 100%;
-    z-index: 9999999;
     position: sticky;
     top: 0px;
     padding-top: 17px;
     height: 68px;
 }
-
+#navbar1 {
+    overflow: hidden;
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    padding-top: 17px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .search-container {
     position: relative;
 }
