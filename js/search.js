@@ -237,7 +237,7 @@ function myFunction() {
   const dock = document.getElementsByClassName("dock");
 
   for (let i = 0; i < dock.length; i++) {
-    const appname = dock[i.getElementsByClassName("appname")[0];
+    const appname = dock[i].getElementsByClassName("appname")[0];
     const display = appname.innerText.toUpperCase().includes(filter) ? "flex" : "none";
     dock[i].style.display = display;
   }
