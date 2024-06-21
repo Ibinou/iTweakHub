@@ -13,4 +13,4 @@ We use AltStore format to handle the apps.
 Go check [this page](https://ibadevs-organization.gitbook.io/untitled/sources/make-your-source) to make your own source.
 
 ## Version
-2.0 
+2.1.1
