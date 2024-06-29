@@ -2259,3 +2259,6 @@ sections_div {
     background-color: rgba(0, 0, 0, 0.5); /* Transparency of background */
     z-index: 999; /* Ensure overlay is above the modal */
 }
+
+.border-red-all {
+}
