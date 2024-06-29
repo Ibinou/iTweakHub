@@ -36,16 +36,16 @@
 <p style="margin-top: 113px;" id="help">Customize iTweakHub to your preferences for a fully accessible and tailored experience.</p>
 	
   <ul class="ioslist">
-    <li style="border-bottom-width: 0px;">
-      <div class="ioslist_icon"><i class="fa-solid fa-border-top-left" aria-hidden="true"></i></div>
-      <span>Show borders</span>
-      <div class="ioslist_opposite" style="transform: translateY(-4px);">
-        <label class="form-switch">
-          <input type="checkbox" id="bordersCheck" checked>
-          <i></i>
-        </label>
-      </div>
-    </li>
+        <li style="border-bottom-width: 0px;">
+            <div class="ioslist_icon"><i class="fa-solid fa-border-top-left" aria-hidden="true"></i></div>
+            <span>Show borders</span>
+            <div class="ioslist_opposite" style="transform: translateY(-4px);">
+                <label class="form-switch">
+                    <input type="checkbox" id="bordersCheck" checked>
+                    <i></i>
+                </label>
+            </div>
+        </li>
 <p style="margin-left:16px;font-family:helvetica;font-size:14px;color:#cfcfcf;margin-bottom: 10px;">This feature displays a red border around all UI elements.</p>
  </ul>
 <ul style="margin-top: 14px;" class="ioslist">
@@ -70,7 +70,7 @@
 <button id="reset-button">Reset</button>
 </div>
   <script>
-document.getElementById('borderCheckbox').addEventListener('change', function() {
+document.getElementById('bordersCheck').addEventListener('change', function() {
     if (this.checked) {
         // Ajoute la règle CSS pour la bordure rouge à tous les éléments
         document.styleSheets[0].insertRule('* { border: red 0.5px solid; }', 0);
@@ -84,6 +84,11 @@ document.getElementById('borderCheckbox').addEventListener('change', function() 
         }
     }
 });
+
+// Initialisation pour définir l'état initial selon la case à cocher
+if (document.getElementById('bordersCheck').checked) {
+    document.styleSheets[0].insertRule('* { border: red 0.5px solid; }', 0);
+}
 
     </script>
 <script>
