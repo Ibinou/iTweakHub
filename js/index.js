@@ -1,4 +1,37 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+    const checkbox = document.getElementById('bordersCheck');
+    const borderRule = '* { border: red 0.5px solid; }';
 
+    // Vérifie l'état de la case à cocher dans localStorage
+    if (localStorage.getItem('bordersEnabled') === 'true') {
+        checkbox.checked = true;
+        applyBorder();
+    }
+
+    // Ajoute l'événement de changement à la case à cocher
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            applyBorder();
+            localStorage.setItem('bordersEnabled', 'true');
+        } else {
+            removeBorder();
+            localStorage.setItem('bordersEnabled', 'false');
+        }
+    });
+
+    function applyBorder() {
+        document.styleSheets[0].insertRule(borderRule, 0);
+    }
+
+    function removeBorder() {
+        for (let i = 0; i < document.styleSheets[0].cssRules.length; i++) {
+            if (document.styleSheets[0].cssRules[i].cssText === borderRule) {
+                document.styleSheets[0].deleteRule(i);
+                break;
+            }
+        }
+    }
+});
 
 
 
