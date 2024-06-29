@@ -41,7 +41,7 @@
             <span>Show borders</span>
             <div class="ioslist_opposite" style="transform: translateY(-4px);">
                 <label class="form-switch">
-                    <input type="checkbox" id="bordersCheck" checked>
+                    <input type="checkbox" id="bordersCheck">
                     <i></i>
                 </label>
             </div>
@@ -70,25 +70,40 @@
 <button id="reset-button">Reset</button>
 </div>
   <script>
-document.getElementById('bordersCheck').addEventListener('change', function() {
-    if (this.checked) {
-        // Ajoute la règle CSS pour la bordure rouge à tous les éléments
-        document.styleSheets[0].insertRule('* { border: red 0.5px solid; }', 0);
-    } else {
-        // Supprime la règle CSS ajoutée
+document.addEventListener('DOMContentLoaded', (event) => {
+    const checkbox = document.getElementById('bordersCheck');
+    const borderRule = '* { border: red 0.5px solid; }';
+
+    // Vérifie l'état de la case à cocher dans localStorage
+    if (localStorage.getItem('bordersEnabled') === 'true') {
+        checkbox.checked = true;
+        applyBorder();
+    }
+
+    // Ajoute l'événement de changement à la case à cocher
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            applyBorder();
+            localStorage.setItem('bordersEnabled', 'true');
+        } else {
+            removeBorder();
+            localStorage.setItem('bordersEnabled', 'false');
+        }
+    });
+
+    function applyBorder() {
+        document.styleSheets[0].insertRule(borderRule, 0);
+    }
+
+    function removeBorder() {
         for (let i = 0; i < document.styleSheets[0].cssRules.length; i++) {
-            if (document.styleSheets[0].cssRules[i].cssText === '* { border: red 0.5px solid; }') {
+            if (document.styleSheets[0].cssRules[i].cssText === borderRule) {
                 document.styleSheets[0].deleteRule(i);
                 break;
             }
         }
     }
 });
-
-// Initialisation pour définir l'état initial selon la case à cocher
-if (document.getElementById('bordersCheck').checked) {
-    document.styleSheets[0].insertRule('* { border: red 0.5px solid; }', 0);
-}
 
     </script>
 <script>
