@@ -82,41 +82,44 @@
 <button id="reset-button">Reset</button>
 </div>
   <script>
-	    // Fonction pour définir la couleur d'accentuation
+    // Fonction pour enregistrer la couleur dans localStorage
     function setAccentColor(color) {
-        localStorage.setItem('accentColor', color);
-        document.documentElement.style.setProperty('--accent-color', color);
+      localStorage.setItem('accentColor', color);
     }
 
-    // Fonction pour obtenir la couleur d'accentuation
+    // Fonction pour récupérer la couleur de localStorage
     function getAccentColor() {
-        return localStorage.getItem('accentColor');
+      return localStorage.getItem('accentColor');
     }
 
-    // Récupération de la case à cocher
-    const contrastCheckbox = document.getElementById('contrast');
+    // Fonction pour appliquer la couleur à l'élément souhaité
+    function applyAccentColor() {
+      const accentColor = getAccentColor() || '#7163FF'; // Couleur de base si aucun enregistrement trouvé
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
 
-    // Sauvegarder la couleur actuelle
-    const originalColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
-    localStorage.setItem('originalAccentColor', originalColor);
+    // Réinitialiser la couleur à celle par défaut
+    function resetAccentColor() {
+      setAccentColor('#7163FF'); // Couleur de base
+      applyAccentColor();
+    }
 
-    // Ajouter un événement au changement d'état de la case à cocher
-    contrastCheckbox.addEventListener('change', function() {
-        if (contrastCheckbox.checked) {
-            // Si activé, mettre la couleur d'accentuation en rouge
-            setAccentColor('red');
-        } else {
-            // Si désactivé, restaurer la couleur originale
-            const originalAccentColor = localStorage.getItem('originalAccentColor');
-            setAccentColor(originalAccentColor);
-        }
+    // Écouteur d'événement pour le changement de couleur
+    const colorPicker = document.getElementById('color-picker');
+    colorPicker.addEventListener('change', function() {
+      const color = this.value;
+      setAccentColor(color);
+      applyAccentColor();
     });
 
-    // Initialisation de la couleur à partir du local storage si elle existe
-    const savedColor = getAccentColor();
-    if (savedColor) {
-        document.documentElement.style.setProperty('--accent-color', savedColor);
-    }
+    // Écouteur d'événement pour le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', function() {
+      resetAccentColor();
+    });
+
+    // Appliquer la couleur lors du chargement de la page
+    applyAccentColor();
 	  
 document.addEventListener('DOMContentLoaded', (event) => {
     const checkbox = document.getElementById('bordersCheck');
@@ -157,58 +160,51 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     </script>
 <script>
-    // Fonction pour définir la couleur d'accent
-    function updateAccentColor(color) {
-        localStorage.setItem('accentColor', color);
-        document.documentElement.style.setProperty('--accent-color', color);
-    }
+      document.addEventListener('DOMContentLoaded', function() {
+            // Récupération de la case à cocher
+            const contrastToggle = document.getElementById('contrastToggle');
 
-    // Fonction pour récupérer la couleur d'accent
-    function retrieveAccentColor() {
-        return localStorage.getItem('accentColor');
-    }
+            if (contrastToggle) {
+                // Fonction pour définir la couleur d'accent
+                function updateAccentColor(color) {
+                    localStorage.setItem('accentColor', color);
+                    document.documentElement.style.setProperty('--accent-color', color);
+                }
 
-    // Récupération de la case à cocher
-    const contrastToggle = document.getElementById('contrastToggle');
+                // Fonction pour récupérer la couleur d'accent
+                function retrieveAccentColor() {
+                    return localStorage.getItem('accentColor');
+                }
 
-    // Ajout d'un événement au changement d'état de la case à cocher
-    contrastToggle.addEventListener('change', function() {
-        if (contrastToggle.checked) {
-            // Si activé, sauvegarder la couleur actuelle dans une clé alternative et mettre la couleur d'accent en rouge
-            const currentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
-            localStorage.setItem('alternateAccentColor', currentColor);
-            updateAccentColor('red');
-        } else {
-            // Si désactivé, restaurer la couleur à partir de la clé alternative et supprimer cette clé
-            const alternateColor = localStorage.getItem('alternateAccentColor');
-            if (alternateColor) {
-                updateAccentColor(alternateColor);
-                localStorage.removeItem('alternateAccentColor');
+                // Ajout d'un événement au changement d'état de la case à cocher
+                contrastToggle.addEventListener('change', function() {
+                    if (contrastToggle.checked) {
+                        // Si activé, sauvegarder la couleur actuelle dans une clé alternative et mettre la couleur d'accent en rouge
+                        const currentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+                        localStorage.setItem('alternateAccentColor', currentColor);
+                        updateAccentColor('red');
+                    } else {
+                        // Si désactivé, restaurer la couleur à partir de la clé alternative et supprimer cette clé
+                        const alternateColor = localStorage.getItem('alternateAccentColor');
+                        if (alternateColor) {
+                            updateAccentColor(alternateColor);
+                            localStorage.removeItem('alternateAccentColor');
+                        }
+                    }
+                });
+
+                // Initialisation de la couleur à partir du local storage si elle existe
+                const storedAccentColor = retrieveAccentColor();
+                if (storedAccentColor) {
+                    document.documentElement.style.setProperty('--accent-color', storedAccentColor);
+
+                    // Vérifier si la couleur d'accent est rouge et cocher la case à cocher
+                    if (storedAccentColor === 'red') {
+                        contrastToggle.checked = true;
+                    }
+                }
             }
-        }
-    });
-
-    // Initialisation de la couleur à partir du local storage si elle existe
-    const storedAccentColor = retrieveAccentColor();
-    if (storedAccentColor) {
-        document.documentElement.style.setProperty('--accent-color', storedAccentColor);
-
-        // Vérifier si la couleur d'accent est rouge et cocher la case à cocher
-        if (storedAccentColor === 'red') {
-            contrastToggle.checked = true;
-        }
-    }
-
-    // Initialisation de la couleur à partir du local storage si elle existe
-    const storedAccentColor = retrieveAccentColor();
-    if (storedAccentColor) {
-        document.documentElement.style.setProperty('--accent-color', storedAccentColor);
-
-        // Vérifier si la couleur d'accent est rouge et cocher la case à cocher
-        if (storedAccentColor === 'red') {
-            contrastToggle.checked = true;
-        }
-    }
+        });
 	
         document.addEventListener("DOMContentLoaded", function() {
             // Récupérer l'élément avec la classe "toptitle"
