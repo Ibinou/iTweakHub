@@ -171,19 +171,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Récupération de la case à cocher
     const contrastToggle = document.getElementById('contrastToggle');
 
-    // Sauvegarde de la couleur actuelle
-    const initialAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
-    localStorage.setItem('originalAccentColor', initialAccentColor);
-
     // Ajout d'un événement au changement d'état de la case à cocher
     contrastToggle.addEventListener('change', function() {
         if (contrastToggle.checked) {
-            // Si activé, mettre la couleur d'accent en rouge
+            // Si activé, sauvegarder la couleur actuelle et mettre la couleur d'accent en rouge
+            const currentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+            localStorage.setItem('originalAccentColor', currentColor);
             updateAccentColor('red');
         } else {
             // Si désactivé, restaurer la couleur originale
             const savedOriginalColor = localStorage.getItem('originalAccentColor');
-            updateAccentColor(savedOriginalColor);
+            if (savedOriginalColor) {
+                updateAccentColor(savedOriginalColor);
+            }
         }
     });
 
