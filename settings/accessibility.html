@@ -191,6 +191,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const storedAccentColor = retrieveAccentColor();
     if (storedAccentColor) {
         document.documentElement.style.setProperty('--accent-color', storedAccentColor);
+
+        // Vérifier si la couleur d'accent est rouge et cocher la case à cocher
+        if (storedAccentColor === 'red') {
+            contrastToggle.checked = true;
+        }
     }
 	
         document.addEventListener("DOMContentLoaded", function() {
