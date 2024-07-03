@@ -174,18 +174,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Ajout d'un événement au changement d'état de la case à cocher
     contrastToggle.addEventListener('change', function() {
         if (contrastToggle.checked) {
-            // Si activé, sauvegarder la couleur actuelle et mettre la couleur d'accent en rouge
+            // Si activé, sauvegarder la couleur actuelle dans une clé alternative et mettre la couleur d'accent en rouge
             const currentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
-            localStorage.setItem('originalAccentColor', currentColor);
+            localStorage.setItem('alternateAccentColor', currentColor);
             updateAccentColor('red');
         } else {
-            // Si désactivé, restaurer la couleur originale
-            const savedOriginalColor = localStorage.getItem('originalAccentColor');
-            if (savedOriginalColor) {
-                updateAccentColor(savedOriginalColor);
+            // Si désactivé, restaurer la couleur à partir de la clé alternative et supprimer cette clé
+            const alternateColor = localStorage.getItem('alternateAccentColor');
+            if (alternateColor) {
+                updateAccentColor(alternateColor);
+                localStorage.removeItem('alternateAccentColor');
             }
         }
     });
+
+    // Initialisation de la couleur à partir du local storage si elle existe
+    const storedAccentColor = retrieveAccentColor();
+    if (storedAccentColor) {
+        document.documentElement.style.setProperty('--accent-color', storedAccentColor);
+
+        // Vérifier si la couleur d'accent est rouge et cocher la case à cocher
+        if (storedAccentColor === 'red') {
+            contrastToggle.checked = true;
+        }
+    }
 
     // Initialisation de la couleur à partir du local storage si elle existe
     const storedAccentColor = retrieveAccentColor();
