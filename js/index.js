@@ -13,9 +13,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (this.checked) {
             applyBorder();
             localStorage.setItem('bordersEnabled', 'true');
+            location.reload()
         } else {
             removeBorder();
             localStorage.setItem('bordersEnabled', 'false');
+            location.reload()
         }
     });
 
