@@ -215,6 +215,3 @@ function myFunction() {
     dock[i].style.display = display;
   }
 }
-
-// Appel de la fonction principale pour charger et afficher les données
-afficherDonnees();
