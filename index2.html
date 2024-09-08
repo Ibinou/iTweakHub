@@ -465,6 +465,58 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let draggedElement = null;
+    let startX, startY, startLeft, startTop;
+
+    // Sélection des éléments réarrangeables
+    const rearrangeableItems = document.querySelectorAll('.cell_app, .selection, .sections_div, .cert-container, .mobile-nav');
+
+    // Ajout des événements pour chaque élément réarrangeable
+    rearrangeableItems.forEach(item => {
+        item.addEventListener('mousedown', function(event) {
+            event.preventDefault();
+            draggedElement = this;
+            startX = event.clientX;
+            startY = event.clientY;
+            startLeft = draggedElement.offsetLeft;
+            startTop = draggedElement.offsetTop;
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+
+        item.style.position = 'relative'; // Nécessaire pour les mouvements
+        item.style.cursor = 'grab'; // Changer le curseur pour indiquer la possibilité de déplacer
+    });
+
+    function onMouseMove(event) {
+        if (!draggedElement) return;
+
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+
+        draggedElement.style.left = startLeft + deltaX + 'px';
+        draggedElement.style.top = startTop + deltaY + 'px';
+        draggedElement.style.zIndex = 1000; // Mettre au premier plan
+    }
+
+    function onMouseUp() {
+        if (!draggedElement) return;
+
+        // Arrêter le suivi du mouvement
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+
+        // Réinitialiser les styles
+        draggedElement.style.zIndex = '';
+        draggedElement.style.cursor = 'grab';
+        draggedElement = null;
+    }
+});
+</script>
+
         <script src="js/index.js"></script>
 	<script src="js/script.js"></script>
         <script src="js/transition.js"></script>
