@@ -33,24 +33,15 @@
 </div>
 
 <h3 style="margin-top: 100px;" id="section_title" class="title-page-section">"Explore" section background</h3>
-  <div id="images_choose" class="container">
-    <div class="image-container">
-      <img id="image1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1">
-      <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2">
-    
-    <div class="typetext">
-      <label for="backgroundType1">
-        <input type="radio" id="backgroundType1" name="backgroundType" value="1" checked>
-        Multicolored palette
-      </label>
-      <label for="backgroundType2">
-        <input type="radio" id="backgroundType2" name="backgroundType" value="2">
-        Siri color palette
-      </label>
+<div id="images_choose" class="container">
+  <div class="image-container">
+    <img id="image1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1">
+    <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2">
     <div id="selectedBackground"></div>
   </div>
 </div>
-</div>
+
+
 <h3 class="title-page-section">Accent color</h3>
 <center>
 <div style="margin-bottom: 30px;border-radius: 20px;background-color: var(--accent-color);width: 100px;height: 100px;"></div>
@@ -114,50 +105,50 @@
             }
         });  
  
-    document.addEventListener('DOMContentLoaded', function () {
-      const image1 = document.getElementById('image1');
-      const image2 = document.getElementById('image2');
-      const backgroundType1 = document.getElementById('backgroundType1');
-      const backgroundType2 = document.getElementById('backgroundType2');
-      const selectedBackgroundDiv = document.getElementById('selectedBackground');
+  document.addEventListener('DOMContentLoaded', function () {
+  const image1 = document.getElementById('image1');
+  const image2 = document.getElementById('image2');
+  const selectedBackgroundDiv = document.getElementById('selectedBackground');
 
-      function setBackgroundImage(url) {
-        selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
-      }
+  function setBackgroundImage(url) {
+    selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
+  }
 
-      function updateLocalStorage(key, value) {
-        localStorage.setItem(key, value);
-      }
+  function updateLocalStorage(key, value) {
+    localStorage.setItem(key, value);
+  }
 
-      function updateBackgroundType() {
-        if (backgroundType1.checked) {
-          setBackgroundImage(image1.src);
-          updateLocalStorage('explore-background', 'url1.jpg');
-        } else if (backgroundType2.checked) {
-          setBackgroundImage(image2.src);
-          updateLocalStorage('explore-background', 'url2.jpg');
-        }
-      }
+  function selectImage(selectedImage, otherImage, url) {
+    selectedImage.classList.add('selected');
+    otherImage.classList.remove('selected');
+    setBackgroundImage(url);
+    updateLocalStorage('explore-background', url);
+  }
 
-      // Load background from Local Storage if available
-      function loadBackgroundFromLocalStorage() {
-        const backgroundUrl = localStorage.getItem('explore-background');
-        if (backgroundUrl === 'url1.jpg') {
-          setBackgroundImage(image1.src);
-          backgroundType1.checked = true;
-        } else if (backgroundUrl === 'url2.jpg') {
-          setBackgroundImage(image2.src);
-          backgroundType2.checked = true;
-        }
-      }
+  // Load background from Local Storage if available
+  function loadBackgroundFromLocalStorage() {
+    const backgroundUrl = localStorage.getItem('explore-background');
+    if (backgroundUrl === image1.src) {
+      selectImage(image1, image2, image1.src);
+    } else if (backgroundUrl === image2.src) {
+      selectImage(image2, image1, image2.src);
+    }
+  }
 
-      // Initial update
-      loadBackgroundFromLocalStorage();
+  // Initial update
+  loadBackgroundFromLocalStorage();
 
-      // Update background when background type changes
-      backgroundType1.addEventListener('change', updateBackgroundType);
-      backgroundType2.addEventListener('change', updateBackgroundType);
-    });
+  // Add event listeners to images
+  image1.addEventListener('click', function () {
+    selectImage(image1, image2, image1.src);
+  });
+
+  image2.addEventListener('click', function () {
+    selectImage(image2, image1, image2.src);
+  });
+});
+
+ 
      </script>  
     
 
