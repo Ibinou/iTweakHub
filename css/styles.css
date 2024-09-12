@@ -2015,24 +2015,26 @@ sections_div {
    opacity: .5;
 }
 
-.image-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  background-color: rgb(28, 28, 28);
-  border-radius: 20px;
-  border: 1px solid rgb(37, 37, 39);
-  padding: 20px !important;
-  margin-left: 0px !important;
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    background-color: rgb(28, 28, 28);
+    border-radius: 20px;
+    border: 1px solid rgb(37, 37, 39);
+    padding: 20px !important;
+    margin-left: 0px !important;
 }
+    
 
-.image-container img {
-  width: calc(50% - 10px);
-  height: auto;
-  cursor: pointer;
-}
+    .image-container img {
+      width: calc(50% - 10px);
+      height: auto;
+    }
 
-
+    .typetext {
+      margin-top: 20px;
+    }
 
   .message-overlay {
     position: fixed;
@@ -2263,8 +2265,3 @@ sections_div {
     background-color: rgba(0, 0, 0, 0.5); /* Transparency of background */
     z-index: 999; /* Ensure overlay is above the modal */
 }
-.image-container img.selected {
-  border: 5px solid #4CAF50; /* Bordure verte pour l'image sélectionnée */
-  border-radius: 10px;
-}
-
