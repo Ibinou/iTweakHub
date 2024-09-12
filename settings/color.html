@@ -104,7 +104,7 @@
                 elementElement.style.marginTop = "140px";
             }
         });  
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const image1 = document.getElementById('image1');
   const image2 = document.getElementById('image2');
   const selectedBackgroundDiv = document.getElementById('selectedBackground');
@@ -131,9 +131,14 @@
   function loadBackgroundFromLocalStorage() {
     const backgroundUrl = localStorage.getItem('explore-background');
     console.log("Loaded background from LS:", backgroundUrl);
-    if (backgroundUrl === image1.src) {
+
+    // Extract the filename from the src for comparison
+    const image1Url = image1.src.split('/').pop(); // Nom du fichier
+    const image2Url = image2.src.split('/').pop(); // Nom du fichier
+
+    if (backgroundUrl === image1Url) {
       selectImage(image1, image2, image1.src);
-    } else if (backgroundUrl === image2.src) {
+    } else if (backgroundUrl === image2Url) {
       selectImage(image2, image1, image2.src);
     }
   }
@@ -143,11 +148,11 @@
 
   // Add event listeners to images
   image1.addEventListener('click', function () {
-    selectImage(image1, image2, image1.src);
+    selectImage(image1, image2, image1.src.split('/').pop());
   });
 
   image2.addEventListener('click', function () {
-    selectImage(image2, image1, image2.src);
+    selectImage(image2, image1, image2.src.split('/').pop());
   });
 });
 
