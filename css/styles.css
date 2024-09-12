@@ -2015,7 +2015,7 @@ sections_div {
    opacity: .5;
 }
 
-  .image-container {
+.image-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -2033,9 +2033,10 @@ sections_div {
 }
 
 .image-container img.selected {
-  border: 3px solid var(--accent-color); /* Bordure verte pour indiquer la sélection */
+  border: 5px solid #4CAF50; /* Augmenté à 5px pour bien voir la bordure */
   border-radius: 10px;
 }
+
 
   .message-overlay {
     position: fixed;
