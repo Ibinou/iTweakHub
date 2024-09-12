@@ -104,18 +104,19 @@
                 elementElement.style.marginTop = "140px";
             }
         });  
- 
-  document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', function () {
   const image1 = document.getElementById('image1');
   const image2 = document.getElementById('image2');
   const selectedBackgroundDiv = document.getElementById('selectedBackground');
 
   function setBackgroundImage(url) {
     selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
+    console.log("Background set to:", url);
   }
 
   function updateLocalStorage(key, value) {
     localStorage.setItem(key, value);
+    console.log("LocalStorage updated:", key, value);
   }
 
   function selectImage(selectedImage, otherImage, url) {
@@ -123,11 +124,13 @@
     otherImage.classList.remove('selected');
     setBackgroundImage(url);
     updateLocalStorage('explore-background', url);
+    console.log("Selected image:", selectedImage.id);
   }
 
   // Load background from Local Storage if available
   function loadBackgroundFromLocalStorage() {
     const backgroundUrl = localStorage.getItem('explore-background');
+    console.log("Loaded background from LS:", backgroundUrl);
     if (backgroundUrl === image1.src) {
       selectImage(image1, image2, image1.src);
     } else if (backgroundUrl === image2.src) {
@@ -147,6 +150,7 @@
     selectImage(image2, image1, image2.src);
   });
 });
+
 
  
      </script>  
