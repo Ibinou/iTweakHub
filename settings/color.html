@@ -132,13 +132,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const backgroundUrl = localStorage.getItem('explore-background');
     console.log("Loaded background from LS:", backgroundUrl);
 
-    // Extract the filename from the src for comparison
-    const image1Url = image1.src.split('/').pop(); // Nom du fichier
-    const image2Url = image2.src.split('/').pop(); // Nom du fichier
-
-    if (backgroundUrl === image1Url) {
+    if (backgroundUrl === image1.src) {
       selectImage(image1, image2, image1.src);
-    } else if (backgroundUrl === image2Url) {
+    } else if (backgroundUrl === image2.src) {
       selectImage(image2, image1, image2.src);
     }
   }
@@ -148,11 +144,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add event listeners to images
   image1.addEventListener('click', function () {
-    selectImage(image1, image2, image1.src.split('/').pop());
+    selectImage(image1, image2, image1.src);
   });
 
   image2.addEventListener('click', function () {
-    selectImage(image2, image1, image2.src.split('/').pop());
+    selectImage(image2, image1, image2.src);
   });
 });
 
