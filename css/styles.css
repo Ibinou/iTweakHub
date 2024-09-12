@@ -2032,10 +2032,6 @@ sections_div {
   cursor: pointer;
 }
 
-.image-container img.selected {
-  border: 5px solid #4CAF50; /* Augmenté à 5px pour bien voir la bordure */
-  border-radius: 10px;
-}
 
 
   .message-overlay {
@@ -2266,4 +2262,8 @@ sections_div {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Transparency of background */
     z-index: 999; /* Ensure overlay is above the modal */
+}
+.image-container img.selected {
+  border: 5px solid #4CAF50; /* Bordure verte pour indiquer la sélection */
+  border-radius: 10px;
 }
