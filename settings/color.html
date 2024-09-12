@@ -139,18 +139,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Initial update
-  loadBackgroundFromLocalStorage();
-
-  // Add event listeners to images
+  // Vérification si les clics fonctionnent
   image1.addEventListener('click', function () {
+    console.log('Image 1 clicked');
     selectImage(image1, image2, image1.src);
   });
 
   image2.addEventListener('click', function () {
+    console.log('Image 2 clicked');
     selectImage(image2, image1, image2.src);
   });
+
+  // Initial update
+  loadBackgroundFromLocalStorage();
 });
+
 
 
  
