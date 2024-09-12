@@ -11,22 +11,7 @@
       "name": "EeveeSpotify",
       "bundleIdentifier": "com.spotify.client",
       "developerName": "",
-      "localizedDescription": "EeveeSpotify
-
-This tweak makes Spotify think you have a Premium subscription, granting free listening, just like Spotilife, and provides some additional features like custom lyrics.
-
-The History
-
-Several months ago, Spotilife, the only tweak to get Spotify Premium, stopped working on new Spotify versions. I decompiled Spotilife, reverse-engineered Spotify, intercepted requests, etc., and created this tweak.
-
-Restrictions
-
-Please refrain from opening issues about the following features, as they are server-sided and will NEVER work:
-
-Very High audio quality
-Native playlist downloading (you can download podcast episodes though)
-Jam (hosting a Spotify Jam and joining it remotely requires Premium; only joining in-person works)
-It's possible to implement downloading locally, but it will never be included in EeveeSpotify (unless someone opens a pull request).",
+      "localizedDescription": "This tweak makes Spotify think you have a Premium subscription, granting free listening, just like Spotilife, and provides some additional features like custom lyrics.",
       "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0c/1f/61/0c1f6144-af80-f395-3204-1d14fd8b2be7/AppIcon-0-0-1x_U007emarketing-0-6-0-0-85-220.png/512x512bb.jpg",
       "versions": [
         {
