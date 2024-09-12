@@ -36,10 +36,15 @@
 <div id="images_choose" class="container">
   <div class="image-container">
     <img id="image1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1">
+    <button id="button1">Choisir Multicolored palette</button> <!-- Bouton pour image 1 -->
+    
     <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2">
+    <button id="button2">Choisir Siri color palette</button> <!-- Bouton pour image 2 -->
+    
     <div id="selectedBackground"></div>
   </div>
 </div>
+
 
 
 <h3 class="title-page-section">Accent color</h3>
@@ -107,6 +112,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const image1 = document.getElementById('image1');
   const image2 = document.getElementById('image2');
+  const button1 = document.getElementById('button1');
+  const button2 = document.getElementById('button2');
   const selectedBackgroundDiv = document.getElementById('selectedBackground');
 
   function setBackgroundImage(url) {
@@ -139,20 +146,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Vérification si les clics fonctionnent
-  image1.addEventListener('click', function () {
-    console.log('Image 1 clicked');
+  // Event listeners for the buttons
+  button1.addEventListener('click', function () {
     selectImage(image1, image2, image1.src);
   });
 
-  image2.addEventListener('click', function () {
-    console.log('Image 2 clicked');
+  button2.addEventListener('click', function () {
     selectImage(image2, image1, image2.src);
   });
 
   // Initial update
   loadBackgroundFromLocalStorage();
 });
+
 
 
 
