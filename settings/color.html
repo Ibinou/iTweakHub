@@ -119,15 +119,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function setBackgroundImage(url) {
     selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
+    console.log('Background image set to:', url);
   }
 
   function updateLocalStorage(key, value) {
     localStorage.setItem(key, value);
+    console.log(`Local storage updated: ${key} = ${value}`);
   }
 
-  function updateBackground(imageElement, url) {
+  function updateBackground(imageElement, urlKey, url) {
     setBackgroundImage(imageElement.src);
-    updateLocalStorage('explore-background', url);
+    updateLocalStorage('explore-background', urlKey);
   }
 
   // Load background from Local Storage if available
@@ -135,8 +137,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const backgroundUrl = localStorage.getItem('explore-background');
     if (backgroundUrl === 'url1.jpg') {
       setBackgroundImage(image1.src);
+      console.log('Loaded background image 1 from local storage');
     } else if (backgroundUrl === 'url2.jpg') {
       setBackgroundImage(image2.src);
+      console.log('Loaded background image 2 from local storage');
+    } else {
+      console.log('No background image found in local storage, using default');
     }
   }
 
@@ -145,13 +151,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add click events to images
   image1.addEventListener('click', function () {
-    updateBackground(image1, 'url1.jpg');
+    updateBackground(image1, 'url1.jpg', image1.src);
   });
 
   image2.addEventListener('click', function () {
-    updateBackground(image2, 'url2.jpg');
+    updateBackground(image2, 'url2.jpg', image2.src);
   });
 });
+
 
      </script>  
     
