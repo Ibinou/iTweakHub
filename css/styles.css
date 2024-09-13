@@ -2027,7 +2027,6 @@ sections_div {
     .image-container {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
     background-color: rgb(28, 28, 28);
     border-radius: 20px;
     border: 1px solid rgb(37, 37, 39);
