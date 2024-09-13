@@ -2018,15 +2018,6 @@ sections_div {
 
 
 
-        #selectedBackground {
-            width: 400px;
-            height: 300px;
-            margin-top: 20px;
-            background-size: cover;
-            background-position: center;
-            border: 2px solid #000;
-        }
-
         .image-btn {
             cursor: pointer;
         }
