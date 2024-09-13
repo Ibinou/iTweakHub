@@ -38,10 +38,10 @@
 <!-- Utilisation des balises <a> avec des attributs data pour gérer les clics -->
 <div class="image-container">
     <a href="#" class="image-btn" data-image="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png">
-        <img id="image 1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1" width="100">
+        <img id="image 1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1" width="140">
     </a>
     <a href="#" class="image-btn" data-image="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png">
-        <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2" width="100">
+        <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2" width="140">
     </a>
 </div>
 
@@ -157,9 +157,9 @@ let exploreBackground = localStorage.getItem('explore-background');
 if (exploreBackground) {
     // Vérifier le lien et appliquer la bordure en fonction du lien
     if (exploreBackground === 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png') {
-        document.getElementById('image1').style.border = '2px solid red'; // Appliquer une bordure à l'image1
+        document.getElementById('image1').style.border = '2px solid var(--accent-color)'; // Appliquer une bordure à l'image1
     } else if (exploreBackground === 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png') {
-        document.getElementById('image2').style.border = '2px solid blue'; // Appliquer une bordure à l'image2
+        document.getElementById('image2').style.border = '2px solid var(--accent-color)'; // Appliquer une bordure à l'image2
     }
 } else {
     console.log('La clé "explore-background" n\'existe pas dans le localStorage.');
