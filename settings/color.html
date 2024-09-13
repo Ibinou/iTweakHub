@@ -150,15 +150,21 @@
         });
     });
 	     
-// Récupérer le lien de l'élément avec l'id 'explore-background'
-let exploreBackground = document.getElementById('explore-background').getAttribute('src');
+// Récupérer la valeur de la clé 'explore-background' depuis le localStorage
+let exploreBackground = localStorage.getItem('explore-background');
 
-// Vérifier le lien et appliquer la bordure en fonction du lien
-if (exploreBackground === 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png') {
-    document.getElementById('image1').style.border = '2px solid red'; // Appliquer une bordure à l'image1
-} else if (exploreBackground === 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png') {
-    document.getElementById('image2').style.border = '2px solid blue'; // Appliquer une bordure à l'image2
+// Vérifier si la clé existe dans le localStorage
+if (exploreBackground) {
+    // Vérifier le lien et appliquer la bordure en fonction du lien
+    if (exploreBackground === 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png') {
+        document.getElementById('image1').style.border = '2px solid red'; // Appliquer une bordure à l'image1
+    } else if (exploreBackground === 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png') {
+        document.getElementById('image2').style.border = '2px solid blue'; // Appliquer une bordure à l'image2
+    }
+} else {
+    console.log('La clé "explore-background" n\'existe pas dans le localStorage.');
 }
+
 
 
 
