@@ -35,16 +35,18 @@
 <h3 style="margin-top: 100px;" id="section_title" class="title-page-section">"Explore" section background</h3>
 
 	
-<div id="images_choose" class="container">
-  <div class="image-container">
-    <img id="image1" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1" class="clickable-image">
-    <img id="image2" src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2" class="clickable-image">
-    
-    <div class="typetext">
-      <div id="selectedBackground"></div>
-    </div>
-  </div>
+<!-- Utilisation des balises <a> avec des attributs data pour gérer les clics -->
+<div class="image-container">
+    <a href="#" class="image-btn" data-image="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png">
+        <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png" alt="Image 1" width="100">
+    </a>
+    <a href="#" class="image-btn" data-image="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png">
+        <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png" alt="Image 2" width="100">
+    </a>
 </div>
+
+<!-- Zone où l'image de fond change -->
+<div id="selectedBackground"></div>
 
 <h3 class="title-page-section">Accent color</h3>
 <center>
@@ -112,50 +114,41 @@
 
 // image change 
 	     
-document.addEventListener('DOMContentLoaded', function () {
-  const imageContainer = document.getElementById('images_choose'); // Conteneur parent des images
-  const selectedBackgroundDiv = document.getElementById('selectedBackground');
+    document.addEventListener('DOMContentLoaded', function () {
+        const imageButtons = document.querySelectorAll('.image-btn');
+        const selectedBackgroundDiv = document.getElementById('selectedBackground');
 
-  function setBackgroundImage(url) {
-    selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
-    console.log('Background image set to:', url);
-  }
+        function setBackgroundImage(url) {
+            selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
+            console.log('Image de fond changée pour :', url);
+        }
 
-  function updateLocalStorage(value) {
-    localStorage.setItem('explore-background', value);
-    console.log(`Local storage updated with: ${value}`);
-  }
+        function updateLocalStorage(url) {
+            localStorage.setItem('explore-background', url);
+            console.log('LocalStorage mis à jour avec :', url);
+        }
 
-  // Load background from Local Storage if available
-  function loadBackgroundFromLocalStorage() {
-    const backgroundUrl = localStorage.getItem('explore-background');
-    if (backgroundUrl === 'url1.jpg') {
-      setBackgroundImage('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png');
-    } else if (backgroundUrl === 'url2.jpg') {
-      setBackgroundImage('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png');
-    }
-  }
+        // Chargement de l'image de fond depuis le LocalStorage si elle est disponible
+        function loadBackgroundFromLocalStorage() {
+            const backgroundUrl = localStorage.getItem('explore-background');
+            if (backgroundUrl) {
+                setBackgroundImage(backgroundUrl);
+            }
+        }
 
-  // Initial update from localStorage
-  loadBackgroundFromLocalStorage();
+        // Appliquer le fond au chargement de la page
+        loadBackgroundFromLocalStorage();
 
-  // Delegate the click event to the parent container
-  imageContainer.addEventListener('click', function(event) {
-    const clickedImage = event.target;
-
-    // Verify if the clicked element is an image
-    if (clickedImage.tagName === 'IMG') {
-      const imgId = clickedImage.id;
-      if (imgId === 'image1') {
-        setBackgroundImage(clickedImage.src);
-        updateLocalStorage('url1.jpg');
-      } else if (imgId === 'image2') {
-        setBackgroundImage(clickedImage.src);
-        updateLocalStorage('url2.jpg');
-      }
-    }
-  });
-});
+        // Ajouter un écouteur d'événement pour chaque bouton
+        imageButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault(); // Empêche le comportement par défaut du lien
+                const imageUrl = this.getAttribute('data-image');
+                setBackgroundImage(imageUrl);
+                updateLocalStorage(imageUrl); // Mise à jour du localStorage
+            });
+        });
+    });
 
 
 
