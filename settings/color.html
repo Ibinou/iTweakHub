@@ -145,7 +145,8 @@
                 e.preventDefault(); // Empêche le comportement par défaut du lien
                 const imageUrl = this.getAttribute('data-image');
                 setBackgroundImage(imageUrl);
-                updateLocalStorage(imageUrl); // Mise à jour du localStorage
+                updateLocalStorage(imageUrl);
+		location.reload();
             });
         });
     });
