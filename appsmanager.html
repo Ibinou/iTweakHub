@@ -551,51 +551,7 @@ items.forEach(function(item, index) {
         });  
 
 
-// background explorer script
-    document.addEventListener('DOMContentLoaded', function () {
-      const image1 = document.getElementById('image1');
-      const image2 = document.getElementById('image2');
-      const backgroundType1 = document.getElementById('backgroundType1');
-      const backgroundType2 = document.getElementById('backgroundType2');
-      const selectedBackgroundDiv = document.getElementById('selectedBackground');
 
-      function setBackgroundImage(url) {
-        selectedBackgroundDiv.style.backgroundImage = `url('${url}')`;
-      }
-
-      function updateLocalStorage(key, value) {
-        localStorage.setItem(key, value);
-      }
-
-      function updateBackgroundType() {
-        if (backgroundType1.checked) {
-          setBackgroundImage(image1.src);
-          updateLocalStorage('explore-background', 'url1.jpg');
-        } else if (backgroundType2.checked) {
-          setBackgroundImage(image2.src);
-          updateLocalStorage('explore-background', 'url2.jpg');
-        }
-      }
-
-      // Load background from Local Storage if available
-      function loadBackgroundFromLocalStorage() {
-        const backgroundUrl = localStorage.getItem('explore-background');
-        if (backgroundUrl === 'url1.jpg') {
-          setBackgroundImage(image1.src);
-          backgroundType1.checked = true;
-        } else if (backgroundUrl === 'url2.jpg') {
-          setBackgroundImage(image2.src);
-          backgroundType2.checked = true;
-        }
-      }
-
-      // Initial update
-      loadBackgroundFromLocalStorage();
-
-      // Update background when background type changes
-      backgroundType1.addEventListener('change', updateBackgroundType);
-      backgroundType2.addEventListener('change', updateBackgroundType);
-    });
 document.addEventListener('DOMContentLoaded', function() {
   const overlay = document.querySelector('.message-overlay');
   const messageContainer = document.querySelector('.message-container');
