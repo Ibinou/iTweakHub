@@ -587,6 +587,29 @@ document.addEventListener('DOMContentLoaded', function() {
 function openPage(url) {
   window.location.href = url;
 }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectedBackgroundDiv = document.getElementById('selectedBackground');
+
+        // Fonction pour appliquer l'image depuis le localStorage
+        function applyBackgroundFromLocalStorage() {
+            const backgroundImageUrl = localStorage.getItem('explore-background');
+            if (backgroundImageUrl) {
+                selectedBackgroundDiv.style.backgroundImage = `url('${backgroundImageUrl}')`;
+		console.log("image fetched successfully from the ls.");
+            } else {
+                // Si aucune image n'est stockée, on peut définir une image par défaut
+                selectedBackgroundDiv.style.backgroundImage = 'url("img/logo.png")';
+		console.log("image default");
+            }
+        }
+
+        // Appeler la fonction au chargement de la page
+        applyBackgroundFromLocalStorage();
+    });
+
+
 </script>
 
 <script src="js/index.js"></script>
