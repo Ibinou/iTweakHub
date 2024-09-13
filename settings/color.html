@@ -113,8 +113,7 @@
 // image change 
 	     
 document.addEventListener('DOMContentLoaded', function () {
-  const image1 = document.getElementById('image1');
-  const image2 = document.getElementById('image2');
+  const imageContainer = document.getElementById('images_choose'); // Conteneur parent des images
   const selectedBackgroundDiv = document.getElementById('selectedBackground');
 
   function setBackgroundImage(url) {
@@ -122,42 +121,42 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Background image set to:', url);
   }
 
-  function updateLocalStorage(key, value) {
-    localStorage.setItem(key, value);
-    console.log(`Local storage updated: ${key} = ${value}`);
-  }
-
-  function updateBackground(imageElement, urlKey, url) {
-    setBackgroundImage(imageElement.src);
-    updateLocalStorage('explore-background', urlKey);
+  function updateLocalStorage(value) {
+    localStorage.setItem('explore-background', value);
+    console.log(`Local storage updated with: ${value}`);
   }
 
   // Load background from Local Storage if available
   function loadBackgroundFromLocalStorage() {
     const backgroundUrl = localStorage.getItem('explore-background');
     if (backgroundUrl === 'url1.jpg') {
-      setBackgroundImage(image1.src);
-      console.log('Loaded background image 1 from local storage');
+      setBackgroundImage('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back.png');
     } else if (backgroundUrl === 'url2.jpg') {
-      setBackgroundImage(image2.src);
-      console.log('Loaded background image 2 from local storage');
-    } else {
-      console.log('No background image found in local storage, using default');
+      setBackgroundImage('https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/sources-back-siri.png');
     }
   }
 
-  // Initial update
+  // Initial update from localStorage
   loadBackgroundFromLocalStorage();
 
-  // Add click events to images
-  image1.addEventListener('click', function () {
-    updateBackground(image1, 'url1.jpg', image1.src);
-  });
+  // Delegate the click event to the parent container
+  imageContainer.addEventListener('click', function(event) {
+    const clickedImage = event.target;
 
-  image2.addEventListener('click', function () {
-    updateBackground(image2, 'url2.jpg', image2.src);
+    // Verify if the clicked element is an image
+    if (clickedImage.tagName === 'IMG') {
+      const imgId = clickedImage.id;
+      if (imgId === 'image1') {
+        setBackgroundImage(clickedImage.src);
+        updateLocalStorage('url1.jpg');
+      } else if (imgId === 'image2') {
+        setBackgroundImage(clickedImage.src);
+        updateLocalStorage('url2.jpg');
+      }
+    }
   });
 });
+
 
 
      </script>  
