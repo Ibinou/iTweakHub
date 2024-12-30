@@ -71,6 +71,55 @@
     
 </head>
 <body>
+
+    <style>
+
+
+        .icon-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .icon-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .icon-card:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-card.selected {
+            border: 2px solid #fff;
+        }
+
+        .icon-card img {
+            max-width: 80px;
+            max-height: 80px;
+            border-radius: 8px;
+        }
+
+        .icon-card input[type="checkbox"] {
+            display: none;
+        }
+
+        .icon-card label {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    
 <style>
     body {
         background-color: #1c0026;
@@ -138,21 +187,65 @@ Choose “On Home Screen” from the options.</p>
         </div>
       </div>
     </div>
-    <p id="choosepls">Default icons</p> 
-   <div class="icon-container" style="margin: 16px;">
-    <a id="Default"><img src="img/iTweakhub-New.png" alt="Icon 5"></a>
-    <a id="DevIcon"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png" alt="Icon 1"></a>
-    <a id="PrideIcon"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646466.087501-46CA1109-7659-4782-B44D-C3C465C5D70F.png" alt="Icon 2"></a>
-    <a id="Winter"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646472.591928-6B901ADB-9CA8-470D-B9F6-21CFA4BC2579.png" alt="Icon 3"></a>
-    <a id="WWDC24"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1712177139.288906-569722D1-8CCB-4091-8C5E-5CD4C36C3200.png" alt="Icon 3"></a>
-  </div>   
-<p id="choosepls">Mesh gradient collection</p>
-   <div class="icon-container" style="margin: 16px;">
-    <a id="summer-blue"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-blue.jpg" alt="Icon 5"></a>
-    <a id="summer-pink"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-pink.jpg" alt="Icon 1"></a>
-    <a id="summer-green"><img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-green.jpg" alt="Icon 2"></a>
-  </div>  
-  </div>
+
+
+
+
+      
+
+    <p id="choosepls">Default icons</p>
+    <div class="icon-container">
+        <div class="icon-card" id="Default" data-icon="default">
+            <img src="img/iTweakhub-New.png" alt="Default Icon">
+            <label>Default Icon</label>
+            <input type="checkbox" id="default-checkbox">
+        </div>
+        <div class="icon-card" id="DevIcon" data-icon="dev">
+            <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png" alt="Dev Icon">
+            <label>Dev Icon</label>
+            <input type="checkbox" id="dev-checkbox">
+        </div>
+        <div class="icon-card" id="PrideIcon" data-icon="pride">
+            <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646466.087501-46CA1109-7659-4782-B44D-C3C465C5D70F.png" alt="Pride Icon">
+            <label>Pride Icon</label>
+            <input type="checkbox" id="pride-checkbox">
+        </div>
+        <div class="icon-card" id="Winter" data-icon="winter">
+            <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646472.591928-6B901ADB-9CA8-470D-B9F6-21CFA4BC2579.png" alt="Winter Icon">
+            <label>Winter Icon</label>
+            <input type="checkbox" id="winter-checkbox">
+        </div>
+        <div class="icon-card" id="WWDC24" data-icon="wwdc">
+            <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1712177139.288906-569722D1-8CCB-4091-8C5E-5CD4C36C3200.png" alt="WWDC Icon">
+            <label>WWDC Icon</label>
+            <input type="checkbox" id="wwdc-checkbox">
+        </div>
+    </div>
+
+    <p id="choosepls">Mesh gradient collection</p>
+    <div class="icon-container">
+        <div class="icon-card" id="summer-blue" data-icon="blue">
+            <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-blue.jpg" alt="Blue Gradient">
+            <label>Blue Gradient</label>
+            <input type="checkbox" id="blue-checkbox">
+        </div>
+        <div class="icon-card" id="summer-pink" data-icon="pink">
+            <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-pink.jpg" alt="Pink Gradient">
+            <label>Pink Gradient</label>
+            <input type="checkbox" id="pink-checkbox">
+        </div>
+        <div class="icon-card" id="summer-green" data-icon="green">
+            <img src="https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-green.jpg" alt="Green Gradient">
+            <label>Green Gradient</label>
+            <input type="checkbox" id="green-checkbox">
+        </div>
+    </div>
+
+
+
+
+
+      
     <script>
 document.addEventListener("DOMContentLoaded", function() {
     if (localStorage.getItem('setup') === 'done') {
@@ -199,70 +292,31 @@ if (!window.matchMedia('(display-mode: standalone)').matches) {
     document.getElementById('UIContainer').style.display = 'none';
 }
 
-// change custom icon: system       
-function addBorderToImageWithSrc(src) {
-    var images = document.getElementsByTagName('img');
-    
-    for (var i = 0; i < images.length; i++) {
-        if (images[i].src === src) {
-            images[i].style.border = '4px solid #fff';
-        } else {
-            images[i].style.border = 'none';
+    </script>
+    <script>
+        const cards = document.querySelectorAll('.icon-card');
+
+        function updateSelection(selectedId) {
+            cards.forEach(card => {
+                const checkbox = card.querySelector('input[type="checkbox"]');
+                if (card.id === selectedId) {
+                    card.classList.add('selected');
+                    checkbox.checked = true;
+                } else {
+                    card.classList.remove('selected');
+                    checkbox.checked = false;
+                }
+            });
         }
-    }
-}
 
-// Set the 'Default' icon and apply the border by default
-var defaultIconSrc = 'img/iTweakhub-New.png';
-document.getElementById('favicon').href = defaultIconSrc;
-addBorderToImageWithSrc(defaultIconSrc);
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                updateSelection(card.id);
+            });
+        });
 
-document.getElementById('DevIcon').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/Dev%20icon.png';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
-});
-
-document.getElementById('Default').addEventListener('click', function() {
-    // 'Default' icon is already set, reapply the border
-    addBorderToImageWithSrc(defaultIconSrc);
-});
-
-document.getElementById('PrideIcon').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646466.087501-46CA1109-7659-4782-B44D-C3C465C5D70F.png';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
-});
-
-document.getElementById('Winter').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1704646472.591928-6B901ADB-9CA8-470D-B9F6-21CFA4BC2579.png';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
-});
-
-document.getElementById('WWDC24').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/1712177139.288906-569722D1-8CCB-4091-8C5E-5CD4C36C3200.png';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
-});
-
-document.getElementById('summer-blue').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-blue.jpg';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
-});
-
-document.getElementById('summer-pink').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-pink.jpg';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
-});
-
-document.getElementById('summer-green').addEventListener('click', function() {
-    var faviconSrc = 'https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/summer-green.jpg';
-    document.getElementById('favicon').href = faviconSrc;
-    addBorderToImageWithSrc(faviconSrc);
-});
+        // Set default selection
+        updateSelection('Default');
     </script>
    
 <script src="js/account.js"></script>
