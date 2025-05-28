@@ -1,22 +1,21 @@
 {
-    "name": "iTweakHub Source",
-    "subtitle": "The official iTweakHub source !",
-    "description": "The official iTweakHub source !",
-    "iconURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/iTweakhub-New.png",
-    "website": "https://x.com/iTweakHub",
-    "tintColor": "D85240",
-    "apps": [
-      {
-         "name":"RetroArch (64bit)",
-         "bundleIdentifier": "com.retro.arch",
-         "id":"retroarch64",
-         "developerName":"RetroArch Team",
-         "version":"Latest",
-         "minOSVersion":"iOS 13",
-         "iconURL":"https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
-         "downloadURL":"https://buildbot.libretro.com/nightly/apple/ios-arm64/RetroArch.ipa",
-         "localizedDescription":"RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!"
-      },
+  "name": "iTweakHub Source",
+  "subtitle": "The official iTweakHub source !",
+  "description": "The official iTweakHub source !",
+  "iconURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/iTweakhub-New.png",
+  "website": "https://x.com/iTweakHub",
+  "tintColor": "D85240",
+  "apps": [
+    {
+      "name": "RetroArch (64bit)",
+      "bundleIdentifier": "com.retro.arch",
+      "developerName": "RetroArch Team",
+      "version": "Latest",
+      "minOSVersion": "iOS 13",
+      "iconURL": "https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
+      "downloadURL": "https://buildbot.libretro.com/nightly/apple/ios-arm64/RetroArch.ipa",
+      "localizedDescription": "RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!"
+    },
     {
       "name": "EeveeSpotify",
       "bundleIdentifier": "com.spotify.client",
@@ -205,35 +204,33 @@
         }
       }
     },
-      {
-         "name":"dirtyZero",
-         "id":"dirtyzero",
-         "developerName":"Skadz,lunginspector",
-         "version":"0.3.5",
-         "minOSVersion":"iOS 16.0-18.3.2",
-         "iconURL":"https://raw.githubusercontent.com/jailbreakdotparty/dirtyZero/refs/heads/main/dirtyZero/Assets.xcassets/AppIcon.appiconset/FileBreak.png.jpeg",
-         "downloadURL":"https://github.com/jailbreakdotparty/dirtyZero/releases/download/v0.3.5/dirtyZero_v0.3.5.ipa",
-         "localizedDescription":"Basic customization app using CVE-2025-24203. Patched in iOS 18.4. All file modifications are done in memory. If something goes wrong or you want to revert the tweaks, just force reboot your phone.",
-         "screenshotURLs": [
-            "https://raw.githubusercontent.com/Ibinou/iTweakHub/refs/heads/main/img/IMG_5476.jpg"
+    {
+      "name": "dirtyZero",
+      "developerName": "Skadz,lunginspector",
+      "version": "0.3.5",
+      "minOSVersion": "iOS 16.0-18.3.2",
+      "iconURL": "https://raw.githubusercontent.com/jailbreakdotparty/dirtyZero/refs/heads/main/dirtyZero/Assets.xcassets/AppIcon.appiconset/FileBreak.png.jpeg",
+      "downloadURL": "https://github.com/jailbreakdotparty/dirtyZero/releases/download/v0.3.5/dirtyZero_v0.3.5.ipa",
+      "localizedDescription": "Basic customization app using CVE-2025-24203. Patched in iOS 18.4. All file modifications are done in memory. If something goes wrong or you want to revert the tweaks, just force reboot your phone.",
+      "screenshotURLs": [
+        "https://raw.githubusercontent.com/Ibinou/iTweakHub/refs/heads/main/img/IMG_5476.jpg"
       ]
-      },
-      {
-         "name":"RetroArch (32bit)",
-         "id":"retroarch32",
-         "developerName":"RetroArch Team",
-         "version":"Latest",
-         "minOSVersion":"iOS 9",
-         "iconURL":"https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
-         "downloadURL":"https://buildbot.libretro.com/nightly/apple/ios9/RetroArchiOS9.ipa",
-         "localizedDescription":"RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!"
-      },
+    },
+    {
+      "name": "RetroArch (32bit)",
+      "developerName": "RetroArch Team",
+      "version": "Latest",
+      "minOSVersion": "iOS 9",
+      "iconURL": "https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
+      "downloadURL": "https://buildbot.libretro.com/nightly/apple/ios9/RetroArchiOS9.ipa",
+      "localizedDescription": "RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!"
+    },
     {
       "name": "iTorrent",
       "bundleIdentifier": "ru.nonamedude.iTorrent",
       "developerName": "XITRIX",
       "subtitle": "Ordinary iOS torrent client app.",
-      "localizedDescription": "iTorrent is an ordinary torrent client for iOS with Files app support.\n\nWhat can this app do:\n\n\u2022 Download in the background\n\u2022 Sequential download (use VLC to watch films while loading)\n\u2022 Add torrent files from Share menu (Safari and other apps)\n\u2022 Add magnet links directly from Safari\n\u2022 Store files in Files app (iOS 11+)\n\u2022 File sharing directly from app\n\u2022 Download torrent by link\n\u2022 Download torrent by magnet\n\u2022 Send notification on torrent downloaded\n\u2022 FTP Server (unstable)\n\u2022 Select files to download or not\n\u2022 Change UI to dark theme\n\nNow supporting these localizations:\n\u2022 English\n\u2022 Russian\n\u2022 Turkish",
+      "localizedDescription": "iTorrent is an ordinary torrent client for iOS with Files app support.\n\nWhat can this app do:\n\n• Download in the background\n• Sequential download (use VLC to watch films while loading)\n• Add torrent files from Share menu (Safari and other apps)\n• Add magnet links directly from Safari\n• Store files in Files app (iOS 11+)\n• File sharing directly from app\n• Download torrent by link\n• Download torrent by magnet\n• Send notification on torrent downloaded\n• FTP Server (unstable)\n• Select files to download or not\n• Change UI to dark theme\n\nNow supporting these localizations:\n• English\n• Russian\n• Turkish",
       "iconURL": "https://i.imgur.com/C3KwMP5.png",
       "tintColor": "#e32b3c",
       "screenshotURLs": [
@@ -246,7 +243,7 @@
         {
           "version": "1.8.3",
           "date": "2020-09-20",
-          "localizedDescription": "What's new:\n\n\u2022 Text accessibility support added\n\u2022 Huge backend refactoring\n\u2022 Libtorrent updated to 1.2.9\n\u2022 Minor UI improvements\n\u2022 Many bugs fixed (possibly new ones added)",
+          "localizedDescription": "What's new:\n\n• Text accessibility support added\n• Huge backend refactoring\n• Libtorrent updated to 1.2.9\n• Minor UI improvements\n• Many bugs fixed (possibly new ones added)",
           "downloadURL": "https://github.com/XITRIX/iTorrent/releases/download/v1.8.3/iTorrent.ipa",
           "size": 21218913,
           "sha256": "f6854b9b402b522dca849469b15dd8c4c41f0fe2e3efcd2b3550f6074ece5564"
@@ -258,7 +255,7 @@
       "bundleIdentifier": "com.rileytestut.GBA4iOS",
       "developerName": "Riley Testut",
       "subtitle": "Game Boy games in your pocket.",
-      "localizedDescription": "Classic Gaming, Meet iOS.\n\nWhile iPhone and iOS have brought a new era of gaming upon us, there will always be room in our hearts for those classic games from decades ago. Unfortunately, there has been no easy way for people to play these games whenever they so desired...that is, until now. GBA4iOS was made for one purpose and one purpose only: to help everyone relive their favorite games from their past. Now, every where you take your iPhone, iPad, or iPod Touch, you can bring and play your classic games with you, giving you practically endless hours of entertainment!\n\nSo that's great and all, but what features does GBA4iOS actually have? Far too many to list in one App Store description, but here are some of the biggest:\n\n\u2022 Multiplayer (iPhone 5 or newer, iPad 4 or newer). GBA4iOS allows you to link with other players nearby and play with them, allowing you to unlock or experience certain events in games that are unavailable to just one player! Plus, nothing is cooler than playing games with your friends.\n\n\u2022 Save States. Ever get frustrated when a game requires you to save only at certain points? Well be frustrated no longer, GBA4iOS fully supports Save States, allowing you to save anywhere in the game and resume right from that point later. Even better, you can protect certain save states so you never accidentally overwrite them (and as everyone knows losing game data is one of the worst things in the world).\n\n\u2022 Cheat Codes. Sometimes games are just too hard, and you need a little boost to help defeat it. GBA4iOS allows you to input and use GameShark, Action Replay, Code Breaker, and Game Genie codes as you see fit. Don't worry, we won't judge!\n\n\u2022 Fast Forward (iPhone 4s or newer, iPad 2 or newer, iPod Touch 5th Gen). Don't you wish there was a way to speed up long cutscenes in games, or to reduce the time doing boring tasks in the game? Well, now there is! GBA4iOS allows you to \"Fast Forward\" through slow parts of the game, allowing you to get back to the fun even quicker.\n\n\u2022 Customizable Controller Skins. Want to change the look of the controller to something more personal? No worries, you can download a multitude of new controller skins from within the app, or download almost countless more from the web! You'll definitely be able to find a controller skin you like.\n\n\u2022 Dropbox Sync. Have multiple devices, or worried something will happen to your games? Dropbox Sync solves both these issues! When enabled, GBA4iOS will sync your game saves, save states, and cheat codes to Dropbox, keeping any and all your devices up to date with your latest changes. Plus, this means your game data is always backed up in the cloud, so if something happens to your device, your data is safe.\n\n\u2022 MFi Controller Support. Sometimes, touchscreen buttons just aren't good enough for the level of precision needed by some games. Luckily, GBA4iOS supports MFi Controllers, allowing you to connect and use physical controllers with your games! Now you can beat that final boss without a sweat.\n\nAll this and more ensures that GBA4iOS will give you the best portable gaming experience, hands down. So what are you waiting for, download GBA4iOS now and enjoy reliving your favorite classic games immediately!",
+      "localizedDescription": "Classic Gaming, Meet iOS.\n\nWhile iPhone and iOS have brought a new era of gaming upon us, there will always be room in our hearts for those classic games from decades ago. Unfortunately, there has been no easy way for people to play these games whenever they so desired...that is, until now. GBA4iOS was made for one purpose and one purpose only: to help everyone relive their favorite games from their past. Now, every where you take your iPhone, iPad, or iPod Touch, you can bring and play your classic games with you, giving you practically endless hours of entertainment!\n\nSo that's great and all, but what features does GBA4iOS actually have? Far too many to list in one App Store description, but here are some of the biggest:\n\n• Multiplayer (iPhone 5 or newer, iPad 4 or newer). GBA4iOS allows you to link with other players nearby and play with them, allowing you to unlock or experience certain events in games that are unavailable to just one player! Plus, nothing is cooler than playing games with your friends.\n\n• Save States. Ever get frustrated when a game requires you to save only at certain points? Well be frustrated no longer, GBA4iOS fully supports Save States, allowing you to save anywhere in the game and resume right from that point later. Even better, you can protect certain save states so you never accidentally overwrite them (and as everyone knows losing game data is one of the worst things in the world).\n\n• Cheat Codes. Sometimes games are just too hard, and you need a little boost to help defeat it. GBA4iOS allows you to input and use GameShark, Action Replay, Code Breaker, and Game Genie codes as you see fit. Don't worry, we won't judge!\n\n• Fast Forward (iPhone 4s or newer, iPad 2 or newer, iPod Touch 5th Gen). Don't you wish there was a way to speed up long cutscenes in games, or to reduce the time doing boring tasks in the game? Well, now there is! GBA4iOS allows you to \"Fast Forward\" through slow parts of the game, allowing you to get back to the fun even quicker.\n\n• Customizable Controller Skins. Want to change the look of the controller to something more personal? No worries, you can download a multitude of new controller skins from within the app, or download almost countless more from the web! You'll definitely be able to find a controller skin you like.\n\n• Dropbox Sync. Have multiple devices, or worried something will happen to your games? Dropbox Sync solves both these issues! When enabled, GBA4iOS will sync your game saves, save states, and cheat codes to Dropbox, keeping any and all your devices up to date with your latest changes. Plus, this means your game data is always backed up in the cloud, so if something happens to your device, your data is safe.\n\n• MFi Controller Support. Sometimes, touchscreen buttons just aren't good enough for the level of precision needed by some games. Luckily, GBA4iOS supports MFi Controllers, allowing you to connect and use physical controllers with your games! Now you can beat that final boss without a sweat.\n\nAll this and more ensures that GBA4iOS will give you the best portable gaming experience, hands down. So what are you waiting for, download GBA4iOS now and enjoy reliving your favorite classic games immediately!",
       "iconURL": "https://i.imgur.com/SBrqO9g.png",
       "tintColor": "78209d",
       "screenshotURLs": [
@@ -334,7 +331,7 @@
       "bundleIdentifier": "com.litritt.ignited",
       "developerName": "Lit Development",
       "subtitle": "Retro games meet modern design.",
-      "localizedDescription": "Ignited is an overhaul of Delta, an all-in-one emulator for iOS.\n\nFEATURES\n\nSupported Game Systems\n\u2022 Nintendo Entertainment System\n\u2022 Super Nintendo Entertainment System\n\u2022 Sega Genesis\n\u2022 Nintendo 64\n\u2022 Game Boy (Color)\n\u2022 Game Boy Advance\n\u2022 Nintendo DS\n\nController Support\n\u2022 Supports PS4, PS5, Xbox One S, Xbox Series X, and MFi game controllers.\n\u2022 Supports bluetooth (and wired) keyboards, as well as the Apple Smart Keyboard.\n\u2022 Completely customize button mappings on a per-system, per-controller basis.\n\u2022 Map buttons to special \"Quick Save\", \"Quick Load,\" and \"Fast Forward\" actions.\n\nSave States\n\u2022 Save and load save states for any game from the pause menu.\n\u2022 Lock save states to prevent them from being accidentally overwritten.\n\u2022 Automatically makes backup save states to ensure you never lose your progress.\n\u2022 Support for \"Quick Saves,\" save states that can be quickly saved/loaded with a single button press (requires external controller or supported skin).\n\u2022 Save State Rewind - Rolling save states that can be rewound to for up to 2 minutes. Configurable interval. (Currently disabled)\n\nCheats\n\u2022 Supports various types of cheat codes for each supported system:\n\u2022 NES: Game Genie\n\u2022 SNES: Game Genie, Pro Action Replay\n\u2022 N64: GameShark\n\u2022 GBC: Game Genie, GameShark\n\u2022 GBA: Action Replay, Code Breaker, GameShark\n\u2022 DS: Action Replay\n\nDelta Sync\n\u2022 Sync your games, game saves, save states, cheats, controller skins, and controller mappings between devices.\n\u2022 View version histories of everything you sync and optionally restore them to earlier versions.\n\u2022 Supports both Google Drive and Dropbox.\n\nCustom Controller Skins\n\u2022 Beautiful built-in controller skins for all systems.\n\u2022 Import controller skins made by others, or even make your own to share with the world!\n\nHold Button\n\u2022 Choose buttons for Delta to hold down on your behalf, freeing up your thumbs to press other buttons instead.\n\u2022 Perfect for games that typically require one button be held down constantly (ex: run button in Mario games, or the A button in Mario Kart).\n\nFast Forward\n\u2022 Speed through slower parts of games by running the game much faster than normal.\n\u2022 Easily enable or disable from the pause menu, or optionally with a mapped button on an external controller.\n\n3D/Haptic Touch\n\u2022 Use 3D or Haptic Touch to \"peek\" at games, save states, and cheat codes.\n\u2022 App icon shortcuts allow quick access to your most recently played games, or optionally customize the shortcuts to always include certain games.\n\nGame Artwork\n\u2022 Automatically displays appropriate box art for imported games.\n\u2022 Change a game's artwork to anything you want, or select from the built-in game artwork database.\n\nMisc.\n\u2022 Gyroscope support (WarioWare: Twisted! only)\n\u2022 Microphone support (DS only)\n\u2022 Support for delta:// URL scheme to jump directly into a specific game.\n\n**Ignited and Lit Development are in no way affiliated with Nintendo. The name \"Nintendo\" and all associated game console names are registered trademarks of Nintendo Co., Ltd.**",
+      "localizedDescription": "Ignited is an overhaul of Delta, an all-in-one emulator for iOS.\n\nFEATURES\n\nSupported Game Systems\n• Nintendo Entertainment System\n• Super Nintendo Entertainment System\n• Sega Genesis\n• Nintendo 64\n• Game Boy (Color)\n• Game Boy Advance\n• Nintendo DS\n\nController Support\n• Supports PS4, PS5, Xbox One S, Xbox Series X, and MFi game controllers.\n• Supports bluetooth (and wired) keyboards, as well as the Apple Smart Keyboard.\n• Completely customize button mappings on a per-system, per-controller basis.\n• Map buttons to special \"Quick Save\", \"Quick Load,\" and \"Fast Forward\" actions.\n\nSave States\n• Save and load save states for any game from the pause menu.\n• Lock save states to prevent them from being accidentally overwritten.\n• Automatically makes backup save states to ensure you never lose your progress.\n• Support for \"Quick Saves,\" save states that can be quickly saved/loaded with a single button press (requires external controller or supported skin).\n• Save State Rewind - Rolling save states that can be rewound to for up to 2 minutes. Configurable interval. (Currently disabled)\n\nCheats\n• Supports various types of cheat codes for each supported system:\n• NES: Game Genie\n• SNES: Game Genie, Pro Action Replay\n• N64: GameShark\n• GBC: Game Genie, GameShark\n• GBA: Action Replay, Code Breaker, GameShark\n• DS: Action Replay\n\nDelta Sync\n• Sync your games, game saves, save states, cheats, controller skins, and controller mappings between devices.\n• View version histories of everything you sync and optionally restore them to earlier versions.\n• Supports both Google Drive and Dropbox.\n\nCustom Controller Skins\n• Beautiful built-in controller skins for all systems.\n• Import controller skins made by others, or even make your own to share with the world!\n\nHold Button\n• Choose buttons for Delta to hold down on your behalf, freeing up your thumbs to press other buttons instead.\n• Perfect for games that typically require one button be held down constantly (ex: run button in Mario games, or the A button in Mario Kart).\n\nFast Forward\n• Speed through slower parts of games by running the game much faster than normal.\n• Easily enable or disable from the pause menu, or optionally with a mapped button on an external controller.\n\n3D/Haptic Touch\n• Use 3D or Haptic Touch to \"peek\" at games, save states, and cheat codes.\n• App icon shortcuts allow quick access to your most recently played games, or optionally customize the shortcuts to always include certain games.\n\nGame Artwork\n• Automatically displays appropriate box art for imported games.\n• Change a game's artwork to anything you want, or select from the built-in game artwork database.\n\nMisc.\n• Gyroscope support (WarioWare: Twisted! only)\n• Microphone support (DS only)\n• Support for delta:// URL scheme to jump directly into a specific game.\n\n**Ignited and Lit Development are in no way affiliated with Nintendo. The name \"Nintendo\" and all associated game console names are registered trademarks of Nintendo Co., Ltd.**",
       "iconURL": "https://i.imgur.com/LO2Ckm2.png",
       "tintColor": "FF6A00",
       "screenshotURLs": [
@@ -347,7 +344,7 @@
         {
           "version": "1.8.6",
           "date": "2024-01-29T10:00:00-04:00",
-          "localizedDescription": "New\n\u2022 New icons by LitRitt\n  \u2022 Super Ignited Bros (Smash Bros)\n  \u2022 Red Plumber (Mario)\n  \u2022 Green Plumber (Luigi)\n  \u2022 Stomp Bait (Goomba)\n  \u2022 Sparky (Pikachu)\n  \u2022 Puffball (Kirby)\n  \u2022 Sword That Seals (Master Sword)\n  \u2022 Sword That Seals Alt (Master Sword)\n  \u2022 Sword That Ignites (Master Sword)\n  \u2022 Sword That Ignites Alt (Master Sword)\n\u2022 New icons by Kongolabongo\n  \u2022 Barrel of Kong (DK)\n  \u2022 Barrel of Flame (DK)\n\u2022 New icons by Scoot the Rizzler\n  \u2022 Master Sword\n  \u2022 Hylian Shield\n  \u2022 Many Marios\n\u2022 Adds beta label for features/options\n\u2022 Adds 1.5x fast forward speed option for pause menu presets\n\nChanged\n\u2022 Raises minimum iOS version to 16\n\u2022 Updates some icons and shrinks file sizes\n\u2022 Icons are now sorted into categories\n\nFixed\n\u2022 Fixes some incorrect feature reset defaults\n\u2022 Fixes some grammar and spelling in settings\n\u2022 Fixes showing icon images after updating deployment target version",
+          "localizedDescription": "New\n• New icons by LitRitt\n  • Super Ignited Bros (Smash Bros)\n  • Red Plumber (Mario)\n  • Green Plumber (Luigi)\n  • Stomp Bait (Goomba)\n  • Sparky (Pikachu)\n  • Puffball (Kirby)\n  • Sword That Seals (Master Sword)\n  • Sword That Seals Alt (Master Sword)\n  • Sword That Ignites (Master Sword)\n  • Sword That Ignites Alt (Master Sword)\n• New icons by Kongolabongo\n  • Barrel of Kong (DK)\n  • Barrel of Flame (DK)\n• New icons by Scoot the Rizzler\n  • Master Sword\n  • Hylian Shield\n  • Many Marios\n• Adds beta label for features/options\n• Adds 1.5x fast forward speed option for pause menu presets\n\nChanged\n• Raises minimum iOS version to 16\n• Updates some icons and shrinks file sizes\n• Icons are now sorted into categories\n\nFixed\n• Fixes some incorrect feature reset defaults\n• Fixes some grammar and spelling in settings\n• Fixes showing icon images after updating deployment target version",
           "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.6/Ignited.ipa",
           "size": 74540387,
           "sha256": "1e540d93c8f1b79e3976ef21879273168d9cd6ab7fbbce668d4a4aebf8247a84",
@@ -356,7 +353,7 @@
         {
           "version": "1.8.5",
           "date": "2024-01-19T10:00:00-04:00",
-          "localizedDescription": "Changed\n\u2022 Shrinks icon file sizes\n\u2022 Makes the background blur show when a controller is connected\n\u2022 Changes \"View patreon\" button to \"View membership\" when signed into Patreon\n\u2022 Updates Premium members page to load dynamically from PatreonAPI\n\nFixed\n\u2022 Fixes emulation not pausing when app is in the background\n\u2022 Fixes emulation not pausing when the screen is locked\n\u2022 Fixes issue causing Harmony to skip seeding database\n\u2022 Fixes game artwork losing shadows when toggling VRAM and OpenGLES options",
+          "localizedDescription": "Changed\n• Shrinks icon file sizes\n• Makes the background blur show when a controller is connected\n• Changes \"View patreon\" button to \"View membership\" when signed into Patreon\n• Updates Premium members page to load dynamically from PatreonAPI\n\nFixed\n• Fixes emulation not pausing when app is in the background\n• Fixes emulation not pausing when the screen is locked\n• Fixes issue causing Harmony to skip seeding database\n• Fixes game artwork losing shadows when toggling VRAM and OpenGLES options",
           "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.5/Ignited.ipa",
           "size": 65555254,
           "sha256": "b1e346450f2d287bcf39866006a01bcf7999572e82974753486c06ad6c2ae4da",
@@ -365,7 +362,7 @@
         {
           "version": "1.8.4",
           "date": "2024-01-13T10:00:00-04:00",
-          "localizedDescription": "New\n\u2022 Battery Safety Feature\n  \u2022 Allows users to set low and critical battery level\n  \u2022 At low battery (5-10%) a popup is shown and auto save states start being created periodically\n  \u2022 At critical battery (2-5%) the currently playing game will save and close, and games cannot be launched until the device is charged\n\u2022 N64 Overscan Feature\n  \u2022 Allows users to remove the black bars surrounding N64 games\n  \u2022 Overscan settings can be edited using the new pause menu button while playing N64 games\n  \u2022 Overscan settings are backed up with Ignited Sync\n\u2022 Adds \"Learn More...\" links to guide users to relevant documentation\n  \u2022 Added to library when no games are present\n  \u2022 Added to MelonDS core BIOS section footers\n  \u2022 Added to controller skins section footer\n\nChanged\n\u2022 Updated Fir\u00e9 Ball icon\n\u2022 Changes Live Artwork feature to be disabled by default\n\nFixed\n\u2022 Fixes visual bugs on MelonDS core settings screen\n\u2022 Fixes crashes when presenting alerts\n\u2022 Fixes library play menu not updating when deleting a game",
+          "localizedDescription": "New\n• Battery Safety Feature\n  • Allows users to set low and critical battery level\n  • At low battery (5-10%) a popup is shown and auto save states start being created periodically\n  • At critical battery (2-5%) the currently playing game will save and close, and games cannot be launched until the device is charged\n• N64 Overscan Feature\n  • Allows users to remove the black bars surrounding N64 games\n  • Overscan settings can be edited using the new pause menu button while playing N64 games\n  • Overscan settings are backed up with Ignited Sync\n• Adds \"Learn More...\" links to guide users to relevant documentation\n  • Added to library when no games are present\n  • Added to MelonDS core BIOS section footers\n  • Added to controller skins section footer\n\nChanged\n• Updated Firé Ball icon\n• Changes Live Artwork feature to be disabled by default\n\nFixed\n• Fixes visual bugs on MelonDS core settings screen\n• Fixes crashes when presenting alerts\n• Fixes library play menu not updating when deleting a game",
           "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.4/Ignited.ipa",
           "size": 73931114,
           "sha256": "1663f60144e9de34c18c1f6fe475821177df4d4093ad22d3e16b02d992c40441",
@@ -374,7 +371,7 @@
         {
           "version": "1.8.3",
           "date": "2024-01-10T11:00:00-04:00",
-          "localizedDescription": "New\n\u2022 Added a check for N64 games to disallow mismatched OpenGLES versions\n\u2022 Added a view in settings to see all games with OpenGLES 3 enabled and remove them\n\u2022 Added a view in settings to see all games with Invalid VRAM Access enabled and remove them",
+          "localizedDescription": "New\n• Added a check for N64 games to disallow mismatched OpenGLES versions\n• Added a view in settings to see all games with OpenGLES 3 enabled and remove them\n• Added a view in settings to see all games with Invalid VRAM Access enabled and remove them",
           "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.3/Ignited.ipa",
           "size": 73931114,
           "sha256": "5a5be897df61e2a3ba01a23cc1d9f1e1b9be12b695c5a1002abc0dc04b13f8db",
@@ -383,7 +380,7 @@
         {
           "version": "1.8.2",
           "date": "2024-01-10T10:00:00-04:00",
-          "localizedDescription": "New\n\u2022 SNES Invalid VRAM Access\n  \u2022 Allows text and other sprites to render properly in some emulator-only games\n  \u2022 Applied per game using the game's context menu\n\nChanged\n\u2022 N64 Graphics replaced with OpenGLES 3 toggle\n  \u2022 Applied per game using the game's context menu\n\u2022 Toast notification style updated and the code flow for toasts has been unified/simplified",
+          "localizedDescription": "New\n• SNES Invalid VRAM Access\n  • Allows text and other sprites to render properly in some emulator-only games\n  • Applied per game using the game's context menu\n\nChanged\n• N64 Graphics replaced with OpenGLES 3 toggle\n  • Applied per game using the game's context menu\n• Toast notification style updated and the code flow for toasts has been unified/simplified",
           "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.2/Ignited.ipa",
           "size": 73931114,
           "sha256": "bd24a80aa3815d6b38326156be915dfa29b9aed585a89743402c62b118a2efcd",
@@ -392,7 +389,7 @@
         {
           "version": "1.8.1",
           "date": "2024-01-08T10:00:00-04:00",
-          "localizedDescription": "New\n\u2022 Microphone can now be toggled on and off, and only allows microphone usage when using the melonDS core\n\u2022 Create an auto save state any time the app becomes inactive, even when immediately quitting the app from a game\n\u2022 Adds new icons by LitRitt and Kongolabongo\n\nChanged\n\u2022 Makes the Pro label fancy\n\u2022 Makes the alternate icon feature free, some icons will remain Pro only\n\u2022 Removes the Documentation link until it's more complete\n\u2022 Makes most system titles use full names instead of short names\n\u2022 Unhides the status bar feature in settings\n\nFixed\n\u2022 Fixes patrons list after update to Patreon benefits\n\u2022 Fixes toggling the status bar showing the wrong toast notification\n\u2022 Fixes setting game preview parameters when feature is disabled",
+          "localizedDescription": "New\n• Microphone can now be toggled on and off, and only allows microphone usage when using the melonDS core\n• Create an auto save state any time the app becomes inactive, even when immediately quitting the app from a game\n• Adds new icons by LitRitt and Kongolabongo\n\nChanged\n• Makes the Pro label fancy\n• Makes the alternate icon feature free, some icons will remain Pro only\n• Removes the Documentation link until it's more complete\n• Makes most system titles use full names instead of short names\n• Unhides the status bar feature in settings\n\nFixed\n• Fixes patrons list after update to Patreon benefits\n• Fixes toggling the status bar showing the wrong toast notification\n• Fixes setting game preview parameters when feature is disabled",
           "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.1/Ignited.ipa",
           "size": 73931114,
           "sha256": "a432e89507149e28a7a8f527a6379a566261afcb5951461297ad715632b46a39",
@@ -401,7 +398,7 @@
         {
           "version": "1.8",
           "date": "2024-01-06T10:00:00-04:00",
-          "localizedDescription": "New\n\u2022 Ignited Pro\n  \u2022 Select features and options will now only be available to patrons\n\u2022 Patreon Integration\n  \u2022 You can now link your Patreon account within the app to access Ignited Pro\n\nFixed\n\u2022 Fixes skin debugging being shown when the feature is off\n\u2022 Fixes game search results overlapping other games\n\u2022 Makes the transition from Quick Settings to Main Menu create an auto save state\n\u2022 Fixes animated artwork still animating when the feature is off",
+          "localizedDescription": "New\n• Ignited Pro\n  • Select features and options will now only be available to patrons\n• Patreon Integration\n  • You can now link your Patreon account within the app to access Ignited Pro\n\nFixed\n• Fixes skin debugging being shown when the feature is off\n• Fixes game search results overlapping other games\n• Makes the transition from Quick Settings to Main Menu create an auto save state\n• Fixes animated artwork still animating when the feature is off",
           "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8/Ignited.ipa",
           "size": 62180523,
           "sha256": "af3fda70bbb6b7e397d231c8637e1f14976b3b3a2bbca752be10fa518c7e63ae",
@@ -410,7 +407,7 @@
         {
           "version": "1.7.2",
           "date": "2023-12-23T10:00:00-04:00",
-          "localizedDescription": "New\n\u2022 Adds options for opening the Pause Menu by shaking your device\n\nChanged\n\u2022 Makes the New Game, Pause, and Star icons on artwork able to be disabled\n\u2022 Makes the Pause Menu items able to be rearranged in settings\n\u2022 Makes context menu previews use auto-save states if enabled\n\nFixed\n\u2022 Makes custom artwork background color support transparency\n\u2022 Adjusts DS artwork forced aspect ratio",
+          "localizedDescription": "New\n• Adds options for opening the Pause Menu by shaking your device\n\nChanged\n• Makes the New Game, Pause, and Star icons on artwork able to be disabled\n• Makes the Pause Menu items able to be rearranged in settings\n• Makes context menu previews use auto-save states if enabled\n\nFixed\n• Makes custom artwork background color support transparency\n• Adjusts DS artwork forced aspect ratio",
           "downloadURL": "https://f005.backblazeb2.com/file/lit-apps/ignited/1.7.2/Ignited.ipa",
           "size": 62108866,
           "sha256": "62bbae22ec808128334565e392ed46d8af7e6313064b5538bb59e13c9fd563c0",
@@ -419,599 +416,580 @@
       ],
       "appID": "com.litritt.ignited"
     },
-      {
-         "name":"Blacklist",
-         "id":"Blacklist",
-         "developerName":"AppInstalleriOS",
-         "version":"1.0",
-         "minOSVersion":"14.0 - 15.7.1 and 16 - 16.1.2",
-         "iconURL":"https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
-         "downloadURL":"https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
-         "localizedDescription":"Unblacklist your iDevice using MacDirtyCow",
-         "screenshotURLs":null
-      },
-      {
-         "name":"Shadow Fight 2 MOD",
-         "id":"shadow",
-         "developerName":"unknown",
-         "version":"2.4",
-         "minOSVersion":"iOS",
-         "iconURL":"https://ipaomtk.com/wp-content/uploads/2023/02/shadow-fight-2.png",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/2.4/Shadow.Fight.2.Hack.No.Jailbreak.Cheats.2.34.Hacked.IPA.by.iOSGods.com.ipa",
-         "localizedDescription":"Shadow Fight 2 IPA is a nail-biting combination of RPG and classical Fighting. This game lets you equip your character with countless lethal weapons and unusual armor sets, and capabilities dozens of lifelike-energetic Martial Arts techniques! Crush your enemies, humiliate demon bosses, and be the most effective to close the Gate of Shadows. Do you have were given what it takes to kick, punch, jump, and reduce your way to victory? There’s only one way to find out.",
-         "screenshotURLs":null
-      },
-      {
-         "name":"Hill Climb Racing MOD",
-         "id":"hillclimb",
-         "developerName":"unknown",
-         "version":"1.54-2",
-         "minOSVersion":"iOS 11 or later",
-         "iconURL":"https://play-lh.googleusercontent.com/N0UxhBVUmx8s7y3F7Kqre2AcpXyPDKAp8nHjiPPoOONc_sfugHCYMjBpbUKCMlK_XUs",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/10/Hill-Climb.ipa",
-         "localizedDescription":"Hill Climb Racing IPA for iOS offers an exhilarating and addictive gaming experience for adventure enthusiasts.The unlimited money and fuel feature allows players to freely experiment with different vehicles and upgrades, ensuring an exciting and dynamic gameplay. So buckle up, put your pedal to the metal, and prepare for an adrenaline-fueled climb to the top of the leaderboard.",
-         "screenshotURLs":null
-      },
-      {
-         "name":"InstaSpring",
-         "id":"InstaSpring",
-         "developerName":"haxi0",
-         "version":"1.0",
-         "minOSVersion":"All versions",
-         "iconURL":"https://github.com/haxi0/InstaSpring/blob/main/InstaSpring16/InstaSpring16/Assets.xcassets/AppIcon.appiconset/Icon-60@3x.png?raw=true",
-         "downloadURL":"https://github.com/haxi0/InstaSpring/releases/download/1.0/InstaSpring.1.0.Fix.ipa",
-         "localizedDescription":"iOS app that immediately resprings your device after you open it!",
-         "screenshotURLs":null
-      },
-      {
-         "name":"FlixHub",
-         "id":"FlixHub",
-         "developerName":"Dangerous Pixel",
-         "version":"1.0.7",
-         "minOSVersion":"iOS - iPadOS",
-         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/4IZcJrc.jpeg?raw=true",
-         "downloadURL":"https://github.com/Ibinou/iTweakHub/raw/main/apps/Flixhub.ipa",
-         "localizedDescription":"[Use a vpn if the app is not working] Watch movies and Tv shows in good quality and WITHOUT ad for FREE",
-         "screenshotURLs":null
-      },
-      {
-         "name":"Royal Match MOD",
-         "id":"RoyalMatchMOD",
-         "developerName":"Unknown",
-         "version":"7.0",
-         "minOSVersion":"iOS - iPadOS",
-         "iconURL":"https://omtk.vip/wp-content/uploads/2023/02/royal-match.png",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/v7/Royal-Match.ipa",
-         "localizedDescription":"Royal Match iPA (Unlimited Boosters, Stars, Coins)",
-         "screenshotURLs":null
-      },
-      {
-         "name":"Enmity",
-         "id":"Enmity",
-         "developerName":"Enmity Team",
-         "version":"1.0.0",
-         "minOSVersion":"iOS - iPadOS",
-         "iconURL":"https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/IMG_2859.jpeg",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/V.4.0/Enmity.ipa",
-         "localizedDescription":"Enmity is a tweaked Discord version that allows you to use plugins & themes. To get plugins & themes go to the official Enmity Discord",
-         "screenshotURLs":null,
-         "banner":"https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"
-      },
-      {
-         "name":"Delta",
-         "id":"Delta",
-         "developerName":"Riley Testut",
-         "version":"1.4.1",
-         "minOSVersion":"iOS",
-         "iconURL":"https://user-images.githubusercontent.com/705880/63391976-4d311700-c37a-11e9-91a8-4fb0c454413d.png",
-         "downloadURL":"https://cdn.altstore.io/file/altstore/apps/delta/1_4_1.ipa",
-         "localizedDescription":"Delta is an all-in-one emulator for iOS. Delta builds upon the strengths of its predecessor, GBA4iOS, while expanding to include support for more game systems such as NES, SNES, and N64.",
-         "screenshotURLs":[
-            "https://user-images.githubusercontent.com/705880/65600448-f7d9be00-df54-11e9-9e3e-d4c31296da94.PNG",
-            "https://user-images.githubusercontent.com/705880/65813009-f2ae8600-e183-11e9-9eb7-704effc11173.png",
-            "https://user-images.githubusercontent.com/705880/65601117-58b5c600-df56-11e9-9c19-9a5ba5da54cf.PNG",
-            "https://user-images.githubusercontent.com/705880/65601125-5b182000-df56-11e9-9e7e-261480e893c0.PNG"
-         ]
-      },
-      {
-         "name":"Sonic Runners Revival",
-         "id":"sonicrunners",
-         "developerName":"Mtbcooler and others",
-         "version":"2.2.4",
-         "minOSVersion":"iOS",
-         "iconURL":"https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/AGjnhu0BaHa6AAAAAElFTkSuQmCC.png",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/34/srr224.ipa",
-         "localizedDescription":"Sonic Runners Revival is an 2D endless runner game for Android and iOS. Aim for the top on the leaderboards!",
-         "screenshotURLs":[
-            "https://sonicrunners.com/assets/windy.jpg",
-            "https://sonicrunners.com/assets/sky.jpg#/",
-            "https://sonicrunners.com/assets/lava.jpg"
-         ]
-      },
-      {
-         "name":"iSpoofer",
-         "id":"iSpoofer",
-         "version":"unknown",
-         "minOSVersion":"iOS",
-         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
-         "downloadURL":"https://ispoofer.app/Signed.ipa",
-         "developerName":"Dave",
-         "localizedDescription":"The best spoofer for PokémonGO",
-         "screenshotURLs":null,
-         "banner":"https://miro.medium.com/v2/resize:fit:1400/0*jc9FPbRF6vg26qGO.jpg"
-      },
-      {
-         "name":"EmuThreeDS",
-         "id":"EmuThreeDS",
-         "version":"1.0.6.5(6)",
-         "minOSVersion":"iOS",
-         "iconURL":"https://raw.githubusercontent.com/emuPlace/emuThreeDS/main/emuThreeDS/Assets.xcassets/LightAppIcon.appiconset/Icon-App-76x76%402x.png",
-         "downloadURL":"https://github.com/emuPlace/emuThreeDS/releases/download/1.0.6.5.6/emuThreeDS.v1.0.6.5.6.ipa",
-         "localizedDescription":"EmuThreeDS is a free and open-source Nintendo 3DS emulator for iOS devices. It allows you to play your favorite Nintendo 3DS games on your iPhone, iPad, or Apple TV. EmuThreeDS is still under development, but it is already capable of running many popular Nintendo 3DS games at full speed.",
-         "screenshotURLs":null
-      },
-      {
-         "name":"PPSSPP",
-         "id":"PPSSPP",
-         "version":"1.17.1",
-         "minOSVersion":"iOS 5+",
-         "iconURL":"https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/releases/download/V1.17.1/PPSSPP_v1.17.1-35-g0159102a1.ipa",
-         "localizedDescription":"PPSSPP is the one and only PSP emulator for iOS written in C++. It is capable of running a lot of original games but, depending on the power of your device, not all may run at full speed due to JIT.",
-         "screenshotURLs":null
-      },
-      {
-         "name":"OldOS",
-         "id":"OldOS",
-         "version":"1.0 Build 18",
-         "minOSVersion":"iOS 14+",
-         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
-         "downloadURL":"https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
-         "localizedDescription":"iOS 4 rebuilt in swift UI.",
-         "screenshotURLs":null
-      },
-      {
-         "name":"Misaka KFD",
-         "id":"MisakaKFD",
-         "version":"2.0.3 beta",
-         "minOSVersion":"iOS 16.2-16.5 & 16.6b1",
-         "iconURL":"https://github.com/Ibinou/NoCodeHub-icons/blob/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png?raw=true",
-         "downloadURL":"https://github.com/Ibinou/ipanocodehub/raw/main/misaka-2.0.3_Beta.ipa",
-         "localizedDescription":"Misaka tweak manager for iOS provides seamless access to repositories housing a vast collection of tweaks, including the comprehensive range of MacDirtyCow packages tailored specifically for iOS 15 and iOS 16. With an extensive library of over 333 packages, Misaka Tweak Manager offers an abundance of options to customize and enhance your device's functionality, all without the requirement of a jailbreak. All iPhones are supported.",
-         "screenshotURLs":null,
-         "banner":"https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"
-      },
-      {
-         "name":"Scrennshot X",
-         "id":"ScrennshotX",
-         "version":"1.0 2022",
-         "minOSVersion":"iOS",
-         "iconURL":"https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/5432A85D-214E-4A17-9268-85EA17F5D4E1.png",
-         "downloadURL":"https://drive.google.com/uc?export=download&id=19oRvCjtsIwuHool8B807rib8BSYYws4Z",
-         "developerName":"JunesiPhone",
-         "localizedDescription":"Add very cool mockups to your screenshots. You can also import your own.",
-         "screenshotURLs":null,
-         "banner":"https://im5.pandahelp.vip/userapp/AppIcon/201812/05/115750142.jpg"
-      },
-      {
-         "name":"ClassicPlayer",
-         "id":"ClassicPlayer",
-         "version":"1.0.3",
-         "minOSVersion":"iOS 9+",
-         "iconURL":"https://github.com/guillermo-moran/ClassicPlayer/blob/master/ClassicPlayer_icon.png?raw=true",
-         "downloadURL":"https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
-         "developerName":"guillermo-moran",
-         "localizedDescription":"An iPod Classic simulator for iOS 9+.",
-         "screenshotURLs":null,
-         "banner":"https://media.idownloadblog.com/wp-content/uploads/2017/06/ClassicPlayer.jpg"
-      },
-      {
-         "name":"Odyssey",
-         "id":"Odyssey",
-         "version":"1.4.3",
-         "minOSVersion":"iOS 13.0-13.7",
-         "iconURL":"https://bunnyinject.fun/img/odyssey.png",
-         "downloadURL":"https://github.com/Odyssey-Team/Odyssey/releases/download/v1.4.3/Odyssey-1.4.3.ipa",
-         "developerName":"Coolstar",
-         "localizedDescription":"Jailbreak tool for all A9-A13 devices on iOS 13.0-13.7",
-         "screenshotURLs":null,
-         "banner":"https://theodyssey.dev/assets/images/meta.png"
-      },
+    {
+      "name": "Blacklist",
+      "developerName": "AppInstalleriOS",
+      "version": "1.0",
+      "minOSVersion": "14.0 - 15.7.1 and 16 - 16.1.2",
+      "iconURL": "https://github.com/Ibinou/dirtycowrepo/blob/main/icons/E15B5385-1922-413F-897B-3CAFA9935523.png?raw=true",
+      "downloadURL": "https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
+      "localizedDescription": "Unblacklist your iDevice using MacDirtyCow",
+      "screenshotURLs": null
+    },
+    {
+      "name": "Shadow Fight 2 MOD",
+      "developerName": "unknown",
+      "version": "2.4",
+      "minOSVersion": "iOS",
+      "iconURL": "https://ipaomtk.com/wp-content/uploads/2023/02/shadow-fight-2.png",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/2.4/Shadow.Fight.2.Hack.No.Jailbreak.Cheats.2.34.Hacked.IPA.by.iOSGods.com.ipa",
+      "localizedDescription": "Shadow Fight 2 IPA is a nail-biting combination of RPG and classical Fighting. This game lets you equip your character with countless lethal weapons and unusual armor sets, and capabilities dozens of lifelike-energetic Martial Arts techniques! Crush your enemies, humiliate demon bosses, and be the most effective to close the Gate of Shadows. Do you have were given what it takes to kick, punch, jump, and reduce your way to victory? There’s only one way to find out.",
+      "screenshotURLs": null
+    },
+    {
+      "name": "Hill Climb Racing MOD",
+      "developerName": "unknown",
+      "version": "1.54-2",
+      "minOSVersion": "iOS 11 or later",
+      "iconURL": "https://play-lh.googleusercontent.com/N0UxhBVUmx8s7y3F7Kqre2AcpXyPDKAp8nHjiPPoOONc_sfugHCYMjBpbUKCMlK_XUs",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/10/Hill-Climb.ipa",
+      "localizedDescription": "Hill Climb Racing IPA for iOS offers an exhilarating and addictive gaming experience for adventure enthusiasts.The unlimited money and fuel feature allows players to freely experiment with different vehicles and upgrades, ensuring an exciting and dynamic gameplay. So buckle up, put your pedal to the metal, and prepare for an adrenaline-fueled climb to the top of the leaderboard.",
+      "screenshotURLs": null
+    },
+    {
+      "name": "InstaSpring",
+      "developerName": "haxi0",
+      "version": "1.0",
+      "minOSVersion": "All versions",
+      "iconURL": "https://github.com/haxi0/InstaSpring/blob/main/InstaSpring16/InstaSpring16/Assets.xcassets/AppIcon.appiconset/Icon-60@3x.png?raw=true",
+      "downloadURL": "https://github.com/haxi0/InstaSpring/releases/download/1.0/InstaSpring.1.0.Fix.ipa",
+      "localizedDescription": "iOS app that immediately resprings your device after you open it!",
+      "screenshotURLs": null
+    },
+    {
+      "name": "FlixHub",
+      "developerName": "Dangerous Pixel",
+      "version": "1.0.7",
+      "minOSVersion": "iOS - iPadOS",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/4IZcJrc.jpeg?raw=true",
+      "downloadURL": "https://github.com/Ibinou/iTweakHub/raw/main/apps/Flixhub.ipa",
+      "localizedDescription": "[Use a vpn if the app is not working] Watch movies and Tv shows in good quality and WITHOUT ad for FREE",
+      "screenshotURLs": null
+    },
+    {
+      "name": "Royal Match MOD",
+      "developerName": "Unknown",
+      "version": "7.0",
+      "minOSVersion": "iOS - iPadOS",
+      "iconURL": "https://omtk.vip/wp-content/uploads/2023/02/royal-match.png",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/v7/Royal-Match.ipa",
+      "localizedDescription": "Royal Match iPA (Unlimited Boosters, Stars, Coins)",
+      "screenshotURLs": null
+    },
+    {
+      "name": "Enmity",
+      "developerName": "Enmity Team",
+      "version": "1.0.0",
+      "minOSVersion": "iOS - iPadOS",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/IMG_2859.jpeg",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/V.4.0/Enmity.ipa",
+      "localizedDescription": "Enmity is a tweaked Discord version that allows you to use plugins & themes. To get plugins & themes go to the official Enmity Discord",
+      "screenshotURLs": null,
+      "banner": "https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"
+    },
+    {
+      "name": "Delta",
+      "developerName": "Riley Testut",
+      "version": "1.4.1",
+      "minOSVersion": "iOS",
+      "iconURL": "https://user-images.githubusercontent.com/705880/63391976-4d311700-c37a-11e9-91a8-4fb0c454413d.png",
+      "downloadURL": "https://cdn.altstore.io/file/altstore/apps/delta/1_4_1.ipa",
+      "localizedDescription": "Delta is an all-in-one emulator for iOS. Delta builds upon the strengths of its predecessor, GBA4iOS, while expanding to include support for more game systems such as NES, SNES, and N64.",
+      "screenshotURLs": [
+        "https://user-images.githubusercontent.com/705880/65600448-f7d9be00-df54-11e9-9e3e-d4c31296da94.PNG",
+        "https://user-images.githubusercontent.com/705880/65813009-f2ae8600-e183-11e9-9eb7-704effc11173.png",
+        "https://user-images.githubusercontent.com/705880/65601117-58b5c600-df56-11e9-9c19-9a5ba5da54cf.PNG",
+        "https://user-images.githubusercontent.com/705880/65601125-5b182000-df56-11e9-9e7e-261480e893c0.PNG"
+      ]
+    },
+    {
+      "name": "Sonic Runners Revival",
+      "developerName": "Mtbcooler and others",
+      "version": "2.2.4",
+      "minOSVersion": "iOS",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/AGjnhu0BaHa6AAAAAElFTkSuQmCC.png",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/34/srr224.ipa",
+      "localizedDescription": "Sonic Runners Revival is an 2D endless runner game for Android and iOS. Aim for the top on the leaderboards!",
+      "screenshotURLs": [
+        "https://sonicrunners.com/assets/windy.jpg",
+        "https://sonicrunners.com/assets/sky.jpg#/",
+        "https://sonicrunners.com/assets/lava.jpg"
+      ]
+    },
+    {
+      "name": "iSpoofer",
+      "version": "unknown",
+      "minOSVersion": "iOS",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
+      "downloadURL": "https://ispoofer.app/Signed.ipa",
+      "developerName": "Dave",
+      "localizedDescription": "The best spoofer for PokémonGO",
+      "screenshotURLs": null,
+      "banner": "https://miro.medium.com/v2/resize:fit:1400/0*jc9FPbRF6vg26qGO.jpg"
+    },
+    {
+      "name": "EmuThreeDS",
+      "version": "1.0.6.5(6)",
+      "minOSVersion": "iOS",
+      "iconURL": "https://raw.githubusercontent.com/emuPlace/emuThreeDS/main/emuThreeDS/Assets.xcassets/LightAppIcon.appiconset/Icon-App-76x76%402x.png",
+      "downloadURL": "https://github.com/emuPlace/emuThreeDS/releases/download/1.0.6.5.6/emuThreeDS.v1.0.6.5.6.ipa",
+      "localizedDescription": "EmuThreeDS is a free and open-source Nintendo 3DS emulator for iOS devices. It allows you to play your favorite Nintendo 3DS games on your iPhone, iPad, or Apple TV. EmuThreeDS is still under development, but it is already capable of running many popular Nintendo 3DS games at full speed.",
+      "screenshotURLs": null
+    },
+    {
+      "name": "PPSSPP",
+      "version": "1.17.1",
+      "minOSVersion": "iOS 5+",
+      "iconURL": "https://s3.amazonaws.com/cdn.builds.io/cache/fd/5e/fd5ec9861b1b7947b5b938a240e6c907.jpg",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/V1.17.1/PPSSPP_v1.17.1-35-g0159102a1.ipa",
+      "localizedDescription": "PPSSPP is the one and only PSP emulator for iOS written in C++. It is capable of running a lot of original games but, depending on the power of your device, not all may run at full speed due to JIT.",
+      "screenshotURLs": null
+    },
+    {
+      "name": "OldOS",
+      "version": "1.0 Build 18",
+      "minOSVersion": "iOS 14+",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
+      "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
+      "localizedDescription": "iOS 4 rebuilt in swift UI.",
+      "screenshotURLs": null
+    },
+    {
+      "name": "Misaka KFD",
+      "version": "2.0.3 beta",
+      "minOSVersion": "iOS 16.2-16.5 & 16.6b1",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/B9A1BC23-045D-40C7-8E4B-B3456366A757.png?raw=true",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/raw/main/misaka-2.0.3_Beta.ipa",
+      "localizedDescription": "Misaka tweak manager for iOS provides seamless access to repositories housing a vast collection of tweaks, including the comprehensive range of MacDirtyCow packages tailored specifically for iOS 15 and iOS 16. With an extensive library of over 333 packages, Misaka Tweak Manager offers an abundance of options to customize and enhance your device's functionality, all without the requirement of a jailbreak. All iPhones are supported.",
+      "screenshotURLs": null,
+      "banner": "https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/6116da8fe318cb3f71d95fe3_1_Pn7Cp-mxO4NcEhc35GMQKQ.jpg"
+    },
+    {
+      "name": "Scrennshot X",
+      "version": "1.0 2022",
+      "minOSVersion": "iOS",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/5432A85D-214E-4A17-9268-85EA17F5D4E1.png",
+      "downloadURL": "https://drive.google.com/uc?export=download&id=19oRvCjtsIwuHool8B807rib8BSYYws4Z",
+      "developerName": "JunesiPhone",
+      "localizedDescription": "Add very cool mockups to your screenshots. You can also import your own.",
+      "screenshotURLs": null,
+      "banner": "https://im5.pandahelp.vip/userapp/AppIcon/201812/05/115750142.jpg"
+    },
+    {
+      "name": "ClassicPlayer",
+      "version": "1.0.3",
+      "minOSVersion": "iOS 9+",
+      "iconURL": "https://github.com/guillermo-moran/ClassicPlayer/blob/master/ClassicPlayer_icon.png?raw=true",
+      "downloadURL": "https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
+      "developerName": "guillermo-moran",
+      "localizedDescription": "An iPod Classic simulator for iOS 9+.",
+      "screenshotURLs": null,
+      "banner": "https://media.idownloadblog.com/wp-content/uploads/2017/06/ClassicPlayer.jpg"
+    },
+    {
+      "name": "Odyssey",
+      "version": "1.4.3",
+      "minOSVersion": "iOS 13.0-13.7",
+      "iconURL": "https://bunnyinject.fun/img/odyssey.png",
+      "downloadURL": "https://github.com/Odyssey-Team/Odyssey/releases/download/v1.4.3/Odyssey-1.4.3.ipa",
+      "developerName": "Coolstar",
+      "localizedDescription": "Jailbreak tool for all A9-A13 devices on iOS 13.0-13.7",
+      "screenshotURLs": null,
+      "banner": "https://theodyssey.dev/assets/images/meta.png"
+    },
+    {
+      "name": "MovieBox Pro",
+      "version": "unknown",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/V68/MovieBoxPro_12.5_2.ipa",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true",
+      "developerName": "MovieBoxPro",
+      "section": "Utilities",
+      "localizedDescription": "Watch movies for free and without ads.",
+      "minOSVersion": "iOS 9+",
+      "banner": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true"
+    },
+    {
+      "name": "Among US Hack",
+      "version": "unknown",
+      "downloadURL": "https://drive.google.com/uc?export=download&id=1mSIKvVEK7Z9BA35G14EFFLTZOweUVpQN",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/AmongUS++.JPG?raw=true",
+      "developerName": "Laxus",
+      "section": "Games",
+      "localizedDescription": "The hacked game with a lot of new features.",
+      "minOSVersion": "iOS 10+",
+      "banner": "https://raw.githubusercontent.com/Ibinou/Lem0nStore/main/ressources/AmongUs.png"
+    },
+    {
+      "name": "Scriptware",
+      "version": "2.591.630",
+      "downloadURL": "https://github.com/DebianArch64/ScarletDecrypt/releases/download/Latest/Roblox.ipa",
+      "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/29/30/a9/2930a996-9c1e-531b-b650-416c3eae66c5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "developerName": "unknown",
+      "section": "Games",
+      "localizedDescription": "The hacked game with a lot of new features.",
+      "minOSVersion": "iOS 15+",
+      "banner": "https://e1.pxfuel.com/desktop-wallpaper/73/806/desktop-wallpaper-the-best-roblox-games-for-2022-roblox-banner.jpg"
+    },
+    {
+      "name": "Minecraft",
+      "version": "1.20.40.22",
+      "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/v33/Minecraft.ipa",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/2B3E554A-FD7B-4013-89EE-3C6F9A2A9916.webp",
+      "developerName": "Mojang",
+      "section": "Games",
+      "localizedDescription": "Minecraft for iOS is a universal application! You can play on the iPhone and iPad. The game is constantly evolving thanks to our free updates. Minecraft is a game based on placing blocks for building things from them! Minecraft Pocket Edition includes randomly generated worlds, multiplayer over Wi-Fi networks, survival and creative mode. You can work and create your new world with friends. In the latest update, monsters from the game Creepers are added. They are big and green. But this is just one of many updates.",
+      "minOSVersion": "iOS 15+",
+      "banner": "https://ibinou.github.io/iTweakHub/img/minecraft.jpg"
+    },
+    {
+      "name": "Agar.io hack",
+      "version": "1.20.15",
+      "downloadURL": "https://drive.google.com/uc?export=download&id=1el8X7GcxG4RPPZWGdHHE1NIseqC3dNMu",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/512x512bb.jpg",
+      "developerName": "Laxus",
+      "section": "Games",
+      "localizedDescription": "The hacked version of the game with a lot of new features.",
+      "minOSVersion": "iOS 15+",
+      "banner": "https://www.imgawards.com/wp-content/uploads/2016/03/agario-720x380.jpg"
+    },
+    {
+      "name": "Cowabunga",
+      "developerName": "leminlimez",
+      "version": "8.1.3",
+      "downloadURL": "https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
+      "iconURL": "https://user-images.githubusercontent.com/52459150/215552092-9dc1e029-da35-43da-867f-17279e3dc180.png",
+      "minOSVersion": "14.0 - 15.7.1 and 16 - 16.1.2",
+      "localizedDescription": "A Jailed toolbox application for iOS using the MacDirtyCow exploit",
+      "section": "MDC"
+    },
+    {
+      "name": "Unc0ver",
+      "developerName": "unc0ver Team",
+      "version": "8.0.2",
+      "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
+      "minOSVersion": "iOS 11",
+      "localizedDescription": "Jailbreak for iOS 11.",
+      "section": "Jailbreak"
+    },
+    {
+      "name": "Instagram Rhino",
+      "developerName": "Instagram, Inc.",
+      "version": "187.0",
+      "minOSVersion": "iOS 14.+",
+      "iconURL": "https://iosninja.io/img/ipas/instagram_rhino.png",
+      "downloadURL": "https://resources.usescarlet.com/repo/IPAs/instagramRhino.ipa",
+      "section": "Tweaked Apps"
+    },
+    {
+      "name": "BHTwitter",
+      "developerName": "X Corp.",
+      "version": "1.0",
+      "banner": "https://pbs.twimg.com/profile_banners/3260518932/1690380560/1080x360",
+      "downloadURL": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/BHTwitter.PNG?raw=true",
+      "minOSVersion": "iOS 13.4+",
+      "section": "Tweaked Apps",
+      "localizedDescription": "Tweaked version of Twitter (X) with many new features."
+    },
+    {
+      "name": "SpooferX",
+      "version": "0.309.0-0.298",
+      "developerName": "Unknown",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
+      "downloadURL": "https://www.spooferx.app/ipa/SpooferPro-0.309.0-0.298.ipa",
+      "localizedDescription": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also includes a lot of other features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
+      "minOSVersion": "iOS 14+",
+      "section": "Tweaked Games"
+    },
+    {
+      "name": "Scylla",
+      "version": "Beta 0.1.2",
+      "developerName": "Kevin Alavik",
+      "iconURL": "https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg",
+      "downloadURL": "https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
+      "section": "Utilities",
+      "localizedDescription": "Scylla is yet another app signer for iOS",
+      "minOSVersion": "iOS"
+    },
+    {
+      "name": "Spotilife",
+      "version": "8.6.42",
+      "downloadURL": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/60BF6600-8900-41C7-8D42-E1F03AC884B2.png?raw=true",
+      "category": "Tweaked Apps",
+      "localizedDescription": "Enabled -No Forced Shuffle -Unlimited Skips -Extreme Quality stream enabled -Import songs from Music app",
+      "minOSVersion": "iOS 13+",
+      "banner": "https://photos5.appleinsider.com/gallery/43969-85507-Spotify-xl.jpg",
+      "developerName": "Unknown"
+    },
+    {
+      "name": "iPogo",
+      "version": "3.5.5",
+      "developerName": "Niantic, Inc.",
+      "iconURL": "https://play-lh.googleusercontent.com/6qUR3CmTyz3lMdMK8GENfibQ9ZQIIgHIP3_pgnYcuG04ykheKtl-dhyPzjlvhF_MANI",
+      "downloadURL": "https://ipogo.app/download/ipogo-3.5.5.ipa",
+      "localizedDescription": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
+      "minOSVersion": "iOS 14+",
+      "screenshots": [
+        "https://ipogo.app/assets/img/feature-iphone-1.png"
+      ],
+      "banner": "https://digistatement.com/wp-content/uploads/2022/02/iPogo-1.jpg",
+      "section": "Tweaked Games"
+    },
+    {
+      "name": "Taurine",
+      "developerName": "Odyssey-Team",
+      "version": "1.1.6",
+      "minOSVersion": "14.0-14.3",
+      "iconURL": "https://iosninja.io/img/ipas/taurine.png",
+      "downloadURL": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
+      "localizedDescription": "Jailbreak for iOS 14.",
+      "section": "Jailbreak"
+    },
+    {
+      "name": "uYouPlus",
+      "bundleIdentifier": "com.google.ios.youtube",
+      "developerName": "Various Developers",
+      "subtitle": "The best tweak for the YouTube app just got even better",
+      "version": "19.02.1_3.0.1",
+      "size": 121693569,
+      "versionDate": "2023-05-27T22:14:00-07:00",
+      "versionDescription": "• Fix stretched artwork in uYou's player view\n• Fix crash on startup after closing with uYou download in progress\n• Update DontEatMyContent (v1.0.6 -> v1.0.10)\n\nFull changelog: \nhttps://github.com/qnblackcat/uYouPlus/releases/tag/v18.14.1-3.0",
+      "downloadURL": "https://web.archive.org/web/20240306195805if_/https://objects.githubusercontent.com/github-production-release-asset-2e65be/409807214/164323db-9524-43b0-a9b9-3a4f314c7839?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240306%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240306T195805Z&X-Amz-Expires=300&X-Amz-Signature=16987278dac78e8d7be5a7f61d2796b6979d5695fe26a0f22ea45cebc9b66881&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=409807214&response-content-disposition=attachment%3B%20filename%3DuYouPlus-19.08.2-3.0.3.ipa&response-content-type=application%2Foctet-stream",
+      "localizedDescription": "uYou is the best tweak for the YouTube app.\n\nuYouPlus is a modified version of uYou with even more features.\n\nAdditional features:\n• Skip sponsorships in videos (iSponsorBlock)\n• Even more PiP options (YouPiP)\n• Unlock 1440p and 2160p resolutions (YTUHD)\n• Disable overlay at the end of videos (YTNoHoverCards)\n• Remove YouTube Premium upsell alerts (NoYTPremium)\n• Enable the miniplayer for all videos (YTMiniplayerEnabler)\n• Prevent the notch/Dynamic Island from cutting into 2:1 videos (DontEatMyContent)\n• Configure A/B settings in the YouTube app (YTABConfig)\n• And more\n\nMore information: \nhttps://github.com/qnblackcat/uYouPlus/ \n\nRequires iOS 14.0 or later.\n\nContributors: MiRO92, qnblackcat, PoomSmart, level3tjg, BandarHelal, galactic, julioverne, HASHBANG, Lyvendia, Foxster, ichitaso, Ahmed Bafkir, CokePokes, Tommy Teo, theos, and many others.",
+      "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/uYou.png",
+      "tintColor": "cb1633",
+      "screenshotURLs": [
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus1.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus2.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus3.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus4.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus5.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus6.jpeg?raw=true"
+      ],
+      "permissions": [
         {
-            "name": "MovieBox Pro",
-            "version": "unknown",
-            "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/V68/MovieBoxPro_12.5_2.ipa",
-            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true",
-            "developerName": "MovieBoxPro",
-            "section": "Utilities",
-            "localizedDescription": "Watch movies for free and without ads.",
-            "minOSVersion": "iOS 9+",
-            "banner": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/2B331F44-5DFA-404B-9258-58F5342B8281.png?raw=true"
+          "type": "photos",
+          "usageDescription": "Allows YouTube to upload media from your photo library."
         },
         {
-            "name": "Among US Hack",
-            "version": "unknown",
-            "downloadURL": "https://drive.google.com/uc?export=download&id=1mSIKvVEK7Z9BA35G14EFFLTZOweUVpQN",
-            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/AmongUS++.JPG?raw=true",
-            "developerName": "Laxus",
-            "section": "Games",
-            "localizedDescription": "The hacked game with a lot of new features.",
-            "minOSVersion": "iOS 10+",
-            "banner": "https://raw.githubusercontent.com/Ibinou/Lem0nStore/main/ressources/AmongUs.png"
-        },
-        {
-            "name": "Scriptware",
-            "version": "2.591.630",
-            "downloadURL": "https://github.com/DebianArch64/ScarletDecrypt/releases/download/Latest/Roblox.ipa",
-            "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/29/30/a9/2930a996-9c1e-531b-b650-416c3eae66c5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
-            "developerName": "unknown",
-            "section": "Games",
-            "localizedDescription": "The hacked game with a lot of new features.",
-            "minOSVersion": "iOS 15+",
-            "banner": "https://e1.pxfuel.com/desktop-wallpaper/73/806/desktop-wallpaper-the-best-roblox-games-for-2022-roblox-banner.jpg"
-        },
-        {
-            "name": "Minecraft",
-            "version": "1.20.40.22",
-            "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/v33/Minecraft.ipa",
-            "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/2B3E554A-FD7B-4013-89EE-3C6F9A2A9916.webp",
-            "developerName": "Mojang",
-            "section": "Games",
-            "localizedDescription": "Minecraft for iOS is a universal application! You can play on the iPhone and iPad. The game is constantly evolving thanks to our free updates. Minecraft is a game based on placing blocks for building things from them! Minecraft Pocket Edition includes randomly generated worlds, multiplayer over Wi-Fi networks, survival and creative mode. You can work and create your new world with friends. In the latest update, monsters from the game Creepers are added. They are big and green. But this is just one of many updates.",
-            "minOSVersion": "iOS 15+",
-            "banner": "https://ibinou.github.io/iTweakHub/img/minecraft.jpg"
-        },
-        {
-            "name": "Agar.io hack",
-            "version": "1.20.15",
-            "downloadURL": "https://drive.google.com/uc?export=download&id=1el8X7GcxG4RPPZWGdHHE1NIseqC3dNMu",
-            "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/main/512x512bb.jpg",
-            "developerName": "Laxus",
-            "section": "Games",
-            "localizedDescription": "The hacked version of the game with a lot of new features.",
-            "minOSVersion": "iOS 15+",
-            "banner": "https://www.imgawards.com/wp-content/uploads/2016/03/agario-720x380.jpg"
-        },
-        {
-            "name": "Cowabunga",
-            "developerName": "leminlimez",
-            "version": "8.1.3",
-            "downloadURL": "https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
-            "iconURL": "https://user-images.githubusercontent.com/52459150/215552092-9dc1e029-da35-43da-867f-17279e3dc180.png",
-            "minOSVersion": "14.0 - 15.7.1 and 16 - 16.1.2",
-            "localizedDescription": "A Jailed toolbox application for iOS using the MacDirtyCow exploit",
-            "section": "MDC"
-        },
-        {
-            "name": "Unc0ver",
-            "developerName": "unc0ver Team",
-            "version": "8.0.2",
-            "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
-            "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
-            "minOSVersion": "iOS 11",
-            "localizedDescription": "Jailbreak for iOS 11.",
-            "section": "Jailbreak"
-        },
-        {
-            "name": "Instagram Rhino",
-            "developerName": "Instagram, Inc.",
-            "version": "187.0",
-            "minOSVersion": "iOS 14.+",
-            "iconURL": "https://iosninja.io/img/ipas/instagram_rhino.png",
-            "downloadURL": "https://resources.usescarlet.com/repo/IPAs/instagramRhino.ipa",
-            "section": "Tweaked Apps"
-        },
-        {
-            "name": "BHTwitter",
-            "developerName": "X Corp.",
-            "version": "1.0",
-            "banner": "https://pbs.twimg.com/profile_banners/3260518932/1690380560/1080x360",
-            "downloadURL": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
-            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/BHTwitter.PNG?raw=true",
-            "minOSVersion": "iOS 13.4+",
-            "section": "Tweaked Apps",
-            "localizedDescription": "Tweaked version of Twitter (X) with many new features."
-        },
-        {
-            "name": "SpooferX",
-            "version": "0.309.0-0.298",
-            "developerName": "Unknown",
-            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/IMG_2740.png?raw=true",
-            "downloadURL": "https://www.spooferx.app/ipa/SpooferPro-0.309.0-0.298.ipa",
-            "localizedDescription": "SpooferX for Pokémon GO is an enhanced edition of the Pokémon GO app, adding a joystick and with free teleport ! It also includes a lot of other features : IV checking, enhanced throw, auto walking and GPX, fast catch trick, a live feed and even a map with everything around you !",
-            "minOSVersion": "iOS 14+",
-            "section": "Tweaked Games"
-        },
-        {
-            "name":"Scylla",
-            "version":"Beta 0.1.2",
-            "developerName": "Kevin Alavik",
-            "iconURL":"https://puffer.is-a.dev/scylla-ios/cdn/images/scyllalogo.jpg",
-            "downloadURL":"https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
-            "section":"Utilities",
-            "localizedDescription":"Scylla is yet another app signer for iOS",
-            "minOSVersion":"iOS"    
-        },
-        {
-            "name": "Spotilife",
-            "version": "8.6.42",
-            "downloadURL": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
-            "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/60BF6600-8900-41C7-8D42-E1F03AC884B2.png?raw=true",
-            "category": "Tweaked Apps",
-            "localizedDescription": "Enabled -No Forced Shuffle -Unlimited Skips -Extreme Quality stream enabled -Import songs from Music app",
-            "minOSVersion": "iOS 13+",
-            "banner": "https://photos5.appleinsider.com/gallery/43969-85507-Spotify-xl.jpg",
-            "developerName": "Unknown"
-        },
-        {
-            "name": "iPogo",
-            "version": "3.5.5",
-            "developerName": "Niantic, Inc.",
-            "iconURL": "https://play-lh.googleusercontent.com/6qUR3CmTyz3lMdMK8GENfibQ9ZQIIgHIP3_pgnYcuG04ykheKtl-dhyPzjlvhF_MANI",
-            "downloadURL": "https://ipogo.app/download/ipogo-3.5.5.ipa",
-            "localizedDescription": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App. ",
-            "minOSVersion": "iOS 14+",
-            "screenshots": [
-                "https://ipogo.app/assets/img/feature-iphone-1.png"
-            ],     
-            "banner": "https://digistatement.com/wp-content/uploads/2022/02/iPogo-1.jpg",
-            "section": "Tweaked Games"
-        },
-        {
-            "name": "Taurine",
-            "id": "Odyssey-Team",
-            "developerName": "Odyssey-Team",
-            "version": "1.1.6",
-            "minOSVersion": "14.0-14.3",
-            "iconURL": "https://iosninja.io/img/ipas/taurine.png",
-            "downloadURL": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
-            "localizedDescription": "Jailbreak for iOS 14.",
-            "section": "Jailbreak"
-        },
-        {
-            "id": "uyouplus",
-            "name": "uYouPlus",
-            "bundleIdentifier": "com.google.ios.youtube",
-            "developerName": "Various Developers",
-            "subtitle": "The best tweak for the YouTube app just got even better",
-            "version": "19.02.1_3.0.1",
-            "size": 121693569,
-            "versionDate": "2023-05-27T22:14:00-07:00",
-            "versionDescription": "• Fix stretched artwork in uYou's player view\n• Fix crash on startup after closing with uYou download in progress\n• Update DontEatMyContent (v1.0.6 -> v1.0.10)\n\nFull changelog: \nhttps://github.com/qnblackcat/uYouPlus/releases/tag/v18.14.1-3.0",
-            "downloadURL": "https://web.archive.org/web/20240306195805if_/https://objects.githubusercontent.com/github-production-release-asset-2e65be/409807214/164323db-9524-43b0-a9b9-3a4f314c7839?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240306%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240306T195805Z&X-Amz-Expires=300&X-Amz-Signature=16987278dac78e8d7be5a7f61d2796b6979d5695fe26a0f22ea45cebc9b66881&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=409807214&response-content-disposition=attachment%3B%20filename%3DuYouPlus-19.08.2-3.0.3.ipa&response-content-type=application%2Foctet-stream",
-            "localizedDescription": "uYou is the best tweak for the YouTube app.\n\nuYouPlus is a modified version of uYou with even more features.\n\nAdditional features:\n• Skip sponsorships in videos (iSponsorBlock)\n• Even more PiP options (YouPiP)\n• Unlock 1440p and 2160p resolutions (YTUHD)\n• Disable overlay at the end of videos (YTNoHoverCards)\n• Remove YouTube Premium upsell alerts (NoYTPremium)\n• Enable the miniplayer for all videos (YTMiniplayerEnabler)\n• Prevent the notch/Dynamic Island from cutting into 2:1 videos (DontEatMyContent)\n• Configure A/B settings in the YouTube app (YTABConfig)\n• And more\n\nMore information: \nhttps://github.com/qnblackcat/uYouPlus/ \n\nRequires iOS 14.0 or later.\n\nContributors: MiRO92, qnblackcat, PoomSmart, level3tjg, BandarHelal, galactic, julioverne, HASHBANG, Lyvendia, Foxster, ichitaso, Ahmed Bafkir, CokePokes, Tommy Teo, theos, and many others.",
-            "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/uYou.png",
-            "tintColor": "cb1633",
-            "screenshotURLs": [
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus1.jpeg?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus2.jpeg?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus3.jpeg?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus4.jpeg?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus5.jpeg?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus6.jpeg?raw=true"
-            ],
-            "permissions": [
-                {
-                    "type": "photos",
-                    "usageDescription": "Allows YouTube to upload media from your photo library."
-                },
-                {
-                    "type": "background-audio",
-                    "usageDescription": "Allows YouTube to play audio in the background."
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [
-                    {
-                        "name": "get-task-allow"
-                    },
-                    {
-                        "name": "aps-environment"
-                    },
-                    {
-                        "name": "com.apple.developer.associated-domains"
-                    },
-                    {
-                        "name": "com.apple.developer.coremedia.allow-alternate-video-decoder-selection"
-                    },
-                    {
-                        "name": "com.apple.developer.device-information.user-assigned-device-name"
-                    },
-                    {
-                        "name": "com.apple.developer.networking.multicast"
-                    },
-                    {
-                        "name": "com.apple.developer.networking.wifi-info"
-                    },
-                    {
-                        "name": "com.apple.developer.usernotifications.time-sensitive"
-                    },
-                    {
-                        "name": "com.apple.security.application-groups"
-                    },
-                    {
-                        "name": "keychain-access-groups"
-                    }
-                ],
-                "privacy": [
-                    {
-                        "name": "AppleMusic",
-                        "usageDescription": "This lets you add your own audio files to your videos."
-                    },
-                    {
-                        "name": "BluetoothPeripheral",
-                        "usageDescription": "YouTube needs bluetooth access to scan for nearby Cast devices."
-                    },
-                    {
-                        "name": "Camera",
-                        "usageDescription": "This lets you create videos using the app."
-                    },
-                    {
-                        "name": "Contacts",
-                        "usageDescription": "Your contacts will be sent to YouTube servers to help you find friends to share videos with."
-                    },
-                    {
-                        "name": "LocalNetwork",
-                        "usageDescription": "Access to your network allows YouTube to discover and connect to devices such as your TV."
-                    },
-                    {
-                        "name": "LocationWhenInUse",
-                        "usageDescription": "Makes it easier for you to attach location information to your videos and live streams and allows for features such as improved recommendations and ads."
-                    },
-                    {
-                        "name": "Microphone",
-                        "usageDescription": "This lets you include audio with your videos and search using your voice."
-                    },
-                    {
-                        "name": "PhotoLibrary",
-                        "usageDescription": "This lets you upload media you've already created."
-                    }
-                ]
-            }
-        },
-        {
-            "id": "spotify",
-            "name": "Spotify Tweaked",
-            "bundleIdentifier": "com.spotify.client2",
-            "developerName": "Various Developers",
-            "subtitle": "Ad-free, unlimited skips and more customizable than ever",
-            "version": "8.6.42",
-            "versionDate": "2022-09-03T12:00:00-00:00",
-            "versionDescription": "Spotify v8.6.42 (Jul 9, 2021)\n\"We’re always making changes and improvements to Spotify. To make sure you don’t miss a thing, just keep your Updates turned on.\n\nBug fixes and improvements in this version include:\n- Fixed stability issues\"\n\nTweaks\n• Spotilife v1.8\n• Sposify v8.5.52\n• Sposify Fix v0.0.6\n\nKnown issues\n• Log in with Google and Apple is broken\n• App won't deactivate with AltStore",
-            "downloadURL": "https://drive.google.com/uc?export=download&id=1VgAmuJ-ukft40t0FjKk89UYn6BbguQtu&confirm=t",
-            "localizedDescription": "This tweaked version of Spotify is completely ad-free and contains various customization features (thanks to @atebitsy/aesthyrica).\n\nTweaks injected\n• Spotilife\n• Sposify\n• Sposify Fix\n\nContributors: julioverne, atebitsy/aesthyrica, level3tjg",
-            "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/Spotify.png",
-            "tintColor": "1db954",
-            "size": 50512487,
-            "screenshotURLs": [
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2841.PNG?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2843.PNG?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2845.PNG?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2846.PNG?raw=true",
-                "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2847.PNG?raw=true"
-            ],
-            "permissions": [
-                {
-                    "type": "photos",
-                    "usageDescription": "Allows Spotify to upload media from your photo library for use as playlist cover, profile picture, etc."
-                },
-                {
-                    "type": "background-audio",
-                    "usageDescription": "Allows Spotify to play audio in the background."
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [
-                    {
-                        "name": "get-task-allow"
-                    },
-                    {
-                        "name": "aps-environment"
-                    },
-                    {
-                        "name": "com.apple.developer.siri"
-                    },
-                    {
-                        "name": "com.apple.developer.carplay-audio"
-                    },
-                    {
-                        "name": "com.apple.developer.playable-content"
-                    },
-                    {
-                        "name": "com.apple.developer.applesignin"
-                    },
-                    {
-                        "name": "com.apple.developer.networking.multicast"
-                    },
-                    {
-                        "name": "com.apple.developer.networking.wifi-info"
-                    },
-                    {
-                        "name": "keychain-access-groups"
-                    },
-                    {
-                        "name": "com.apple.security.application-groups"
-                    },
-                    {
-                        "name": "com.apple.developer.associated-domains"
-                    }
-                ], 
-                "privacy": [
-                    {
-                        "name": "BluetoothAlways",
-                        "usageDescription": "This lets you use Spotify with external accessories."
-                    },
-                    {
-                        "name": "Camera",
-                        "usageDescription": "This lets you scan Spotify Codes."
-                    },
-                    {
-                        "name": "UserTracking",
-                        "usageDescription": "Your data will be used to deliver personalized ads or content to you."
-                    },
-                    {
-                        "name": "BluetoothPeripheral",
-                        "usageDescription": "This lets you use Spotify with external accessories."
-                    },
-                    {
-                        "name": "PhotoLibraryAdd",
-                        "usageDescription": "This lets you save images to your Photo Library."
-                    },
-                    {
-                        "name": "LocalNetwork",
-                        "usageDescription": "This lets you listen on different devices. Spotify will also get access to local audio files."
-                    },
-                    {
-                        "name": "AppleMusic",
-                        "usageDescription": "This will let you play your imported music on Spotify."
-                    },
-                    {
-                        "name": "Microphone",
-                        "usageDescription": "This lets you control Spotify using your voice."
-                    },
-                    {
-                        "name": "LocationWhenInUse",
-                        "usageDescription": "This lets you prepopulate the SSID field with the currently connected network."
-                    },
-                    {
-                        "name": "FaceID",
-                        "usageDescription": "This lets you set access restrictions using Face ID."
-                    },
-                    {
-                        "name": "PhotoLibrary",
-                        "usageDescription": "This lets you select images from your Photo Library."
-                    }
-                ]
-            }
+          "type": "background-audio",
+          "usageDescription": "Allows YouTube to play audio in the background."
         }
-    ],
-    "news": [
+      ],
+      "appPermissions": {
+        "entitlements": [
+          {
+            "name": "get-task-allow"
+          },
+          {
+            "name": "aps-environment"
+          },
+          {
+            "name": "com.apple.developer.associated-domains"
+          },
+          {
+            "name": "com.apple.developer.coremedia.allow-alternate-video-decoder-selection"
+          },
+          {
+            "name": "com.apple.developer.device-information.user-assigned-device-name"
+          },
+          {
+            "name": "com.apple.developer.networking.multicast"
+          },
+          {
+            "name": "com.apple.developer.networking.wifi-info"
+          },
+          {
+            "name": "com.apple.developer.usernotifications.time-sensitive"
+          },
+          {
+            "name": "com.apple.security.application-groups"
+          },
+          {
+            "name": "keychain-access-groups"
+          }
+        ],
+        "privacy": [
+          {
+            "name": "AppleMusic",
+            "usageDescription": "This lets you add your own audio files to your videos."
+          },
+          {
+            "name": "BluetoothPeripheral",
+            "usageDescription": "YouTube needs bluetooth access to scan for nearby Cast devices."
+          },
+          {
+            "name": "Camera",
+            "usageDescription": "This lets you create videos using the app."
+          },
+          {
+            "name": "Contacts",
+            "usageDescription": "Your contacts will be sent to YouTube servers to help you find friends to share videos with."
+          },
+          {
+            "name": "LocalNetwork",
+            "usageDescription": "Access to your network allows YouTube to discover and connect to devices such as your TV."
+          },
+          {
+            "name": "LocationWhenInUse",
+            "usageDescription": "Makes it easier for you to attach location information to your videos and live streams and allows for features such as improved recommendations and ads."
+          },
+          {
+            "name": "Microphone",
+            "usageDescription": "This lets you include audio with your videos and search using your voice."
+          },
+          {
+            "name": "PhotoLibrary",
+            "usageDescription": "This lets you upload media you've already created."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Spotify Tweaked",
+      "bundleIdentifier": "com.spotify.client2",
+      "developerName": "Various Developers",
+      "subtitle": "Ad-free, unlimited skips and more customizable than ever",
+      "version": "8.6.42",
+      "versionDate": "2022-09-03T12:00:00-00:00",
+      "versionDescription": "Spotify v8.6.42 (Jul 9, 2021)\n\"We’re always making changes and improvements to Spotify. To make sure you don’t miss a thing, just keep your Updates turned on.\n\nBug fixes and improvements in this version include:\n- Fixed stability issues\"\n\nTweaks\n• Spotilife v1.8\n• Sposify v8.5.52\n• Sposify Fix v0.0.6\n\nKnown issues\n• Log in with Google and Apple is broken\n• App won't deactivate with AltStore",
+      "downloadURL": "https://drive.google.com/uc?export=download&id=1VgAmuJ-ukft40t0FjKk89UYn6BbguQtu&confirm=t",
+      "localizedDescription": "This tweaked version of Spotify is completely ad-free and contains various customization features (thanks to @atebitsy/aesthyrica).\n\nTweaks injected\n• Spotilife\n• Sposify\n• Sposify Fix\n\nContributors: julioverne, atebitsy/aesthyrica, level3tjg",
+      "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/Spotify.png",
+      "tintColor": "1db954",
+      "size": 50512487,
+      "screenshotURLs": [
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2841.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2843.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2845.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2846.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2847.PNG?raw=true"
+      ],
+      "permissions": [
         {
-            "title": "New major update !",
-            "identifier": "foxster-news-2",
-            "caption": "Welcome on iTweakHub 2.1 ! Go check what's new in 'settings -> general' ",
-            "tintColor": "3B1A25",
-            "imageURL": "https://github.com/Ibinou/iTweakHub/blob/main/img/banners/1712138905.942442-2C0E6CA2-2D45-410F-B2B9-452266850B09.png?raw=true",
-            "date": "2024-04-12",
-            "notify": true
+          "type": "photos",
+          "usageDescription": "Allows Spotify to upload media from your photo library for use as playlist cover, profile picture, etc."
         },
         {
-            "title": "Follow us !",
-            "identifier": "foxster-news-2",
-            "caption": "Follow us on X and join our Discord server 😊.",
-            "tintColor": "7449ff",
-            "imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/banners/Capture%20d%E2%80%99%C3%A9cran%202024-01-28%20122343.png",
-            "date": "2023-05-23",
-            "url": "https://discord.com/invite/mUKETChWnx",
-            "notify": true
-        },
-        {
-            "title": "Welcome !",
-            "identifier": "foxster-news-1",
-            "caption": "Welcome to iTweakHub 2.2! 🎉",
-            "tintColor": "1c0026",
-            "date": "2023-04-06",
-            "notify": false
+          "type": "background-audio",
+          "usageDescription": "Allows Spotify to play audio in the background."
         }
-    ]
+      ],
+      "appPermissions": {
+        "entitlements": [
+          {
+            "name": "get-task-allow"
+          },
+          {
+            "name": "aps-environment"
+          },
+          {
+            "name": "com.apple.developer.siri"
+          },
+          {
+            "name": "com.apple.developer.carplay-audio"
+          },
+          {
+            "name": "com.apple.developer.playable-content"
+          },
+          {
+            "name": "com.apple.developer.applesignin"
+          },
+          {
+            "name": "com.apple.developer.networking.multicast"
+          },
+          {
+            "name": "com.apple.developer.networking.wifi-info"
+          },
+          {
+            "name": "keychain-access-groups"
+          },
+          {
+            "name": "com.apple.security.application-groups"
+          },
+          {
+            "name": "com.apple.developer.associated-domains"
+          }
+        ],
+        "privacy": [
+          {
+            "name": "BluetoothAlways",
+            "usageDescription": "This lets you use Spotify with external accessories."
+          },
+          {
+            "name": "Camera",
+            "usageDescription": "This lets you scan Spotify Codes."
+          },
+          {
+            "name": "UserTracking",
+            "usageDescription": "Your data will be used to deliver personalized ads or content to you."
+          },
+          {
+            "name": "BluetoothPeripheral",
+            "usageDescription": "This lets you use Spotify with external accessories."
+          },
+          {
+            "name": "PhotoLibraryAdd",
+            "usageDescription": "This lets you save images to your Photo Library."
+          },
+          {
+            "name": "LocalNetwork",
+            "usageDescription": "This lets you listen on different devices. Spotify will also get access to local audio files."
+          },
+          {
+            "name": "AppleMusic",
+            "usageDescription": "This will let you play your imported music on Spotify."
+          },
+          {
+            "name": "Microphone",
+            "usageDescription": "This lets you control Spotify using your voice."
+          },
+          {
+            "name": "LocationWhenInUse",
+            "usageDescription": "This lets you prepopulate the SSID field with the currently connected network."
+          },
+          {
+            "name": "FaceID",
+            "usageDescription": "This lets you set access restrictions using Face ID."
+          },
+          {
+            "name": "PhotoLibrary",
+            "usageDescription": "This lets you select images from your Photo Library."
+          }
+        ]
+      }
+    }
+  ],
+  "news": [
+    {
+      "title": "New major update !",
+      "identifier": "foxster-news-2",
+      "caption": "Welcome on iTweakHub 2.1 ! Go check what's new in 'settings -> general' ",
+      "tintColor": "3B1A25",
+      "imageURL": "https://github.com/Ibinou/iTweakHub/blob/main/img/banners/1712138905.942442-2C0E6CA2-2D45-410F-B2B9-452266850B09.png?raw=true",
+      "date": "2024-04-12",
+      "notify": true
+    },
+    {
+      "title": "Follow us !",
+      "identifier": "foxster-news-2",
+      "caption": "Follow us on X and join our Discord server 😊.",
+      "tintColor": "7449ff",
+      "imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/banners/Capture%20d%E2%80%99%C3%A9cran%202024-01-28%20122343.png",
+      "date": "2023-05-23",
+      "url": "https://discord.com/invite/mUKETChWnx",
+      "notify": true
+    },
+    {
+      "title": "Welcome !",
+      "identifier": "foxster-news-1",
+      "caption": "Welcome to iTweakHub 2.2! 🎉",
+      "tintColor": "1c0026",
+      "date": "2023-04-06",
+      "notify": false
+    }
+  ]
 }
+
