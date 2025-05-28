@@ -872,7 +872,7 @@
         {
             "id": "spotify",
             "name": "Spotify Tweaked",
-            "bundleIdentifier": "com.spotify.client",
+            "bundleIdentifier": "com.spotify.client2",
             "developerName": "Various Developers",
             "subtitle": "Ad-free, unlimited skips and more customizable than ever",
             "version": "8.6.42",
