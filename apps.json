@@ -211,7 +211,7 @@
       "developerName": "Skadz,lunginspector",
       "version": "0.3.5",
       "minOSVersion": "iOS 16.0-18.3.2",
-      "iconURL": "https://raw.githubusercontent.com/jailbreakdotparty/dirtyZero/refs/heads/main/dirtyZero/Assets.xcassets/AppIcon.appiconset/FileBreak.png.jpeg",
+      "iconURL": "https://raw.githubusercontent.com/jailbreakdotparty/dirtyZero/refs/heads/main/dirtyZero/Assets.xcassets/AppIcon.appiconset/IMG_0210.png.jpeg",
       "downloadURL": "https://github.com/jailbreakdotparty/dirtyZero/releases/download/v0.3.5/dirtyZero_v0.3.5.ipa",
       "localizedDescription": "Basic customization app using CVE-2025-24203. Patched in iOS 18.4. All file modifications are done in memory. If something goes wrong or you want to revert the tweaks, just force reboot your phone.",
       "screenshotURLs": [
