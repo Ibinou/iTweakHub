@@ -62,6 +62,7 @@
                 s.parentNode.insertBefore(g, s);
         }(document, "script"));
 </script>
+
 <!-- End PushAlert -->
 <style>
 @keyframes fade {
@@ -344,16 +345,27 @@ function countClicks() {
 }
 
 function openDebugPage() {
-  // Ouvrez la page de débogage, par exemple, en redirigeant vers une autre page.
-  // Vous pouvez utiliser window.location.href pour cela.
-  window.location.href = 'devs.html'; // Assurez-vous d'avoir une page "debug.html" à ouvrir.
+  window.location.href = 'devs.html'; 
 }
 </script>
+	
 <style>
 ::-webkit-scrollbar {
      display: none; 
 }
 </style>
+	
+<script>
+// Service worker for the pwa
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('SW enregistré ✅', reg.scope))
+        .catch(err => console.error('Erreur SW ❌', err));
+    });
+  }
+</script>
+
 <script>
 
         var topNav = document.querySelector(".topNav");
