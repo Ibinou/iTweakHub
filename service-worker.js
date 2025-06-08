@@ -1,3 +1,4 @@
+/*
 const CACHE_NAME = 'itweakhub-cache-v1.1';
 
 const URLS_TO_CACHE = [
@@ -79,3 +80,4 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+*/
