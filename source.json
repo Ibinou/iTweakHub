@@ -1,0 +1,972 @@
+{
+  "name": "iTweakHub Source",
+  "subtitle": "The official iTweakHub source !",
+  "description": "The official iTweakHub source !",
+  "iconURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/iTweakhub-New.png",
+  "website": "https://x.com/iTweakHub",
+  "patreonURL": "",
+  "tintColor": "#b29aff",
+  "featuredApps": [],
+  "apps": [
+    {
+      "name": "RetroArch (64bit)",
+      "bundleIdentifier": "com.retro.arch",
+      "marketplaceID": "",
+      "developerName": "RetroArch Team",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!",
+      "iconURL": "https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
+      "tintColor": "#007aff",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "version": "Latest",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://buildbot.libretro.com/nightly/apple/ios-arm64/RetroArch.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "EeveeSpotify",
+      "bundleIdentifier": "com.spotify.client",
+      "marketplaceID": "",
+      "developerName": "EeveeSpotify Team",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "This tweak makes Spotify think you have a Premium subscription, granting free listening, just like Spotilife, and provides some additional features like custom lyrics.",
+      "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0c/1f/61/0c1f6144-af80-f395-3204-1d14fd8b2be7/AppIcon-0-0-1x_U007emarketing-0-6-0-0-85-220.png/512x512bb.jpg",
+      "tintColor": "#007aff",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "version": "8.9.96",
+          "date": "2024-12-05",
+          "localizedDescription": "Spotify v8.9.96 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.8.2/EeveeSpotify-5.8.2-8.9.96.ipa",
+          "size": 83513957,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.94",
+          "date": "2024-11-19",
+          "localizedDescription": "Spotify v8.9.94 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.8.1/EeveeSpotify-5.8.1-8.9.94.ipa",
+          "size": 84039862,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.92",
+          "date": "2024-11-18",
+          "localizedDescription": "Spotify v8.9.92 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.8.1/EeveeSpotify-5.8.1-8.9.92.ipa",
+          "size": 84064527,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.90",
+          "date": "2024-11-07",
+          "localizedDescription": "Spotify v8.9.90 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.8/EeveeSpotify-5.8-8.9.90.ipa",
+          "size": 95404220,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.86",
+          "date": "2024-10-24",
+          "localizedDescription": "Spotify v8.9.86 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.7/EeveeSpotify-5.7-8.9.86.ipa",
+          "size": 81831115,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.84",
+          "date": "2024-10-22",
+          "localizedDescription": "Spotify v8.9.84 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.6/EeveeSpotify-5.6-8.9.84.ipa",
+          "size": 81328308,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.82",
+          "date": "2024-10-09",
+          "localizedDescription": "Spotify v8.9.82 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.5/EeveeSpotify-5.5-8.9.82.ipa",
+          "size": 81575336,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.80",
+          "date": "2024-10-06",
+          "localizedDescription": "Spotify v8.9.80 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.4/EeveeSpotify-5.4-8.9.80.ipa",
+          "size": 80816437,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.78",
+          "date": "2024-10-01",
+          "localizedDescription": "Spotify v8.9.78 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.3/EeveeSpotify-5.3-8.9.78.ipa",
+          "size": 80513996,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.76",
+          "date": "2024-09-18",
+          "localizedDescription": "Spotify v8.9.76 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.2/EeveeSpotify-5.2-8.9.76.ipa",
+          "size": 79401385,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.74",
+          "date": "2024-09-11",
+          "localizedDescription": "Spotify v8.9.74 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.1/EeveeSpotify-5.1-8.9.74.ipa",
+          "size": 79661600,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.70",
+          "date": "2024-09-05",
+          "localizedDescription": "Spotify v8.9.70 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift5.0/EeveeSpotify-5.0-8.9.70.ipa",
+          "size": 78904895,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.68",
+          "date": "2024-08-26",
+          "localizedDescription": "Spotify v8.9.68 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.9/EeveeSpotify-4.9-8.9.68.ipa",
+          "size": 78479774,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.66",
+          "date": "2024-08-19",
+          "localizedDescription": "Spotify v8.9.66 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.8/EeveeSpotify-4.8-8.9.66.ipa",
+          "size": 77933103,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.64",
+          "date": "2024-08-09",
+          "localizedDescription": "Spotify v8.9.64 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.7/EeveeSpotify-4.7-8.9.64.ipa",
+          "size": 77441278,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.62",
+          "date": "2024-08-06",
+          "localizedDescription": "Spotify v8.9.62 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.6/EeveeSpotify-4.6-8.9.62.ipa",
+          "size": 77373895,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.60",
+          "date": "2024-07-29",
+          "localizedDescription": "Spotify v8.9.60 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.6/EeveeSpotify-4.6-8.9.60.ipa",
+          "size": 76880363,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.58",
+          "date": "2024-07-20",
+          "localizedDescription": "Spotify v8.9.58 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.5/EeveeSpotify-4.5-8.9.58.ipa",
+          "size": 76177478,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.54",
+          "date": "2024-07-10",
+          "localizedDescription": "Spotify v8.9.54 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.4/EeveeSpotify-4.4-8.9.54.ipa",
+          "size": 75064559,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.50",
+          "date": "2024-06-25",
+          "localizedDescription": "Spotify v8.9.50 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.3/EeveeSpotify-4.3-8.9.50.ipa",
+          "size": 75026367,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.9.48",
+          "date": "2024-06-17",
+          "localizedDescription": "Spotify v8.9.48 injected with EeveeSpotify",
+          "downloadURL": "https://github.com/whoeevee/EeveeSpotify/releases/download/swift4.2/EeveeSpotify-4.2-8.9.48.ipa",
+          "size": 75337996,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "com.apple.developer.group-session",
+          "com.apple.developer.networking.multicast",
+          "aps-environment",
+          "com.apple.developer.carplay-audio",
+          "com.apple.developer.associated-domains",
+          "com.apple.developer.networking.wifi-info",
+          "com.apple.developer.siri",
+          "com.apple.developer.healthkit",
+          "com.apple.developer.applesignin",
+          "keychain-access-groups",
+          "com.apple.developer.healthkit.access",
+          "com.apple.security.application-groups"
+        ],
+        "privacy": {
+          "NSBluetoothAlwaysUsageDescription": "This lets you unlock new ways of interacting with other devices compatible with Spotify via Bluetooth.",
+          "NSCameraUsageDescription": "This lets you scan Spotify Codes.",
+          "NSUserTrackingUsageDescription": "Your data will be used to deliver personalized ads or content to you.",
+          "NSHealthUpdateUsageDescription": "Spotify will use HealthKit data to provide personalised audio recommendations for your workouts.",
+          "NSMotionUsageDescription": "We will use this to understand which audio motivates you most.",
+          "NSBluetoothPeripheralUsageDescription": "This lets you unlock new ways of interacting with other devices compatible with Spotify via Bluetooth.",
+          "NSPhotoLibraryAddUsageDescription": "This lets you save images to your Photo Library.",
+          "NSLocalNetworkUsageDescription": "This lets you listen on different devices. Spotify will also get access to local audio files.",
+          "NSHealthShareUsageDescription": "Spotify will use HealthKit data to provide personalised audio recommendations for your workouts.",
+          "NSAppleMusicUsageDescription": "This will let you play your imported music on Spotify.",
+          "NSMicrophoneUsageDescription": "This lets you control Spotify using your voice.",
+          "NSFaceIDUsageDescription": "This lets you set access restrictions using Face ID.",
+          "NSPhotoLibraryUsageDescription": "This lets you select images from your Photo Library."
+        }
+      },
+      "patreon": {}
+    },
+    {
+      "name": "dirtyZero",
+      "bundleIdentifier": "com.wau74rwbmt.f93lki1yll",
+      "marketplaceID": "",
+      "developerName": "Skadz,lunginspector",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "Basic customization app using CVE-2025-24203. Patched in iOS 18.4. All file modifications are done in memory. If something goes wrong or you want to revert the tweaks, just force reboot your phone.",
+      "iconURL": "https://raw.githubusercontent.com/jailbreakdotparty/dirtyZero/refs/heads/main/dirtyZero/Assets.xcassets/AppIcon.appiconset/IMG_0210.png.jpeg",
+      "tintColor": "#007aff",
+      "category": "other",
+      "screenshots": [
+        "https://raw.githubusercontent.com/Ibinou/iTweakHub/refs/heads/main/img/IMG_5476.jpg"
+      ],
+      "versions": [
+        {
+          "version": "0.3.5",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/jailbreakdotparty/dirtyZero/releases/download/v0.3.5/dirtyZero_v0.3.5.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "Latest",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://buildbot.libretro.com/nightly/apple/ios9/RetroArchiOS9.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/dirtycowrepo/blob/main/Blacklist%202.ipa?raw=true",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "2.4",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/2.4/Shadow.Fight.2.Hack.No.Jailbreak.Cheats.2.34.Hacked.IPA.by.iOSGods.com.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.54-2",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/10/Hill-Climb.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/haxi0/InstaSpring/releases/download/1.0/InstaSpring.1.0.Fix.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0.7",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/iTweakHub/raw/main/apps/Flixhub.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "7.0",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/v7/Royal-Match.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0.0",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/V.4.0/Enmity.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.4.1",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://cdn.altstore.io/file/altstore/apps/delta/1_4_1.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "2.2.4",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/34/srr224.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "unknown",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://ispoofer.app/Signed.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0.6.5(6)",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/emuPlace/emuThreeDS/releases/download/1.0.6.5.6/emuThreeDS.v1.0.6.5.6.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.17.1",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/V1.17.1/PPSSPP_v1.17.1-35-g0159102a1.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0 Build 18",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "2.0.3 beta",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/raw/main/misaka-2.0.3_Beta.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0 2022",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://drive.google.com/uc?export=download&id=19oRvCjtsIwuHool8B807rib8BSYYws4Z",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0.3",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.4.3",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Odyssey-Team/Odyssey/releases/download/v1.4.3/Odyssey-1.4.3.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "unknown",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/V68/MovieBoxPro_12.5_2.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "unknown",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://drive.google.com/uc?export=download&id=1mSIKvVEK7Z9BA35G14EFFLTZOweUVpQN",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "2.591.630",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/DebianArch64/ScarletDecrypt/releases/download/Latest/Roblox.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.20.40.22",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Ibinou/ipanocodehub/releases/download/v33/Minecraft.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.20.15",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://drive.google.com/uc?export=download&id=1el8X7GcxG4RPPZWGdHHE1NIseqC3dNMu",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.1.3",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/leminlimez/Cowabunga/releases/download/v8.1.3/Cowabunga.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.0.2",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "187.0",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://resources.usescarlet.com/repo/IPAs/instagramRhino.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.0",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/BandarHL/BHTwitter/releases/download/3.9.1/Twitter_9.49_BHTwitter_3.9.1.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "0.309.0-0.298",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://www.spooferx.app/ipa/SpooferPro-0.309.0-0.298.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "Beta 0.1.2",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/KevinAlavik/scylla-ios/releases/download/Beta0.1.2/ScyllaBeta0.1.2.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "8.6.42",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/SpotCompiled/SpotilifeC/releases/download/v1.2.3/SpotilifeC.v1.2.3_v8.6.42.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "3.5.5",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://ipogo.app/download/ipogo-3.5.5.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "1.1.6",
+          "date": "2025-05-28",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://github.com/Odyssey-Team/Taurine/releases/download/1.1.6/Taurine-1.1.6.ipa",
+          "size": 79821,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "iTorrent",
+      "bundleIdentifier": "ru.nonamedude.iTorrent",
+      "marketplaceID": "",
+      "developerName": "XITRIX",
+      "subtitle": "Ordinary iOS torrent client app.",
+      "localizedDescription": "iTorrent is an ordinary torrent client for iOS with Files app support.\n\nWhat can this app do:\n\n• Download in the background\n• Sequential download (use VLC to watch films while loading)\n• Add torrent files from Share menu (Safari and other apps)\n• Add magnet links directly from Safari\n• Store files in Files app (iOS 11+)\n• File sharing directly from app\n• Download torrent by link\n• Download torrent by magnet\n• Send notification on torrent downloaded\n• FTP Server (unstable)\n• Select files to download or not\n• Change UI to dark theme\n\nNow supporting these localizations:\n• English\n• Russian\n• Turkish",
+      "iconURL": "https://i.imgur.com/C3KwMP5.png",
+      "tintColor": "#e32b3c",
+      "category": "other",
+      "screenshots": [
+        "https://i.imgur.com/0o7qou3.png",
+        "https://i.imgur.com/sO510zC.png",
+        "https://i.imgur.com/MQPWxYz.png",
+        "https://i.imgur.com/xTAo5uE.png"
+      ],
+      "versions": [
+        {
+          "version": "1.8.3",
+          "date": "2020-09-20",
+          "localizedDescription": "What's new:\n\n• Text accessibility support added\n• Huge backend refactoring\n• Libtorrent updated to 1.2.9\n• Minor UI improvements\n• Many bugs fixed (possibly new ones added)",
+          "downloadURL": "https://github.com/XITRIX/iTorrent/releases/download/v1.8.3/iTorrent.ipa",
+          "size": 21218913,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "GBA4iOS",
+      "bundleIdentifier": "com.rileytestut.GBA4iOS",
+      "marketplaceID": "",
+      "developerName": "Riley Testut",
+      "subtitle": "Game Boy games in your pocket.",
+      "localizedDescription": "Classic Gaming, Meet iOS.\n\nWhile iPhone and iOS have brought a new era of gaming upon us, there will always be room in our hearts for those classic games from decades ago. Unfortunately, there has been no easy way for people to play these games whenever they so desired...that is, until now. GBA4iOS was made for one purpose and one purpose only: to help everyone relive their favorite games from their past. Now, every where you take your iPhone, iPad, or iPod Touch, you can bring and play your classic games with you, giving you practically endless hours of entertainment!\n\nSo that's great and all, but what features does GBA4iOS actually have? Far too many to list in one App Store description, but here are some of the biggest:\n\n• Multiplayer (iPhone 5 or newer, iPad 4 or newer). GBA4iOS allows you to link with other players nearby and play with them, allowing you to unlock or experience certain events in games that are unavailable to just one player! Plus, nothing is cooler than playing games with your friends.\n\n• Save States. Ever get frustrated when a game requires you to save only at certain points? Well be frustrated no longer, GBA4iOS fully supports Save States, allowing you to save anywhere in the game and resume right from that point later. Even better, you can protect certain save states so you never accidentally overwrite them (and as everyone knows losing game data is one of the worst things in the world).\n\n• Cheat Codes. Sometimes games are just too hard, and you need a little boost to help defeat it. GBA4iOS allows you to input and use GameShark, Action Replay, Code Breaker, and Game Genie codes as you see fit. Don't worry, we won't judge!\n\n• Fast Forward (iPhone 4s or newer, iPad 2 or newer, iPod Touch 5th Gen). Don't you wish there was a way to speed up long cutscenes in games, or to reduce the time doing boring tasks in the game? Well, now there is! GBA4iOS allows you to \"Fast Forward\" through slow parts of the game, allowing you to get back to the fun even quicker.\n\n• Customizable Controller Skins. Want to change the look of the controller to something more personal? No worries, you can download a multitude of new controller skins from within the app, or download almost countless more from the web! You'll definitely be able to find a controller skin you like.\n\n• Dropbox Sync. Have multiple devices, or worried something will happen to your games? Dropbox Sync solves both these issues! When enabled, GBA4iOS will sync your game saves, save states, and cheat codes to Dropbox, keeping any and all your devices up to date with your latest changes. Plus, this means your game data is always backed up in the cloud, so if something happens to your device, your data is safe.\n\n• MFi Controller Support. Sometimes, touchscreen buttons just aren't good enough for the level of precision needed by some games. Luckily, GBA4iOS supports MFi Controllers, allowing you to connect and use physical controllers with your games! Now you can beat that final boss without a sweat.\n\nAll this and more ensures that GBA4iOS will give you the best portable gaming experience, hands down. So what are you waiting for, download GBA4iOS now and enjoy reliving your favorite classic games immediately!",
+      "iconURL": "https://i.imgur.com/SBrqO9g.png",
+      "tintColor": "#78209d",
+      "category": "other",
+      "screenshots": [
+        "https://i.imgur.com/L4H0yM3.png",
+        "https://i.imgur.com/UPGYLVr.png",
+        "https://i.imgur.com/sWpUAii.png",
+        "https://i.imgur.com/UwnDXRc.png"
+      ],
+      "versions": [
+        {
+          "version": "2.1",
+          "date": "2020-03-24T14:30:00-07:00",
+          "localizedDescription": "Initial AltStore release!",
+          "downloadURL": "https://f000.backblazeb2.com/file/altstore/sources/demo/GBA4iOS.ipa",
+          "size": 7924507,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "iDOS",
+      "bundleIdentifier": "com.litchie.idosgames",
+      "marketplaceID": "",
+      "developerName": "litchie",
+      "subtitle": "Play DOS games on iOS.",
+      "localizedDescription": "Play classic DOS games on your iPhone and iPad!\n\niDOS turns your device right into a powerful DOS gaming PC, with modern game control to make your old favorites as playable as possible.\n\nYou can also use iDOS for non-gaming purposes, such as word processing, casual programming. Apps in the DOS days are often simpler and surprisingly productive.\n\nKEYBOARD\n\niDOS provides a PC compatible on-screen keyboard with carefully designed layouts for different devices and orientations. The keyboard has a sliding control in landscape mode so that you can keep it from covering critical part of the screen.\n\nBluetooth keyboard is partially supported. We support ESC, function keys, and ordinary CTRL and ALT key bindings. Unfortunately the arrow keys can't be used for game control. You should use a bluetooth game controller instead.\n\nGAMEPAD\n\niDOS provides a virtual gamepad with key bindings that are fairly common in DOS games. You can customize the bindings. The DPAD works in 8-axis way. It can also be toggled into a joystick.\n\nExternal bluetooth game controllers are supported. Make sure your game controller is connected (System Settings->Bluetooth). To customize button bindings, go to iDOS in landscape mode, tap on bluetooth icon on the auto-hiding top bar.\n\nMOUSE\n\n* The screen area serves as a trackpad for moving mouse pointer.\n* Tap on the screen for left click. If direct touch is enabled, the mouse pointer will move to where you tap.\n* Hold one finger on the screen, and tap with another finger for right click.\n* On-screen mouse buttons are also provided for your convenience.\n* Bluetooth mice are only partially supported.\n\nSUPPORT\n\n- Visit https://litchie.com/dospad for more information.\n- Send email to idos@litchie.com\n- Follow the developer on Twitter: https://twitter.com/litchiedev\n- iDOS is open source, report issues on https://github.com/litchie/dospad",
+      "iconURL": "https://i.imgur.com/Yah6zFk.png",
+      "tintColor": "#042eef",
+      "category": "other",
+      "screenshots": [
+        "https://i.imgur.com/hRMA2Zr.png",
+        "https://i.imgur.com/gvhvQpo.png",
+        "https://i.imgur.com/NHOE1ba.png",
+        "https://i.imgur.com/eBEqmnt.png"
+      ],
+      "versions": [
+        {
+          "version": "2.1",
+          "date": "2020-10-20",
+          "localizedDescription": "- Support Mfi game controllers\n- Support external bluetooth keyboard (Text input only).\nYou can use Command-1, Command-2 .. for function keys.",
+          "downloadURL": "https://github.com/litchie/dospad/releases/download/2.1/iDOS.ipa",
+          "size": 5704322,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "ActiveGS iOS",
+      "bundleIdentifier": "com.yoshisuga.activeGS",
+      "marketplaceID": "",
+      "developerName": "yoshisuga & Olivier Goguel",
+      "subtitle": "An emulator for Apple II/2GS.",
+      "localizedDescription": "An emulator for all things Apple.",
+      "iconURL": "https://i.imgur.com/7LuLkoR.png",
+      "tintColor": "#21486b",
+      "category": "other",
+      "screenshots": [
+        "https://i.imgur.com/8xekjhv.png",
+        "https://i.imgur.com/JFd6LiM.png",
+        "https://i.imgur.com/4ZE0DbB.png"
+      ],
+      "versions": [
+        {
+          "version": "2021.9",
+          "date": "2021-09-23T09:28:59Z",
+          "localizedDescription": "# 2021.9\n\nThis is a fork of Olivier Goguel's ActiveGS emulator for iOS.\r\n\r\nI've been tinkering it over the years and added some experimental features such as:\r\n\r\n- Support for iOS 15\r\n- Remap keyboard to supported wireless controller buttons (mFi/PS4/PS5/XBox One)\r\n- Custom split keyboard usable in landscape mode (written in Swift)\r\n\r\n![Simulator Screen Shot - iPhone 13 Pro Max - 2021-09-22 at 22 43 15](https://user-images.githubusercontent.com/564774/134484167-3c17c2a7-1d6a-467c-ac82-d7bfae7f281b.png)\r\n\r\n- A memory debugger/rudimentary memory-editing cheat engine (also written in Swift). Accessible via the \"D\" button in the right pane custom keyboard. Browse the memory map and change memory values. Not sure how the bank switching works and how it's mapped to memory but you get some representation of memory. \r\n![Simulator Screen Shot - iPhone 13 Pro Max - 2021-09-22 at 23 25 55](https://user-images.githubusercontent.com/564774/134484125-b984318a-b089-4484-b306-b976521963c3.png)\r\n\r\n\r\n",
+          "downloadURL": "https://github.com/yoshisuga/activegs-ios/releases/download/2021.9/ActiveGS.ipa",
+          "size": 16593403,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "Ignited",
+      "bundleIdentifier": "com.litritt.ignited",
+      "marketplaceID": "",
+      "developerName": "Lit Development",
+      "subtitle": "Retro games meet modern design.",
+      "localizedDescription": "Ignited is an overhaul of Delta, an all-in-one emulator for iOS.\n\nFEATURES\n\nSupported Game Systems\n• Nintendo Entertainment System\n• Super Nintendo Entertainment System\n• Sega Genesis\n• Nintendo 64\n• Game Boy (Color)\n• Game Boy Advance\n• Nintendo DS\n\nController Support\n• Supports PS4, PS5, Xbox One S, Xbox Series X, and MFi game controllers.\n• Supports bluetooth (and wired) keyboards, as well as the Apple Smart Keyboard.\n• Completely customize button mappings on a per-system, per-controller basis.\n• Map buttons to special \"Quick Save\", \"Quick Load,\" and \"Fast Forward\" actions.\n\nSave States\n• Save and load save states for any game from the pause menu.\n• Lock save states to prevent them from being accidentally overwritten.\n• Automatically makes backup save states to ensure you never lose your progress.\n• Support for \"Quick Saves,\" save states that can be quickly saved/loaded with a single button press (requires external controller or supported skin).\n• Save State Rewind - Rolling save states that can be rewound to for up to 2 minutes. Configurable interval. (Currently disabled)\n\nCheats\n• Supports various types of cheat codes for each supported system:\n• NES: Game Genie\n• SNES: Game Genie, Pro Action Replay\n• N64: GameShark\n• GBC: Game Genie, GameShark\n• GBA: Action Replay, Code Breaker, GameShark\n• DS: Action Replay\n\nDelta Sync\n• Sync your games, game saves, save states, cheats, controller skins, and controller mappings between devices.\n• View version histories of everything you sync and optionally restore them to earlier versions.\n• Supports both Google Drive and Dropbox.\n\nCustom Controller Skins\n• Beautiful built-in controller skins for all systems.\n• Import controller skins made by others, or even make your own to share with the world!\n\nHold Button\n• Choose buttons for Delta to hold down on your behalf, freeing up your thumbs to press other buttons instead.\n• Perfect for games that typically require one button be held down constantly (ex: run button in Mario games, or the A button in Mario Kart).\n\nFast Forward\n• Speed through slower parts of games by running the game much faster than normal.\n• Easily enable or disable from the pause menu, or optionally with a mapped button on an external controller.\n\n3D/Haptic Touch\n• Use 3D or Haptic Touch to \"peek\" at games, save states, and cheat codes.\n• App icon shortcuts allow quick access to your most recently played games, or optionally customize the shortcuts to always include certain games.\n\nGame Artwork\n• Automatically displays appropriate box art for imported games.\n• Change a game's artwork to anything you want, or select from the built-in game artwork database.\n\nMisc.\n• Gyroscope support (WarioWare: Twisted! only)\n• Microphone support (DS only)\n• Support for delta:// URL scheme to jump directly into a specific game.\n\n**Ignited and Lit Development are in no way affiliated with Nintendo. The name \"Nintendo\" and all associated game console names are registered trademarks of Nintendo Co., Ltd.**",
+      "iconURL": "https://i.imgur.com/LO2Ckm2.png",
+      "tintColor": "#FF6A00",
+      "category": "other",
+      "screenshots": [
+        "https://i.imgur.com/5CHWVQj.png",
+        "https://i.imgur.com/m6aoJbS.png",
+        "https://i.imgur.com/jCCF6u1.png",
+        "https://i.imgur.com/jxqUA1p.png"
+      ],
+      "versions": [
+        {
+          "version": "1.8.6",
+          "date": "2024-01-29T10:00:00-04:00",
+          "localizedDescription": "New\n• New icons by LitRitt\n  • Super Ignited Bros (Smash Bros)\n  • Red Plumber (Mario)\n  • Green Plumber (Luigi)\n  • Stomp Bait (Goomba)\n  • Sparky (Pikachu)\n  • Puffball (Kirby)\n  • Sword That Seals (Master Sword)\n  • Sword That Seals Alt (Master Sword)\n  • Sword That Ignites (Master Sword)\n  • Sword That Ignites Alt (Master Sword)\n• New icons by Kongolabongo\n  • Barrel of Kong (DK)\n  • Barrel of Flame (DK)\n• New icons by Scoot the Rizzler\n  • Master Sword\n  • Hylian Shield\n  • Many Marios\n• Adds beta label for features/options\n• Adds 1.5x fast forward speed option for pause menu presets\n\nChanged\n• Raises minimum iOS version to 16\n• Updates some icons and shrinks file sizes\n• Icons are now sorted into categories\n\nFixed\n• Fixes some incorrect feature reset defaults\n• Fixes some grammar and spelling in settings\n• Fixes showing icon images after updating deployment target version",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.6/Ignited.ipa",
+          "size": 74540387,
+          "buildVersion": null,
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "1.8.5",
+          "date": "2024-01-19T10:00:00-04:00",
+          "localizedDescription": "Changed\n• Shrinks icon file sizes\n• Makes the background blur show when a controller is connected\n• Changes \"View patreon\" button to \"View membership\" when signed into Patreon\n• Updates Premium members page to load dynamically from PatreonAPI\n\nFixed\n• Fixes emulation not pausing when app is in the background\n• Fixes emulation not pausing when the screen is locked\n• Fixes issue causing Harmony to skip seeding database\n• Fixes game artwork losing shadows when toggling VRAM and OpenGLES options",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.5/Ignited.ipa",
+          "size": 65555254,
+          "buildVersion": null,
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.4",
+          "date": "2024-01-13T10:00:00-04:00",
+          "localizedDescription": "New\n• Battery Safety Feature\n  • Allows users to set low and critical battery level\n  • At low battery (5-10%) a popup is shown and auto save states start being created periodically\n  • At critical battery (2-5%) the currently playing game will save and close, and games cannot be launched until the device is charged\n• N64 Overscan Feature\n  • Allows users to remove the black bars surrounding N64 games\n  • Overscan settings can be edited using the new pause menu button while playing N64 games\n  • Overscan settings are backed up with Ignited Sync\n• Adds \"Learn More...\" links to guide users to relevant documentation\n  • Added to library when no games are present\n  • Added to MelonDS core BIOS section footers\n  • Added to controller skins section footer\n\nChanged\n• Updated Firé Ball icon\n• Changes Live Artwork feature to be disabled by default\n\nFixed\n• Fixes visual bugs on MelonDS core settings screen\n• Fixes crashes when presenting alerts\n• Fixes library play menu not updating when deleting a game",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.4/Ignited.ipa",
+          "size": 73931114,
+          "buildVersion": null,
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.3",
+          "date": "2024-01-10T11:00:00-04:00",
+          "localizedDescription": "New\n• Added a check for N64 games to disallow mismatched OpenGLES versions\n• Added a view in settings to see all games with OpenGLES 3 enabled and remove them\n• Added a view in settings to see all games with Invalid VRAM Access enabled and remove them",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.3/Ignited.ipa",
+          "size": 73931114,
+          "buildVersion": null,
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.2",
+          "date": "2024-01-10T10:00:00-04:00",
+          "localizedDescription": "New\n• SNES Invalid VRAM Access\n  • Allows text and other sprites to render properly in some emulator-only games\n  • Applied per game using the game's context menu\n\nChanged\n• N64 Graphics replaced with OpenGLES 3 toggle\n  • Applied per game using the game's context menu\n• Toast notification style updated and the code flow for toasts has been unified/simplified",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.2/Ignited.ipa",
+          "size": 73931114,
+          "buildVersion": null,
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8.1",
+          "date": "2024-01-08T10:00:00-04:00",
+          "localizedDescription": "New\n• Microphone can now be toggled on and off, and only allows microphone usage when using the melonDS core\n• Create an auto save state any time the app becomes inactive, even when immediately quitting the app from a game\n• Adds new icons by LitRitt and Kongolabongo\n\nChanged\n• Makes the Pro label fancy\n• Makes the alternate icon feature free, some icons will remain Pro only\n• Removes the Documentation link until it's more complete\n• Makes most system titles use full names instead of short names\n• Unhides the status bar feature in settings\n\nFixed\n• Fixes patrons list after update to Patreon benefits\n• Fixes toggling the status bar showing the wrong toast notification\n• Fixes setting game preview parameters when feature is disabled",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8.1/Ignited.ipa",
+          "size": 73931114,
+          "buildVersion": null,
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.8",
+          "date": "2024-01-06T10:00:00-04:00",
+          "localizedDescription": "New\n• Ignited Pro\n  • Select features and options will now only be available to patrons\n• Patreon Integration\n  • You can now link your Patreon account within the app to access Ignited Pro\n\nFixed\n• Fixes skin debugging being shown when the feature is off\n• Fixes game search results overlapping other games\n• Makes the transition from Quick Settings to Main Menu create an auto save state\n• Fixes animated artwork still animating when the feature is off",
+          "downloadURL": "https://cdn.ignitedemulator.com/versions/1.8/Ignited.ipa",
+          "size": 62180523,
+          "buildVersion": null,
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.7.2",
+          "date": "2023-12-23T10:00:00-04:00",
+          "localizedDescription": "New\n• Adds options for opening the Pause Menu by shaking your device\n\nChanged\n• Makes the New Game, Pause, and Star icons on artwork able to be disabled\n• Makes the Pause Menu items able to be rearranged in settings\n• Makes context menu previews use auto-save states if enabled\n\nFixed\n• Makes custom artwork background color support transparency\n• Adjusts DS artwork forced aspect ratio",
+          "downloadURL": "https://f005.backblazeb2.com/file/lit-apps/ignited/1.7.2/Ignited.ipa",
+          "size": 62108866,
+          "buildVersion": null,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "uYouPlus",
+      "bundleIdentifier": "com.google.ios.youtube",
+      "marketplaceID": "",
+      "developerName": "Various Developers",
+      "subtitle": "The best tweak for the YouTube app just got even better",
+      "localizedDescription": "uYou is the best tweak for the YouTube app.\n\nuYouPlus is a modified version of uYou with even more features.\n\nAdditional features:\n• Skip sponsorships in videos (iSponsorBlock)\n• Even more PiP options (YouPiP)\n• Unlock 1440p and 2160p resolutions (YTUHD)\n• Disable overlay at the end of videos (YTNoHoverCards)\n• Remove YouTube Premium upsell alerts (NoYTPremium)\n• Enable the miniplayer for all videos (YTMiniplayerEnabler)\n• Prevent the notch/Dynamic Island from cutting into 2:1 videos (DontEatMyContent)\n• Configure A/B settings in the YouTube app (YTABConfig)\n• And more\n\nMore information: \nhttps://github.com/qnblackcat/uYouPlus/ \n\nRequires iOS 14.0 or later.\n\nContributors: MiRO92, qnblackcat, PoomSmart, level3tjg, BandarHelal, galactic, julioverne, HASHBANG, Lyvendia, Foxster, ichitaso, Ahmed Bafkir, CokePokes, Tommy Teo, theos, and many others.",
+      "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/uYou.png",
+      "tintColor": "#cb1633",
+      "category": "other",
+      "screenshots": [
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus1.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus2.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus3.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus4.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus5.jpeg?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus6.jpeg?raw=true"
+      ],
+      "versions": [
+        {
+          "version": "19.02.1_3.0.1",
+          "date": "2023-05-27T22:14:00-07:00",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://web.archive.org/web/20240306195805if_/https://objects.githubusercontent.com/github-production-release-asset-2e65be/409807214/164323db-9524-43b0-a9b9-3a4f314c7839?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240306%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240306T195805Z&X-Amz-Expires=300&X-Amz-Signature=16987278dac78e8d7be5a7f61d2796b6979d5695fe26a0f22ea45cebc9b66881&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=409807214&response-content-disposition=attachment%3B%20filename%3DuYouPlus-19.08.2-3.0.3.ipa&response-content-type=application%2Foctet-stream",
+          "size": 121693569,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "get-task-allow",
+          "aps-environment",
+          "com.apple.developer.associated-domains",
+          "com.apple.developer.coremedia.allow-alternate-video-decoder-selection",
+          "com.apple.developer.device-information.user-assigned-device-name",
+          "com.apple.developer.networking.multicast",
+          "com.apple.developer.networking.wifi-info",
+          "com.apple.developer.usernotifications.time-sensitive",
+          "com.apple.security.application-groups",
+          "keychain-access-groups"
+        ],
+        "privacy": {
+          "photos": "Allows YouTube to upload media from your photo library.",
+          "background-audio": "Allows YouTube to play audio in the background.",
+          "AppleMusic": "This lets you add your own audio files to your videos.",
+          "BluetoothPeripheral": "YouTube needs bluetooth access to scan for nearby Cast devices.",
+          "Camera": "This lets you create videos using the app.",
+          "Contacts": "Your contacts will be sent to YouTube servers to help you find friends to share videos with.",
+          "LocalNetwork": "Access to your network allows YouTube to discover and connect to devices such as your TV.",
+          "LocationWhenInUse": "Makes it easier for you to attach location information to your videos and live streams and allows for features such as improved recommendations and ads.",
+          "Microphone": "This lets you include audio with your videos and search using your voice.",
+          "PhotoLibrary": "This lets you upload media you've already created."
+        }
+      },
+      "patreon": {}
+    },
+    {
+      "name": "Spotify Tweaked",
+      "bundleIdentifier": "com.spotify.client2",
+      "marketplaceID": "",
+      "developerName": "Various Developers",
+      "subtitle": "Ad-free, unlimited skips and more customizable than ever",
+      "localizedDescription": "This tweaked version of Spotify is completely ad-free and contains various customization features (thanks to @atebitsy/aesthyrica).\n\nTweaks injected\n• Spotilife\n• Sposify\n• Sposify Fix\n\nContributors: julioverne, atebitsy/aesthyrica, level3tjg",
+      "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/Spotify.png",
+      "tintColor": "#1db954",
+      "category": "other",
+      "screenshots": [
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2841.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2843.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2845.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2846.PNG?raw=true",
+        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2847.PNG?raw=true"
+      ],
+      "versions": [
+        {
+          "version": "8.6.42",
+          "date": "2022-09-03T12:00:00-00:00",
+          "localizedDescription": "New release!",
+          "downloadURL": "https://drive.google.com/uc?export=download&id=1VgAmuJ-ukft40t0FjKk89UYn6BbguQtu&confirm=t",
+          "size": 50512487,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "get-task-allow",
+          "aps-environment",
+          "com.apple.developer.siri",
+          "com.apple.developer.carplay-audio",
+          "com.apple.developer.playable-content",
+          "com.apple.developer.applesignin",
+          "com.apple.developer.networking.multicast",
+          "com.apple.developer.networking.wifi-info",
+          "keychain-access-groups",
+          "com.apple.security.application-groups",
+          "com.apple.developer.associated-domains"
+        ],
+        "privacy": {
+          "photos": "Allows Spotify to upload media from your photo library for use as playlist cover, profile picture, etc.",
+          "background-audio": "Allows Spotify to play audio in the background.",
+          "BluetoothAlways": "This lets you use Spotify with external accessories.",
+          "Camera": "This lets you scan Spotify Codes.",
+          "UserTracking": "Your data will be used to deliver personalized ads or content to you.",
+          "BluetoothPeripheral": "This lets you use Spotify with external accessories.",
+          "PhotoLibraryAdd": "This lets you save images to your Photo Library.",
+          "LocalNetwork": "This lets you listen on different devices. Spotify will also get access to local audio files.",
+          "AppleMusic": "This will let you play your imported music on Spotify.",
+          "Microphone": "This lets you control Spotify using your voice.",
+          "LocationWhenInUse": "This lets you prepopulate the SSID field with the currently connected network.",
+          "FaceID": "This lets you set access restrictions using Face ID.",
+          "PhotoLibrary": "This lets you select images from your Photo Library."
+        }
+      },
+      "patreon": {}
+    }
+  ],
+  "news": [
+    {
+      "title": "New major update !",
+      "identifier": "foxster-news-2",
+      "caption": "Welcome on iTweakHub 2.1 ! Go check what's new in 'settings -> general' ",
+      "date": "2024-04-12T02:00",
+      "tintColor": "#3B1A25",
+      "imageURL": "https://github.com/Ibinou/iTweakHub/blob/main/img/banners/1712138905.942442-2C0E6CA2-2D45-410F-B2B9-452266850B09.png?raw=true",
+      "notify": true,
+      "url": "https://example.com/new_feature_details",
+      "appID": null
+    },
+    {
+      "title": "Follow us !",
+      "identifier": "foxster-news-2",
+      "caption": "Follow us on X and join our Discord server 😊.",
+      "date": "2023-05-23T02:00",
+      "tintColor": "#7449ff",
+      "imageURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/banners/Capture%20d%E2%80%99%C3%A9cran%202024-01-28%20122343.png",
+      "notify": true,
+      "url": "https://discord.com/invite/mUKETChWnx",
+      "appID": null
+    },
+    {
+      "title": "Welcome !",
+      "identifier": "foxster-news-1",
+      "caption": "Welcome to iTweakHub 2.2! 🎉",
+      "date": "2023-04-06T02:00",
+      "tintColor": "#1c0026",
+      "imageURL": "",
+      "notify": false,
+      "url": "https://example.com/new_feature_details",
+      "appID": null
+    }
+  ]
+}
