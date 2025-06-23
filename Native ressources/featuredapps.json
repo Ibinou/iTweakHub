@@ -2,19 +2,19 @@
   "apps": [
     {
       "name": "EeveeSpotify",
-      "source": "https://itweakhub.netlify.app/apps.json"
+      "source": "https://itweakhub.netlify.app/source.json"
     },
     {
       "name": "EeveeSpotify",
-      "source": "https://itweakhub.netlify.app/apps.json"
+      "source": "https://itweakhub.netlify.app/source.json"
     },
     {
       "name": "EeveeSpotify",
-      "source": "https://itweakhub.netlify.app/apps.json"
+      "source": "https://itweakhub.netlify.app/source.json"
     },
     {
       "name": "EeveeSpotify",
-      "source": "https://itweakhub.netlify.app/apps.json"
+      "source": "https://itweakhub.netlify.app/source.json"
     }
   ]
 }
