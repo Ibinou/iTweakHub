@@ -1,19 +1,19 @@
 {
   "apps": [
     {
-      "name": "EeveeSpotify",
+      "name": "dirtyZero",
       "source": "https://itweakhub.netlify.app/source.json"
     },
     {
-      "name": "EeveeSpotify",
+      "name": "uYouPlus",
       "source": "https://itweakhub.netlify.app/source.json"
     },
     {
-      "name": "EeveeSpotify",
+      "name": "Ignited",
       "source": "https://itweakhub.netlify.app/source.json"
     },
     {
-      "name": "EeveeSpotify",
+      "name": "iTorrent",
       "source": "https://itweakhub.netlify.app/source.json"
     }
   ]
