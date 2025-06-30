@@ -1,0 +1,34 @@
+{
+  "recommended_sources": [
+    {
+      "name": "AltStore Complete",
+      "icon": "https://quarksources.github.io/assets/ElementQ-Circled.png",
+      "url": "https://quarksources.github.io/dist/altstore-complete.min.json"
+    },
+    {
+      "name": "WuXu's Library++",
+      "icon": "https://i.imgur.com/g17kMl9.png",
+      "url": "https://wuxu1.github.io/wuxu-complete-plus.json"
+    },
+    {
+      "name": "SideStore Team Picks",
+      "icon": "https://sidestore.io/assets/icon.png",
+      "url": "https://community-apps.sidestore.io/sidecommunity.json"
+    },
+    {
+      "name": "AppTesters IPA Repo",
+      "icon": "https://apptesters.org/wp-content/uploads/2024/04/AppTesters-Logo-Site-Icon.webp",
+      "url": "https://repository.apptesters.org/"
+    },
+    {
+      "name": "tweakra1n",
+      "icon": "https://tweakrain.pages.dev/favicon.ico",
+      "url": "https://tweakrain.pages.dev/ios/altstore.json"
+    },
+    {
+      "name": "Quantum Source++",
+      "icon": "https://quarksources.github.io/assets/ElementQ-Circled.png",
+      "url": "https://quarksources.github.io/dist/quantumsource%2B%2B.min.json"
+    }
+  ]
+}
