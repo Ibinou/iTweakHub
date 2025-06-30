@@ -16,11 +16,6 @@
       "url": "https://community-apps.sidestore.io/sidecommunity.json"
     },
     {
-      "name": "AppTesters IPA Repo",
-      "icon": "https://apptesters.org/wp-content/uploads/2024/04/AppTesters-Logo-Site-Icon.webp",
-      "url": "https://repository.apptesters.org/"
-    },
-    {
       "name": "tweakra1n",
       "icon": "https://tweakrain.pages.dev/favicon.ico",
       "url": "https://tweakrain.pages.dev/ios/altstore.json"
