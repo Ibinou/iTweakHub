@@ -1,13 +1,44 @@
 {
   "name": "iTweakHub Source",
   "subtitle": "The official iTweakHub source !",
-  "description": "The official iTweakHub source !",
-  "iconURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/main/img/iTweakhub-New.png",
+  "description": "The official iTweakHub source ! This is a selection of the best apps to sideload on iTweakHub.",
+  "iconURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/refs/heads/main/img/Glassy_icon.png",
   "website": "https://x.com/iTweakHub",
-  "patreonURL": "",
   "tintColor": "#b29aff",
   "featuredApps": [],
   "apps": [
+      {
+      "name": "Pocket Poster",
+      "version": "2.0.1",
+      "developerName": "liminlimez",
+      "minOSVersion": "iOS 17 +",
+      "iconURL": "https://raw.githubusercontent.com/leminlimez/Pocket-Poster/refs/heads/main/Pocket%20Poster/Assets.xcassets/AppIcon.appiconset/pocket_poster.png",
+      "downloadURL": "https://github.com/leminlimez/Pocket-Poster/releases/download/v2.0.1/Pocket.Poster.ipa",
+      "localizedDescription": "Custom PosterBoard animated wallpapers for iOS 17.0 or later",
+      "category": "lifestyle",
+      "versionDate": "2025-07-11"
+    },
+      {
+      "name": "OldOS",
+      "version": "1.0 Build 18",
+      "minOSVersion": "iOS 14+",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
+      "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
+      "localizedDescription": "iOS 4 rebuilt in swift UI.",
+      "category": "lifestyle",
+      "versionDate": "2025-05-28"
+    },
+      {
+      "name": "Unc0ver",
+      "developerName": "unc0ver Team",
+      "version": "8.0.2",
+      "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
+      "minOSVersion": "iOS 11",
+      "localizedDescription": "Jailbreak for iOS 11.",
+      "category": "developer",
+      "versionDate": "2025-05-28"
+    },
     {
       "name": "RetroArch (64bit)",
       "bundleIdentifier": "com.retro.arch",
@@ -17,7 +48,7 @@
       "localizedDescription": "RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!",
       "iconURL": "https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
       "tintColor": "#007aff",
-      "category": "other",
+      "category": "games",
       "screenshots": [],
       "versions": [
         {
@@ -45,7 +76,7 @@
       "localizedDescription": "This tweak makes Spotify think you have a Premium subscription, granting free listening, just like Spotilife, and provides some additional features like custom lyrics.",
       "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0c/1f/61/0c1f6144-af80-f395-3204-1d14fd8b2be7/AppIcon-0-0-1x_U007emarketing-0-6-0-0-85-220.png/512x512bb.jpg",
       "tintColor": "#007aff",
-      "category": "other",
+      "category": "entertainment",
       "screenshots": [],
       "versions": [
         {
@@ -280,7 +311,7 @@
       "localizedDescription": "Basic customization app using CVE-2025-24203. Patched in iOS 18.4. All file modifications are done in memory. If something goes wrong or you want to revert the tweaks, just force reboot your phone.",
       "iconURL": "https://raw.githubusercontent.com/jailbreakdotparty/dirtyZero/refs/heads/main/dirtyZero/Assets.xcassets/AppIcon.appiconset/IMG_0210.png.jpeg",
       "tintColor": "#007aff",
-      "category": "other",
+      "category": "utilities",
       "screenshots": [
         "https://raw.githubusercontent.com/Ibinou/iTweakHub/refs/heads/main/img/IMG_5476.jpg"
       ],
@@ -598,7 +629,7 @@
       "localizedDescription": "iTorrent is an ordinary torrent client for iOS with Files app support.\n\nWhat can this app do:\n\n• Download in the background\n• Sequential download (use VLC to watch films while loading)\n• Add torrent files from Share menu (Safari and other apps)\n• Add magnet links directly from Safari\n• Store files in Files app (iOS 11+)\n• File sharing directly from app\n• Download torrent by link\n• Download torrent by magnet\n• Send notification on torrent downloaded\n• FTP Server (unstable)\n• Select files to download or not\n• Change UI to dark theme\n\nNow supporting these localizations:\n• English\n• Russian\n• Turkish",
       "iconURL": "https://i.imgur.com/C3KwMP5.png",
       "tintColor": "#e32b3c",
-      "category": "other",
+      "category": "entertainment",
       "screenshots": [
         "https://i.imgur.com/0o7qou3.png",
         "https://i.imgur.com/sO510zC.png",
@@ -664,7 +695,7 @@
       "localizedDescription": "Play classic DOS games on your iPhone and iPad!\n\niDOS turns your device right into a powerful DOS gaming PC, with modern game control to make your old favorites as playable as possible.\n\nYou can also use iDOS for non-gaming purposes, such as word processing, casual programming. Apps in the DOS days are often simpler and surprisingly productive.\n\nKEYBOARD\n\niDOS provides a PC compatible on-screen keyboard with carefully designed layouts for different devices and orientations. The keyboard has a sliding control in landscape mode so that you can keep it from covering critical part of the screen.\n\nBluetooth keyboard is partially supported. We support ESC, function keys, and ordinary CTRL and ALT key bindings. Unfortunately the arrow keys can't be used for game control. You should use a bluetooth game controller instead.\n\nGAMEPAD\n\niDOS provides a virtual gamepad with key bindings that are fairly common in DOS games. You can customize the bindings. The DPAD works in 8-axis way. It can also be toggled into a joystick.\n\nExternal bluetooth game controllers are supported. Make sure your game controller is connected (System Settings->Bluetooth). To customize button bindings, go to iDOS in landscape mode, tap on bluetooth icon on the auto-hiding top bar.\n\nMOUSE\n\n* The screen area serves as a trackpad for moving mouse pointer.\n* Tap on the screen for left click. If direct touch is enabled, the mouse pointer will move to where you tap.\n* Hold one finger on the screen, and tap with another finger for right click.\n* On-screen mouse buttons are also provided for your convenience.\n* Bluetooth mice are only partially supported.\n\nSUPPORT\n\n- Visit https://litchie.com/dospad for more information.\n- Send email to idos@litchie.com\n- Follow the developer on Twitter: https://twitter.com/litchiedev\n- iDOS is open source, report issues on https://github.com/litchie/dospad",
       "iconURL": "https://i.imgur.com/Yah6zFk.png",
       "tintColor": "#042eef",
-      "category": "other",
+      "category": "games",
       "screenshots": [
         "https://i.imgur.com/hRMA2Zr.png",
         "https://i.imgur.com/gvhvQpo.png",
@@ -697,7 +728,7 @@
       "localizedDescription": "An emulator for all things Apple.",
       "iconURL": "https://i.imgur.com/7LuLkoR.png",
       "tintColor": "#21486b",
-      "category": "other",
+      "category": "entertainment",
       "screenshots": [
         "https://i.imgur.com/8xekjhv.png",
         "https://i.imgur.com/JFd6LiM.png",
@@ -729,7 +760,7 @@
       "localizedDescription": "Ignited is an overhaul of Delta, an all-in-one emulator for iOS.\n\nFEATURES\n\nSupported Game Systems\n• Nintendo Entertainment System\n• Super Nintendo Entertainment System\n• Sega Genesis\n• Nintendo 64\n• Game Boy (Color)\n• Game Boy Advance\n• Nintendo DS\n\nController Support\n• Supports PS4, PS5, Xbox One S, Xbox Series X, and MFi game controllers.\n• Supports bluetooth (and wired) keyboards, as well as the Apple Smart Keyboard.\n• Completely customize button mappings on a per-system, per-controller basis.\n• Map buttons to special \"Quick Save\", \"Quick Load,\" and \"Fast Forward\" actions.\n\nSave States\n• Save and load save states for any game from the pause menu.\n• Lock save states to prevent them from being accidentally overwritten.\n• Automatically makes backup save states to ensure you never lose your progress.\n• Support for \"Quick Saves,\" save states that can be quickly saved/loaded with a single button press (requires external controller or supported skin).\n• Save State Rewind - Rolling save states that can be rewound to for up to 2 minutes. Configurable interval. (Currently disabled)\n\nCheats\n• Supports various types of cheat codes for each supported system:\n• NES: Game Genie\n• SNES: Game Genie, Pro Action Replay\n• N64: GameShark\n• GBC: Game Genie, GameShark\n• GBA: Action Replay, Code Breaker, GameShark\n• DS: Action Replay\n\nDelta Sync\n• Sync your games, game saves, save states, cheats, controller skins, and controller mappings between devices.\n• View version histories of everything you sync and optionally restore them to earlier versions.\n• Supports both Google Drive and Dropbox.\n\nCustom Controller Skins\n• Beautiful built-in controller skins for all systems.\n• Import controller skins made by others, or even make your own to share with the world!\n\nHold Button\n• Choose buttons for Delta to hold down on your behalf, freeing up your thumbs to press other buttons instead.\n• Perfect for games that typically require one button be held down constantly (ex: run button in Mario games, or the A button in Mario Kart).\n\nFast Forward\n• Speed through slower parts of games by running the game much faster than normal.\n• Easily enable or disable from the pause menu, or optionally with a mapped button on an external controller.\n\n3D/Haptic Touch\n• Use 3D or Haptic Touch to \"peek\" at games, save states, and cheat codes.\n• App icon shortcuts allow quick access to your most recently played games, or optionally customize the shortcuts to always include certain games.\n\nGame Artwork\n• Automatically displays appropriate box art for imported games.\n• Change a game's artwork to anything you want, or select from the built-in game artwork database.\n\nMisc.\n• Gyroscope support (WarioWare: Twisted! only)\n• Microphone support (DS only)\n• Support for delta:// URL scheme to jump directly into a specific game.\n\n**Ignited and Lit Development are in no way affiliated with Nintendo. The name \"Nintendo\" and all associated game console names are registered trademarks of Nintendo Co., Ltd.**",
       "iconURL": "https://i.imgur.com/LO2Ckm2.png",
       "tintColor": "#FF6A00",
-      "category": "other",
+      "category": "games",
       "screenshots": [
         "https://i.imgur.com/5CHWVQj.png",
         "https://i.imgur.com/m6aoJbS.png",
@@ -825,7 +856,7 @@
       "localizedDescription": "uYou is the best tweak for the YouTube app.\n\nuYouPlus is a modified version of uYou with even more features.\n\nAdditional features:\n• Skip sponsorships in videos (iSponsorBlock)\n• Even more PiP options (YouPiP)\n• Unlock 1440p and 2160p resolutions (YTUHD)\n• Disable overlay at the end of videos (YTNoHoverCards)\n• Remove YouTube Premium upsell alerts (NoYTPremium)\n• Enable the miniplayer for all videos (YTMiniplayerEnabler)\n• Prevent the notch/Dynamic Island from cutting into 2:1 videos (DontEatMyContent)\n• Configure A/B settings in the YouTube app (YTABConfig)\n• And more\n\nMore information: \nhttps://github.com/qnblackcat/uYouPlus/ \n\nRequires iOS 14.0 or later.\n\nContributors: MiRO92, qnblackcat, PoomSmart, level3tjg, BandarHelal, galactic, julioverne, HASHBANG, Lyvendia, Foxster, ichitaso, Ahmed Bafkir, CokePokes, Tommy Teo, theos, and many others.",
       "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/uYou.png",
       "tintColor": "#cb1633",
-      "category": "other",
+      "category": "entertainment",
       "screenshots": [
         "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus1.jpeg?raw=true",
         "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/uYouPlus/uyouplus2.jpeg?raw=true",
@@ -882,7 +913,7 @@
       "localizedDescription": "This tweaked version of Spotify is completely ad-free and contains various customization features (thanks to @atebitsy/aesthyrica).\n\nTweaks injected\n• Spotilife\n• Sposify\n• Sposify Fix\n\nContributors: julioverne, atebitsy/aesthyrica, level3tjg",
       "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/Spotify.png",
       "tintColor": "#1db954",
-      "category": "other",
+      "category": "entertainment",
       "screenshots": [
         "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2841.PNG?raw=true",
         "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2843.PNG?raw=true",
