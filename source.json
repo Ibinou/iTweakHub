@@ -21,12 +21,12 @@
       "screenshots": [],
       "versions": [
         {
-          "downloadURL": "https://github.com/LiveContainer/LiveContainer/releases/download/3.5.1/LiveContainer.ipa",
-          "size": 2900000,
           "version": "3.5.1",
-          "buildVersion": null,
           "date": "2025-07-11T15:06:00+02:00",
           "localizedDescription": null,
+          "downloadURL": "https://github.com/LiveContainer/LiveContainer/releases/download/3.5.1/LiveContainer.ipa",
+          "size": 2900000,
+          "buildVersion": null,
           "minOSVersion": null
         }
       ],
@@ -73,8 +73,8 @@
       "name": "ClassicPlayer",
       "bundleIdentifier": "me.gmoran.ClassicPlayer",
       "marketplaceID": "",
-      "developerName": "",
-      "subtitle": "",
+      "developerName": "Example Developer",
+      "subtitle": "An awesome app.",
       "localizedDescription": "ClassicPlayer - The Clickwheel Music Player. Relive the good old days where listening to music was simple. Introducing ClassicPlayer, a music player that emulates the classic music player experience on your iPhone or iPod Touch! ClassicPlayer provides a simple, easy to use interface that makes listening to music a breeze! Simply open the app, slide your finger around, and listen to your favorite tunes!",
       "iconURL": "https://i.imgur.com/kkIfUe8.png",
       "tintColor": "#0c8cf4",
@@ -82,12 +82,12 @@
       "screenshots": [],
       "versions": [
         {
-          "downloadURL": "https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
-          "size": 130300000,
           "version": "1.0.3",
-          "buildVersion": null,
           "date": "2025-07-11T15:05:00+02:00",
           "localizedDescription": null,
+          "downloadURL": "https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
+          "size": 130300000,
+          "buildVersion": null,
           "minOSVersion": null
         }
       ],
@@ -104,7 +104,7 @@
       "bundleIdentifier": "net.kdt.pojavlauncher",
       "marketplaceID": "",
       "developerName": "Unknown",
-      "subtitle": "",
+      "subtitle": "An awesome app.",
       "localizedDescription": "A flexible, fast and open-source Minecraft Java Edition launcher for Android and iOS.",
       "iconURL": "https://i.imgur.com/peER7HY.png",
       "tintColor": "#807232",
@@ -112,12 +112,12 @@
       "screenshots": [],
       "versions": [
         {
-          "downloadURL": "https://github.com/PojavLauncherTeam/PojavLauncher_iOS/releases/download/v2.2/net.kdt.pojavlauncher-2.2-ios.ipa",
-          "size": 108200000000000,
           "version": "2.2",
-          "buildVersion": "",
           "date": "2025-07-11T15:00:00+02:00",
           "localizedDescription": null,
+          "downloadURL": "https://github.com/PojavLauncherTeam/PojavLauncher_iOS/releases/download/v2.2/net.kdt.pojavlauncher-2.2-ios.ipa",
+          "size": 108200000000000,
+          "buildVersion": "",
           "minOSVersion": null
         }
       ],
@@ -132,7 +132,7 @@
       "bundleIdentifier": "com.ed5cynnfo8.nslc9qerlf",
       "marketplaceID": "",
       "developerName": "Unc0ver Team",
-      "subtitle": "",
+      "subtitle": "An awesome app.",
       "localizedDescription": "Jailbreak for iOS 11.0- 14.8.",
       "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
       "tintColor": "#a0a0a0",
@@ -140,12 +140,12 @@
       "screenshots": [],
       "versions": [
         {
-          "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
-          "size": 10000000,
           "version": "8.0.2",
-          "buildVersion": "",
           "date": "2025-07-11T14:55:00+02:00",
           "localizedDescription": null,
+          "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+          "size": 10000000,
+          "buildVersion": "",
           "minOSVersion": "11.0"
         }
       ],
@@ -160,7 +160,7 @@
       "bundleIdentifier": "com.zzanehip.oldos",
       "marketplaceID": "",
       "developerName": "zzanehip",
-      "subtitle": "",
+      "subtitle": "An awesome app.",
       "localizedDescription": "iOS 4 rebuilt in swift UI.\n",
       "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
       "tintColor": "#616161",
@@ -168,12 +168,12 @@
       "screenshots": [],
       "versions": [
         {
-          "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/2.0_1/OldOS.ipa",
-          "size": 82600000000000,
           "version": "2.0_1",
-          "buildVersion": "2.0",
           "date": "2025-07-11T14:52:00+02:00",
           "localizedDescription": "Where to begin. This update, and my goal with it, is to bring the project back from the dead so to speak. In doing so, the codebase has been retooled and refactored, APIs have been restored, and compilation errors have been resolved. In the same vein, all (or maybe most?) bugs related to changes in iOS/Swift/SwiftUI over the past few years have been resolved. My goal is to put a new foundation in place to begin building on top of again. In other words, 2.0 returns OldOS to how it once was (and improves it perhaps too).",
+          "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/2.0_1/OldOS.ipa",
+          "size": 82600000000000,
+          "buildVersion": "2.0",
           "minOSVersion": "16.0"
         }
       ],
@@ -1048,8 +1048,24 @@
       },
       "patreon": {}
     },
-    {},
-    {}
+    {
+      "name": "My Example App",
+      "bundleIdentifier": "com.88d0mkaxqv.n7asw39y9n",
+      "marketplaceID": "",
+      "developerName": "Example Developer",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "This is an awesome app only available on AltStore.",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#007aff",
+      "category": "other",
+      "screenshots": [],
+      "versions": [],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    }
   ],
   "news": [
     {
