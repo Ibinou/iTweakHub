@@ -4,59 +4,202 @@
   "description": "The official iTweakHub source ! This is a selection of the best apps to sideload on iTweakHub.",
   "iconURL": "https://raw.githubusercontent.com/Ibinou/iTweakHub/refs/heads/main/img/Glassy_icon.png",
   "website": "https://x.com/iTweakHub",
-  "tintColor": "#b29aff",
+  "patreonURL": "https://patreon.com/altstudio",
+  "tintColor": "#cecaff",
   "featuredApps": [],
   "apps": [
-      {
-      "name": "Pocket Poster",
-      "version": "2.0.1",
-      "developerName": "liminlimez",
-      "minOSVersion": "iOS 17 +",
-      "iconURL": "https://raw.githubusercontent.com/leminlimez/Pocket-Poster/refs/heads/main/Pocket%20Poster/Assets.xcassets/AppIcon.appiconset/pocket_poster.png",
-      "downloadURL": "https://github.com/leminlimez/Pocket-Poster/releases/download/v2.0.1/Pocket.Poster.ipa",
-      "localizedDescription": "Custom PosterBoard animated wallpapers for iOS 17.0 or later",
-      "category": "lifestyle",
-      "versionDate": "2025-07-11"
-    },
-      {
-      "name": "OldOS",
-      "version": "1.0 Build 18",
-      "developerName": "zzanehip",
-      "minOSVersion": "iOS 14+",
-      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
-      "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
-      "localizedDescription": "iOS 4 rebuilt in swift UI.",
-      "category": "lifestyle",
-      "versionDate": "2025-05-28"
-    },
-      {
-      "name": "Unc0ver",
-      "developerName": "unc0ver Team",
-      "version": "8.0.2",
-      "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
-      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
-      "minOSVersion": "iOS 11",
-      "localizedDescription": "Jailbreak for iOS 11.",
-      "category": "developer",
-      "versionDate": "2025-05-28"
+    {
+      "name": "LiveContainer",
+      "bundleIdentifier": "com.kdt.livecontainer",
+      "marketplaceID": "",
+      "developerName": "Example Developer",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "This is an awesome app only available on AltStore.",
+      "iconURL": "https://i.imgur.com/by2BYwP.png",
+      "tintColor": "#7f7f7f",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/LiveContainer/LiveContainer/releases/download/3.5.1/LiveContainer.ipa",
+          "size": 2900000,
+          "version": "3.5.1",
+          "buildVersion": null,
+          "date": "2025-07-11T15:06:00+02:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSAccentColorName": "AccentColor",
+          "NSAppleMusicUsageDescription": "The guest app is requesting for this permission.",
+          "NSBluetoothAlwaysUsageDescription": "The guest app is requesting for this permission.",
+          "NSBluetoothPeripheralUsageDescription": "The guest app is requesting for this permission.",
+          "NSCalendarsFullAccessUsageDescription": "The guest app is requesting for this permission.",
+          "NSCalendarsWriteOnlyAccessUsageDescription": "The guest app is requesting for this permission.",
+          "NSCameraUsageDescription": "The guest app is requesting for this permission.",
+          "NSContactsUsageDescription": "The guest app is requesting for this permission.",
+          "NSFaceIDUsageDescription": "The guest app is requesting for this permission.",
+          "NSFallDetectionUsageDescription": "The guest app is requesting for this permission.",
+          "NSGKFriendListUsageDescription": "The guest app is requesting for this permission.",
+          "NSHealthClinicalHealthRecordsShareUsageDescription": "The guest app is requesting for this permission.",
+          "NSHealthShareUsageDescription": "The guest app is requesting for this permission.",
+          "NSHealthUpdateUsageDescription": "The guest app is requesting for this permission.",
+          "NSHomeKitUsageDescription": "The guest app is requesting for this permission.",
+          "NSIdentityUsageDescription": "The guest app is requesting for this permission.",
+          "NSLocalNetworkUsageDescription": "The guest app is requesting for this permission.",
+          "NSLocationAlwaysAndWhenInUseUsageDescription": "The guest app is requesting for this permission.",
+          "NSLocationTemporaryUsageDescriptionDictionary": "The guest app is requesting for this permission.",
+          "NSLocationUsageDescription": "The guest app is requesting for this permission.",
+          "NSLocationWhenInUseUsageDescription": "The guest app is requesting for this permission.",
+          "NSMicrophoneUsageDescription": "The guest app is requesting for this permission.",
+          "NSMotionUsageDescription": "The guest app is requesting for this permission.",
+          "NSNearbyInteractionAllowOnceUsageDescription": "The guest app is requesting for this permission.",
+          "NSNearbyInteractionUsageDescription": "The guest app is requesting for this permission.",
+          "NSPhotoLibraryAddUsageDescription": "The guest app is requesting for this permission.",
+          "NSPhotoLibraryUsageDescription": "The guest app is requesting for this permission.",
+          "NSRemindersFullAccessUsageDescription": "The guest app is requesting for this permission.",
+          "NSSensorKitUsageDescription": "The guest app is requesting for this permission.",
+          "NSSiriUsageDescription": "The guest app is requesting for this permission.",
+          "NSSpeechRecognitionUsageDescription": "The guest app is requesting for this permission.",
+          "NSUserTrackingUsageDescription": "The guest app is requesting for this permission."
+        }
+      },
+      "patreon": {}
     },
     {
-      "name": "RetroArch (64bit)",
-      "bundleId": "com.retro.arch",
+      "name": "ClassicPlayer",
+      "bundleIdentifier": "me.gmoran.ClassicPlayer",
       "marketplaceID": "",
-      "developerName": "RetroArch Team",
-      "subtitle": "An awesome app.",
-      "localizedDescription": "RetroArch is a frontend for emulators, game engines and media players. Among other things, it enables you to run classic games on a wide range of computers and consoles through its slick graphical interface. Settings are also unified so configuration is done once and for all. In addition to this, you are able to run original game discs (CDs) from RetroArch. RetroArch has advanced features like shaders, netplay, rewinding, next-frame response times, runahead, machine translation, blind accessibility features, and more!",
-      "iconURL": "https://play-lh.googleusercontent.com/v0-7CQhepv50kdT1iR71W2uYfJOhii7LVA0OzOy6MoZADcpRddi3i3KlKKrpbRBzP3Ht",
-      "tintColor": "#007aff",
+      "developerName": "",
+      "subtitle": "",
+      "localizedDescription": "ClassicPlayer - The Clickwheel Music Player. Relive the good old days where listening to music was simple. Introducing ClassicPlayer, a music player that emulates the classic music player experience on your iPhone or iPod Touch! ClassicPlayer provides a simple, easy to use interface that makes listening to music a breeze! Simply open the app, slide your finger around, and listen to your favorite tunes!",
+      "iconURL": "https://i.imgur.com/kkIfUe8.png",
+      "tintColor": "#0c8cf4",
+      "category": "entertainment",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/guillermo-moran/ClassicPlayer/releases/download/1.0.3/ClassicPlayer_103.ipa",
+          "size": 130300000,
+          "version": "1.0.3",
+          "buildVersion": null,
+          "date": "2025-07-11T15:05:00+02:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSAppleMusicUsageDescription": "Classic Player needs access to your library in order to work properly."
+        }
+      },
+      "patreon": {}
+    },
+    {
+      "name": "PojavLauncher",
+      "bundleIdentifier": "net.kdt.pojavlauncher",
+      "marketplaceID": "",
+      "developerName": "Unknown",
+      "subtitle": "",
+      "localizedDescription": "A flexible, fast and open-source Minecraft Java Edition launcher for Android and iOS.",
+      "iconURL": "https://i.imgur.com/peER7HY.png",
+      "tintColor": "#807232",
       "category": "games",
       "screenshots": [],
       "versions": [
         {
-          "version": "Latest",
-          "date": "2025-05-28",
+          "downloadURL": "https://github.com/PojavLauncherTeam/PojavLauncher_iOS/releases/download/v2.2/net.kdt.pojavlauncher-2.2-ios.ipa",
+          "size": 108200000000000,
+          "version": "2.2",
+          "buildVersion": "",
+          "date": "2025-07-11T15:00:00+02:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "Unc0ver",
+      "bundleIdentifier": "com.ed5cynnfo8.nslc9qerlf",
+      "marketplaceID": "",
+      "developerName": "Unc0ver Team",
+      "subtitle": "",
+      "localizedDescription": "Jailbreak for iOS 11.0- 14.8.",
+      "iconURL": "https://raw.githubusercontent.com/Ibinou/NoCodeHub-icons/cd8fec9e0d59bd01be2e017d017dbed02fb6b7dd/Unc0ver.PNG",
+      "tintColor": "#a0a0a0",
+      "category": "developer",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://unc0ver.dev/downloads/8.0.2/9e44edfbfd1905cadf23c3b9ad1d5bed683ce061/unc0ver_Release_8.0.2.ipa",
+          "size": 10000000,
+          "version": "8.0.2",
+          "buildVersion": "",
+          "date": "2025-07-11T14:55:00+02:00",
+          "localizedDescription": null,
+          "minOSVersion": "11.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "OldOS",
+      "bundleIdentifier": "com.zzanehip.oldos",
+      "marketplaceID": "",
+      "developerName": "zzanehip",
+      "subtitle": "",
+      "localizedDescription": "iOS 4 rebuilt in swift UI.\n",
+      "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
+      "tintColor": "#616161",
+      "category": "lifestyle",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/2.0_1/OldOS.ipa",
+          "size": 82600000000000,
+          "version": "2.0_1",
+          "buildVersion": "2.0",
+          "date": "2025-07-11T14:52:00+02:00",
+          "localizedDescription": "Where to begin. This update, and my goal with it, is to bring the project back from the dead so to speak. In doing so, the codebase has been retooled and refactored, APIs have been restored, and compilation errors have been resolved. In the same vein, all (or maybe most?) bugs related to changes in iOS/Swift/SwiftUI over the past few years have been resolved. My goal is to put a new foundation in place to begin building on top of again. In other words, 2.0 returns OldOS to how it once was (and improves it perhaps too).",
+          "minOSVersion": "16.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "Pocket Poster",
+      "bundleIdentifier": "com.5q0t1zhbke.heq2g5etes",
+      "marketplaceID": "",
+      "developerName": "liminlimez",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "Custom PosterBoard animated wallpapers for iOS 17.0 or later",
+      "iconURL": "https://raw.githubusercontent.com/leminlimez/Pocket-Poster/refs/heads/main/Pocket%20Poster/Assets.xcassets/AppIcon.appiconset/pocket_poster.png",
+      "tintColor": "#007aff",
+      "category": "lifestyle",
+      "screenshots": [],
+      "versions": [
+        {
+          "version": "2.0.1",
+          "date": "2025-07-11",
           "localizedDescription": "New release!",
-          "downloadURL": "https://buildbot.libretro.com/nightly/apple/ios-arm64/RetroArch.ipa",
+          "downloadURL": "https://github.com/leminlimez/Pocket-Poster/releases/download/v2.0.1/Pocket.Poster.ipa",
           "size": 79821,
           "buildVersion": null,
           "minOSVersion": null
@@ -905,74 +1048,27 @@
       },
       "patreon": {}
     },
-    {
-      "name": "Spotify Tweaked",
-      "bundleIdentifier": "com.spotify.client2",
-      "marketplaceID": "",
-      "developerName": "Various Developers",
-      "subtitle": "Ad-free, unlimited skips and more customizable than ever",
-      "localizedDescription": "This tweaked version of Spotify is completely ad-free and contains various customization features (thanks to @atebitsy/aesthyrica).\n\nTweaks injected\n• Spotilife\n• Sposify\n• Sposify Fix\n\nContributors: julioverne, atebitsy/aesthyrica, level3tjg",
-      "iconURL": "https://raw.githubusercontent.com/therealFoxster/AltSource/master/assets/icons/Spotify.png",
-      "tintColor": "#1db954",
-      "category": "entertainment",
-      "screenshots": [
-        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2841.PNG?raw=true",
-        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2843.PNG?raw=true",
-        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2845.PNG?raw=true",
-        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2846.PNG?raw=true",
-        "https://github.com/therealFoxster/AltSource/blob/master/assets/screenshots/Spotify/IMG_2847.PNG?raw=true"
-      ],
-      "versions": [
-        {
-          "version": "8.6.42",
-          "date": "2022-09-03T12:00:00-00:00",
-          "localizedDescription": "New release!",
-          "downloadURL": "https://drive.google.com/uc?export=download&id=1VgAmuJ-ukft40t0FjKk89UYn6BbguQtu&confirm=t",
-          "size": 50512487,
-          "buildVersion": null,
-          "minOSVersion": null
-        }
-      ],
-      "appPermissions": {
-        "entitlements": [
-          "get-task-allow",
-          "aps-environment",
-          "com.apple.developer.siri",
-          "com.apple.developer.carplay-audio",
-          "com.apple.developer.playable-content",
-          "com.apple.developer.applesignin",
-          "com.apple.developer.networking.multicast",
-          "com.apple.developer.networking.wifi-info",
-          "keychain-access-groups",
-          "com.apple.security.application-groups",
-          "com.apple.developer.associated-domains"
-        ],
-        "privacy": {
-          "photos": "Allows Spotify to upload media from your photo library for use as playlist cover, profile picture, etc.",
-          "background-audio": "Allows Spotify to play audio in the background.",
-          "BluetoothAlways": "This lets you use Spotify with external accessories.",
-          "Camera": "This lets you scan Spotify Codes.",
-          "UserTracking": "Your data will be used to deliver personalized ads or content to you.",
-          "BluetoothPeripheral": "This lets you use Spotify with external accessories.",
-          "PhotoLibraryAdd": "This lets you save images to your Photo Library.",
-          "LocalNetwork": "This lets you listen on different devices. Spotify will also get access to local audio files.",
-          "AppleMusic": "This will let you play your imported music on Spotify.",
-          "Microphone": "This lets you control Spotify using your voice.",
-          "LocationWhenInUse": "This lets you prepopulate the SSID field with the currently connected network.",
-          "FaceID": "This lets you set access restrictions using Face ID.",
-          "PhotoLibrary": "This lets you select images from your Photo Library."
-        }
-      },
-      "patreon": {}
-    }
+    {},
+    {}
   ],
   "news": [
+    {
+      "title": "New major announcement ",
+      "identifier": "news_rw82ii529g",
+      "caption": "Introducing the native version of iTweakHub — packed with new features and possibilities. Tap this news to install it now!",
+      "date": "2025-07-11T17:07",
+      "tintColor": "#6878e6",
+      "imageURL": "https://github.com/Ibinou/iTweakHub/blob/main/img/banners/news.png?raw=true",
+      "notify": true,
+      "url": "https://getitweakhub.netlify.app/",
+      "appID": null
+    },
     {
       "title": "New major update !",
       "identifier": "foxster-news-2",
       "caption": "Welcome on iTweakHub 2.1 ! Go check what's new in 'settings -> general' ",
       "date": "2024-04-12T02:00",
-      "tintColor": "#3B1A25",
+      "tintColor": "#654d85",
       "imageURL": "https://github.com/Ibinou/iTweakHub/blob/main/img/banners/1712138905.942442-2C0E6CA2-2D45-410F-B2B9-452266850B09.png?raw=true",
       "notify": true,
       "url": "https://example.com/new_feature_details",
