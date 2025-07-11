@@ -21,6 +21,7 @@
       {
       "name": "OldOS",
       "version": "1.0 Build 18",
+      "developerName": "zzanehip",
       "minOSVersion": "iOS 14+",
       "iconURL": "https://github.com/Ibinou/NoCodeHub-icons/blob/main/oldos.jpg?raw=true",
       "downloadURL": "https://github.com/zzanehip/The-OldOS-Project/releases/download/1.0_18/OldOS.ipa",
@@ -41,7 +42,7 @@
     },
     {
       "name": "RetroArch (64bit)",
-      "bundleIdentifier": "com.retro.arch",
+      "bundleId": "com.retro.arch",
       "marketplaceID": "",
       "developerName": "RetroArch Team",
       "subtitle": "An awesome app.",
