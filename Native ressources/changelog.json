@@ -7,6 +7,7 @@
     "version": "1.1", 
     "changes": [
     "Fixed an issue where setup was impossible on smaller iPhone screens",
+    "Optimized the app, cutting its size by 55%",
     "Fixed a bug on the search page where the 'Get' button didn’t work",
     "The app list in the search tab is now sorted alphabetically",
     "Added a link to our guide on the certificate page",
