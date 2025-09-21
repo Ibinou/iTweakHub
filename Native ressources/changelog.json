@@ -1,0 +1,17 @@
+[
+  {
+    "version": "1.0", 
+    "changes": ["Initial release of the native version of iTweakHub"]
+  },
+  {
+    "version": "1.1", 
+    "changes": [
+    "Fixed an issue where setup was impossible on smaller iPhone screens",
+    "Fixed a bug on the search page where the 'Get' button didn’t work",
+    "The app list in the search tab is now sorted alphabetically",
+    "Added a link to our guide on the certificate page",
+    "Fixed an issue where the featured app on the home page wasn’t clickable",
+    "Added a changelog page"
+  ]
+  }
+]
