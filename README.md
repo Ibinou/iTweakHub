@@ -1,5 +1,5 @@
 # iTweakHub
-The best web-based 3rd party app store out there! No ads, clean UI and free ! All you need in one place. Made with huge ❤.
+The best web-based and native 3rd party app store out there! No ads, clean UI and free ! All you need in one place. Made with huge ❤.
 Install at 👉🏻 https://getitweakhub.netlify.app/
 
 ## What you get
